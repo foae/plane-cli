@@ -1,0 +1,27 @@
+{
+  "id": "v2.workspace-states.delete-workspace-state",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "workspace-states",
+  "source_slug": "delete-workspace-state",
+  "command": [
+    "state",
+    "delete"
+  ],
+  "handler": "state-delete",
+  "scope": "workspace",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/{slug}/states/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-states/delete-workspace-state.md",
+  "snapshot_sha256": "676c3af4af9f8f5aba6014166fba9d22c5e90ffdf7dd2ef6fb58d87c6aa9a306",
+  "snapshot_bytes": 6716,
+  "pagination": "none",
+  "success_statuses": [
+    204
+  ],
+  "side_effect": "delete",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/state/workspace/delete"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "v1.label.get-label-detail",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "label",
+  "source_slug": "get-label-detail",
+  "command": [
+    "label",
+    "get"
+  ],
+  "handler": "label-get",
+  "scope": "project",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/labels/{label_id}/",
+  "source_url": "https://developers.plane.so/api-reference/label/get-label-detail.md",
+  "snapshot_sha256": "2113b4d7945c8e607436e96ce0e2309c73681c753033bdda9e12b494f78713ec",
+  "snapshot_bytes": 2340,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v1/label//get"
+  ]
+}

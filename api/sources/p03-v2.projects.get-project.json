@@ -1,0 +1,28 @@
+{
+  "id": "v2.projects.get-project",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "projects",
+  "source_slug": "get-project",
+  "command": [
+    "project",
+    "get"
+  ],
+  "handler": "project-get",
+  "scope": "workspace",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/projects/get-project.md",
+  "snapshot_sha256": "9aa5fc275bd96b0e67f80526065241764fd9e639aa6bd87ca31a50287289bea8",
+  "snapshot_bytes": 5907,
+  "pagination": "none",
+  "success_statuses": [
+    200,
+    404
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v2/get"
+  ]
+}

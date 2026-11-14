@@ -1,6 +1,6 @@
 # CLI usage
 
-P00–P02 implement offline discovery, named connections, persistent credentials, user/bot OAuth and the safe API transport foundation. No resource operations are callable yet; those begin with P03.
+P00–P02 implement offline discovery, named connections, persistent credentials, user/bot OAuth and the safe API transport foundation. P03 exposes identity, projects, work items and state/label definitions for their documented API generations. Supplemental v1 evidence gaps remain listed in [API contract gaps](reference/api-contract-gaps.md); this is not full public API coverage.
 
 Build with Go 1.27.4 and `make build`, or install from this source checkout with `go install ./cmd/plane-cli`. Generated metadata is committed and embedded: the installed binary does not need repository files. Contributor setup and checks are in [development](development.md).
 
@@ -42,6 +42,57 @@ Resource dispatch resolves the API version from flags, environment or the select
 `api-key` uses `PLANE_CLI_API_KEY`; `bearer`, `oauth-user` and `oauth-bot` accept `PLANE_CLI_ACCESS_TOKEN`. Both overrides together are rejected. An access-token override is externally managed: it never refreshes or writes stored credentials. `external` ignores both and sends neither header, allowing an operator proxy to inject authentication; status says `externally_managed`, not authenticated. Backends never silently fall back.
 
 Transport honors standard proxy variables, verifies HTTPS certificates and appends `--ca-file` roots. API redirects are refused. Total/request defaults are 5m/30s; both require positive durations. There are no automatic retries: transport uses HTTP/1 only and disables keep-alive pooling to prevent Go's HTTP/2 stream retries and stale pooled-connection replays. JSON responses retain native fields and exact numbers, are limited to 16 MiB, and are staged before stdout. Server-error responses to mutations report an unknown outcome. Arbitrary upstream error text is suppressed rather than exposing reflected secrets.
+
+## Current identity
+
+`user me` calls the selected generation's `GET /api/v1/users/me/` or `GET /api/v2/users/me/` without a workspace or project. It preserves the native response, including v2 `principal_kind` and `scopes` when returned. V1 documents `profile:read`; v2 declares no fine-grained scope but requires OAuth tokens to carry a read scope.
+
+```sh
+plane-cli schema user me --api-version v2
+```
+
+```sh manual
+plane-cli user me --base-url https://plane.example.net --api-version v2 --dry-run
+plane-cli user me --connection personal
+```
+
+Contracts: [v1 current user](https://developers.plane.so/api-reference/user/get-current-user.md), [v2 current user](https://developers.plane.so/api-reference/v2/users/get-current-user.md). Deterministic request fixtures cover both generations; this is not completed P03 coverage or planner approval.
+
+## Project and work-item lifecycle
+
+Discover the selected version before sending requests; schemas expose native writable fields and scope requirements:
+
+```sh
+plane-cli schema project create --api-version v2
+plane-cli schema work-item create --api-version v2
+plane-cli schema state list --api-version v2
+```
+
+The following examples use placeholders. Configure the connection and protected credentials as above, then replace workspace/project/state/label IDs with values returned by your server:
+
+```sh manual
+plane-cli project list --connection personal --workspace example
+plane-cli state list --connection personal --workspace example --scope project --project PROJECT_ID
+plane-cli label list --connection personal --workspace example --project PROJECT_ID
+plane-cli work-item create --connection personal --workspace example --project PROJECT_ID --body-file item.json
+plane-cli work-item get --connection personal --workspace example --project PROJECT_ID --id ITEM_ID
+plane-cli work-item update --connection personal --workspace example --project PROJECT_ID --id ITEM_ID --body-file update.json
+plane-cli work-item list --connection personal --workspace example --scope project --project PROJECT_ID --all
+plane-cli work-item delete --connection personal --workspace example --project PROJECT_ID --id ITEM_ID --yes
+```
+
+For v2, `item.json` can contain `{"name":"Example task","state_id":"STATE_ID","label_ids":["LABEL_ID"]}`; `update.json` can contain `{"name":"Updated task"}`. Use the version's schema rather than renaming v1 fields by analogy. Body files contain the native body, not a CLI envelope; `--body-file -` reads stdin. A body document and convenience body-field flags are mutually exclusive. Omitted values remain absent; explicit null, false, zero, empty strings and arrays are preserved only where the operation's schema permits them.
+
+For resource commands, `--timeout` bounds body input, authentication and API traversal together; waiting for stdin does not start a separate allowance. Read-only advanced search remains a read even though its HTTP method is POST: failures do not imply a remote mutation.
+
+Ordinary JSON output wraps the untouched native response under `data`. One-page lists therefore keep native `results` (v1) or `data` (v2) nesting. `--all` instead places an array of complete native page responses under the outer `data`; it never flattens away pagination metadata or unknown fields. It stages every page before stdout, with a 64 MiB aggregate bound, 1,000-page default, explicit `--max-pages`, and rejection of repeated/nonprogressing continuations. A failed later page leaves stdout empty. V2 offset traversal stops at the documented offset ceiling rather than silently changing pagination mode.
+
+Aggregation failures include `error.progress` with `mode: "all"`, the number of fully staged `pages`, and `complete: false`. This is progress, not delivered data; continuation tokens are never included. Null or missing continuation flags are protocol errors, not evidence that traversal finished.
+
+Declared list/get commands accept `--output table` for a fixed native-field projection without relation fetches. JSON remains the default. Native bulk operations preserve indexed results; any failed row yields `meta.status: "partial"` and exit 6. Upsert metadata exposes the documented `X-Plane-Upsert` outcome when returned. Deletes and destructive archive operations require `--yes`; `--dry-run` validates locally without credentials or HTTP.
+
+V1 `epic` commands expose the separately documented epic API: `create`, `list`, `get`, `update`, `delete`, `add-work-items`, and `list-work-items`. They require workspace/project scope; item operations also require `--id`. Membership writes use a body with `work_item_ids`. V2 has no separate documented epic route in this packet; use its work-item type fields rather than assuming the v1 route exists.
+
 
 ## Persistent login and OAuth
 

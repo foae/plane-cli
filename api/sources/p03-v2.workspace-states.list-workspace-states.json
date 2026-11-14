@@ -1,0 +1,27 @@
+{
+  "id": "v2.workspace-states.list-workspace-states",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "workspace-states",
+  "source_slug": "list-workspace-states",
+  "command": [
+    "state",
+    "list"
+  ],
+  "handler": "state-list",
+  "scope": "workspace",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/states/",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-states/list-workspace-states.md",
+  "snapshot_sha256": "ff238f28c1ea5b5845ad64afe84dbf885418fe449eb476fcaef4778b42e1dd0a",
+  "snapshot_bytes": 10455,
+  "pagination": "v2",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/state/workspace/list"
+  ]
+}

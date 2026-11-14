@@ -1,0 +1,27 @@
+{
+  "id": "v1.epics.add-epic-work-items",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "epics",
+  "source_slug": "add-epic-work-items",
+  "command": [
+    "epic",
+    "add-work-items"
+  ],
+  "handler": "epic-add-work-items",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{slug}/projects/{project_id}/epics/{epic_id}/issues/",
+  "source_url": "https://developers.plane.so/api-reference/epics/add-epic-work-items.md",
+  "snapshot_sha256": "3591e65e1fb85a2ca2c170694db0825e66160dc6d53937e5410ce411e236089e",
+  "snapshot_bytes": 4046,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestEpicWireOperations/add-work-items"
+  ]
+}

@@ -10,16 +10,24 @@ type Meta struct {
 	Status  string `json:"status"`
 }
 
+// PaginationProgress describes staged pages without exposing continuation data.
+type PaginationProgress struct {
+	Mode     string `json:"mode"`
+	Pages    int    `json:"pages"`
+	Complete bool   `json:"complete"`
+}
+
 type Error struct {
-	Code              string `json:"code"`
-	Message           string `json:"message"`
-	Command           string `json:"command"`
-	Exit              int    `json:"-"`
-	APIVersion        string `json:"api_version,omitempty"`
-	HTTPStatus        int    `json:"http_status,omitempty"`
-	RetryAfterSeconds *int   `json:"retry_after_seconds,omitempty"`
-	OutcomeUnknown    bool   `json:"outcome_unknown,omitempty"`
-	RemoteChanged     bool   `json:"remote_changed,omitempty"`
+	Code              string              `json:"code"`
+	Message           string              `json:"message"`
+	Command           string              `json:"command"`
+	Exit              int                 `json:"-"`
+	APIVersion        string              `json:"api_version,omitempty"`
+	HTTPStatus        int                 `json:"http_status,omitempty"`
+	RetryAfterSeconds *int                `json:"retry_after_seconds,omitempty"`
+	OutcomeUnknown    bool                `json:"outcome_unknown,omitempty"`
+	RemoteChanged     bool                `json:"remote_changed,omitempty"`
+	Progress          *PaginationProgress `json:"progress,omitempty"`
 }
 
 func (e *Error) Error() string { return e.Message }

@@ -1,0 +1,28 @@
+{
+  "id": "v2.projects.upsert-project",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "projects",
+  "source_slug": "upsert-project",
+  "command": [
+    "project",
+    "upsert"
+  ],
+  "handler": "project-upsert",
+  "scope": "workspace",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/upsert/",
+  "source_url": "https://developers.plane.so/api-reference/v2/projects/upsert-project.md",
+  "snapshot_sha256": "ae026fb3d6f7492a33ecddcc9ab4b6110a89665cfea72a0832b8f3d6a2c6c9df",
+  "snapshot_bytes": 36546,
+  "pagination": "none",
+  "success_statuses": [
+    200,
+    201
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v2/upsert"
+  ]
+}

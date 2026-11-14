@@ -1,0 +1,27 @@
+{
+  "id": "v1.projects.create-project-with-template",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "project",
+  "source_slug": "create-project-with-template",
+  "command": [
+    "project",
+    "create-with-template"
+  ],
+  "handler": "project-create-with-template",
+  "scope": "workspace",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/templates/use/",
+  "source_url": "https://developers.plane.so/api-reference/project/create-project-with-template.md",
+  "snapshot_sha256": "2f21df47a7711f13c5a58b76873a22d1a5db5c7d79eee383255f8aba9a0557e9",
+  "snapshot_bytes": 4444,
+  "pagination": "none",
+  "success_statuses": [
+    201
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v1/create-with-template"
+  ]
+}

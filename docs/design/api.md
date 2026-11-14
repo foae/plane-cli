@@ -64,6 +64,10 @@ V1: each endpoint declares its actual paginator/bare-array contract. Honor docum
 
 V2 sparse lists may omit `description_html` and custom fields; fetching detail is explicit. `--fields` invalid names are upstream errors, not an excuse to strip fields. Preserve user-supplied HTML and editor-managed metadata; no invented Markdown converter or block-document API.
 
+For v2 project writes, preserve the operation-specific input contract: `network` is a string even though project responses and list filters use integers. `start_date` and `target_date` accept `YYYY-MM-DD` per the explicit field prose, rather than the conflicting `date-time` type label. This interpretation was approved during P03 contract review; do not coerce input to match response types. Sources: [create](https://developers.plane.so/api-reference/v2/projects/create-project.md) and [update](https://developers.plane.so/api-reference/v2/projects/update-project.md).
+
+For v1 work-item create/update validation, use the operation parameter definitions: `estimate_point` is a string and HTML content uses `description_html`. The overview's integer/null estimate type and examples' unlisted `description` field conflict with those definitions; neither expands the accepted write schema. Sources: [create](https://developers.plane.so/api-reference/issue/add-issue.md) and [update](https://developers.plane.so/api-reference/issue/update-issue-detail.md).
+
 Exact REST filters use documented names/operators and AND semantics. Do not send PQL strings as REST filters because the MCP server accepts them. V2 identity/path behavior can differ per operation: the attachment page permits project/work-item identifiers while migration prose says paths take IDs. Prefer the exact operation's evidence, record the conflict, and test the permitted syntax—never generalize across all endpoints.
 
 Type/project/workspace mode writes use the explicitly selected surface; a 409 governance conflict is actionable, not an instruction to retry on another route. Provide explicit feature/type-schema reads so agents can construct valid custom fields. No hidden workspace feature mutation to make a request succeed.

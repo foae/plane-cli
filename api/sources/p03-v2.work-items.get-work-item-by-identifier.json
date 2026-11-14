@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-items/get-work-item-by-identifier.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "358f7bd0cb60c996977077f20361533478ad2a50e4d8736f0ab76eeba75112d4",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 10041,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "operation_mappings": [
+    {
+      "command": "work-item get-by-identifier",
+      "method": "GET",
+      "route": "/api/v2/workspaces/{slug}/work-items/{identifier}/",
+      "success": "200 object"
+    }
+  ],
+  "owner": "P03"
+}

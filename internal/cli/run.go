@@ -68,15 +68,18 @@ func run(ctx context.Context, args []string, streams Streams, build Build, catal
 		return report(streams.Err, safe)
 	}
 	if out.err != nil {
+		if errors.As(err, &safe) && safe.Code == "output_error" {
+			return report(streams.Err, safe)
+		}
 		return report(streams.Err, &output.Error{Code: "output_error", Message: "Could not write command output", Command: commandName(cmd), Exit: 1})
 	}
 	// Completed output is authoritative; a late cancellation cannot undo success.
 	if err == nil {
 		return 0
 	}
-	if ctx.Err() != nil && !errors.As(err, &safe) {
+	if !errors.As(err, &safe) && (errors.Is(err, context.Canceled) || errors.Is(err, context.DeadlineExceeded)) {
 		exit, code, message := 130, "interrupted", "Command interrupted"
-		if errors.Is(ctx.Err(), context.DeadlineExceeded) {
+		if errors.Is(err, context.DeadlineExceeded) {
 			exit, code, message = 4, "deadline_exceeded", "Command deadline exceeded"
 		}
 		return report(streams.Err, &output.Error{Code: code, Message: message, Command: commandName(cmd), Exit: exit})

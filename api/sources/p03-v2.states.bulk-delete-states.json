@@ -1,0 +1,27 @@
+{
+  "id": "v2.states.bulk-delete-states",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "states",
+  "source_slug": "bulk-delete-states",
+  "command": [
+    "state",
+    "bulk-delete"
+  ],
+  "handler": "state-bulk-delete",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/bulk-delete/",
+  "source_url": "https://developers.plane.so/api-reference/v2/states/bulk-delete-states.md",
+  "snapshot_sha256": "1a9511f8422ad4cce6f5ed3d692655c387e7f5416f9912f89c1926b7e04e0554",
+  "snapshot_bytes": 8102,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "delete",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/state/project/bulk-delete"
+  ]
+}

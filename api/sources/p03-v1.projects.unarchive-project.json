@@ -1,0 +1,27 @@
+{
+  "id": "v1.projects.unarchive-project",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "project",
+  "source_slug": "unarchive-project",
+  "command": [
+    "project",
+    "unarchive"
+  ],
+  "handler": "project-unarchive",
+  "scope": "workspace",
+  "method": "DELETE",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/archive/",
+  "source_url": "https://developers.plane.so/api-reference/project/unarchive-project.md",
+  "snapshot_sha256": "af20e52d9e53d6fc17d2150035e91d1b452a1c96cee2b0e601c277b9d583d232",
+  "snapshot_bytes": 2043,
+  "pagination": "none",
+  "success_statuses": [
+    204
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v1/unarchive"
+  ]
+}

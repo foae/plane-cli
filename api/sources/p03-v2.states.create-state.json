@@ -1,0 +1,27 @@
+{
+  "id": "v2.states.create-state",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "states",
+  "source_slug": "create-state",
+  "command": [
+    "state",
+    "create"
+  ],
+  "handler": "state-create",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/",
+  "source_url": "https://developers.plane.so/api-reference/v2/states/create-state.md",
+  "snapshot_sha256": "050ecde8cb23e802cc68f4ca0ae80e986bb3f77650b9125c84b51a8afac5d848",
+  "snapshot_bytes": 8597,
+  "pagination": "none",
+  "success_statuses": [
+    201
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/state/project/create"
+  ]
+}

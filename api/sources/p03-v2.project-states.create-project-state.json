@@ -1,0 +1,27 @@
+{
+  "id": "v2.project-states.create-project-state",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "project-states",
+  "source_slug": "create-project-state",
+  "command": [
+    "project-state",
+    "create"
+  ],
+  "handler": "project-state-create",
+  "scope": "workspace catalog",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/project-states/",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-states/create-project-state.md",
+  "snapshot_sha256": "22a98f78fff058a46a112fe3d938f1cc83f2eec6bc840a8f74b1c6ee805f1c1f",
+  "snapshot_bytes": 7771,
+  "pagination": "none",
+  "success_statuses": [
+    201
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/project-state//create"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "v2.projects.get-project-summary",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "projects",
+  "source_slug": "get-project-summary",
+  "command": [
+    "project",
+    "summary"
+  ],
+  "handler": "project-summary",
+  "scope": "workspace",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/{pk}/summary/",
+  "source_url": "https://developers.plane.so/api-reference/v2/projects/get-project-summary.md",
+  "snapshot_sha256": "4c431a561c6fecc01f7802dcd7ddde16f4c0116ffc68df3be35407ed173df5ee",
+  "snapshot_bytes": 3595,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v2/summary"
+  ]
+}

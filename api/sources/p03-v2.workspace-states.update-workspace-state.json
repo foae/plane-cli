@@ -1,0 +1,27 @@
+{
+  "id": "v2.workspace-states.update-workspace-state",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "workspace-states",
+  "source_slug": "update-workspace-state",
+  "command": [
+    "state",
+    "update"
+  ],
+  "handler": "state-update",
+  "scope": "workspace",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/states/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-states/update-workspace-state.md",
+  "snapshot_sha256": "a894d0f5fb3b138a444a0dc1fcf5b30bf7d17287ca7853ad1838e23a15ce4c24",
+  "snapshot_bytes": 8528,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/state/workspace/update"
+  ]
+}

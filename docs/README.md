@@ -1,6 +1,6 @@
 # Documentation router
 
-The P00–P02 foundation provides offline discovery, named connections and persistent/user/bot authentication. [Current usage](usage.md) describes working commands; design contracts describe the broader approved target, not current API coverage.
+P00–P02 provide offline discovery, named connections and persistent/user/bot authentication. P03 adds documented identity, project, state/label and work-item operations. [Current usage](usage.md) describes working commands; design contracts describe the broader approved target, not current API coverage.
 
 ## Choose your task
 

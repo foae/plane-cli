@@ -1,0 +1,27 @@
+{
+  "id": "v1.epics.update-epic",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "epics",
+  "source_slug": "update-epic",
+  "command": [
+    "epic",
+    "update"
+  ],
+  "handler": "epic-update",
+  "scope": "project",
+  "method": "PATCH",
+  "path": "/api/v1/workspaces/{slug}/projects/{project_id}/epics/{epic_id}/",
+  "source_url": "https://developers.plane.so/api-reference/epics/update-epic.md",
+  "snapshot_sha256": "e99f40d287b1cdea6aa926b8db59b326d54929c0c0d28e4a2a50d7aca7c78af2",
+  "snapshot_bytes": 5179,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestEpicWireOperations/update"
+  ]
+}

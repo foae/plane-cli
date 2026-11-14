@@ -1,0 +1,27 @@
+{
+  "id": "v1.projects.get-project-detail",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "project",
+  "source_slug": "get-project-detail",
+  "command": [
+    "project",
+    "get"
+  ],
+  "handler": "project-get",
+  "scope": "workspace",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{resource_id}/",
+  "source_url": "https://developers.plane.so/api-reference/project/get-project-detail.md",
+  "snapshot_sha256": "3666a554a609137ab93cb605d4b25e6f2bdf29b447739fbe92219b808da53518",
+  "snapshot_bytes": 2261,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v1/get"
+  ]
+}

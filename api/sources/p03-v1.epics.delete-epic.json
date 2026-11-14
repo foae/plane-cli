@@ -1,0 +1,27 @@
+{
+  "id": "v1.epics.delete-epic",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "epics",
+  "source_slug": "delete-epic",
+  "command": [
+    "epic",
+    "delete"
+  ],
+  "handler": "epic-delete",
+  "scope": "project",
+  "method": "DELETE",
+  "path": "/api/v1/workspaces/{slug}/projects/{project_id}/epics/{epic_id}/",
+  "source_url": "https://developers.plane.so/api-reference/epics/delete-epic.md",
+  "snapshot_sha256": "7fecf8faed5ea0f012695e79cf17188833c6c009ad627a8f819ec35d3d0e60dd",
+  "snapshot_bytes": 2158,
+  "pagination": "none",
+  "success_statuses": [
+    204
+  ],
+  "side_effect": "destructive",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestEpicWireOperations/delete"
+  ]
+}

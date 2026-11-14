@@ -1,0 +1,27 @@
+{
+  "id": "v2.projects.list-projects",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "projects",
+  "source_slug": "list-projects",
+  "command": [
+    "project",
+    "list"
+  ],
+  "handler": "project-list",
+  "scope": "workspace",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/",
+  "source_url": "https://developers.plane.so/api-reference/v2/projects/list-projects.md",
+  "snapshot_sha256": "8a52060924462d0fe9d80639f3cd476918135a5afd07c67b15ee45ce28a4c40b",
+  "snapshot_bytes": 8369,
+  "pagination": "v2",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v2/list"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "v2.workspace-states.create-workspace-state",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "workspace-states",
+  "source_slug": "create-workspace-state",
+  "command": [
+    "state",
+    "create"
+  ],
+  "handler": "state-create",
+  "scope": "workspace",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/states/",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-states/create-workspace-state.md",
+  "snapshot_sha256": "2f58b8541f24fd8822a7a072457c0386e227f9f836b7819e3afc547b7de032a0",
+  "snapshot_bytes": 9133,
+  "pagination": "none",
+  "success_statuses": [
+    201
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/state/workspace/create"
+  ]
+}

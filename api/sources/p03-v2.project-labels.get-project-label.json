@@ -1,0 +1,27 @@
+{
+  "id": "v2.project-labels.get-project-label",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "project-labels",
+  "source_slug": "get-project-label",
+  "command": [
+    "project-label",
+    "get"
+  ],
+  "handler": "project-label-get",
+  "scope": "workspace catalog",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/project-labels/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-labels/get-project-label.md",
+  "snapshot_sha256": "71ed6aa9b833d541cbfb21342c9a84f7d43d22bc42ff9be75428a675d5dd227b",
+  "snapshot_bytes": 4074,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/project-label//get"
+  ]
+}

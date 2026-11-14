@@ -10,11 +10,15 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"go/ast"
+	"go/parser"
+	"go/token"
 	"io"
 	"net/url"
 	"os"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"strings"
 
 	"github.com/foae/plane-cli/internal/cli"
@@ -236,6 +240,215 @@ func validSensitivity(raw json.RawMessage) bool {
 		}
 	}
 	return true
+}
+
+// scenarioValue evaluates only static test names and table rows, never test code.
+// Unsupported expressions remain unknown, so they cannot certify a reference.
+func scenarioValue(expr ast.Expr, env map[string]any, expected ast.Expr) any {
+	switch expr := expr.(type) {
+	case *ast.BasicLit:
+		if expr.Kind == token.STRING {
+			value, err := strconv.Unquote(expr.Value)
+			if err == nil {
+				return value
+			}
+		}
+	case *ast.Ident:
+		return env[expr.Name]
+	case *ast.SelectorExpr:
+		if row, ok := scenarioValue(expr.X, env, nil).(map[string]any); ok {
+			return row[expr.Sel.Name]
+		}
+	case *ast.BinaryExpr:
+		left, lok := scenarioValue(expr.X, env, nil).(string)
+		right, rok := scenarioValue(expr.Y, env, nil).(string)
+		if lok && rok {
+			switch expr.Op {
+			case token.ADD:
+				return left + right
+			case token.EQL:
+				return left == right
+			case token.NEQ:
+				return left != right
+			}
+		}
+	case *ast.CompositeLit:
+		typ := expr.Type
+		if typ == nil {
+			typ = expected
+		}
+		if name, ok := typ.(*ast.Ident); ok {
+			typ, _ = env[name.Name].(ast.Expr)
+		}
+		if array, ok := typ.(*ast.ArrayType); ok {
+			var values []any
+			for _, elt := range expr.Elts {
+				values = append(values, scenarioValue(elt, env, array.Elt))
+			}
+			return values
+		}
+		if record, ok := typ.(*ast.StructType); ok {
+			var fields []string
+			for _, field := range record.Fields.List {
+				for _, name := range field.Names {
+					fields = append(fields, name.Name)
+				}
+			}
+			row := map[string]any{}
+			for i, elt := range expr.Elts {
+				if pair, ok := elt.(*ast.KeyValueExpr); ok {
+					if key, ok := pair.Key.(*ast.Ident); ok {
+						row[key.Name] = scenarioValue(pair.Value, env, nil)
+					}
+				} else if i < len(fields) {
+					row[fields[i]] = scenarioValue(elt, env, nil)
+				}
+			}
+			return row
+		}
+	case *ast.CallExpr:
+		if name, ok := expr.Fun.(*ast.Ident); ok && name.Name == "append" && len(expr.Args) > 1 {
+			values, ok := scenarioValue(expr.Args[0], env, nil).([]any)
+			if !ok {
+				return nil
+			}
+			values = append([]any(nil), values...)
+			for _, arg := range expr.Args[1:] {
+				values = append(values, scenarioValue(arg, env, nil))
+			}
+			return values
+		}
+	}
+	return nil
+}
+
+// collectScenarios supports literal and table-driven t.Run names, including
+// conditional append tables and slash-containing names used by the catalog.
+func collectScenarios(statements []ast.Stmt, env map[string]any, receiver, prefix string, names map[string]bool) {
+	for _, statement := range statements {
+		switch statement := statement.(type) {
+		case *ast.DeclStmt:
+			if declaration, ok := statement.Decl.(*ast.GenDecl); ok {
+				for _, declaration := range declaration.Specs {
+					switch declaration := declaration.(type) {
+					case *ast.TypeSpec:
+						env[declaration.Name.Name] = declaration.Type
+					case *ast.ValueSpec:
+						for i, name := range declaration.Names {
+							if i < len(declaration.Values) {
+								env[name.Name] = scenarioValue(declaration.Values[i], env, declaration.Type)
+							}
+						}
+					}
+				}
+			}
+		case *ast.AssignStmt:
+			for i, target := range statement.Lhs {
+				if name, ok := target.(*ast.Ident); ok && i < len(statement.Rhs) {
+					env[name.Name] = scenarioValue(statement.Rhs[i], env, nil)
+				}
+			}
+		case *ast.RangeStmt:
+			values, _ := scenarioValue(statement.X, env, nil).([]any)
+			for _, value := range values {
+				child := make(map[string]any, len(env)+1)
+				for key, value := range env {
+					child[key] = value
+				}
+				if name, ok := statement.Value.(*ast.Ident); ok {
+					child[name.Name] = value
+				}
+				collectScenarios(statement.Body.List, child, receiver, prefix, names)
+			}
+		case *ast.IfStmt:
+			if condition, ok := scenarioValue(statement.Cond, env, nil).(bool); ok {
+				if condition {
+					collectScenarios(statement.Body.List, env, receiver, prefix, names)
+				} else if block, ok := statement.Else.(*ast.BlockStmt); ok {
+					collectScenarios(block.List, env, receiver, prefix, names)
+				}
+			}
+		case *ast.ExprStmt:
+			call, ok := statement.X.(*ast.CallExpr)
+			if !ok || len(call.Args) != 2 {
+				continue
+			}
+			method, ok := call.Fun.(*ast.SelectorExpr)
+			if !ok || method.Sel.Name != "Run" {
+				continue
+			}
+			target, ok := method.X.(*ast.Ident)
+			if !ok || target.Name != receiver {
+				continue
+			}
+			name, ok := scenarioValue(call.Args[0], env, nil).(string)
+			callback, callbackOK := call.Args[1].(*ast.FuncLit)
+			if !ok || name == "" || !callbackOK || len(callback.Type.Params.List) != 1 || len(callback.Type.Params.List[0].Names) != 1 {
+				continue
+			}
+			full := prefix + "/" + name
+			names[full] = true
+			child := make(map[string]any, len(env))
+			for key, value := range env {
+				child[key] = value
+			}
+			collectScenarios(callback.Body.List, child, callback.Type.Params.List[0].Names[0].Name, full, names)
+		}
+	}
+}
+
+func acceptanceScenarios(root string) (map[string]bool, error) {
+	names := map[string]bool{}
+	err := filepath.WalkDir(root, func(path string, entry os.DirEntry, walkErr error) error {
+		if walkErr != nil {
+			return walkErr
+		}
+		if entry.IsDir() {
+			if path != root && (strings.HasPrefix(entry.Name(), ".") || entry.Name() == "vendor" || entry.Name() == "testdata") {
+				return filepath.SkipDir
+			}
+			return nil
+		}
+		if !strings.HasSuffix(path, "_test.go") {
+			return nil
+		}
+		file, err := parser.ParseFile(token.NewFileSet(), path, nil, 0)
+		if err != nil {
+			return err
+		}
+		testingName := ""
+		for _, imported := range file.Imports {
+			if imported.Path.Value == `"testing"` {
+				testingName = "testing"
+				if imported.Name != nil {
+					testingName = imported.Name.Name
+				}
+			}
+		}
+		for _, declaration := range file.Decls {
+			function, ok := declaration.(*ast.FuncDecl)
+			if !ok || function.Recv != nil || function.Body == nil || !strings.HasPrefix(function.Name.Name, "Test") || len(function.Name.Name) == 4 || (function.Name.Name[4] >= 'a' && function.Name.Name[4] <= 'z') || function.Type.Results != nil || len(function.Type.Params.List) != 1 {
+				continue
+			}
+			parameter := function.Type.Params.List[0]
+			pointer, ok := parameter.Type.(*ast.StarExpr)
+			if !ok || len(parameter.Names) != 1 {
+				continue
+			}
+			typ, ok := pointer.X.(*ast.SelectorExpr)
+			if !ok || typ.Sel.Name != "T" {
+				continue
+			}
+			pkg, ok := typ.X.(*ast.Ident)
+			if !ok || testingName == "" || pkg.Name != testingName {
+				continue
+			}
+			names[function.Name.Name] = true
+			collectScenarios(function.Body.List, map[string]any{}, parameter.Names[0].Name, function.Name.Name, names)
+		}
+		return nil
+	})
+	return names, err
 }
 
 func run(mode, packet string) (result error) {
@@ -465,6 +678,10 @@ func run(mode, packet string) (result error) {
 	routes := map[string]bool{}
 	mappings := map[string]bool{}
 	verified := []string{}
+	scenarios, err := acceptanceScenarios(".")
+	if err != nil {
+		return fmt.Errorf("acceptance scenarios: %w", err)
+	}
 	for _, op := range c.Operations {
 		if op.ID == "" || opIDs[op.ID].ID != "" {
 			return fmt.Errorf("duplicate/empty operation ID %q", op.ID)
@@ -491,6 +708,15 @@ func run(mode, packet string) (result error) {
 		if !validSensitivity(op.Sensitivity) || len(op.AcceptanceIDs) == 0 {
 			return fmt.Errorf("invalid sensitivity/scenarios: %s", op.ID)
 		}
+		// Documented operations may name planned acceptance; implementation and
+		// verification must instead link runnable repository test scenarios.
+		if op.Lifecycle == "implemented" || op.Lifecycle == "verified" {
+			for _, id := range op.AcceptanceIDs {
+				if !scenarios[id] {
+					return fmt.Errorf("unknown acceptance scenario %q: %s", id, op.ID)
+				}
+			}
+		}
 		if op.Action == "" || op.SideEffect == "" || op.Pagination == "" || op.FeatureEvidence == "" || op.Availability[op.Version] == "" {
 			return fmt.Errorf("missing required operation metadata: %s", op.ID)
 		}
@@ -512,7 +738,7 @@ func run(mode, packet string) (result error) {
 		}
 		responseStatuses := map[int]bool{}
 		for _, response := range op.Responses {
-			if response.Status < 100 || response.Status > 599 || response.ContentType == "" || responseStatuses[response.Status] {
+			if response.Status < 100 || response.Status > 599 || (response.ContentType == "" && response.Status != 204) || responseStatuses[response.Status] {
 				return fmt.Errorf("invalid response contract: %s", op.ID)
 			}
 			responseStatuses[response.Status] = true

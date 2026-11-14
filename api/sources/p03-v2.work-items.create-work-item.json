@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-items/create-work-item.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "bb6140a29d6121e07df3ace11787c9305c88ea5b3aa43645aa7e41eab458d854",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 18193,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "operation_mappings": [
+    {
+      "command": "work-item create",
+      "method": "POST",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/",
+      "success": "201 object"
+    }
+  ],
+  "owner": "P03"
+}

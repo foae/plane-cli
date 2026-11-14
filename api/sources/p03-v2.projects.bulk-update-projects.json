@@ -1,0 +1,27 @@
+{
+  "id": "v2.projects.bulk-update-projects",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "projects",
+  "source_slug": "bulk-update-projects",
+  "command": [
+    "project",
+    "bulk-update"
+  ],
+  "handler": "project-bulk-update",
+  "scope": "workspace",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/bulk-update/",
+  "source_url": "https://developers.plane.so/api-reference/v2/projects/bulk-update-projects.md",
+  "snapshot_sha256": "73e99d0eb7805d9a5760ad239728da9794967d4dae87edf21a32a6dc62f7b3c0",
+  "snapshot_bytes": 8353,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v2/bulk-update"
+  ]
+}

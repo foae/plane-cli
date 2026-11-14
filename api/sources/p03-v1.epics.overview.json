@@ -1,0 +1,9 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/epics/overview.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "f253f525c8cad6e3e4752c7423e2cda402474806f0ec4493f21ad2a150b9654a",
+  "classification": "overview",
+  "contract": {
+    "purpose": "Resource overview; operation is independently inventoried"
+  }
+}

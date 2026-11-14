@@ -1,0 +1,27 @@
+{
+  "id": "v1.epics.create-epic",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "epics",
+  "source_slug": "create-epic",
+  "command": [
+    "epic",
+    "create"
+  ],
+  "handler": "epic-create",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{slug}/projects/{project_id}/epics/",
+  "source_url": "https://developers.plane.so/api-reference/epics/create-epic.md",
+  "snapshot_sha256": "2d6d17a4a0bd85b630d2bd833b1d7da86e3b3331d448bfac89791fac8c510bc1",
+  "snapshot_bytes": 5296,
+  "pagination": "none",
+  "success_statuses": [
+    201
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestEpicWireOperations/create"
+  ]
+}

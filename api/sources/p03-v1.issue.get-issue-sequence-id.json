@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/issue/get-issue-sequence-id.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "508b51f0c8f213e942650becd6d48702c961156fcb5cc47e5c0dc7d137d2d2bb",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 2567,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "operation_mappings": [
+    {
+      "command": "work-item get-by-identifier",
+      "method": "GET",
+      "route": "/api/v1/workspaces/{workspace_slug}/work-items/{project_identifier}-{issue_identifier}/",
+      "success": "200 object"
+    }
+  ],
+  "owner": "P03"
+}

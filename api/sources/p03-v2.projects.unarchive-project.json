@@ -1,0 +1,27 @@
+{
+  "id": "v2.projects.unarchive-project",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "projects",
+  "source_slug": "unarchive-project",
+  "command": [
+    "project",
+    "unarchive"
+  ],
+  "handler": "project-unarchive",
+  "scope": "workspace",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{pk}/unarchive/",
+  "source_url": "https://developers.plane.so/api-reference/v2/projects/unarchive-project.md",
+  "snapshot_sha256": "b7b5ccd54fb2b851948fd233a0c97fba032647fb75849f98bf50b4e28552fbbc",
+  "snapshot_bytes": 3561,
+  "pagination": "none",
+  "success_statuses": [
+    204
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v2/unarchive"
+  ]
+}

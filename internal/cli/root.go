@@ -1,6 +1,7 @@
 package cli
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"io"
@@ -15,7 +16,20 @@ import (
 type handler func(*cobra.Command, []string, map[string]any) error
 
 func HandlerIDs() []string {
-	return []string{"commands", "schema", "version", "connection-add", "connection-update", "connection-list", "connection-show", "connection-use", "connection-delete", "auth-status", "auth-login", "auth-complete", "auth-logout", "auth-migrate"}
+	ids := []string{"commands", "schema", "version", "connection-add", "connection-update", "connection-list", "connection-show", "connection-use", "connection-delete", "auth-status", "auth-login", "auth-complete", "auth-logout", "auth-migrate", "user-me"}
+	for id := range projectHandlers() {
+		ids = append(ids, id)
+	}
+	for id := range epicHandlers() {
+		ids = append(ids, id)
+	}
+	for id := range workItemHandlers() {
+		ids = append(ids, id)
+	}
+	for id := range stateLabelHandlers() {
+		ids = append(ids, id)
+	}
+	return ids
 }
 
 func commandName(cmd *cobra.Command) string {
@@ -66,11 +80,30 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 		},
 		"commands": commandsHandler(catalog, out),
 		"schema":   schemaHandler(catalog, out),
+		"user-me": func(cmd *cobra.Command, _ []string, _ map[string]any) error {
+			version, err := effectiveAPIVersion(cmd)
+			if err != nil {
+				return err
+			}
+			return apiRequest(cmd, "GET", []string{"api", version, "users", "me"}, nil, nil, false)
+		},
 	}
 	for id, h := range connectionHandlers(out) {
 		handlers[id] = h
 	}
 	for id, h := range authHandlers(out) {
+		handlers[id] = h
+	}
+	for id, h := range projectHandlers() {
+		handlers[id] = h
+	}
+	for id, h := range epicHandlers() {
+		handlers[id] = h
+	}
+	for id, h := range workItemHandlers() {
+		handlers[id] = h
+	}
+	for id, h := range stateLabelHandlers() {
 		handlers[id] = h
 	}
 	for id, h := range extra {
@@ -158,14 +191,37 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 			if !available {
 				return unavailable(commandName(cmd))
 			}
+			cmd.Annotations = map[string]string{
+				"pagination":    variant.Pagination,
+				"table_columns": strings.Join(variant.TableColumns, ","),
+				"side_effect":   d.SideEffect,
+			}
+			if !d.Local {
+				settings, err := effectiveSettings(cmd)
+				if err != nil {
+					return err
+				}
+				total, _ := settings.Deadlines()
+				ctx, cancel := context.WithTimeout(cmd.Context(), total)
+				defer cancel()
+				cmd.SetContext(ctx)
+			}
 			if args == nil {
 				args = []string{}
 			}
 			input := map[string]any{"arguments": args, "flags": map[string]any{}}
+			defaults := map[string]string{}
+			if !d.Local && (cmd.Flags().Lookup("workspace") != nil || cmd.Flags().Lookup("project") != nil) {
+				settings, err := effectiveSettings(cmd)
+				if err != nil {
+					return err
+				}
+				defaults["workspace"], defaults["project"] = settings.Workspace, settings.Project
+			}
 			allowed := make(map[string]spec.Flag)
 			for _, f := range variant.Flags {
 				allowed[f.Name] = f
-				if f.Required && !cmd.Flags().Changed(f.Name) && (d.Local || f.Name != "api-version") {
+				if f.Required && !cmd.Flags().Changed(f.Name) && defaults[f.Name] == "" && (d.Local || f.Name != "api-version") {
 					return &output.Error{Code: "usage_error", Message: "Missing required flag --" + f.Name, Command: commandName(cmd), Exit: 2}
 				}
 			}
@@ -173,6 +229,14 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 				if !d.Local && name == "api-version" {
 					if err := bind(input, f.Binding, version); err != nil {
 						return err
+					}
+					continue
+				}
+				if !cmd.Flags().Changed(name) && defaults[name] != "" {
+					if _, ok := allowed[name]; ok {
+						if err := bind(input, f.Binding, defaults[name]); err != nil {
+							return err
+						}
 					}
 					continue
 				}
@@ -196,6 +260,11 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 					value = json.Number(s)
 				}
 				if err := bind(input, f.Binding, value); err != nil {
+					return err
+				}
+			}
+			if !d.Local {
+				if err := prepareResourceBody(cmd, input, variant.Flags); err != nil {
 					return err
 				}
 			}

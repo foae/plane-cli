@@ -1,0 +1,27 @@
+{
+  "id": "v1.label.update-label-detail",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "label",
+  "source_slug": "update-label-detail",
+  "command": [
+    "label",
+    "update"
+  ],
+  "handler": "label-update",
+  "scope": "project",
+  "method": "PATCH",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/labels/{label_id}/",
+  "source_url": "https://developers.plane.so/api-reference/label/update-label-detail.md",
+  "snapshot_sha256": "9dc0c4c9e502d4f4bd2eacfc19b5d9412bb1df35effb4c04ab7db35ecbf3147a",
+  "snapshot_bytes": 3980,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v1/label//update"
+  ]
+}

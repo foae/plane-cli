@@ -1,0 +1,27 @@
+{
+  "id": "v2.states.delete-state",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "states",
+  "source_slug": "delete-state",
+  "command": [
+    "state",
+    "delete"
+  ],
+  "handler": "state-delete",
+  "scope": "project",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/states/delete-state.md",
+  "snapshot_sha256": "746a441d4ba05580dac0b54bc81d3273eb8658a48d9f2d93f256ccd382d3cd26",
+  "snapshot_bytes": 7617,
+  "pagination": "none",
+  "success_statuses": [
+    204
+  ],
+  "side_effect": "delete",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/state/project/delete"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "v2.states.upsert-state",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "states",
+  "source_slug": "upsert-state",
+  "command": [
+    "state",
+    "upsert"
+  ],
+  "handler": "state-upsert",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/upsert/",
+  "source_url": "https://developers.plane.so/api-reference/v2/states/upsert-state.md",
+  "snapshot_sha256": "9c138118b7a6278a846937a4aa94882e7ce2a2acb3c5d63ebc7c02354af4e0bd",
+  "snapshot_bytes": 8502,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/state/project/upsert"
+  ]
+}

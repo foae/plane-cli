@@ -1,0 +1,27 @@
+{
+  "id": "v2.states.bulk-update-states",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "states",
+  "source_slug": "bulk-update-states",
+  "command": [
+    "state",
+    "bulk-update"
+  ],
+  "handler": "state-bulk-update",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/bulk-update/",
+  "source_url": "https://developers.plane.so/api-reference/v2/states/bulk-update-states.md",
+  "snapshot_sha256": "cbef07d3cd50265c15ca52df58f76458e2202d7f3b7706c58b74264abcf2288e",
+  "snapshot_bytes": 8624,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/state/project/bulk-update"
+  ]
+}

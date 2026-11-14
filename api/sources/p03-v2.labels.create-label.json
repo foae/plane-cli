@@ -1,0 +1,27 @@
+{
+  "id": "v2.labels.create-label",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "labels",
+  "source_slug": "create-label",
+  "command": [
+    "label",
+    "create"
+  ],
+  "handler": "label-create",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/",
+  "source_url": "https://developers.plane.so/api-reference/v2/labels/create-label.md",
+  "snapshot_sha256": "f3e84dbc3864b4a7705a1f1d329dc3fddec319b598c902c5376cd01a534cadd3",
+  "snapshot_bytes": 9464,
+  "pagination": "none",
+  "success_statuses": [
+    201
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/label//create"
+  ]
+}

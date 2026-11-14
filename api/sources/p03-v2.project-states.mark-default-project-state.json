@@ -1,0 +1,27 @@
+{
+  "id": "v2.project-states.mark-default-project-state",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "project-states",
+  "source_slug": "mark-default-project-state",
+  "command": [
+    "project-state",
+    "mark-default"
+  ],
+  "handler": "project-state-mark-default",
+  "scope": "workspace catalog",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/project-states/{pk}/mark-default/",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-states/mark-default-project-state.md",
+  "snapshot_sha256": "c3f66bce41a53a7f65489dc452fcfc8f4de6351df7a1a800c2b21711eb81d762",
+  "snapshot_bytes": 6102,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/project-state//mark-default"
+  ]
+}

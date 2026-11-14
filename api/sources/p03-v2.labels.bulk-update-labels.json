@@ -1,0 +1,27 @@
+{
+  "id": "v2.labels.bulk-update-labels",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "labels",
+  "source_slug": "bulk-update-labels",
+  "command": [
+    "label",
+    "bulk-update"
+  ],
+  "handler": "label-bulk-update",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/bulk-update/",
+  "source_url": "https://developers.plane.so/api-reference/v2/labels/bulk-update-labels.md",
+  "snapshot_sha256": "968c445e8282d55cb1b5a00707fab377ff32bb1a60517074d6533e83c94daf06",
+  "snapshot_bytes": 8606,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/label//bulk-update"
+  ]
+}

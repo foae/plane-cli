@@ -1,0 +1,27 @@
+{
+  "id": "v1.state.add-state",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "state",
+  "source_slug": "add-state",
+  "command": [
+    "state",
+    "create"
+  ],
+  "handler": "state-create",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/states/",
+  "source_url": "https://developers.plane.so/api-reference/state/add-state.md",
+  "snapshot_sha256": "2146b20d83b77102264f10700b983edacf8c138ecb773dcea777e44b3d2f6718",
+  "snapshot_bytes": 4082,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v1/state/project/create"
+  ]
+}

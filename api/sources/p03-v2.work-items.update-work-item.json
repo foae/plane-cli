@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-items/update-work-item.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "83eab3d59c79aed43dda4825c7aeef41b5bff074954890dbbffd778f3336506e",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 15561,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "operation_mappings": [
+    {
+      "command": "work-item update",
+      "method": "PATCH",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{pk}/",
+      "success": "200 object"
+    }
+  ],
+  "owner": "P03"
+}

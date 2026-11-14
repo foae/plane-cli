@@ -1,0 +1,9 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/user/overview.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "3f7697667cadc5bd9fcf81757159ef2d55c370236007a5926c7bc9c7d15fbf35",
+  "classification": "overview",
+  "contract": {
+    "purpose": "Resource overview; operation is independently inventoried"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/issue/search-issues.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "0f76fe1e205d7caa961cf373886bcb5678a77588b268c3f487d7789c7bb6ff37",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 3110,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "operation_mappings": [
+    {
+      "command": "work-item search",
+      "method": "GET",
+      "route": "/api/v1/workspaces/{workspace_slug}/work-items/search/",
+      "success": "200 object with issues array; no pagination"
+    }
+  ],
+  "owner": "P03"
+}

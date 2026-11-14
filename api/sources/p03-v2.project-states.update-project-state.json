@@ -1,0 +1,27 @@
+{
+  "id": "v2.project-states.update-project-state",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "project-states",
+  "source_slug": "update-project-state",
+  "command": [
+    "project-state",
+    "update"
+  ],
+  "handler": "project-state-update",
+  "scope": "workspace catalog",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/project-states/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-states/update-project-state.md",
+  "snapshot_sha256": "82aa014acad905d80d8a07296d052d7bd8dc1f280afb4918331dbacdd6f209a1",
+  "snapshot_bytes": 7610,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/project-state//update"
+  ]
+}

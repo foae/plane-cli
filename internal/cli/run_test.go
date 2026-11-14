@@ -22,6 +22,8 @@ func invoke(t *testing.T, c spec.Catalog, args []string, handlers map[string]han
 
 func fixtureCatalog(t *testing.T) spec.Catalog {
 	t.Helper()
+	// This nonlocal descriptor exercises dispatch without performing HTTP.
+	t.Setenv("PLANE_CLI_BASE_URL", "http://fixture.invalid")
 	c, err := spec.Load()
 	if err != nil {
 		t.Fatal(err)

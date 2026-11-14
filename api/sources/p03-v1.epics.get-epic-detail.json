@@ -1,0 +1,27 @@
+{
+  "id": "v1.epics.get-epic-detail",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "epics",
+  "source_slug": "get-epic-detail",
+  "command": [
+    "epic",
+    "get"
+  ],
+  "handler": "epic-get",
+  "scope": "project",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/epics/{resource_id}/",
+  "source_url": "https://developers.plane.so/api-reference/epics/get-epic-detail.md",
+  "snapshot_sha256": "fd2acc8b5ddd59650cb0944745814116cf1d279adfbde2a4d030eb9b73e268bf",
+  "snapshot_bytes": 2596,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestEpicWireOperations/get"
+  ]
+}

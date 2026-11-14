@@ -1,0 +1,27 @@
+{
+  "id": "v1.epics.list-epic-work-items",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "epics",
+  "source_slug": "list-epic-work-items",
+  "command": [
+    "epic",
+    "list-work-items"
+  ],
+  "handler": "epic-list-work-items",
+  "scope": "project",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{slug}/projects/{project_id}/epics/{epic_id}/issues/",
+  "source_url": "https://developers.plane.so/api-reference/epics/list-epic-work-items.md",
+  "snapshot_sha256": "60685fd52240e8fb64ddd8fb545a14a671624cf686dae738c38ff4dafb7c5e0e",
+  "snapshot_bytes": 4022,
+  "pagination": "v1-cursor",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestEpicWireOperations/list-work-items"
+  ]
+}

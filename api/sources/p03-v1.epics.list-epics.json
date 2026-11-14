@@ -1,0 +1,27 @@
+{
+  "id": "v1.epics.list-epics",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "epics",
+  "source_slug": "list-epics",
+  "command": [
+    "epic",
+    "list"
+  ],
+  "handler": "epic-list",
+  "scope": "project",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/epics/",
+  "source_url": "https://developers.plane.so/api-reference/epics/list-epics.md",
+  "snapshot_sha256": "896533d6b027d66fcd2060d4b2828dc34fa3550e23c8e2bbcbc6ff25339689af",
+  "snapshot_bytes": 2846,
+  "pagination": "v1-cursor",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestEpicWireOperations/list"
+  ]
+}

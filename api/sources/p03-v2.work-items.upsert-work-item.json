@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-items/upsert-work-item.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "03e4d2703d405cbfb3faba54e0beef85a3e69882fc604fa186271a1ec088f807",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 10699,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "operation_mappings": [
+    {
+      "command": "work-item upsert",
+      "method": "POST",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/upsert/",
+      "success": "201 created or 200 updated; X-Plane-Upsert"
+    }
+  ],
+  "owner": "P03"
+}

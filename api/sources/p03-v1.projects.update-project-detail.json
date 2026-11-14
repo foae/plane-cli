@@ -1,0 +1,27 @@
+{
+  "id": "v1.projects.update-project-detail",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "project",
+  "source_slug": "update-project-detail",
+  "command": [
+    "project",
+    "update"
+  ],
+  "handler": "project-update",
+  "scope": "workspace",
+  "method": "PATCH",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{resource_id}/",
+  "source_url": "https://developers.plane.so/api-reference/project/update-project-detail.md",
+  "snapshot_sha256": "a390e0c661a4e8a6f527312e41cd45e5216623f489ea8d0a88d6630933c23440",
+  "snapshot_bytes": 14925,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v1/update"
+  ]
+}

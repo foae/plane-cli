@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-items/delete-work-item.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "36579549fb0536ea5e9f5088dc381574b4b2ac54a3d43f11b5eb9ebe2b2d7c62",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 7977,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "operation_mappings": [
+    {
+      "command": "work-item delete",
+      "method": "DELETE",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{pk}/",
+      "success": "204 empty"
+    }
+  ],
+  "owner": "P03"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "v2.projects.create-project",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "projects",
+  "source_slug": "create-project",
+  "command": [
+    "project",
+    "create"
+  ],
+  "handler": "project-create",
+  "scope": "workspace",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/",
+  "source_url": "https://developers.plane.so/api-reference/v2/projects/create-project.md",
+  "snapshot_sha256": "f88d555eca79595ab340c21997fde655984725a4b8887c2f6122f463292ab1bf",
+  "snapshot_bytes": 35927,
+  "pagination": "none",
+  "success_statuses": [
+    201
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v2/create"
+  ]
+}

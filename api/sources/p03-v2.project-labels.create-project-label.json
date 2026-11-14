@@ -1,0 +1,27 @@
+{
+  "id": "v2.project-labels.create-project-label",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "project-labels",
+  "source_slug": "create-project-label",
+  "command": [
+    "project-label",
+    "create"
+  ],
+  "handler": "project-label-create",
+  "scope": "workspace catalog",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/project-labels/",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-labels/create-project-label.md",
+  "snapshot_sha256": "1dda51fa6a7a6cc6b6ff5624c027518f3a9cc1be26850e61c4a4e9e7a4649497",
+  "snapshot_bytes": 6706,
+  "pagination": "none",
+  "success_statuses": [
+    201
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/project-label//create"
+  ]
+}

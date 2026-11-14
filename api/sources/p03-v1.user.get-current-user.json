@@ -1,0 +1,12 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/user/get-current-user.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "b88d506fe4a3202a5bcc2bdef60043dfa99f371c649c565058bd64bfc8609b74",
+  "classification": "operation-source",
+  "contract": {
+    "method": "GET",
+    "path": "/api/v1/users/me/",
+    "success": 200,
+    "workspace_required": false
+  }
+}

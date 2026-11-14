@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-items/list-workspace-work-items.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "76c0de9e56ef30deafec2a05ac48a6582d50d90100810b00252c82d19d32bf5a",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 16043,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "operation_mappings": [
+    {
+      "command": "work-item list --scope workspace",
+      "method": "GET",
+      "route": "/api/v2/workspaces/{slug}/work-items/",
+      "success": "200 v2 native pagination"
+    }
+  ],
+  "owner": "P03"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-items/bulk-create-work-items.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "157347dd67edd2429b9439235d03897dbe43d01f563facfaefcf9cbbab006eaf",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 8732,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "operation_mappings": [
+    {
+      "command": "work-item bulk-create",
+      "method": "POST",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/bulk-create/",
+      "success": "200 results/succeeded/failed; atomic failure409"
+    }
+  ],
+  "owner": "P03"
+}

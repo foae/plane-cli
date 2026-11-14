@@ -1,0 +1,27 @@
+{
+  "id": "v2.labels.bulk-delete-labels",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "labels",
+  "source_slug": "bulk-delete-labels",
+  "command": [
+    "label",
+    "bulk-delete"
+  ],
+  "handler": "label-bulk-delete",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/bulk-delete/",
+  "source_url": "https://developers.plane.so/api-reference/v2/labels/bulk-delete-labels.md",
+  "snapshot_sha256": "3e152526292bffc185c445c6eabc7043aa9ebe69edb5f5d14a902fb5763016cf",
+  "snapshot_bytes": 8102,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "delete",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/label//bulk-delete"
+  ]
+}

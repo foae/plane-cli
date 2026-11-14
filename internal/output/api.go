@@ -11,6 +11,11 @@ const maxAPIOutputBytes = 64 << 20
 
 // API stages a complete native API response before writing its JSON envelope.
 func API(w io.Writer, command, version string, status int, data json.RawMessage) error {
+	return APIResult(w, command, version, status, data, false, "")
+}
+
+// APIResult preserves native results while exposing documented mutation outcomes.
+func APIResult(w io.Writer, command, version string, status int, data json.RawMessage, partial bool, upsert string) error {
 	if status == 204 {
 		data = json.RawMessage("null")
 	}
@@ -24,17 +29,21 @@ func API(w io.Writer, command, version string, status int, data json.RawMessage)
 	if status == 202 {
 		completion = "accepted"
 	}
+	if partial {
+		completion = "partial"
+	}
 	type apiMeta struct {
 		Command    string `json:"command"`
 		APIVersion string `json:"api_version"`
 		HTTPStatus int    `json:"http_status"`
 		Status     string `json:"status"`
+		Upsert     string `json:"upsert,omitempty"`
 	}
 	payload, err := json.Marshal(struct {
 		SchemaVersion int             `json:"schema_version"`
 		Data          json.RawMessage `json:"data"`
 		Meta          apiMeta         `json:"meta"`
-	}{1, data, apiMeta{command, version, status, completion}})
+	}{1, data, apiMeta{command, version, status, completion, upsert}})
 	if err != nil {
 		return err
 	}

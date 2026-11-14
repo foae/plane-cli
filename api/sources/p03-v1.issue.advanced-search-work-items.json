@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/issue/advanced-search-work-items.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "cc44ab2e3a333a4fd5c2d7675afd01f77db3cefb8cc17ae9180c263b826088bd",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 4121,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "operation_mappings": [
+    {
+      "command": "work-item advanced-search",
+      "method": "POST",
+      "route": "/api/v1/workspaces/{workspace_slug}/work-items/advanced-search/",
+      "success": "200 nested array; no pagination"
+    }
+  ],
+  "owner": "P03"
+}

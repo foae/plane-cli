@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-items/bulk-update-work-items.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "e6d283a5c8f64372ae06f7fafa1984e04590f1d90892809947368bde49689025",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 8714,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "operation_mappings": [
+    {
+      "command": "work-item bulk-update",
+      "method": "POST",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/bulk-update/",
+      "success": "200 results/succeeded/failed; atomic failure409"
+    }
+  ],
+  "owner": "P03"
+}

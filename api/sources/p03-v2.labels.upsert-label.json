@@ -1,0 +1,27 @@
+{
+  "id": "v2.labels.upsert-label",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "labels",
+  "source_slug": "upsert-label",
+  "command": [
+    "label",
+    "upsert"
+  ],
+  "handler": "label-upsert",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/upsert/",
+  "source_url": "https://developers.plane.so/api-reference/v2/labels/upsert-label.md",
+  "snapshot_sha256": "5fbd4e444bfaed90bf7775ee4b4869add885d0854a24cd831302b67e31d08ed6",
+  "snapshot_bytes": 8821,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/label//upsert"
+  ]
+}

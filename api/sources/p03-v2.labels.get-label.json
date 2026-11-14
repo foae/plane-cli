@@ -1,0 +1,27 @@
+{
+  "id": "v2.labels.get-label",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "labels",
+  "source_slug": "get-label",
+  "command": [
+    "label",
+    "get"
+  ],
+  "handler": "label-get",
+  "scope": "project",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/labels/get-label.md",
+  "snapshot_sha256": "5e72c46d39c29c3173dd740c8d9b049c784de17a9981f3c335bc364fcf19d02a",
+  "snapshot_bytes": 5238,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/label//get"
+  ]
+}

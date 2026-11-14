@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-items/overview.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "c9ce4e2c30e82c80fc91bdf416c2ed966b8f8b7b0e715134918d4d73a93d42d9",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 16537,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "general-guide",
+  "operation_mappings": [],
+  "owner": "P03"
+}

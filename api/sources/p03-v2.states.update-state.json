@@ -1,0 +1,27 @@
+{
+  "id": "v2.states.update-state",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "states",
+  "source_slug": "update-state",
+  "command": [
+    "state",
+    "update"
+  ],
+  "handler": "state-update",
+  "scope": "project",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/states/update-state.md",
+  "snapshot_sha256": "9abd8aefc210ffd71faff9f575849bb1b17ec7bf3dd22db32915226929834e76",
+  "snapshot_bytes": 9778,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/state/project/update"
+  ]
+}

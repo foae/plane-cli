@@ -1,0 +1,27 @@
+{
+  "id": "v2.project-labels.delete-project-label",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "project-labels",
+  "source_slug": "delete-project-label",
+  "command": [
+    "project-label",
+    "delete"
+  ],
+  "handler": "project-label-delete",
+  "scope": "workspace catalog",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/{slug}/project-labels/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-labels/delete-project-label.md",
+  "snapshot_sha256": "94e90f2be81084a6106b2936766dbfc2736a448687e615f36e7b855732e3b232",
+  "snapshot_bytes": 4896,
+  "pagination": "none",
+  "success_statuses": [
+    204
+  ],
+  "side_effect": "delete",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/project-label//delete"
+  ]
+}

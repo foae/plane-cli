@@ -1,0 +1,27 @@
+{
+  "id": "v1.label.list-labels",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "label",
+  "source_slug": "list-labels",
+  "command": [
+    "label",
+    "list"
+  ],
+  "handler": "label-list",
+  "scope": "project",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/labels/",
+  "source_url": "https://developers.plane.so/api-reference/label/list-labels.md",
+  "snapshot_sha256": "e0c2817f2945bdb74dd50e97a5a9627af7448cd89f513b6ca156234498a46945",
+  "snapshot_bytes": 3306,
+  "pagination": "v1",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v1/label//list"
+  ]
+}

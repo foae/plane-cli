@@ -19,7 +19,7 @@ func fixture(t *testing.T) {
 		t.Fatal(err)
 	}
 	dest := t.TempDir()
-	for _, name := range []string{"api", "docs/reference", "internal/spec"} {
+	for _, name := range []string{"api", "docs/reference", "internal"} {
 		if err := filepath.WalkDir(filepath.Join(root, name), func(path string, entry os.DirEntry, walkErr error) error {
 			if walkErr != nil {
 				return walkErr
@@ -32,7 +32,7 @@ func fixture(t *testing.T) {
 			if entry.IsDir() {
 				return os.MkdirAll(target, 0755)
 			}
-			if !strings.HasSuffix(path, ".json") && !strings.HasSuffix(path, ".tsv") {
+			if !strings.HasSuffix(path, ".json") && !strings.HasSuffix(path, ".tsv") && !strings.HasSuffix(path, ".go") {
 				return nil
 			}
 			data, err := os.ReadFile(path)
@@ -84,6 +84,82 @@ func TestPacketCatalog(t *testing.T) {
 	}
 }
 
+func TestRejectUnknownAcceptanceScenario(t *testing.T) {
+	fixture(t)
+	setScenario := func(id string) {
+		t.Helper()
+		rewrite(t, "api/catalog.json", func(c map[string]any) {
+			for _, value := range c["operations"].([]any) {
+				op := value.(map[string]any)
+				if op["lifecycle"] == "implemented" {
+					op["acceptance_scenario_ids"] = []any{id}
+					return
+				}
+			}
+			t.Fatal("fixture has no implemented operation")
+		})
+	}
+	for _, id := range []string{"TestDoesNotExist", "TestProjectWireOperations/v1/does-not-exist", "TestProjectWireOperations/v1/bulk-create", ""} {
+		setScenario(id)
+		if err := run("packet", "P00"); err == nil || !strings.Contains(err.Error(), "unknown acceptance scenario") {
+			t.Fatalf("reference %q: got %v", id, err)
+		}
+	}
+	setScenario("TestProjectWireOperations/v2/bulk-create")
+	if err := run("packet", "P00"); err != nil {
+		t.Fatalf("real scenario rejected: %v", err)
+	}
+}
+
+func TestAcceptanceScenarioDiscovery(t *testing.T) {
+	root := t.TempDir()
+	source := `package scenarios
+import "testing"
+func TestReal(t *testing.T) {
+	for _, version := range []string{"v1", "v2"} {
+		cases := []struct { action string }{{"get"}}
+		if version == "v1" {
+			cases = append(cases, struct { action string }{"legacy"})
+		} else {
+			cases = append(cases, struct { action string }{"bulk"})
+		}
+		for _, row := range cases {
+			t.Run(version+"/"+row.action, func(t *testing.T) {
+				t.Run("nested", func(t *testing.T) {})
+			})
+		}
+	}
+	rows := []struct { version, scope, action string }{{"v2", "", "list"}}
+	for _, row := range rows {
+		t.Run(row.version+"/"+row.scope+"/"+row.action, func(t *testing.T) {})
+	}
+	t.Run("literal", func(t *testing.T) {})
+}
+func Testhelper() {}
+`
+	if err := os.WriteFile(filepath.Join(root, "scenario_test.go"), []byte(source), 0600); err != nil {
+		t.Fatal(err)
+	}
+	// An ordinary source file and a non-test helper are not runnable scenarios.
+	if err := os.WriteFile(filepath.Join(root, "ordinary.go"), []byte("package scenarios\nfunc TestNotATestFile() {}\n"), 0600); err != nil {
+		t.Fatal(err)
+	}
+	names, err := acceptanceScenarios(root)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, name := range []string{"TestReal", "TestReal/v1/get", "TestReal/v2/get", "TestReal/v1/legacy", "TestReal/v2/bulk", "TestReal/v2/bulk/nested", "TestReal/v2//list", "TestReal/literal"} {
+		if !names[name] {
+			t.Errorf("real scenario missing: %q", name)
+		}
+	}
+	for _, name := range []string{"TestBogus", "Testhelper", "TestNotATestFile", "TestReal/bogus", "TestReal/v1/bulk", "TestReal/v2/legacy", "TestReal/v2//bogus"} {
+		if names[name] {
+			t.Errorf("bogus scenario discovered: %q", name)
+		}
+	}
+}
+
 func TestRejectIncompleteRelease(t *testing.T) {
 	fixture(t)
 	rewrite(t, "api/catalog.json", func(c map[string]any) {
@@ -113,7 +189,11 @@ func TestRejectCoverageAndEvidenceFailures(t *testing.T) {
 		{"missing-evidence-file", "api/provenance.json", func(c map[string]any) {
 			c["sources"].([]any)[0].(map[string]any)["evidence_path"] = "api/sources/missing.json"
 		}, "missing.json"},
-		{"invented-verified-status", "api/catalog.json", func(c map[string]any) { c["operations"].([]any)[0].(map[string]any)["lifecycle"] = "verified" }, "lacks callable descriptor"},
+		{"invented-verified-status", "api/catalog.json", func(c map[string]any) {
+			op := c["operations"].([]any)[0].(map[string]any)
+			op["lifecycle"] = "verified"
+			op["acceptance_scenario_ids"] = []any{"TestPacketCatalog"}
+		}, "lacks callable descriptor"},
 		{"duplicate-operation", "api/catalog.json", func(c map[string]any) {
 			ops := c["operations"].([]any)
 			var op map[string]any
@@ -182,9 +262,10 @@ func TestRejectVerificationWithoutApproval(t *testing.T) {
 		op := c["operations"].([]any)[0].(map[string]any)
 		op["command_path"] = command["path"]
 		op["lifecycle"] = "verified"
+		op["acceptance_scenario_ids"] = []any{"TestPacketCatalog"}
 		op["verification"] = map[string]any{"operation": "api/sources/v1-project-get.json", "expected_fixtures": "api/sources/v1-project-get.json", "acceptance_command": "api/sources/v1-project-get.json", "acceptance_result": "api/sources/v1-project-get.json"}
 	})
-	if err := run("packet", "P00"); err == nil || !strings.Contains(err.Error(), "verification v1-project-get") {
+	if err := run("packet", "P00"); err == nil || !strings.Contains(err.Error(), "verification ") {
 		t.Fatalf("got %v", err)
 	}
 }
@@ -285,10 +366,22 @@ func TestCompletionReconciliation(t *testing.T) {
 	for _, mode := range []string{"packet", "release"} {
 		t.Run(mode, func(t *testing.T) {
 			fixture(t)
+			var operationID string
 			rewrite(t, "api/catalog.json", func(c map[string]any) {
 				command := discoveryCommand(c)
 				command["local"] = false
-				op := c["operations"].([]any)[0].(map[string]any)
+				var op map[string]any
+				for _, value := range c["operations"].([]any) {
+					candidate := value.(map[string]any)
+					if candidate["packet"] == "P03" {
+						op = candidate
+						break
+					}
+				}
+				if op == nil {
+					t.Fatal("fixture has no P03 operation")
+				}
+				operationID = op["id"].(string)
 				op["command_path"] = command["path"]
 				op["lifecycle"] = "verified"
 				evidence := "api/sources/v1-project-get.json"
@@ -310,7 +403,7 @@ func TestCompletionReconciliation(t *testing.T) {
 				t.Fatalf("omitted verified operation accepted: %v", err)
 			}
 			rewrite(t, "api/catalog.json", func(c map[string]any) {
-				c["packet_completion"].(map[string]any)["P03"].(map[string]any)["completed_operation_ids"] = []any{"v1-project-get"}
+				c["packet_completion"].(map[string]any)["P03"].(map[string]any)["completed_operation_ids"] = []any{operationID}
 			})
 			if mode == "packet" {
 				if err := run(mode, packet); err != nil {

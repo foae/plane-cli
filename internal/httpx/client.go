@@ -32,6 +32,7 @@ type Client struct {
 type Response struct {
 	Data   json.RawMessage
 	Status int
+	Upsert string
 }
 
 // Error contains only normalized, safe diagnostic fields.
@@ -107,6 +108,15 @@ func RequestURL(base string, segments []string, query url.Values) (string, error
 }
 
 func (c *Client) Do(ctx context.Context, method string, segments []string, query url.Values, body json.RawMessage, headerName, token string) (Response, error) {
+	return c.do(ctx, method, segments, query, body, headerName, token, method != http.MethodGet && method != http.MethodHead && method != http.MethodOptions)
+}
+
+// DoRead sends an operation declared read-only, independently of its HTTP method.
+func (c *Client) DoRead(ctx context.Context, method string, segments []string, query url.Values, body json.RawMessage, headerName, token string) (Response, error) {
+	return c.do(ctx, method, segments, query, body, headerName, token, false)
+}
+
+func (c *Client) do(ctx context.Context, method string, segments []string, query url.Values, body json.RawMessage, headerName, token string, mutation bool) (Response, error) {
 	requestURL, err := RequestURL(c.base, segments, query)
 	if err != nil {
 		return Response{}, err
@@ -130,13 +140,15 @@ func (c *Client) Do(ctx context.Context, method string, segments []string, query
 	if headerName != "" {
 		req.Header.Set(headerName, token)
 	}
-	mutation := method != http.MethodGet && method != http.MethodHead && method != http.MethodOptions
 	resp, err := c.http.Do(req)
 	if err != nil {
 		return Response{}, requestError(ctx, err, mutation, 0)
 	}
 	defer func() { _ = resp.Body.Close() }()
 	result := Response{Status: resp.StatusCode}
+	if upsert := resp.Header.Get("X-Plane-Upsert"); upsert == "created" || upsert == "updated" {
+		result.Upsert = upsert
+	}
 	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
 		e := &Error{Code: "api_error", Message: "API request rejected", Status: resp.StatusCode, Exit: 5, RetryAfterSeconds: retryAfter(resp.Header.Get("Retry-After"), time.Now()), OutcomeUnknown: mutation && resp.StatusCode >= 500}
 		if resp.StatusCode == 401 || resp.StatusCode == 403 {

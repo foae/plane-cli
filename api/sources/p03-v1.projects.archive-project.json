@@ -1,0 +1,27 @@
+{
+  "id": "v1.projects.archive-project",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "project",
+  "source_slug": "archive-project",
+  "command": [
+    "project",
+    "archive"
+  ],
+  "handler": "project-archive",
+  "scope": "workspace",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/archive/",
+  "source_url": "https://developers.plane.so/api-reference/project/archive-project.md",
+  "snapshot_sha256": "bb0c6d3c4a2abc6073ddd3485e886a4c114de4d276f954be5edaaccd4fa95820",
+  "snapshot_bytes": 2007,
+  "pagination": "none",
+  "success_statuses": [
+    204
+  ],
+  "side_effect": "destructive",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v1/archive"
+  ]
+}

@@ -29,13 +29,16 @@ type Command struct {
 }
 
 type Variant struct {
-	Schema       json.RawMessage `json:"schema"`
-	Flags        []Flag          `json:"flags"`
-	Method       string          `json:"method,omitempty"`
-	Route        string          `json:"route,omitempty"`
-	ResponseKind string          `json:"response_kind,omitempty"`
-	Scopes       []string        `json:"scopes,omitempty"`
-	Sensitivity  json.RawMessage `json:"sensitivity,omitempty"`
+	Schema       json.RawMessage   `json:"schema"`
+	Flags        []Flag            `json:"flags"`
+	Method       string            `json:"method,omitempty"`
+	Route        string            `json:"route,omitempty"`
+	Routes       map[string]string `json:"routes,omitempty"`
+	Pagination   string            `json:"pagination,omitempty"`
+	TableColumns []string          `json:"table_columns,omitempty"`
+	ResponseKind string            `json:"response_kind,omitempty"`
+	Scopes       []string          `json:"scopes,omitempty"`
+	Sensitivity  json.RawMessage   `json:"sensitivity,omitempty"`
 }
 
 type Flag struct {
@@ -151,8 +154,8 @@ func checkBinding(raw json.RawMessage, f Flag) error {
 		return err
 	}
 	parts := strings.Split(f.Binding, "/")
-	if len(parts) < 3 || parts[0] != "" || (parts[1] != "flags" && parts[1] != "body") {
-		return errors.New("flag must bind to a flags/body schema property")
+	if len(parts) < 3 || parts[0] != "" || (parts[1] != "flags" && parts[1] != "body" && parts[1] != "query") {
+		return errors.New("flag must bind to a flags/body/query schema property")
 	}
 	required := true
 	for _, part := range parts[1:] {
@@ -173,7 +176,12 @@ func checkBinding(raw json.RawMessage, f Flag) error {
 		}
 		schema = next
 	}
-	if schema["type"] != f.Type || required != f.Required {
+	typeMatches := schema["type"] == f.Type
+	if types, ok := schema["type"].([]any); ok {
+		typeMatches = slices.Contains(types, any(f.Type))
+	}
+	bodyConvenience := parts[1] == "body" && !f.Required
+	if !typeMatches || (required != f.Required && !bodyConvenience) {
 		return errors.New("flag type/requiredness differs from schema")
 	}
 	return nil

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-items/bulk-delete-work-items.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "b6ea44913ee48bd92241e62efaa75a2f2310f86be1e5de592b7120cc921e429e",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 8190,
+  "retrieval": "curl -fsSL --max-time 60",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "operation_mappings": [
+    {
+      "command": "work-item bulk-delete",
+      "method": "POST",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/bulk-delete/",
+      "success": "200 results/succeeded/failed; atomic failure409"
+    }
+  ],
+  "owner": "P03"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "v2.projects.bulk-create-projects",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "projects",
+  "source_slug": "bulk-create-projects",
+  "command": [
+    "project",
+    "bulk-create"
+  ],
+  "handler": "project-bulk-create",
+  "scope": "workspace",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/bulk-create/",
+  "source_url": "https://developers.plane.so/api-reference/v2/projects/bulk-create-projects.md",
+  "snapshot_sha256": "87810b50dc5c16b78a19b9fd28e8d767d572432400213a3d0832315cedb6bd5f",
+  "snapshot_bytes": 8243,
+  "pagination": "none",
+  "success_statuses": [
+    200,
+    409
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v2/bulk-create"
+  ]
+}

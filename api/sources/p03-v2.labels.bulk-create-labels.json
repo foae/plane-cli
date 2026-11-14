@@ -1,0 +1,27 @@
+{
+  "id": "v2.labels.bulk-create-labels",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "labels",
+  "source_slug": "bulk-create-labels",
+  "command": [
+    "label",
+    "bulk-create"
+  ],
+  "handler": "label-bulk-create",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/bulk-create/",
+  "source_url": "https://developers.plane.so/api-reference/v2/labels/bulk-create-labels.md",
+  "snapshot_sha256": "105b111b3a76c9a3ddc62b9838de66e1e981374197ad024721163f982a82bbb9",
+  "snapshot_bytes": 10018,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/label//bulk-create"
+  ]
+}

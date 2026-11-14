@@ -21,6 +21,37 @@ import (
 	"github.com/spf13/cobra"
 )
 
+func TestCurrentUser(t *testing.T) {
+	for _, version := range []string{"v1", "v2"} {
+		t.Run(version, func(t *testing.T) {
+			transportEnv(t)
+			t.Setenv("PLANE_CLI_API_VERSION", version)
+			t.Setenv("PLANE_CLI_API_KEY", "identity-canary")
+			calls := 0
+			server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				calls++
+				if r.Method != http.MethodGet || r.URL.RequestURI() != "/prefix/api/"+version+"/users/me/" {
+					t.Errorf("unexpected request: %s %s", r.Method, r.URL.RequestURI())
+				}
+				if r.Header.Get("X-Api-Key") != "identity-canary" || r.Header.Get("Authorization") != "" {
+					t.Error("wrong identity authentication")
+				}
+				w.Header().Set("Content-Type", "application/json")
+				_, _ = w.Write([]byte(`{"id":"principal","unknown":9007199254740993,"scopes":[]}`))
+			}))
+			defer server.Close()
+			catalog, err := spec.Load()
+			if err != nil {
+				t.Fatal(err)
+			}
+			code, stdout, stderr := invoke(t, catalog, []string{"user", "me", "--base-url", server.URL + "/prefix"}, nil)
+			if code != 0 || stderr != "" || calls != 1 || !strings.Contains(stdout, `"unknown":9007199254740993`) || !strings.Contains(stdout, `"id":"principal"`) {
+				t.Fatalf("identity: code=%d calls=%d stdout=%s stderr=%s", code, calls, stdout, stderr)
+			}
+		})
+	}
+}
+
 func transportCatalog(t *testing.T) (spec.Catalog, map[string]handler) {
 	t.Helper()
 	c, e := spec.Load()

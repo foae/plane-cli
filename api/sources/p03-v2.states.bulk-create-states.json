@@ -1,0 +1,27 @@
+{
+  "id": "v2.states.bulk-create-states",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "states",
+  "source_slug": "bulk-create-states",
+  "command": [
+    "state",
+    "bulk-create"
+  ],
+  "handler": "state-bulk-create",
+  "scope": "project",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/bulk-create/",
+  "source_url": "https://developers.plane.so/api-reference/v2/states/bulk-create-states.md",
+  "snapshot_sha256": "bd1b8b8da1006a7fe4c2a6aa8fb320b53dd87d412710fb2041c80b1c89220778",
+  "snapshot_bytes": 8720,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/state/project/bulk-create"
+  ]
+}

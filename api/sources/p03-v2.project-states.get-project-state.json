@@ -1,0 +1,27 @@
+{
+  "id": "v2.project-states.get-project-state",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "project-states",
+  "source_slug": "get-project-state",
+  "command": [
+    "project-state",
+    "get"
+  ],
+  "handler": "project-state-get",
+  "scope": "workspace catalog",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/project-states/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-states/get-project-state.md",
+  "snapshot_sha256": "de3e249b15bffe00b2607a08cc6c91ca1965914be465bed99f43e3cbb73da93d",
+  "snapshot_bytes": 4596,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v2/project-state//get"
+  ]
+}

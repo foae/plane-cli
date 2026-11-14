@@ -1,0 +1,27 @@
+{
+  "id": "v1.state.get-state-detail",
+  "owner": "P03",
+  "version": "v1",
+  "source_group": "state",
+  "source_slug": "get-state-detail",
+  "command": [
+    "state",
+    "get"
+  ],
+  "handler": "state-get",
+  "scope": "project",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/states/{state_id}/",
+  "source_url": "https://developers.plane.so/api-reference/state/get-state-detail.md",
+  "snapshot_sha256": "43d948ea93758d33f3085fd45be2f430bdb4b039aa2576b552b4ff215fc76328",
+  "snapshot_bytes": 2359,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestStateLabelRequests/v1/state/project/get"
+  ]
+}

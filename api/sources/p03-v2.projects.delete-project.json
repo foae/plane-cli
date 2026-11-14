@@ -1,0 +1,28 @@
+{
+  "id": "v2.projects.delete-project",
+  "owner": "P03",
+  "version": "v2",
+  "source_group": "projects",
+  "source_slug": "delete-project",
+  "command": [
+    "project",
+    "delete"
+  ],
+  "handler": "project-delete",
+  "scope": "workspace",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/{slug}/projects/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/projects/delete-project.md",
+  "snapshot_sha256": "e823cd7b9b427fed3f9188cd46c20fabf5daaaf3a4188f47769e1f6331ba1823",
+  "snapshot_bytes": 5236,
+  "pagination": "none",
+  "success_statuses": [
+    204,
+    404
+  ],
+  "side_effect": "destructive",
+  "state": "implemented",
+  "acceptance_scenarios": [
+    "TestProjectWireOperations/v2/delete"
+  ]
+}
