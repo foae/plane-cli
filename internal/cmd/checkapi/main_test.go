@@ -177,7 +177,7 @@ func TestRejectVerificationWithoutApproval(t *testing.T) {
 	fixture(t)
 	// A real handler/descriptor link alone cannot certify an operation.
 	rewrite(t, "api/catalog.json", func(c map[string]any) {
-		command := c["commands"].([]any)[1].(map[string]any)
+		command := discoveryCommand(c)
 		command["local"] = false
 		op := c["operations"].([]any)[0].(map[string]any)
 		op["command_path"] = command["path"]
@@ -286,7 +286,7 @@ func TestCompletionReconciliation(t *testing.T) {
 		t.Run(mode, func(t *testing.T) {
 			fixture(t)
 			rewrite(t, "api/catalog.json", func(c map[string]any) {
-				command := c["commands"].([]any)[1].(map[string]any)
+				command := discoveryCommand(c)
 				command["local"] = false
 				op := c["operations"].([]any)[0].(map[string]any)
 				op["command_path"] = command["path"]
@@ -325,7 +325,20 @@ func TestCompletionReconciliation(t *testing.T) {
 
 func TestReleaseRequiresEveryCompletionDeclaration(t *testing.T) {
 	fixture(t)
+	rewrite(t, "api/catalog.json", func(c map[string]any) {
+		delete(c["packet_completion"].(map[string]any), "P01")
+	})
 	if err := run("release", "P00"); err == nil || !strings.Contains(err.Error(), "packet completion declaration missing: P01") {
 		t.Fatalf("missing release declaration accepted: %v", err)
 	}
+}
+
+func discoveryCommand(c map[string]any) map[string]any {
+	for _, value := range c["commands"].([]any) {
+		command := value.(map[string]any)
+		if command["handler"] == "commands" {
+			return command
+		}
+	}
+	panic("fixture has no commands descriptor")
 }

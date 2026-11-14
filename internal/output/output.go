@@ -11,10 +11,15 @@ type Meta struct {
 }
 
 type Error struct {
-	Code    string `json:"code"`
-	Message string `json:"message"`
-	Command string `json:"command"`
-	Exit    int    `json:"-"`
+	Code              string `json:"code"`
+	Message           string `json:"message"`
+	Command           string `json:"command"`
+	Exit              int    `json:"-"`
+	APIVersion        string `json:"api_version,omitempty"`
+	HTTPStatus        int    `json:"http_status,omitempty"`
+	RetryAfterSeconds *int   `json:"retry_after_seconds,omitempty"`
+	OutcomeUnknown    bool   `json:"outcome_unknown,omitempty"`
+	RemoteChanged     bool   `json:"remote_changed,omitempty"`
 }
 
 func (e *Error) Error() string { return e.Message }

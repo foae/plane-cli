@@ -96,3 +96,21 @@ func TestRepeatedHeadingAnchors(t *testing.T) {
 		t.Fatalf("anchors: %v", ids)
 	}
 }
+
+func TestConfigurationExamplesAreIsolated(t *testing.T) {
+	docsFixture(t)
+	home := t.TempDir()
+	t.Setenv("PLANE_CLI_CONFIG_DIR", home)
+	t.Setenv("PLANE_CLI_TIMEOUT", "invalid")
+	put(t, "docs/usage.md", "plane-cli connection add example --base-url http://example.test --api-version v2\nplane-cli connection use example\nplane-cli connection delete example --yes\n")
+	if err := usageExamples(); err != nil {
+		t.Fatal(err)
+	}
+	entries, err := os.ReadDir(home)
+	if err != nil || len(entries) != 0 {
+		t.Fatalf("examples modified original configuration: %v %v", entries, err)
+	}
+	if os.Getenv("PLANE_CLI_CONFIG_DIR") != home || os.Getenv("PLANE_CLI_TIMEOUT") != "invalid" {
+		t.Fatal("examples did not restore settings")
+	}
+}

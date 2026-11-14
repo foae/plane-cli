@@ -14,7 +14,9 @@ import (
 
 type handler func(*cobra.Command, []string, map[string]any) error
 
-func HandlerIDs() []string { return []string{"commands", "schema", "version"} }
+func HandlerIDs() []string {
+	return []string{"commands", "schema", "version", "connection-add", "connection-update", "connection-list", "connection-show", "connection-use", "connection-delete", "auth-status"}
+}
 
 func commandName(cmd *cobra.Command) string {
 	if cmd == nil || cmd.Parent() == nil {
@@ -64,6 +66,9 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 		},
 		"commands": commandsHandler(catalog, out),
 		"schema":   schemaHandler(catalog, out),
+	}
+	for id, h := range connectionHandlers(out) {
+		handlers[id] = h
 	}
 	for id, h := range extra {
 		handlers[id] = h
@@ -133,7 +138,14 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 				return err
 			}
 			version := "v2"
-			if cmd.Flags().Lookup("api-version") != nil {
+			if !d.Local {
+				resolved, err := effectiveAPIVersion(cmd)
+				if err != nil {
+					return err
+				}
+				version = resolved
+			}
+			if cmd.Flags().Lookup("api-version") != nil && d.Local && (d.Handler == "schema" || d.Handler == "commands") {
 				version, _ = cmd.Flags().GetString("api-version")
 				if version != "v1" && version != "v2" {
 					return errors.New("explicit API version required")
@@ -150,11 +162,17 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 			allowed := make(map[string]spec.Flag)
 			for _, f := range variant.Flags {
 				allowed[f.Name] = f
-				if f.Required && !cmd.Flags().Changed(f.Name) {
+				if f.Required && !cmd.Flags().Changed(f.Name) && (d.Local || f.Name != "api-version") {
 					return &output.Error{Code: "usage_error", Message: "Missing required flag --" + f.Name, Command: commandName(cmd), Exit: 2}
 				}
 			}
 			for name, f := range flags {
+				if !d.Local && name == "api-version" {
+					if err := bind(input, f.Binding, version); err != nil {
+						return err
+					}
+					continue
+				}
 				if !cmd.Flags().Changed(name) {
 					continue
 				}

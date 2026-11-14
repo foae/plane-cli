@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"io"
+	"unicode/utf8"
 
 	"github.com/santhosh-tekuri/jsonschema/v6"
 )
@@ -15,7 +16,12 @@ var ErrInput = errors.New("input does not match the command schema")
 
 // Decode preserves numbers and rejects duplicate keys at every depth and trailing values.
 func Decode(data []byte) (any, error) {
-	if len(data) > MaxInputBytes {
+	return DecodeWithLimit(data, MaxInputBytes)
+}
+
+// DecodeWithLimit applies the caller's input or response byte limit.
+func DecodeWithLimit(data []byte, maxBytes int) (any, error) {
+	if len(data) > maxBytes || !utf8.Valid(data) {
 		return nil, ErrInput
 	}
 	d := json.NewDecoder(bytes.NewReader(data))

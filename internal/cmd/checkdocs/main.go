@@ -277,6 +277,34 @@ func usageExamples() error {
 	if err != nil {
 		return err
 	}
+	dir, err := os.MkdirTemp("", "plane-docs-config-*")
+	if err != nil {
+		return err
+	}
+	defer func() { _ = os.RemoveAll(dir) }()
+	dir, err = filepath.EvalSymlinks(dir)
+	if err != nil {
+		return err
+	}
+	// Local now includes configuration writes, not just offline discovery.
+	// Isolate every CLI override and restore the caller's environment afterward.
+	for _, name := range []string{"CONFIG_DIR", "CONNECTION", "BASE_URL", "API_VERSION", "API_KEY", "ACCESS_TOKEN", "AUTH_MODE", "CREDENTIAL_BACKEND", "TIMEOUT", "REQUEST_TIMEOUT", "CA_FILE", "WORKSPACE", "PROJECT"} {
+		key := "PLANE_CLI_" + name
+		value, present := os.LookupEnv(key)
+		defer func() {
+			if present {
+				_ = os.Setenv(key, value)
+			} else {
+				_ = os.Unsetenv(key)
+			}
+		}()
+		if err := os.Unsetenv(key); err != nil {
+			return err
+		}
+	}
+	if err := os.Setenv("PLANE_CLI_CONFIG_DIR", dir); err != nil {
+		return err
+	}
 	count := 0
 	for _, line := range strings.Split(string(data), "\n") {
 		line = strings.TrimSpace(line)
@@ -304,7 +332,7 @@ func usageExamples() error {
 			return fmt.Errorf("docs/usage.md: example is not an implemented local command: %s", line)
 		}
 		var diagnostics bytes.Buffer
-		if code := cli.Run(context.Background(), args, cli.Streams{In: strings.NewReader(""), Out: io.Discard, Err: &diagnostics}, cli.Build{}); code != 0 || diagnostics.Len() != 0 {
+		if code := cli.Run(context.Background(), args, cli.Streams{In: strings.NewReader(""), Out: io.Discard, Err: &diagnostics}, cli.Build{}); code != 0 {
 			return fmt.Errorf("docs/usage.md: local example failed with exit %d: %s", code, line)
 		}
 		count++

@@ -44,14 +44,14 @@ func Run(ctx context.Context, args []string, streams Streams, build Build) int {
 
 func run(ctx context.Context, args []string, streams Streams, build Build, catalog spec.Catalog, extra map[string]handler) int {
 	out := &checkedWriter{Writer: streams.Out}
-	root, err := newRoot(catalog, build, out, extra)
+	root, err := newRoot(catalog, build, out, extra) //nolint:contextcheck // Handlers inherit ctx through Cobra ExecuteContextC and cmd.Context().
 	if err != nil {
 		return report(streams.Err, &output.Error{Code: "local_error", Message: "Embedded command catalog is invalid", Command: "plane-cli", Exit: 1})
 	}
 	root.SetIn(streams.In)
 	root.SetOut(out)
-	// Cobra diagnostics never go directly to stderr: one boundary renders safe JSON.
-	root.SetErr(io.Discard)
+	// Cobra usage/errors are silenced; deliberate structured warnings use stderr.
+	root.SetErr(streams.Err)
 	root.SetArgs(args)
 	cmd := root
 	err = ctx.Err()
@@ -63,6 +63,10 @@ func run(ctx context.Context, args []string, streams Streams, build Build, catal
 		}
 		cmd, err = root.ExecuteContextC(ctx)
 	}
+	var safe *output.Error
+	if errors.As(err, &safe) && safe.Exit == 6 {
+		return report(streams.Err, safe)
+	}
 	if out.err != nil {
 		return report(streams.Err, &output.Error{Code: "output_error", Message: "Could not write command output", Command: commandName(cmd), Exit: 1})
 	}
@@ -70,14 +74,14 @@ func run(ctx context.Context, args []string, streams Streams, build Build, catal
 	if err == nil {
 		return 0
 	}
-	if ctx.Err() != nil {
+	if ctx.Err() != nil && !errors.As(err, &safe) {
 		exit, code, message := 130, "interrupted", "Command interrupted"
 		if errors.Is(ctx.Err(), context.DeadlineExceeded) {
 			exit, code, message = 4, "deadline_exceeded", "Command deadline exceeded"
 		}
 		return report(streams.Err, &output.Error{Code: code, Message: message, Command: commandName(cmd), Exit: exit})
 	}
-	var safe *output.Error
+	// Preserve mutation uncertainty even when the parent context was cancelled.
 	if errors.As(err, &safe) {
 		return report(streams.Err, safe)
 	}

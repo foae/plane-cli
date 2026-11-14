@@ -3,6 +3,309 @@
   "commands": [
     {
       "path": [
+        "auth",
+        "status"
+      ],
+      "handler": "auth-status",
+      "summary": "Inspect effective credential status without revealing tokens",
+      "side_effect": "none",
+      "examples": [
+        "plane-cli auth status"
+      ],
+      "versions": {
+        "v1": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "maxItems": 0
+              },
+              "flags": {
+                "type": "object",
+                "properties": {
+                  "connection": {
+                    "type": "string"
+                  },
+                  "base-url": {
+                    "type": "string"
+                  },
+                  "api-version": {
+                    "type": "string",
+                    "enum": [
+                      "v1",
+                      "v2"
+                    ]
+                  },
+                  "workspace": {
+                    "type": "string"
+                  },
+                  "project": {
+                    "type": "string"
+                  },
+                  "auth-mode": {
+                    "type": "string",
+                    "enum": [
+                      "api-key",
+                      "bearer",
+                      "external"
+                    ]
+                  },
+                  "credential-backend": {
+                    "type": "string",
+                    "enum": [
+                      "file",
+                      "keyring",
+                      "env"
+                    ]
+                  },
+                  "timeout": {
+                    "type": "string"
+                  },
+                  "request-timeout": {
+                    "type": "string"
+                  },
+                  "ca-file": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": [
+            {
+              "name": "connection",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/connection",
+              "description": "Select a named connection"
+            },
+            {
+              "name": "base-url",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/base-url",
+              "description": "Instance origin and optional proxy prefix"
+            },
+            {
+              "name": "api-version",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/api-version",
+              "description": "Explicit API generation v1 or v2"
+            },
+            {
+              "name": "workspace",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/workspace",
+              "description": "Default workspace"
+            },
+            {
+              "name": "project",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/project",
+              "description": "Default project"
+            },
+            {
+              "name": "auth-mode",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/auth-mode",
+              "description": "api-key, bearer or external"
+            },
+            {
+              "name": "credential-backend",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/credential-backend",
+              "description": "file, keyring or env; persistence arrives with OAuth"
+            },
+            {
+              "name": "timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/timeout",
+              "description": "Total positive duration (default 5m)"
+            },
+            {
+              "name": "request-timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/request-timeout",
+              "description": "Per-request positive duration (default 30s)"
+            },
+            {
+              "name": "ca-file",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/ca-file",
+              "description": "Additional PEM CA certificates"
+            }
+          ]
+        },
+        "v2": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "maxItems": 0
+              },
+              "flags": {
+                "type": "object",
+                "properties": {
+                  "connection": {
+                    "type": "string"
+                  },
+                  "base-url": {
+                    "type": "string"
+                  },
+                  "api-version": {
+                    "type": "string",
+                    "enum": [
+                      "v1",
+                      "v2"
+                    ]
+                  },
+                  "workspace": {
+                    "type": "string"
+                  },
+                  "project": {
+                    "type": "string"
+                  },
+                  "auth-mode": {
+                    "type": "string",
+                    "enum": [
+                      "api-key",
+                      "bearer",
+                      "external"
+                    ]
+                  },
+                  "credential-backend": {
+                    "type": "string",
+                    "enum": [
+                      "file",
+                      "keyring",
+                      "env"
+                    ]
+                  },
+                  "timeout": {
+                    "type": "string"
+                  },
+                  "request-timeout": {
+                    "type": "string"
+                  },
+                  "ca-file": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": [
+            {
+              "name": "connection",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/connection",
+              "description": "Select a named connection"
+            },
+            {
+              "name": "base-url",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/base-url",
+              "description": "Instance origin and optional proxy prefix"
+            },
+            {
+              "name": "api-version",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/api-version",
+              "description": "Explicit API generation v1 or v2"
+            },
+            {
+              "name": "workspace",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/workspace",
+              "description": "Default workspace"
+            },
+            {
+              "name": "project",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/project",
+              "description": "Default project"
+            },
+            {
+              "name": "auth-mode",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/auth-mode",
+              "description": "api-key, bearer or external"
+            },
+            {
+              "name": "credential-backend",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/credential-backend",
+              "description": "file, keyring or env; persistence arrives with OAuth"
+            },
+            {
+              "name": "timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/timeout",
+              "description": "Total positive duration (default 5m)"
+            },
+            {
+              "name": "request-timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/request-timeout",
+              "description": "Per-request positive duration (default 30s)"
+            },
+            {
+              "name": "ca-file",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/ca-file",
+              "description": "Additional PEM CA certificates"
+            }
+          ]
+        }
+      },
+      "local": true
+    },
+    {
+      "path": [
         "commands"
       ],
       "handler": "commands",
@@ -103,6 +406,1180 @@
               "description": "Explicit API generation (v1 or v2)"
             }
           ]
+        }
+      },
+      "local": true
+    },
+    {
+      "path": [
+        "connection",
+        "add"
+      ],
+      "handler": "connection-add",
+      "summary": "Add named connection configuration",
+      "side_effect": "local",
+      "examples": [
+        "plane-cli connection add example --base-url https://plane.example.net --api-version v2"
+      ],
+      "versions": {
+        "v1": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 1
+              },
+              "flags": {
+                "type": "object",
+                "properties": {
+                  "base-url": {
+                    "type": "string"
+                  },
+                  "api-version": {
+                    "type": "string",
+                    "enum": [
+                      "v1",
+                      "v2"
+                    ]
+                  },
+                  "workspace": {
+                    "type": "string"
+                  },
+                  "project": {
+                    "type": "string"
+                  },
+                  "auth-mode": {
+                    "type": "string",
+                    "enum": [
+                      "api-key",
+                      "bearer",
+                      "external"
+                    ]
+                  },
+                  "credential-backend": {
+                    "type": "string",
+                    "enum": [
+                      "file",
+                      "keyring",
+                      "env"
+                    ]
+                  },
+                  "timeout": {
+                    "type": "string"
+                  },
+                  "request-timeout": {
+                    "type": "string"
+                  },
+                  "ca-file": {
+                    "type": "string"
+                  },
+                  "dry-run": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "base-url",
+                  "api-version"
+                ]
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": [
+            {
+              "name": "base-url",
+              "type": "string",
+              "required": true,
+              "binding": "/flags/base-url",
+              "description": "Instance origin and optional proxy prefix"
+            },
+            {
+              "name": "api-version",
+              "type": "string",
+              "required": true,
+              "binding": "/flags/api-version",
+              "description": "Explicit API generation v1 or v2"
+            },
+            {
+              "name": "workspace",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/workspace",
+              "description": "Default workspace"
+            },
+            {
+              "name": "project",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/project",
+              "description": "Default project"
+            },
+            {
+              "name": "auth-mode",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/auth-mode",
+              "description": "api-key, bearer or external"
+            },
+            {
+              "name": "credential-backend",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/credential-backend",
+              "description": "file, keyring or env; persistence arrives with OAuth"
+            },
+            {
+              "name": "timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/timeout",
+              "description": "Total positive duration (default 5m)"
+            },
+            {
+              "name": "request-timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/request-timeout",
+              "description": "Per-request positive duration (default 30s)"
+            },
+            {
+              "name": "ca-file",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/ca-file",
+              "description": "Additional PEM CA certificates"
+            },
+            {
+              "name": "dry-run",
+              "type": "boolean",
+              "required": false,
+              "binding": "/flags/dry-run",
+              "description": "Validate without changing configuration"
+            }
+          ]
+        },
+        "v2": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 1
+              },
+              "flags": {
+                "type": "object",
+                "properties": {
+                  "base-url": {
+                    "type": "string"
+                  },
+                  "api-version": {
+                    "type": "string",
+                    "enum": [
+                      "v1",
+                      "v2"
+                    ]
+                  },
+                  "workspace": {
+                    "type": "string"
+                  },
+                  "project": {
+                    "type": "string"
+                  },
+                  "auth-mode": {
+                    "type": "string",
+                    "enum": [
+                      "api-key",
+                      "bearer",
+                      "external"
+                    ]
+                  },
+                  "credential-backend": {
+                    "type": "string",
+                    "enum": [
+                      "file",
+                      "keyring",
+                      "env"
+                    ]
+                  },
+                  "timeout": {
+                    "type": "string"
+                  },
+                  "request-timeout": {
+                    "type": "string"
+                  },
+                  "ca-file": {
+                    "type": "string"
+                  },
+                  "dry-run": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "base-url",
+                  "api-version"
+                ]
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": [
+            {
+              "name": "base-url",
+              "type": "string",
+              "required": true,
+              "binding": "/flags/base-url",
+              "description": "Instance origin and optional proxy prefix"
+            },
+            {
+              "name": "api-version",
+              "type": "string",
+              "required": true,
+              "binding": "/flags/api-version",
+              "description": "Explicit API generation v1 or v2"
+            },
+            {
+              "name": "workspace",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/workspace",
+              "description": "Default workspace"
+            },
+            {
+              "name": "project",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/project",
+              "description": "Default project"
+            },
+            {
+              "name": "auth-mode",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/auth-mode",
+              "description": "api-key, bearer or external"
+            },
+            {
+              "name": "credential-backend",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/credential-backend",
+              "description": "file, keyring or env; persistence arrives with OAuth"
+            },
+            {
+              "name": "timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/timeout",
+              "description": "Total positive duration (default 5m)"
+            },
+            {
+              "name": "request-timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/request-timeout",
+              "description": "Per-request positive duration (default 30s)"
+            },
+            {
+              "name": "ca-file",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/ca-file",
+              "description": "Additional PEM CA certificates"
+            },
+            {
+              "name": "dry-run",
+              "type": "boolean",
+              "required": false,
+              "binding": "/flags/dry-run",
+              "description": "Validate without changing configuration"
+            }
+          ]
+        }
+      },
+      "local": true
+    },
+    {
+      "path": [
+        "connection",
+        "delete"
+      ],
+      "handler": "connection-delete",
+      "summary": "Delete named connection configuration",
+      "side_effect": "local",
+      "examples": [
+        "plane-cli connection delete example --yes"
+      ],
+      "versions": {
+        "v1": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 1
+              },
+              "flags": {
+                "type": "object",
+                "properties": {
+                  "yes": {
+                    "type": "boolean"
+                  },
+                  "dry-run": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": [
+            {
+              "name": "yes",
+              "type": "boolean",
+              "required": false,
+              "binding": "/flags/yes",
+              "description": "Confirm destructive action"
+            },
+            {
+              "name": "dry-run",
+              "type": "boolean",
+              "required": false,
+              "binding": "/flags/dry-run",
+              "description": "Validate without changing configuration"
+            }
+          ]
+        },
+        "v2": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 1
+              },
+              "flags": {
+                "type": "object",
+                "properties": {
+                  "yes": {
+                    "type": "boolean"
+                  },
+                  "dry-run": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": [
+            {
+              "name": "yes",
+              "type": "boolean",
+              "required": false,
+              "binding": "/flags/yes",
+              "description": "Confirm destructive action"
+            },
+            {
+              "name": "dry-run",
+              "type": "boolean",
+              "required": false,
+              "binding": "/flags/dry-run",
+              "description": "Validate without changing configuration"
+            }
+          ]
+        }
+      },
+      "local": true
+    },
+    {
+      "path": [
+        "connection",
+        "list"
+      ],
+      "handler": "connection-list",
+      "summary": "List named connection configuration",
+      "side_effect": "none",
+      "examples": [
+        "plane-cli connection list"
+      ],
+      "versions": {
+        "v1": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "maxItems": 0
+              },
+              "flags": {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": []
+        },
+        "v2": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "maxItems": 0
+              },
+              "flags": {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": []
+        }
+      },
+      "local": true
+    },
+    {
+      "path": [
+        "connection",
+        "show"
+      ],
+      "handler": "connection-show",
+      "summary": "Show named connection configuration",
+      "side_effect": "none",
+      "examples": [
+        "plane-cli connection show"
+      ],
+      "versions": {
+        "v1": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "maxItems": 1
+              },
+              "flags": {
+                "type": "object",
+                "properties": {
+                  "connection": {
+                    "type": "string"
+                  },
+                  "base-url": {
+                    "type": "string"
+                  },
+                  "api-version": {
+                    "type": "string",
+                    "enum": [
+                      "v1",
+                      "v2"
+                    ]
+                  },
+                  "workspace": {
+                    "type": "string"
+                  },
+                  "project": {
+                    "type": "string"
+                  },
+                  "auth-mode": {
+                    "type": "string",
+                    "enum": [
+                      "api-key",
+                      "bearer",
+                      "external"
+                    ]
+                  },
+                  "credential-backend": {
+                    "type": "string",
+                    "enum": [
+                      "file",
+                      "keyring",
+                      "env"
+                    ]
+                  },
+                  "timeout": {
+                    "type": "string"
+                  },
+                  "request-timeout": {
+                    "type": "string"
+                  },
+                  "ca-file": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": [
+            {
+              "name": "connection",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/connection",
+              "description": "Select a named connection"
+            },
+            {
+              "name": "base-url",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/base-url",
+              "description": "Instance origin and optional proxy prefix"
+            },
+            {
+              "name": "api-version",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/api-version",
+              "description": "Explicit API generation v1 or v2"
+            },
+            {
+              "name": "workspace",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/workspace",
+              "description": "Default workspace"
+            },
+            {
+              "name": "project",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/project",
+              "description": "Default project"
+            },
+            {
+              "name": "auth-mode",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/auth-mode",
+              "description": "api-key, bearer or external"
+            },
+            {
+              "name": "credential-backend",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/credential-backend",
+              "description": "file, keyring or env; persistence arrives with OAuth"
+            },
+            {
+              "name": "timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/timeout",
+              "description": "Total positive duration (default 5m)"
+            },
+            {
+              "name": "request-timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/request-timeout",
+              "description": "Per-request positive duration (default 30s)"
+            },
+            {
+              "name": "ca-file",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/ca-file",
+              "description": "Additional PEM CA certificates"
+            }
+          ]
+        },
+        "v2": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "maxItems": 1
+              },
+              "flags": {
+                "type": "object",
+                "properties": {
+                  "connection": {
+                    "type": "string"
+                  },
+                  "base-url": {
+                    "type": "string"
+                  },
+                  "api-version": {
+                    "type": "string",
+                    "enum": [
+                      "v1",
+                      "v2"
+                    ]
+                  },
+                  "workspace": {
+                    "type": "string"
+                  },
+                  "project": {
+                    "type": "string"
+                  },
+                  "auth-mode": {
+                    "type": "string",
+                    "enum": [
+                      "api-key",
+                      "bearer",
+                      "external"
+                    ]
+                  },
+                  "credential-backend": {
+                    "type": "string",
+                    "enum": [
+                      "file",
+                      "keyring",
+                      "env"
+                    ]
+                  },
+                  "timeout": {
+                    "type": "string"
+                  },
+                  "request-timeout": {
+                    "type": "string"
+                  },
+                  "ca-file": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": [
+            {
+              "name": "connection",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/connection",
+              "description": "Select a named connection"
+            },
+            {
+              "name": "base-url",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/base-url",
+              "description": "Instance origin and optional proxy prefix"
+            },
+            {
+              "name": "api-version",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/api-version",
+              "description": "Explicit API generation v1 or v2"
+            },
+            {
+              "name": "workspace",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/workspace",
+              "description": "Default workspace"
+            },
+            {
+              "name": "project",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/project",
+              "description": "Default project"
+            },
+            {
+              "name": "auth-mode",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/auth-mode",
+              "description": "api-key, bearer or external"
+            },
+            {
+              "name": "credential-backend",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/credential-backend",
+              "description": "file, keyring or env; persistence arrives with OAuth"
+            },
+            {
+              "name": "timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/timeout",
+              "description": "Total positive duration (default 5m)"
+            },
+            {
+              "name": "request-timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/request-timeout",
+              "description": "Per-request positive duration (default 30s)"
+            },
+            {
+              "name": "ca-file",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/ca-file",
+              "description": "Additional PEM CA certificates"
+            }
+          ]
+        }
+      },
+      "local": true
+    },
+    {
+      "path": [
+        "connection",
+        "update"
+      ],
+      "handler": "connection-update",
+      "summary": "Update named connection configuration",
+      "side_effect": "local",
+      "examples": [
+        "plane-cli connection update example"
+      ],
+      "versions": {
+        "v1": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 1
+              },
+              "flags": {
+                "type": "object",
+                "properties": {
+                  "base-url": {
+                    "type": "string"
+                  },
+                  "api-version": {
+                    "type": "string",
+                    "enum": [
+                      "v1",
+                      "v2"
+                    ]
+                  },
+                  "workspace": {
+                    "type": "string"
+                  },
+                  "project": {
+                    "type": "string"
+                  },
+                  "auth-mode": {
+                    "type": "string",
+                    "enum": [
+                      "api-key",
+                      "bearer",
+                      "external"
+                    ]
+                  },
+                  "credential-backend": {
+                    "type": "string",
+                    "enum": [
+                      "file",
+                      "keyring",
+                      "env"
+                    ]
+                  },
+                  "timeout": {
+                    "type": "string"
+                  },
+                  "request-timeout": {
+                    "type": "string"
+                  },
+                  "ca-file": {
+                    "type": "string"
+                  },
+                  "dry-run": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": [
+            {
+              "name": "base-url",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/base-url",
+              "description": "Instance origin and optional proxy prefix"
+            },
+            {
+              "name": "api-version",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/api-version",
+              "description": "Explicit API generation v1 or v2"
+            },
+            {
+              "name": "workspace",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/workspace",
+              "description": "Default workspace"
+            },
+            {
+              "name": "project",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/project",
+              "description": "Default project"
+            },
+            {
+              "name": "auth-mode",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/auth-mode",
+              "description": "api-key, bearer or external"
+            },
+            {
+              "name": "credential-backend",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/credential-backend",
+              "description": "file, keyring or env; persistence arrives with OAuth"
+            },
+            {
+              "name": "timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/timeout",
+              "description": "Total positive duration (default 5m)"
+            },
+            {
+              "name": "request-timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/request-timeout",
+              "description": "Per-request positive duration (default 30s)"
+            },
+            {
+              "name": "ca-file",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/ca-file",
+              "description": "Additional PEM CA certificates"
+            },
+            {
+              "name": "dry-run",
+              "type": "boolean",
+              "required": false,
+              "binding": "/flags/dry-run",
+              "description": "Validate without changing configuration"
+            }
+          ]
+        },
+        "v2": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 1
+              },
+              "flags": {
+                "type": "object",
+                "properties": {
+                  "base-url": {
+                    "type": "string"
+                  },
+                  "api-version": {
+                    "type": "string",
+                    "enum": [
+                      "v1",
+                      "v2"
+                    ]
+                  },
+                  "workspace": {
+                    "type": "string"
+                  },
+                  "project": {
+                    "type": "string"
+                  },
+                  "auth-mode": {
+                    "type": "string",
+                    "enum": [
+                      "api-key",
+                      "bearer",
+                      "external"
+                    ]
+                  },
+                  "credential-backend": {
+                    "type": "string",
+                    "enum": [
+                      "file",
+                      "keyring",
+                      "env"
+                    ]
+                  },
+                  "timeout": {
+                    "type": "string"
+                  },
+                  "request-timeout": {
+                    "type": "string"
+                  },
+                  "ca-file": {
+                    "type": "string"
+                  },
+                  "dry-run": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": [
+            {
+              "name": "base-url",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/base-url",
+              "description": "Instance origin and optional proxy prefix"
+            },
+            {
+              "name": "api-version",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/api-version",
+              "description": "Explicit API generation v1 or v2"
+            },
+            {
+              "name": "workspace",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/workspace",
+              "description": "Default workspace"
+            },
+            {
+              "name": "project",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/project",
+              "description": "Default project"
+            },
+            {
+              "name": "auth-mode",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/auth-mode",
+              "description": "api-key, bearer or external"
+            },
+            {
+              "name": "credential-backend",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/credential-backend",
+              "description": "file, keyring or env; persistence arrives with OAuth"
+            },
+            {
+              "name": "timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/timeout",
+              "description": "Total positive duration (default 5m)"
+            },
+            {
+              "name": "request-timeout",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/request-timeout",
+              "description": "Per-request positive duration (default 30s)"
+            },
+            {
+              "name": "ca-file",
+              "type": "string",
+              "required": false,
+              "binding": "/flags/ca-file",
+              "description": "Additional PEM CA certificates"
+            },
+            {
+              "name": "dry-run",
+              "type": "boolean",
+              "required": false,
+              "binding": "/flags/dry-run",
+              "description": "Validate without changing configuration"
+            }
+          ]
+        }
+      },
+      "local": true
+    },
+    {
+      "path": [
+        "connection",
+        "use"
+      ],
+      "handler": "connection-use",
+      "summary": "Use named connection configuration",
+      "side_effect": "local",
+      "examples": [
+        "plane-cli connection use example"
+      ],
+      "versions": {
+        "v1": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 1
+              },
+              "flags": {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": []
+        },
+        "v2": {
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "arguments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 1
+              },
+              "flags": {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "arguments",
+              "flags"
+            ],
+            "additionalProperties": false
+          },
+          "flags": []
         }
       },
       "local": true

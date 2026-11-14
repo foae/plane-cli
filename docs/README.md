@@ -1,6 +1,6 @@
 # Documentation router
 
-The P00 offline foundation is implemented. [Current usage](usage.md) describes working commands; design contracts describe the broader approved target, not current API coverage.
+The P00/P01 foundation provides offline discovery, named connections and environment-auth status. [Current usage](usage.md) describes working commands; design contracts describe the broader approved target, not current API coverage.
 
 ## Choose your task
 
