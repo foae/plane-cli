@@ -1,0 +1,71 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/modules/bulk-delete-modules.md",
+  "source_sha256": "aa43eedb721038165240ff8b9edf44e4d7a592e97796678a2a3ef702e0100f44",
+  "operation_id": "v2.modules.bulk-delete-modules",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/modules/bulk-delete/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+            },
+            "minItems": 1,
+            "maxItems": 50
+          },
+          "all_or_none": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.modules:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

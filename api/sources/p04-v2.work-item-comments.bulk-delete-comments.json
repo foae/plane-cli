@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-comments/bulk-delete-comments.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "9498ece7f1c1a38d3aa2254ffca53a6362a30ef5ca8cb48a07f2f84db4a0d101",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 8526,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-comment bulk-delete",
+      "method": "POST",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/comments/bulk-delete/",
+      "success": "200 native response"
+    }
+  ]
+}

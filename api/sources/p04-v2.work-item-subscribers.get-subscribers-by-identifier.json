@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-subscribers/get-subscribers-by-identifier.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "0f19dc575c44c1beb0130e8a962ad5774cc759218413fe0456d08a70b8474559",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 4517,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-subscriber list-by-identifier",
+      "method": "GET",
+      "route": "/api/v2/workspaces/{slug}/work-items/{identifier}/subscribers/",
+      "success": "200 native response"
+    }
+  ]
+}

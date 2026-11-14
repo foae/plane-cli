@@ -1,0 +1,55 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/milestones/get-milestone-detail.md",
+  "source_sha256": "efa30d34a1095c34b4b8c50ad856969f488f3cd573fc1e8d07de54ac5167c916",
+  "operation_id": "v1.milestones.get-milestone-detail",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/milestones/{milestone_id}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "milestone_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id",
+          "milestone_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "none",
+  "scopes": [],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

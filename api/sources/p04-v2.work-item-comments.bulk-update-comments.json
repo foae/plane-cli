@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-comments/bulk-update-comments.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "cdac4db78743511f4446e46d82e7ce4135746cd2637a6393060e2e2bd82db900",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 9272,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-comment bulk-update",
+      "method": "POST",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/comments/bulk-update/",
+      "success": "200 native response"
+    }
+  ]
+}

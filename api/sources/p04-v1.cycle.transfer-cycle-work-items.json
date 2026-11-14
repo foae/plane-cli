@@ -1,0 +1,68 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/cycle/transfer-cycle-work-items.md",
+  "source_sha256": "7c4379e39619b7b4e2aa6c2a54bd1dfe3bf5e0e815ecfb7de67f30d2384190cb",
+  "operation_id": "v1.cycle.transfer-cycle-work-items",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/{cycle_id}/transfer-issues/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cycle_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id",
+          "cycle_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "new_cycle_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "new_cycle_id"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.cycles:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas.",
+    "Source cycle is --id; new_cycle_id is the destination. Native transfer moves unfinished work items and records source progress."
+  ]
+}

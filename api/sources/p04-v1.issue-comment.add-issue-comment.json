@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/issue-comment/add-issue-comment.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "5ab6c153851e258aab1aecacadad971071836de6f76def8a66d1b48813a5c629",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 4373,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-comment create",
+      "method": "POST",
+      "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/comments/",
+      "success": "201 native response"
+    }
+  ]
+}

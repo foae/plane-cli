@@ -1,0 +1,55 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/milestones/delete-milestone.md",
+  "source_sha256": "cc8c9ddeaa474569647171da7836a299d2a65620c3baa9a434816d92b6a6edff",
+  "operation_id": "v1.milestones.delete-milestone",
+  "method": "DELETE",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/milestones/{milestone_id}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "milestone_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id",
+          "milestone_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    204
+  ],
+  "pagination": "none",
+  "scopes": [],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

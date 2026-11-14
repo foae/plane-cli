@@ -1,0 +1,73 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/cycle/list-cycles.md",
+  "source_sha256": "e2d091f21b4e92caaf7e2c47d9f537828de61676fb4bf02d3ad5dceb331c3fc0",
+  "operation_id": "v1.cycle.list-cycles",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string"
+          },
+          "cycle_view": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "v1",
+  "scopes": [
+    "projects.cycles:read"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/cycles/archive-cycle.md",
+  "source_sha256": "09f8a29aa50f5dc69a22a50cb52da12dcea0c6e69d755a41a18d2af68d6d7b8a",
+  "operation_id": "v2.cycles.archive-cycle",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/{pk}/archive/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pk": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    204
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.cycles:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

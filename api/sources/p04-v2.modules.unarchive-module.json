@@ -1,0 +1,57 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/modules/unarchive-module.md",
+  "source_sha256": "c094271284f326aff882df54f211717153bdbc89767ad73f91293101c2052905",
+  "operation_id": "v2.modules.unarchive-module",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/modules/{pk}/unarchive/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pk": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    204
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.modules:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/estimate/add-estimate.md",
+  "source_sha256": "fb45fb5e7291f56d22f8236a6a9df0b3e9152aa68bf69467c914d17c683e3f5f",
+  "operation_id": "v1.estimate.add-estimate",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "categories",
+              "points",
+              "time"
+            ]
+          },
+          "last_used": {
+            "type": "boolean"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "external_source": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "statuses": [
+    201
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.estimates:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/estimates/bulk-update-estimates.md",
+  "source_sha256": "4ccc8edeb95341b094bd0d1b92bed62933f8a4aad107e29728460ea415a456cc",
+  "operation_id": "v2.estimates.bulk-update-estimates",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/bulk-update/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "categories",
+                    "points",
+                    "time"
+                  ]
+                },
+                "id": {
+                  "type": "string",
+                  "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "id"
+              ]
+            },
+            "minItems": 1,
+            "maxItems": 50
+          },
+          "all_or_none": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.estimates:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

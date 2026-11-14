@@ -1,0 +1,64 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/modules/delete-module.md",
+  "source_sha256": "1c6977d1b02e3f766c5c16828de8a3f32140b1cc12b5dce323b633e29cd90d65",
+  "operation_id": "v2.modules.delete-module",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/modules/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pk": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    204
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.modules:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

@@ -13,6 +13,7 @@ import (
 	"path/filepath"
 	"reflect"
 	"strings"
+	"sync/atomic"
 	"testing"
 	"time"
 
@@ -264,10 +265,9 @@ func TestPaginationReviewLaterDeadline(t *testing.T) {
 		t.Run(fmt.Sprintf("total=%t", total), func(t *testing.T) {
 			transportEnv(t)
 			t.Setenv("PLANE_CLI_API_KEY", paginationReviewToken)
-			calls := 0
+			var calls atomic.Int32
 			server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-				calls++
-				if calls > 1 {
+				if calls.Add(1) > 1 {
 					<-r.Context().Done()
 					return
 				}
@@ -283,8 +283,8 @@ func TestPaginationReviewLaterDeadline(t *testing.T) {
 			}
 			code, stdout, stderr := invoke(t, workItemCatalog(t), args, workItemHandlers())
 			paginationReviewFailure(t, code, stdout, stderr, "deadline_exceeded", 4, 1)
-			if calls != 2 {
-				t.Fatalf("requests=%d; want 2", calls)
+			if got := calls.Load(); got != 2 {
+				t.Fatalf("requests=%d; want 2", got)
 			}
 		})
 	}

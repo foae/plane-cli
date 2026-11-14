@@ -1,0 +1,70 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/module/list-archived-modules.md",
+  "source_sha256": "fdf162dbd89732aeec70e72dc1aa03633eb09e0a3a70645d72d6a7bc3f577a98",
+  "operation_id": "v1.module.list-archived-modules",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/archived-modules/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "v1",
+  "scopes": [
+    "projects.modules:read"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

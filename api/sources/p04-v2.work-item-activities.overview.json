@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-activities/overview.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "ff14deac8064ecaf753d66f2c78b8a86bf5036f5c49efc60236feb4daa0e72df",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 3133,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "overview",
+  "owner": "P04"
+}

@@ -1,0 +1,52 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/estimate/get-estimate.md",
+  "source_sha256": "5e4d94e5f110baada6a76dffc12ea63949f1b78fc37582e1273b54b8afa7cfe8",
+  "operation_id": "v1.estimate.get-estimate",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.estimates:read"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

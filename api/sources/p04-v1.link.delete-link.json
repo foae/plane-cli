@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/link/delete-link.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "2fc2e96e5ed647b4df621d6284e4271ca04631690fb3f9a78c2102effb11802f",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 2396,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-link delete",
+      "method": "DELETE",
+      "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/links/{resource_id}/",
+      "success": "204 native response"
+    }
+  ]
+}

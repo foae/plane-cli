@@ -1,0 +1,76 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/estimate-points/bulk-delete-estimate-points.md",
+  "source_sha256": "ed9eb2580ecd5ebed2e59f1a3557fb289f8fc524cc93b5698fbb585ee8131a6c",
+  "operation_id": "v2.estimate-points.bulk-delete-estimate-points",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{estimate_id}/points/bulk-delete/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "estimate_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "estimate_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+            },
+            "minItems": 1,
+            "maxItems": 50
+          },
+          "all_or_none": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.estimates:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

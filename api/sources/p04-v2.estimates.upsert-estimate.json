@@ -1,0 +1,94 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/estimates/upsert-estimate.md",
+  "source_sha256": "d3b66209dabb07193f55badadf344a401cf0036d5e1ee685c05129584db26865",
+  "operation_id": "v2.estimates.upsert-estimate",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/upsert/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "description": {
+            "type": "string"
+          },
+          "external_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "external_source": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "categories",
+              "points",
+              "time"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "external_source",
+          "external_id"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "statuses": [
+    200,
+    201
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.estimates:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

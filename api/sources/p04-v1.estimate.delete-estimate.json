@@ -1,0 +1,52 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/estimate/delete-estimate.md",
+  "source_sha256": "46e76287b1b5309edab43a12685058bc7050de90cabd2f27e6928466e15ac9c8",
+  "operation_id": "v1.estimate.delete-estimate",
+  "method": "DELETE",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    204
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.estimates:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

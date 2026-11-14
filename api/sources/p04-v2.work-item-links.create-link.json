@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-links/create-link.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "f838cd0d5ae5e8c68df03f31e2135f90d18642aa53bb6d7757b065808d39212a",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 5724,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-link create",
+      "method": "POST",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/links/",
+      "success": "201 native response"
+    }
+  ]
+}

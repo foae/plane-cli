@@ -1,0 +1,75 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/module/list-module-work-items.md",
+  "source_sha256": "d5840b6d6b284f1511ac4038407d21a57234c933db98338d5776e7f376e2a52f",
+  "operation_id": "v1.module.list-module-work-items",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/modules/{module_id}/module-issues/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "module_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id",
+          "module_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "v1",
+  "scopes": [
+    "projects.modules:read"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

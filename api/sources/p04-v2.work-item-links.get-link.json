@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-links/get-link.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "662f07b0eabc4cb8e31e97d8b11ac46245cbd4fd880da83300dff544f638f222",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 4699,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-link get",
+      "method": "GET",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/links/{pk}/",
+      "success": "200 native response"
+    }
+  ]
+}

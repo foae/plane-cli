@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-subscribers/update-subscribers-by-identifier.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "2e19611b0d724d0e5bf90267390f929723c046d50bb812243d594cdc9a90761a",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 7707,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-subscriber update-by-identifier",
+      "method": "PATCH",
+      "route": "/api/v2/workspaces/{slug}/work-items/{identifier}/subscribers/",
+      "success": "200 native response"
+    }
+  ]
+}

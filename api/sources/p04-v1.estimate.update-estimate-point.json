@@ -1,0 +1,82 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/estimate/update-estimate-point.md",
+  "source_sha256": "62256be2d7fced4a84b17916919b53bb05cf32ddea56af4e86662322a7c292ea",
+  "operation_id": "v1.estimate.update-estimate-point",
+  "method": "PATCH",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/{estimate_id}/estimate-points/{estimate_point_id}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "estimate_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "estimate_point_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id",
+          "estimate_id",
+          "estimate_point_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "integer"
+          },
+          "value": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "description": {
+            "type": "string"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "external_source": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.estimates:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

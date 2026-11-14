@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-worklogs/get-project-worklog-summary.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "b53a0f966511439d1c6e81c8fdc700b76790a74031eb89be48463c1b7485d204",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 3459,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-worklog summary",
+      "method": "GET",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/worklogs/summary/",
+      "success": "200 native response"
+    }
+  ]
+}

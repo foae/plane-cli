@@ -1,0 +1,41 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/migrating-from-v1.md",
+  "source_sha256": "6dc24447f0eaf3d820cf7e62d08e127461e0b9b9f1a728d7c0ffe455ee008122",
+  "findings": [
+    {
+      "families": [
+        "v1 cycles-lite/",
+        "v1 modules-lite/"
+      ],
+      "status": "unresolved",
+      "packet_exception": "User explicitly approved excluding these two evidence-blocked v1 lite contracts from P04 closure on 2026-11-14. Their contracts remain unresolved and neither route is implemented or counted.",
+      "evidence_excerpt": "v1's lite lists, `projects-lite/`, `members-lite/`, `project-members-lite/`, `cycles-lite/`, and `modules-lite/`, have no v2 route.",
+      "location": "Other removals; migration line 390",
+      "finding": "The migration names two v1 lite routes but provides no exact method, workspace/project scope, path, inputs or response. Neither route has an assigned api-index.tsv operation page. No route is inferred or implemented. P04 cannot be closed without official contract evidence or explicit user-approved scope reduction."
+    },
+    {
+      "families": [
+        "v2 cycles",
+        "v2 modules",
+        "v2 milestones",
+        "v2 estimates",
+        "v2 estimate-points"
+      ],
+      "status": "resolved-in-list-contracts",
+      "finding": "The fetched list pages explicitly expose search and count=false. Cycles/modules expose work-item progress-count fields through fields shaping. There is no independently indexed specialized search, grouped-count or lite route for these scheduling families; the migration explicitly states v2 has no lite routes. This does not establish the missing v1 lite contracts."
+    }
+  ],
+  "conflicts": [
+    {
+      "source_url": "https://developers.plane.so/api-reference/v2/cycles/upsert-cycle.md",
+      "field": "start_date/end_date",
+      "evidence_excerpt": "type=\"string (date-time)\"; Planned start date, as `YYYY-MM-DD`. Nullable.",
+      "resolution": "Retain nullable strings and do not coerce or impose either contradictory format. Create/update remain ISO8601 date-times."
+    },
+    {
+      "source_url": "https://developers.plane.so/api-reference/v2/modules/upsert-module.md",
+      "field": "logo_props",
+      "finding": "Upsert explicitly documents string while create/update document any JSON. Keep operation-specific input schemas."
+    }
+  ]
+}

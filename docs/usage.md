@@ -1,6 +1,6 @@
 # CLI usage
 
-P00–P02 implement offline discovery, named connections, persistent credentials, user/bot OAuth and the safe API transport foundation. P03 exposes identity, projects, work items and state/label definitions for their documented API generations. Supplemental v1 evidence gaps remain listed in [API contract gaps](reference/api-contract-gaps.md); this is not full public API coverage.
+P00-P02 implement offline discovery, named connections, persistent credentials, user/bot OAuth and the safe API transport foundation. P03 exposes identity, projects, work items and state/label definitions. P04 adds scheduling, estimates, intake, recurrence and work-item collaboration for their documented API generations. Supplemental v1 evidence gaps remain listed in [API contract gaps](reference/api-contract-gaps.md); this is not full public API coverage.
 
 Build with Go 1.27.4 and `make build`, or install from this source checkout with `go install ./cmd/plane-cli`. Generated metadata is committed and embedded: the installed binary does not need repository files. Contributor setup and checks are in [development](development.md).
 
@@ -131,5 +131,27 @@ Stored user sessions refresh automatically with their persisted app credentials;
 
 Fake providers and controlled credential backends verify these protocols. Native keyring availability and deployment-specific app registration remain unverified.
 
+
+## Scheduling and collaboration
+
+`cycle`, `module`, `milestone`, `estimate`, `estimate point`, `intake`, `recurring-work-item`, `work-item-relation`, `work-item-comment`, `work-item-link`, `work-item-activity`, `work-item-worklog`, `work-item-subscriber` and `work-item-vote` expose only their documented API generations. Use each leaf's schema for the exact input fields and parent scope:
+
+```sh
+plane-cli schema intake create --api-version v1
+plane-cli schema intake create --api-version v2
+```
+
+```sh manual
+plane-cli recurring-work-item --help
+plane-cli intake list --api-version v2 --base-url http://127.0.0.1:1 --workspace example --project p --status-in=-2,0 --dry-run
+```
+
+V1 intake creation nests work-item fields under `issue`; v2 uses flat fields. Deprecated inbox documentation is tracked as an alias, not a second command surface. Recurring schedules preserve upstream date strings and recurrence fields; `enabled` is not a writable field. V1 relation lists return a relation-name map rather than an aggregate page, so `--all` is unavailable.
+
+Comments and links preserve HTML/text without rendering it. Worklog updates distinguish zero duration from omission. Subscriber updates require disjoint `add`/`remove` sets; removals require `--yes`. Subscriber by-identifier commands use a workspace and work-item identifier without project scope. Bulk comment failures return the native result and partial-success exit 6; specify `all_or_none` inside the JSON body, alongside `items` or `ids`.
+
+Scheduling commands retain version-specific membership, archive and transfer routes. Transfers require `--yes` and the documented destination in the request body. Estimate points are a subresource of `estimate`, not estimate-system writes. V1 estimate updates/deletes target the project's active system without `--id`. V2 cycle create/update dates use ISO8601 timestamps; upsert has conflicting upstream date prose, so it preserves the supplied string without imposing either interpretation. Module/milestone date fields retain their documented date-only format.
+
+Cycle timezone validation embeds IANA timezone data and does not require host zoneinfo. V2 collaboration lists accept opaque `--cursor` values for manual continuation. Automatic traversal is bounded with `--max-pages`, not an item-count limit.
 
 The [packet router](implementation/README.md) identifies remaining work. Deterministic fake-server acceptance does not establish live Plane edition compatibility.

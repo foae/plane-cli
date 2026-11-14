@@ -1,0 +1,57 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/module/archive-module.md",
+  "source_sha256": "355a958286a17032c929c4d922881cb2321586d1b732b82be648155ba3c4cf30",
+  "operation_id": "v1.module.archive-module",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/modules/{resource_id}/archive/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "resource_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id",
+          "resource_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    204
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.modules:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

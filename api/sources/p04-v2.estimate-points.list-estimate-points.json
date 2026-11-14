@@ -1,0 +1,101 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/estimate-points/list-estimate-points.md",
+  "source_sha256": "59ba5e2cacb0f4b3b0223430780c9c5866b3bd4f592c9683b463d1926bb8a0b5",
+  "operation_id": "v2.estimate-points.list-estimate-points",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{estimate_id}/points/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "estimate_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "estimate_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "external_source": {
+            "type": "string"
+          },
+          "key": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "search": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "v2",
+  "scopes": [
+    "projects.estimates:read"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

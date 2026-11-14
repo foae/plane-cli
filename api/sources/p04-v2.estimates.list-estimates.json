@@ -1,0 +1,107 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/estimates/list-estimates.md",
+  "source_sha256": "5752eba53b1bf625d3c361b62361897fb06e4f041029e1c99cb07cf5043d3fb3",
+  "operation_id": "v2.estimates.list-estimates",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "external_source": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "search": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "categories",
+              "points",
+              "time"
+            ]
+          },
+          "type__in": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "v2",
+  "scopes": [
+    "projects.estimates:read"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/worklogs/delete-worklog.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "f0dab33b25c0bdd6f9c61e66c088ba4da0854e72d0448edab54a8e85ef48b663",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 2402,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-worklog delete",
+      "method": "DELETE",
+      "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/worklogs/{worklog_id}/",
+      "success": "204 native response"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/modules/upsert-module.md",
+  "source_sha256": "14f23cb36769e6c12d02b1265a84464d8d36d504a6212933781e26aa6f8d464b",
+  "operation_id": "v2.modules.upsert-module",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/modules/upsert/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "description": {
+            "type": "string"
+          },
+          "external_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "external_source": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "lead_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          },
+          "logo_props": {
+            "type": "string"
+          },
+          "sort_order": {
+            "type": "number"
+          },
+          "start_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "backlog",
+              "planned",
+              "in-progress",
+              "paused",
+              "completed",
+              "cancelled"
+            ]
+          },
+          "target_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "external_source",
+          "external_id"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "statuses": [
+    200,
+    201
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.modules:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

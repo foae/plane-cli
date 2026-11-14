@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/worklogs/get-total-time.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "8d99966422094755bac1f0fd9ecff283a82fc9d83c090b67aa1fc246a0f2f39f",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 2208,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-worklog summary",
+      "method": "GET",
+      "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/total-worklogs/",
+      "success": "200 native response"
+    }
+  ]
+}

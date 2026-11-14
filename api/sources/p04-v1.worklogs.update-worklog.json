@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/worklogs/update-worklog.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "5d0bbaf7c7e016bb696f1687e99b7f61e8818e4a8fff89adb7da5312cd0564d4",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 4069,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-worklog update",
+      "method": "PATCH",
+      "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/worklogs/{worklog_id}/",
+      "success": "200 native response"
+    }
+  ]
+}

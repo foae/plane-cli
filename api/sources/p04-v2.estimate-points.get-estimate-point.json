@@ -1,0 +1,66 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/estimate-points/get-estimate-point.md",
+  "source_sha256": "7d62fd3edfa3675ecdc4f22547d2ce20a4ceaf4fb8068f050e060021ad90dbda",
+  "operation_id": "v2.estimate-points.get-estimate-point",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{estimate_id}/points/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "estimate_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pk": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "estimate_id",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.estimates:read"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

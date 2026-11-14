@@ -1,0 +1,2850 @@
+[
+  {
+    "version": "v1",
+    "resource": "cycle",
+    "action": "list",
+    "command": [
+      "cycle",
+      "list"
+    ],
+    "args": [
+      "--per-page=2",
+      "--cursor=opaque:+/=",
+      "--fields=id",
+      "--expand=created_by",
+      "--order-by=id",
+      "--cycle-view=current"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/cycles/",
+    "query": {
+      "per_page": "2",
+      "cursor": "opaque:+/=",
+      "fields": "id",
+      "expand": "created_by",
+      "order_by": "id",
+      "cycle_view": "current"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "next_page_results": false
+    },
+    "paginated": true
+  },
+  {
+    "version": "v1",
+    "resource": "cycle",
+    "action": "get",
+    "command": [
+      "cycle",
+      "get"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "cycle",
+    "action": "create",
+    "command": [
+      "cycle",
+      "create"
+    ],
+    "args": [],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/projects/project/cycles/",
+    "query": {},
+    "body": {
+      "name": "Sprint",
+      "description": "",
+      "start_date": "2026-01-05T00:00:00+05:30",
+      "end_date": "2026-01-19T00:00:00+05:30",
+      "timezone": "Asia/Kolkata",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "owned_by": "22222222-2222-4222-8222-222222222222"
+    },
+    "status": 201,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "cycle",
+    "action": "update",
+    "command": [
+      "cycle",
+      "update"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": {
+      "name": "Sprint",
+      "description": "",
+      "start_date": "2026-01-05T00:00:00+05:30",
+      "end_date": "2026-01-19T00:00:00+05:30",
+      "timezone": "Asia/Kolkata",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "owned_by": "22222222-2222-4222-8222-222222222222"
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "cycle",
+    "action": "delete",
+    "command": [
+      "cycle",
+      "delete"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "cycle",
+    "action": "archive",
+    "command": [
+      "cycle",
+      "archive"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/archive/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "cycle",
+    "action": "unarchive",
+    "command": [
+      "cycle",
+      "unarchive"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/projects/project/archived-cycles/11111111-1111-4111-8111-111111111111/unarchive/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "cycle",
+    "action": "list-archived",
+    "command": [
+      "cycle",
+      "list-archived"
+    ],
+    "args": [
+      "--per-page=2",
+      "--cursor=opaque:+/="
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/archived-cycles/",
+    "query": {
+      "per_page": "2",
+      "cursor": "opaque:+/="
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "next_page_results": false
+    },
+    "paginated": true
+  },
+  {
+    "version": "v1",
+    "resource": "cycle",
+    "action": "add-work-items",
+    "command": [
+      "cycle",
+      "add-work-items"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/cycle-issues/",
+    "query": {},
+    "body": {
+      "issues": [
+        "22222222-2222-4222-8222-222222222222"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "cycle",
+    "action": "remove-work-item",
+    "command": [
+      "cycle",
+      "remove-work-item"
+    ],
+    "args": [
+      "--cycle",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/projects/project/cycles/22222222-2222-4222-8222-222222222222/cycle-issues/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "cycle",
+    "action": "list-work-items",
+    "command": [
+      "cycle",
+      "list-work-items"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--per-page=2",
+      "--cursor=opaque:+/="
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/cycle-issues/",
+    "query": {
+      "per_page": "2",
+      "cursor": "opaque:+/="
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "next_page_results": false
+    },
+    "paginated": true
+  },
+  {
+    "version": "v1",
+    "resource": "cycle",
+    "action": "transfer-work-items",
+    "command": [
+      "cycle",
+      "transfer-work-items"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/transfer-issues/",
+    "query": {},
+    "body": {
+      "new_cycle_id": "22222222-2222-4222-8222-222222222222"
+    },
+    "status": 200,
+    "response": {
+      "new_cycle_id": "22222222-2222-4222-8222-222222222222"
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "module",
+    "action": "list",
+    "command": [
+      "module",
+      "list"
+    ],
+    "args": [
+      "--per-page=2",
+      "--cursor=opaque:+/=",
+      "--fields=id",
+      "--expand=created_by",
+      "--order-by=id"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/modules/",
+    "query": {
+      "per_page": "2",
+      "cursor": "opaque:+/=",
+      "fields": "id",
+      "expand": "created_by",
+      "order_by": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "next_page_results": false
+    },
+    "paginated": true
+  },
+  {
+    "version": "v1",
+    "resource": "module",
+    "action": "get",
+    "command": [
+      "module",
+      "get"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/modules/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "module",
+    "action": "create",
+    "command": [
+      "module",
+      "create"
+    ],
+    "args": [],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/projects/project/modules/",
+    "query": {},
+    "body": {
+      "name": "Module",
+      "description": "",
+      "status": "planned",
+      "start_date": "2026-01-05",
+      "target_date": "2026-01-19",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "lead": "22222222-2222-4222-8222-222222222222",
+      "members": []
+    },
+    "status": 201,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "module",
+    "action": "update",
+    "command": [
+      "module",
+      "update"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/team/projects/project/modules/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": {
+      "name": "Module",
+      "description": "",
+      "status": "planned",
+      "start_date": "2026-01-05",
+      "target_date": "2026-01-19",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "lead": "22222222-2222-4222-8222-222222222222",
+      "members": []
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "module",
+    "action": "delete",
+    "command": [
+      "module",
+      "delete"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/projects/project/modules/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "module",
+    "action": "archive",
+    "command": [
+      "module",
+      "archive"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/projects/project/modules/11111111-1111-4111-8111-111111111111/archive/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "module",
+    "action": "unarchive",
+    "command": [
+      "module",
+      "unarchive"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/projects/project/archived-modules/11111111-1111-4111-8111-111111111111/unarchive/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "module",
+    "action": "list-archived",
+    "command": [
+      "module",
+      "list-archived"
+    ],
+    "args": [
+      "--per-page=2",
+      "--cursor=opaque:+/=",
+      "--fields=id",
+      "--expand=created_by",
+      "--order-by=id"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/archived-modules/",
+    "query": {
+      "per_page": "2",
+      "cursor": "opaque:+/=",
+      "fields": "id",
+      "expand": "created_by",
+      "order_by": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "next_page_results": false
+    },
+    "paginated": true
+  },
+  {
+    "version": "v1",
+    "resource": "module",
+    "action": "add-work-items",
+    "command": [
+      "module",
+      "add-work-items"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/projects/project/modules/11111111-1111-4111-8111-111111111111/module-issues/",
+    "query": {},
+    "body": {
+      "issues": [
+        "22222222-2222-4222-8222-222222222222"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "module",
+    "action": "remove-work-item",
+    "command": [
+      "module",
+      "remove-work-item"
+    ],
+    "args": [
+      "--module",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/projects/project/modules/22222222-2222-4222-8222-222222222222/module-issues/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "module",
+    "action": "list-work-items",
+    "command": [
+      "module",
+      "list-work-items"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--per-page=2",
+      "--cursor=opaque:+/=",
+      "--fields=id",
+      "--expand=created_by",
+      "--order-by=id"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/modules/11111111-1111-4111-8111-111111111111/module-issues/",
+    "query": {
+      "per_page": "2",
+      "cursor": "opaque:+/=",
+      "fields": "id",
+      "expand": "created_by",
+      "order_by": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "next_page_results": false
+    },
+    "paginated": true
+  },
+  {
+    "version": "v1",
+    "resource": "milestone",
+    "action": "list",
+    "command": [
+      "milestone",
+      "list"
+    ],
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/milestones/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "11111111-1111-4111-8111-111111111111"
+      }
+    ],
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "milestone",
+    "action": "get",
+    "command": [
+      "milestone",
+      "get"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/milestones/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "milestone",
+    "action": "create",
+    "command": [
+      "milestone",
+      "create"
+    ],
+    "args": [],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/projects/project/milestones/",
+    "query": {},
+    "body": {
+      "title": "Release",
+      "target_date": "2026-01-19",
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 201,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "milestone",
+    "action": "update",
+    "command": [
+      "milestone",
+      "update"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/team/projects/project/milestones/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": {
+      "title": "Release",
+      "target_date": "2026-01-19",
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "milestone",
+    "action": "delete",
+    "command": [
+      "milestone",
+      "delete"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/projects/project/milestones/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "milestone",
+    "action": "list-work-items",
+    "command": [
+      "milestone",
+      "list-work-items"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/milestones/11111111-1111-4111-8111-111111111111/work-items/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "11111111-1111-4111-8111-111111111111"
+      }
+    ],
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "estimate",
+    "action": "get",
+    "command": [
+      "estimate",
+      "get"
+    ],
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/estimates/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "estimate",
+    "action": "create",
+    "command": [
+      "estimate",
+      "create"
+    ],
+    "args": [],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/projects/project/estimates/",
+    "query": {},
+    "body": {
+      "name": "Points",
+      "description": "",
+      "type": "points",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "last_used": false
+    },
+    "status": 201,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "estimate",
+    "action": "update",
+    "command": [
+      "estimate",
+      "update"
+    ],
+    "args": [],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/team/projects/project/estimates/",
+    "query": {},
+    "body": {
+      "name": "Points",
+      "description": "",
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "estimate",
+    "action": "delete",
+    "command": [
+      "estimate",
+      "delete"
+    ],
+    "args": [
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/projects/project/estimates/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "estimate-point",
+    "action": "list",
+    "command": [
+      "estimate",
+      "point",
+      "list"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/estimate-points/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "11111111-1111-4111-8111-111111111111"
+      }
+    ],
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "estimate-point",
+    "action": "create",
+    "command": [
+      "estimate",
+      "point",
+      "create"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/estimate-points/",
+    "query": {},
+    "body": {
+      "estimate_points": [
+        {
+          "value": "0",
+          "key": 0,
+          "description": "",
+          "external_id": "sync-1",
+          "external_source": "fixture"
+        }
+      ]
+    },
+    "status": 201,
+    "response": [
+      {
+        "id": "11111111-1111-4111-8111-111111111111"
+      }
+    ],
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "estimate-point",
+    "action": "update",
+    "command": [
+      "estimate",
+      "point",
+      "update"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111",
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/estimate-points/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": {
+      "value": "0",
+      "key": 0,
+      "description": "",
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v1",
+    "resource": "estimate-point",
+    "action": "delete",
+    "command": [
+      "estimate",
+      "point",
+      "delete"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111",
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/estimate-points/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "list",
+    "command": [
+      "cycle",
+      "list"
+    ],
+    "args": [
+      "--per-page=2",
+      "--offset=0",
+      "--paginate=cursor",
+      "--cursor=opaque:+/=",
+      "--count=false",
+      "--order-by=id",
+      "--search=term",
+      "--fields=id",
+      "--external-id=sync-1",
+      "--external-source=fixture",
+      "--name=Sprint",
+      "--owned-by-id=22222222-2222-4222-8222-222222222222",
+      "--is-archived=false",
+      "--include-archived=true",
+      "--expand=owned_by"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/",
+    "query": {
+      "per_page": "2",
+      "offset": "0",
+      "paginate": "cursor",
+      "cursor": "opaque:+/=",
+      "count": "false",
+      "order_by": "id",
+      "search": "term",
+      "fields": "id",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "name": "Sprint",
+      "owned_by_id": "22222222-2222-4222-8222-222222222222",
+      "is_archived": "false",
+      "include_archived": "true",
+      "expand": "owned_by"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "pagination": {
+        "style": "cursor"
+      },
+      "next_cursor": null,
+      "has_more": false
+    },
+    "paginated": true
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "get",
+    "command": [
+      "cycle",
+      "get"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id",
+      "--expand=owned_by"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id",
+      "expand": "owned_by"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "create",
+    "command": [
+      "cycle",
+      "create"
+    ],
+    "args": [
+      "--fields=id",
+      "--expand=owned_by"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/",
+    "query": {
+      "fields": "id",
+      "expand": "owned_by"
+    },
+    "body": {
+      "name": "Sprint",
+      "description": "",
+      "start_date": "2026-01-05T00:00:00+05:30",
+      "end_date": "2026-01-19T00:00:00+05:30",
+      "timezone": "Asia/Kolkata",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "sort_order": 0,
+      "logo_props": {}
+    },
+    "status": 201,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "update",
+    "command": [
+      "cycle",
+      "update"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id",
+      "--expand=owned_by"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id",
+      "expand": "owned_by"
+    },
+    "body": {
+      "name": "Sprint",
+      "description": "",
+      "start_date": null,
+      "end_date": null,
+      "timezone": "Asia/Kolkata",
+      "external_id": null,
+      "external_source": null,
+      "sort_order": 0,
+      "logo_props": {}
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "delete",
+    "command": [
+      "cycle",
+      "delete"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id",
+      "--expand=owned_by",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id",
+      "expand": "owned_by"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "upsert",
+    "command": [
+      "cycle",
+      "upsert"
+    ],
+    "args": [
+      "--fields=id",
+      "--expand=owned_by"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/upsert/",
+    "query": {
+      "fields": "id",
+      "expand": "owned_by"
+    },
+    "body": {
+      "name": "Sprint",
+      "description": "",
+      "start_date": "2026-01-05",
+      "end_date": null,
+      "timezone": "Asia/Kolkata",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "sort_order": 0,
+      "logo_props": "native-logo"
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "bulk-create",
+    "command": [
+      "cycle",
+      "bulk-create"
+    ],
+    "args": [],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/bulk-create/",
+    "query": {},
+    "body": {
+      "items": [
+        {
+          "name": "Sprint",
+          "description": "",
+          "start_date": "2026-01-05T00:00:00+05:30",
+          "end_date": "2026-01-19T00:00:00+05:30",
+          "timezone": "Asia/Kolkata",
+          "external_id": "sync-1",
+          "external_source": "fixture",
+          "sort_order": 0,
+          "logo_props": {}
+        }
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "created",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "bulk-update",
+    "command": [
+      "cycle",
+      "bulk-update"
+    ],
+    "args": [],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/bulk-update/",
+    "query": {},
+    "body": {
+      "items": [
+        {
+          "name": "Sprint",
+          "description": "",
+          "start_date": "2026-01-05T00:00:00+05:30",
+          "end_date": "2026-01-19T00:00:00+05:30",
+          "timezone": "Asia/Kolkata",
+          "external_id": "sync-1",
+          "external_source": "fixture",
+          "sort_order": 0,
+          "logo_props": {},
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "updated",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "bulk-delete",
+    "command": [
+      "cycle",
+      "bulk-delete"
+    ],
+    "args": [
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/bulk-delete/",
+    "query": {},
+    "body": {
+      "ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "deleted",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "archive",
+    "command": [
+      "cycle",
+      "archive"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/archive/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "unarchive",
+    "command": [
+      "cycle",
+      "unarchive"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/unarchive/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "manage-work-items",
+    "command": [
+      "cycle",
+      "manage-work-items"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/work-items/",
+    "query": {},
+    "body": {
+      "add": [
+        "22222222-2222-4222-8222-222222222222"
+      ],
+      "remove": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "added": [
+        "22222222-2222-4222-8222-222222222222"
+      ],
+      "removed": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "cycle",
+    "action": "transfer-work-items",
+    "command": [
+      "cycle",
+      "transfer-work-items"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/cycles/11111111-1111-4111-8111-111111111111/transfer/",
+    "query": {},
+    "body": {
+      "new_cycle_id": "22222222-2222-4222-8222-222222222222"
+    },
+    "status": 200,
+    "response": {
+      "new_cycle_id": "22222222-2222-4222-8222-222222222222"
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "module",
+    "action": "list",
+    "command": [
+      "module",
+      "list"
+    ],
+    "args": [
+      "--per-page=2",
+      "--offset=0",
+      "--paginate=cursor",
+      "--cursor=opaque:+/=",
+      "--count=false",
+      "--order-by=id",
+      "--search=term",
+      "--fields=id",
+      "--external-id=sync-1",
+      "--external-source=fixture",
+      "--name=Module",
+      "--status=planned",
+      "--status--in=planned,paused",
+      "--lead-id=22222222-2222-4222-8222-222222222222",
+      "--is-archived=false",
+      "--include-archived=true",
+      "--expand=lead"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/project/modules/",
+    "query": {
+      "per_page": "2",
+      "offset": "0",
+      "paginate": "cursor",
+      "cursor": "opaque:+/=",
+      "count": "false",
+      "order_by": "id",
+      "search": "term",
+      "fields": "id",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "name": "Module",
+      "status": "planned",
+      "status__in": "planned,paused",
+      "lead_id": "22222222-2222-4222-8222-222222222222",
+      "is_archived": "false",
+      "include_archived": "true",
+      "expand": "lead"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "pagination": {
+        "style": "cursor"
+      },
+      "next_cursor": null,
+      "has_more": false
+    },
+    "paginated": true
+  },
+  {
+    "version": "v2",
+    "resource": "module",
+    "action": "get",
+    "command": [
+      "module",
+      "get"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id",
+      "--expand=lead"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/project/modules/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id",
+      "expand": "lead"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "module",
+    "action": "create",
+    "command": [
+      "module",
+      "create"
+    ],
+    "args": [
+      "--fields=id",
+      "--expand=lead"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/modules/",
+    "query": {
+      "fields": "id",
+      "expand": "lead"
+    },
+    "body": {
+      "name": "Module",
+      "description": "",
+      "status": "planned",
+      "start_date": "2026-01-05",
+      "target_date": "2026-01-19",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "lead_id": null,
+      "sort_order": 0,
+      "logo_props": {}
+    },
+    "status": 201,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "module",
+    "action": "update",
+    "command": [
+      "module",
+      "update"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id",
+      "--expand=lead"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/projects/project/modules/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id",
+      "expand": "lead"
+    },
+    "body": {
+      "name": "Module",
+      "description": "",
+      "status": "planned",
+      "start_date": null,
+      "target_date": null,
+      "external_id": null,
+      "external_source": null,
+      "lead_id": null,
+      "sort_order": 0,
+      "logo_props": {}
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "module",
+    "action": "delete",
+    "command": [
+      "module",
+      "delete"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id",
+      "--expand=lead",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/projects/project/modules/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id",
+      "expand": "lead"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "module",
+    "action": "upsert",
+    "command": [
+      "module",
+      "upsert"
+    ],
+    "args": [
+      "--fields=id",
+      "--expand=lead"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/modules/upsert/",
+    "query": {
+      "fields": "id",
+      "expand": "lead"
+    },
+    "body": {
+      "name": "Module",
+      "description": "",
+      "status": "planned",
+      "start_date": "2026-01-05",
+      "target_date": "2026-01-19",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "lead_id": null,
+      "sort_order": 0,
+      "logo_props": "native-logo"
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "module",
+    "action": "bulk-create",
+    "command": [
+      "module",
+      "bulk-create"
+    ],
+    "args": [],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/modules/bulk-create/",
+    "query": {},
+    "body": {
+      "items": [
+        {
+          "name": "Module",
+          "description": "",
+          "status": "planned",
+          "start_date": "2026-01-05",
+          "target_date": "2026-01-19",
+          "external_id": "sync-1",
+          "external_source": "fixture",
+          "lead_id": null,
+          "sort_order": 0,
+          "logo_props": {}
+        }
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "created",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "module",
+    "action": "bulk-update",
+    "command": [
+      "module",
+      "bulk-update"
+    ],
+    "args": [],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/modules/bulk-update/",
+    "query": {},
+    "body": {
+      "items": [
+        {
+          "name": "Module",
+          "description": "",
+          "status": "planned",
+          "start_date": "2026-01-05",
+          "target_date": "2026-01-19",
+          "external_id": "sync-1",
+          "external_source": "fixture",
+          "lead_id": null,
+          "sort_order": 0,
+          "logo_props": {},
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "updated",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "module",
+    "action": "bulk-delete",
+    "command": [
+      "module",
+      "bulk-delete"
+    ],
+    "args": [
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/modules/bulk-delete/",
+    "query": {},
+    "body": {
+      "ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "deleted",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "module",
+    "action": "archive",
+    "command": [
+      "module",
+      "archive"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/modules/11111111-1111-4111-8111-111111111111/archive/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "module",
+    "action": "unarchive",
+    "command": [
+      "module",
+      "unarchive"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/modules/11111111-1111-4111-8111-111111111111/unarchive/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "module",
+    "action": "manage-work-items",
+    "command": [
+      "module",
+      "manage-work-items"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/modules/11111111-1111-4111-8111-111111111111/work-items/",
+    "query": {},
+    "body": {
+      "add": [
+        "22222222-2222-4222-8222-222222222222"
+      ],
+      "remove": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "added": [
+        "22222222-2222-4222-8222-222222222222"
+      ],
+      "removed": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "milestone",
+    "action": "list",
+    "command": [
+      "milestone",
+      "list"
+    ],
+    "args": [
+      "--per-page=2",
+      "--offset=0",
+      "--paginate=cursor",
+      "--cursor=opaque:+/=",
+      "--count=false",
+      "--order-by=id",
+      "--search=term",
+      "--fields=id",
+      "--external-id=sync-1",
+      "--external-source=fixture",
+      "--name=Release",
+      "--target-date=2026-01-19",
+      "--target-date--gte=2026-01-01",
+      "--target-date--lte=2026-01-31"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/project/milestones/",
+    "query": {
+      "per_page": "2",
+      "offset": "0",
+      "paginate": "cursor",
+      "cursor": "opaque:+/=",
+      "count": "false",
+      "order_by": "id",
+      "search": "term",
+      "fields": "id",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "name": "Release",
+      "target_date": "2026-01-19",
+      "target_date__gte": "2026-01-01",
+      "target_date__lte": "2026-01-31"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "pagination": {
+        "style": "cursor"
+      },
+      "next_cursor": null,
+      "has_more": false
+    },
+    "paginated": true
+  },
+  {
+    "version": "v2",
+    "resource": "milestone",
+    "action": "get",
+    "command": [
+      "milestone",
+      "get"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/project/milestones/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "milestone",
+    "action": "create",
+    "command": [
+      "milestone",
+      "create"
+    ],
+    "args": [
+      "--fields=id"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/milestones/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "title": "Release",
+      "target_date": "2026-01-19",
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 201,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "milestone",
+    "action": "update",
+    "command": [
+      "milestone",
+      "update"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/projects/project/milestones/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "title": "Release",
+      "target_date": null,
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "milestone",
+    "action": "delete",
+    "command": [
+      "milestone",
+      "delete"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/projects/project/milestones/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "milestone",
+    "action": "upsert",
+    "command": [
+      "milestone",
+      "upsert"
+    ],
+    "args": [
+      "--fields=id"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/milestones/upsert/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "title": "Release",
+      "target_date": "2026-01-19",
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "milestone",
+    "action": "bulk-create",
+    "command": [
+      "milestone",
+      "bulk-create"
+    ],
+    "args": [],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/milestones/bulk-create/",
+    "query": {},
+    "body": {
+      "items": [
+        {
+          "title": "Release",
+          "target_date": "2026-01-19",
+          "external_id": "sync-1",
+          "external_source": "fixture"
+        }
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "created",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "milestone",
+    "action": "bulk-update",
+    "command": [
+      "milestone",
+      "bulk-update"
+    ],
+    "args": [],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/milestones/bulk-update/",
+    "query": {},
+    "body": {
+      "items": [
+        {
+          "title": "Release",
+          "target_date": "2026-01-19",
+          "external_id": "sync-1",
+          "external_source": "fixture",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "updated",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "milestone",
+    "action": "bulk-delete",
+    "command": [
+      "milestone",
+      "bulk-delete"
+    ],
+    "args": [
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/milestones/bulk-delete/",
+    "query": {},
+    "body": {
+      "ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "deleted",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "milestone",
+    "action": "manage-work-items",
+    "command": [
+      "milestone",
+      "manage-work-items"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/milestones/11111111-1111-4111-8111-111111111111/work-items/",
+    "query": {},
+    "body": {
+      "add": [
+        "22222222-2222-4222-8222-222222222222"
+      ],
+      "remove": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "added": [
+        "22222222-2222-4222-8222-222222222222"
+      ],
+      "removed": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate",
+    "action": "list",
+    "command": [
+      "estimate",
+      "list"
+    ],
+    "args": [
+      "--per-page=2",
+      "--offset=0",
+      "--paginate=cursor",
+      "--cursor=opaque:+/=",
+      "--count=false",
+      "--order-by=id",
+      "--search=term",
+      "--fields=id",
+      "--external-id=sync-1",
+      "--external-source=fixture",
+      "--name=Points",
+      "--type=points",
+      "--type--in=points,time",
+      "--expand=points"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/",
+    "query": {
+      "per_page": "2",
+      "offset": "0",
+      "paginate": "cursor",
+      "cursor": "opaque:+/=",
+      "count": "false",
+      "order_by": "id",
+      "search": "term",
+      "fields": "id",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "name": "Points",
+      "type": "points",
+      "type__in": "points,time",
+      "expand": "points"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "pagination": {
+        "style": "cursor"
+      },
+      "next_cursor": null,
+      "has_more": false
+    },
+    "paginated": true
+  },
+  {
+    "version": "v2",
+    "resource": "estimate",
+    "action": "get",
+    "command": [
+      "estimate",
+      "get"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id",
+      "--expand=points"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id",
+      "expand": "points"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate",
+    "action": "create",
+    "command": [
+      "estimate",
+      "create"
+    ],
+    "args": [
+      "--fields=id",
+      "--expand=points"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/",
+    "query": {
+      "fields": "id",
+      "expand": "points"
+    },
+    "body": {
+      "name": "Points",
+      "description": "",
+      "type": "points",
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 201,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate",
+    "action": "update",
+    "command": [
+      "estimate",
+      "update"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id",
+      "--expand=points"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id",
+      "expand": "points"
+    },
+    "body": {
+      "name": "Points",
+      "description": "",
+      "type": "points",
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate",
+    "action": "delete",
+    "command": [
+      "estimate",
+      "delete"
+    ],
+    "args": [
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id",
+      "--expand=points",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id",
+      "expand": "points"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate",
+    "action": "upsert",
+    "command": [
+      "estimate",
+      "upsert"
+    ],
+    "args": [
+      "--fields=id",
+      "--expand=points"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/upsert/",
+    "query": {
+      "fields": "id",
+      "expand": "points"
+    },
+    "body": {
+      "name": "Points",
+      "description": "",
+      "type": "points",
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate",
+    "action": "bulk-create",
+    "command": [
+      "estimate",
+      "bulk-create"
+    ],
+    "args": [],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/bulk-create/",
+    "query": {},
+    "body": {
+      "items": [
+        {
+          "name": "Points",
+          "description": "",
+          "type": "points",
+          "external_id": "sync-1",
+          "external_source": "fixture"
+        }
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "created",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate",
+    "action": "bulk-update",
+    "command": [
+      "estimate",
+      "bulk-update"
+    ],
+    "args": [],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/bulk-update/",
+    "query": {},
+    "body": {
+      "items": [
+        {
+          "name": "Points",
+          "description": "",
+          "type": "points",
+          "external_id": "sync-1",
+          "external_source": "fixture",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "updated",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate",
+    "action": "bulk-delete",
+    "command": [
+      "estimate",
+      "bulk-delete"
+    ],
+    "args": [
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/bulk-delete/",
+    "query": {},
+    "body": {
+      "ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "deleted",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate-point",
+    "action": "list",
+    "command": [
+      "estimate",
+      "point",
+      "list"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111",
+      "--per-page=2",
+      "--offset=0",
+      "--paginate=cursor",
+      "--cursor=opaque:+/=",
+      "--count=false",
+      "--order-by=id",
+      "--search=term",
+      "--fields=id",
+      "--external-id=sync-1",
+      "--external-source=fixture",
+      "--key=0",
+      "--value=0"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/points/",
+    "query": {
+      "per_page": "2",
+      "offset": "0",
+      "paginate": "cursor",
+      "cursor": "opaque:+/=",
+      "count": "false",
+      "order_by": "id",
+      "search": "term",
+      "fields": "id",
+      "external_id": "sync-1",
+      "external_source": "fixture",
+      "key": "0",
+      "value": "0"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "pagination": {
+        "style": "cursor"
+      },
+      "next_cursor": null,
+      "has_more": false
+    },
+    "paginated": true
+  },
+  {
+    "version": "v2",
+    "resource": "estimate-point",
+    "action": "get",
+    "command": [
+      "estimate",
+      "point",
+      "get"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111",
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/points/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate-point",
+    "action": "create",
+    "command": [
+      "estimate",
+      "point",
+      "create"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/points/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "value": "0",
+      "key": 0,
+      "description": "",
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 201,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate-point",
+    "action": "update",
+    "command": [
+      "estimate",
+      "point",
+      "update"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111",
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/points/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "value": "0",
+      "key": 0,
+      "description": "",
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate-point",
+    "action": "delete",
+    "command": [
+      "estimate",
+      "point",
+      "delete"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111",
+      "--id",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/points/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate-point",
+    "action": "upsert",
+    "command": [
+      "estimate",
+      "point",
+      "upsert"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields=id"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/points/upsert/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "value": "0",
+      "key": 0,
+      "description": "",
+      "external_id": "sync-1",
+      "external_source": "fixture"
+    },
+    "status": 200,
+    "response": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "unknown": 9007199254740993
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate-point",
+    "action": "bulk-create",
+    "command": [
+      "estimate",
+      "point",
+      "bulk-create"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/points/bulk-create/",
+    "query": {},
+    "body": {
+      "items": [
+        {
+          "value": "0",
+          "key": 0,
+          "description": "",
+          "external_id": "sync-1",
+          "external_source": "fixture"
+        }
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "created",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate-point",
+    "action": "bulk-update",
+    "command": [
+      "estimate",
+      "point",
+      "bulk-update"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/points/bulk-update/",
+    "query": {},
+    "body": {
+      "items": [
+        {
+          "value": "0",
+          "key": 0,
+          "description": "",
+          "external_id": "sync-1",
+          "external_source": "fixture",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "updated",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  },
+  {
+    "version": "v2",
+    "resource": "estimate-point",
+    "action": "bulk-delete",
+    "command": [
+      "estimate",
+      "point",
+      "bulk-delete"
+    ],
+    "args": [
+      "--estimate",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/project/estimates/11111111-1111-4111-8111-111111111111/points/bulk-delete/",
+    "query": {},
+    "body": {
+      "ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "deleted",
+          "id": "11111111-1111-4111-8111-111111111111"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    },
+    "paginated": false
+  }
+]

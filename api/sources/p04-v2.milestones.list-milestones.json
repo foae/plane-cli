@@ -1,0 +1,105 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/milestones/list-milestones.md",
+  "source_sha256": "d9de3235f2e7ac1eafe0a91cdf3121ccf402b6f68bf9f65fa3e944ed5f435591",
+  "operation_id": "v2.milestones.list-milestones",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/milestones/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "external_source": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "search": {
+            "type": "string"
+          },
+          "target_date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "target_date__gte": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "target_date__lte": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "v2",
+  "scopes": [
+    "projects.milestones:read"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

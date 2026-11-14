@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/issue-comment/update-issue-comment-detail.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "5a9ccd9cf8c907399fae3795f79a877c0fd9cfc1a51e9d781278e0b02ce4c6b6",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 4564,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-comment update",
+      "method": "PATCH",
+      "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/comments/{resource_id}/",
+      "success": "200 native response"
+    }
+  ]
+}

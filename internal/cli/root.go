@@ -29,6 +29,15 @@ func HandlerIDs() []string {
 	for id := range stateLabelHandlers() {
 		ids = append(ids, id)
 	}
+	for id := range triageHandlers() {
+		ids = append(ids, id)
+	}
+	for id := range collaborationHandlers() {
+		ids = append(ids, id)
+	}
+	for id := range schedulingHandlers() {
+		ids = append(ids, id)
+	}
 	return ids
 }
 
@@ -104,6 +113,15 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 		handlers[id] = h
 	}
 	for id, h := range stateLabelHandlers() {
+		handlers[id] = h
+	}
+	for id, h := range triageHandlers() {
+		handlers[id] = h
+	}
+	for id, h := range collaborationHandlers() {
+		handlers[id] = h
+	}
+	for id, h := range schedulingHandlers() {
 		handlers[id] = h
 	}
 	for id, h := range extra {

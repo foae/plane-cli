@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/issue-activity/list-issue-activities.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "d753b9054575e6279cb621e235576385e44c8ce46a64bff5b084c3a16251bfc0",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 3616,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-activity list",
+      "method": "GET",
+      "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/activities/",
+      "success": "200 native response"
+    }
+  ]
+}

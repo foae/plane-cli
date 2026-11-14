@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-votes/retract-work-item-vote.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "883893d45be9a4be1f401b12ed5f2f319633aa7e43dc453d520c0068ea3f6938",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 4940,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-vote retract",
+      "method": "DELETE",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{pk}/votes/",
+      "success": "204 native response"
+    }
+  ]
+}

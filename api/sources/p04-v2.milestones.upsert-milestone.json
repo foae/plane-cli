@@ -1,0 +1,87 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/milestones/upsert-milestone.md",
+  "source_sha256": "b9553418fe4f15142f6b0a4a4533f8cea5eae922db1fbc719eddb5718b596e33",
+  "operation_id": "v2.milestones.upsert-milestone",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/milestones/upsert/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "external_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "external_source": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "target_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "external_source",
+          "external_id"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "statuses": [
+    200,
+    201
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.milestones:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

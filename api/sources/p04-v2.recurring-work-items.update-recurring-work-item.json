@@ -1,0 +1,130 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/recurring-work-items/update-recurring-work-item.md",
+  "source_id": "v2:recurring-work-items:update-recurring-work-item",
+  "reviewed_at": "2026-11-14",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/recurring-work-items/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "project_id",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "start_at": {
+            "type": "string"
+          },
+          "end_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "interval_type": {
+            "type": "string",
+            "enum": [
+              "daily",
+              "weekly",
+              "monthly",
+              "yearly"
+            ]
+          },
+          "interval_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "description_html": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "urgent"
+            ]
+          },
+          "state_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "assignee_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "label_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "module_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "notes": [
+    "Native response is preserved without closed-shape validation; selected command schema is authoritative for invocation validation."
+  ]
+}

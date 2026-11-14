@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/issue-comment/delete-issue-comment.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "054b509f854fcf1e4abdc79e38e113bda7eab44a209a84642d7a9d287cc75890",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 2524,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-comment delete",
+      "method": "DELETE",
+      "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/comments/{resource_id}/",
+      "success": "204 native response"
+    }
+  ]
+}

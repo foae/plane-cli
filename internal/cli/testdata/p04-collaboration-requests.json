@@ -1,0 +1,1265 @@
+[
+  {
+    "id": "v2.work-item-comments.list-comments",
+    "args": [
+      "work-item-comment",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "33333333-3333-4333-8333-333333333333"
+        }
+      ],
+      "next": null,
+      "pagination": {
+        "style": "offset"
+      },
+      "native": "kept"
+    }
+  },
+  {
+    "id": "v2.work-item-comments.get-comment",
+    "args": [
+      "work-item-comment",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v2.work-item-comments.create-comment",
+    "args": [
+      "work-item-comment",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/",
+    "body": {
+      "comment_html": "<p>literal & <script>alert(\"x\")</script></p>",
+      "access": "INTERNAL"
+    },
+    "status": 201,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v2.work-item-comments.update-comment",
+    "args": [
+      "work-item-comment",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/33333333-3333-4333-8333-333333333333/",
+    "body": {
+      "comment_html": "<p>literal & <script>alert(\"x\")</script></p>",
+      "access": "INTERNAL"
+    },
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v2.work-item-comments.delete-comment",
+    "args": [
+      "work-item-comment",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.work-item-comments.upsert-comment",
+    "args": [
+      "work-item-comment",
+      "upsert",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/upsert/",
+    "body": {
+      "comment_html": "<p>literal & <script>alert(\"x\")</script></p>",
+      "access": "INTERNAL",
+      "external_id": "ext-1",
+      "external_source": "fixture"
+    },
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v2.work-item-comments.bulk-create-comments",
+    "args": [
+      "work-item-comment",
+      "bulk-create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/bulk-create/",
+    "body": {
+      "items": [
+        {
+          "comment_html": "<p>literal & <script>alert(\"x\")</script></p>",
+          "access": "INTERNAL"
+        }
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "created",
+          "id": "33333333-3333-4333-8333-333333333333"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    }
+  },
+  {
+    "id": "v2.work-item-comments.bulk-update-comments",
+    "args": [
+      "work-item-comment",
+      "bulk-update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/bulk-update/",
+    "body": {
+      "items": [
+        {
+          "id": "33333333-3333-4333-8333-333333333333",
+          "comment_html": "<p>literal & <script>alert(\"x\")</script></p>",
+          "access": "INTERNAL"
+        }
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "created",
+          "id": "33333333-3333-4333-8333-333333333333"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    }
+  },
+  {
+    "id": "v2.work-item-comments.bulk-delete-comments",
+    "args": [
+      "work-item-comment",
+      "bulk-delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/bulk-delete/",
+    "body": {
+      "ids": [
+        "33333333-3333-4333-8333-333333333333"
+      ],
+      "all_or_none": false
+    },
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "index": 0,
+          "result": "created",
+          "id": "33333333-3333-4333-8333-333333333333"
+        }
+      ],
+      "succeeded": 1,
+      "failed": 0
+    }
+  },
+  {
+    "id": "v2.work-item-links.list-links",
+    "args": [
+      "work-item-link",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/links/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "33333333-3333-4333-8333-333333333333"
+        }
+      ],
+      "next": null,
+      "pagination": {
+        "style": "offset"
+      },
+      "native": "kept"
+    }
+  },
+  {
+    "id": "v2.work-item-links.get-link",
+    "args": [
+      "work-item-link",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/links/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v2.work-item-links.create-link",
+    "args": [
+      "work-item-link",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/links/",
+    "body": {
+      "url": "https://example.invalid/?a=1&b=2",
+      "title": null,
+      "metadata": "{\"literal\":true}"
+    },
+    "status": 201,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v2.work-item-links.update-link",
+    "args": [
+      "work-item-link",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/links/33333333-3333-4333-8333-333333333333/",
+    "body": {
+      "url": "https://example.invalid/?a=1&b=2",
+      "title": null,
+      "metadata": "{\"literal\":true}"
+    },
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v2.work-item-links.delete-link",
+    "args": [
+      "work-item-link",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/links/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.work-item-activities.list-activities",
+    "args": [
+      "work-item-activity",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/activities/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "33333333-3333-4333-8333-333333333333"
+        }
+      ],
+      "next": null,
+      "pagination": {
+        "style": "offset"
+      },
+      "native": "kept"
+    }
+  },
+  {
+    "id": "v2.work-item-activities.get-activity",
+    "args": [
+      "work-item-activity",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/activities/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v2.work-item-worklogs.list-worklogs",
+    "args": [
+      "work-item-worklog",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/worklogs/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "33333333-3333-4333-8333-333333333333"
+        }
+      ],
+      "next": null,
+      "pagination": {
+        "style": "offset"
+      },
+      "native": "kept"
+    }
+  },
+  {
+    "id": "v2.work-item-worklogs.get-project-worklog-summary",
+    "args": [
+      "work-item-worklog",
+      "summary",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/worklogs/summary/",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "work_item_id": "22222222-2222-4222-8222-222222222222",
+        "duration": 0
+      }
+    ]
+  },
+  {
+    "id": "v2.work-item-worklogs.get-worklog",
+    "args": [
+      "work-item-worklog",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/worklogs/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v2.work-item-worklogs.create-worklog",
+    "args": [
+      "work-item-worklog",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/worklogs/",
+    "body": {
+      "duration": 0,
+      "description": ""
+    },
+    "status": 201,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v2.work-item-worklogs.update-worklog",
+    "args": [
+      "work-item-worklog",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/worklogs/33333333-3333-4333-8333-333333333333/",
+    "body": {
+      "duration": 0,
+      "description": ""
+    },
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v2.work-item-worklogs.delete-worklog",
+    "args": [
+      "work-item-worklog",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/worklogs/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.work-item-subscribers.get-subscribers",
+    "args": [
+      "work-item-subscriber",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/subscribers/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "subscriber_ids": [
+        "33333333-3333-4333-8333-333333333333"
+      ]
+    }
+  },
+  {
+    "id": "v2.work-item-subscribers.get-subscribers-by-identifier",
+    "args": [
+      "work-item-subscriber",
+      "list-by-identifier",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--work-item",
+      "ENG-42"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/work-items/ENG-42/subscribers/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "subscriber_ids": [
+        "33333333-3333-4333-8333-333333333333"
+      ]
+    }
+  },
+  {
+    "id": "v2.work-item-subscribers.update-subscribers",
+    "args": [
+      "work-item-subscriber",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/subscribers/",
+    "body": {
+      "add": [
+        "33333333-3333-4333-8333-333333333333"
+      ],
+      "remove": []
+    },
+    "status": 200,
+    "response": {
+      "subscriber_ids": [
+        "33333333-3333-4333-8333-333333333333"
+      ]
+    }
+  },
+  {
+    "id": "v2.work-item-subscribers.update-subscribers-by-identifier",
+    "args": [
+      "work-item-subscriber",
+      "update-by-identifier",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--work-item",
+      "ENG-42"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/work-items/ENG-42/subscribers/",
+    "body": {
+      "add": [
+        "33333333-3333-4333-8333-333333333333"
+      ],
+      "remove": []
+    },
+    "status": 200,
+    "response": {
+      "subscriber_ids": [
+        "33333333-3333-4333-8333-333333333333"
+      ]
+    }
+  },
+  {
+    "id": "v2.work-item-votes.list-work-item-votes",
+    "args": [
+      "work-item-vote",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/votes/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "33333333-3333-4333-8333-333333333333"
+        }
+      ],
+      "next": null,
+      "pagination": {
+        "style": "offset"
+      },
+      "native": "kept"
+    }
+  },
+  {
+    "id": "v2.work-item-votes.cast-work-item-vote",
+    "args": [
+      "work-item-vote",
+      "cast",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/votes/",
+    "body": {
+      "vote": -1
+    },
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v2.work-item-votes.retract-work-item-vote",
+    "args": [
+      "work-item-vote",
+      "retract",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/votes/",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v1.link.add-link",
+    "args": [
+      "work-item-link",
+      "create",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/links/",
+    "body": {
+      "url": "https://example.invalid/?a=1&b=2",
+      "title": "literal <tag>"
+    },
+    "status": 201,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v1.link.list-links",
+    "args": [
+      "work-item-link",
+      "list",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/links/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "33333333-3333-4333-8333-333333333333"
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": "",
+      "native": "kept"
+    }
+  },
+  {
+    "id": "v1.link.get-link-detail",
+    "args": [
+      "work-item-link",
+      "get",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/links/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v1.link.update-link-detail",
+    "args": [
+      "work-item-link",
+      "update",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/links/33333333-3333-4333-8333-333333333333/",
+    "body": {
+      "url": "https://example.invalid/?a=1&b=2",
+      "title": "literal <tag>"
+    },
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v1.link.delete-link",
+    "args": [
+      "work-item-link",
+      "delete",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/links/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v1.issue-activity.list-issue-activities",
+    "args": [
+      "work-item-activity",
+      "list",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/activities/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "33333333-3333-4333-8333-333333333333"
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": "",
+      "native": "kept"
+    }
+  },
+  {
+    "id": "v1.issue-activity.get-issue-activity-detail",
+    "args": [
+      "work-item-activity",
+      "get",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/activities/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v1.issue-comment.add-issue-comment",
+    "args": [
+      "work-item-comment",
+      "create",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/",
+    "body": {
+      "comment_html": "<p>literal & <script>alert(\"x\")</script></p>",
+      "access": "INTERNAL",
+      "comment_json": {
+        "text": "literal"
+      }
+    },
+    "status": 201,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v1.issue-comment.list-issue-comments",
+    "args": [
+      "work-item-comment",
+      "list",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "33333333-3333-4333-8333-333333333333"
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": "",
+      "native": "kept"
+    }
+  },
+  {
+    "id": "v1.issue-comment.get-issue-comment-detail",
+    "args": [
+      "work-item-comment",
+      "get",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v1.issue-comment.update-issue-comment-detail",
+    "args": [
+      "work-item-comment",
+      "update",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/33333333-3333-4333-8333-333333333333/",
+    "body": {
+      "comment_html": "<p>literal & <script>alert(\"x\")</script></p>",
+      "access": "INTERNAL",
+      "comment_json": {
+        "text": "literal"
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v1.issue-comment.delete-issue-comment",
+    "args": [
+      "work-item-comment",
+      "delete",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/comments/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v1.worklogs.create-worklog",
+    "args": [
+      "work-item-worklog",
+      "create",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/worklogs/",
+    "body": {
+      "duration": 0,
+      "description": ""
+    },
+    "status": 201,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v1.worklogs.get-worklogs-for-issue",
+    "args": [
+      "work-item-worklog",
+      "list",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/worklogs/",
+    "body": null,
+    "status": 200,
+    "response": []
+  },
+  {
+    "id": "v1.worklogs.get-total-time",
+    "args": [
+      "work-item-worklog",
+      "summary",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/total-worklogs/",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "issue_id": "22222222-2222-4222-8222-222222222222",
+        "duration": 0
+      }
+    ]
+  },
+  {
+    "id": "v1.worklogs.update-worklog",
+    "args": [
+      "work-item-worklog",
+      "update",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333",
+      "--project",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/worklogs/33333333-3333-4333-8333-333333333333/",
+    "body": {
+      "duration": 0,
+      "description": ""
+    },
+    "status": 200,
+    "response": {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "native": "kept",
+      "comment_html": "<p>literal</p>"
+    }
+  },
+  {
+    "id": "v1.worklogs.delete-worklog",
+    "args": [
+      "work-item-worklog",
+      "delete",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "example",
+      "--work-item",
+      "22222222-2222-4222-8222-222222222222",
+      "--id",
+      "33333333-3333-4333-8333-333333333333",
+      "--project",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/example/projects/11111111-1111-4111-8111-111111111111/work-items/22222222-2222-4222-8222-222222222222/worklogs/33333333-3333-4333-8333-333333333333/",
+    "body": null,
+    "status": 204,
+    "response": null
+  }
+]

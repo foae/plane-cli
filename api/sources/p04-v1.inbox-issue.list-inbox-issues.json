@@ -1,0 +1,10 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/inbox-issue/list-inbox-issues.md",
+  "source_id": "v1:inbox-issue:list-inbox-issues",
+  "reviewed_at": "2026-11-14",
+  "resolution": "Approved migration policy: expose supported intake commands only; this is not a claim of legacy wire-route equivalence.",
+  "migration_notice_url": "https://developers.plane.so/api-reference/inbox-issue/overview.md",
+  "deprecated_route_prefix": "/api/v1/.../inbox-issues/",
+  "replacement_route_prefix": "/api/v1/.../intake-issues/",
+  "support_end": "2025-03-31"
+}

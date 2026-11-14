@@ -1,0 +1,63 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/work-item-relations/remove-work-item-relation.md",
+  "source_id": "v1:work-item-relations:remove-work-item-relation",
+  "reviewed_at": "2026-11-14",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/relations/remove/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "work_item_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "project_id",
+          "work_item_id"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "related_issue": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "related_issue"
+        ]
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 204,
+      "content_type": "",
+      "schema": true
+    }
+  ],
+  "notes": [
+    "Native response is preserved without closed-shape validation; selected command schema is authoritative for invocation validation."
+  ]
+}

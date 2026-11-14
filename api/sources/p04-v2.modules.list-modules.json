@@ -1,0 +1,120 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/modules/list-modules.md",
+  "source_sha256": "86380d7b85297a13c610f3e13a24a8dabb6d6ba3d1a7e30e6e921f45c33b8020",
+  "operation_id": "v2.modules.list-modules",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/modules/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "backlog",
+              "planned",
+              "in-progress",
+              "paused",
+              "completed",
+              "cancelled"
+            ]
+          },
+          "lead_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "external_source": {
+            "type": "string"
+          },
+          "is_archived": {
+            "type": "boolean"
+          },
+          "include_archived": {
+            "type": "boolean"
+          },
+          "search": {
+            "type": "string"
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "count": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          },
+          "status__in": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    200
+  ],
+  "pagination": "v2",
+  "scopes": [
+    "projects.modules:read"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

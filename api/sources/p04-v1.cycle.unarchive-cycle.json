@@ -1,0 +1,57 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/cycle/unarchive-cycle.md",
+  "source_sha256": "42000d631f37a85aa98cac161cec36d0336483ae24ca1408beb08372ede8bf56",
+  "operation_id": "v1.cycle.unarchive-cycle",
+  "method": "DELETE",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/archived-cycles/{cycle_id}/unarchive/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cycle_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id",
+          "cycle_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    204
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.cycles:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

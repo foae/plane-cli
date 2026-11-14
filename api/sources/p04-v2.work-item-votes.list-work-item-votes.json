@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-votes/list-work-item-votes.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "cac3763753a54ea2950201f93b8d19e29e1ebc6a00c41e66a769090925391451",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 7151,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-vote list",
+      "method": "GET",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{pk}/votes/",
+      "success": "200 native response"
+    }
+  ]
+}

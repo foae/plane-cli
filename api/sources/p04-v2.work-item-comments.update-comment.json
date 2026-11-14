@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-comments/update-comment.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "1b6c69591970e940e6a1cf2e009d90d106672f4eceaca62531f7333a2d2f80eb",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 10025,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-comment update",
+      "method": "PATCH",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/comments/{pk}/",
+      "success": "200 native response"
+    }
+  ]
+}

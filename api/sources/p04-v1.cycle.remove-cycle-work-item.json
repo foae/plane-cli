@@ -1,0 +1,62 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/cycle/remove-cycle-work-item.md",
+  "source_sha256": "a1b09012d8916688bc05827d5cb2327a16308d5e66029f89b0325dc739f622dc",
+  "operation_id": "v1.cycle.remove-cycle-work-item",
+  "method": "DELETE",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/{cycle_id}/cycle-issues/{work_item_id}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cycle_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "work_item_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id",
+          "cycle_id",
+          "work_item_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "null"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "statuses": [
+    204
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.cycles:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

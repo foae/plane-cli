@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-activities/get-activity.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "56584172aa2e3c60c871383cadc551b0e254a9e0028460cdcd6d0149d8ad39b5",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 5620,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-activity get",
+      "method": "GET",
+      "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/activities/{pk}/",
+      "success": "200 native response"
+    }
+  ]
+}

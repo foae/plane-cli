@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/link/list-links.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "60935ee9c9ed5d35493be8e4105f6b22295621482fa7909ae5e5ebe5f25bfb0c",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 3525,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-link list",
+      "method": "GET",
+      "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/links/",
+      "success": "200 native response"
+    }
+  ]
+}

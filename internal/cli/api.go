@@ -79,7 +79,13 @@ func apiRequest(cmd *cobra.Command, method string, segments []string, query url.
 	case "project bulk-create", "project bulk-update",
 		"work-item bulk-create", "work-item bulk-update", "work-item bulk-delete",
 		"state bulk-create", "state bulk-update", "state bulk-delete",
-		"label bulk-create", "label bulk-update", "label bulk-delete":
+		"label bulk-create", "label bulk-update", "label bulk-delete",
+		"work-item-comment bulk-create", "work-item-comment bulk-update", "work-item-comment bulk-delete",
+		"cycle bulk-create", "cycle bulk-update", "cycle bulk-delete",
+		"module bulk-create", "module bulk-update", "module bulk-delete",
+		"milestone bulk-create", "milestone bulk-update", "milestone bulk-delete",
+		"estimate bulk-create", "estimate bulk-update", "estimate bulk-delete",
+		"estimate point bulk-create", "estimate point bulk-update", "estimate point bulk-delete":
 		var bulk struct {
 			Failed *int `json:"failed"`
 		}

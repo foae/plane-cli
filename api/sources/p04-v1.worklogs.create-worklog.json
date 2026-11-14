@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/worklogs/create-worklog.md",
+  "reviewed_at": "2026-11-14",
+  "sha256": "84b0e88df4d4c69d6984a45ada181ede7ee7b71f5bc28cbcb35a400d8dd5cc76",
+  "hash_kind": "raw-markdown-sha256",
+  "original_body_bytes": 3899,
+  "retrieval": "curl -A Mozilla/5.0 -fLsS",
+  "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
+  "classification": "operation-source",
+  "owner": "P04",
+  "operation_mappings": [
+    {
+      "command": "work-item-worklog create",
+      "method": "POST",
+      "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/worklogs/",
+      "success": "201 native response"
+    }
+  ]
+}

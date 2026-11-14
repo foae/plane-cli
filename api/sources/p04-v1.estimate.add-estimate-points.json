@@ -1,0 +1,92 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/estimate/add-estimate-points.md",
+  "source_sha256": "af046f1f7ac9ac080c34af7e0fbd914740cf1fc0c508f3fb2b5271d450c674aa",
+  "operation_id": "v1.estimate.add-estimate-points",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/{estimate_id}/estimate-points/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "estimate_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workspace_slug",
+          "project_id",
+          "estimate_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "estimate_points": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "maxLength": 20
+                },
+                "key": {
+                  "type": "integer"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "value"
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "estimate_points"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "statuses": [
+    201
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.estimates:write"
+  ],
+  "notes": [
+    "Native response shape is preserved; no documentation examples are used as closed response schemas."
+  ]
+}

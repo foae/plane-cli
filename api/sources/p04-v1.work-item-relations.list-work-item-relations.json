@@ -1,0 +1,69 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/work-item-relations/list-work-item-relations.md",
+  "source_id": "v1:work-item-relations:list-work-item-relations",
+  "reviewed_at": "2026-11-14",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/relations/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "work_item_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "project_id",
+          "work_item_id"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "notes": [
+    "Native response is preserved without closed-shape validation; selected command schema is authoritative for invocation validation."
+  ]
+}
