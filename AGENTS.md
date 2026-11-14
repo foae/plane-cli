@@ -15,7 +15,7 @@ This repository currently contains an implementation plan, not a working CLI. Do
 - Idiomatic Go; standard library first, small packages, explicit errors/context, no speculative SDK or generic framework. Follow [architecture](docs/design/architecture.md).
 - JSON-first, noninteractive by default. Never change stdout shape, exit codes, API-version semantics, destructive safeguards or auth policy without planner review. See [CLI contract](docs/design/cli-contract.md).
 - Support explicit v1/v2 connections, all documented public operations, Linux/macOS amd64/arm64. No silent version fallback or undocumented private UI APIs.
-- Credentials: environment, explicitly selected OS keyring or owner-only file; external-injection mode must work without local credentials. TLS stays verified. Never log secrets or forward API auth to storage. See [authentication](docs/design/authentication.md).
+- Credentials: environment overrides, owner-only file persistence by default, opt-in OS keyring; external-injection mode works without local credentials. Accept configured HTTP without opt-in or recurring warnings; verify TLS when HTTPS is used. Never log secrets or forward API auth to storage. See [authentication](docs/design/authentication.md).
 - No git hooks: do not create, install, suggest or configure them. Use [feedback recipes](docs/development.md); CI must run the same checks.
 - Acceptance uses deterministic fake HTTP servers and controlled backend doubles, not a live Plane instance. Do not label mocks end-to-end or claim edition compatibility they cannot prove.
 - Read the operation's official contract before implementing. Do not guess method/path/schema from a title or another API generation. Escalate contradictory sources with exact evidence.

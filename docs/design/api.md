@@ -11,15 +11,17 @@ awk -F '	' 'NR == 1 || ($1 == "v2" && $2 == "work-items")' docs/reference/api-in
 awk -F '	' 'NR == 1 || ($1 == "v1" && $2 == "issue")' docs/reference/api-index.tsv
 ```
 
-P00 creates `api/catalog.json` from per-operation official evidence, not inferred URL slugs. Every source row is accounted for as an operation source, general guide, duplicate/alias or evidence conflict. An overview may describe additional operations not separately indexed. Supplemental v1 families explicitly mentioned by the migration guide must be researched even when absent from the TSV: AI agents/runs/activities, integration credentials/connections/import jobs, `/server/` upload variants, grouped counts, workflow approvals/state transfers, specialized searches and lite lists. Their absence from llms.txt is not proof of exclusion.
+P00 establishes `api/catalog.json`'s format and the complete source ownership ledger; domain packets populate exact operation records before implementation. Every source row is accounted for as an operation source, general guide, duplicate/alias or evidence conflict, not a guessed URL slug. An overview may describe additional operations not separately indexed. Supplemental v1 families mentioned by migration must be assigned at P00 even when absent from the TSV: AI agents/runs/activities and integration jobs to P09, server upload variants to P06, core work-item searches/grouped counts/lite lists to P03, scheduling/collaboration equivalents to P04, approvals/state transfers to P09. The owning packet resolves the evidence before it can close; do not wait for P09 to discover a P03/P06 prerequisite.
 
-Each operation record requires: stable local ID; version; canonical command/action/scope; exact method/path including trailing slash; path/query/body types and presence/null rules; response/status/content types and pagination kind; scope/feature evidence; read/destructive/secret-returning classification; source URL + snapshot hash/provenance; lifecycle state (`documented`, `implemented`, `verified`); acceptance scenario IDs. Unknown fields are recorded as evidence gaps, not fabricated defaults. Schema snapshots and manual supplements remain distinguishable.
+Each operation record requires: stable local ID; one owning packet; version; canonical command-path tokens/action/scope; exact method/path including trailing slash; path/query/body types and presence/null rules; response/status/content types and pagination kind; scope/feature evidence; side-effect classification; source URL + snapshot hash/provenance; lifecycle state (`documented`, `implemented`, `verified`); acceptance scenario IDs. Sensitivity metadata identifies input and output paths (including nested arrays/maps), ordinary-read redaction, intentional secret-delivery fields, and signed target/form fields. Unknown sensitivity on a potentially secret-bearing operation blocks its review; never invent a safe default. Schema snapshots and manual supplements remain distinguishable.
 
 `checkapi` must reconcile index coverage and supplements, duplicate routes/command mappings, referenced schema validity, actual command implementations and observable operation evidence. A stub, a generic HTTP escape hatch, help registration, or generated schema alone never advances an operation to verified. Aliases and shared routes do not inflate counts. Source refresh is an explicit diff/review, never build/startup network activity.
 
+Provenance records the source revision/date, hash and permission/license for retained excerpts or snapshots; do not vendor entire documentation sites without checking reuse terms. Where redistribution is unclear, retain URL/hash and a minimal independently written contract rather than copying source text. A `verified` transition requires linked operation evidence, independently reviewed expected fixtures, acceptance command/result and planner approval; `checkapi` rejects missing links or self-declared status without these records.
+
 ## Version and edition policy
 
-Explicit `v1|v2` belongs to a connection and may be explicitly overridden per invocation. No `auto` mode, fallback, route probing on failure, automatic migration or silently combined calls across generations. For a locally known v1-only command invoked as v2, fail before HTTP with exit 7 and actionable explicit-version guidance.
+Explicit `v1|v2` belongs to a connection and may be explicitly overridden per invocation. No `auto` mode, fallback, route probing on failure, automatic migration or silently combined calls across generations. For a locally known v1-only command invoked as v2, fail before credentials or HTTP with exit 7 and actionable explicit-version guidance; the reviewed command union stays registered.
 
 Cloud, Community and Commercial expose different releases/entitlements. Workspace feature flags describe switches/type governance, not a universal compatibility matrix or permission grant. An unrecognized flag is unknown; 402 means unavailable entitlement/feature, 403 authorization, 404 missing/hidden/possibly unavailable—not proof of edition. No minimum version or “fully compatible” statement without evidence. `workspace-feature get` and explicit read-only diagnostics may show facts, but ordinary CRUD does not preflight unrelated endpoints or cache inferred capability conclusions.
 
@@ -31,7 +33,7 @@ Every method/action described by the source rows is in scope; labels below are g
 
 | Packet | Resource families | Special obligations |
 | --- | --- | --- |
-| P03 | Identity, projects, states, labels, work items | Complete first lifecycle |
+| P03 | Identity, projects, all state/label definitions and assignments, work items | Complete first lifecycle and supplemental searches |
 | P04 | Cycles, modules, milestones, estimates/points, intake | Transfers, archives, summaries |
 | P04 | Comments, links/relations, activities, worklogs, subscribers/votes, recurring items | Native actions and bounds |
 | P05 | Project/workspace types, properties/options/contexts/type links | Schema, custom fields, epics |
@@ -40,7 +42,7 @@ Every method/action described by the source rows is in scope; labels below are g
 | P07 | Customers/requests/properties/values, teamspaces, views | Related records and scope |
 | P07 | Work-item/page/project templates and categories | Apply/copy semantics |
 | P08 | Members, invitations, roles, permissions/grants/schemes, group sync | Privilege changes |
-| P08 | Project features/labels/states, workspace features, audit logs, users/notifications/artifacts, webhooks/logs | Sensitive responses |
+| P08 | Project/workspace features, audit logs, user administration/notifications/artifacts, webhooks/logs | Sensitive responses; no state/label definitions |
 | P09 | Project/workspace automations and workflow states/transitions/activities/hooks/type governance | Conflicts, graph/state actions |
 | P09 | V1 agents/runs/activities, integrations/importers, approvals/state transfer | Supplemental evidence |
 
@@ -49,6 +51,8 @@ No separate invented `epic create` API: use work-item type/scope semantics where
 ## Pagination
 
 Default one page, preserving the server envelope. Flags reflect the selected API: `--per-page`, `--offset`, `--cursor`, `--paginate` only where supported. `--all` follows native continuation without changing filters, fields, expansion or ordering. `--max-pages` defaults to 1000; exhaustion with more data is an explicit incomplete error, not successful truncation. CLI total deadline defaults to 5 minutes for an API invocation, per-request deadline 30 seconds; either is configurable. Interrupt cancels outstanding IO and spool writes.
+
+Timeout values must be positive durations. Ordinary API/OAuth requests use the per-request timeout within the invocation deadline. Streaming storage requests use the remaining total deadline instead of the ordinary 30-second full-body timeout; bytes are streamed, not limited by JSON response caps. Enforce documented transfer size limits and known declared lengths, with no invented universal file-size ceiling. A user can explicitly raise `--timeout` for large files. OAuth consent waiting has a separate 10-minute default via `--login-timeout`; it may be shortened, not extended beyond the pending-state expiry. Token exchange still uses the request timeout within that login deadline. Headless completion cannot extend the recorded expiry.
 
 V2: branch on `pagination.style`. Offset `next` is an integer, **not a URL**; `null` terminates. Per-page default 50/max 200; offset max 10000. Do not infer completion from short/empty data or compute continuation from array length. Cursor mode uses opaque `next_cursor` with `has_more`; preserve all noncursor parameters. Repeated/nonprogressing continuation, missing cursor with has_more, unknown pagination style or malformed continuation is a protocol error. Do not reject an empty page with a valid advancing cursor. Offset traversal reaching upstream limits reports the limitation; never silently switch to cursor/reorder. Operators can explicitly select cursor and eligible ordering for deep traversal; not every default ordering supports it.
 
@@ -74,9 +78,9 @@ HTTP 202 is accepted, not completed. Polling/get-status commands are separate. M
 
 ## Files, pages and secrets
 
-V2 work-item attachment: metadata POST returns **200** with `upload_data`, `asset_id`, `asset_url`, attachment; stream multipart signed fields + file to storage; PATCH confirmation only after successful upload. Implement `attachment upload` convenience and all documented phase operations with protected secret delivery where required. Workspace-page assets and v1 server-mediated variants need their own evidence; do not copy work-item shape blindly.
+V2 work-item attachment: metadata POST returns **200** with `upload_data`, `asset_id`, `asset_url`, attachment; stream multipart signed fields + file to storage; PATCH confirmation only after successful upload. Implement `attachment upload` convenience and all documented phase operations with [intentional secret delivery](cli-contract.md#secret-delivery). Workspace-page assets and v1 server-mediated variants need their own evidence; do not copy work-item shape blindly.
 
-Storage uses a separate credential-free client. Restrict scheme/userinfo/redirects; allow operator-configured private object-storage endpoints (self-hosting), not an unexplained blanket private-IP block. Validate signed targets within the operation's transfer policy; never forward API cookies/auth. Signed URL data is sensitive even if returned by a successful API call. Failed confirmation is partial, with safe asset ID and recovery phase, not a successful attachment.
+Storage uses a separate credential-free client and the exact [destination policy](authentication.md#transport-isolation): trust documented HTTP/HTTPS targets from the selected Plane server, including private hosts and HTTP targets returned by HTTPS APIs. No origin allowlist or per-transfer permission flags/warnings. Never forward API cookies/auth. Signed URL data remains sensitive; only intentional phase-command output may expose it. Failed confirmation is partial, with safe asset ID and recovery phase, not a successful attachment.
 
 Downloads intercept documented redirects and stream into a secure temporary sibling before atomic installation. Do not use Content-Disposition as an unchecked local path. Verify known size/checksum when provided; remove partial temp files on error/cancel.
 

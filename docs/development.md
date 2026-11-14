@@ -15,8 +15,11 @@ Pin Go 1.27.4 for local recipes/CI; `go 1.27.0` is the source compatibility floo
 | go-keyring | v0.2.8 | Linux/macOS secret backend |
 | x/oauth2 | v0.38.0 | Compatible standard OAuth exchange |
 | x/sys | v0.50.0 | Unix locking/secure IO |
+| JSON Schema validator | `github.com/santhosh-tekuri/jsonschema/v6` v6.0.2 | Offline 2020-12 input validation |
 
 These versions exist in the researched sources; P00/P02 must verify their assembled Go requirements and platform behavior. Add runtime dependencies only in the packet that uses them. Do not add a module merely to match this table. New dependency/tool versions require a focused review, not `@latest` in CI.
+
+The validator's [pinned module](https://github.com/santhosh-tekuri/jsonschema/blob/v6.0.2/go.mod) declares Go 1.21. P00 must prove exact-number validation and reject network schema loading, not assume library defaults meet the CLI contract.
 
 Store development tool pins in `tools/versions.mk`; runtime pins remain in go.mod. A small `scripts/install-tools.sh` used by `make tools` installs verified pinned golangci-lint release archives for the host into `.bin/`, plus `GOBIN=<repo>/.bin go install golang.org/x/vuln/cmd/govulncheck@v1.9.0`. Verify downloaded archive checksum against reviewed release checksum data. No `curl | sh`, implicit global replacement or build-time network schema fetch. Tool setup is explicit; normal check targets do not install/upgrade tools. `.bin/`, build output and local secrets are ignored.
 

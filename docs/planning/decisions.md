@@ -9,6 +9,10 @@ Planning record, 2026-11-14. User decisions are binding; engineering defaults be
 - Explicit API v1/v2 selection per connection, JSON by default, explicit destructive confirmation.
 - Linux/macOS, amd64/arm64. Release archives/checksums, `go install`, maintained Homebrew formula.
 - PAT and full OAuth login/refresh, operator-owned app credentials. Environment, OS keyring and owner-only file backends must all be available and configurable.
+- CLI-managed OAuth login saves credentials in owner-only files by default and renews automatically; OS keyring is opt-in. Environment token overrides remain externally managed for that invocation.
+- The selected invocation destination authorizes sending environment credentials there; no additional destination-binding declaration. Stored credentials retain their explicit connection/base binding.
+- Intentionally requested one-time secrets appear in JSON stdout by default. Protected-file delivery is opt-in and discoverable; logs, errors, dry-run and ordinary reads remain redacted.
+- Protocol and destination are operator choices. Accept HTTP and HTTPS Plane/storage endpoints, including LAN/private hosts and HTTP storage returned by an HTTPS API, without extra permission flags or per-operation warnings. At most one HTTP warning at connection setup; no recurring nagging. Trust documented storage targets supplied by the selected Plane server.
 - Explicit support for network-level credential injection: requests may run without locally established auth.
 - Common field flags plus complete JSON-file/stdin input; bounded one-page lists, explicit `--all`; native bulk actions.
 - Explicit `--output table` for common list/get operations, never terminal-dependent output switching.
@@ -23,10 +27,10 @@ Planning record, 2026-11-14. User decisions are binding; engineering defaults be
 - Stable CLI envelope around version-native response bodies; schema version independent of REST version.
 - Named `connection` commands. Configuration namespace `foae-plane-cli`, environment prefix `PLANE_CLI_`; avoid Plane Compose's binary/config/environment collisions.
 - New connections require explicit base URL and API version. No implicit Cloud destination and no automatic version detection. A command may override version explicitly, never silently.
-- Auth mode and storage are distinct. Default auth mode `api-key`, default storage `env` (no persistence). Keyring/file persistence is an explicit choice; never silently downgrade keyring errors to plaintext.
+- Auth mode and storage are distinct. Default auth mode `api-key`, default persistent backend `file`; `env` and `keyring` remain explicit alternatives. No automatic persistence of environment overrides and no silent backend fallback.
 - No general-purpose raw HTTP escape hatch or PQL translator in this release. Complete reviewed commands, not `api request`, satisfy coverage.
 - No automatic HTTP retries, telemetry, network update checks, persistent capability cache, or auto-browser launch. OAuth renewal happens before API dispatch when expiry is known, never by replaying a failed mutation.
-- HTTPS normally; explicit HTTP allowed for operator-configured self-hosted endpoints with warning when local credentials are sent. No `--insecure` TLS bypass; custom CA support instead.
+- HTTPS certificate verification remains enabled, with custom CA support rather than `--insecure`. Never silently rewrite a selected URL's scheme. HTTP acceptance is independent of TLS certificate validation.
 - No generic batch orchestration or client-emulated bulk operations. No automatic rollback across several upstream calls.
 - Go 1.27 baseline, reproducible checks with Go 1.27.4; tool/library pins in [development](../development.md). Maintain latest supported patch through reviewed updates, not floating CI downloads.
 

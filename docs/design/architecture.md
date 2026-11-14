@@ -9,7 +9,7 @@ cmd/plane-cli → cli → config, auth, plane/v1, plane/v2, output, spec
 plane/v1, plane/v2 → httpx
 httpx → standard library (receives resolved auth; never reads config)
 auth → config storage primitives and its own isolated OAuth client
-output, spec → standard library (no HTTP or credential dependencies)
+output → standard library; spec → standard library, JSON Schema validator (neither uses HTTP/auth)
 ```
 
 - `cmd/plane-cli/main.go`: signal context, real process IO, build metadata, single exit boundary. No resource logic; only here may call `os.Exit`.
@@ -25,6 +25,14 @@ output, spec → standard library (no HTTP or credential dependencies)
 - `internal/testutil/`: reusable fake server/process helpers only, never production code. Domain fixtures remain beside their tests.
 - `internal/cmd/checkdocs`, `internal/cmd/checkapi`: small development-only checkers when needed. Start with straightforward Make recipes; do not invent a task runner framework.
 - `api/catalog.json`, `api/provenance.json`, `api/sources/`: future reviewed operation metadata and sanitized source snapshots. The current TSV is a discovery index, not this executable catalog.
+
+### Offline metadata and validation
+
+Use one reviewed catalog, not independently maintained schemas and flag tables. An explicit development-only generator (`internal/cmd/genspec`) deterministically writes `internal/spec/catalog.gen.json`, which `internal/spec` embeds with `go:embed`. Commit the generated file: tagged source and `go install` need neither generation nor repository-root reads. `checkapi` regenerates in a temporary directory and compares bytes; ordinary build/startup never writes or fetches metadata. Compile only implemented command descriptors into callable discovery; the source ledger also tracks pending work.
+
+Descriptors declare command path tokens, per-version/scope schemas, flags (name/type/requiredness/body binding), sensitivity and availability. A shared Cobra registration helper consumes those flag descriptors; explicit Go handlers own endpoint calls and typed mappings. No reflective HTTP dispatcher. Version-exclusive flags can be registered in the command union, then validated against the selected descriptor before credentials. The checker rejects duplicate command/version/scope ownership, flags without mappings and handlers without descriptors.
+
+Validate parsed flag/body input against the same embedded JSON Schema 2020-12 returned by `schema`, using `github.com/santhosh-tekuri/jsonschema/v6`. Supply all references from embedded resources; install a loader that rejects external retrieval, and compile schemas lazily for the selected operation. Run duplicate-key/trailing-value checks before schema validation and retain exact `json.Number`/raw JSON semantics. Preserve documented extension fields. Do not turn library validation errors containing instance values into unsanitized diagnostics. P00 proves null/presence, references, composition and large-number boundaries before domain replication.
 
 ## Go conventions
 
@@ -44,9 +52,13 @@ No Viper: stdlib JSON configuration plus explicit precedence is sufficient. No H
 
 ## Concurrency and persistence
 
-Resolve settings once. Serialize writes and OAuth refresh with an advisory lock keyed by connection/base identity; acquire with context/deadline, reread after acquiring, then decide whether refresh is still needed. Use a secure temporary sibling, fsync, atomic rename, directory sync where supported. Do not hold unrelated connection locks during network IO.
+Use one advisory **configuration-file-wide** lock for every read/modify/write of `config.json`, including changes to different connections. Reread under lock, preserve unrelated entries, then atomically replace. A rename alone does not prevent lost updates. Use secure temporary siblings, fsync and directory sync where supported; stable lock files are not the replaced data files.
 
-Configuration and secrets are separate stores; do not promise cross-store transactions. Save a newly created secret first, commit its reference second; on reference failure remove only the newly created secret and report cleanup failure. Backend migration is explicit; retain the old reference until the new one is committed, then remove old credentials. Logout deletes the selected connection's recorded credentials/state only, without revoking remote tokens unless a separate documented command requests it.
+Credential bundles are separate per-binding records, never a single shared JSON secret map protected by unrelated locks. Serialize their login/refresh/logout/delete/rebind operations with a stable connection-name lock, independent of its current base/backend. Acquire with context/deadline. If both locks are needed, order is **connection lock → config-file lock**; never wait for a connection lock while holding the config lock, and never hold the config lock over network IO. Config-only reads/use may take only the config lock. Different connections may renew independently.
+
+Under the connection lock reread configuration and credentials, verify the captured identity/generation and then decide whether renewal is still needed. Hold that lock through renewal and credential commit, not through the human consent wait. Every login completion rechecks its pending ID/generation; logout/delete/rebind invalidate pending attempts before releasing the lock. Removed/recreated connection names receive a fresh identity so an old login cannot resurrect them.
+
+Configuration and secrets are separate stores; do not promise cross-store transactions. Save a newly created secret first, commit its reference second; on reference failure remove only the newly created secret and report cleanup failure. Backend migration retains the old reference until the new one is committed, then removes old credentials; a cleanup failure names the remaining backend without exposing values. Logout/deletion cleanup semantics are in [authentication](authentication.md#storage-and-lifecycle), including pending/staged state and failed cleanup. No remote revocation unless a separate documented command requests it.
 
 ## Testing boundaries
 

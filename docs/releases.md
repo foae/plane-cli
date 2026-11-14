@@ -20,11 +20,15 @@ Cross-compilation proves target builds, not native runtime compatibility. Run th
 
 For the host, unpack into a fresh temp prefix and exercise `version`, offline help/schema and a create/read/update/delete fake-server lifecycle. Check the `go install` path using an isolated GOBIN/module cache as appropriate, without overwriting the user's installation. Validate the formula syntax/audit and installation against staged snapshot assets on controlled CI; absence of a real published tap is a publication step, not fabricated install evidence.
 
+Keep the formula's local fake server self-contained in its Ruby test block using standard-library `TCPServer` and a child process; no Python, Go, WEBrick gem or test-only runtime dependency. Bind an ephemeral port, synchronize readiness without sleeps, serve a reviewed project-list fixture with exact route checks, invoke the installed binary with isolated config/external auth, and assert decoded JSON. Bound the child lifetime and always reap it. Offline version is a separate assertion.
+
 Because the user selected mock-based acceptance, real keyring/Plane-server proof is recorded as unverified where not exercised, not treated as passed or a hidden release blocker.
 
 ## Workflow and provenance
 
 `.github/workflows/release.yml` prepares artifacts only for approved tagged commits after required checks, with least-privilege permissions, SHA-pinned actions and no secrets for untrusted pull requests. Keep publishing behind an explicit approval/environment. Do not auto-create tags, push formula changes or upload artifacts while implementing/testing the release packet.
+
+Sequence release inputs explicitly: build immutable archives, calculate checksums, generate the four-target formula from those exact artifacts, then test a temporary formula copy against staged local HTTP assets. Retain the production URL template in the maintained formula, not a CI hostname. After authorized publication, verify each published asset against the recorded checksum before proposing the corresponding formula update to the maintainer-selected tap. Never publish a formula that refers to unavailable assets, or claim a staged install proves publication.
 
 Record CLI version/commit, toolchain/dependency pins, source catalog hashes, target matrix, checksums and exact acceptance results. Distinguish upstream documentation snapshot, Community release tag, Commercial release version and CLI version; they are not interchangeable.
 

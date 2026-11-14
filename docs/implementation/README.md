@@ -7,7 +7,7 @@ Plan only: no Go implementation has begun. Complete packets in dependency order;
 | [P00](00-foundation.md) | Tooling, offline CLI contract, catalog framework | Approved design |
 | [P01](01-transport.md) | Connections, safe HTTP/output, PAT/external | P00 |
 | [P02](02-oauth.md) | Persistent backends, user/bot OAuth | P01 |
-| [P03](03-work-items.md) | Projects/states/labels/work-item lifecycle | P01, P02 |
+| [P03](03-work-items.md) | Projects, all state/label definitions, work-item lifecycle/search | P01, P02 |
 | [P04](04-project-work.md) | Scheduling, relationships and collaboration | P03 |
 | [P05](05-types-properties.md) | Types/custom properties/governance reads | P03 |
 | [P06](06-content-files.md) | Knowledge/pages/assets/attachments | P03 |
@@ -22,7 +22,9 @@ P04/P05/P06 can proceed independently after shared P03 contracts are reviewed. P
 
 Read the root agent instructions, the packet, and only its linked contracts. Filter [the source index](../reference/api-index.tsv) by named version/group; fetch the exact official operation pages. Record schema/docs provenance in `api/sources/`/`api/provenance.json`; exclude credentials/private tenant payloads. Reconcile every action, not just CRUD. A broad overview or migration table is not enough for a request fixture.
 
-The coordinator freezes operation IDs, command mappings and shared contracts before delegating mechanical implementation. A worker may research within its family but must escalate evidence conflicts, missing public endpoints or required contract changes; it cannot drop scope or invent an API. P00 owns metadata format. If shards are needed, use one shard per reviewed domain with deterministic consolidation into the offline catalog; do not introduce parallel metadata conventions.
+The coordinator freezes exact operation IDs, command mappings and shared contracts before mechanical implementation. A worker may research within its family but must escalate evidence conflicts, missing public endpoints or required contract changes; it cannot drop scope or invent an API. P00 owns metadata format/source ledger; each domain owns its exact evidence extraction before implementation. Use one reviewed domain shard when needed, deterministically consolidated by the coordinator; never parallel metadata conventions. P03/P04 supplemental search and P06 upload evidence are dependencies of those packets, not late P09 work.
+
+Before assigning a broad packet, instantiate the handoff below for one source family/version pair or a documented multi-phase workflow. Fill actual operation IDs, concrete CLI/adapter/schema/fixture paths, exact acceptance command and evidence links; an unfilled packet document is not an execution handoff. Keep v1/v2 variants together only when the bounded slice and its fixtures remain explicit. The coordinator owns shared registration, generated metadata and dependency files. Every operation has exactly one packet and slice owner; source-page aliases do not create duplicate owners. Unresolved evidence produces a bounded investigation handoff, not permission for a cheaper model to choose the contract.
 
 ## Every packet's acceptance
 

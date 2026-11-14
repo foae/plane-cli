@@ -14,24 +14,24 @@ Tests must catch plausible consumer failures, not source wording, registration c
 
 | Area | Required scenarios | Evidence |
 | --- | --- | --- |
-| Offline discovery | Empty home, no credentials/network, group/leaf help and schema | No requests/writes |
-| JSON/output | Large integer, unknown field, null vs 204, writer failure | Exact decoded result/status |
+| Offline discovery | Empty home, nested schema paths, version availability, installed binary outside repo | No requests/writes or root-file dependency |
+| JSON/output | Large integer, unknown field, null vs 204, closed pipe/SIGPIPE | Exact result/status and cleanup |
 | Input | PATCH omission/null/false/zero/empty, duplicate keys, invalid/trailing JSON | Correct bytes or no request |
 | Destination | Prefix preservation, escaped IDs, malformed base, changed credential binding | Exact route/auth isolation |
-| External auth | No secret source, token env present but ignored, proxy injection | API receives expected proxy auth only |
-| TLS/proxy | Trusted custom CA, untrusted TLS, NO_PROXY, credentialed proxy redaction | Safe transport/error |
-| Secrets | Known token in upstream error, signed URL, secret-returning response | No unintended disclosure |
+| External auth | Fresh subprocess env, non-loopback logical host, ignored token env, proxy injection | API receives proxy auth only |
+| TLS/proxy | Custom CA, untrusted TLS, NO_PROXY, configured HTTP without opt-in | Safe transport; setup-only HTTP warning |
+| Secrets | Intentional JSON, ordinary-read redaction, protected-file preflight/delivery failure | No unintended disclosure or repeated mutation |
 | Redirects | API/OAuth cross-origin refusal, storage isolation, same-origin policy | No leaked headers |
-| Storage | 0700/0600, symlink/ownership refusal, interrupted/concurrent write | Valid old/new state only |
-| Backends | Env/keyring/file/external selection, unavailable/denied keyring | No silent downgrade |
-| OAuth user | Consent, state mismatch/expiry/replay, denied callback, refresh rotation | Safe state and persisted token |
+| Storage | Permissions/symlinks, concurrent updates to different connections, interrupted writes | No lost updates or corrupt files |
+| Backends | File default, opt-in keyring, env overrides, external bypass | No silent downgrade or env-token refresh |
+| OAuth user | Listener bind, state expiry/replay, headless cleanup, refresh without original env | Persisted bundle and safe lifecycle |
 | OAuth bot | Installation grant and renewal, wrong installation, failure | Correct grant/header/body |
-| Refresh races | Two processes, rotated token, logout race, lock timeout | No stale token resurrection |
+| Auth races | Refresh/logout/delete/recreated name, rotation persistence failure, lock timeout | No stale resurrection; partial outcome visible |
 | Pagination | Both v2 styles, actual v1 shapes, empty page with next, repeated token | Correct bounded traversal |
 | Failures | 401/402/403/404/409/429/5xx, HTML, malformed/oversized JSON | Stable safe error/exit |
 | Cancellation | Deadline/interrupt during HTTP, login, wait/lock, transfer | Prompt stop and cleanup |
-| Mutations | Missing --yes, dry-run, timeout after body sent, native partial bulk | No unsafe request/replay |
-| Files | Three-phase upload, failed confirm, redirected download, overwrite | Exact bytes and partial status |
+| Mutations | Missing --yes, dry-run, unknown outcome, documented partial/accepted cases | No unsafe request/replay; correct error precedence |
+| Files | Three-phase upload, failed confirm, redirects, HTTP/private storage, overwrite | Exact bytes; no API credentials at storage |
 | Tables | Declared columns, absent sparse fields, control characters | Stable safe projection |
 
 Native keyring backends are covered through controlled doubles and cross-builds in required acceptance. Document that these do not prove an unlocked macOS Keychain or Linux Secret Service works on every machine. Optional manual native smoke or live Plane acceptance may add evidence later; neither is silently made a release gate against the user's instruction.
@@ -39,6 +39,8 @@ Native keyring backends are covered through controlled doubles and cross-builds 
 ## Per-operation completion
 
 A verified operation has reviewed source provenance, complete request/response/side-effect schema, a real leaf implementation, applicable table/help behavior, exact fake-server request fixture, meaningful success/error scenario and catalog entry linked to those scenarios. Shared harnesses are allowed; blindly generating tests from the same mapping under test proves little. Compare request expectations to independently reviewed official fixtures/contract excerpts.
+
+Catalog promotion to `verified` requires links to the exact reviewed source/hash, fixture/scenario identifiers, owning packet and recorded acceptance result. A source-page alias is not a second operation. Accepted/partial/bulk scenarios are required only where that operation's evidence supports them; shared transport tests exercise generic mechanics without inventing upstream contracts. Review source licensing before committing excerpts or snapshots, retain required notices and record provenance.
 
 A family is complete only when all indexed/supplemental operations are accounted for, including non-CRUD actions and version-specific exceptions. Unsupported **deployment** capabilities are legitimate upstream errors; missing **CLI** mappings within approved scope are unfinished work. Never label an entire family complete because one CRUD path works.
 
