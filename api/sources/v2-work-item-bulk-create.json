@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "operation_id": "v2-work-item-bulk-create",
+  "source_url": "https://developers.plane.so/api-reference/v2/work-items/bulk-create-work-items.md",
+  "reviewed_at": "2026-11-14",
+  "contract": {
+    "id": "v2-work-item-bulk-create",
+    "packet": "P03",
+    "version": "v2",
+    "command_path": [
+      "work-item",
+      "bulk-create"
+    ],
+    "action": "bulk-create",
+    "scope": "project",
+    "method": "POST",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/bulk-create/",
+    "request_schema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string"
+            },
+            "project_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "slug",
+            "project_id"
+          ],
+          "additionalProperties": true
+        },
+        "query": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": true
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 50,
+              "items": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            },
+            "all_or_none": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "required": [
+            "items"
+          ],
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "additionalProperties": true
+    },
+    "response_schema": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "result": {
+                "enum": [
+                  "created",
+                  "failed"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "errors": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            },
+            "required": [
+              "index",
+              "result"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "succeeded": {
+          "type": "integer"
+        },
+        "failed": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "results",
+        "succeeded",
+        "failed"
+      ],
+      "additionalProperties": true
+    },
+    "responses": [
+      {
+        "status": 200,
+        "content_type": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "index": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "result": {
+                    "enum": [
+                      "created",
+                      "failed"
+                    ]
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "detail": {
+                    "type": "string"
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "required": [
+                  "index",
+                  "result"
+                ],
+                "additionalProperties": true
+              }
+            },
+            "succeeded": {
+              "type": "integer"
+            },
+            "failed": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "results",
+            "succeeded",
+            "failed"
+          ],
+          "additionalProperties": true
+        }
+      }
+    ],
+    "pagination": "none",
+    "scopes": [
+      "projects.work_items:write"
+    ],
+    "feature_evidence": "No universal edition or feature availability established.",
+    "side_effect": "create",
+    "source_url": "https://developers.plane.so/api-reference/v2/work-items/bulk-create-work-items.md",
+    "provenance_id": "v2-work-item-bulk-create",
+    "lifecycle": "documented",
+    "acceptance_scenario_ids": [
+      "P00-metadata-v2-work-item-bulk-create"
+    ],
+    "sensitivity": {
+      "review": "no-authentication-secrets-declared-in-reviewed-shape",
+      "input": [],
+      "output": [],
+      "ordinary_read_redaction": [],
+      "intentional_secret_delivery": false,
+      "signed_target_paths": [],
+      "signed_form_paths": [],
+      "extension_fields": "unknown; requires domain review before implementation"
+    },
+    "notes": [
+      "Items use create-work-item semantics; detailed row schema remains pending P03 evidence.",
+      "HTTP 200 can contain failed rows; all_or_none true returns 409 with zero writes if any row fails."
+    ],
+    "availability": {
+      "v2": "documented"
+    },
+    "review_status": "representative-partial-not-implementation-ready",
+    "bulk": {
+      "min_items": 1,
+      "max_items": 50,
+      "all_or_none": true,
+      "partial_status": 200,
+      "atomic_failure_status": 409,
+      "result_index_path": "/results/*/index"
+    }
+  },
+  "retention": "Independently authored minimal contract; no documentation snapshot redistributed."
+}

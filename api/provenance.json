@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "index": {
+    "path": "docs/reference/api-index.tsv",
+    "sha256": "6f5bcbbaca318e00f78ad8bb619f66422d5cd0bfa6918a60dfdef6cfdee4af7b",
+    "rows": 987
+  },
+  "sources": [
+    {
+      "id": "v1-project-get",
+      "url": "https://developers.plane.so/api-reference/project/get-project-detail.md",
+      "fetched_at": "2026-11-14",
+      "source_revision": "Documentation fetched at recorded date; upstream revision unavailable",
+      "sha256": "3666a554a609137ab93cb605d4b25e6f2bdf29b447739fbe92219b808da53518",
+      "fetched_bytes": 2261,
+      "permission": "Redistribution permission unclear; source bytes not retained in repository",
+      "evidence_path": "api/sources/v1-project-get.json",
+      "evidence_sha256": "ccfa84dacc7cd4d779c35ba94f62afb8f9bd2d261877698567c7045cdbee751a",
+      "evidence_kind": "independently-authored-minimal-contract"
+    },
+    {
+      "id": "v1-work-item-get",
+      "url": "https://developers.plane.so/api-reference/issue/get-issue-detail.md",
+      "fetched_at": "2026-11-14",
+      "source_revision": "Documentation fetched at recorded date; upstream revision unavailable",
+      "sha256": "5f3e6b6ee26511dd9f27d9b204bd2d4e7c8e7cd52ba47a97ff7ff8e9c2221222",
+      "fetched_bytes": 3461,
+      "permission": "Redistribution permission unclear; source bytes not retained in repository",
+      "evidence_path": "api/sources/v1-work-item-get.json",
+      "evidence_sha256": "53602bf68bdaf49aa357da8c5a79f09b91681e065244da1d86cfc5e538127469",
+      "evidence_kind": "independently-authored-minimal-contract"
+    },
+    {
+      "id": "v2-project-get",
+      "url": "https://developers.plane.so/api-reference/v2/projects/get-project.md",
+      "fetched_at": "2026-11-14",
+      "source_revision": "Documentation fetched at recorded date; upstream revision unavailable",
+      "sha256": "9aa5fc275bd96b0e67f80526065241764fd9e639aa6bd87ca31a50287289bea8",
+      "fetched_bytes": 5907,
+      "permission": "Redistribution permission unclear; source bytes not retained in repository",
+      "evidence_path": "api/sources/v2-project-get.json",
+      "evidence_sha256": "e2eaa851d7a1864b79a63118b8f0517ad0844de48a487d4aa8c58d7901c20ffb",
+      "evidence_kind": "independently-authored-minimal-contract"
+    },
+    {
+      "id": "v2-work-item-get",
+      "url": "https://developers.plane.so/api-reference/v2/work-items/get-work-item.md",
+      "fetched_at": "2026-11-14",
+      "source_revision": "Documentation fetched at recorded date; upstream revision unavailable",
+      "sha256": "35fd51a17a3a4191a4dfc169e98fdebba93b8e7d227aaf92cf9655bf4587ef68",
+      "fetched_bytes": 9632,
+      "permission": "Redistribution permission unclear; source bytes not retained in repository",
+      "evidence_path": "api/sources/v2-work-item-get.json",
+      "evidence_sha256": "a9e8ec4bd1217266fc9594153c5b5334fb3e77ce3b0a07e2612bd766d08e783c",
+      "evidence_kind": "independently-authored-minimal-contract"
+    },
+    {
+      "id": "v2-attachment-create-upload",
+      "url": "https://developers.plane.so/api-reference/v2/work-item-attachments/create-attachment-upload.md",
+      "fetched_at": "2026-11-14",
+      "source_revision": "Documentation fetched at recorded date; upstream revision unavailable",
+      "sha256": "6a9409be624b9f3b9f163b06cc109cdf3b790b76780366aa509dcd1b2eb786f1",
+      "fetched_bytes": 8426,
+      "permission": "Redistribution permission unclear; source bytes not retained in repository",
+      "evidence_path": "api/sources/v2-attachment-create-upload.json",
+      "evidence_sha256": "685e5de92185b2ed6497fd71b319b93866bee1b9a87d8182e68258c840944f79",
+      "evidence_kind": "independently-authored-minimal-contract"
+    },
+    {
+      "id": "v2-work-item-bulk-create",
+      "url": "https://developers.plane.so/api-reference/v2/work-items/bulk-create-work-items.md",
+      "fetched_at": "2026-11-14",
+      "source_revision": "Documentation fetched at recorded date; upstream revision unavailable",
+      "sha256": "157347dd67edd2429b9439235d03897dbe43d01f563facfaefcf9cbbab006eaf",
+      "fetched_bytes": 8732,
+      "permission": "Redistribution permission unclear; source bytes not retained in repository",
+      "evidence_path": "api/sources/v2-work-item-bulk-create.json",
+      "evidence_sha256": "a98ce9036a3f598acca9b0deca9f1287993d63a7d0134e11af4a1bc044da3d4b",
+      "evidence_kind": "independently-authored-minimal-contract"
+    },
+    {
+      "id": "v2-errors",
+      "url": "https://developers.plane.so/api-reference/v2/errors.md",
+      "fetched_at": "2026-11-14",
+      "source_revision": "Documentation fetched at recorded date; upstream revision unavailable",
+      "sha256": "b901b316f140419c7f5904eeaddf6cbb85e03d48507cbc2003acc4f18c537319",
+      "fetched_bytes": 20539,
+      "permission": "Redistribution permission unclear; source bytes not retained in repository",
+      "evidence_path": "api/sources/v2-errors.json",
+      "evidence_sha256": "aa26ab22e9da720b91abb95827f32f5ecfa01a793a4d3870fd689eb9c25faf4c",
+      "evidence_kind": "independently-authored-minimal-contract"
+    },
+    {
+      "id": "v2-migrating-from-v1",
+      "url": "https://developers.plane.so/api-reference/v2/migrating-from-v1.md",
+      "fetched_at": "2026-11-14",
+      "source_revision": "Documentation fetched at recorded date; upstream revision unavailable",
+      "sha256": "6dc24447f0eaf3d820cf7e62d08e127461e0b9b9f1a728d7c0ffe455ee008122",
+      "fetched_bytes": 28405,
+      "permission": "Redistribution permission unclear; source bytes not retained in repository",
+      "evidence_path": "api/sources/v2-migrating-from-v1.json",
+      "evidence_sha256": "18c2d3115503ccc264a2110a91d6f06d0c1cc93f322b7e393c6dec721b0be57c",
+      "evidence_kind": "independently-authored-minimal-contract"
+    }
+  ]
+}

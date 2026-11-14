@@ -1,6 +1,6 @@
 # Implementation packet router
 
-Plan only: no Go implementation has begun. Complete packets in dependency order; a packet may be divided into source-family slices, never declared complete with missing operations. The first functional milestone is P03, **not** the full release.
+P00 provides the offline foundation; resource and authentication packets remain planned. Complete packets in dependency order; a packet may be divided into source-family slices, never declared complete with missing operations. The first API milestone is P03, **not** the full release. P00's shared contracts require planner review before P01.
 
 | Packet | Deliverable | Prerequisites |
 | --- | --- | --- |

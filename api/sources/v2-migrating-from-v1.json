@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/migrating-from-v1.md",
+  "reviewed_at": "2026-11-14",
+  "contract": {
+    "supplemental_families": [
+      {
+        "family": "ai-agents-runs-activities",
+        "packet": "P09"
+      },
+      {
+        "family": "integration-jobs",
+        "packet": "P09"
+      },
+      {
+        "family": "server-upload-variants",
+        "packet": "P06"
+      },
+      {
+        "family": "core-searches-grouped-counts-lite-lists",
+        "packet": "P03"
+      },
+      {
+        "family": "scheduling-collaboration-equivalents",
+        "packet": "P04"
+      },
+      {
+        "family": "approvals-state-transfers",
+        "packet": "P09"
+      }
+    ],
+    "availability": "Migration prose is not an exact operation contract; supplements remain pending.",
+    "conflict": "Operation-specific identifier allowances override broad migration ID-only prose only for that operation."
+  }
+}

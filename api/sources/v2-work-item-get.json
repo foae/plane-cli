@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "operation_id": "v2-work-item-get",
+  "source_url": "https://developers.plane.so/api-reference/v2/work-items/get-work-item.md",
+  "reviewed_at": "2026-11-14",
+  "contract": {
+    "id": "v2-work-item-get",
+    "packet": "P03",
+    "version": "v2",
+    "command_path": [
+      "work-item",
+      "get"
+    ],
+    "action": "get",
+    "scope": "project",
+    "method": "GET",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{pk}/",
+    "request_schema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string"
+            },
+            "project_id": {
+              "type": "string"
+            },
+            "pk": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "slug",
+            "project_id",
+            "pk"
+          ],
+          "additionalProperties": true
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "fields": {
+              "type": "string"
+            },
+            "expand": {
+              "type": "string"
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        },
+        "body": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "additionalProperties": true
+    },
+    "response_schema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sequence_id": {
+          "type": "integer"
+        },
+        "assignee_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "description_html": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": true
+    },
+    "responses": [
+      {
+        "status": 200,
+        "content_type": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "sequence_id": {
+              "type": "integer"
+            },
+            "assignee_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "custom_fields": {
+              "type": "object",
+              "additionalProperties": true
+            },
+            "description_html": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": true
+        }
+      }
+    ],
+    "pagination": "none",
+    "scopes": [
+      "projects.work_items:read"
+    ],
+    "feature_evidence": "No universal edition or feature availability established.",
+    "side_effect": "none",
+    "source_url": "https://developers.plane.so/api-reference/v2/work-items/get-work-item.md",
+    "provenance_id": "v2-work-item-get",
+    "lifecycle": "documented",
+    "acceptance_scenario_ids": [
+      "P00-metadata-v2-work-item-get"
+    ],
+    "sensitivity": {
+      "review": "no-authentication-secrets-declared-in-reviewed-shape",
+      "input": [],
+      "output": [],
+      "ordinary_read_redaction": [],
+      "intentional_secret_delivery": false,
+      "signed_target_paths": [],
+      "signed_form_paths": [],
+      "extension_fields": "unknown; requires domain review before implementation"
+    },
+    "notes": [
+      "Response schema is an independently authored partial contract; additional native fields remain permitted."
+    ],
+    "availability": {
+      "v2": "documented"
+    },
+    "review_status": "representative-partial-not-implementation-ready"
+  },
+  "retention": "Independently authored minimal contract; no documentation snapshot redistributed."
+}

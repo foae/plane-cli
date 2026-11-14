@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "operation_id": "v1-project-get",
+  "source_url": "https://developers.plane.so/api-reference/project/get-project-detail.md",
+  "reviewed_at": "2026-11-14",
+  "contract": {
+    "id": "v1-project-get",
+    "packet": "P03",
+    "version": "v1",
+    "command_path": [
+      "project",
+      "get"
+    ],
+    "action": "get",
+    "scope": "workspace",
+    "method": "GET",
+    "path": "/api/v1/workspaces/{workspace_slug}/projects/{resource_id}/",
+    "request_schema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "object",
+          "properties": {
+            "workspace_slug": {
+              "type": "string"
+            },
+            "resource_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_slug",
+            "resource_id"
+          ],
+          "additionalProperties": true
+        },
+        "query": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": true
+        },
+        "body": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "additionalProperties": true
+    },
+    "response_schema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "project_lead": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": true
+    },
+    "responses": [
+      {
+        "status": 200,
+        "content_type": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "project_lead": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": true
+        }
+      }
+    ],
+    "pagination": "none",
+    "scopes": [
+      "projects:read"
+    ],
+    "feature_evidence": "No universal edition or feature availability established.",
+    "side_effect": "none",
+    "source_url": "https://developers.plane.so/api-reference/project/get-project-detail.md",
+    "provenance_id": "v1-project-get",
+    "lifecycle": "documented",
+    "acceptance_scenario_ids": [
+      "P00-metadata-v1-project-get"
+    ],
+    "sensitivity": {
+      "review": "no-authentication-secrets-declared-in-reviewed-shape",
+      "input": [],
+      "output": [],
+      "ordinary_read_redaction": [],
+      "intentional_secret_delivery": false,
+      "signed_target_paths": [],
+      "signed_form_paths": [],
+      "extension_fields": "unknown; requires domain review before implementation"
+    },
+    "notes": [
+      "Response schema is an independently authored partial contract; additional native fields remain permitted."
+    ],
+    "availability": {
+      "v1": "documented"
+    },
+    "review_status": "representative-partial-not-implementation-ready"
+  },
+  "retention": "Independently authored minimal contract; no documentation snapshot redistributed."
+}

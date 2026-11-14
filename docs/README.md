@@ -1,9 +1,10 @@
 # Documentation router
 
-All commands and paths for future Go code below are **approved design**, not current implementation. The planning documents are the deliverable now.
+The P00 offline foundation is implemented. [Current usage](usage.md) describes working commands; design contracts describe the broader approved target, not current API coverage.
 
 ## Choose your task
 
+- Use the implemented offline CLI → [usage](usage.md).
 - Product scope, choices, exclusions → [decisions](planning/decisions.md).
 - Implement a bounded slice → [packet sequence](implementation/README.md), then only its prerequisites.
 - Command names, inputs, JSON, errors, tables → [CLI contract](design/cli-contract.md).

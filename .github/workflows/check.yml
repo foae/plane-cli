@@ -1,0 +1,72 @@
+name: Check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GOTOOLCHAIN: local
+  GOFLAGS: -mod=readonly
+  GOSUMDB: sum.golang.org
+
+jobs:
+  check:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux packet check and native tests
+            os: ubuntu-24.04
+            target: check
+            tools: true
+          - name: macOS native tests
+            os: macos-15
+            target: test
+            tools: false
+          - name: Linux race detector
+            os: ubuntu-24.04
+            target: race
+            tools: false
+          - name: Reachable vulnerability scan
+            os: ubuntu-24.04
+            target: security
+            tools: true
+          - name: Four-target CGO-free cross-build
+            os: ubuntu-24.04
+            target: cross
+            tools: false
+    steps:
+      # https://api.github.com/repos/actions/checkout/git/ref/tags/v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - name: Read authoritative Go pin
+        id: pins
+        shell: bash
+        run: |
+          version=$(sh scripts/install-tools.sh --print-go-version)
+          printf 'go-version=%s\n' "$version" >> "$GITHUB_OUTPUT"
+      # https://api.github.com/repos/actions/setup-go/git/ref/tags/v6.3.0
+      - uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
+        with:
+          go-version: ${{ steps.pins.outputs.go-version }}
+          check-latest: false
+          cache: true
+          cache-dependency-path: |
+            go.sum
+            tools/versions.mk
+      - name: Install verified pinned tools explicitly
+        if: matrix.tools
+        run: make tools
+      - name: Run shared contributor recipe
+        run: make ${{ matrix.target }}

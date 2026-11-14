@@ -1,6 +1,6 @@
 # Plane CLI: agent entry point
 
-This repository currently contains an implementation plan, not a working CLI. Do not report planned commands or recipes as implemented. Binary: `plane-cli`; module: `github.com/foae/plane-cli`.
+The P00 offline foundation is implemented; Plane resource commands and authentication remain planned. Do not report planned commands as implemented. Binary: `plane-cli`; module: `github.com/foae/plane-cli`. See [current usage](docs/usage.md).
 
 ## Read only what this task needs
 

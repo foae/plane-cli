@@ -34,6 +34,8 @@ Descriptors declare command path tokens, per-version/scope schemas, flags (name/
 
 Validate parsed flag/body input against the same embedded JSON Schema 2020-12 returned by `schema`, using `github.com/santhosh-tekuri/jsonschema/v6`. Supply all references from embedded resources; install a loader that rejects external retrieval, and compile schemas lazily for the selected operation. Run duplicate-key/trailing-value checks before schema validation and retain exact `json.Number`/raw JSON semantics. Preserve documented extension fields. Do not turn library validation errors containing instance values into unsanitized diagnostics. P00 proves null/presence, references, composition and large-number boundaries before domain replication.
 
+P00's flag-binding consistency checker follows direct `properties` chains with scalar types; required flags require every ancestor in that chain. Runtime validation supports embedded references/composition, but binding through composed/referenced properties is not yet supported. Resource packets must extend this checker with the first concrete schema requiring it, rather than bypass consistency checks. Non-local descriptors must declare a required string `api-version` selector bound to `/flags/api-version`.
+
 ## Go conventions
 
 Follow [Code Review Comments](https://go.dev/wiki/CodeReviewComments), current standard-library conventions and [module layout guidance](https://go.dev/doc/modules/layout). `gofmt` owns formatting. Names are concise, packages lowercase/singular, exported declarations documented where non-obvious. Use `errors.Is`/`errors.As`, wrap with `%w` at useful boundaries, never string-match errors or panic for normal failures.

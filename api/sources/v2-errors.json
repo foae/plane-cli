@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/errors.md",
+  "reviewed_at": "2026-11-14",
+  "contract": {
+    "required_problem_fields": {
+      "type": "string",
+      "code": "string",
+      "detail": "string"
+    },
+    "content_type": "application/problem+json",
+    "validation_errors": {
+      "type": "array",
+      "items": {
+        "field": "string",
+        "code": "string",
+        "message": "string"
+      }
+    },
+    "status_is_in_http_not_body": true,
+    "detail_is_not_safe_cli_output": true
+  }
+}

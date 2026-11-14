@@ -31,3 +31,13 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# Repository-local development tools and build/release output
+/.bin/
+/bin/
+/dist/
+
+# Local credentials and developer-only environment files
+.env.*
+!.env.example
+/secrets/

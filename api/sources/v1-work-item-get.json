@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "operation_id": "v1-work-item-get",
+  "source_url": "https://developers.plane.so/api-reference/issue/get-issue-detail.md",
+  "reviewed_at": "2026-11-14",
+  "contract": {
+    "id": "v1-work-item-get",
+    "packet": "P03",
+    "version": "v1",
+    "command_path": [
+      "work-item",
+      "get"
+    ],
+    "action": "get",
+    "scope": "project",
+    "method": "GET",
+    "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{resource_id}/",
+    "request_schema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "object",
+          "properties": {
+            "workspace_slug": {
+              "type": "string"
+            },
+            "project_id": {
+              "type": "string"
+            },
+            "resource_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_slug",
+            "project_id",
+            "resource_id"
+          ],
+          "additionalProperties": true
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "expand": {
+              "type": "string"
+            },
+            "external_id": {
+              "type": "string"
+            },
+            "external_source": {
+              "type": "string"
+            },
+            "fields": {
+              "type": "string"
+            },
+            "order_by": {
+              "type": "string"
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        },
+        "body": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "additionalProperties": true
+    },
+    "response_schema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sequence_id": {
+          "type": "integer"
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": true
+    },
+    "responses": [
+      {
+        "status": 200,
+        "content_type": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "sequence_id": {
+              "type": "integer"
+            },
+            "assignees": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": true
+        }
+      }
+    ],
+    "pagination": "none",
+    "scopes": [
+      "projects.work_items:read"
+    ],
+    "feature_evidence": "No universal edition or feature availability established.",
+    "side_effect": "none",
+    "source_url": "https://developers.plane.so/api-reference/issue/get-issue-detail.md",
+    "provenance_id": "v1-work-item-get",
+    "lifecycle": "documented",
+    "acceptance_scenario_ids": [
+      "P00-metadata-v1-work-item-get"
+    ],
+    "sensitivity": {
+      "review": "no-authentication-secrets-declared-in-reviewed-shape",
+      "input": [],
+      "output": [],
+      "ordinary_read_redaction": [],
+      "intentional_secret_delivery": false,
+      "signed_target_paths": [],
+      "signed_form_paths": [],
+      "extension_fields": "unknown; requires domain review before implementation"
+    },
+    "notes": [
+      "Response schema is an independently authored partial contract; additional native fields remain permitted."
+    ],
+    "availability": {
+      "v1": "documented"
+    },
+    "review_status": "representative-partial-not-implementation-ready"
+  },
+  "retention": "Independently authored minimal contract; no documentation snapshot redistributed."
+}

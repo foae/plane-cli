@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "operation_id": "v2-attachment-create-upload",
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-attachments/create-attachment-upload.md",
+  "reviewed_at": "2026-11-14",
+  "contract": {
+    "id": "v2-attachment-create-upload",
+    "packet": "P06",
+    "version": "v2",
+    "command_path": [
+      "attachment",
+      "create-upload"
+    ],
+    "action": "create-upload",
+    "scope": "project",
+    "method": "POST",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/attachments/",
+    "request_schema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string"
+            },
+            "project_id": {
+              "type": "string"
+            },
+            "work_item_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "slug",
+            "project_id",
+            "work_item_id"
+          ],
+          "additionalProperties": true
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "fields": {
+              "type": "string"
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "size": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "external_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "external_source": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "size"
+          ],
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "additionalProperties": true
+    },
+    "response_schema": {
+      "type": "object",
+      "properties": {
+        "upload_data": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "fields": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "url",
+            "fields"
+          ],
+          "additionalProperties": true
+        },
+        "asset_id": {
+          "type": "string"
+        },
+        "asset_url": {
+          "type": "string"
+        },
+        "attachment": {
+          "type": "object",
+          "properties": {
+            "is_uploaded": {
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "upload_data",
+        "asset_id",
+        "asset_url",
+        "attachment"
+      ],
+      "additionalProperties": true
+    },
+    "responses": [
+      {
+        "status": 200,
+        "content_type": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "upload_data": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "url",
+                "fields"
+              ],
+              "additionalProperties": true
+            },
+            "asset_id": {
+              "type": "string"
+            },
+            "asset_url": {
+              "type": "string"
+            },
+            "attachment": {
+              "type": "object",
+              "properties": {
+                "is_uploaded": {
+                  "type": "boolean"
+                }
+              },
+              "required": [],
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "upload_data",
+            "asset_id",
+            "asset_url",
+            "attachment"
+          ],
+          "additionalProperties": true
+        }
+      }
+    ],
+    "pagination": "none",
+    "scopes": [
+      "projects.work_items.attachments:write"
+    ],
+    "feature_evidence": "No universal edition or feature availability established.",
+    "side_effect": "create",
+    "source_url": "https://developers.plane.so/api-reference/v2/work-item-attachments/create-attachment-upload.md",
+    "provenance_id": "v2-attachment-create-upload",
+    "lifecycle": "documented",
+    "acceptance_scenario_ids": [
+      "P00-metadata-v2-attachment-create-upload"
+    ],
+    "sensitivity": {
+      "review": "known-signed-fields",
+      "input": [],
+      "output": [
+        "/upload_data/url",
+        "/upload_data/fields/*"
+      ],
+      "ordinary_read_redaction": [
+        "/upload_data/url",
+        "/upload_data/fields/*"
+      ],
+      "intentional_secret_delivery": true,
+      "signed_target_paths": [
+        "/upload_data/url"
+      ],
+      "signed_form_paths": [
+        "/upload_data/fields/*"
+      ],
+      "extension_fields": "unknown; requires domain review before implementation"
+    },
+    "notes": [
+      "Metadata creation is phase one; storage upload and PATCH confirmation are distinct operations.",
+      "Project UUID or bare identifier and work-item UUID or identifier are expressly permitted here; migration ID-only prose is not generalized."
+    ],
+    "availability": {
+      "v2": "documented"
+    },
+    "review_status": "representative-partial-not-implementation-ready"
+  },
+  "retention": "Independently authored minimal contract; no documentation snapshot redistributed."
+}
