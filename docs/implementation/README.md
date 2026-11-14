@@ -1,6 +1,6 @@
 # Implementation packet router
 
-P00 provides the offline foundation; resource and authentication packets remain planned. Complete packets in dependency order; a packet may be divided into source-family slices, never declared complete with missing operations. The first API milestone is P03, **not** the full release. P00's shared contracts require planner review before P01.
+P00–P02 provide offline discovery, transport and authentication; resource packets remain planned. Complete packets in dependency order; a packet may be divided into source-family slices, never declared complete with missing operations. The first API milestone is P03, **not** the full release. Shared security contracts require planner review before dependent resource work.
 
 | Packet | Deliverable | Prerequisites |
 | --- | --- | --- |

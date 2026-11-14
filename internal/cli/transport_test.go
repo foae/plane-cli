@@ -258,7 +258,7 @@ func TestConnectionValidationAndWarningFailure(t *testing.T) {
 		t.Fatalf("informational warning changed status: %d %s", code, &out)
 	}
 	for _, dry := range []bool{false, true} {
-		for _, pair := range [][]string{{"--timeout", "bad"}, {"--auth-mode", "oauth-user"}} {
+		for _, pair := range [][]string{{"--timeout", "bad"}, {"--auth-mode", "unsupported"}} {
 			args := append([]string{"connection", "update", "saved"}, pair...)
 			if dry {
 				args = append(args, "--dry-run")

@@ -32,16 +32,16 @@ func apiRequest(cmd *cobra.Command, method string, segments []string, query url.
 	if destructive && !yes {
 		return &output.Error{Code: "confirmation_required", Message: "This operation requires --yes", Command: commandName(cmd), Exit: 2}
 	}
-	credential, status, e := auth.Resolve(r, os.Getenv)
-	if e != nil {
-		return &output.Error{Code: "configuration_error", Message: e.Error(), Command: commandName(cmd), Exit: 1}
-	}
-	if status.Status == "missing" {
-		return &output.Error{Code: "authentication_required", Message: "Set the matching PLANE_CLI_API_KEY or PLANE_CLI_ACCESS_TOKEN; persistent login is not available in this milestone", Command: commandName(cmd), Exit: 3}
-	}
 	total, request := r.Deadlines()
 	ctx, cancel := context.WithTimeout(cmd.Context(), total)
 	defer cancel()
+	credential, status, e := auth.ResolveStored(ctx, r, os.Getenv, true)
+	if e != nil {
+		return authError(cmd, e)
+	}
+	if status.Status == "missing" {
+		return &output.Error{Code: "authentication_required", Message: "Run auth login or set the matching PLANE_CLI_API_KEY or PLANE_CLI_ACCESS_TOKEN", Command: commandName(cmd), Exit: 3}
+	}
 	client, e := httpx.New(r.BaseURL, request, r.CAFile)
 	if e != nil {
 		return &output.Error{Code: "configuration_error", Message: "Could not initialize API transport or CA certificates", Command: commandName(cmd), Exit: 1}

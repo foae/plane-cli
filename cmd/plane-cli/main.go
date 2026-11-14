@@ -7,6 +7,7 @@ import (
 	"runtime"
 	"syscall"
 
+	"github.com/foae/plane-cli/internal/auth"
 	"github.com/foae/plane-cli/internal/cli"
 )
 
@@ -16,6 +17,9 @@ var commit = "unknown"
 func main() { os.Exit(run()) }
 
 func run() int {
+	if handled, status := auth.DispatchKeyringHelper(os.Args[1:], os.Stdin, os.Stdout); handled {
+		return status
+	}
 	// Go otherwise terminates on writes to a closed stdout pipe before cleanup.
 	pipe := make(chan os.Signal, 1)
 	signal.Notify(pipe, syscall.SIGPIPE)

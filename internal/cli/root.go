@@ -15,7 +15,7 @@ import (
 type handler func(*cobra.Command, []string, map[string]any) error
 
 func HandlerIDs() []string {
-	return []string{"commands", "schema", "version", "connection-add", "connection-update", "connection-list", "connection-show", "connection-use", "connection-delete", "auth-status"}
+	return []string{"commands", "schema", "version", "connection-add", "connection-update", "connection-list", "connection-show", "connection-use", "connection-delete", "auth-status", "auth-login", "auth-complete", "auth-logout", "auth-migrate"}
 }
 
 func commandName(cmd *cobra.Command) string {
@@ -68,6 +68,9 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 		"schema":   schemaHandler(catalog, out),
 	}
 	for id, h := range connectionHandlers(out) {
+		handlers[id] = h
+	}
+	for id, h := range authHandlers(out) {
 		handlers[id] = h
 	}
 	for id, h := range extra {

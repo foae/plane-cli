@@ -3,6 +3,660 @@
   "commands": [
 {
   "path": [
+    "auth",
+    "login"
+  ],
+  "handler": "auth-login",
+  "summary": "Import a protected token or authorize a registered OAuth app; file credentials are plaintext at rest",
+  "side_effect": "local",
+  "examples": [
+    "plane-cli auth login --help"
+  ],
+  "local": true,
+  "versions": {
+    "v1": {
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "arguments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 0
+          },
+          "flags": {
+            "type": "object",
+            "properties": {
+              "connection": {
+                "type": "string"
+              },
+              "api-key-file": {
+                "type": "string"
+              },
+              "flow": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "bot"
+                ]
+              },
+              "client-id": {
+                "type": "string"
+              },
+              "client-secret-file": {
+                "type": "string"
+              },
+              "redirect-uri": {
+                "type": "string"
+              },
+              "scopes": {
+                "type": "string"
+              },
+              "installation-id": {
+                "type": "string"
+              },
+              "headless": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "arguments",
+          "flags"
+        ],
+        "additionalProperties": false
+      },
+      "flags": [
+        {
+          "name": "connection",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/connection",
+          "description": "Named connection"
+        },
+        {
+          "name": "api-key-file",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/api-key-file",
+          "description": "Protected PAT or bearer token file, or - for stdin"
+        },
+        {
+          "name": "flow",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/flow",
+          "description": "user or bot OAuth flow"
+        },
+        {
+          "name": "client-id",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/client-id",
+          "description": "Registered OAuth client ID"
+        },
+        {
+          "name": "client-secret-file",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/client-secret-file",
+          "description": "Protected app secret file, or - for stdin"
+        },
+        {
+          "name": "redirect-uri",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/redirect-uri",
+          "description": "Exact registered callback URI"
+        },
+        {
+          "name": "scopes",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/scopes",
+          "description": "Space-separated requested scopes"
+        },
+        {
+          "name": "installation-id",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/installation-id",
+          "description": "Explicit bot app installation ID"
+        },
+        {
+          "name": "headless",
+          "type": "boolean",
+          "required": false,
+          "binding": "/flags/headless",
+          "description": "Return pending consent URL for later completion"
+        }
+      ]
+    },
+    "v2": {
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "arguments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 0
+          },
+          "flags": {
+            "type": "object",
+            "properties": {
+              "connection": {
+                "type": "string"
+              },
+              "api-key-file": {
+                "type": "string"
+              },
+              "flow": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "bot"
+                ]
+              },
+              "client-id": {
+                "type": "string"
+              },
+              "client-secret-file": {
+                "type": "string"
+              },
+              "redirect-uri": {
+                "type": "string"
+              },
+              "scopes": {
+                "type": "string"
+              },
+              "installation-id": {
+                "type": "string"
+              },
+              "headless": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "arguments",
+          "flags"
+        ],
+        "additionalProperties": false
+      },
+      "flags": [
+        {
+          "name": "connection",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/connection",
+          "description": "Named connection"
+        },
+        {
+          "name": "api-key-file",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/api-key-file",
+          "description": "Protected PAT or bearer token file, or - for stdin"
+        },
+        {
+          "name": "flow",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/flow",
+          "description": "user or bot OAuth flow"
+        },
+        {
+          "name": "client-id",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/client-id",
+          "description": "Registered OAuth client ID"
+        },
+        {
+          "name": "client-secret-file",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/client-secret-file",
+          "description": "Protected app secret file, or - for stdin"
+        },
+        {
+          "name": "redirect-uri",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/redirect-uri",
+          "description": "Exact registered callback URI"
+        },
+        {
+          "name": "scopes",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/scopes",
+          "description": "Space-separated requested scopes"
+        },
+        {
+          "name": "installation-id",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/installation-id",
+          "description": "Explicit bot app installation ID"
+        },
+        {
+          "name": "headless",
+          "type": "boolean",
+          "required": false,
+          "binding": "/flags/headless",
+          "description": "Return pending consent URL for later completion"
+        }
+      ]
+    }
+  }
+},
+{
+  "path": [
+    "auth",
+    "complete"
+  ],
+  "handler": "auth-complete",
+  "summary": "Complete a pending login using protected callback input",
+  "side_effect": "local",
+  "examples": [
+    "plane-cli auth complete --help"
+  ],
+  "local": true,
+  "versions": {
+    "v1": {
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "arguments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 0
+          },
+          "flags": {
+            "type": "object",
+            "properties": {
+              "connection": {
+                "type": "string"
+              },
+              "login-id": {
+                "type": "string"
+              },
+              "callback-file": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "login-id",
+              "callback-file"
+            ]
+          }
+        },
+        "required": [
+          "arguments",
+          "flags"
+        ],
+        "additionalProperties": false
+      },
+      "flags": [
+        {
+          "name": "connection",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/connection",
+          "description": "Named connection"
+        },
+        {
+          "name": "login-id",
+          "type": "string",
+          "required": true,
+          "binding": "/flags/login-id",
+          "description": "Pending login ID"
+        },
+        {
+          "name": "callback-file",
+          "type": "string",
+          "required": true,
+          "binding": "/flags/callback-file",
+          "description": "Protected complete callback URI file, or - for stdin"
+        }
+      ]
+    },
+    "v2": {
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "arguments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 0
+          },
+          "flags": {
+            "type": "object",
+            "properties": {
+              "connection": {
+                "type": "string"
+              },
+              "login-id": {
+                "type": "string"
+              },
+              "callback-file": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "login-id",
+              "callback-file"
+            ]
+          }
+        },
+        "required": [
+          "arguments",
+          "flags"
+        ],
+        "additionalProperties": false
+      },
+      "flags": [
+        {
+          "name": "connection",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/connection",
+          "description": "Named connection"
+        },
+        {
+          "name": "login-id",
+          "type": "string",
+          "required": true,
+          "binding": "/flags/login-id",
+          "description": "Pending login ID"
+        },
+        {
+          "name": "callback-file",
+          "type": "string",
+          "required": true,
+          "binding": "/flags/callback-file",
+          "description": "Protected complete callback URI file, or - for stdin"
+        }
+      ]
+    }
+  }
+},
+{
+  "path": [
+    "auth",
+    "logout"
+  ],
+  "handler": "auth-logout",
+  "summary": "Delete local credentials and pending consent; no remote revocation",
+  "side_effect": "local",
+  "examples": [
+    "plane-cli auth logout --help"
+  ],
+  "local": true,
+  "versions": {
+    "v1": {
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "arguments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 0
+          },
+          "flags": {
+            "type": "object",
+            "properties": {
+              "connection": {
+                "type": "string"
+              },
+              "yes": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "arguments",
+          "flags"
+        ],
+        "additionalProperties": false
+      },
+      "flags": [
+        {
+          "name": "connection",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/connection",
+          "description": "Named connection"
+        },
+        {
+          "name": "yes",
+          "type": "boolean",
+          "required": false,
+          "binding": "/flags/yes",
+          "description": "Confirm local credential deletion"
+        }
+      ]
+    },
+    "v2": {
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "arguments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 0
+          },
+          "flags": {
+            "type": "object",
+            "properties": {
+              "connection": {
+                "type": "string"
+              },
+              "yes": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "arguments",
+          "flags"
+        ],
+        "additionalProperties": false
+      },
+      "flags": [
+        {
+          "name": "connection",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/connection",
+          "description": "Named connection"
+        },
+        {
+          "name": "yes",
+          "type": "boolean",
+          "required": false,
+          "binding": "/flags/yes",
+          "description": "Confirm local credential deletion"
+        }
+      ]
+    }
+  }
+},
+{
+  "path": [
+    "auth",
+    "migrate"
+  ],
+  "handler": "auth-migrate",
+  "summary": "Move the complete credential bundle to another persistent backend",
+  "side_effect": "local",
+  "examples": [
+    "plane-cli auth migrate --help"
+  ],
+  "local": true,
+  "versions": {
+    "v1": {
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "arguments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 0
+          },
+          "flags": {
+            "type": "object",
+            "properties": {
+              "connection": {
+                "type": "string"
+              },
+              "backend": {
+                "type": "string",
+                "enum": [
+                  "file",
+                  "keyring"
+                ]
+              },
+              "yes": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "backend"
+            ]
+          }
+        },
+        "required": [
+          "arguments",
+          "flags"
+        ],
+        "additionalProperties": false
+      },
+      "flags": [
+        {
+          "name": "connection",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/connection",
+          "description": "Named connection"
+        },
+        {
+          "name": "backend",
+          "type": "string",
+          "required": true,
+          "binding": "/flags/backend",
+          "description": "Destination file or keyring"
+        },
+        {
+          "name": "yes",
+          "type": "boolean",
+          "required": false,
+          "binding": "/flags/yes",
+          "description": "Confirm credential backend migration"
+        }
+      ]
+    },
+    "v2": {
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "arguments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 0
+          },
+          "flags": {
+            "type": "object",
+            "properties": {
+              "connection": {
+                "type": "string"
+              },
+              "backend": {
+                "type": "string",
+                "enum": [
+                  "file",
+                  "keyring"
+                ]
+              },
+              "yes": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "backend"
+            ]
+          }
+        },
+        "required": [
+          "arguments",
+          "flags"
+        ],
+        "additionalProperties": false
+      },
+      "flags": [
+        {
+          "name": "connection",
+          "type": "string",
+          "required": false,
+          "binding": "/flags/connection",
+          "description": "Named connection"
+        },
+        {
+          "name": "backend",
+          "type": "string",
+          "required": true,
+          "binding": "/flags/backend",
+          "description": "Destination file or keyring"
+        },
+        {
+          "name": "yes",
+          "type": "boolean",
+          "required": false,
+          "binding": "/flags/yes",
+          "description": "Confirm credential backend migration"
+        }
+      ]
+    }
+  }
+},
+{
+  "path": [
     "connection",
     "add"
   ],
@@ -52,7 +706,9 @@
                 "enum": [
                   "api-key",
                   "bearer",
-                  "external"
+                  "external",
+                  "oauth-user",
+                  "oauth-bot"
                 ]
               },
               "credential-backend": {
@@ -123,14 +779,14 @@
           "type": "string",
           "required": false,
           "binding": "/flags/auth-mode",
-          "description": "api-key, bearer or external"
+          "description": "api-key, bearer, external, oauth-user or oauth-bot"
         },
         {
           "name": "credential-backend",
           "type": "string",
           "required": false,
           "binding": "/flags/credential-backend",
-          "description": "file, keyring or env; persistence arrives with OAuth"
+          "description": "file (owner-only plaintext), keyring or env"
         },
         {
           "name": "timeout",
@@ -200,7 +856,9 @@
                 "enum": [
                   "api-key",
                   "bearer",
-                  "external"
+                  "external",
+                  "oauth-user",
+                  "oauth-bot"
                 ]
               },
               "credential-backend": {
@@ -271,14 +929,14 @@
           "type": "string",
           "required": false,
           "binding": "/flags/auth-mode",
-          "description": "api-key, bearer or external"
+          "description": "api-key, bearer, external, oauth-user or oauth-bot"
         },
         {
           "name": "credential-backend",
           "type": "string",
           "required": false,
           "binding": "/flags/credential-backend",
-          "description": "file, keyring or env; persistence arrives with OAuth"
+          "description": "file (owner-only plaintext), keyring or env"
         },
         {
           "name": "timeout",
@@ -363,7 +1021,9 @@
                 "enum": [
                   "api-key",
                   "bearer",
-                  "external"
+                  "external",
+                  "oauth-user",
+                  "oauth-bot"
                 ]
               },
               "credential-backend": {
@@ -430,14 +1090,14 @@
           "type": "string",
           "required": false,
           "binding": "/flags/auth-mode",
-          "description": "api-key, bearer or external"
+          "description": "api-key, bearer, external, oauth-user or oauth-bot"
         },
         {
           "name": "credential-backend",
           "type": "string",
           "required": false,
           "binding": "/flags/credential-backend",
-          "description": "file, keyring or env; persistence arrives with OAuth"
+          "description": "file (owner-only plaintext), keyring or env"
         },
         {
           "name": "timeout",
@@ -507,7 +1167,9 @@
                 "enum": [
                   "api-key",
                   "bearer",
-                  "external"
+                  "external",
+                  "oauth-user",
+                  "oauth-bot"
                 ]
               },
               "credential-backend": {
@@ -574,14 +1236,14 @@
           "type": "string",
           "required": false,
           "binding": "/flags/auth-mode",
-          "description": "api-key, bearer or external"
+          "description": "api-key, bearer, external, oauth-user or oauth-bot"
         },
         {
           "name": "credential-backend",
           "type": "string",
           "required": false,
           "binding": "/flags/credential-backend",
-          "description": "file, keyring or env; persistence arrives with OAuth"
+          "description": "file (owner-only plaintext), keyring or env"
         },
         {
           "name": "timeout",
@@ -740,7 +1402,9 @@
                 "enum": [
                   "api-key",
                   "bearer",
-                  "external"
+                  "external",
+                  "oauth-user",
+                  "oauth-bot"
                 ]
               },
               "credential-backend": {
@@ -811,14 +1475,14 @@
           "type": "string",
           "required": false,
           "binding": "/flags/auth-mode",
-          "description": "api-key, bearer or external"
+          "description": "api-key, bearer, external, oauth-user or oauth-bot"
         },
         {
           "name": "credential-backend",
           "type": "string",
           "required": false,
           "binding": "/flags/credential-backend",
-          "description": "file, keyring or env; persistence arrives with OAuth"
+          "description": "file (owner-only plaintext), keyring or env"
         },
         {
           "name": "timeout",
@@ -884,7 +1548,9 @@
                 "enum": [
                   "api-key",
                   "bearer",
-                  "external"
+                  "external",
+                  "oauth-user",
+                  "oauth-bot"
                 ]
               },
               "credential-backend": {
@@ -955,14 +1621,14 @@
           "type": "string",
           "required": false,
           "binding": "/flags/auth-mode",
-          "description": "api-key, bearer or external"
+          "description": "api-key, bearer, external, oauth-user or oauth-bot"
         },
         {
           "name": "credential-backend",
           "type": "string",
           "required": false,
           "binding": "/flags/credential-backend",
-          "description": "file, keyring or env; persistence arrives with OAuth"
+          "description": "file (owner-only plaintext), keyring or env"
         },
         {
           "name": "timeout",
@@ -1229,7 +1895,9 @@
                 "enum": [
                   "api-key",
                   "bearer",
-                  "external"
+                  "external",
+                  "oauth-user",
+                  "oauth-bot"
                 ]
               },
               "credential-backend": {
@@ -1300,14 +1968,14 @@
           "type": "string",
           "required": false,
           "binding": "/flags/auth-mode",
-          "description": "api-key, bearer or external"
+          "description": "api-key, bearer, external, oauth-user or oauth-bot"
         },
         {
           "name": "credential-backend",
           "type": "string",
           "required": false,
           "binding": "/flags/credential-backend",
-          "description": "file, keyring or env; persistence arrives with OAuth"
+          "description": "file (owner-only plaintext), keyring or env"
         },
         {
           "name": "timeout",
@@ -1373,7 +2041,9 @@
                 "enum": [
                   "api-key",
                   "bearer",
-                  "external"
+                  "external",
+                  "oauth-user",
+                  "oauth-bot"
                 ]
               },
               "credential-backend": {
@@ -1444,14 +2114,14 @@
           "type": "string",
           "required": false,
           "binding": "/flags/auth-mode",
-          "description": "api-key, bearer or external"
+          "description": "api-key, bearer, external, oauth-user or oauth-bot"
         },
         {
           "name": "credential-backend",
           "type": "string",
           "required": false,
           "binding": "/flags/credential-backend",
-          "description": "file, keyring or env; persistence arrives with OAuth"
+          "description": "file (owner-only plaintext), keyring or env"
         },
         {
           "name": "timeout",
@@ -11940,6 +12610,10 @@
     "P01": {
       "completed_operation_ids": [],
       "status": "transport-only"
+    },
+    "P02": {
+      "completed_operation_ids": [],
+      "status": "authentication-only"
     }
   }
 }

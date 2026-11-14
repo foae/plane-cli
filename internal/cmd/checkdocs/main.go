@@ -306,8 +306,16 @@ func usageExamples() error {
 		return err
 	}
 	count := 0
+	manual := false
 	for _, line := range strings.Split(string(data), "\n") {
 		line = strings.TrimSpace(line)
+		if strings.HasPrefix(line, "```") {
+			manual = line == "```sh manual"
+			continue
+		}
+		if manual {
+			continue
+		}
 		if !strings.HasPrefix(line, "plane-cli ") {
 			continue
 		}

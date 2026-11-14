@@ -1,6 +1,6 @@
 # CLI usage
 
-P00/P01 implement offline discovery, named connections, environment credentials and the safe API transport foundation. No resource operations are callable yet; persistent login/OAuth and resource commands belong to P02/P03.
+P00–P02 implement offline discovery, named connections, persistent credentials, user/bot OAuth and the safe API transport foundation. No resource operations are callable yet; those begin with P03.
 
 Build with Go 1.27.4 and `make build`, or install from this source checkout with `go install ./cmd/plane-cli`. Generated metadata is committed and embedded: the installed binary does not need repository files. Contributor setup and checks are in [development](development.md).
 
@@ -39,8 +39,46 @@ Settings resolve explicit flag, nonempty `PLANE_CLI_*` environment, selected con
 
 Resource dispatch resolves the API version from flags, environment or the selected connection before choosing its schema. A fully specified invocation without an explicit connection can run when local configuration is unavailable. A selected named connection never silently falls back. Dry-run validates route segments and reports the target URL and whether a body is present, without reading credentials.
 
-`api-key` uses `PLANE_CLI_API_KEY`; `bearer` uses `PLANE_CLI_ACCESS_TOKEN`. Both together are rejected. `external` ignores both and sends neither header, allowing an operator proxy to inject authentication; status says `externally_managed`, not authenticated. Persistent file/keyring credentials and OAuth are not available in P01. Backend selection is stored but never silently falls back.
+`api-key` uses `PLANE_CLI_API_KEY`; `bearer`, `oauth-user` and `oauth-bot` accept `PLANE_CLI_ACCESS_TOKEN`. Both overrides together are rejected. An access-token override is externally managed: it never refreshes or writes stored credentials. `external` ignores both and sends neither header, allowing an operator proxy to inject authentication; status says `externally_managed`, not authenticated. Backends never silently fall back.
 
 Transport honors standard proxy variables, verifies HTTPS certificates and appends `--ca-file` roots. API redirects are refused. Total/request defaults are 5m/30s; both require positive durations. There are no automatic retries: transport uses HTTP/1 only and disables keep-alive pooling to prevent Go's HTTP/2 stream retries and stale pooled-connection replays. JSON responses retain native fields and exact numbers, are limited to 16 MiB, and are staged before stdout. Server-error responses to mutations report an unknown outcome. Arbitrary upstream error text is suppressed rather than exposing reflected secrets.
+
+## Persistent login and OAuth
+
+The following manual examples require operator-supplied protected files and app registration; the offline documentation checker does not execute `sh manual` blocks.
+
+```sh manual
+plane-cli connection add personal --base-url https://plane.example.net --api-version v2
+plane-cli auth login --connection personal --api-key-file /protected/token
+plane-cli auth status --connection personal
+plane-cli auth migrate --connection personal --backend keyring --yes
+plane-cli auth logout --connection personal --yes
+```
+
+Token/client-secret/callback input files must be regular, owner-only files in an owner-only directory with safe ancestors, without symlinks; `-` reads stdin and honors command cancellation. Secret values and callback URLs are not accepted on argv. File storage is owner-only plaintext at rest; keyring storage is opt-in (macOS Keychain or Linux Secret Service), with no fallback when unavailable. Explicit `env` backend login fails before any exchange. Logout removes local credentials, not remote grants.
+
+Native keyring availability and unlock policy depend on the operating system. Linux cancellation terminates and reaps the local helper, but cannot roll back a write already accepted by Secret Service. macOS verifies writes by reading them back; bundles exceeding the `security` interactive-command limit are rejected rather than truncated. Choose file storage explicitly if that limit prevents login.
+
+If login reports that new credentials were saved but cleanup failed, the committed credential remains usable; follow the reported `auth logout --yes` repair guidance rather than repeating the token exchange. A failed staged write preserves the previous credential, and a subsequent login/import/migration retries only staged cleanup first. User refresh exchanges are never replayed after an uncertain outcome; transient bot-grant failures can be retried by a later invocation.
+
+OAuth requires a registered confidential app and its exact registered callback URI. Configure a connection with `--auth-mode oauth-user` or `--auth-mode oauth-bot`. User login uses `--flow user`; bot login uses `--flow bot`. Supply `--client-id`, `--client-secret-file` and `--redirect-uri`; bot login may instead use an existing `--installation-id`. Optional `--scopes` is passed to the provider. Nonempty `PLANE_CLI_OAUTH_CLIENT_ID`, `PLANE_CLI_OAUTH_CLIENT_SECRET`, `PLANE_CLI_REDIRECT_URI`, `PLANE_CLI_SCOPES` and `PLANE_CLI_INSTALLATION_ID` supply defaults.
+
+Changing the OAuth client, redirect, scopes or installation during explicit login rebinds the connection and removes its previous credentials before consent. Check environment defaults before doing so; cancelling consent does not restore the old session.
+
+Local consent requires an HTTP loopback URI with an explicit nonzero port. The listener binds before consent instructions appear on stderr. Login, completion and status honor the effective command timeout; OAuth requests honor effective request-timeout and CA overrides. The command timeout also bounds local consent waiting. For a different registered redirect, use headless completion:
+
+```sh manual
+plane-cli auth login --connection personal --flow user --headless \
+  --client-id registered-app --client-secret-file /protected/app-secret \
+  --redirect-uri https://callback.example/callback
+plane-cli auth complete --connection personal --login-id LOGIN_ID --callback-file -
+```
+
+Headless login returns a pending login ID and consent URL, not authenticated success. Consent URLs intentionally contain OAuth state; treat them as sensitive. Pending attempts expire after ten minutes and are single-use, bound to connection identity and generation. Expired or consumed attempts require a new login. No device-grant or public-client PKCE support is assumed.
+
+Stored user sessions refresh automatically with their persisted app credentials; bot sessions renew using client credentials and installation ID, not refresh tokens. Connection-scoped locks serialize renewal, logout and rebinding across processes. Failed persistence after exchange returns exit 6 and fresh-login guidance rather than replaying a consumed refresh token. Failed cleanup retains references for `auth logout --yes` repair. Changing the destination, auth mode or backend removes old bound credentials; use `auth migrate` to preserve credentials when changing backends.
+
+Fake providers and controlled credential backends verify these protocols. Native keyring availability and deployment-specific app registration remain unverified.
+
 
 The [packet router](implementation/README.md) identifies remaining work. Deterministic fake-server acceptance does not establish live Plane edition compatibility.

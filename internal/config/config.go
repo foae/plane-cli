@@ -24,6 +24,15 @@ type Connection struct {
 	Timeout        string `json:"timeout,omitempty"`
 	RequestTimeout string `json:"request_timeout,omitempty"`
 	CAFile         string `json:"ca_file,omitempty"`
+	OAuthClientID  string `json:"oauth_client_id,omitempty"`
+	RedirectURI    string `json:"redirect_uri,omitempty"`
+	Scopes         string `json:"scopes,omitempty"`
+	InstallationID string `json:"installation_id,omitempty"`
+	CredentialRef  string `json:"credential_ref,omitempty"`
+	CleanupBackend string `json:"cleanup_backend,omitempty"`
+	CleanupRef     string `json:"cleanup_ref,omitempty"`
+	StagedBackend  string `json:"staged_backend,omitempty"`
+	StagedRef      string `json:"staged_ref,omitempty"`
 }
 
 type File struct {

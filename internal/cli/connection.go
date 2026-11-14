@@ -109,6 +109,28 @@ func connectionHandlers(out io.Writer) map[string]handler {
 				}
 				defer func() { _ = unlock() }()
 			}
+			// Secret cleanup may contact a keyring and must precede the config lock.
+			if action == "delete" || action == "update" {
+				f, err := store.Load()
+				if err != nil {
+					return localError(cmd, err)
+				}
+				old, exists := f.Connections[name]
+				if !exists {
+					return localError(cmd, errors.New("connection not found"))
+				}
+				next, err := validateConnection(connectionValues(old, flags))
+				if err != nil {
+					return &output.Error{Code: "usage_error", Message: err.Error(), Command: commandName(cmd), Exit: 2}
+				}
+				rebind := next.BaseURL != old.BaseURL || next.AuthMode != old.AuthMode || next.Backend != old.Backend
+				if action == "delete" || rebind {
+					manager := auth.Manager{Store: store, Keyring: auth.NativeKeyring()}
+					if err := manager.CleanupLocked(cmd.Context(), old); err != nil {
+						return authError(cmd, err)
+					}
+				}
+			}
 			warning := false
 			e = store.Update(cmd.Context(), func(f *config.File) error {
 				old, exists := f.Connections[name]
@@ -146,6 +168,11 @@ func connectionHandlers(out io.Writer) map[string]handler {
 					}
 					if action == "update" && (next.BaseURL != old.BaseURL || next.AuthMode != old.AuthMode || next.Backend != old.Backend) {
 						next.Generation++
+						next.CredentialRef = ""
+						next.CleanupRef = ""
+						next.CleanupBackend = ""
+						next.StagedRef = ""
+						next.StagedBackend = ""
 					}
 					warning = strings.HasPrefix(next.BaseURL, "http://") && (action == "add" || strings.HasPrefix(old.BaseURL, "https://"))
 					f.Connections[name] = next
@@ -167,9 +194,12 @@ func connectionHandlers(out io.Writer) map[string]handler {
 		if e != nil {
 			return e
 		}
-		_, status, e := auth.Resolve(r, os.Getenv)
+		total, _ := r.Deadlines()
+		ctx, cancel := context.WithTimeout(cmd.Context(), total)
+		defer cancel()
+		_, status, e := auth.ResolveStored(ctx, r, os.Getenv, false)
 		if e != nil {
-			return &output.Error{Code: "configuration_error", Message: e.Error(), Command: commandName(cmd), Exit: 1}
+			return authError(cmd, e)
 		}
 		return output.Success(out, commandName(cmd), status)
 	}
@@ -186,11 +216,7 @@ func connectionValues(c config.Connection, flags map[string]string) config.Conne
 }
 
 func validateConnection(c config.Connection) (config.Connection, error) {
-	c, err := config.Validate(c)
-	if err == nil && (c.AuthMode == "oauth-user" || c.AuthMode == "oauth-bot") {
-		err = errors.New("OAuth login is not available in this milestone")
-	}
-	return c, err
+	return config.Validate(c)
 }
 
 func settingsError(cmd *cobra.Command, err error) error {

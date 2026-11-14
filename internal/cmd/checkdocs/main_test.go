@@ -114,3 +114,11 @@ func TestConfigurationExamplesAreIsolated(t *testing.T) {
 		t.Fatal("examples did not restore settings")
 	}
 }
+
+func TestManualAuthenticationExamplesDoNotExecute(t *testing.T) {
+	docsFixture(t)
+	put(t, "docs/usage.md", "```sh manual\nplane-cli auth login --connection absent --api-key-file /unavailable\n```\n```sh\nplane-cli version\n```\n")
+	if err := usageExamples(); err != nil {
+		t.Fatal(err)
+	}
+}
