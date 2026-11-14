@@ -1,0 +1,988 @@
+api_version	doc_group	doc_slug	title	source_url
+v2	_guides	introduction	Plane API v2	https://developers.plane.so/api-reference/v2/introduction.md
+v2	_guides	authentication	Authentication	https://developers.plane.so/api-reference/v2/authentication.md
+v2	_guides	pagination	Pagination	https://developers.plane.so/api-reference/v2/pagination.md
+v2	_guides	filtering-and-ordering	Filtering and ordering	https://developers.plane.so/api-reference/v2/filtering-and-ordering.md
+v2	_guides	sparse-fields	Sparse fields	https://developers.plane.so/api-reference/v2/sparse-fields.md
+v2	_guides	expanding-relations	Expanding relations	https://developers.plane.so/api-reference/v2/expanding-relations.md
+v2	_guides	errors	Errors	https://developers.plane.so/api-reference/v2/errors.md
+v2	_guides	migrating-from-v1	Migrating from v1	https://developers.plane.so/api-reference/v2/migrating-from-v1.md
+v2	states	overview	States overview	https://developers.plane.so/api-reference/v2/states/overview.md
+v2	states	list-states	List states	https://developers.plane.so/api-reference/v2/states/list-states.md
+v2	states	get-state	Get a state	https://developers.plane.so/api-reference/v2/states/get-state.md
+v2	states	create-state	Create a state	https://developers.plane.so/api-reference/v2/states/create-state.md
+v2	states	update-state	Update a state	https://developers.plane.so/api-reference/v2/states/update-state.md
+v2	states	delete-state	Delete a state	https://developers.plane.so/api-reference/v2/states/delete-state.md
+v2	states	upsert-state	Upsert a state	https://developers.plane.so/api-reference/v2/states/upsert-state.md
+v2	states	bulk-create-states	Bulk create states	https://developers.plane.so/api-reference/v2/states/bulk-create-states.md
+v2	states	bulk-update-states	Bulk update states	https://developers.plane.so/api-reference/v2/states/bulk-update-states.md
+v2	states	bulk-delete-states	Bulk delete states	https://developers.plane.so/api-reference/v2/states/bulk-delete-states.md
+v2	workspace-states	overview	Workspace states overview	https://developers.plane.so/api-reference/v2/workspace-states/overview.md
+v2	workspace-states	list-workspace-states	List workspace states	https://developers.plane.so/api-reference/v2/workspace-states/list-workspace-states.md
+v2	workspace-states	get-workspace-state	Get a workspace state	https://developers.plane.so/api-reference/v2/workspace-states/get-workspace-state.md
+v2	workspace-states	create-workspace-state	Create a workspace state	https://developers.plane.so/api-reference/v2/workspace-states/create-workspace-state.md
+v2	workspace-states	update-workspace-state	Update a workspace state	https://developers.plane.so/api-reference/v2/workspace-states/update-workspace-state.md
+v2	workspace-states	delete-workspace-state	Delete a workspace state	https://developers.plane.so/api-reference/v2/workspace-states/delete-workspace-state.md
+v2	labels	overview	Labels overview	https://developers.plane.so/api-reference/v2/labels/overview.md
+v2	labels	list-labels	List labels	https://developers.plane.so/api-reference/v2/labels/list-labels.md
+v2	labels	get-label	Get a label	https://developers.plane.so/api-reference/v2/labels/get-label.md
+v2	labels	create-label	Create a label	https://developers.plane.so/api-reference/v2/labels/create-label.md
+v2	labels	update-label	Update a label	https://developers.plane.so/api-reference/v2/labels/update-label.md
+v2	labels	delete-label	Delete a label	https://developers.plane.so/api-reference/v2/labels/delete-label.md
+v2	labels	upsert-label	Upsert a label	https://developers.plane.so/api-reference/v2/labels/upsert-label.md
+v2	labels	bulk-create-labels	Bulk create labels	https://developers.plane.so/api-reference/v2/labels/bulk-create-labels.md
+v2	labels	bulk-update-labels	Bulk update labels	https://developers.plane.so/api-reference/v2/labels/bulk-update-labels.md
+v2	labels	bulk-delete-labels	Bulk delete labels	https://developers.plane.so/api-reference/v2/labels/bulk-delete-labels.md
+v2	cycles	overview	Cycles overview	https://developers.plane.so/api-reference/v2/cycles/overview.md
+v2	cycles	list-cycles	List cycles	https://developers.plane.so/api-reference/v2/cycles/list-cycles.md
+v2	cycles	get-cycle	Get a cycle	https://developers.plane.so/api-reference/v2/cycles/get-cycle.md
+v2	cycles	create-cycle	Create a cycle	https://developers.plane.so/api-reference/v2/cycles/create-cycle.md
+v2	cycles	update-cycle	Update a cycle	https://developers.plane.so/api-reference/v2/cycles/update-cycle.md
+v2	cycles	delete-cycle	Delete a cycle	https://developers.plane.so/api-reference/v2/cycles/delete-cycle.md
+v2	cycles	upsert-cycle	Upsert a cycle	https://developers.plane.so/api-reference/v2/cycles/upsert-cycle.md
+v2	cycles	bulk-create-cycles	Bulk create cycles	https://developers.plane.so/api-reference/v2/cycles/bulk-create-cycles.md
+v2	cycles	bulk-update-cycles	Bulk update cycles	https://developers.plane.so/api-reference/v2/cycles/bulk-update-cycles.md
+v2	cycles	bulk-delete-cycles	Bulk delete cycles	https://developers.plane.so/api-reference/v2/cycles/bulk-delete-cycles.md
+v2	cycles	manage-cycle-work-items	Add or remove cycle work items	https://developers.plane.so/api-reference/v2/cycles/manage-cycle-work-items.md
+v2	cycles	transfer-cycle-work-items	Transfer work items between cycles	https://developers.plane.so/api-reference/v2/cycles/transfer-cycle-work-items.md
+v2	cycles	archive-cycle	Archive a cycle	https://developers.plane.so/api-reference/v2/cycles/archive-cycle.md
+v2	cycles	unarchive-cycle	Unarchive a cycle	https://developers.plane.so/api-reference/v2/cycles/unarchive-cycle.md
+v2	modules	overview	Modules overview	https://developers.plane.so/api-reference/v2/modules/overview.md
+v2	modules	list-modules	List modules	https://developers.plane.so/api-reference/v2/modules/list-modules.md
+v2	modules	get-module	Get a module	https://developers.plane.so/api-reference/v2/modules/get-module.md
+v2	modules	create-module	Create a module	https://developers.plane.so/api-reference/v2/modules/create-module.md
+v2	modules	update-module	Update a module	https://developers.plane.so/api-reference/v2/modules/update-module.md
+v2	modules	delete-module	Delete a module	https://developers.plane.so/api-reference/v2/modules/delete-module.md
+v2	modules	upsert-module	Upsert a module	https://developers.plane.so/api-reference/v2/modules/upsert-module.md
+v2	modules	bulk-create-modules	Bulk create modules	https://developers.plane.so/api-reference/v2/modules/bulk-create-modules.md
+v2	modules	bulk-update-modules	Bulk update modules	https://developers.plane.so/api-reference/v2/modules/bulk-update-modules.md
+v2	modules	bulk-delete-modules	Bulk delete modules	https://developers.plane.so/api-reference/v2/modules/bulk-delete-modules.md
+v2	modules	manage-module-work-items	Add or remove module work items	https://developers.plane.so/api-reference/v2/modules/manage-module-work-items.md
+v2	modules	archive-module	Archive a module	https://developers.plane.so/api-reference/v2/modules/archive-module.md
+v2	modules	unarchive-module	Unarchive a module	https://developers.plane.so/api-reference/v2/modules/unarchive-module.md
+v2	milestones	overview	Milestones overview	https://developers.plane.so/api-reference/v2/milestones/overview.md
+v2	milestones	list-milestones	List milestones	https://developers.plane.so/api-reference/v2/milestones/list-milestones.md
+v2	milestones	get-milestone	Get a milestone	https://developers.plane.so/api-reference/v2/milestones/get-milestone.md
+v2	milestones	create-milestone	Create a milestone	https://developers.plane.so/api-reference/v2/milestones/create-milestone.md
+v2	milestones	update-milestone	Update a milestone	https://developers.plane.so/api-reference/v2/milestones/update-milestone.md
+v2	milestones	delete-milestone	Delete a milestone	https://developers.plane.so/api-reference/v2/milestones/delete-milestone.md
+v2	milestones	upsert-milestone	Upsert a milestone	https://developers.plane.so/api-reference/v2/milestones/upsert-milestone.md
+v2	milestones	bulk-create-milestones	Bulk create milestones	https://developers.plane.so/api-reference/v2/milestones/bulk-create-milestones.md
+v2	milestones	bulk-update-milestones	Bulk update milestones	https://developers.plane.so/api-reference/v2/milestones/bulk-update-milestones.md
+v2	milestones	bulk-delete-milestones	Bulk delete milestones	https://developers.plane.so/api-reference/v2/milestones/bulk-delete-milestones.md
+v2	milestones	manage-milestone-work-items	Add or remove milestone work items	https://developers.plane.so/api-reference/v2/milestones/manage-milestone-work-items.md
+v2	estimates	overview	Estimates overview	https://developers.plane.so/api-reference/v2/estimates/overview.md
+v2	estimates	list-estimates	List estimates	https://developers.plane.so/api-reference/v2/estimates/list-estimates.md
+v2	estimates	get-estimate	Get an estimate	https://developers.plane.so/api-reference/v2/estimates/get-estimate.md
+v2	estimates	create-estimate	Create an estimate	https://developers.plane.so/api-reference/v2/estimates/create-estimate.md
+v2	estimates	update-estimate	Update an estimate	https://developers.plane.so/api-reference/v2/estimates/update-estimate.md
+v2	estimates	delete-estimate	Delete an estimate	https://developers.plane.so/api-reference/v2/estimates/delete-estimate.md
+v2	estimates	upsert-estimate	Upsert an estimate	https://developers.plane.so/api-reference/v2/estimates/upsert-estimate.md
+v2	estimates	bulk-create-estimates	Bulk create estimates	https://developers.plane.so/api-reference/v2/estimates/bulk-create-estimates.md
+v2	estimates	bulk-update-estimates	Bulk update estimates	https://developers.plane.so/api-reference/v2/estimates/bulk-update-estimates.md
+v2	estimates	bulk-delete-estimates	Bulk delete estimates	https://developers.plane.so/api-reference/v2/estimates/bulk-delete-estimates.md
+v2	estimate-points	overview	Estimate points overview	https://developers.plane.so/api-reference/v2/estimate-points/overview.md
+v2	estimate-points	list-estimate-points	List estimate points	https://developers.plane.so/api-reference/v2/estimate-points/list-estimate-points.md
+v2	estimate-points	get-estimate-point	Get an estimate point	https://developers.plane.so/api-reference/v2/estimate-points/get-estimate-point.md
+v2	estimate-points	create-estimate-point	Create an estimate point	https://developers.plane.so/api-reference/v2/estimate-points/create-estimate-point.md
+v2	estimate-points	update-estimate-point	Update an estimate point	https://developers.plane.so/api-reference/v2/estimate-points/update-estimate-point.md
+v2	estimate-points	delete-estimate-point	Delete an estimate point	https://developers.plane.so/api-reference/v2/estimate-points/delete-estimate-point.md
+v2	estimate-points	upsert-estimate-point	Upsert an estimate point	https://developers.plane.so/api-reference/v2/estimate-points/upsert-estimate-point.md
+v2	estimate-points	bulk-create-estimate-points	Bulk create estimate points	https://developers.plane.so/api-reference/v2/estimate-points/bulk-create-estimate-points.md
+v2	estimate-points	bulk-update-estimate-points	Bulk update estimate points	https://developers.plane.so/api-reference/v2/estimate-points/bulk-update-estimate-points.md
+v2	estimate-points	bulk-delete-estimate-points	Bulk delete estimate points	https://developers.plane.so/api-reference/v2/estimate-points/bulk-delete-estimate-points.md
+v2	intake-work-items	overview	Intake work items overview	https://developers.plane.so/api-reference/v2/intake-work-items/overview.md
+v2	intake-work-items	list-intake-work-items	List intake work items	https://developers.plane.so/api-reference/v2/intake-work-items/list-intake-work-items.md
+v2	intake-work-items	get-intake-work-item	Get an intake work item	https://developers.plane.so/api-reference/v2/intake-work-items/get-intake-work-item.md
+v2	intake-work-items	create-intake-work-item	Create an intake work item	https://developers.plane.so/api-reference/v2/intake-work-items/create-intake-work-item.md
+v2	intake-work-items	update-intake-work-item	Update an intake work item	https://developers.plane.so/api-reference/v2/intake-work-items/update-intake-work-item.md
+v2	intake-work-items	delete-intake-work-item	Delete an intake work item	https://developers.plane.so/api-reference/v2/intake-work-items/delete-intake-work-item.md
+v2	work-items	overview	Work items overview	https://developers.plane.so/api-reference/v2/work-items/overview.md
+v2	work-items	list-work-items	List work items	https://developers.plane.so/api-reference/v2/work-items/list-work-items.md
+v2	work-items	list-workspace-work-items	List work items across a workspace	https://developers.plane.so/api-reference/v2/work-items/list-workspace-work-items.md
+v2	work-items	get-work-item	Get a work item	https://developers.plane.so/api-reference/v2/work-items/get-work-item.md
+v2	work-items	get-work-item-by-identifier	Get a work item by identifier	https://developers.plane.so/api-reference/v2/work-items/get-work-item-by-identifier.md
+v2	work-items	create-work-item	Create a work item	https://developers.plane.so/api-reference/v2/work-items/create-work-item.md
+v2	work-items	update-work-item	Update a work item	https://developers.plane.so/api-reference/v2/work-items/update-work-item.md
+v2	work-items	delete-work-item	Delete a work item	https://developers.plane.so/api-reference/v2/work-items/delete-work-item.md
+v2	work-items	upsert-work-item	Upsert a work item	https://developers.plane.so/api-reference/v2/work-items/upsert-work-item.md
+v2	work-items	bulk-create-work-items	Bulk create work items	https://developers.plane.so/api-reference/v2/work-items/bulk-create-work-items.md
+v2	work-items	bulk-update-work-items	Bulk update work items	https://developers.plane.so/api-reference/v2/work-items/bulk-update-work-items.md
+v2	work-items	bulk-delete-work-items	Bulk delete work items	https://developers.plane.so/api-reference/v2/work-items/bulk-delete-work-items.md
+v2	work-items	archive-work-item	Archive a work item	https://developers.plane.so/api-reference/v2/work-items/archive-work-item.md
+v2	work-items	unarchive-work-item	Unarchive a work item	https://developers.plane.so/api-reference/v2/work-items/unarchive-work-item.md
+v2	work-item-comments	overview	Work item comments overview	https://developers.plane.so/api-reference/v2/work-item-comments/overview.md
+v2	work-item-comments	list-comments	List comments	https://developers.plane.so/api-reference/v2/work-item-comments/list-comments.md
+v2	work-item-comments	get-comment	Get a comment	https://developers.plane.so/api-reference/v2/work-item-comments/get-comment.md
+v2	work-item-comments	create-comment	Create a comment	https://developers.plane.so/api-reference/v2/work-item-comments/create-comment.md
+v2	work-item-comments	update-comment	Update a comment	https://developers.plane.so/api-reference/v2/work-item-comments/update-comment.md
+v2	work-item-comments	delete-comment	Delete a comment	https://developers.plane.so/api-reference/v2/work-item-comments/delete-comment.md
+v2	work-item-comments	upsert-comment	Upsert a comment	https://developers.plane.so/api-reference/v2/work-item-comments/upsert-comment.md
+v2	work-item-comments	bulk-create-comments	Bulk create comments	https://developers.plane.so/api-reference/v2/work-item-comments/bulk-create-comments.md
+v2	work-item-comments	bulk-update-comments	Bulk update comments	https://developers.plane.so/api-reference/v2/work-item-comments/bulk-update-comments.md
+v2	work-item-comments	bulk-delete-comments	Bulk delete comments	https://developers.plane.so/api-reference/v2/work-item-comments/bulk-delete-comments.md
+v2	work-item-attachments	overview	Work item attachments overview	https://developers.plane.so/api-reference/v2/work-item-attachments/overview.md
+v2	work-item-attachments	list-attachments	List attachments	https://developers.plane.so/api-reference/v2/work-item-attachments/list-attachments.md
+v2	work-item-attachments	get-attachment	Get an attachment	https://developers.plane.so/api-reference/v2/work-item-attachments/get-attachment.md
+v2	work-item-attachments	create-attachment-upload	Create a work item attachment upload	https://developers.plane.so/api-reference/v2/work-item-attachments/create-attachment-upload.md
+v2	work-item-attachments	delete-attachment	Delete an attachment	https://developers.plane.so/api-reference/v2/work-item-attachments/delete-attachment.md
+v2	work-item-attachments	confirm-attachment-upload	Confirm a work item attachment upload	https://developers.plane.so/api-reference/v2/work-item-attachments/confirm-attachment-upload.md
+v2	work-item-links	overview	Work item links overview	https://developers.plane.so/api-reference/v2/work-item-links/overview.md
+v2	work-item-links	list-links	List links	https://developers.plane.so/api-reference/v2/work-item-links/list-links.md
+v2	work-item-links	get-link	Get a link	https://developers.plane.so/api-reference/v2/work-item-links/get-link.md
+v2	work-item-links	create-link	Create a link	https://developers.plane.so/api-reference/v2/work-item-links/create-link.md
+v2	work-item-links	update-link	Update a link	https://developers.plane.so/api-reference/v2/work-item-links/update-link.md
+v2	work-item-links	delete-link	Delete a link	https://developers.plane.so/api-reference/v2/work-item-links/delete-link.md
+v2	work-item-pages	overview	Work item pages overview	https://developers.plane.so/api-reference/v2/work-item-pages/overview.md
+v2	work-item-pages	list-work-item-pages	List work item pages	https://developers.plane.so/api-reference/v2/work-item-pages/list-work-item-pages.md
+v2	work-item-pages	get-work-item-page	Get a work item page	https://developers.plane.so/api-reference/v2/work-item-pages/get-work-item-page.md
+v2	work-item-pages	create-work-item-page	Create a work item page	https://developers.plane.so/api-reference/v2/work-item-pages/create-work-item-page.md
+v2	work-item-pages	delete-work-item-page	Delete a work item page	https://developers.plane.so/api-reference/v2/work-item-pages/delete-work-item-page.md
+v2	work-item-activities	overview	Work item activities overview	https://developers.plane.so/api-reference/v2/work-item-activities/overview.md
+v2	work-item-activities	list-activities	List activities	https://developers.plane.so/api-reference/v2/work-item-activities/list-activities.md
+v2	work-item-activities	get-activity	Get an activity	https://developers.plane.so/api-reference/v2/work-item-activities/get-activity.md
+v2	work-item-worklogs	overview	Work item worklogs overview	https://developers.plane.so/api-reference/v2/work-item-worklogs/overview.md
+v2	work-item-worklogs	list-worklogs	List worklogs	https://developers.plane.so/api-reference/v2/work-item-worklogs/list-worklogs.md
+v2	work-item-worklogs	get-project-worklog-summary	Get the project worklog summary	https://developers.plane.so/api-reference/v2/work-item-worklogs/get-project-worklog-summary.md
+v2	work-item-worklogs	get-worklog	Get a worklog	https://developers.plane.so/api-reference/v2/work-item-worklogs/get-worklog.md
+v2	work-item-worklogs	create-worklog	Create a worklog	https://developers.plane.so/api-reference/v2/work-item-worklogs/create-worklog.md
+v2	work-item-worklogs	update-worklog	Update a worklog	https://developers.plane.so/api-reference/v2/work-item-worklogs/update-worklog.md
+v2	work-item-worklogs	delete-worklog	Delete a worklog	https://developers.plane.so/api-reference/v2/work-item-worklogs/delete-worklog.md
+v2	work-item-subscribers	overview	Work item subscribers overview	https://developers.plane.so/api-reference/v2/work-item-subscribers/overview.md
+v2	work-item-subscribers	get-subscribers	Get subscribers	https://developers.plane.so/api-reference/v2/work-item-subscribers/get-subscribers.md
+v2	work-item-subscribers	get-subscribers-by-identifier	Get subscribers by identifier	https://developers.plane.so/api-reference/v2/work-item-subscribers/get-subscribers-by-identifier.md
+v2	work-item-subscribers	update-subscribers	Update subscribers	https://developers.plane.so/api-reference/v2/work-item-subscribers/update-subscribers.md
+v2	work-item-subscribers	update-subscribers-by-identifier	Update subscribers by identifier	https://developers.plane.so/api-reference/v2/work-item-subscribers/update-subscribers-by-identifier.md
+v2	work-item-votes	overview	Work item votes overview	https://developers.plane.so/api-reference/v2/work-item-votes/overview.md
+v2	work-item-votes	list-work-item-votes	List work item votes	https://developers.plane.so/api-reference/v2/work-item-votes/list-work-item-votes.md
+v2	work-item-votes	cast-work-item-vote	Cast a vote on a work item	https://developers.plane.so/api-reference/v2/work-item-votes/cast-work-item-vote.md
+v2	work-item-votes	retract-work-item-vote	Retract your vote on a work item	https://developers.plane.so/api-reference/v2/work-item-votes/retract-work-item-vote.md
+v2	recurring-work-items	overview	Recurring work items overview	https://developers.plane.so/api-reference/v2/recurring-work-items/overview.md
+v2	recurring-work-items	list-recurring-work-items	List recurring work items	https://developers.plane.so/api-reference/v2/recurring-work-items/list-recurring-work-items.md
+v2	recurring-work-items	get-recurring-work-item	Get a recurring work item	https://developers.plane.so/api-reference/v2/recurring-work-items/get-recurring-work-item.md
+v2	recurring-work-items	create-recurring-work-item	Create a recurring work item	https://developers.plane.so/api-reference/v2/recurring-work-items/create-recurring-work-item.md
+v2	recurring-work-items	update-recurring-work-item	Update a recurring work item	https://developers.plane.so/api-reference/v2/recurring-work-items/update-recurring-work-item.md
+v2	recurring-work-items	delete-recurring-work-item	Delete a recurring work item	https://developers.plane.so/api-reference/v2/recurring-work-items/delete-recurring-work-item.md
+v2	_guides	work-item-type-modes	Work item type modes	https://developers.plane.so/api-reference/v2/work-item-type-modes.md
+v2	work-item-types	overview	Work item types overview	https://developers.plane.so/api-reference/v2/work-item-types/overview.md
+v2	work-item-types	list-work-item-types	List work item types	https://developers.plane.so/api-reference/v2/work-item-types/list-work-item-types.md
+v2	work-item-types	get-work-item-type	Get a work item type	https://developers.plane.so/api-reference/v2/work-item-types/get-work-item-type.md
+v2	work-item-types	get-work-item-type-schema	Get a work item type schema	https://developers.plane.so/api-reference/v2/work-item-types/get-work-item-type-schema.md
+v2	work-item-types	create-work-item-type	Create a work item type	https://developers.plane.so/api-reference/v2/work-item-types/create-work-item-type.md
+v2	work-item-types	update-work-item-type	Update a work item type	https://developers.plane.so/api-reference/v2/work-item-types/update-work-item-type.md
+v2	work-item-types	delete-work-item-type	Delete a work item type	https://developers.plane.so/api-reference/v2/work-item-types/delete-work-item-type.md
+v2	work-item-types	enable-work-item-types	Enable work item types	https://developers.plane.so/api-reference/v2/work-item-types/enable-work-item-types.md
+v2	work-item-types	import-work-item-types	Import work item types	https://developers.plane.so/api-reference/v2/work-item-types/import-work-item-types.md
+v2	work-item-types	mark-default-work-item-type	Mark a work item type as default	https://developers.plane.so/api-reference/v2/work-item-types/mark-default-work-item-type.md
+v2	work-item-properties	overview	Work item properties overview	https://developers.plane.so/api-reference/v2/work-item-properties/overview.md
+v2	work-item-properties	list-work-item-properties	List work item properties	https://developers.plane.so/api-reference/v2/work-item-properties/list-work-item-properties.md
+v2	work-item-properties	get-work-item-property	Get a work item property	https://developers.plane.so/api-reference/v2/work-item-properties/get-work-item-property.md
+v2	work-item-properties	create-work-item-property	Create a work item property	https://developers.plane.so/api-reference/v2/work-item-properties/create-work-item-property.md
+v2	work-item-properties	update-work-item-property	Update a work item property	https://developers.plane.so/api-reference/v2/work-item-properties/update-work-item-property.md
+v2	work-item-properties	delete-work-item-property	Delete a work item property	https://developers.plane.so/api-reference/v2/work-item-properties/delete-work-item-property.md
+v2	work-item-property-options	overview	Property options overview	https://developers.plane.so/api-reference/v2/work-item-property-options/overview.md
+v2	work-item-property-options	list-property-options	List property options	https://developers.plane.so/api-reference/v2/work-item-property-options/list-property-options.md
+v2	work-item-property-options	get-property-option	Get a property option	https://developers.plane.so/api-reference/v2/work-item-property-options/get-property-option.md
+v2	work-item-property-options	create-property-option	Create a property option	https://developers.plane.so/api-reference/v2/work-item-property-options/create-property-option.md
+v2	work-item-property-options	update-property-option	Update a property option	https://developers.plane.so/api-reference/v2/work-item-property-options/update-property-option.md
+v2	work-item-property-options	delete-property-option	Delete a property option	https://developers.plane.so/api-reference/v2/work-item-property-options/delete-property-option.md
+v2	work-item-type-properties	overview	Type properties overview	https://developers.plane.so/api-reference/v2/work-item-type-properties/overview.md
+v2	work-item-type-properties	list-type-properties	List type properties	https://developers.plane.so/api-reference/v2/work-item-type-properties/list-type-properties.md
+v2	work-item-type-properties	get-type-property	Get a type property	https://developers.plane.so/api-reference/v2/work-item-type-properties/get-type-property.md
+v2	work-item-type-properties	attach-type-property	Attach a property to a type	https://developers.plane.so/api-reference/v2/work-item-type-properties/attach-type-property.md
+v2	work-item-type-properties	detach-type-property	Detach a property from a type	https://developers.plane.so/api-reference/v2/work-item-type-properties/detach-type-property.md
+v2	workspace-work-item-types	overview	Workspace work item types overview	https://developers.plane.so/api-reference/v2/workspace-work-item-types/overview.md
+v2	workspace-work-item-types	list-workspace-work-item-types	List workspace work item types	https://developers.plane.so/api-reference/v2/workspace-work-item-types/list-workspace-work-item-types.md
+v2	workspace-work-item-types	get-workspace-work-item-type	Get a workspace work item type	https://developers.plane.so/api-reference/v2/workspace-work-item-types/get-workspace-work-item-type.md
+v2	workspace-work-item-types	create-workspace-work-item-type	Create a workspace work item type	https://developers.plane.so/api-reference/v2/workspace-work-item-types/create-workspace-work-item-type.md
+v2	workspace-work-item-types	update-workspace-work-item-type	Update a workspace work item type	https://developers.plane.so/api-reference/v2/workspace-work-item-types/update-workspace-work-item-type.md
+v2	workspace-work-item-types	delete-workspace-work-item-type	Delete a workspace work item type	https://developers.plane.so/api-reference/v2/workspace-work-item-types/delete-workspace-work-item-type.md
+v2	workspace-work-item-types	mark-default-workspace-work-item-type	Mark a workspace work item type as default	https://developers.plane.so/api-reference/v2/workspace-work-item-types/mark-default-workspace-work-item-type.md
+v2	workspace-work-item-properties	overview	Workspace work item properties overview	https://developers.plane.so/api-reference/v2/workspace-work-item-properties/overview.md
+v2	workspace-work-item-properties	list-workspace-work-item-properties	List workspace work item properties	https://developers.plane.so/api-reference/v2/workspace-work-item-properties/list-workspace-work-item-properties.md
+v2	workspace-work-item-properties	get-workspace-work-item-property	Get a workspace work item property	https://developers.plane.so/api-reference/v2/workspace-work-item-properties/get-workspace-work-item-property.md
+v2	workspace-work-item-properties	create-workspace-work-item-property	Create a workspace work item property	https://developers.plane.so/api-reference/v2/workspace-work-item-properties/create-workspace-work-item-property.md
+v2	workspace-work-item-properties	update-workspace-work-item-property	Update a workspace work item property	https://developers.plane.so/api-reference/v2/workspace-work-item-properties/update-workspace-work-item-property.md
+v2	workspace-work-item-properties	delete-workspace-work-item-property	Delete a workspace work item property	https://developers.plane.so/api-reference/v2/workspace-work-item-properties/delete-workspace-work-item-property.md
+v2	workspace-work-item-property-options	overview	Workspace property options overview	https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/overview.md
+v2	workspace-work-item-property-options	list-workspace-property-options	List workspace property options	https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/list-workspace-property-options.md
+v2	workspace-work-item-property-options	get-workspace-property-option	Get a workspace property option	https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/get-workspace-property-option.md
+v2	workspace-work-item-property-options	create-workspace-property-option	Create a workspace property option	https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/create-workspace-property-option.md
+v2	workspace-work-item-property-options	update-workspace-property-option	Update a workspace property option	https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/update-workspace-property-option.md
+v2	workspace-work-item-property-options	delete-workspace-property-option	Delete a workspace property option	https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/delete-workspace-property-option.md
+v2	workspace-work-item-type-properties	overview	Workspace type properties overview	https://developers.plane.so/api-reference/v2/workspace-work-item-type-properties/overview.md
+v2	workspace-work-item-type-properties	list-workspace-type-properties	List properties on a workspace type	https://developers.plane.so/api-reference/v2/workspace-work-item-type-properties/list-workspace-type-properties.md
+v2	workspace-work-item-type-properties	get-workspace-type-property	Get a property on a workspace type	https://developers.plane.so/api-reference/v2/workspace-work-item-type-properties/get-workspace-type-property.md
+v2	workspace-work-item-type-properties	attach-workspace-type-property	Attach properties to a workspace type	https://developers.plane.so/api-reference/v2/workspace-work-item-type-properties/attach-workspace-type-property.md
+v2	workspace-work-item-type-properties	detach-workspace-type-property	Detach a property from a workspace type	https://developers.plane.so/api-reference/v2/workspace-work-item-type-properties/detach-workspace-type-property.md
+v2	work-item-property-contexts	overview	Property contexts overview	https://developers.plane.so/api-reference/v2/work-item-property-contexts/overview.md
+v2	work-item-property-contexts	list-property-contexts	List property contexts	https://developers.plane.so/api-reference/v2/work-item-property-contexts/list-property-contexts.md
+v2	work-item-property-contexts	get-property-context	Get a property context	https://developers.plane.so/api-reference/v2/work-item-property-contexts/get-property-context.md
+v2	work-item-property-contexts	create-property-context	Create a property context	https://developers.plane.so/api-reference/v2/work-item-property-contexts/create-property-context.md
+v2	work-item-property-contexts	update-property-context	Update a property context	https://developers.plane.so/api-reference/v2/work-item-property-contexts/update-property-context.md
+v2	work-item-property-contexts	delete-property-context	Delete a property context	https://developers.plane.so/api-reference/v2/work-item-property-contexts/delete-property-context.md
+v2	projects	overview	Projects overview	https://developers.plane.so/api-reference/v2/projects/overview.md
+v2	projects	list-projects	List projects	https://developers.plane.so/api-reference/v2/projects/list-projects.md
+v2	projects	get-project	Get a project	https://developers.plane.so/api-reference/v2/projects/get-project.md
+v2	projects	get-project-summary	Get a project summary	https://developers.plane.so/api-reference/v2/projects/get-project-summary.md
+v2	projects	create-project	Create a project	https://developers.plane.so/api-reference/v2/projects/create-project.md
+v2	projects	update-project	Update a project	https://developers.plane.so/api-reference/v2/projects/update-project.md
+v2	projects	delete-project	Delete a project	https://developers.plane.so/api-reference/v2/projects/delete-project.md
+v2	projects	upsert-project	Upsert a project	https://developers.plane.so/api-reference/v2/projects/upsert-project.md
+v2	projects	bulk-create-projects	Bulk create projects	https://developers.plane.so/api-reference/v2/projects/bulk-create-projects.md
+v2	projects	bulk-update-projects	Bulk update projects	https://developers.plane.so/api-reference/v2/projects/bulk-update-projects.md
+v2	projects	archive-project	Archive a project	https://developers.plane.so/api-reference/v2/projects/archive-project.md
+v2	projects	unarchive-project	Unarchive a project	https://developers.plane.so/api-reference/v2/projects/unarchive-project.md
+v2	project-states	overview	Project states overview	https://developers.plane.so/api-reference/v2/project-states/overview.md
+v2	project-states	list-project-states	List project states	https://developers.plane.so/api-reference/v2/project-states/list-project-states.md
+v2	project-states	get-project-state	Get a project state	https://developers.plane.so/api-reference/v2/project-states/get-project-state.md
+v2	project-states	create-project-state	Create a project state	https://developers.plane.so/api-reference/v2/project-states/create-project-state.md
+v2	project-states	update-project-state	Update a project state	https://developers.plane.so/api-reference/v2/project-states/update-project-state.md
+v2	project-states	delete-project-state	Delete a project state	https://developers.plane.so/api-reference/v2/project-states/delete-project-state.md
+v2	project-states	mark-default-project-state	Mark a project state as default	https://developers.plane.so/api-reference/v2/project-states/mark-default-project-state.md
+v2	project-labels	overview	Project labels overview	https://developers.plane.so/api-reference/v2/project-labels/overview.md
+v2	project-labels	list-project-labels	List project labels	https://developers.plane.so/api-reference/v2/project-labels/list-project-labels.md
+v2	project-labels	get-project-label	Get a project label	https://developers.plane.so/api-reference/v2/project-labels/get-project-label.md
+v2	project-labels	create-project-label	Create a project label	https://developers.plane.so/api-reference/v2/project-labels/create-project-label.md
+v2	project-labels	update-project-label	Update a project label	https://developers.plane.so/api-reference/v2/project-labels/update-project-label.md
+v2	project-labels	delete-project-label	Delete a project label	https://developers.plane.so/api-reference/v2/project-labels/delete-project-label.md
+v2	project-features	overview	Project features overview	https://developers.plane.so/api-reference/v2/project-features/overview.md
+v2	project-features	get-project-features	Get project features	https://developers.plane.so/api-reference/v2/project-features/get-project-features.md
+v2	project-features	update-project-features	Update project features	https://developers.plane.so/api-reference/v2/project-features/update-project-features.md
+v2	project-views	overview	Project views overview	https://developers.plane.so/api-reference/v2/project-views/overview.md
+v2	project-views	list-project-views	List project views	https://developers.plane.so/api-reference/v2/project-views/list-project-views.md
+v2	project-views	get-project-view	Get a project view	https://developers.plane.so/api-reference/v2/project-views/get-project-view.md
+v2	project-views	create-project-view	Create a project view	https://developers.plane.so/api-reference/v2/project-views/create-project-view.md
+v2	project-views	update-project-view	Update a project view	https://developers.plane.so/api-reference/v2/project-views/update-project-view.md
+v2	project-views	delete-project-view	Delete a project view	https://developers.plane.so/api-reference/v2/project-views/delete-project-view.md
+v2	workspace-views	overview	Workspace views overview	https://developers.plane.so/api-reference/v2/workspace-views/overview.md
+v2	workspace-views	list-workspace-views	List workspace views	https://developers.plane.so/api-reference/v2/workspace-views/list-workspace-views.md
+v2	workspace-views	get-workspace-view	Get a workspace view	https://developers.plane.so/api-reference/v2/workspace-views/get-workspace-view.md
+v2	workspace-views	create-workspace-view	Create a workspace view	https://developers.plane.so/api-reference/v2/workspace-views/create-workspace-view.md
+v2	workspace-views	update-workspace-view	Update a workspace view	https://developers.plane.so/api-reference/v2/workspace-views/update-workspace-view.md
+v2	workspace-views	delete-workspace-view	Delete a workspace view	https://developers.plane.so/api-reference/v2/workspace-views/delete-workspace-view.md
+v2	initiatives	overview	Initiatives overview	https://developers.plane.so/api-reference/v2/initiatives/overview.md
+v2	initiatives	list-initiatives	List initiatives	https://developers.plane.so/api-reference/v2/initiatives/list-initiatives.md
+v2	initiatives	get-initiative	Get an initiative	https://developers.plane.so/api-reference/v2/initiatives/get-initiative.md
+v2	initiatives	create-initiative	Create an initiative	https://developers.plane.so/api-reference/v2/initiatives/create-initiative.md
+v2	initiatives	update-initiative	Update an initiative	https://developers.plane.so/api-reference/v2/initiatives/update-initiative.md
+v2	initiatives	delete-initiative	Delete an initiative	https://developers.plane.so/api-reference/v2/initiatives/delete-initiative.md
+v2	initiatives	list-initiative-labels	List an initiative's labels	https://developers.plane.so/api-reference/v2/initiatives/list-initiative-labels.md
+v2	initiatives	list-initiative-projects	List an initiative's projects	https://developers.plane.so/api-reference/v2/initiatives/list-initiative-projects.md
+v2	initiatives	list-initiative-work-items	List an initiative's work items	https://developers.plane.so/api-reference/v2/initiatives/list-initiative-work-items.md
+v2	initiatives	manage-initiative-labels	Add or remove initiative labels	https://developers.plane.so/api-reference/v2/initiatives/manage-initiative-labels.md
+v2	initiatives	manage-initiative-projects	Add or remove initiative projects	https://developers.plane.so/api-reference/v2/initiatives/manage-initiative-projects.md
+v2	initiatives	manage-initiative-work-items	Add or remove initiative work items	https://developers.plane.so/api-reference/v2/initiatives/manage-initiative-work-items.md
+v2	initiative-labels	overview	Initiative labels overview	https://developers.plane.so/api-reference/v2/initiative-labels/overview.md
+v2	initiative-labels	list-initiative-labels	List initiative labels	https://developers.plane.so/api-reference/v2/initiative-labels/list-initiative-labels.md
+v2	initiative-labels	get-initiative-label	Get an initiative label	https://developers.plane.so/api-reference/v2/initiative-labels/get-initiative-label.md
+v2	initiative-labels	create-initiative-label	Create an initiative label	https://developers.plane.so/api-reference/v2/initiative-labels/create-initiative-label.md
+v2	initiative-labels	update-initiative-label	Update an initiative label	https://developers.plane.so/api-reference/v2/initiative-labels/update-initiative-label.md
+v2	initiative-labels	delete-initiative-label	Delete an initiative label	https://developers.plane.so/api-reference/v2/initiative-labels/delete-initiative-label.md
+v2	teamspaces	overview	Teamspaces overview	https://developers.plane.so/api-reference/v2/teamspaces/overview.md
+v2	teamspaces	list-teamspaces	List teamspaces	https://developers.plane.so/api-reference/v2/teamspaces/list-teamspaces.md
+v2	teamspaces	get-teamspace	Get a teamspace	https://developers.plane.so/api-reference/v2/teamspaces/get-teamspace.md
+v2	teamspaces	create-teamspace	Create a teamspace	https://developers.plane.so/api-reference/v2/teamspaces/create-teamspace.md
+v2	teamspaces	update-teamspace	Update a teamspace	https://developers.plane.so/api-reference/v2/teamspaces/update-teamspace.md
+v2	teamspaces	delete-teamspace	Delete a teamspace	https://developers.plane.so/api-reference/v2/teamspaces/delete-teamspace.md
+v2	teamspaces	list-teamspace-members	List a teamspace's members	https://developers.plane.so/api-reference/v2/teamspaces/list-teamspace-members.md
+v2	teamspaces	list-teamspace-projects	List a teamspace's projects	https://developers.plane.so/api-reference/v2/teamspaces/list-teamspace-projects.md
+v2	project-work-item-templates	overview	Project work item templates overview	https://developers.plane.so/api-reference/v2/project-work-item-templates/overview.md
+v2	project-work-item-templates	list-project-work-item-templates	List project work item templates	https://developers.plane.so/api-reference/v2/project-work-item-templates/list-project-work-item-templates.md
+v2	project-work-item-templates	get-project-work-item-template	Get a project work item template	https://developers.plane.so/api-reference/v2/project-work-item-templates/get-project-work-item-template.md
+v2	project-work-item-templates	create-project-work-item-template	Create a project work item template	https://developers.plane.so/api-reference/v2/project-work-item-templates/create-project-work-item-template.md
+v2	project-work-item-templates	update-project-work-item-template	Update a project work item template	https://developers.plane.so/api-reference/v2/project-work-item-templates/update-project-work-item-template.md
+v2	project-work-item-templates	delete-project-work-item-template	Delete a project work item template	https://developers.plane.so/api-reference/v2/project-work-item-templates/delete-project-work-item-template.md
+v2	project-work-item-templates	use-work-item-template	Create a work item from a template	https://developers.plane.so/api-reference/v2/project-work-item-templates/use-work-item-template.md
+v2	workspace-work-item-templates	overview	Workspace work item templates overview	https://developers.plane.so/api-reference/v2/workspace-work-item-templates/overview.md
+v2	workspace-work-item-templates	list-workspace-work-item-templates	List workspace work item templates	https://developers.plane.so/api-reference/v2/workspace-work-item-templates/list-workspace-work-item-templates.md
+v2	workspace-work-item-templates	get-workspace-work-item-template	Get a workspace work item template	https://developers.plane.so/api-reference/v2/workspace-work-item-templates/get-workspace-work-item-template.md
+v2	workspace-work-item-templates	create-workspace-work-item-template	Create a workspace work item template	https://developers.plane.so/api-reference/v2/workspace-work-item-templates/create-workspace-work-item-template.md
+v2	workspace-work-item-templates	update-workspace-work-item-template	Update a workspace work item template	https://developers.plane.so/api-reference/v2/workspace-work-item-templates/update-workspace-work-item-template.md
+v2	workspace-work-item-templates	delete-workspace-work-item-template	Delete a workspace work item template	https://developers.plane.so/api-reference/v2/workspace-work-item-templates/delete-workspace-work-item-template.md
+v2	project-page-templates	overview	Project page templates overview	https://developers.plane.so/api-reference/v2/project-page-templates/overview.md
+v2	project-page-templates	list-project-page-templates	List project page templates	https://developers.plane.so/api-reference/v2/project-page-templates/list-project-page-templates.md
+v2	project-page-templates	get-project-page-template	Get a project page template	https://developers.plane.so/api-reference/v2/project-page-templates/get-project-page-template.md
+v2	project-page-templates	create-project-page-template	Create a project page template	https://developers.plane.so/api-reference/v2/project-page-templates/create-project-page-template.md
+v2	project-page-templates	update-project-page-template	Update a project page template	https://developers.plane.so/api-reference/v2/project-page-templates/update-project-page-template.md
+v2	project-page-templates	delete-project-page-template	Delete a project page template	https://developers.plane.so/api-reference/v2/project-page-templates/delete-project-page-template.md
+v2	workspace-page-templates	overview	Workspace page templates overview	https://developers.plane.so/api-reference/v2/workspace-page-templates/overview.md
+v2	workspace-page-templates	list-workspace-page-templates	List workspace page templates	https://developers.plane.so/api-reference/v2/workspace-page-templates/list-workspace-page-templates.md
+v2	workspace-page-templates	get-workspace-page-template	Get a workspace page template	https://developers.plane.so/api-reference/v2/workspace-page-templates/get-workspace-page-template.md
+v2	workspace-page-templates	create-workspace-page-template	Create a workspace page template	https://developers.plane.so/api-reference/v2/workspace-page-templates/create-workspace-page-template.md
+v2	workspace-page-templates	update-workspace-page-template	Update a workspace page template	https://developers.plane.so/api-reference/v2/workspace-page-templates/update-workspace-page-template.md
+v2	workspace-page-templates	delete-workspace-page-template	Delete a workspace page template	https://developers.plane.so/api-reference/v2/workspace-page-templates/delete-workspace-page-template.md
+v2	project-templates	overview	Project templates overview	https://developers.plane.so/api-reference/v2/project-templates/overview.md
+v2	project-templates	list-project-templates	List project templates	https://developers.plane.so/api-reference/v2/project-templates/list-project-templates.md
+v2	project-templates	get-project-template	Get a project template	https://developers.plane.so/api-reference/v2/project-templates/get-project-template.md
+v2	project-templates	create-project-template	Create a project template	https://developers.plane.so/api-reference/v2/project-templates/create-project-template.md
+v2	project-templates	update-project-template	Update a project template	https://developers.plane.so/api-reference/v2/project-templates/update-project-template.md
+v2	project-templates	delete-project-template	Delete a project template	https://developers.plane.so/api-reference/v2/project-templates/delete-project-template.md
+v2	project-templates	copy-project-template	Copy a project template	https://developers.plane.so/api-reference/v2/project-templates/copy-project-template.md
+v2	project-templates	use-project-template	Create a project from a template	https://developers.plane.so/api-reference/v2/project-templates/use-project-template.md
+v2	template-categories	overview	Template categories overview	https://developers.plane.so/api-reference/v2/template-categories/overview.md
+v2	template-categories	list-template-categories	List template categories	https://developers.plane.so/api-reference/v2/template-categories/list-template-categories.md
+v2	template-categories	get-template-category	Get a template category	https://developers.plane.so/api-reference/v2/template-categories/get-template-category.md
+v2	collections	overview	Collections overview	https://developers.plane.so/api-reference/v2/collections/overview.md
+v2	collections	list-collection-members	List collection members	https://developers.plane.so/api-reference/v2/collections/list-collection-members.md
+v2	collections	list-collections	List collections	https://developers.plane.so/api-reference/v2/collections/list-collections.md
+v2	collections	get-collection	Get a collection	https://developers.plane.so/api-reference/v2/collections/get-collection.md
+v2	collections	create-collection	Create a collection	https://developers.plane.so/api-reference/v2/collections/create-collection.md
+v2	collections	update-collection	Update a collection	https://developers.plane.so/api-reference/v2/collections/update-collection.md
+v2	collections	delete-collection	Delete a collection	https://developers.plane.so/api-reference/v2/collections/delete-collection.md
+v2	collections	manage-collection-members	Add or remove collection members	https://developers.plane.so/api-reference/v2/collections/manage-collection-members.md
+v2	collections	manage-collection-pages	Add or remove pages in a collection	https://developers.plane.so/api-reference/v2/collections/manage-collection-pages.md
+v2	collections	list-collection-pages	List collection pages	https://developers.plane.so/api-reference/v2/collections/list-collection-pages.md
+v2	collections	move-collection-page	Move or reorder a collection page	https://developers.plane.so/api-reference/v2/collections/move-collection-page.md
+v2	collections	search-collection-pages	Search pages for a collection	https://developers.plane.so/api-reference/v2/collections/search-collection-pages.md
+v2	project-pages	overview	Project pages overview	https://developers.plane.so/api-reference/v2/project-pages/overview.md
+v2	project-pages	list-project-pages	List project pages	https://developers.plane.so/api-reference/v2/project-pages/list-project-pages.md
+v2	project-pages	get-project-page	Get a project page	https://developers.plane.so/api-reference/v2/project-pages/get-project-page.md
+v2	project-pages	create-project-page	Create a project page	https://developers.plane.so/api-reference/v2/project-pages/create-project-page.md
+v2	project-pages	update-project-page	Update a project page	https://developers.plane.so/api-reference/v2/project-pages/update-project-page.md
+v2	project-pages	delete-project-page	Delete a project page	https://developers.plane.so/api-reference/v2/project-pages/delete-project-page.md
+v2	project-pages	archive-project-page	Archive a project page	https://developers.plane.so/api-reference/v2/project-pages/archive-project-page.md
+v2	project-pages	unarchive-project-page	Unarchive a project page	https://developers.plane.so/api-reference/v2/project-pages/unarchive-project-page.md
+v2	workspace-pages	overview	Workspace pages overview	https://developers.plane.so/api-reference/v2/workspace-pages/overview.md
+v2	workspace-pages	list-workspace-pages	List workspace pages	https://developers.plane.so/api-reference/v2/workspace-pages/list-workspace-pages.md
+v2	workspace-pages	get-workspace-page	Get a workspace page	https://developers.plane.so/api-reference/v2/workspace-pages/get-workspace-page.md
+v2	workspace-pages	create-workspace-page	Create a workspace page	https://developers.plane.so/api-reference/v2/workspace-pages/create-workspace-page.md
+v2	workspace-pages	update-workspace-page	Update a workspace page	https://developers.plane.so/api-reference/v2/workspace-pages/update-workspace-page.md
+v2	workspace-pages	delete-workspace-page	Delete a workspace page	https://developers.plane.so/api-reference/v2/workspace-pages/delete-workspace-page.md
+v2	workspace-pages	archive-workspace-page	Archive a workspace page	https://developers.plane.so/api-reference/v2/workspace-pages/archive-workspace-page.md
+v2	workspace-pages	unarchive-workspace-page	Unarchive a workspace page	https://developers.plane.so/api-reference/v2/workspace-pages/unarchive-workspace-page.md
+v2	workspace-page-attachments	overview	Workspace page attachments overview	https://developers.plane.so/api-reference/v2/workspace-page-attachments/overview.md
+v2	workspace-page-attachments	list-workspace-page-attachments	List workspace page attachments	https://developers.plane.so/api-reference/v2/workspace-page-attachments/list-workspace-page-attachments.md
+v2	workspace-page-attachments	get-workspace-page-attachment	Get a workspace page attachment	https://developers.plane.so/api-reference/v2/workspace-page-attachments/get-workspace-page-attachment.md
+v2	workspace-page-attachments	create-workspace-page-attachment	Create a workspace page attachment upload	https://developers.plane.so/api-reference/v2/workspace-page-attachments/create-workspace-page-attachment.md
+v2	workspace-page-attachments	update-workspace-page-attachment	Confirm a workspace page attachment upload	https://developers.plane.so/api-reference/v2/workspace-page-attachments/update-workspace-page-attachment.md
+v2	workspace-page-attachments	delete-workspace-page-attachment	Delete a workspace page attachment	https://developers.plane.so/api-reference/v2/workspace-page-attachments/delete-workspace-page-attachment.md
+v2	workspace-page-attachments	download-workspace-page-attachment	Download a workspace page attachment	https://developers.plane.so/api-reference/v2/workspace-page-attachments/download-workspace-page-attachment.md
+v2	published-pages	overview	Published pages overview	https://developers.plane.so/api-reference/v2/published-pages/overview.md
+v2	published-pages	get-published-page	Get a published page	https://developers.plane.so/api-reference/v2/published-pages/get-published-page.md
+v2	stickies	overview	Stickies overview	https://developers.plane.so/api-reference/v2/stickies/overview.md
+v2	stickies	list-stickies	List stickies	https://developers.plane.so/api-reference/v2/stickies/list-stickies.md
+v2	stickies	get-sticky	Get a sticky	https://developers.plane.so/api-reference/v2/stickies/get-sticky.md
+v2	stickies	create-sticky	Create a sticky	https://developers.plane.so/api-reference/v2/stickies/create-sticky.md
+v2	stickies	update-sticky	Update a sticky	https://developers.plane.so/api-reference/v2/stickies/update-sticky.md
+v2	stickies	delete-sticky	Delete a sticky	https://developers.plane.so/api-reference/v2/stickies/delete-sticky.md
+v2	customers	overview	Customers overview	https://developers.plane.so/api-reference/v2/customers/overview.md
+v2	customers	list-customers	List customers	https://developers.plane.so/api-reference/v2/customers/list-customers.md
+v2	customers	get-customer	Get a customer	https://developers.plane.so/api-reference/v2/customers/get-customer.md
+v2	customers	create-customer	Create a customer	https://developers.plane.so/api-reference/v2/customers/create-customer.md
+v2	customers	update-customer	Update a customer	https://developers.plane.so/api-reference/v2/customers/update-customer.md
+v2	customers	delete-customer	Delete a customer	https://developers.plane.so/api-reference/v2/customers/delete-customer.md
+v2	customers	upsert-customer	Upsert a customer	https://developers.plane.so/api-reference/v2/customers/upsert-customer.md
+v2	customers	list-customer-work-items	List a customer's work items	https://developers.plane.so/api-reference/v2/customers/list-customer-work-items.md
+v2	customers	manage-customer-work-items	Link or unlink customer work items	https://developers.plane.so/api-reference/v2/customers/manage-customer-work-items.md
+v2	customer-requests	overview	Customer requests overview	https://developers.plane.so/api-reference/v2/customer-requests/overview.md
+v2	customer-requests	list-customer-requests	List customer requests	https://developers.plane.so/api-reference/v2/customer-requests/list-customer-requests.md
+v2	customer-requests	get-customer-request	Get a customer request	https://developers.plane.so/api-reference/v2/customer-requests/get-customer-request.md
+v2	customer-requests	create-customer-request	Create a customer request	https://developers.plane.so/api-reference/v2/customer-requests/create-customer-request.md
+v2	customer-requests	update-customer-request	Update a customer request	https://developers.plane.so/api-reference/v2/customer-requests/update-customer-request.md
+v2	customer-requests	delete-customer-request	Delete a customer request	https://developers.plane.so/api-reference/v2/customer-requests/delete-customer-request.md
+v2	customer-properties	overview	Customer properties overview	https://developers.plane.so/api-reference/v2/customer-properties/overview.md
+v2	customer-properties	list-customer-properties	List customer properties	https://developers.plane.so/api-reference/v2/customer-properties/list-customer-properties.md
+v2	customer-properties	get-customer-property	Get a customer property	https://developers.plane.so/api-reference/v2/customer-properties/get-customer-property.md
+v2	customer-properties	create-customer-property	Create a customer property	https://developers.plane.so/api-reference/v2/customer-properties/create-customer-property.md
+v2	customer-properties	update-customer-property	Update a customer property	https://developers.plane.so/api-reference/v2/customer-properties/update-customer-property.md
+v2	customer-properties	delete-customer-property	Delete a customer property	https://developers.plane.so/api-reference/v2/customer-properties/delete-customer-property.md
+v2	customer-property-values	overview	Customer property values overview	https://developers.plane.so/api-reference/v2/customer-property-values/overview.md
+v2	customer-property-values	list-customer-property-values	List customer property values	https://developers.plane.so/api-reference/v2/customer-property-values/list-customer-property-values.md
+v2	customer-property-values	set-customer-property-values	Set customer property values	https://developers.plane.so/api-reference/v2/customer-property-values/set-customer-property-values.md
+v2	releases	overview	Releases overview	https://developers.plane.so/api-reference/v2/releases/overview.md
+v2	releases	list-releases	List releases	https://developers.plane.so/api-reference/v2/releases/list-releases.md
+v2	releases	get-release	Get a release	https://developers.plane.so/api-reference/v2/releases/get-release.md
+v2	releases	get-release-changelog	Get a release changelog	https://developers.plane.so/api-reference/v2/releases/get-release-changelog.md
+v2	releases	create-release	Create a release	https://developers.plane.so/api-reference/v2/releases/create-release.md
+v2	releases	update-release	Update a release	https://developers.plane.so/api-reference/v2/releases/update-release.md
+v2	releases	update-release-changelog	Update a release changelog	https://developers.plane.so/api-reference/v2/releases/update-release-changelog.md
+v2	releases	delete-release	Delete a release	https://developers.plane.so/api-reference/v2/releases/delete-release.md
+v2	releases	list-release-labels	List a release's labels	https://developers.plane.so/api-reference/v2/releases/list-release-labels.md
+v2	releases	manage-release-labels	Add or remove release labels	https://developers.plane.so/api-reference/v2/releases/manage-release-labels.md
+v2	releases	list-release-work-items	List a release's work items	https://developers.plane.so/api-reference/v2/releases/list-release-work-items.md
+v2	releases	manage-release-work-items	Add or remove release work items	https://developers.plane.so/api-reference/v2/releases/manage-release-work-items.md
+v2	release-tags	overview	Release tags overview	https://developers.plane.so/api-reference/v2/release-tags/overview.md
+v2	release-tags	list-release-tags	List release tags	https://developers.plane.so/api-reference/v2/release-tags/list-release-tags.md
+v2	release-tags	get-release-tag	Get a release tag	https://developers.plane.so/api-reference/v2/release-tags/get-release-tag.md
+v2	release-tags	create-release-tag	Create a release tag	https://developers.plane.so/api-reference/v2/release-tags/create-release-tag.md
+v2	release-tags	update-release-tag	Update a release tag	https://developers.plane.so/api-reference/v2/release-tags/update-release-tag.md
+v2	release-tags	delete-release-tag	Delete a release tag	https://developers.plane.so/api-reference/v2/release-tags/delete-release-tag.md
+v2	release-labels	overview	Release labels overview	https://developers.plane.so/api-reference/v2/release-labels/overview.md
+v2	release-labels	list-release-labels	List release labels	https://developers.plane.so/api-reference/v2/release-labels/list-release-labels.md
+v2	release-labels	get-release-label	Get a release label	https://developers.plane.so/api-reference/v2/release-labels/get-release-label.md
+v2	release-labels	create-release-label	Create a release label	https://developers.plane.so/api-reference/v2/release-labels/create-release-label.md
+v2	release-labels	update-release-label	Update a release label	https://developers.plane.so/api-reference/v2/release-labels/update-release-label.md
+v2	release-labels	delete-release-label	Delete a release label	https://developers.plane.so/api-reference/v2/release-labels/delete-release-label.md
+v2	release-comments	overview	Release comments overview	https://developers.plane.so/api-reference/v2/release-comments/overview.md
+v2	release-comments	list-release-comments	List release comments	https://developers.plane.so/api-reference/v2/release-comments/list-release-comments.md
+v2	release-comments	get-release-comment	Get a release comment	https://developers.plane.so/api-reference/v2/release-comments/get-release-comment.md
+v2	release-comments	create-release-comment	Create a release comment	https://developers.plane.so/api-reference/v2/release-comments/create-release-comment.md
+v2	release-comments	update-release-comment	Update a release comment	https://developers.plane.so/api-reference/v2/release-comments/update-release-comment.md
+v2	release-comments	delete-release-comment	Delete a release comment	https://developers.plane.so/api-reference/v2/release-comments/delete-release-comment.md
+v2	release-links	overview	Release links overview	https://developers.plane.so/api-reference/v2/release-links/overview.md
+v2	release-links	list-release-links	List release links	https://developers.plane.so/api-reference/v2/release-links/list-release-links.md
+v2	release-links	get-release-link	Get a release link	https://developers.plane.so/api-reference/v2/release-links/get-release-link.md
+v2	release-links	create-release-link	Create a release link	https://developers.plane.so/api-reference/v2/release-links/create-release-link.md
+v2	release-links	update-release-link	Update a release link	https://developers.plane.so/api-reference/v2/release-links/update-release-link.md
+v2	release-links	delete-release-link	Delete a release link	https://developers.plane.so/api-reference/v2/release-links/delete-release-link.md
+v2	project-releases	overview	Project releases overview	https://developers.plane.so/api-reference/v2/project-releases/overview.md
+v2	project-releases	list-project-releases	List project releases	https://developers.plane.so/api-reference/v2/project-releases/list-project-releases.md
+v2	project-releases	get-project-release	Get a project release	https://developers.plane.so/api-reference/v2/project-releases/get-project-release.md
+v2	project-releases	create-project-release	Create a project release	https://developers.plane.so/api-reference/v2/project-releases/create-project-release.md
+v2	project-releases	update-project-release	Update a project release	https://developers.plane.so/api-reference/v2/project-releases/update-project-release.md
+v2	project-releases	delete-project-release	Delete a project release	https://developers.plane.so/api-reference/v2/project-releases/delete-project-release.md
+v2	project-releases	get-project-release-changelog	Get a project release changelog	https://developers.plane.so/api-reference/v2/project-releases/get-project-release-changelog.md
+v2	project-releases	update-project-release-changelog	Update a project release changelog	https://developers.plane.so/api-reference/v2/project-releases/update-project-release-changelog.md
+v2	project-releases	list-project-release-labels	List a project release's labels	https://developers.plane.so/api-reference/v2/project-releases/list-project-release-labels.md
+v2	project-releases	manage-project-release-labels	Add or remove project release labels	https://developers.plane.so/api-reference/v2/project-releases/manage-project-release-labels.md
+v2	project-releases	list-project-release-work-items	List a project release's work items	https://developers.plane.so/api-reference/v2/project-releases/list-project-release-work-items.md
+v2	project-releases	manage-project-release-work-items	Add or remove project release work items	https://developers.plane.so/api-reference/v2/project-releases/manage-project-release-work-items.md
+v2	project-release-comments	overview	Project release comments overview	https://developers.plane.so/api-reference/v2/project-release-comments/overview.md
+v2	project-release-comments	list-project-release-comments	List project release comments	https://developers.plane.so/api-reference/v2/project-release-comments/list-project-release-comments.md
+v2	project-release-comments	get-project-release-comment	Get a project release comment	https://developers.plane.so/api-reference/v2/project-release-comments/get-project-release-comment.md
+v2	project-release-comments	create-project-release-comment	Create a project release comment	https://developers.plane.so/api-reference/v2/project-release-comments/create-project-release-comment.md
+v2	project-release-comments	update-project-release-comment	Update a project release comment	https://developers.plane.so/api-reference/v2/project-release-comments/update-project-release-comment.md
+v2	project-release-comments	delete-project-release-comment	Delete a project release comment	https://developers.plane.so/api-reference/v2/project-release-comments/delete-project-release-comment.md
+v2	project-release-links	overview	Project release links overview	https://developers.plane.so/api-reference/v2/project-release-links/overview.md
+v2	project-release-links	list-project-release-links	List project release links	https://developers.plane.so/api-reference/v2/project-release-links/list-project-release-links.md
+v2	project-release-links	get-project-release-link	Get a project release link	https://developers.plane.so/api-reference/v2/project-release-links/get-project-release-link.md
+v2	project-release-links	create-project-release-link	Create a project release link	https://developers.plane.so/api-reference/v2/project-release-links/create-project-release-link.md
+v2	project-release-links	update-project-release-link	Update a project release link	https://developers.plane.so/api-reference/v2/project-release-links/update-project-release-link.md
+v2	project-release-links	delete-project-release-link	Delete a project release link	https://developers.plane.so/api-reference/v2/project-release-links/delete-project-release-link.md
+v2	project-automations	overview	Project automations overview	https://developers.plane.so/api-reference/v2/project-automations/overview.md
+v2	project-automations	list-automation-activities	List automation activities	https://developers.plane.so/api-reference/v2/project-automations/list-automation-activities.md
+v2	project-automations	list-automation-edges	List automation edges	https://developers.plane.so/api-reference/v2/project-automations/list-automation-edges.md
+v2	project-automations	list-automation-nodes	List automation nodes	https://developers.plane.so/api-reference/v2/project-automations/list-automation-nodes.md
+v2	project-automations	list-project-automations	List project automations	https://developers.plane.so/api-reference/v2/project-automations/list-project-automations.md
+v2	project-automations	get-automation-activity	Get an automation activity	https://developers.plane.so/api-reference/v2/project-automations/get-automation-activity.md
+v2	project-automations	get-automation-edge	Get an automation edge	https://developers.plane.so/api-reference/v2/project-automations/get-automation-edge.md
+v2	project-automations	get-automation-node	Get an automation node	https://developers.plane.so/api-reference/v2/project-automations/get-automation-node.md
+v2	project-automations	get-project-automation	Get a project automation	https://developers.plane.so/api-reference/v2/project-automations/get-project-automation.md
+v2	project-automations	create-automation-edge	Create an automation edge	https://developers.plane.so/api-reference/v2/project-automations/create-automation-edge.md
+v2	project-automations	create-automation-node	Create an automation node	https://developers.plane.so/api-reference/v2/project-automations/create-automation-node.md
+v2	project-automations	create-project-automation	Create a project automation	https://developers.plane.so/api-reference/v2/project-automations/create-project-automation.md
+v2	project-automations	update-automation-edge	Update an automation edge	https://developers.plane.so/api-reference/v2/project-automations/update-automation-edge.md
+v2	project-automations	update-automation-node	Update an automation node	https://developers.plane.so/api-reference/v2/project-automations/update-automation-node.md
+v2	project-automations	update-project-automation	Update a project automation	https://developers.plane.so/api-reference/v2/project-automations/update-project-automation.md
+v2	project-automations	delete-automation-edge	Delete an automation edge	https://developers.plane.so/api-reference/v2/project-automations/delete-automation-edge.md
+v2	project-automations	delete-automation-node	Delete an automation node	https://developers.plane.so/api-reference/v2/project-automations/delete-automation-node.md
+v2	project-automations	delete-project-automation	Delete a project automation	https://developers.plane.so/api-reference/v2/project-automations/delete-project-automation.md
+v2	project-automations	regenerate-node-webhook-secret	Regenerate an automation node webhook secret	https://developers.plane.so/api-reference/v2/project-automations/regenerate-node-webhook-secret.md
+v2	project-automations	set-project-automation-status	Enable or disable a project automation	https://developers.plane.so/api-reference/v2/project-automations/set-project-automation-status.md
+v2	workspace-automations	overview	Workspace automations overview	https://developers.plane.so/api-reference/v2/workspace-automations/overview.md
+v2	workspace-automations	list-automation-activities	List automation activities	https://developers.plane.so/api-reference/v2/workspace-automations/list-automation-activities.md
+v2	workspace-automations	list-automation-edges	List automation edges	https://developers.plane.so/api-reference/v2/workspace-automations/list-automation-edges.md
+v2	workspace-automations	list-automation-nodes	List automation nodes	https://developers.plane.so/api-reference/v2/workspace-automations/list-automation-nodes.md
+v2	workspace-automations	list-workspace-automations	List workspace automations	https://developers.plane.so/api-reference/v2/workspace-automations/list-workspace-automations.md
+v2	workspace-automations	get-automation-activity	Get an automation activity	https://developers.plane.so/api-reference/v2/workspace-automations/get-automation-activity.md
+v2	workspace-automations	get-automation-edge	Get an automation edge	https://developers.plane.so/api-reference/v2/workspace-automations/get-automation-edge.md
+v2	workspace-automations	get-automation-node	Get an automation node	https://developers.plane.so/api-reference/v2/workspace-automations/get-automation-node.md
+v2	workspace-automations	get-workspace-automation	Get a workspace automation	https://developers.plane.so/api-reference/v2/workspace-automations/get-workspace-automation.md
+v2	workspace-automations	create-automation-edge	Create an automation edge	https://developers.plane.so/api-reference/v2/workspace-automations/create-automation-edge.md
+v2	workspace-automations	create-automation-node	Create an automation node	https://developers.plane.so/api-reference/v2/workspace-automations/create-automation-node.md
+v2	workspace-automations	create-workspace-automation	Create a workspace automation	https://developers.plane.so/api-reference/v2/workspace-automations/create-workspace-automation.md
+v2	workspace-automations	update-automation-edge	Update an automation edge	https://developers.plane.so/api-reference/v2/workspace-automations/update-automation-edge.md
+v2	workspace-automations	update-automation-node	Update an automation node	https://developers.plane.so/api-reference/v2/workspace-automations/update-automation-node.md
+v2	workspace-automations	update-workspace-automation	Update a workspace automation	https://developers.plane.so/api-reference/v2/workspace-automations/update-workspace-automation.md
+v2	workspace-automations	delete-automation-edge	Delete an automation edge	https://developers.plane.so/api-reference/v2/workspace-automations/delete-automation-edge.md
+v2	workspace-automations	delete-automation-node	Delete an automation node	https://developers.plane.so/api-reference/v2/workspace-automations/delete-automation-node.md
+v2	workspace-automations	delete-workspace-automation	Delete a workspace automation	https://developers.plane.so/api-reference/v2/workspace-automations/delete-workspace-automation.md
+v2	workspace-automations	regenerate-node-webhook-secret	Regenerate an automation node webhook secret	https://developers.plane.so/api-reference/v2/workspace-automations/regenerate-node-webhook-secret.md
+v2	workspace-automations	set-workspace-automation-status	Enable or disable a workspace automation	https://developers.plane.so/api-reference/v2/workspace-automations/set-workspace-automation-status.md
+v2	workflows	overview	Workflows overview	https://developers.plane.so/api-reference/v2/workflows/overview.md
+v2	workflows	list-workflows	List workflows	https://developers.plane.so/api-reference/v2/workflows/list-workflows.md
+v2	workflows	get-workflow	Get a workflow	https://developers.plane.so/api-reference/v2/workflows/get-workflow.md
+v2	workflows	create-workflow	Create a workflow	https://developers.plane.so/api-reference/v2/workflows/create-workflow.md
+v2	workflows	update-workflow	Update a workflow	https://developers.plane.so/api-reference/v2/workflows/update-workflow.md
+v2	workflows	delete-workflow	Delete a workflow	https://developers.plane.so/api-reference/v2/workflows/delete-workflow.md
+v2	workflows	preview-workflow-fallback	Preview a workflow fallback	https://developers.plane.so/api-reference/v2/workflows/preview-workflow-fallback.md
+v2	workflow-states	overview	Workflow states overview	https://developers.plane.so/api-reference/v2/workflow-states/overview.md
+v2	workflow-states	list-workflow-states	List workflow states	https://developers.plane.so/api-reference/v2/workflow-states/list-workflow-states.md
+v2	workflow-states	get-workflow-state	Get a workflow state	https://developers.plane.so/api-reference/v2/workflow-states/get-workflow-state.md
+v2	workflow-states	create-workflow-state	Create a workflow state	https://developers.plane.so/api-reference/v2/workflow-states/create-workflow-state.md
+v2	workflow-states	update-workflow-state	Update a workflow state	https://developers.plane.so/api-reference/v2/workflow-states/update-workflow-state.md
+v2	workflow-states	delete-workflow-state	Delete a workflow state	https://developers.plane.so/api-reference/v2/workflow-states/delete-workflow-state.md
+v2	workflow-transitions	overview	Workflow transitions overview	https://developers.plane.so/api-reference/v2/workflow-transitions/overview.md
+v2	workflow-transitions	list-workflow-transitions	List workflow transitions	https://developers.plane.so/api-reference/v2/workflow-transitions/list-workflow-transitions.md
+v2	workflow-transitions	get-workflow-transition	Get a workflow transition	https://developers.plane.so/api-reference/v2/workflow-transitions/get-workflow-transition.md
+v2	workflow-transitions	create-workflow-transition	Create a workflow transition	https://developers.plane.so/api-reference/v2/workflow-transitions/create-workflow-transition.md
+v2	workflow-transitions	update-workflow-transition	Update a workflow transition	https://developers.plane.so/api-reference/v2/workflow-transitions/update-workflow-transition.md
+v2	workflow-transitions	delete-workflow-transition	Delete a workflow transition	https://developers.plane.so/api-reference/v2/workflow-transitions/delete-workflow-transition.md
+v2	workflow-activities	overview	Workflow activities overview	https://developers.plane.so/api-reference/v2/workflow-activities/overview.md
+v2	workflow-activities	list-workflow-activities	List workflow activities	https://developers.plane.so/api-reference/v2/workflow-activities/list-workflow-activities.md
+v2	workflow-activities	get-workflow-activity	Get a workflow activity	https://developers.plane.so/api-reference/v2/workflow-activities/get-workflow-activity.md
+v2	workflow-hooks	overview	Workflow hooks overview	https://developers.plane.so/api-reference/v2/workflow-hooks/overview.md
+v2	workflow-hooks	list-workflow-hooks	List workflow hooks	https://developers.plane.so/api-reference/v2/workflow-hooks/list-workflow-hooks.md
+v2	workflow-hooks	get-workflow-hook	Get a workflow hook	https://developers.plane.so/api-reference/v2/workflow-hooks/get-workflow-hook.md
+v2	workflow-hooks	create-workflow-hook	Create a workflow hook	https://developers.plane.so/api-reference/v2/workflow-hooks/create-workflow-hook.md
+v2	workflow-hooks	update-workflow-hook	Update a workflow hook	https://developers.plane.so/api-reference/v2/workflow-hooks/update-workflow-hook.md
+v2	workflow-hooks	delete-workflow-hook	Delete a workflow hook	https://developers.plane.so/api-reference/v2/workflow-hooks/delete-workflow-hook.md
+v2	workflow-hooks	list-workflow-hook-executions	List workflow hook executions	https://developers.plane.so/api-reference/v2/workflow-hooks/list-workflow-hook-executions.md
+v2	workflow-hooks	regenerate-workflow-hook-secret	Regenerate a workflow hook secret	https://developers.plane.so/api-reference/v2/workflow-hooks/regenerate-workflow-hook-secret.md
+v2	workspace-workflows	overview	Workspace workflows overview	https://developers.plane.so/api-reference/v2/workspace-workflows/overview.md
+v2	workspace-workflows	list-workspace-workflows	List workspace workflows	https://developers.plane.so/api-reference/v2/workspace-workflows/list-workspace-workflows.md
+v2	workspace-workflows	get-workspace-workflow	Get a workspace workflow	https://developers.plane.so/api-reference/v2/workspace-workflows/get-workspace-workflow.md
+v2	workspace-workflows	create-workspace-workflow	Create a workspace workflow	https://developers.plane.so/api-reference/v2/workspace-workflows/create-workspace-workflow.md
+v2	workspace-workflows	update-workspace-workflow	Update a workspace workflow	https://developers.plane.so/api-reference/v2/workspace-workflows/update-workspace-workflow.md
+v2	workspace-workflows	delete-workspace-workflow	Delete a workspace workflow	https://developers.plane.so/api-reference/v2/workspace-workflows/delete-workspace-workflow.md
+v2	workspace-workflows	get-workspace-workflow-usage	Get workspace workflow usage	https://developers.plane.so/api-reference/v2/workspace-workflows/get-workspace-workflow-usage.md
+v2	workspace-workflow-states	overview	Workspace workflow states overview	https://developers.plane.so/api-reference/v2/workspace-workflow-states/overview.md
+v2	workspace-workflow-states	list-workspace-workflow-states	List workspace workflow states	https://developers.plane.so/api-reference/v2/workspace-workflow-states/list-workspace-workflow-states.md
+v2	workspace-workflow-states	get-workspace-workflow-state	Get a workspace workflow state	https://developers.plane.so/api-reference/v2/workspace-workflow-states/get-workspace-workflow-state.md
+v2	workspace-workflow-states	add-workspace-workflow-states	Add states to a workspace workflow	https://developers.plane.so/api-reference/v2/workspace-workflow-states/add-workspace-workflow-states.md
+v2	workspace-workflow-states	update-workspace-workflow-state	Update a workspace workflow state	https://developers.plane.so/api-reference/v2/workspace-workflow-states/update-workspace-workflow-state.md
+v2	workspace-workflow-states	remove-workspace-workflow-state	Remove a state from a workspace workflow	https://developers.plane.so/api-reference/v2/workspace-workflow-states/remove-workspace-workflow-state.md
+v2	workspace-workflow-states	mark-default-workspace-workflow-state	Mark a workspace workflow state as default	https://developers.plane.so/api-reference/v2/workspace-workflow-states/mark-default-workspace-workflow-state.md
+v2	workspace-workflow-transitions	overview	Workspace workflow transitions overview	https://developers.plane.so/api-reference/v2/workspace-workflow-transitions/overview.md
+v2	workspace-workflow-transitions	list-workspace-workflow-transitions	List workspace workflow transitions	https://developers.plane.so/api-reference/v2/workspace-workflow-transitions/list-workspace-workflow-transitions.md
+v2	workspace-workflow-transitions	get-workspace-workflow-transition	Get a workspace workflow transition	https://developers.plane.so/api-reference/v2/workspace-workflow-transitions/get-workspace-workflow-transition.md
+v2	workspace-workflow-transitions	create-workspace-workflow-transition	Create a workspace workflow transition	https://developers.plane.so/api-reference/v2/workspace-workflow-transitions/create-workspace-workflow-transition.md
+v2	workspace-workflow-transitions	update-workspace-workflow-transition	Update a workspace workflow transition	https://developers.plane.so/api-reference/v2/workspace-workflow-transitions/update-workspace-workflow-transition.md
+v2	workspace-workflow-transitions	delete-workspace-workflow-transition	Delete a workspace workflow transition	https://developers.plane.so/api-reference/v2/workspace-workflow-transitions/delete-workspace-workflow-transition.md
+v2	workspace-workflow-activities	overview	Workspace workflow activities overview	https://developers.plane.so/api-reference/v2/workspace-workflow-activities/overview.md
+v2	workspace-workflow-activities	list-workspace-workflow-activities	List workspace workflow activities	https://developers.plane.so/api-reference/v2/workspace-workflow-activities/list-workspace-workflow-activities.md
+v2	workspace-workflow-activities	get-workspace-workflow-activity	Get a workspace workflow activity	https://developers.plane.so/api-reference/v2/workspace-workflow-activities/get-workspace-workflow-activity.md
+v2	workspace-workflow-hooks	overview	Workspace workflow hooks overview	https://developers.plane.so/api-reference/v2/workspace-workflow-hooks/overview.md
+v2	workspace-workflow-hooks	list-workspace-workflow-hooks	List workspace workflow hooks	https://developers.plane.so/api-reference/v2/workspace-workflow-hooks/list-workspace-workflow-hooks.md
+v2	workspace-workflow-hooks	get-workspace-workflow-hook	Get a workspace workflow hook	https://developers.plane.so/api-reference/v2/workspace-workflow-hooks/get-workspace-workflow-hook.md
+v2	workspace-workflow-hooks	create-workspace-workflow-hook	Create a workspace workflow hook	https://developers.plane.so/api-reference/v2/workspace-workflow-hooks/create-workspace-workflow-hook.md
+v2	workspace-workflow-hooks	update-workspace-workflow-hook	Update a workspace workflow hook	https://developers.plane.so/api-reference/v2/workspace-workflow-hooks/update-workspace-workflow-hook.md
+v2	workspace-workflow-hooks	delete-workspace-workflow-hook	Delete a workspace workflow hook	https://developers.plane.so/api-reference/v2/workspace-workflow-hooks/delete-workspace-workflow-hook.md
+v2	workspace-workflow-hooks	list-workspace-workflow-hook-executions	List workspace workflow hook executions	https://developers.plane.so/api-reference/v2/workspace-workflow-hooks/list-workspace-workflow-hook-executions.md
+v2	workspace-workflow-hooks	regenerate-workspace-workflow-hook-secret	Regenerate a workspace workflow hook secret	https://developers.plane.so/api-reference/v2/workspace-workflow-hooks/regenerate-workspace-workflow-hook-secret.md
+v2	work-item-type-workflows	overview	Work item type workflows overview	https://developers.plane.so/api-reference/v2/work-item-type-workflows/overview.md
+v2	work-item-type-workflows	list-work-item-type-workflows	List work item type workflows	https://developers.plane.so/api-reference/v2/work-item-type-workflows/list-work-item-type-workflows.md
+v2	work-item-type-workflows	get-work-item-type-workflow	Get a work item type workflow	https://developers.plane.so/api-reference/v2/work-item-type-workflows/get-work-item-type-workflow.md
+v2	work-item-type-workflows	update-work-item-type-workflow	Update a work item type workflow	https://developers.plane.so/api-reference/v2/work-item-type-workflows/update-work-item-type-workflow.md
+v2	work-item-type-governance	overview	Work item type governance overview	https://developers.plane.so/api-reference/v2/work-item-type-governance/overview.md
+v2	work-item-type-governance	get-work-item-type-governance	Get work item type governance	https://developers.plane.so/api-reference/v2/work-item-type-governance/get-work-item-type-governance.md
+v2	work-item-type-governance	update-work-item-type-governance	Update work item type governance	https://developers.plane.so/api-reference/v2/work-item-type-governance/update-work-item-type-governance.md
+v2	work-item-type-governance	preview-work-item-type-governance	Preview a governance change	https://developers.plane.so/api-reference/v2/work-item-type-governance/preview-work-item-type-governance.md
+v2	work-item-type-governance	list-work-item-type-workflow-pins	List workflow pins	https://developers.plane.so/api-reference/v2/work-item-type-governance/list-work-item-type-workflow-pins.md
+v2	work-item-type-governance	get-work-item-type-workflow-pin	Get a workflow pin	https://developers.plane.so/api-reference/v2/work-item-type-governance/get-work-item-type-workflow-pin.md
+v2	work-item-type-governance	create-work-item-type-workflow-pin	Create workflow pins	https://developers.plane.so/api-reference/v2/work-item-type-governance/create-work-item-type-workflow-pin.md
+v2	work-item-type-governance	delete-work-item-type-workflow-pin	Delete a workflow pin	https://developers.plane.so/api-reference/v2/work-item-type-governance/delete-work-item-type-workflow-pin.md
+v2	members	overview	Members overview	https://developers.plane.so/api-reference/v2/members/overview.md
+v2	members	list-project-members	List project members	https://developers.plane.so/api-reference/v2/members/list-project-members.md
+v2	members	list-workspace-members	List workspace members	https://developers.plane.so/api-reference/v2/members/list-workspace-members.md
+v2	members	get-project-member	Get a project member	https://developers.plane.so/api-reference/v2/members/get-project-member.md
+v2	members	get-project-role-distribution	Get project role distribution	https://developers.plane.so/api-reference/v2/members/get-project-role-distribution.md
+v2	members	create-project-member	Create a project member	https://developers.plane.so/api-reference/v2/members/create-project-member.md
+v2	members	update-project-member	Update a project member	https://developers.plane.so/api-reference/v2/members/update-project-member.md
+v2	members	delete-project-member	Delete a project member	https://developers.plane.so/api-reference/v2/members/delete-project-member.md
+v2	members	remove-workspace-member	Remove a workspace member	https://developers.plane.so/api-reference/v2/members/remove-workspace-member.md
+v2	invitations	overview	Invitations overview	https://developers.plane.so/api-reference/v2/invitations/overview.md
+v2	invitations	list-invitations	List invitations	https://developers.plane.so/api-reference/v2/invitations/list-invitations.md
+v2	invitations	get-invitation	Get an invitation	https://developers.plane.so/api-reference/v2/invitations/get-invitation.md
+v2	invitations	create-invitation	Create an invitation	https://developers.plane.so/api-reference/v2/invitations/create-invitation.md
+v2	invitations	delete-invitation	Delete an invitation	https://developers.plane.so/api-reference/v2/invitations/delete-invitation.md
+v2	invitations	bulk-invitations	Bulk invite members	https://developers.plane.so/api-reference/v2/invitations/bulk-invitations.md
+v2	roles	overview	Roles overview	https://developers.plane.so/api-reference/v2/roles/overview.md
+v2	roles	list-roles	List roles	https://developers.plane.so/api-reference/v2/roles/list-roles.md
+v2	roles	get-role	Get a role	https://developers.plane.so/api-reference/v2/roles/get-role.md
+v2	permissions	overview	Permissions overview	https://developers.plane.so/api-reference/v2/permissions/overview.md
+v2	permissions	get-project-permissions	Get your effective project permissions	https://developers.plane.so/api-reference/v2/permissions/get-project-permissions.md
+v2	permissions	get-workspace-permissions	Get your effective workspace permissions	https://developers.plane.so/api-reference/v2/permissions/get-workspace-permissions.md
+v2	permissions	check-permission	Check a permission	https://developers.plane.so/api-reference/v2/permissions/check-permission.md
+v2	permissions	list-resource-permissions	List your permissions on a resource	https://developers.plane.so/api-reference/v2/permissions/list-resource-permissions.md
+v2	permissions	list-accessible-resources	List resources you can access	https://developers.plane.so/api-reference/v2/permissions/list-accessible-resources.md
+v2	permissions	get-resource-relation	Get your relation to a resource	https://developers.plane.so/api-reference/v2/permissions/get-resource-relation.md
+v2	permission-grants	overview	Permission grants overview	https://developers.plane.so/api-reference/v2/permission-grants/overview.md
+v2	permission-grants	list-permission-grants	List permission grants	https://developers.plane.so/api-reference/v2/permission-grants/list-permission-grants.md
+v2	permission-grants	get-permission-grant	Get a permission grant	https://developers.plane.so/api-reference/v2/permission-grants/get-permission-grant.md
+v2	permission-grants	create-permission-grant	Create a permission grant	https://developers.plane.so/api-reference/v2/permission-grants/create-permission-grant.md
+v2	permission-grants	update-permission-grant	Update a permission grant	https://developers.plane.so/api-reference/v2/permission-grants/update-permission-grant.md
+v2	permission-grants	delete-permission-grant	Delete a permission grant	https://developers.plane.so/api-reference/v2/permission-grants/delete-permission-grant.md
+v2	permission-schemes	overview	Permission schemes overview	https://developers.plane.so/api-reference/v2/permission-schemes/overview.md
+v2	permission-schemes	list-permission-schemes	List permission schemes	https://developers.plane.so/api-reference/v2/permission-schemes/list-permission-schemes.md
+v2	permission-schemes	get-permission-scheme	Get a permission scheme	https://developers.plane.so/api-reference/v2/permission-schemes/get-permission-scheme.md
+v2	workspace-features	overview	Workspace features overview	https://developers.plane.so/api-reference/v2/workspace-features/overview.md
+v2	workspace-features	get-workspace-features	Get workspace features	https://developers.plane.so/api-reference/v2/workspace-features/get-workspace-features.md
+v2	workspace-features	update-workspace-features	Update workspace features	https://developers.plane.so/api-reference/v2/workspace-features/update-workspace-features.md
+v2	audit-logs	overview	Audit logs overview	https://developers.plane.so/api-reference/v2/audit-logs/overview.md
+v2	audit-logs	list-audit-logs	List audit logs	https://developers.plane.so/api-reference/v2/audit-logs/list-audit-logs.md
+v2	audit-logs	get-audit-log	Get an audit log	https://developers.plane.so/api-reference/v2/audit-logs/get-audit-log.md
+v2	group-sync	overview	Group sync overview	https://developers.plane.so/api-reference/v2/group-sync/overview.md
+v2	group-sync	list-project-mappings	List project mappings	https://developers.plane.so/api-reference/v2/group-sync/list-project-mappings.md
+v2	group-sync	list-workspace-mappings	List workspace mappings	https://developers.plane.so/api-reference/v2/group-sync/list-workspace-mappings.md
+v2	group-sync	get-group-sync-config	Get the group sync configuration	https://developers.plane.so/api-reference/v2/group-sync/get-group-sync-config.md
+v2	group-sync	get-project-mapping	Get a project mapping	https://developers.plane.so/api-reference/v2/group-sync/get-project-mapping.md
+v2	group-sync	get-workspace-mapping	Get a workspace mapping	https://developers.plane.so/api-reference/v2/group-sync/get-workspace-mapping.md
+v2	group-sync	create-project-mapping	Create a project mapping	https://developers.plane.so/api-reference/v2/group-sync/create-project-mapping.md
+v2	group-sync	create-workspace-mapping	Create a workspace mapping	https://developers.plane.so/api-reference/v2/group-sync/create-workspace-mapping.md
+v2	group-sync	update-group-sync-config	Update the group sync configuration	https://developers.plane.so/api-reference/v2/group-sync/update-group-sync-config.md
+v2	group-sync	update-project-mapping	Update a project mapping	https://developers.plane.so/api-reference/v2/group-sync/update-project-mapping.md
+v2	group-sync	update-workspace-mapping	Update a workspace mapping	https://developers.plane.so/api-reference/v2/group-sync/update-workspace-mapping.md
+v2	group-sync	delete-project-mapping	Delete a project mapping	https://developers.plane.so/api-reference/v2/group-sync/delete-project-mapping.md
+v2	group-sync	delete-workspace-mapping	Delete a workspace mapping	https://developers.plane.so/api-reference/v2/group-sync/delete-workspace-mapping.md
+v2	webhooks	overview	Webhooks overview	https://developers.plane.so/api-reference/v2/webhooks/overview.md
+v2	webhooks	list-webhooks	List webhooks	https://developers.plane.so/api-reference/v2/webhooks/list-webhooks.md
+v2	webhooks	get-webhook	Get a webhook	https://developers.plane.so/api-reference/v2/webhooks/get-webhook.md
+v2	webhooks	create-webhook	Create a webhook	https://developers.plane.so/api-reference/v2/webhooks/create-webhook.md
+v2	webhooks	update-webhook	Update a webhook	https://developers.plane.so/api-reference/v2/webhooks/update-webhook.md
+v2	webhooks	delete-webhook	Delete a webhook	https://developers.plane.so/api-reference/v2/webhooks/delete-webhook.md
+v2	webhooks	regenerate-webhook-secret	Regenerate a webhook secret	https://developers.plane.so/api-reference/v2/webhooks/regenerate-webhook-secret.md
+v2	webhook-logs	overview	Webhook logs overview	https://developers.plane.so/api-reference/v2/webhook-logs/overview.md
+v2	webhook-logs	list-webhook-logs	List webhook logs	https://developers.plane.so/api-reference/v2/webhook-logs/list-webhook-logs.md
+v2	webhook-logs	get-webhook-log	Get a webhook log	https://developers.plane.so/api-reference/v2/webhook-logs/get-webhook-log.md
+v2	workspace-assets	overview	Workspace assets overview	https://developers.plane.so/api-reference/v2/workspace-assets/overview.md
+v2	workspace-assets	list-workspace-assets	List workspace assets	https://developers.plane.so/api-reference/v2/workspace-assets/list-workspace-assets.md
+v2	workspace-assets	get-asset	Get an asset	https://developers.plane.so/api-reference/v2/workspace-assets/get-asset.md
+v2	workspace-assets	create-workspace-asset	Create a workspace asset upload	https://developers.plane.so/api-reference/v2/workspace-assets/create-workspace-asset.md
+v2	workspace-assets	delete-asset	Delete an asset	https://developers.plane.so/api-reference/v2/workspace-assets/delete-asset.md
+v2	workspace-assets	confirm-workspace-asset	Confirm a workspace asset upload	https://developers.plane.so/api-reference/v2/workspace-assets/confirm-workspace-asset.md
+v2	user-assets	overview	User assets overview	https://developers.plane.so/api-reference/v2/user-assets/overview.md
+v2	user-assets	list-user-assets	List user assets	https://developers.plane.so/api-reference/v2/user-assets/list-user-assets.md
+v2	user-assets	get-user-asset	Get a user asset	https://developers.plane.so/api-reference/v2/user-assets/get-user-asset.md
+v2	user-assets	create-user-asset	Create a user asset upload	https://developers.plane.so/api-reference/v2/user-assets/create-user-asset.md
+v2	user-assets	delete-user-asset	Delete a user asset	https://developers.plane.so/api-reference/v2/user-assets/delete-user-asset.md
+v2	user-assets	confirm-user-asset	Confirm a user asset upload	https://developers.plane.so/api-reference/v2/user-assets/confirm-user-asset.md
+v2	users	overview	Users overview	https://developers.plane.so/api-reference/v2/users/overview.md
+v2	users	get-current-user	Get current user	https://developers.plane.so/api-reference/v2/users/get-current-user.md
+v2	notifications	overview	Notifications overview	https://developers.plane.so/api-reference/v2/notifications/overview.md
+v2	notifications	list-notifications	List notifications	https://developers.plane.so/api-reference/v2/notifications/list-notifications.md
+v2	notifications	get-notification	Get a notification	https://developers.plane.so/api-reference/v2/notifications/get-notification.md
+v2	artifacts	overview	Artifacts overview	https://developers.plane.so/api-reference/v2/artifacts/overview.md
+v2	artifacts	get-artifact	Get an artifact	https://developers.plane.so/api-reference/v2/artifacts/get-artifact.md
+v2	artifacts	create-artifact	Create an artifact	https://developers.plane.so/api-reference/v2/artifacts/create-artifact.md
+v2	artifacts	update-artifact	Append a new version	https://developers.plane.so/api-reference/v2/artifacts/update-artifact.md
+v2	artifacts	publish-artifact	Publish an artifact	https://developers.plane.so/api-reference/v2/artifacts/publish-artifact.md
+v1	_guides	introduction	Plane API Documentation	https://developers.plane.so/api-reference/introduction.md
+v1	project	overview	Overview	https://developers.plane.so/api-reference/project/overview.md
+v1	project	add-project	Create a project	https://developers.plane.so/api-reference/project/add-project.md
+v1	project	create-project-with-template	Create project with template	https://developers.plane.so/api-reference/project/create-project-with-template.md
+v1	project	list-projects	List all projects	https://developers.plane.so/api-reference/project/list-projects.md
+v1	project	get-project-detail	Retrieve a project	https://developers.plane.so/api-reference/project/get-project-detail.md
+v1	project	update-project-detail	Update a project	https://developers.plane.so/api-reference/project/update-project-detail.md
+v1	project	archive-project	Archive project	https://developers.plane.so/api-reference/project/archive-project.md
+v1	project	unarchive-project	Unarchive project	https://developers.plane.so/api-reference/project/unarchive-project.md
+v1	project	delete-project	Delete a project	https://developers.plane.so/api-reference/project/delete-project.md
+v1	project-features	overview	Overview	https://developers.plane.so/api-reference/project-features/overview.md
+v1	project-features	get-project-features	Get project features	https://developers.plane.so/api-reference/project-features/get-project-features.md
+v1	project-features	update-project-features	Update project features	https://developers.plane.so/api-reference/project-features/update-project-features.md
+v1	project-labels	overview	Overview	https://developers.plane.so/api-reference/project-labels/overview.md
+v1	project-labels	add-project-label	Create project label	https://developers.plane.so/api-reference/project-labels/add-project-label.md
+v1	project-labels	list-project-labels	List project labels	https://developers.plane.so/api-reference/project-labels/list-project-labels.md
+v1	project-labels	get-project-label-detail	Get project label	https://developers.plane.so/api-reference/project-labels/get-project-label-detail.md
+v1	project-labels	update-project-label-detail	Update project label	https://developers.plane.so/api-reference/project-labels/update-project-label-detail.md
+v1	project-labels	delete-project-label	Delete project label	https://developers.plane.so/api-reference/project-labels/delete-project-label.md
+v1	issue	overview	Overview	https://developers.plane.so/api-reference/issue/overview.md
+v1	issue	add-issue	Create a work item	https://developers.plane.so/api-reference/issue/add-issue.md
+v1	issue	list-issues	List all work items	https://developers.plane.so/api-reference/issue/list-issues.md
+v1	issue	get-issue-detail	Retrieve a work item by ID	https://developers.plane.so/api-reference/issue/get-issue-detail.md
+v1	issue	get-issue-sequence-id	Retrieve a work item by identifier	https://developers.plane.so/api-reference/issue/get-issue-sequence-id.md
+v1	issue	search-issues	Search work items	https://developers.plane.so/api-reference/issue/search-issues.md
+v1	issue	advanced-search-work-items	Advanced search work items	https://developers.plane.so/api-reference/issue/advanced-search-work-items.md
+v1	issue	update-issue-detail	Update a work item	https://developers.plane.so/api-reference/issue/update-issue-detail.md
+v1	issue	delete-issue	Delete a work item	https://developers.plane.so/api-reference/issue/delete-issue.md
+v1	state	overview	Overview	https://developers.plane.so/api-reference/state/overview.md
+v1	state	add-state	Create a state	https://developers.plane.so/api-reference/state/add-state.md
+v1	state	list-states	List all states	https://developers.plane.so/api-reference/state/list-states.md
+v1	state	get-state-detail	Retrieve a state	https://developers.plane.so/api-reference/state/get-state-detail.md
+v1	state	update-state-detail	Update a state	https://developers.plane.so/api-reference/state/update-state-detail.md
+v1	state	delete-state	Delete a state	https://developers.plane.so/api-reference/state/delete-state.md
+v1	label	overview	Overview	https://developers.plane.so/api-reference/label/overview.md
+v1	label	add-label	Create a label	https://developers.plane.so/api-reference/label/add-label.md
+v1	label	list-labels	List all labels	https://developers.plane.so/api-reference/label/list-labels.md
+v1	label	get-label-detail	Retrieve a label	https://developers.plane.so/api-reference/label/get-label-detail.md
+v1	label	update-label-detail	Update a label	https://developers.plane.so/api-reference/label/update-label-detail.md
+v1	label	delete-label	Delete a label	https://developers.plane.so/api-reference/label/delete-label.md
+v1	issue-types	types/overview	Overview	https://developers.plane.so/api-reference/issue-types/types/overview.md
+v1	issue-types	types/add-issue-type	Create a work item type	https://developers.plane.so/api-reference/issue-types/types/add-issue-type.md
+v1	issue-types	types/list-issue-types	List all work item types	https://developers.plane.so/api-reference/issue-types/types/list-issue-types.md
+v1	issue-types	types/get-issue-type-details	Retrieve a work item type	https://developers.plane.so/api-reference/issue-types/types/get-issue-type-details.md
+v1	issue-types	types/get-work-item-type-schema	Get work item type schema	https://developers.plane.so/api-reference/issue-types/types/get-work-item-type-schema.md
+v1	issue-types	types/update-issue-types	Update a work item type	https://developers.plane.so/api-reference/issue-types/types/update-issue-types.md
+v1	issue-types	types/delete-issue-type	Delete a work item type	https://developers.plane.so/api-reference/issue-types/types/delete-issue-type.md
+v1	issue-types	properties/overview	Overview	https://developers.plane.so/api-reference/issue-types/properties/overview.md
+v1	issue-types	properties/add-property	Create a custom property	https://developers.plane.so/api-reference/issue-types/properties/add-property.md
+v1	issue-types	properties/list-properties	List custom properties	https://developers.plane.so/api-reference/issue-types/properties/list-properties.md
+v1	issue-types	properties/get-property-details	Retrieve a custom property	https://developers.plane.so/api-reference/issue-types/properties/get-property-details.md
+v1	issue-types	properties/update-property	Update a custom property	https://developers.plane.so/api-reference/issue-types/properties/update-property.md
+v1	issue-types	properties/delete-property	Delete a custom property	https://developers.plane.so/api-reference/issue-types/properties/delete-property.md
+v1	issue-types	values/overview	Overview	https://developers.plane.so/api-reference/issue-types/values/overview.md
+v1	issue-types	values/add-property-values	Add custom property values	https://developers.plane.so/api-reference/issue-types/values/add-property-values.md
+v1	issue-types	values/list-property-values	List all custom property values	https://developers.plane.so/api-reference/issue-types/values/list-property-values.md
+v1	issue-types	values/get-property-value-detail	Get property value	https://developers.plane.so/api-reference/issue-types/values/get-property-value-detail.md
+v1	issue-types	values/update-property-value	Update property value	https://developers.plane.so/api-reference/issue-types/values/update-property-value.md
+v1	issue-types	values/delete-property-value	Delete property value	https://developers.plane.so/api-reference/issue-types/values/delete-property-value.md
+v1	issue-types	options/overview	Overview	https://developers.plane.so/api-reference/issue-types/options/overview.md
+v1	issue-types	options/add-dropdown-options	Add dropdown options	https://developers.plane.so/api-reference/issue-types/options/add-dropdown-options.md
+v1	issue-types	options/list-dropdown-options	List all dropdown options	https://developers.plane.so/api-reference/issue-types/options/list-dropdown-options.md
+v1	issue-types	options/get-option-details	Retrieve option details	https://developers.plane.so/api-reference/issue-types/options/get-option-details.md
+v1	issue-types	options/update-dropdown-options	Update dropdown options	https://developers.plane.so/api-reference/issue-types/options/update-dropdown-options.md
+v1	issue-types	options/delete-dropdown-options	Delete dropdown options	https://developers.plane.so/api-reference/issue-types/options/delete-dropdown-options.md
+v1	link	overview	Overview	https://developers.plane.so/api-reference/link/overview.md
+v1	link	add-link	Create a link	https://developers.plane.so/api-reference/link/add-link.md
+v1	link	list-links	List all links	https://developers.plane.so/api-reference/link/list-links.md
+v1	link	get-link-detail	Retrieve a link	https://developers.plane.so/api-reference/link/get-link-detail.md
+v1	link	update-link-detail	Update a link	https://developers.plane.so/api-reference/link/update-link-detail.md
+v1	link	delete-link	Delete a link	https://developers.plane.so/api-reference/link/delete-link.md
+v1	issue-activity	overview	Overview	https://developers.plane.so/api-reference/issue-activity/overview.md
+v1	issue-activity	list-issue-activities	List all work item activity	https://developers.plane.so/api-reference/issue-activity/list-issue-activities.md
+v1	issue-activity	get-issue-activity-detail	Retrieve a work item activity	https://developers.plane.so/api-reference/issue-activity/get-issue-activity-detail.md
+v1	issue-comment	overview	Overview	https://developers.plane.so/api-reference/issue-comment/overview.md
+v1	issue-comment	add-issue-comment	Create a work item comment	https://developers.plane.so/api-reference/issue-comment/add-issue-comment.md
+v1	issue-comment	list-issue-comments	List all work item comments	https://developers.plane.so/api-reference/issue-comment/list-issue-comments.md
+v1	issue-comment	get-issue-comment-detail	Retrieve a work item comment	https://developers.plane.so/api-reference/issue-comment/get-issue-comment-detail.md
+v1	issue-comment	update-issue-comment-detail	Update a work item comment	https://developers.plane.so/api-reference/issue-comment/update-issue-comment-detail.md
+v1	issue-comment	delete-issue-comment	Delete a work item comment	https://developers.plane.so/api-reference/issue-comment/delete-issue-comment.md
+v1	issue-attachments	overview	Overview	https://developers.plane.so/api-reference/issue-attachments/overview.md
+v1	issue-attachments	get-attachments	List all attachments	https://developers.plane.so/api-reference/issue-attachments/get-attachments.md
+v1	issue-attachments	get-attachment-detail	Retrieve an attachment	https://developers.plane.so/api-reference/issue-attachments/get-attachment-detail.md
+v1	issue-attachments	get-upload-credentials	Get upload credentials	https://developers.plane.so/api-reference/issue-attachments/get-upload-credentials.md
+v1	issue-attachments	upload-file	Upload file	https://developers.plane.so/api-reference/issue-attachments/upload-file.md
+v1	issue-attachments	complete-upload	Complete upload	https://developers.plane.so/api-reference/issue-attachments/complete-upload.md
+v1	issue-attachments	update-attachment	Update an attachment	https://developers.plane.so/api-reference/issue-attachments/update-attachment.md
+v1	issue-attachments	delete-attachment	Delete an attachment	https://developers.plane.so/api-reference/issue-attachments/delete-attachment.md
+v1	work-item-pages	overview	Overview	https://developers.plane.so/api-reference/work-item-pages/overview.md
+v1	work-item-pages	add-work-item-page	Create work item page link	https://developers.plane.so/api-reference/work-item-pages/add-work-item-page.md
+v1	work-item-pages	list-work-item-pages	List work item pages	https://developers.plane.so/api-reference/work-item-pages/list-work-item-pages.md
+v1	work-item-pages	get-work-item-page-detail	Get work item page link	https://developers.plane.so/api-reference/work-item-pages/get-work-item-page-detail.md
+v1	work-item-pages	delete-work-item-page	Delete work item page link	https://developers.plane.so/api-reference/work-item-pages/delete-work-item-page.md
+v1	cycle	overview	Overview	https://developers.plane.so/api-reference/cycle/overview.md
+v1	cycle	add-cycle	Create a cycle	https://developers.plane.so/api-reference/cycle/add-cycle.md
+v1	cycle	add-cycle-work-items	Add work items to cycle	https://developers.plane.so/api-reference/cycle/add-cycle-work-items.md
+v1	cycle	transfer-cycle-work-items	Transfer cycle work items	https://developers.plane.so/api-reference/cycle/transfer-cycle-work-items.md
+v1	cycle	archive-cycle	Archive a cycle	https://developers.plane.so/api-reference/cycle/archive-cycle.md
+v1	cycle	list-cycles	List all cycles	https://developers.plane.so/api-reference/cycle/list-cycles.md
+v1	cycle	get-cycle-detail	Retrieve a cycle	https://developers.plane.so/api-reference/cycle/get-cycle-detail.md
+v1	cycle	list-cycle-work-items	List all work items in a cycle	https://developers.plane.so/api-reference/cycle/list-cycle-work-items.md
+v1	cycle	list-archived-cycles	List all archived cycles	https://developers.plane.so/api-reference/cycle/list-archived-cycles.md
+v1	cycle	update-cycle-detail	Update a cycle	https://developers.plane.so/api-reference/cycle/update-cycle-detail.md
+v1	cycle	unarchive-cycle	Restore a cycle	https://developers.plane.so/api-reference/cycle/unarchive-cycle.md
+v1	cycle	remove-cycle-work-item	Remove work item from cycle	https://developers.plane.so/api-reference/cycle/remove-cycle-work-item.md
+v1	cycle	delete-cycle	Delete a cycle	https://developers.plane.so/api-reference/cycle/delete-cycle.md
+v1	module	overview	Overview	https://developers.plane.so/api-reference/module/overview.md
+v1	module	add-module	Create a module	https://developers.plane.so/api-reference/module/add-module.md
+v1	module	add-module-work-items	Add work items to module	https://developers.plane.so/api-reference/module/add-module-work-items.md
+v1	module	archive-module	Archive a module	https://developers.plane.so/api-reference/module/archive-module.md
+v1	module	list-modules	List all modules	https://developers.plane.so/api-reference/module/list-modules.md
+v1	module	get-module-detail	Retrieve a module	https://developers.plane.so/api-reference/module/get-module-detail.md
+v1	module	list-module-work-items	List all work items in a module	https://developers.plane.so/api-reference/module/list-module-work-items.md
+v1	module	list-archived-modules	List all archived modules	https://developers.plane.so/api-reference/module/list-archived-modules.md
+v1	module	update-module-detail	Update module details	https://developers.plane.so/api-reference/module/update-module-detail.md
+v1	module	unarchive-module	Restore a module	https://developers.plane.so/api-reference/module/unarchive-module.md
+v1	module	remove-module-work-item	Remove work item from module	https://developers.plane.so/api-reference/module/remove-module-work-item.md
+v1	module	delete-module	Delete a module	https://developers.plane.so/api-reference/module/delete-module.md
+v1	page	overview	Overview	https://developers.plane.so/api-reference/page/overview.md
+v1	page	page-content-html	Page content HTML	https://developers.plane.so/api-reference/page/page-content-html.md
+v1	page	list-workspace-pages	List workspace wiki pages	https://developers.plane.so/api-reference/page/list-workspace-pages.md
+v1	page	add-workspace-page	Create a wiki page	https://developers.plane.so/api-reference/page/add-workspace-page.md
+v1	page	get-workspace-page	Retrieve a wiki page	https://developers.plane.so/api-reference/page/get-workspace-page.md
+v1	page	update-workspace-page	Update a workspace page	https://developers.plane.so/api-reference/page/update-workspace-page.md
+v1	page	archive-workspace-page	Archive a workspace page	https://developers.plane.so/api-reference/page/archive-workspace-page.md
+v1	page	restore-workspace-page	Restore a workspace page	https://developers.plane.so/api-reference/page/restore-workspace-page.md
+v1	page	delete-workspace-page	Delete a workspace page	https://developers.plane.so/api-reference/page/delete-workspace-page.md
+v1	page	get-workspace-page-attachment	Retrieve workspace page attachment metadata	https://developers.plane.so/api-reference/page/get-workspace-page-attachment.md
+v1	page	confirm-workspace-page-attachment-upload	Confirm a workspace page attachment upload	https://developers.plane.so/api-reference/page/confirm-workspace-page-attachment-upload.md
+v1	page	download-workspace-page-attachment	Download a workspace page attachment	https://developers.plane.so/api-reference/page/download-workspace-page-attachment.md
+v1	page	delete-workspace-page-attachment	Delete a workspace page attachment	https://developers.plane.so/api-reference/page/delete-workspace-page-attachment.md
+v1	page	list-project-pages	List project pages	https://developers.plane.so/api-reference/page/list-project-pages.md
+v1	page	add-project-page	Create a project page	https://developers.plane.so/api-reference/page/add-project-page.md
+v1	page	get-project-page	Retrieve a project page	https://developers.plane.so/api-reference/page/get-project-page.md
+v1	page	update-project-page	Update a project page	https://developers.plane.so/api-reference/page/update-project-page.md
+v1	page	archive-project-page	Archive a project page	https://developers.plane.so/api-reference/page/archive-project-page.md
+v1	page	restore-project-page	Restore a project page	https://developers.plane.so/api-reference/page/restore-project-page.md
+v1	page	delete-project-page	Delete a project page	https://developers.plane.so/api-reference/page/delete-project-page.md
+v1	collection	overview	Collection API overview	https://developers.plane.so/api-reference/collection/overview.md
+v1	collection	list-collections	List collections	https://developers.plane.so/api-reference/collection/list-collections.md
+v1	collection	create-collection	Create a collection	https://developers.plane.so/api-reference/collection/create-collection.md
+v1	collection	retrieve-collection	Retrieve a collection	https://developers.plane.so/api-reference/collection/retrieve-collection.md
+v1	collection	update-collection	Update a collection	https://developers.plane.so/api-reference/collection/update-collection.md
+v1	collection	delete-collection	Delete a collection	https://developers.plane.so/api-reference/collection/delete-collection.md
+v1	collection	list-collection-members	List collection members	https://developers.plane.so/api-reference/collection/list-collection-members.md
+v1	collection	add-collection-member	Add a collection member	https://developers.plane.so/api-reference/collection/add-collection-member.md
+v1	collection	update-collection-member	Update a collection member	https://developers.plane.so/api-reference/collection/update-collection-member.md
+v1	collection	remove-collection-member	Remove a collection member	https://developers.plane.so/api-reference/collection/remove-collection-member.md
+v1	collection	list-collection-pages	List collection pages	https://developers.plane.so/api-reference/collection/list-collection-pages.md
+v1	collection	search-collection-pages	Search addable collection pages	https://developers.plane.so/api-reference/collection/search-collection-pages.md
+v1	collection	add-collection-pages	Add pages to a collection	https://developers.plane.so/api-reference/collection/add-collection-pages.md
+v1	collection	move-or-reorder-collection-page	Move or reorder a collection page	https://developers.plane.so/api-reference/collection/move-or-reorder-collection-page.md
+v1	collection	remove-collection-page	Remove a page from a collection	https://developers.plane.so/api-reference/collection/remove-collection-page.md
+v1	intake-issue	overview	Overview	https://developers.plane.so/api-reference/intake-issue/overview.md
+v1	intake-issue	add-intake-issue	Create an intake work item	https://developers.plane.so/api-reference/intake-issue/add-intake-issue.md
+v1	intake-issue	list-intake-issues	List all intake work items	https://developers.plane.so/api-reference/intake-issue/list-intake-issues.md
+v1	intake-issue	get-intake-issue-detail	Retrieve an intake work item	https://developers.plane.so/api-reference/intake-issue/get-intake-issue-detail.md
+v1	intake-issue	update-intake-issue-detail	Update an intake work item	https://developers.plane.so/api-reference/intake-issue/update-intake-issue-detail.md
+v1	intake-issue	delete-intake-issue	Delete an intake work item	https://developers.plane.so/api-reference/intake-issue/delete-intake-issue.md
+v1	assets	overview	Overview	https://developers.plane.so/api-reference/assets/overview.md
+v1	assets	create-user-asset-upload	Create user asset upload	https://developers.plane.so/api-reference/assets/create-user-asset-upload.md
+v1	assets	update-user-asset	Update user asset	https://developers.plane.so/api-reference/assets/update-user-asset.md
+v1	assets	delete-user-asset	Delete user asset	https://developers.plane.so/api-reference/assets/delete-user-asset.md
+v1	assets	create-workspace-asset-upload	Create workspace asset upload	https://developers.plane.so/api-reference/assets/create-workspace-asset-upload.md
+v1	assets	get-workspace-asset	Get workspace asset	https://developers.plane.so/api-reference/assets/get-workspace-asset.md
+v1	assets	update-workspace-asset	Update workspace asset	https://developers.plane.so/api-reference/assets/update-workspace-asset.md
+v1	milestones	overview	Overview	https://developers.plane.so/api-reference/milestones/overview.md
+v1	milestones	add-milestone	Create milestone	https://developers.plane.so/api-reference/milestones/add-milestone.md
+v1	milestones	list-milestones	List milestones	https://developers.plane.so/api-reference/milestones/list-milestones.md
+v1	milestones	get-milestone-detail	Get milestone	https://developers.plane.so/api-reference/milestones/get-milestone-detail.md
+v1	milestones	list-milestone-work-items	List milestone work items	https://developers.plane.so/api-reference/milestones/list-milestone-work-items.md
+v1	milestones	update-milestone-detail	Update milestone	https://developers.plane.so/api-reference/milestones/update-milestone-detail.md
+v1	milestones	delete-milestone	Delete milestone	https://developers.plane.so/api-reference/milestones/delete-milestone.md
+v1	estimate	overview	Overview	https://developers.plane.so/api-reference/estimate/overview.md
+v1	estimate	add-estimate	Create an estimate	https://developers.plane.so/api-reference/estimate/add-estimate.md
+v1	estimate	get-estimate	Get an estimate	https://developers.plane.so/api-reference/estimate/get-estimate.md
+v1	estimate	update-estimate	Update an estimate	https://developers.plane.so/api-reference/estimate/update-estimate.md
+v1	estimate	delete-estimate	Delete an estimate	https://developers.plane.so/api-reference/estimate/delete-estimate.md
+v1	estimate	list-estimate-points	List estimate points	https://developers.plane.so/api-reference/estimate/list-estimate-points.md
+v1	estimate	add-estimate-points	Create estimate points	https://developers.plane.so/api-reference/estimate/add-estimate-points.md
+v1	estimate	update-estimate-point	Update an estimate point	https://developers.plane.so/api-reference/estimate/update-estimate-point.md
+v1	estimate	delete-estimate-point	Delete an estimate point	https://developers.plane.so/api-reference/estimate/delete-estimate-point.md
+v1	worklogs	overview	Overview	https://developers.plane.so/api-reference/worklogs/overview.md
+v1	worklogs	create-worklog	Create a worklog	https://developers.plane.so/api-reference/worklogs/create-worklog.md
+v1	worklogs	get-worklogs-for-issue	List all worklogs for a work item	https://developers.plane.so/api-reference/worklogs/get-worklogs-for-issue.md
+v1	worklogs	get-total-time	Get total time for each work item	https://developers.plane.so/api-reference/worklogs/get-total-time.md
+v1	worklogs	update-worklog	Update a worklog	https://developers.plane.so/api-reference/worklogs/update-worklog.md
+v1	worklogs	delete-worklog	Delete a worklog	https://developers.plane.so/api-reference/worklogs/delete-worklog.md
+v1	epics	overview	Overview	https://developers.plane.so/api-reference/epics/overview.md
+v1	epics	create-epic	Create an epic	https://developers.plane.so/api-reference/epics/create-epic.md
+v1	epics	list-epics	List all epics	https://developers.plane.so/api-reference/epics/list-epics.md
+v1	epics	get-epic-detail	Retrieve an epic	https://developers.plane.so/api-reference/epics/get-epic-detail.md
+v1	epics	update-epic	Update an epic	https://developers.plane.so/api-reference/epics/update-epic.md
+v1	epics	delete-epic	Delete an epic	https://developers.plane.so/api-reference/epics/delete-epic.md
+v1	epics	add-epic-work-items	Add work items to epic	https://developers.plane.so/api-reference/epics/add-epic-work-items.md
+v1	epics	list-epic-work-items	List epic work items	https://developers.plane.so/api-reference/epics/list-epic-work-items.md
+v1	initiative	overview	Overview	https://developers.plane.so/api-reference/initiative/overview.md
+v1	initiative	add-initiative	Create an initiative	https://developers.plane.so/api-reference/initiative/add-initiative.md
+v1	initiative	list-initiatives	List all initiatives	https://developers.plane.so/api-reference/initiative/list-initiatives.md
+v1	initiative	get-initiative-detail	Retrieve an initiative	https://developers.plane.so/api-reference/initiative/get-initiative-detail.md
+v1	initiative	update-initiative-detail	Update an initiative	https://developers.plane.so/api-reference/initiative/update-initiative-detail.md
+v1	initiative	delete-initiative	Delete an initiative	https://developers.plane.so/api-reference/initiative/delete-initiative.md
+v1	initiative	add-initiative-label	Create an initiative label	https://developers.plane.so/api-reference/initiative/add-initiative-label.md
+v1	initiative	add-labels-to-initiative	Add labels to initiative	https://developers.plane.so/api-reference/initiative/add-labels-to-initiative.md
+v1	initiative	list-initiative-labels	List all initiative labels	https://developers.plane.so/api-reference/initiative/list-initiative-labels.md
+v1	initiative	get-initiative-label-detail	Retrieve an initiative label	https://developers.plane.so/api-reference/initiative/get-initiative-label-detail.md
+v1	initiative	list-initiative-labels-for-initiative	List all labels for an initiative	https://developers.plane.so/api-reference/initiative/list-initiative-labels-for-initiative.md
+v1	initiative	update-initiative-label-detail	Update an initiative label	https://developers.plane.so/api-reference/initiative/update-initiative-label-detail.md
+v1	initiative	remove-labels-from-initiative	Remove labels from initiative	https://developers.plane.so/api-reference/initiative/remove-labels-from-initiative.md
+v1	initiative	delete-initiative-label	Delete an initiative label	https://developers.plane.so/api-reference/initiative/delete-initiative-label.md
+v1	initiative	add-projects-to-initiative	Add projects to initiative	https://developers.plane.so/api-reference/initiative/add-projects-to-initiative.md
+v1	initiative	list-initiative-projects	List all projects in an initiative	https://developers.plane.so/api-reference/initiative/list-initiative-projects.md
+v1	initiative	remove-projects-from-initiative	Remove projects from initiative	https://developers.plane.so/api-reference/initiative/remove-projects-from-initiative.md
+v1	initiative	add-epics-to-initiative	Add epics to initiative	https://developers.plane.so/api-reference/initiative/add-epics-to-initiative.md
+v1	initiative	list-initiative-epics	List all epics for an initiative	https://developers.plane.so/api-reference/initiative/list-initiative-epics.md
+v1	initiative	remove-epics-from-initiative	Remove epics from initiative	https://developers.plane.so/api-reference/initiative/remove-epics-from-initiative.md
+v1	release	overview	Overview	https://developers.plane.so/api-reference/release/overview.md
+v1	release	add-release	Create a release	https://developers.plane.so/api-reference/release/add-release.md
+v1	release	list-releases	List all releases	https://developers.plane.so/api-reference/release/list-releases.md
+v1	release	get-release-detail	Retrieve a release	https://developers.plane.so/api-reference/release/get-release-detail.md
+v1	release	update-release-detail	Update a release	https://developers.plane.so/api-reference/release/update-release-detail.md
+v1	release	delete-release	Delete a release	https://developers.plane.so/api-reference/release/delete-release.md
+v1	release	add-project-release	Create a project release	https://developers.plane.so/api-reference/release/add-project-release.md
+v1	release	list-project-releases	List all project releases	https://developers.plane.so/api-reference/release/list-project-releases.md
+v1	release	get-project-release-detail	Retrieve a project release	https://developers.plane.so/api-reference/release/get-project-release-detail.md
+v1	release	update-project-release-detail	Update a project release	https://developers.plane.so/api-reference/release/update-project-release-detail.md
+v1	release	delete-project-release	Delete a project release	https://developers.plane.so/api-reference/release/delete-project-release.md
+v1	release	add-release-work-items	Add work items to release	https://developers.plane.so/api-reference/release/add-release-work-items.md
+v1	release	list-release-work-items	List all work items in a release	https://developers.plane.so/api-reference/release/list-release-work-items.md
+v1	release	remove-release-work-items	Remove work items from release	https://developers.plane.so/api-reference/release/remove-release-work-items.md
+v1	release	add-release-label	Create a release label	https://developers.plane.so/api-reference/release/add-release-label.md
+v1	release	list-release-labels	List all release labels	https://developers.plane.so/api-reference/release/list-release-labels.md
+v1	release	get-release-label-detail	Retrieve a release label	https://developers.plane.so/api-reference/release/get-release-label-detail.md
+v1	release	update-release-label-detail	Update a release label	https://developers.plane.so/api-reference/release/update-release-label-detail.md
+v1	release	delete-release-label	Delete a release label	https://developers.plane.so/api-reference/release/delete-release-label.md
+v1	release	add-labels-to-release	Add labels to release	https://developers.plane.so/api-reference/release/add-labels-to-release.md
+v1	release	list-labels-for-release	List labels for a release	https://developers.plane.so/api-reference/release/list-labels-for-release.md
+v1	release	remove-labels-from-release	Remove labels from release	https://developers.plane.so/api-reference/release/remove-labels-from-release.md
+v1	release	add-release-tag	Create a release tag	https://developers.plane.so/api-reference/release/add-release-tag.md
+v1	release	list-release-tags	List all release tags	https://developers.plane.so/api-reference/release/list-release-tags.md
+v1	release	get-release-tag-detail	Retrieve a release tag	https://developers.plane.so/api-reference/release/get-release-tag-detail.md
+v1	release	update-release-tag-detail	Update a release tag	https://developers.plane.so/api-reference/release/update-release-tag-detail.md
+v1	release	delete-release-tag	Delete a release tag	https://developers.plane.so/api-reference/release/delete-release-tag.md
+v1	release	add-release-comment	Create a release comment	https://developers.plane.so/api-reference/release/add-release-comment.md
+v1	release	list-release-comments	List all release comments	https://developers.plane.so/api-reference/release/list-release-comments.md
+v1	release	get-release-comment-detail	Retrieve a release comment	https://developers.plane.so/api-reference/release/get-release-comment-detail.md
+v1	release	update-release-comment-detail	Update a release comment	https://developers.plane.so/api-reference/release/update-release-comment-detail.md
+v1	release	delete-release-comment	Delete a release comment	https://developers.plane.so/api-reference/release/delete-release-comment.md
+v1	release	add-release-link	Create a release link	https://developers.plane.so/api-reference/release/add-release-link.md
+v1	release	list-release-links	List all release links	https://developers.plane.so/api-reference/release/list-release-links.md
+v1	release	get-release-link-detail	Retrieve a release link	https://developers.plane.so/api-reference/release/get-release-link-detail.md
+v1	release	update-release-link-detail	Update a release link	https://developers.plane.so/api-reference/release/update-release-link-detail.md
+v1	release	delete-release-link	Delete a release link	https://developers.plane.so/api-reference/release/delete-release-link.md
+v1	release	get-release-changelog	Retrieve a release changelog	https://developers.plane.so/api-reference/release/get-release-changelog.md
+v1	release	update-release-changelog	Update a release changelog	https://developers.plane.so/api-reference/release/update-release-changelog.md
+v1	customer	overview	Overview	https://developers.plane.so/api-reference/customer/overview.md
+v1	customer	add-customer	Create a customer	https://developers.plane.so/api-reference/customer/add-customer.md
+v1	customer	link-work-items-to-customer	Link work items to customer	https://developers.plane.so/api-reference/customer/link-work-items-to-customer.md
+v1	customer	list-customers	List all customers	https://developers.plane.so/api-reference/customer/list-customers.md
+v1	customer	get-customer-detail	Retrieve a customer	https://developers.plane.so/api-reference/customer/get-customer-detail.md
+v1	customer	list-customer-work-items	List all customer work items	https://developers.plane.so/api-reference/customer/list-customer-work-items.md
+v1	customer	update-customer-detail	Update a customer	https://developers.plane.so/api-reference/customer/update-customer-detail.md
+v1	customer	unlink-work-item-from-customer	Unlink work item from customer	https://developers.plane.so/api-reference/customer/unlink-work-item-from-customer.md
+v1	customer	delete-customer	Delete a customer	https://developers.plane.so/api-reference/customer/delete-customer.md
+v1	customer	add-customer-property	Create a customer property	https://developers.plane.so/api-reference/customer/add-customer-property.md
+v1	customer	list-customer-properties	List all customer properties	https://developers.plane.so/api-reference/customer/list-customer-properties.md
+v1	customer	get-customer-property-detail	Retrieve a customer property	https://developers.plane.so/api-reference/customer/get-customer-property-detail.md
+v1	customer	list-customer-property-values	List all customer property values	https://developers.plane.so/api-reference/customer/list-customer-property-values.md
+v1	customer	get-customer-property-value	Retrieve a customer property value	https://developers.plane.so/api-reference/customer/get-customer-property-value.md
+v1	customer	update-customer-property-detail	Update a customer property	https://developers.plane.so/api-reference/customer/update-customer-property-detail.md
+v1	customer	update-customer-property-value	Update a customer property value	https://developers.plane.so/api-reference/customer/update-customer-property-value.md
+v1	customer	delete-customer-property	Delete a customer property	https://developers.plane.so/api-reference/customer/delete-customer-property.md
+v1	customer	add-customer-request	Create a customer request	https://developers.plane.so/api-reference/customer/add-customer-request.md
+v1	customer	list-customer-requests	List all customer requests	https://developers.plane.so/api-reference/customer/list-customer-requests.md
+v1	customer	get-customer-request-detail	Retrieve a customer request	https://developers.plane.so/api-reference/customer/get-customer-request-detail.md
+v1	customer	update-customer-request-detail	Update a customer request	https://developers.plane.so/api-reference/customer/update-customer-request-detail.md
+v1	customer	delete-customer-request	Delete a customer request	https://developers.plane.so/api-reference/customer/delete-customer-request.md
+v1	teamspace	overview	Overview	https://developers.plane.so/api-reference/teamspace/overview.md
+v1	teamspace	add-teamspace	Create a teamspace	https://developers.plane.so/api-reference/teamspace/add-teamspace.md
+v1	teamspace	list-teamspaces	List all teamspaces	https://developers.plane.so/api-reference/teamspace/list-teamspaces.md
+v1	teamspace	get-teamspace-detail	Retrieve a teamspace	https://developers.plane.so/api-reference/teamspace/get-teamspace-detail.md
+v1	teamspace	update-teamspace-detail	Update a teamspace	https://developers.plane.so/api-reference/teamspace/update-teamspace-detail.md
+v1	teamspace	delete-teamspace	Delete a teamspace	https://developers.plane.so/api-reference/teamspace/delete-teamspace.md
+v1	teamspace	list-teamspace-members	List all teamspace members	https://developers.plane.so/api-reference/teamspace/list-teamspace-members.md
+v1	teamspace	add-teamspace-members	Add members to teamspace	https://developers.plane.so/api-reference/teamspace/add-teamspace-members.md
+v1	teamspace	remove-teamspace-members	Remove members from teamspace	https://developers.plane.so/api-reference/teamspace/remove-teamspace-members.md
+v1	teamspace	list-teamspace-projects	List teamspace projects	https://developers.plane.so/api-reference/teamspace/list-teamspace-projects.md
+v1	teamspace	add-projects-to-teamspace	Add projects to teamspace	https://developers.plane.so/api-reference/teamspace/add-projects-to-teamspace.md
+v1	teamspace	remove-projects-from-teamspace	Remove projects from teamspace	https://developers.plane.so/api-reference/teamspace/remove-projects-from-teamspace.md
+v1	sticky	overview	Overview	https://developers.plane.so/api-reference/sticky/overview.md
+v1	sticky	add-sticky	Create a sticky	https://developers.plane.so/api-reference/sticky/add-sticky.md
+v1	sticky	list-stickies	List all stickies	https://developers.plane.so/api-reference/sticky/list-stickies.md
+v1	sticky	get-sticky-detail	Retrieve a sticky	https://developers.plane.so/api-reference/sticky/get-sticky-detail.md
+v1	sticky	update-sticky-detail	Update a sticky	https://developers.plane.so/api-reference/sticky/update-sticky-detail.md
+v1	sticky	delete-sticky	Delete a sticky	https://developers.plane.so/api-reference/sticky/delete-sticky.md
+v1	workspace-features	overview	Overview	https://developers.plane.so/api-reference/workspace-features/overview.md
+v1	workspace-features	get-workspace-features	Get workspace features	https://developers.plane.so/api-reference/workspace-features/get-workspace-features.md
+v1	workspace-features	update-workspace-features	Update workspace features	https://developers.plane.so/api-reference/workspace-features/update-workspace-features.md
+v1	workspace-invitations	overview	Overview	https://developers.plane.so/api-reference/workspace-invitations/overview.md
+v1	workspace-invitations	add-workspace-invitation	Create workspace invitation	https://developers.plane.so/api-reference/workspace-invitations/add-workspace-invitation.md
+v1	workspace-invitations	list-workspace-invitations	List workspace invitations	https://developers.plane.so/api-reference/workspace-invitations/list-workspace-invitations.md
+v1	workspace-invitations	get-workspace-invitation-detail	Get workspace invitation	https://developers.plane.so/api-reference/workspace-invitations/get-workspace-invitation-detail.md
+v1	workspace-invitations	update-workspace-invitation	Update workspace invitation	https://developers.plane.so/api-reference/workspace-invitations/update-workspace-invitation.md
+v1	workspace-invitations	delete-workspace-invitation	Delete workspace invitation	https://developers.plane.so/api-reference/workspace-invitations/delete-workspace-invitation.md
+v1	members	overview	Overview	https://developers.plane.so/api-reference/members/overview.md
+v1	members	get-workspace-members	Get all workspace members	https://developers.plane.so/api-reference/members/get-workspace-members.md
+v1	members	get-project-members	List all project members	https://developers.plane.so/api-reference/members/get-project-members.md
+v1	members	add-project-member	Create project member	https://developers.plane.so/api-reference/members/add-project-member.md
+v1	members	get-project-member-detail	Get project member	https://developers.plane.so/api-reference/members/get-project-member-detail.md
+v1	members	update-project-member	Update project member	https://developers.plane.so/api-reference/members/update-project-member.md
+v1	members	delete-project-member	Delete project member	https://developers.plane.so/api-reference/members/delete-project-member.md
+v1	members	remove-workspace-member	Remove workspace member	https://developers.plane.so/api-reference/members/remove-workspace-member.md
+v1	user	overview	Overview	https://developers.plane.so/api-reference/user/overview.md
+v1	user	get-current-user	Retrieve current user	https://developers.plane.so/api-reference/user/get-current-user.md
+v1	idp-group-sync	overview	Overview	https://developers.plane.so/api-reference/idp-group-sync/overview.md
+v1	idp-group-sync	get-group-sync-config	Get group sync config	https://developers.plane.so/api-reference/idp-group-sync/get-group-sync-config.md
+v1	idp-group-sync	update-group-sync-config	Update group sync config	https://developers.plane.so/api-reference/idp-group-sync/update-group-sync-config.md
+v1	idp-group-sync	list-project-mappings	List project group mappings	https://developers.plane.so/api-reference/idp-group-sync/list-project-mappings.md
+v1	idp-group-sync	create-project-mapping	Create project group mapping	https://developers.plane.so/api-reference/idp-group-sync/create-project-mapping.md
+v1	idp-group-sync	get-project-mapping	Get project group mapping	https://developers.plane.so/api-reference/idp-group-sync/get-project-mapping.md
+v1	idp-group-sync	update-project-mapping	Update project group mapping	https://developers.plane.so/api-reference/idp-group-sync/update-project-mapping.md
+v1	idp-group-sync	update-project-mapping-by-key	Update project group mapping by key	https://developers.plane.so/api-reference/idp-group-sync/update-project-mapping-by-key.md
+v1	idp-group-sync	delete-project-mapping	Delete project group mapping	https://developers.plane.so/api-reference/idp-group-sync/delete-project-mapping.md
+v1	idp-group-sync	list-workspace-mappings	List workspace group mappings	https://developers.plane.so/api-reference/idp-group-sync/list-workspace-mappings.md
+v1	idp-group-sync	create-workspace-mapping	Create workspace group mapping	https://developers.plane.so/api-reference/idp-group-sync/create-workspace-mapping.md
+v1	idp-group-sync	get-workspace-mapping	Get workspace group mapping	https://developers.plane.so/api-reference/idp-group-sync/get-workspace-mapping.md
+v1	idp-group-sync	update-workspace-mapping	Update workspace group mapping	https://developers.plane.so/api-reference/idp-group-sync/update-workspace-mapping.md
+v1	idp-group-sync	delete-workspace-mapping	Delete workspace group mapping	https://developers.plane.so/api-reference/idp-group-sync/delete-workspace-mapping.md
+v1	inbox-issue	add-inbox-issue	Add intake issue	https://developers.plane.so/api-reference/inbox-issue/add-inbox-issue.md
+v1	work-item-relations	create-work-item-relation	Create work item relation	https://developers.plane.so/api-reference/work-item-relations/create-work-item-relation.md
+v1	inbox-issue	delete-inbox-issue	Delete intake issue	https://developers.plane.so/api-reference/inbox-issue/delete-inbox-issue.md
+v1	inbox-issue	get-inbox-issue-detail	Get intake issue detail	https://developers.plane.so/api-reference/inbox-issue/get-inbox-issue-detail.md
+v1	inbox-issue	list-inbox-issues	List intake issues	https://developers.plane.so/api-reference/inbox-issue/list-inbox-issues.md
+v1	work-item-relations	list-work-item-relations	List work item relations	https://developers.plane.so/api-reference/work-item-relations/list-work-item-relations.md
+v1	inbox-issue	overview	Overview	https://developers.plane.so/api-reference/inbox-issue/overview.md
+v1	work-item-relations	overview	Overview	https://developers.plane.so/api-reference/work-item-relations/overview.md
+v1	work-item-relations	remove-work-item-relation	Remove work item relation	https://developers.plane.so/api-reference/work-item-relations/remove-work-item-relation.md
+v1	inbox-issue	update-inbox-issue-detail	Update intake issue detail	https://developers.plane.so/api-reference/inbox-issue/update-inbox-issue-detail.md

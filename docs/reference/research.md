@@ -1,0 +1,38 @@
+# Research evidence and limitations
+
+Research record: 2026-11-14. Official documentation is the contract baseline; **no authenticated live Plane acceptance was performed**. The only public API probe was an unauthenticated schema request. The user explicitly chose fake-server acceptance, not live end-to-end gates.
+
+## Plane sources read
+
+- [Documentation index](https://developers.plane.so/llms.txt): discovery source for [api-index.tsv](api-index.tsv), containing 987 unique API documentation URLs (649 v2, 338 v1). Index SHA-256 at research time: `b744205bc9148d1d59e2145b430fcfc563fbf43953a4c58da1791904dfa1c03e`. Indexed does not mean every page was individually read or every endpoint verified. P00 converts this broad inventory into exact operation contracts before implementing each packet.
+- [V1 introduction](https://developers.plane.so/api-reference/introduction): API-key auth, base paths, request/error/pagination/rate-limit conventions.
+- [V2 introduction](https://developers.plane.so/api-reference/v2/introduction.md), [migration](https://developers.plane.so/api-reference/v2/migrating-from-v1.md): coexistence, renamed fields/routes, sparse reads, PATCH, v1-only gaps. Do not treat migration prose as an exhaustive endpoint catalog.
+- [V2 errors](https://developers.plane.so/api-reference/v2/errors), [pagination](https://developers.plane.so/api-reference/v2/pagination.md), [filters](https://developers.plane.so/api-reference/v2/filtering-and-ordering.md): problem categories, feature/payment conflicts, offset/cursor shapes and ordering restrictions; REST filters are not MCP PQL.
+- [Attachment upload](https://developers.plane.so/api-reference/v2/work-item-attachments/create-attachment-upload.md): three phases, 200 response, signed storage material; [project pages](https://developers.plane.so/api-reference/v2/project-pages/overview.md), [workspace pages](https://developers.plane.so/api-reference/v2/workspace-pages/overview.md): HTML content, archive/delete consequences.
+- [Types](https://developers.plane.so/api-reference/v2/work-item-types/overview.md), [workspace features](https://developers.plane.so/api-reference/v2/workspace-features/overview.md): governance modes, read-only epic semantics, feature flags versus entitlement.
+- [Edition/release explanation](https://developers.plane.so/self-hosting/editions-and-versions.md): separate codebases/release cycles. [Commercial releases](https://developers.plane.so/self-hosting/all-releases.md) and [Community release feed](https://github.com/makeplane/plane/releases) are not a universal API capability matrix. Research observed Community v1.4.3 and v1.5.0-rc2 entries; neither establishes v2 support.
+- [OpenAPI generation](https://developers.plane.so/dev-tools/openapi-specification.md): v1 schema publishing is disabled unless `ENABLE_DRF_SPECTACULAR=1`; `/api/schema/?format=openapi-json` is deployment-controlled. V2 intro documents `/api/v2/schema/` separately.
+- [OAuth overview](https://developers.plane.so/dev-tools/build-plane-app/overview), [registration](https://developers.plane.so/dev-tools/build-plane-app/create-oauth-application), [flows](https://developers.plane.so/dev-tools/build-plane-app/choose-token-flow): app credentials, user code/refresh and bot credential grants, installation ID, state validation. Apps are described as beta.
+- [MCP server](https://developers.plane.so/dev-tools/mcp-server): helpful conceptual comparison, not the REST API specification. Its localhost redirect allowlist belongs to that proxy; it does not prove public REST app PKCE/device support.
+- [Plane Compose](https://developers.plane.so/dev-tools/plane-compose): existing `plane` binary and former `~/.config/plane-cli` path justify a distinct namespace. This CLI does not implement its declarative sync workflow.
+
+## Findings requiring explicit caution
+
+1. **Schema availability:** unauthenticated `GET https://api.plane.so/api/v2/schema/` returned HTTP 404, `application/problem+json`, body `{"type":"not_found","code":"not_found","detail":"The requested resource was not found."}`. This does not prove v2 is absent. Do not depend on a public schema for builds or reinterpret it as a supported-version discovery endpoint.
+2. **Documentation gaps:** migration lists v1 agent/integration/workflow surfaces absent from the extracted index. A guessed project-page attachment overview also returned 404 during research; use the actual workspace-page/asset inventory, not guessed paths. Resolve affected operation evidence in P00/P06/P09; never silently drop a family or assert an undocumented endpoint.
+3. **Auth limits:** no verified public-client PKCE, device grant, or universal localhost redirect registration contract. Bring-your-own confidential app plus exact registered callback is the selected baseline; manual completion is a CLI flow, not a claim of provider device auth.
+4. **Edition limits:** official docs are not proof every edition/version/tenant exposes a feature. Mock coverage demonstrates CLI protocol behavior only; native keyring behavior and real deployment compatibility remain unverified until separately exercised.
+5. **Source conflicts:** migration's broad “paths take IDs” prose differs from operation pages allowing human identifiers; choose operation-specific evidence with recorded provenance, not a global heuristic.
+
+## Go and CLI sources
+
+- [Organizing a Go module](https://go.dev/doc/modules/layout), [Code Review Comments](https://go.dev/wiki/CodeReviewComments), [Effective Go](https://go.dev/doc/effective_go). Effective Go itself warns it is not actively updated; it is an idiom supplement, not the only current authority.
+- [Go downloads](https://go.dev/dl/): research baseline Go 1.27.4; separately choose Go 1.27 as project source baseline.
+- [golangci-lint docs](https://golangci-lint.run/docs/), [configuration](https://golangci-lint.run/docs/configuration/file/), [changelog](https://golangci-lint.run/docs/product/changelog/), [installation](https://golangci-lint.run/docs/welcome/install/local/): v2 schema, explicit linter selection, pinned v2.15.0; Go 1.27 support noted from v2.13.0.
+- [Cobra](https://github.com/spf13/cobra/blob/main/site/content/user_guide.md): context-aware execution, thin commands; [CLI Guidelines](https://clig.dev/): useful help/errors/IO separation, adapted deliberately for JSON-first agents rather than TTY-dependent behavior.
+- [Go vulnerabilities](https://go.dev/doc/security/vuln/), [fuzzing](https://go.dev/doc/security/fuzz/), [race detector](https://go.dev/doc/articles/race_detector): reachable-vulnerability analysis, bounded fuzzing and exercised-path race detection.
+- Go module proxy release metadata verified for [Cobra](https://proxy.golang.org/github.com/spf13/cobra/@v/v1.10.2.info), [keyring](https://proxy.golang.org/github.com/zalando/go-keyring/@v/v0.2.8.info), [OAuth](https://proxy.golang.org/golang.org/x/oauth2/@v/v0.38.0.info), [sys](https://proxy.golang.org/golang.org/x/sys/@v/v0.50.0.info), [vuln](https://proxy.golang.org/golang.org/x/vuln/@v/v1.9.0.info). Version existence is verified, compatibility/security of the assembled dependency set is P00/P02 acceptance—not presumed from metadata.
+
+## Research boundaries
+
+This is thorough architecture/protocol research and an exhaustive snapshot of the indexed API documentation, not a claim to have read all 987 pages or proven every endpoint. Exact endpoint extraction/reconciliation is a bounded prerequisite of each implementation packet. No tool/server credentials were copied into docs or fixtures. No live workspace was modified. [Kaneo comparison](../planning/kaneo-comparison.md) followed the independent plan, as requested.
