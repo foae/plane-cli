@@ -20,7 +20,9 @@ jobs:
   check:
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 20
+    # The race recipe permits 20 minutes per package; setup and other packages
+    # must fit inside a larger job deadline.
+    timeout-minutes: ${{ matrix.target == 'race' && 40 || 20 }}
     strategy:
       fail-fast: false
       matrix:
