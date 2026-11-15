@@ -1,0 +1,14 @@
+{
+  "version": "1.0.2",
+  "date": "2026-11-15",
+  "changes": [
+    {
+      "level": "patch",
+      "summary": "Keep the staged Homebrew download server alive when macOS sendfile reports ENOTCONN after a client disconnects."
+    },
+    {
+      "level": "patch",
+      "summary": "Define stable release completion as immutable tag, full GitHub asset publication, verified Homebrew tap bump and public installation checks."
+    }
+  ]
+}
