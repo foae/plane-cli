@@ -1,0 +1,27 @@
+{
+  "group": "workspace-work-item-property-option",
+  "action": "update",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/example/work-item-properties/property-id/options/target-id/",
+  "body": {
+    "name": "Major",
+    "is_default": false,
+    "description": "Literal"
+  },
+  "status": 200,
+  "response": {
+    "id": "5e8b7d21-4a09-4c63-b7f2-90d1c3a86e57",
+    "name": "Pre-production",
+    "description": "Reported on the shared pre-release environment",
+    "parent_id": null,
+    "is_default": false,
+    "is_active": true,
+    "sort_order": 20000,
+    "logo_props": {},
+    "external_id": null,
+    "external_source": null,
+    "updated_at": "2026-02-03T16:45:12.904117Z",
+    "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+  },
+  "destructive": false
+}

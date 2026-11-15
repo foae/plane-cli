@@ -1,0 +1,44 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/delete-workspace-property-option.md",
+  "source_id": "v2:workspace-work-item-property-options:delete-workspace-property-option",
+  "source_sha256": "cc878ca78c4da030fc8928352e10e8b673dd06e78683616f165ed6b98914b821",
+  "reviewed_at": "2026-11-14",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/{slug}/work-item-properties/{property_id}/options/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "property_id": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "property_id",
+          "pk"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 204,
+      "content_type": "",
+      "schema": true
+    }
+  ]
+}

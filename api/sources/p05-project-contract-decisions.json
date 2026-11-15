@@ -1,0 +1,50 @@
+{
+  "decisions": [
+    {
+      "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-properties/attach-type-property.md",
+      "source_sha256": "06b28af5f9d168e01343b6cc4432fd664283fdb527873bea01671531dbf35925",
+      "exact_excerpt": "The array cannot be empty.",
+      "resolution": "Nonempty ids-only properties array; no invented per-link required/settings fields."
+    },
+    {
+      "source_url": "https://developers.plane.so/api-reference/v2/work-item-types/overview.md",
+      "source_sha256": "371e9d855cf516b630ca7b0908fcf7102532c6752c8fceb86b0c82fb672a2da1",
+      "exact_excerpt": "Attaching a property makes it apply to a type, and this is where you decide whether it is required for that type.",
+      "resolution": "Overview disagrees with attach operation: ids-only operation-specific contract wins."
+    },
+    {
+      "source_url": "https://developers.plane.so/api-reference/issue-types/values/add-property-values.md",
+      "source_sha256": "e386d19709e367362c409c278acf70a84c30fe5ad5b1550ac167d895ef3efb33",
+      "exact_excerpt": "The value to set for the property. Its type depends on the property type: a string for text, URL, email, and file fields; a UUID string, or a list of UUIDs when `is_multi` is `true`, for relations and options; a `YYYY-MM-DD` string for dates; a number for decimals; and a boolean for booleans.",
+      "resolution": "ApiParam object label conflicts with explicit scalar/array field prose. Preserve union; null not documented and not accepted."
+    },
+    {
+      "source_url": "https://developers.plane.so/api-reference/issue-types/values/list-property-values.md",
+      "source_sha256": "b227210970f8bb740fecdee09af2e908917e66ac5115c98901bc02d0adf3dde7",
+      "exact_excerpt": "Retrieve the property value(s) for a specific work item property. Returns a single value for non-multi properties, or a list for multi-value properties.",
+      "resolution": "Identical GET/get source response semantics: canonical get, list source alias."
+    },
+    {
+      "source_url": "https://developers.plane.so/api-reference/issue-types/values/get-property-value-detail.md",
+      "source_sha256": "35e9f4a30316d9d48fc2b5f2fc30e68b0d0000311b949c53484f6ff694af1780",
+      "exact_excerpt": "Retrieve the property value(s) for a specific work item property. Returns a single value for non-multi properties, or a list for multi-value properties.",
+      "resolution": "Native object or array is preserved without pagination or value-id path."
+    },
+    {
+      "source_url": "https://developers.plane.so/api-reference/issue-types/types/get-work-item-type-schema.md",
+      "source_sha256": "19184e78934bfa4c005bbb2a33656ea4e6a0b97e8d6e55e8b0aba30d27186909",
+      "exact_excerpt": "Work item type ID. If you omit it, the response contains the default type's schema when work item types are enabled, or only the standard fields otherwise.",
+      "resolution": "V1 optional --id becomes type_id query; v2 requires --id path. No hidden fetch."
+    },
+    {
+      "source_url": "https://developers.plane.so/api-reference/v2/work-item-property-contexts/create-property-context.md",
+      "exact_excerpt": "Names must be unique within the payload, case-insensitively.",
+      "resolution": "Reject case-insensitive duplicate option names; no undocumented whitespace trimming."
+    },
+    {
+      "source_url": "https://developers.plane.so/api-reference/v2/work-item-property-contexts/update-property-context.md",
+      "exact_excerpt": "Any option currently on the context that you do not reference by `id` is removed, along with the values recorded through it.",
+      "resolution": "Context updates require --yes because option replacement removes recorded values. Project property update documents recorded values staying unchanged; do not infer the same destructive behavior."
+    }
+  ]
+}

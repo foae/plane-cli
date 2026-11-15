@@ -1,0 +1,68 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/create-workspace-property-option.md",
+  "source_id": "v2:workspace-work-item-property-options:create-workspace-property-option",
+  "source_sha256": "b9278bee8b6bdfb6bd5a6dcac1c0ccebf581ee3b7d2e4dc476db99c2b390a178",
+  "reviewed_at": "2026-11-14",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/work-item-properties/{property_id}/options/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "property_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "property_id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "description": {
+            "type": "string"
+          },
+          "is_default": {
+            "type": "boolean"
+          },
+          "external_id": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "external_source": {
+            "type": "string",
+            "maxLength": 255
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 201,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ]
+}

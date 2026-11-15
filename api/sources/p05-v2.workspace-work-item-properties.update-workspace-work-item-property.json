@@ -1,0 +1,155 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-work-item-properties/update-workspace-work-item-property.md",
+  "source_id": "v2:workspace-work-item-properties:update-workspace-work-item-property",
+  "source_sha256": "9bed91b90d0fe2c4d363612c79ddaba72a2c2262948fdc44fccfe448459e8dc9",
+  "reviewed_at": "2026-11-14",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/work-item-properties/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "display_name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "property_type": {
+            "type": "string",
+            "enum": [
+              "TEXT",
+              "DATETIME",
+              "DECIMAL",
+              "BOOLEAN",
+              "OPTION",
+              "RELATION",
+              "URL",
+              "EMAIL",
+              "FILE",
+              "FORMULA"
+            ]
+          },
+          "relation_type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "ISSUE",
+              "USER",
+              "RELEASE",
+              "RICH_TEXT",
+              null
+            ]
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "is_required": {
+            "type": "boolean"
+          },
+          "is_multi": {
+            "type": "boolean"
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "default_value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "description": {
+                  "type": "string"
+                },
+                "is_default": {
+                  "type": "boolean"
+                },
+                "external_id": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": "string",
+                  "maxLength": 255
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "settings": {},
+          "validation_rules": {},
+          "external_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "external_source": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ]
+}

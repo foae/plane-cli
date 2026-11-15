@@ -1,0 +1,61 @@
+{
+  "group": "workspace-work-item-property-option",
+  "action": "list",
+  "method": "GET",
+  "path": "/api/v2/workspaces/example/work-item-properties/property-id/options/",
+  "body": null,
+  "status": 200,
+  "response": {
+    "data": [
+      {
+        "id": "c31a7e04-5f6b-4d29-8a13-7e0c2b9f4a65",
+        "name": "Production",
+        "description": "Reported on live customer traffic",
+        "parent_id": null,
+        "is_default": true,
+        "is_active": true,
+        "sort_order": 10000,
+        "logo_props": {},
+        "external_id": null,
+        "external_source": null,
+        "updated_at": "2026-01-14T09:22:41.478363Z",
+        "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      },
+      {
+        "id": "5e8b7d21-4a09-4c63-b7f2-90d1c3a86e57",
+        "name": "Staging",
+        "description": "Reported on the shared pre-release environment",
+        "parent_id": null,
+        "is_default": false,
+        "is_active": true,
+        "sort_order": 20000,
+        "logo_props": {},
+        "external_id": null,
+        "external_source": null,
+        "updated_at": "2026-01-14T09:22:41.478363Z",
+        "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      },
+      {
+        "id": "a17f3c95-2d64-4b08-8e51-c94b7d60f382",
+        "name": "Development",
+        "description": "Reported on a local or branch environment",
+        "parent_id": null,
+        "is_default": false,
+        "is_active": true,
+        "sort_order": 30000,
+        "logo_props": {},
+        "external_id": null,
+        "external_source": null,
+        "updated_at": "2026-01-14T09:22:41.478363Z",
+        "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      }
+    ],
+    "next": null,
+    "previous": null,
+    "total_count": 3,
+    "pagination": {
+      "style": "offset"
+    }
+  },
+  "destructive": false
+}

@@ -1,0 +1,53 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-property-contexts/get-property-context.md",
+  "source_id": "v2:work-item-property-contexts:get-property-context",
+  "source_sha256": "b6274f59fdbd9a9b8422d5689e2027c5aff77cde31d85a2b9ff0ddda5524ee56",
+  "reviewed_at": "2026-11-14",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/work-item-properties/{property_id}/contexts/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "property_id": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "property_id",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ]
+}

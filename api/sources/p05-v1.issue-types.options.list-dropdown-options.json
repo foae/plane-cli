@@ -1,0 +1,31 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/issue-types/options/list-dropdown-options.md",
+  "source_sha256": "e040f6b2ce8c26a24168c37a68626e7a6c8de9592a09b9ce09022fbc5e5cab72",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-item-properties/{property_id}/options/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "project_id",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "property_id",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    "statuses": [
+      200
+    ]
+  }
+}

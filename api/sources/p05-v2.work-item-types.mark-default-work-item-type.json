@@ -1,0 +1,38 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-types/mark-default-work-item-type.md",
+  "source_sha256": "0904ab9a9c8df5167121c34611ed40bcee606bf0b8a0f83689ac0bfa6a0bf87c",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{pk}/mark-default/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "project_id",
+          "type": "string (uuid)",
+          "required": true
+        },
+        {
+          "name": "pk",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Response shaping": [
+        {
+          "name": "fields",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    "statuses": [
+      200
+    ]
+  }
+}

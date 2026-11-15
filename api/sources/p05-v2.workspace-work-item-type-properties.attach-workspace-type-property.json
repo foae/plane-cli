@@ -1,0 +1,56 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-work-item-type-properties/attach-workspace-type-property.md",
+  "source_id": "v2:workspace-work-item-type-properties:attach-workspace-type-property",
+  "source_sha256": "599927732f3f7d2f3117fff02222c9ce8adc0986f181b511f4592184264e2cb5",
+  "reviewed_at": "2026-11-14",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/properties/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "type_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "type_id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "properties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "properties"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 201,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ]
+}

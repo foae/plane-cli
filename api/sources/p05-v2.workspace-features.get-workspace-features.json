@@ -1,0 +1,49 @@
+{
+  "id": "v2.workspace-features.get-workspace-features",
+  "owner": "P08",
+  "version": "v2",
+  "source_group": "workspace-features",
+  "source_slug": "get-workspace-features",
+  "command": [
+    "workspace-feature",
+    "get"
+  ],
+  "handler": "workspace-feature-get",
+  "scope": "workspace",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/features/",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-features/get-workspace-features.md",
+  "snapshot_sha256": "9ba510440cb4c1ebf4f0292706931b0395e3fa4ad6b0d3d55463d8029fb6579e",
+  "snapshot_bytes": 5126,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "slug"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "acceptance_scenarios": [
+    "TestTypeGovernanceReads"
+  ]
+}

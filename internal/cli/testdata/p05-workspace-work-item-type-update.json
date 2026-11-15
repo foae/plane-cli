@@ -1,0 +1,35 @@
+{
+  "group": "workspace-work-item-type",
+  "action": "update",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/example/work-item-types/target-id/",
+  "body": {
+    "name": "Incident",
+    "description": "Literal <p>text</p>",
+    "is_active": false,
+    "external_id": null
+  },
+  "status": 200,
+  "response": {
+    "id": "c1a7d3f4-6b28-4e90-8d15-2f7a0b9c4e63",
+    "name": "Defect",
+    "description": "A confirmed break in shipped behavior",
+    "logo_props": {},
+    "is_epic": false,
+    "is_default": false,
+    "is_active": true,
+    "level": 0,
+    "governance_mode": "any",
+    "rollout": "none",
+    "project_ids": [
+      "4af68566-94a4-4eb3-94aa-50dc9427067b",
+      "7c19e5b3-2d84-4f6a-b0e7-93a1c5d8f246"
+    ],
+    "external_id": null,
+    "external_source": null,
+    "created_at": "2026-01-14T09:22:41.478363Z",
+    "updated_at": "2026-02-03T16:45:12.904117Z",
+    "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+  },
+  "destructive": false
+}

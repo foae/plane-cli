@@ -1,0 +1,39 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-properties/get-work-item-property.md",
+  "source_sha256": "71c1f3c27bd53f8425d238f10d7680b0b002be5325397c49d604f0d7c491b919",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-properties/{pk}/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "project_id",
+          "type": "string (uuid)",
+          "required": true
+        },
+        {
+          "name": "pk",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Response shaping": [
+        {
+          "name": "fields",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    "statuses": [
+      200,
+      404
+    ]
+  }
+}

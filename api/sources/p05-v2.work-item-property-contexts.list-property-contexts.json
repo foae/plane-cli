@@ -1,0 +1,72 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-property-contexts/list-property-contexts.md",
+  "source_id": "v2:work-item-property-contexts:list-property-contexts",
+  "source_sha256": "99f2c574dd6615287493947e8ec028a79b7b39b41e095134aa58a0f3a6ebdff1",
+  "reviewed_at": "2026-11-14",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/work-item-properties/{property_id}/contexts/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "property_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "property_id"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "order_by": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "paginate": {
+            "type": "string"
+          },
+          "count": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ]
+}

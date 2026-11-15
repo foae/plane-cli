@@ -1,0 +1,53 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/issue-types/values/update-property-value.md",
+  "source_sha256": "9302841ad07e55adb49f7c7f4bb7c90afc25eda001a8a5ccbc8f2ac7621aac90",
+  "contract": {
+    "kind": "operation",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/work-item-properties/{property_id}/values/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "project_id",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "property_id",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "work_item_id",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "value",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "external_id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "external_source",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    "statuses": [
+      200
+    ]
+  }
+}

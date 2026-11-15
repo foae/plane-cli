@@ -1,0 +1,10 @@
+{
+  "group": "workspace-work-item-type-property",
+  "action": "detach",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/example/work-item-types/type-id/properties/target-id/",
+  "body": null,
+  "status": 204,
+  "response": null,
+  "destructive": true
+}

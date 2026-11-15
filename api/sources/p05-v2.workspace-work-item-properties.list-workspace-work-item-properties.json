@@ -1,0 +1,80 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-work-item-properties/list-workspace-work-item-properties.md",
+  "source_id": "v2:workspace-work-item-properties:list-workspace-work-item-properties",
+  "source_sha256": "b627409d5a352efcb7ce12277751c5e2353d3f7d3af56b29d3521155e7cab804",
+  "reviewed_at": "2026-11-14",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/work-item-properties/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "external_source": {
+            "type": "string"
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "paginate": {
+            "type": "string"
+          },
+          "count": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ]
+}

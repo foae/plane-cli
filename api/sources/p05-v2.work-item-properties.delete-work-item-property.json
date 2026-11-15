@@ -1,0 +1,40 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-properties/delete-work-item-property.md",
+  "source_sha256": "46fc37326d67a57208a29f4a4af7cd3a40639454b3961f903074ac73cf2d050f",
+  "contract": {
+    "kind": "operation",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-properties/{pk}/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "project_id",
+          "type": "string (uuid)",
+          "required": true
+        },
+        {
+          "name": "pk",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Response shaping": [
+        {
+          "name": "fields",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    "statuses": [
+      204,
+      404,
+      409
+    ]
+  }
+}

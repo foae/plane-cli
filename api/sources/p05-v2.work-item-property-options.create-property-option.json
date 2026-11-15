@@ -1,0 +1,59 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-property-options/create-property-option.md",
+  "source_sha256": "f2caea44b68aa5e6bd5473f5f96be21bb5e2ac97333168683d57e7634525b65b",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-properties/{property_id}/options/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "project_id",
+          "type": "string (uuid)",
+          "required": true
+        },
+        {
+          "name": "property_id",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "is_default",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "external_id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "external_source",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    "statuses": [
+      201,
+      409
+    ]
+  }
+}

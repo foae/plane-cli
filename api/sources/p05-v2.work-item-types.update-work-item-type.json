@@ -1,0 +1,66 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-types/update-work-item-type.md",
+  "source_sha256": "99e712b153a5d1b601559b24b8d303dacf577214a5577354e767a85b0deba3bf",
+  "contract": {
+    "kind": "operation",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{pk}/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "project_id",
+          "type": "string (uuid)",
+          "required": true
+        },
+        {
+          "name": "pk",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "is_active",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "external_id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "external_source",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "Response shaping": [
+        {
+          "name": "fields",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    "statuses": [
+      200,
+      400
+    ]
+  }
+}

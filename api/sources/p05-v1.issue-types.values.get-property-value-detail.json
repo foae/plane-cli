@@ -1,0 +1,36 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/issue-types/values/get-property-value-detail.md",
+  "source_sha256": "35e9f4a30316d9d48fc2b5f2fc30e68b0d0000311b949c53484f6ff694af1780",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/work-item-properties/{property_id}/values/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "project_id",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "property_id",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "work_item_id",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    "statuses": [
+      200
+    ]
+  }
+}

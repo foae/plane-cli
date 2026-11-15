@@ -1,0 +1,103 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/issue-types/properties/add-property.md",
+  "source_sha256": "a3e315fa2e3e8fa60c644f8cda814149e1fe25c2864fadd08ae504de5ad3002f",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-item-types/{type_id}/work-item-properties/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "project_id",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "type_id",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "relation_type",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "array",
+          "required": false
+        },
+        {
+          "name": "display_name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "property_type",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "is_required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "default_value",
+          "type": "array",
+          "required": false
+        },
+        {
+          "name": "settings",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "is_active",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "is_multi",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "validation_rules",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "external_source",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "external_id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "formula_config",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    "statuses": [
+      201
+    ]
+  }
+}

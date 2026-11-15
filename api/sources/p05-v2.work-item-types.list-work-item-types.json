@@ -1,0 +1,79 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-types/list-work-item-types.md",
+  "source_sha256": "3b3bed251c1e2c2c09b865df81104c87cafe026b7ba7466d1bb7d43c6391a86f",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "project_id",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Query parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "external_id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "external_source",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "Ordering": [
+        {
+          "name": "order_by",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "Pagination": [
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "paginate",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "Response shaping": [
+        {
+          "name": "fields",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    "statuses": [
+      200
+    ]
+  }
+}

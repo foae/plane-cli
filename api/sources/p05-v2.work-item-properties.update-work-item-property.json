@@ -1,0 +1,106 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-properties/update-work-item-property.md",
+  "source_sha256": "978d1b403f18da6098fbeeb95c5443bf3c69922a0aa23c6cd5031a450db5ffa6",
+  "contract": {
+    "kind": "operation",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-properties/{pk}/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "project_id",
+          "type": "string (uuid)",
+          "required": true
+        },
+        {
+          "name": "pk",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "display_name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "property_type",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "relation_type",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "array of object",
+          "required": false
+        },
+        {
+          "name": "is_multi",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "is_required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "is_active",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "default_value",
+          "type": "array of string",
+          "required": false
+        },
+        {
+          "name": "settings",
+          "type": "any",
+          "required": false
+        },
+        {
+          "name": "validation_rules",
+          "type": "any",
+          "required": false
+        },
+        {
+          "name": "external_id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "external_source",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "Response shaping": [
+        {
+          "name": "fields",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    "statuses": [
+      200,
+      409
+    ]
+  }
+}

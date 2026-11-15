@@ -1,0 +1,9 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/overview.md",
+  "source_id": "v2:workspace-work-item-property-options:overview",
+  "source_sha256": "95bf6cb2c06c895b4e605c3a219c52308679950618d97cf9e87db9befab549a5",
+  "reviewed_at": "2026-11-14",
+  "notes": [
+    "Workspace-scoped type/property surface; operation-specific contracts take precedence over conflicting overview examples."
+  ]
+}

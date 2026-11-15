@@ -1,0 +1,32 @@
+{
+  "group": "workspace-work-item-type",
+  "action": "create",
+  "method": "POST",
+  "path": "/api/v2/workspaces/example/work-item-types/",
+  "body": {
+    "name": "Incident",
+    "description": "Literal <p>text</p>",
+    "is_active": false,
+    "external_id": null
+  },
+  "status": 201,
+  "response": {
+    "id": "a3f52d07-8e19-4c6b-92d4-0b7e15c8f326",
+    "name": "Incident",
+    "description": "Customer-facing outage that needs a response now",
+    "logo_props": {},
+    "is_epic": false,
+    "is_default": false,
+    "is_active": true,
+    "level": 0,
+    "governance_mode": "any",
+    "rollout": "none",
+    "project_ids": [],
+    "external_id": "10004",
+    "external_source": "jira",
+    "created_at": "2026-01-14T09:22:41.478363Z",
+    "updated_at": "2026-01-14T09:22:41.478363Z",
+    "updated_by_id": null
+  },
+  "destructive": false
+}

@@ -1,0 +1,44 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/get-workspace-property-option.md",
+  "source_id": "v2:workspace-work-item-property-options:get-workspace-property-option",
+  "source_sha256": "bce4d8831ff9180dc43faffede2f9c59558e9468e0a827adf802b66a49873539",
+  "reviewed_at": "2026-11-14",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/work-item-properties/{property_id}/options/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "property_id": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "property_id",
+          "pk"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ]
+}

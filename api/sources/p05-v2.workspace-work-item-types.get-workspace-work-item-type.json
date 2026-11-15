@@ -1,0 +1,49 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-work-item-types/get-workspace-work-item-type.md",
+  "source_id": "v2:workspace-work-item-types:get-workspace-work-item-type",
+  "source_sha256": "8129304c60ad940ecf9087d1768ce4284660c0868867a9c94340bd81e11c1041",
+  "reviewed_at": "2026-11-14",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/work-item-types/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ]
+}

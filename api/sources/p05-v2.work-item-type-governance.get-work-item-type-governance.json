@@ -1,0 +1,54 @@
+{
+  "id": "v2.work-item-type-governance.get-work-item-type-governance",
+  "owner": "P09",
+  "version": "v2",
+  "source_group": "work-item-type-governance",
+  "source_slug": "get-work-item-type-governance",
+  "command": [
+    "work-item-type-governance",
+    "get"
+  ],
+  "handler": "work-item-type-governance-get",
+  "scope": "workspace",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/",
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-governance/get-work-item-type-governance.md",
+  "snapshot_sha256": "66e336d033e6530eda90c3fdec49de0813b3a0760c0b85b46cc4d69a0d4bff1b",
+  "snapshot_bytes": 5315,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "slug",
+          "type_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "acceptance_scenarios": [
+    "TestTypeGovernanceReads"
+  ]
+}

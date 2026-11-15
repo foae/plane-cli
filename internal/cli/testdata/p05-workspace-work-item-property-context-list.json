@@ -1,0 +1,96 @@
+{
+  "group": "work-item-property-context",
+  "action": "list",
+  "method": "GET",
+  "path": "/api/v2/workspaces/example/work-item-properties/property-id/contexts/",
+  "body": null,
+  "status": 200,
+  "response": {
+    "data": [
+      {
+        "id": "2f8c40a6-9d13-4b7e-85c0-1e6a3f9b7d52",
+        "name": "Default",
+        "is_required": false,
+        "is_multi": false,
+        "is_default": true,
+        "default_value": [],
+        "settings": {},
+        "sort_order": 65535,
+        "applies_to_all_projects": true,
+        "applies_to_all_work_item_types": true,
+        "external_id": null,
+        "external_source": null,
+        "created_at": "2026-01-14T09:22:41.478363Z",
+        "updated_at": "2026-01-14T09:22:41.478363Z",
+        "updated_by_id": null,
+        "project_ids": [],
+        "issue_type_ids": [],
+        "options": [
+          {
+            "id": "5d0a9e34-7c62-4f18-b93d-0a4e6f2c8b71",
+            "name": "Low",
+            "is_default": false,
+            "sort_order": 10000
+          },
+          {
+            "id": "81b4f27c-3a05-4e96-8d21-7f6c0b4a9e53",
+            "name": "High",
+            "is_default": false,
+            "sort_order": 20000
+          }
+        ]
+      },
+      {
+        "id": "6e2b90d4-1c73-4f58-a09e-3d8b5c14e7f2",
+        "name": "Bug severity",
+        "is_required": true,
+        "is_multi": false,
+        "is_default": false,
+        "default_value": [],
+        "settings": {},
+        "sort_order": 75535,
+        "applies_to_all_projects": false,
+        "applies_to_all_work_item_types": false,
+        "external_id": null,
+        "external_source": null,
+        "created_at": "2026-02-03T11:05:17.204918Z",
+        "updated_at": "2026-02-03T11:05:17.204918Z",
+        "updated_by_id": null,
+        "project_ids": [
+          "4af68566-94a4-4eb3-94aa-50dc9427067b",
+          "9c3d7e21-6b45-4a80-8f19-2e0c7b5d3a64"
+        ],
+        "issue_type_ids": [
+          "b7e04a95-2f18-4c63-9d57-8a12e6b0f439"
+        ],
+        "options": [
+          {
+            "id": "c58e2f01-4d97-4b3a-8e26-1f0b7a9c5d34",
+            "name": "S1 \u2014 Critical",
+            "is_default": false,
+            "sort_order": 10000
+          },
+          {
+            "id": "a49b6c72-8e15-4d30-b57c-2f81e0a6d938",
+            "name": "S2 \u2014 Major",
+            "is_default": true,
+            "sort_order": 20000
+          },
+          {
+            "id": "f13c8a60-7d24-4e59-9b02-6a5f1c3e8d47",
+            "name": "S3 \u2014 Minor",
+            "is_default": false,
+            "sort_order": 30000
+          }
+        ]
+      }
+    ],
+    "next": null,
+    "previous": null,
+    "total_count": 2,
+    "pagination": {
+      "style": "offset"
+    }
+  },
+  "destructive": false
+}

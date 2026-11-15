@@ -38,6 +38,15 @@ func HandlerIDs() []string {
 	for id := range schedulingHandlers() {
 		ids = append(ids, id)
 	}
+	for id := range typeGovernanceHandlers() {
+		ids = append(ids, id)
+	}
+	for id := range workspaceTypesHandlers() {
+		ids = append(ids, id)
+	}
+	for id := range projectTypesHandlers() {
+		ids = append(ids, id)
+	}
 	return ids
 }
 
@@ -122,6 +131,15 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 		handlers[id] = h
 	}
 	for id, h := range schedulingHandlers() {
+		handlers[id] = h
+	}
+	for id, h := range typeGovernanceHandlers() {
+		handlers[id] = h
+	}
+	for id, h := range workspaceTypesHandlers() {
+		handlers[id] = h
+	}
+	for id, h := range projectTypesHandlers() {
 		handlers[id] = h
 	}
 	for id, h := range extra {

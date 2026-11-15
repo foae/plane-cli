@@ -1,0 +1,205 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-property-contexts/update-property-context.md",
+  "source_id": "v2:work-item-property-contexts:update-property-context",
+  "source_sha256": "117bfc81616cfadc1ed5989b29696ae01d18a20b1019975bd6b70bb8e1fc3e01",
+  "reviewed_at": "2026-11-14",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/work-item-properties/{property_id}/contexts/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "property_id": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "property_id",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "applies_to_all_projects": {
+            "type": "boolean"
+          },
+          "project_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "applies_to_all_work_item_types": {
+            "type": "boolean"
+          },
+          "issue_type_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "is_required": {
+            "type": "boolean"
+          },
+          "is_multi": {
+            "type": "boolean"
+          },
+          "default_value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "description": {
+                  "type": "string"
+                },
+                "is_default": {
+                  "type": "boolean"
+                }
+              },
+              "required": [],
+              "additionalProperties": false,
+              "oneOf": [
+                {
+                  "required": [
+                    "id"
+                  ],
+                  "not": {
+                    "required": [
+                      "name"
+                    ]
+                  }
+                },
+                {
+                  "required": [
+                    "name"
+                  ],
+                  "not": {
+                    "required": [
+                      "id"
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "settings": {
+            "type": "object"
+          },
+          "sort_order": {
+            "type": "number"
+          },
+          "external_id": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "external_source": {
+            "type": "string",
+            "maxLength": 255
+          }
+        },
+        "required": [],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "required": [
+                "applies_to_all_projects"
+              ],
+              "properties": {
+                "applies_to_all_projects": {
+                  "const": true
+                }
+              }
+            },
+            "then": {
+              "not": {
+                "required": [
+                  "project_ids"
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "applies_to_all_work_item_types"
+              ],
+              "properties": {
+                "applies_to_all_work_item_types": {
+                  "const": true
+                }
+              }
+            },
+            "then": {
+              "not": {
+                "required": [
+                  "issue_type_ids"
+                ]
+              }
+            }
+          }
+        ],
+        "dependentRequired": {
+          "external_id": [
+            "external_source"
+          ],
+          "external_source": [
+            "external_id"
+          ]
+        }
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ]
+}

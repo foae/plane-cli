@@ -1,0 +1,10 @@
+{
+  "group": "workspace-work-item-property-option",
+  "action": "delete",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/example/work-item-properties/property-id/options/target-id/",
+  "body": null,
+  "status": 204,
+  "response": null,
+  "destructive": true
+}

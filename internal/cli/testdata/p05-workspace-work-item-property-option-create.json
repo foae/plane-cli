@@ -1,0 +1,27 @@
+{
+  "group": "workspace-work-item-property-option",
+  "action": "create",
+  "method": "POST",
+  "path": "/api/v2/workspaces/example/work-item-properties/property-id/options/",
+  "body": {
+    "name": "Major",
+    "is_default": false,
+    "description": "Literal"
+  },
+  "status": 201,
+  "response": {
+    "id": "2f6a94c1-7b38-4d50-91ae-3c0d5e8b7a26",
+    "name": "Sandbox",
+    "description": "Reported on an isolated test tenant",
+    "parent_id": null,
+    "is_default": false,
+    "is_active": true,
+    "sort_order": 40000,
+    "logo_props": {},
+    "external_id": "env-sandbox",
+    "external_source": "servicedesk",
+    "updated_at": "2026-01-14T09:22:41.478363Z",
+    "updated_by_id": null
+  },
+  "destructive": false
+}

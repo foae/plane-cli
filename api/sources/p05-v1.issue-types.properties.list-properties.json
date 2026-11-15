@@ -1,0 +1,31 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/issue-types/properties/list-properties.md",
+  "source_sha256": "4721b9904b1afdd921a9ea324cc6ea83b2ce49f021dd3b6b3a480b147d81d6ae",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-item-types/{type_id}/work-item-properties/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "project_id",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "type_id",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    "statuses": [
+      200
+    ]
+  }
+}

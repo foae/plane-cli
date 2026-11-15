@@ -1,0 +1,9 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-property-contexts/overview.md",
+  "source_id": "v2:work-item-property-contexts:overview",
+  "source_sha256": "a39096f8fdf737004312ec228a419c7350ae4f0c4beb469bc5f8162f6e14d62e",
+  "reviewed_at": "2026-11-14",
+  "notes": [
+    "Contexts replace required, multiple, default, settings and option constraints in their scope; most specific matching tier wins."
+  ]
+}

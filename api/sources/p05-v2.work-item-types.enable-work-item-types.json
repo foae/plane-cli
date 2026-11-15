@@ -1,0 +1,34 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-types/enable-work-item-types.md",
+  "source_sha256": "5eb4454f0ea103304b3ab4aa43ca9737fd4816427caa8aaf88c98ffa6833d798",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/enable/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "project_id",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Response shaping": [
+        {
+          "name": "fields",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    "statuses": [
+      200,
+      409
+    ]
+  }
+}

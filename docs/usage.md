@@ -155,3 +155,31 @@ Scheduling commands retain version-specific membership, archive and transfer rou
 Cycle timezone validation embeds IANA timezone data and does not require host zoneinfo. V2 collaboration lists accept opaque `--cursor` values for manual continuation. Automatic traversal is bounded with `--max-pages`, not an item-count limit.
 
 The [packet router](implementation/README.md) identifies remaining work. Deterministic fake-server acceptance does not establish live Plane edition compatibility.
+
+## Types and custom properties
+
+Project commands use `work-item-type`, `work-item-property`, `work-item-property-option` and `work-item-type-property`. Their workspace counterparts start with `workspace-`; `work-item-property-context` is workspace-scoped. V1 property values use `work-item-property-value`; v2 values belong in a work item's `custom_fields` body.
+
+Read `workspace-feature get` and `work-item-type-governance get --type TYPE_ID` explicitly when needed. Mutations do not discover modes, fetch schemas, change governance, or retry against another scope. A 409 is returned through the existing sanitized API-error envelope with `http_status: 409`.
+
+This v2 recipe needs a configured connection, `jq`, project-managed types, and an existing work item of the selected type. Set `WORKSPACE`, `PROJECT_ID`, `TYPE_ID` and `WORK_ITEM_ID` to your own values. It creates and attaches an optional text property, reads the resulting schema, then updates that property on the work item:
+
+```sh manual
+set -eu
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+printf '%s\n' '{"display_name":"Runbook note","property_type":"TEXT","is_required":false,"is_multi":false}' > "$tmp/property.json"
+plane-cli work-item-property create --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT_ID" --body-file "$tmp/property.json" > "$tmp/created.json"
+property_id=$(jq -er '.data.id' "$tmp/created.json")
+property_name=$(jq -er '.data.name' "$tmp/created.json")
+jq -n --arg id "$property_id" '{properties:[$id]}' > "$tmp/attach.json"
+plane-cli work-item-type-property attach --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT_ID" --type "$TYPE_ID" --body-file "$tmp/attach.json"
+plane-cli work-item-type get-schema --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT_ID" --id "$TYPE_ID" > "$tmp/schema.json"
+jq -e --arg name "$property_name" '.data.custom_fields[$name]' "$tmp/schema.json"
+jq -n --arg name "$property_name" '{custom_fields:{($name):"See the service runbook"}}' > "$tmp/value.json"
+plane-cli work-item update --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT_ID" --id "$WORK_ITEM_ID" --body-file "$tmp/value.json"
+```
+
+Use the returned property name, not its display name, as the `custom_fields` key. The server's type schema supplies required/cardinality and option constraints; dynamic keys and native JSON values pass through unchanged. Omitted PATCH properties keep their values. Property definitions, type attachments, context overrides and recorded values are separate resources.
+
+Context updates require `--yes`: replacing options may delete recorded values. The upstream property overview and context overview disagree about whether an all-project/all-type default context is seeded; the CLI does not infer or create one. Workspace `is_epic` is read-only: creating a type named “Epic” does not make it a system epic.

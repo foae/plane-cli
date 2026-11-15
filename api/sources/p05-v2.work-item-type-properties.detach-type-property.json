@@ -1,0 +1,38 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-properties/detach-type-property.md",
+  "source_sha256": "330d3e790375b3fff993383658a0ae53417c2bee01cbbf9c644531e03d31a005",
+  "contract": {
+    "kind": "operation",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{type_id}/properties/{pk}/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "project_id",
+          "type": "string (uuid)",
+          "required": true
+        },
+        {
+          "name": "type_id",
+          "type": "string (uuid)",
+          "required": true
+        },
+        {
+          "name": "pk",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ]
+    },
+    "statuses": [
+      204,
+      404,
+      409
+    ]
+  }
+}

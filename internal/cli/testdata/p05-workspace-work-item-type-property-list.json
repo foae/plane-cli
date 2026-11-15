@@ -1,0 +1,92 @@
+{
+  "group": "workspace-work-item-type-property",
+  "action": "list",
+  "method": "GET",
+  "path": "/api/v2/workspaces/example/work-item-types/type-id/properties/",
+  "body": null,
+  "status": 200,
+  "response": {
+    "data": [
+      {
+        "id": "a7e3f1d0-5c92-4b68-8f31-2d4a6b9e0c15",
+        "name": "severity",
+        "display_name": "Severity",
+        "description": "How badly the customer is affected",
+        "property_type": "OPTION",
+        "relation_type": null,
+        "is_required": true,
+        "is_multi": false,
+        "is_active": true,
+        "default_value": [
+          "Major"
+        ],
+        "options": [
+          {
+            "id": "9d2c7b41-6a80-4f35-8e19-5c3b0a7d2e46",
+            "name": "Critical",
+            "description": "Production is down",
+            "parent_id": null,
+            "is_default": false,
+            "is_active": true,
+            "sort_order": 10000,
+            "logo_props": {},
+            "external_id": null,
+            "external_source": null,
+            "updated_at": "2026-01-14T09:22:41.478363Z",
+            "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          },
+          {
+            "id": "5a83e0b7-2c46-4d19-9f70-6b12c8e5a03d",
+            "name": "Major",
+            "description": "A core workflow is broken",
+            "parent_id": null,
+            "is_default": true,
+            "is_active": true,
+            "sort_order": 20000,
+            "logo_props": {},
+            "external_id": null,
+            "external_source": null,
+            "updated_at": "2026-01-14T09:22:41.478363Z",
+            "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          }
+        ],
+        "settings": {},
+        "validation_rules": {},
+        "logo_props": {},
+        "external_id": null,
+        "external_source": null,
+        "created_at": "2026-01-14T09:22:41.478363Z",
+        "updated_at": "2026-01-14T09:22:41.478363Z",
+        "updated_by_id": null
+      },
+      {
+        "id": "3fb6c0d8-4e21-49a7-b5c3-90ad72e14f6b",
+        "name": "rollout_date",
+        "display_name": "Rollout date",
+        "description": "When the fix reaches customers",
+        "property_type": "DATETIME",
+        "relation_type": null,
+        "is_required": false,
+        "is_multi": false,
+        "is_active": true,
+        "default_value": [],
+        "options": [],
+        "settings": {},
+        "validation_rules": {},
+        "logo_props": {},
+        "external_id": null,
+        "external_source": null,
+        "created_at": "2026-01-14T09:24:03.112884Z",
+        "updated_at": "2026-01-14T09:24:03.112884Z",
+        "updated_by_id": null
+      }
+    ],
+    "next": null,
+    "previous": null,
+    "total_count": 2,
+    "pagination": {
+      "style": "offset"
+    }
+  },
+  "destructive": false
+}

@@ -1,0 +1,711 @@
+[
+  {
+    "version": "v2",
+    "group": "work-item-type",
+    "action": "list",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/",
+    "query": "count=false&order_by=id&per_page=2",
+    "parents": {},
+    "extra_args": [
+      "--per-page",
+      "2",
+      "--count=false",
+      "--order-by",
+      "id"
+    ],
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "target-id",
+          "name": "Native record",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-type",
+    "action": "get",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/target-id/",
+    "query": "",
+    "parents": {
+      "id": "target-id"
+    },
+    "extra_args": [],
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "target-id",
+      "name": "Native record",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-type",
+    "action": "get-schema",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/target-id/schema/",
+    "query": "include=members%2Clabels",
+    "parents": {
+      "id": "target-id"
+    },
+    "extra_args": [
+      "--include",
+      "members,labels"
+    ],
+    "body": null,
+    "status": 200,
+    "response": {
+      "type_id": "target-id",
+      "type_name": "Bug",
+      "type_description": null,
+      "type_logo_props": {},
+      "fields": {
+        "name": {
+          "type": "string",
+          "required": true,
+          "max_length": 255
+        },
+        "state_id": {
+          "type": "uuid",
+          "required": false,
+          "options": [
+            {
+              "id": "state-id",
+              "name": "Backlog",
+              "group": "backlog"
+            }
+          ]
+        }
+      },
+      "custom_fields": {
+        "severity": {
+          "id": "property-id",
+          "type": "OPTION",
+          "name": "severity",
+          "display_name": "Severity",
+          "required": true,
+          "is_multi": true,
+          "options": [
+            {
+              "id": "option-one",
+              "name": "Critical"
+            }
+          ]
+        },
+        "optional_text": {
+          "id": "text-id",
+          "type": "TEXT",
+          "required": false,
+          "is_multi": false
+        }
+      },
+      "future": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-type",
+    "action": "create",
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/",
+    "query": "",
+    "parents": {},
+    "extra_args": [],
+    "body": {
+      "name": "Bug",
+      "is_active": false,
+      "external_id": null,
+      "external_source": "jira"
+    },
+    "status": 201,
+    "response": {
+      "id": "target-id",
+      "name": "Native record",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-type",
+    "action": "update",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/target-id/",
+    "query": "",
+    "parents": {
+      "id": "target-id"
+    },
+    "extra_args": [],
+    "body": {
+      "name": "Bug",
+      "is_active": false,
+      "external_id": null,
+      "external_source": "jira"
+    },
+    "status": 200,
+    "response": {
+      "id": "target-id",
+      "name": "Native record",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-type",
+    "action": "delete",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/target-id/",
+    "query": "",
+    "parents": {
+      "id": "target-id"
+    },
+    "extra_args": [],
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "version": "v2",
+    "group": "work-item-type",
+    "action": "enable",
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/enable/",
+    "query": "",
+    "parents": {},
+    "extra_args": [],
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "target-id",
+      "name": "Native record",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-type",
+    "action": "import",
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/import/",
+    "query": "",
+    "parents": {},
+    "extra_args": [],
+    "body": {
+      "work_item_types": [
+        "workspace-type-id"
+      ]
+    },
+    "status": 200,
+    "response": [
+      {
+        "id": "target-id",
+        "name": "Native record",
+        "unknown": 9007199254740993
+      }
+    ]
+  },
+  {
+    "version": "v2",
+    "group": "work-item-type",
+    "action": "mark-default",
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/target-id/mark-default/",
+    "query": "",
+    "parents": {
+      "id": "target-id"
+    },
+    "extra_args": [],
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "target-id",
+      "name": "Native record",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-property",
+    "action": "list",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-properties/",
+    "query": "count=false&order_by=id&per_page=2",
+    "parents": {},
+    "extra_args": [
+      "--per-page",
+      "2",
+      "--count=false",
+      "--order-by",
+      "id"
+    ],
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "target-id",
+          "name": "severity",
+          "display_name": "Severity",
+          "property_type": "OPTION",
+          "is_multi": true,
+          "is_required": true,
+          "default_value": [],
+          "settings": {
+            "opaque": null
+          },
+          "options": [
+            {
+              "id": "option-one",
+              "name": "Critical"
+            }
+          ],
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-property",
+    "action": "get",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-properties/target-id/",
+    "query": "",
+    "parents": {
+      "id": "target-id"
+    },
+    "extra_args": [],
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "target-id",
+      "name": "severity",
+      "display_name": "Severity",
+      "property_type": "OPTION",
+      "is_multi": true,
+      "is_required": true,
+      "default_value": [],
+      "settings": {
+        "opaque": null
+      },
+      "options": [
+        {
+          "id": "option-one",
+          "name": "Critical"
+        }
+      ],
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-property",
+    "action": "create",
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-properties/",
+    "query": "",
+    "parents": {},
+    "extra_args": [],
+    "body": {
+      "display_name": "Severity",
+      "property_type": "OPTION",
+      "is_required": true,
+      "is_multi": true,
+      "is_active": false,
+      "default_value": [],
+      "options": [
+        {
+          "name": "Critical",
+          "description": "Blocking",
+          "is_default": false
+        }
+      ],
+      "settings": {
+        "opaque": {
+          "next": [
+            null,
+            false,
+            0,
+            ""
+          ]
+        }
+      },
+      "validation_rules": {
+        "opaque": [
+          "preserved"
+        ]
+      }
+    },
+    "status": 201,
+    "response": {
+      "id": "target-id",
+      "name": "severity",
+      "display_name": "Severity",
+      "property_type": "OPTION",
+      "is_multi": true,
+      "is_required": true,
+      "default_value": [],
+      "settings": {
+        "opaque": null
+      },
+      "options": [
+        {
+          "id": "option-one",
+          "name": "Critical"
+        }
+      ],
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-property",
+    "action": "update",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-properties/target-id/",
+    "query": "",
+    "parents": {
+      "id": "target-id"
+    },
+    "extra_args": [],
+    "body": {
+      "display_name": "Severity",
+      "property_type": "OPTION",
+      "is_required": true,
+      "is_multi": true,
+      "is_active": false,
+      "default_value": [],
+      "options": [
+        {
+          "name": "Critical",
+          "description": "Blocking",
+          "is_default": false
+        }
+      ],
+      "settings": {
+        "opaque": {
+          "next": [
+            null,
+            false,
+            0,
+            ""
+          ]
+        }
+      },
+      "validation_rules": {
+        "opaque": [
+          "preserved"
+        ]
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "target-id",
+      "name": "severity",
+      "display_name": "Severity",
+      "property_type": "OPTION",
+      "is_multi": true,
+      "is_required": true,
+      "default_value": [],
+      "settings": {
+        "opaque": null
+      },
+      "options": [
+        {
+          "id": "option-one",
+          "name": "Critical"
+        }
+      ],
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-property",
+    "action": "delete",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-properties/target-id/",
+    "query": "",
+    "parents": {
+      "id": "target-id"
+    },
+    "extra_args": [],
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "version": "v2",
+    "group": "work-item-property-option",
+    "action": "list",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-properties/property-id/options/",
+    "query": "count=false&name=critical&order_by=id&per_page=2",
+    "parents": {
+      "property": "property-id"
+    },
+    "extra_args": [
+      "--per-page",
+      "2",
+      "--count=false",
+      "--order-by",
+      "id",
+      "--name",
+      "critical"
+    ],
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "target-id",
+          "name": "Critical",
+          "sort_order": 10000.0,
+          "external_id": null,
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-property-option",
+    "action": "get",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-properties/property-id/options/target-id/",
+    "query": "",
+    "parents": {
+      "property": "property-id",
+      "id": "target-id"
+    },
+    "extra_args": [],
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "target-id",
+      "name": "Critical",
+      "sort_order": 10000.0,
+      "external_id": null,
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-property-option",
+    "action": "create",
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-properties/property-id/options/",
+    "query": "",
+    "parents": {
+      "property": "property-id"
+    },
+    "extra_args": [],
+    "body": {
+      "name": "Critical",
+      "description": "Blocking",
+      "is_default": false,
+      "external_id": null,
+      "external_source": null
+    },
+    "status": 201,
+    "response": {
+      "id": "target-id",
+      "name": "Critical",
+      "sort_order": 10000.0,
+      "external_id": null,
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-property-option",
+    "action": "update",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-properties/property-id/options/target-id/",
+    "query": "",
+    "parents": {
+      "property": "property-id",
+      "id": "target-id"
+    },
+    "extra_args": [],
+    "body": {
+      "name": "Critical",
+      "description": "Blocking",
+      "is_default": false,
+      "external_id": null,
+      "external_source": null
+    },
+    "status": 200,
+    "response": {
+      "id": "target-id",
+      "name": "Critical",
+      "sort_order": 10000.0,
+      "external_id": null,
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-property-option",
+    "action": "delete",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-properties/property-id/options/target-id/",
+    "query": "",
+    "parents": {
+      "property": "property-id",
+      "id": "target-id"
+    },
+    "extra_args": [],
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "version": "v2",
+    "group": "work-item-type-property",
+    "action": "list",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/type-id/properties/",
+    "query": "count=false&order_by=id&per_page=2",
+    "parents": {
+      "type": "type-id"
+    },
+    "extra_args": [
+      "--per-page",
+      "2",
+      "--count=false",
+      "--order-by",
+      "id"
+    ],
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "target-id",
+          "name": "severity",
+          "display_name": "Severity",
+          "property_type": "OPTION",
+          "is_multi": true,
+          "is_required": true,
+          "default_value": [],
+          "settings": {
+            "opaque": null
+          },
+          "options": [
+            {
+              "id": "option-one",
+              "name": "Critical"
+            }
+          ],
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-type-property",
+    "action": "get",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/type-id/properties/target-id/",
+    "query": "",
+    "parents": {
+      "type": "type-id",
+      "id": "target-id"
+    },
+    "extra_args": [],
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "target-id",
+      "name": "severity",
+      "display_name": "Severity",
+      "property_type": "OPTION",
+      "is_multi": true,
+      "is_required": true,
+      "default_value": [],
+      "settings": {
+        "opaque": null
+      },
+      "options": [
+        {
+          "id": "option-one",
+          "name": "Critical"
+        }
+      ],
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-type-property",
+    "action": "attach",
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/type-id/properties/",
+    "query": "",
+    "parents": {
+      "type": "type-id"
+    },
+    "extra_args": [],
+    "body": {
+      "properties": [
+        "property-id",
+        "another-property-id"
+      ]
+    },
+    "status": 201,
+    "response": {
+      "properties": [
+        "property-id",
+        "another-property-id"
+      ]
+    }
+  },
+  {
+    "version": "v2",
+    "group": "work-item-type-property",
+    "action": "detach",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-item-types/type-id/properties/target-id/",
+    "query": "",
+    "parents": {
+      "type": "type-id",
+      "id": "target-id"
+    },
+    "extra_args": [],
+    "body": null,
+    "status": 204,
+    "response": null
+  }
+]

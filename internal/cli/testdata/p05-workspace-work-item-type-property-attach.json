@@ -1,0 +1,20 @@
+{
+  "group": "workspace-work-item-type-property",
+  "action": "attach",
+  "method": "POST",
+  "path": "/api/v2/workspaces/example/work-item-types/type-id/properties/",
+  "body": {
+    "properties": [
+      "property-a",
+      "property-b"
+    ]
+  },
+  "status": 201,
+  "response": {
+    "properties": [
+      "a7e3f1d0-5c92-4b68-8f31-2d4a6b9e0c15",
+      "3fb6c0d8-4e21-49a7-b5c3-90ad72e14f6b"
+    ]
+  },
+  "destructive": false
+}
