@@ -183,3 +183,24 @@ plane-cli work-item update --api-version v2 --workspace "$WORKSPACE" --project "
 Use the returned property name, not its display name, as the `custom_fields` key. The server's type schema supplies required/cardinality and option constraints; dynamic keys and native JSON values pass through unchanged. Omitted PATCH properties keep their values. Property definitions, type attachments, context overrides and recorded values are separate resources.
 
 Context updates require `--yes`: replacing options may delete recorded values. The upstream property overview and context overview disagree about whether an all-project/all-type default context is seeded; the CLI does not infer or create one. Workspace `is_epic` is read-only: creating a type named “Epic” does not make it a system epic.
+
+## Pages, collections and files
+
+`work-item-page`, `project-page`, `workspace-page`, `published-page`, `sticky` and `collection` expose source-backed operations by API generation. Use leaf help and `schema` for availability and exact fields. Page IDs and work-item/page link IDs are distinct. HTML and opaque editor metadata pass through unchanged; archive, restore and delete are explicit commands requiring `--yes`, never automatic prerequisites or retries.
+
+Collection membership additions and access updates require `--yes` because they change permissions. Dry-run reports confirmation requirements without requiring approval or credentials.
+
+```sh
+plane-cli schema work-item-page create --api-version v2
+plane-cli schema workspace-page-attachment download --api-version v2
+```
+
+`attachment`, `workspace-page-attachment`, `workspace-asset` and `user-asset` expose documented native asset operations. `upload --file PATH` performs metadata creation, credential-free signed multipart storage upload, then confirmation where that workflow is documented. Local file checks precede metadata creation. A failed later phase returns exit 6 with the asset ID and phase: inspect the asset before explicitly confirming or deleting it. There is no automatic rollback or replay.
+
+Upload metadata preserves native JSON numbers. Filename and size come from the regular local file, not `--body-file`; v1 wiki attachment entity fields are derived from `--page` and cannot be overridden. Storage streaming uses the remaining invocation `--timeout`, not the ordinary API `--request-timeout`; raise `--timeout` explicitly for large files. A result-delivery failure after confirmation does not mean the asset is incomplete: inspect it rather than repeating the mutation.
+
+Downloads require `--output-file`; existing destinations require `--overwrite --yes`. Bytes are streamed into an owner-only sibling temporary file and installed only after declared size checks. Storage gets no Plane API credentials and follows no redirects. Configured HTTP storage is accepted. Ordinary metadata reads redact signed targets/form fields; explicit native upload-target delivery is sensitive and should use a protected output file.
+
+Downloads preserve stored bytes, including gzip-encoded objects. No-clobber installation requires filesystem hard-link support; unsupported destinations fail safely without replacement.
+
+P06 is a bounded implementation, not a completed packet. Conflicting v2 collection schemas, undocumented supplemental server-mediated uploads and unresolved source contracts remain recorded in the inventory; unavailable operations are not guessed or counted as delivered. Fake HTTP acceptance verifies protocol behavior, not live edition compatibility.

@@ -1,0 +1,41 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/collections/get-collection.md",
+  "source_sha256": "b3207f5b9799466762c0ccb02e41b0c0e86b404b16e375ed8414b5814c8f6b81",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v2/workspaces/{slug}/collections/{pk}/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "pk",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Response shaping": [
+        {
+          "name": "fields",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "expand",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "Scopes": [],
+      "Errors": []
+    },
+    "statuses": [
+      200
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

@@ -1,0 +1,85 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/page/get-workspace-page-attachment.md",
+  "source_sha256": "39600ddddd0179aa9b48beb003ad638f2cae9f6ccade27251ef9b2b42f191d9e",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v1/workspaces/{workspace_slug}/pages/{page_id}/attachments/{attachment_id}/",
+    "request": {
+      "content_type": null,
+      "path_parameters": [
+        {
+          "name": "workspace_slug",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "nullable": "not stated"
+        },
+        {
+          "name": "page_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "nullable": "not stated"
+        },
+        {
+          "name": "attachment_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "nullable": "not stated"
+        }
+      ],
+      "query_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additional_properties": "not established; do not silently discard"
+      },
+      "body_schema": null,
+      "parameter_nullability": [],
+      "body_absence": "no body fields documented"
+    },
+    "responses": [
+      {
+        "status": 200,
+        "shape": {
+          "type": "object",
+          "properties": {
+            "id": "string",
+            "page_id": "string",
+            "name": "string",
+            "type": "string",
+            "size": "number",
+            "is_uploaded": "boolean",
+            "asset_url": "string",
+            "_links": {
+              "type": "object",
+              "properties": {
+                "download": "string"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "error_statuses": [],
+    "auth": {
+      "plane_headers": [
+        "X-API-Key",
+        "Authorization: Bearer <token> (alternative)"
+      ],
+      "scope_expression": "`read` or `wiki.pages:read`",
+      "notes": "Use one configured Plane authentication mode; OAuth scope text is endpoint-specific."
+    },
+    "pagination": {
+      "kind": "none documented"
+    }
+  }
+}

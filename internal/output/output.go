@@ -27,6 +27,10 @@ type Error struct {
 	RetryAfterSeconds *int                `json:"retry_after_seconds,omitempty"`
 	OutcomeUnknown    bool                `json:"outcome_unknown,omitempty"`
 	RemoteChanged     bool                `json:"remote_changed,omitempty"`
+	SecretDelivered   *bool               `json:"secret_delivered,omitempty"`
+	AssetID           string              `json:"asset_id,omitempty"`
+	Phase             string              `json:"phase,omitempty"`
+	Recovery          string              `json:"recovery,omitempty"`
 	Progress          *PaginationProgress `json:"progress,omitempty"`
 }
 

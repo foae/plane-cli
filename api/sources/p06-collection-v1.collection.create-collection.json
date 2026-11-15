@@ -1,0 +1,40 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/collection/create-collection.md",
+  "source_sha256": "29b0022ffec14e1694a8ffd6ed969e4f685472a66cdbce4867bc51ddfbd00407",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v1/workspaces/{workspace_slug}/collections/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "access",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "logo_props",
+          "type": "object",
+          "required": false
+        }
+      ],
+      "Scopes": []
+    },
+    "statuses": [
+      201
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

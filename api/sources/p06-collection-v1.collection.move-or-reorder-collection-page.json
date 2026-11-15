@@ -1,0 +1,50 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/collection/move-or-reorder-collection-page.md",
+  "source_sha256": "57d05e91ae3712cc6da70860231a6571cf02ebdd22068063cfd4e7f112841e50",
+  "contract": {
+    "kind": "operation",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/{workspace_slug}/collections/{collection_id}/pages/{page_collection_id}/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "collection_id",
+          "type": "uuid",
+          "required": true
+        },
+        {
+          "name": "page_collection_id",
+          "type": "uuid",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "collection",
+          "type": "uuid",
+          "required": false
+        },
+        {
+          "name": "sort_order",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "object",
+          "required": false
+        }
+      ],
+      "Scopes": []
+    },
+    "statuses": [
+      200
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

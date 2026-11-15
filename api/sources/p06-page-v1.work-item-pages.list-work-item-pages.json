@@ -1,0 +1,87 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/work-item-pages/list-work-item-pages.md",
+  "source_sha256": "2d920bd86dd8ac449a84ddcce66db9e04ebd064dd3d5dceefb43598e5376784b",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/pages/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "work_item_id": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "workspace_slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "work_item_id",
+          "project_id",
+          "workspace_slug"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string"
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "maximum": 100,
+            "default": 20
+          }
+        },
+        "additionalProperties": false
+      },
+      "body_schema": null,
+      "body_policy": "No request body documented"
+    },
+    "success_statuses": [
+      200
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 200,
+          "kind": "v1 cursor envelope",
+          "example_keys": [
+            "grouped_by",
+            "sub_grouped_by",
+            "total_count",
+            "next_cursor",
+            "prev_cursor",
+            "next_page_results",
+            "prev_page_results",
+            "count",
+            "total_pages",
+            "total_results",
+            "extra_stats",
+            "results"
+          ],
+          "items_key": "results",
+          "continuation": {
+            "cursor_key": "next_cursor",
+            "more_key": "next_page_results"
+          }
+        }
+      ],
+      "pagination": "v1 cursor; send next_cursor as cursor while next_page_results is true"
+    },
+    "destructive_implications": {
+      "class": "read",
+      "details": []
+    },
+    "excluded_reason": null
+  }
+}

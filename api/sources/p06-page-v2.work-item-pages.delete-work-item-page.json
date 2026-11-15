@@ -1,0 +1,59 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-pages/delete-work-item-page.md",
+  "source_sha256": "7375bdcdb40d00998a9c2c95f3e2d17214bdbe70803ac3a31c3169837a5626cf",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/pages/{pk}/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "work_item_id": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "slug",
+          "project_id",
+          "work_item_id",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": null,
+      "body_schema": null,
+      "body_policy": "No request body documented"
+    },
+    "success_statuses": [
+      204
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 204,
+          "kind": "empty body"
+        }
+      ],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "delete",
+      "details": [
+        "Adds a work-item activity entry; page itself is unchanged. Delete targets link id, never page id."
+      ]
+    },
+    "excluded_reason": null
+  }
+}

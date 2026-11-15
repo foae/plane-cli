@@ -1,0 +1,26 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/project-pages/overview.md",
+  "source_sha256": "a6301fdfa26938a4547f92b03dd018d55ba78c92c16e98a8a699525c3b8052b3",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "guide",
+    "method": null,
+    "path": null,
+    "request": {
+      "path_schema": null,
+      "query_schema": null,
+      "body_schema": null,
+      "body_policy": "No request body documented"
+    },
+    "success_statuses": [],
+    "response": {
+      "documented_examples": [],
+      "pagination": "Not an endpoint; see referenced operation sources"
+    },
+    "destructive_implications": {
+      "class": "not an operation",
+      "details": []
+    },
+    "excluded_reason": "General guide; no standalone operation."
+  }
+}

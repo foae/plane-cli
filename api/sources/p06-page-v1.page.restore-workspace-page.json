@@ -1,0 +1,50 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/page/restore-workspace-page.md",
+  "source_sha256": "05c65100d842908518f8e481973c01da903a17356287fbc471016803c30b33ad",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/{workspace_slug}/pages/{page_id}/archive/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          },
+          "page_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "page_id"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": null,
+      "body_schema": null,
+      "body_policy": "No request body documented"
+    },
+    "success_statuses": [
+      204
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 204,
+          "kind": "empty body"
+        }
+      ],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "restore mutation, not deletion",
+      "details": [
+        "HTTP DELETE removes archive state; restores a page. Do not classify solely by HTTP method."
+      ]
+    },
+    "excluded_reason": null
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/page/add-workspace-page.md",
+  "source_sha256": "05137f74ef3c31a60057d76a55b7c2dbf5114f61a48b4167fc68a889fce34882",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v1/workspaces/{workspace_slug}/pages/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": null,
+      "body_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "access": {
+            "type": "integer",
+            "enum": [
+              0,
+              1
+            ]
+          },
+          "color": {
+            "type": "string"
+          },
+          "is_locked": {
+            "type": "boolean"
+          },
+          "archived_at": {
+            "type": "string"
+          },
+          "view_props": {
+            "type": "object"
+          },
+          "logo_props": {
+            "type": "object"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "external_source": {
+            "type": "string"
+          },
+          "description_html": {
+            "type": "string"
+          },
+          "parent_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "description_html"
+        ],
+        "additionalProperties": false
+      },
+      "body_policy": "JSON parameters documented"
+    },
+    "success_statuses": [
+      201,
+      202
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 201,
+          "kind": "object",
+          "example_keys": [
+            "id",
+            "name",
+            "created_at",
+            "updated_at",
+            "description_html",
+            "owned_by",
+            "access",
+            "color",
+            "is_locked",
+            "archived_at",
+            "workspace",
+            "created_by",
+            "updated_by"
+          ]
+        }
+      ],
+      "pagination": "none documented",
+      "additional_status_meanings": {
+        "202": "Child created; parent document link pending; response already includes parent_id.",
+        "201": "Child created and linked to parent document."
+      }
+    },
+    "destructive_implications": {
+      "class": "mutation",
+      "details": []
+    },
+    "excluded_reason": "Editor metadata object declarations conflict with string examples; workspace child placement also references unlisted collection_id."
+  }
+}

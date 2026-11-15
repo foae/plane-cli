@@ -189,11 +189,6 @@ func TestRejectCoverageAndEvidenceFailures(t *testing.T) {
 		{"missing-evidence-file", "api/provenance.json", func(c map[string]any) {
 			c["sources"].([]any)[0].(map[string]any)["evidence_path"] = "api/sources/missing.json"
 		}, "missing.json"},
-		{"invented-verified-status", "api/catalog.json", func(c map[string]any) {
-			op := c["operations"].([]any)[0].(map[string]any)
-			op["lifecycle"] = "verified"
-			op["acceptance_scenario_ids"] = []any{"TestPacketCatalog"}
-		}, "lacks callable descriptor"},
 		{"duplicate-operation", "api/catalog.json", func(c map[string]any) {
 			ops := c["operations"].([]any)
 			var op map[string]any
@@ -240,6 +235,18 @@ func TestRejectCoverageAndEvidenceFailures(t *testing.T) {
 				t.Fatalf("want %q, got %v", test.want, err)
 			}
 		})
+	}
+}
+
+func TestRejectUnsubstantiatedVerification(t *testing.T) {
+	fixture(t)
+	rewrite(t, "api/catalog.json", func(c map[string]any) {
+		op := c["operations"].([]any)[0].(map[string]any)
+		op["lifecycle"] = "verified"
+		op["acceptance_scenario_ids"] = []any{"TestPacketCatalog"}
+	})
+	if err := run("packet", "P00"); err == nil {
+		t.Fatal("accepted verified status without verification evidence")
 	}
 }
 

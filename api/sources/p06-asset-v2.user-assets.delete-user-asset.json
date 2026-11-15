@@ -1,0 +1,113 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/user-assets/delete-user-asset.md",
+  "source_sha256": "b8816361354660996ca98b5fd5ad8794323beee8993228b9b255fbfeedd54fb0",
+  "contract": {
+    "kind": "operation",
+    "method": "DELETE",
+    "path": "/api/v2/users/me/assets/{pk}/",
+    "request": {
+      "content_type": null,
+      "path_parameters": [
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nullable": "not stated"
+        }
+      ],
+      "query_schema": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additional_properties": "not established; do not silently discard"
+      },
+      "body_schema": null,
+      "parameter_nullability": [
+        {
+          "name": "fields",
+          "in": "query",
+          "nullable": "not stated"
+        }
+      ],
+      "body_absence": "no body fields documented"
+    },
+    "responses": [
+      {
+        "status": 204,
+        "shape": "empty"
+      },
+      {
+        "status": 404,
+        "shape": {
+          "type": "object",
+          "properties": {
+            "type": "string",
+            "code": "string",
+            "detail": "string"
+          }
+        }
+      }
+    ],
+    "error_statuses": [
+      {
+        "status": 400,
+        "code": "invalid_request"
+      },
+      {
+        "status": 401,
+        "code": "unauthorized"
+      },
+      {
+        "status": 402,
+        "code": "payment_required"
+      },
+      {
+        "status": 403,
+        "code": "forbidden"
+      },
+      {
+        "status": 404,
+        "code": "not_found"
+      },
+      {
+        "status": 406,
+        "code": "not_acceptable"
+      },
+      {
+        "status": 409,
+        "code": "conflict"
+      },
+      {
+        "status": 413,
+        "code": "payload_too_large"
+      },
+      {
+        "status": 415,
+        "code": "unsupported_media_type"
+      },
+      {
+        "status": 429,
+        "code": "rate_limited"
+      }
+    ],
+    "auth": {
+      "plane_headers": [
+        "X-Api-Key",
+        "Authorization: Bearer <token> (alternative)"
+      ],
+      "scope_expression": "`assets:write`",
+      "notes": "Use one configured Plane authentication mode; OAuth scope text is endpoint-specific."
+    },
+    "pagination": {
+      "kind": "none documented"
+    }
+  }
+}

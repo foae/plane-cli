@@ -1,0 +1,41 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/collections/delete-collection.md",
+  "source_sha256": "6c250365ef9d4449730f75af4c7f946ada3341d5922228a7614fc9b7a03ccf9a",
+  "contract": {
+    "kind": "operation",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/{slug}/collections/{pk}/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "pk",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Response shaping": [
+        {
+          "name": "fields",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "expand",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "Scopes": [],
+      "Errors": []
+    },
+    "statuses": [
+      204
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

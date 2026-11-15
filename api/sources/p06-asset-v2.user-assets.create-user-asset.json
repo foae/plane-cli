@@ -1,0 +1,188 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/user-assets/create-user-asset.md",
+  "source_sha256": "425c3b05e16f87292095aa640919c403d47c16e402cb5af154f5af95a1c583e7",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v2/users/me/assets/",
+    "request": {
+      "content_type": "application/json",
+      "path_parameters": [],
+      "query_schema": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additional_properties": "not established; do not silently discard"
+      },
+      "body_schema": {
+        "type": "object",
+        "properties": {
+          "entity_type": {
+            "type": "string",
+            "enum": [
+              "USER_AVATAR",
+              "USER_COVER"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "type": {
+            "type": "string",
+            "default": "image/jpeg"
+          }
+        },
+        "required": [
+          "entity_type",
+          "name",
+          "size"
+        ],
+        "additional_properties": "not established; do not silently discard"
+      },
+      "parameter_nullability": [
+        {
+          "name": "entity_type",
+          "in": "body",
+          "nullable": "not stated"
+        },
+        {
+          "name": "name",
+          "in": "body",
+          "nullable": "not stated"
+        },
+        {
+          "name": "size",
+          "in": "body",
+          "nullable": "not stated"
+        },
+        {
+          "name": "type",
+          "in": "body",
+          "nullable": "not stated"
+        },
+        {
+          "name": "fields",
+          "in": "query",
+          "nullable": "not stated"
+        }
+      ],
+      "body_absence": "requiredness follows individual fields"
+    },
+    "responses": [
+      {
+        "status": 200,
+        "shape": {
+          "type": "object",
+          "properties": {
+            "upload_data": {
+              "type": "object",
+              "properties": {
+                "url": "string",
+                "fields": {
+                  "type": "object",
+                  "properties": {
+                    "Content-Type": "string",
+                    "key": "string",
+                    "x-amz-algorithm": "string",
+                    "x-amz-credential": "string",
+                    "x-amz-date": "string",
+                    "policy": "string",
+                    "x-amz-signature": "string"
+                  }
+                }
+              }
+            },
+            "asset_id": "string",
+            "asset_url": "string",
+            "asset": {
+              "type": "object",
+              "properties": {
+                "id": "string",
+                "name": "string",
+                "content_type": "string",
+                "size": "number",
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "name": "string",
+                    "type": "string",
+                    "size": "number"
+                  }
+                },
+                "asset_url": "string",
+                "is_uploaded": "boolean",
+                "entity_type": "string",
+                "user_id": "string",
+                "created_at": "string",
+                "updated_at": "string",
+                "created_by_id": "string",
+                "updated_by_id": "null sample (not a nullability guarantee)"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "error_statuses": [
+      {
+        "status": 400,
+        "code": "invalid_request"
+      },
+      {
+        "status": 401,
+        "code": "unauthorized"
+      },
+      {
+        "status": 402,
+        "code": "payment_required"
+      },
+      {
+        "status": 403,
+        "code": "forbidden"
+      },
+      {
+        "status": 404,
+        "code": "not_found"
+      },
+      {
+        "status": 406,
+        "code": "not_acceptable"
+      },
+      {
+        "status": 409,
+        "code": "conflict"
+      },
+      {
+        "status": 413,
+        "code": "payload_too_large"
+      },
+      {
+        "status": 415,
+        "code": "unsupported_media_type"
+      },
+      {
+        "status": 429,
+        "code": "rate_limited"
+      }
+    ],
+    "auth": {
+      "plane_headers": [
+        "X-Api-Key",
+        "Authorization: Bearer <token> (alternative)"
+      ],
+      "scope_expression": "`assets:write`",
+      "notes": "Use one configured Plane authentication mode; OAuth scope text is endpoint-specific."
+    },
+    "pagination": {
+      "kind": "none documented"
+    }
+  }
+}

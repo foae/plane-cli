@@ -1,0 +1,40 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/collection/add-collection-member.md",
+  "source_sha256": "576de61e2624c3479c819c375ce46eefbfa3422b599587bfc73695ec4f03436b",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v1/workspaces/{workspace_slug}/collections/{collection_id}/members/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "collection_id",
+          "type": "uuid",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "member",
+          "type": "uuid",
+          "required": true
+        },
+        {
+          "name": "access",
+          "type": "integer",
+          "required": false
+        }
+      ],
+      "Scopes": []
+    },
+    "statuses": [
+      201
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

@@ -1,0 +1,221 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-page-attachments/list-workspace-page-attachments.md",
+  "source_sha256": "d203297e7ba65c43fa946feceb25e0b8035f5c634a307475132404032ef41a54",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/",
+    "request": {
+      "content_type": null,
+      "path_parameters": [
+        {
+          "name": "slug",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "nullable": "not stated"
+        },
+        {
+          "name": "page_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nullable": "not stated"
+        }
+      ],
+      "query_schema": {
+        "type": "object",
+        "properties": {
+          "is_uploaded": {
+            "type": "boolean",
+            "default": true
+          },
+          "order_by": {
+            "type": "string",
+            "documented_choices": [
+              "created_at",
+              "id"
+            ],
+            "default": "-created_at",
+            "enum": [
+              "created_at",
+              "-created_at",
+              "id",
+              "-id"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "default": 50,
+            "maximum": 200
+          },
+          "offset": {
+            "type": "integer",
+            "maximum": 10000
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "count": {
+            "type": "boolean",
+            "default": true
+          },
+          "fields": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additional_properties": "not established; do not silently discard"
+      },
+      "body_schema": null,
+      "parameter_nullability": [
+        {
+          "name": "is_uploaded",
+          "in": "query",
+          "nullable": "not stated"
+        },
+        {
+          "name": "order_by",
+          "in": "query",
+          "nullable": "not stated"
+        },
+        {
+          "name": "per_page",
+          "in": "query",
+          "nullable": "not stated"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "nullable": "not stated"
+        },
+        {
+          "name": "paginate",
+          "in": "query",
+          "nullable": "not stated"
+        },
+        {
+          "name": "count",
+          "in": "query",
+          "nullable": "not stated"
+        },
+        {
+          "name": "fields",
+          "in": "query",
+          "nullable": "not stated"
+        }
+      ],
+      "body_absence": "no body fields documented"
+    },
+    "responses": [
+      {
+        "status": 200,
+        "shape": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": "string",
+                  "page_id": "string",
+                  "name": "string",
+                  "content_type": "string",
+                  "size": "number",
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "name": "string",
+                      "type": "string",
+                      "size": "number"
+                    }
+                  },
+                  "asset_url": "string",
+                  "is_uploaded": "boolean",
+                  "created_at": "string",
+                  "updated_at": "string",
+                  "created_by_id": "string",
+                  "updated_by_id": "string"
+                }
+              }
+            },
+            "next": "null sample (not a nullability guarantee)",
+            "previous": "null sample (not a nullability guarantee)",
+            "total_count": "number",
+            "pagination": {
+              "type": "object",
+              "properties": {
+                "style": "string"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "error_statuses": [
+      {
+        "status": 401,
+        "code": "unauthorized"
+      },
+      {
+        "status": 402,
+        "code": "payment_required"
+      },
+      {
+        "status": 403,
+        "code": "forbidden"
+      },
+      {
+        "status": 404,
+        "code": "not_found"
+      },
+      {
+        "status": 406,
+        "code": "not_acceptable"
+      },
+      {
+        "status": 429,
+        "code": "rate_limited"
+      }
+    ],
+    "auth": {
+      "plane_headers": [
+        "X-Api-Key",
+        "Authorization: Bearer <token> (alternative)"
+      ],
+      "scope_expression": "`wiki.pages:read`",
+      "notes": "Use one configured Plane authentication mode; OAuth scope text is endpoint-specific."
+    },
+    "pagination": {
+      "kind": "v2 offset default / cursor opt-in",
+      "data_key": "data",
+      "offset": {
+        "next": "integer offset or null",
+        "previous": "integer offset or null",
+        "total_count": "omitted with count=false",
+        "per_page_default": 50,
+        "per_page_max": 200,
+        "offset_max": 10000
+      },
+      "cursor": {
+        "selector": "paginate=cursor",
+        "next": "next_cursor",
+        "has_more": "boolean",
+        "parameter": "cursor (shared v2 pagination; not separately listed by these operation pages)"
+      },
+      "source_ids": [
+        "v2:workspace-page-attachments:list-workspace-page-attachments",
+        "supplement:v1:server-upload-variants"
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/collection/remove-collection-page.md",
+  "source_sha256": "172ac26310a410bddb3b0c22908733007262128d1dfa25ce34555450186558af",
+  "contract": {
+    "kind": "operation",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/{workspace_slug}/collections/{collection_id}/pages/{page_collection_id}/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "collection_id",
+          "type": "uuid",
+          "required": true
+        },
+        {
+          "name": "page_collection_id",
+          "type": "uuid",
+          "required": true
+        }
+      ],
+      "Scopes": []
+    },
+    "statuses": [
+      204
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

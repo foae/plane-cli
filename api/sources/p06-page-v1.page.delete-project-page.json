@@ -1,0 +1,52 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/page/delete-project-page.md",
+  "source_sha256": "c3afad7452a796b32da877e7064e5948ff156e250045b51c2064cfb9fda931d6",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/pages/{page_id}/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "page_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "project_id",
+          "page_id"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": null,
+      "body_schema": null,
+      "body_policy": "No request body documented"
+    },
+    "success_statuses": [
+      204
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 204,
+          "kind": "empty body"
+        }
+      ],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "delete",
+      "details": []
+    },
+    "excluded_reason": null
+  }
+}

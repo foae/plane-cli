@@ -1,0 +1,58 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/work-item-pages/delete-work-item-page.md",
+  "source_sha256": "29aa788bb59ff035f3b90f075bca9cf7f2690fc8face82a26a11681641cdab82",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/pages/{page_id}/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "work_item_id": {
+            "type": "string"
+          },
+          "page_id": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "workspace_slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "work_item_id",
+          "page_id",
+          "project_id",
+          "workspace_slug"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": null,
+      "body_schema": null,
+      "body_policy": "No request body documented"
+    },
+    "success_statuses": [
+      204
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 204,
+          "kind": "empty body"
+        }
+      ],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "delete",
+      "details": [
+        "Removes page link, not documented as deleting page content."
+      ]
+    },
+    "excluded_reason": "page_id path identity ambiguous between page id and link id; v2 contract cannot resolve v1."
+  }
+}

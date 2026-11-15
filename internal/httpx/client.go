@@ -33,6 +33,8 @@ type Response struct {
 	Data   json.RawMessage
 	Status int
 	Upsert string
+	// Location is populated only by an explicitly requested download phase.
+	Location string
 }
 
 // Error contains only normalized, safe diagnostic fields.
@@ -108,15 +110,15 @@ func RequestURL(base string, segments []string, query url.Values) (string, error
 }
 
 func (c *Client) Do(ctx context.Context, method string, segments []string, query url.Values, body json.RawMessage, headerName, token string) (Response, error) {
-	return c.do(ctx, method, segments, query, body, headerName, token, method != http.MethodGet && method != http.MethodHead && method != http.MethodOptions)
+	return c.do(ctx, method, segments, query, body, headerName, token, method != http.MethodGet && method != http.MethodHead && method != http.MethodOptions, false)
 }
 
 // DoRead sends an operation declared read-only, independently of its HTTP method.
 func (c *Client) DoRead(ctx context.Context, method string, segments []string, query url.Values, body json.RawMessage, headerName, token string) (Response, error) {
-	return c.do(ctx, method, segments, query, body, headerName, token, false)
+	return c.do(ctx, method, segments, query, body, headerName, token, false, false)
 }
 
-func (c *Client) do(ctx context.Context, method string, segments []string, query url.Values, body json.RawMessage, headerName, token string, mutation bool) (Response, error) {
+func (c *Client) do(ctx context.Context, method string, segments []string, query url.Values, body json.RawMessage, headerName, token string, mutation, download bool) (Response, error) {
 	requestURL, err := RequestURL(c.base, segments, query)
 	if err != nil {
 		return Response{}, err
@@ -146,6 +148,13 @@ func (c *Client) do(ctx context.Context, method string, segments []string, query
 	}
 	defer func() { _ = resp.Body.Close() }()
 	result := Response{Status: resp.StatusCode}
+	if download && resp.StatusCode == http.StatusFound {
+		result.Location = resp.Header.Get("Location")
+		if _, err := storageURL(result.Location); err != nil {
+			return result, &Error{Code: "invalid_response", Message: "Invalid download destination", Status: resp.StatusCode, Exit: 5}
+		}
+		return result, nil
+	}
 	if upsert := resp.Header.Get("X-Plane-Upsert"); upsert == "created" || upsert == "updated" {
 		result.Upsert = upsert
 	}

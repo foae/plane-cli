@@ -1,0 +1,41 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/collections/manage-collection-members.md",
+  "source_sha256": "ca9770986829e0be27cc71a3834d640a0b52660acb9e85b967ed73841d81c691",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v2/workspaces/{slug}/collections/{pk}/members/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "pk",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "add",
+          "type": "array of object",
+          "required": false
+        },
+        {
+          "name": "remove",
+          "type": "array of string (uuid)",
+          "required": false
+        }
+      ],
+      "Scopes": [],
+      "Errors": []
+    },
+    "statuses": [
+      200
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

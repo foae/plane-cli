@@ -1,0 +1,90 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/sticky/add-sticky.md",
+  "source_sha256": "55f294ad7f5aef502a50a4eb7420cef1d185fa344c9d7fdbee28f08240d33d6c",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v1/workspaces/{workspace_slug}/stickies/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": null,
+      "body_schema": {
+        "type": "object",
+        "properties": {
+          "deleted_at": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "object"
+          },
+          "description_html": {
+            "type": "string"
+          },
+          "description_stripped": {
+            "type": "string"
+          },
+          "logo_props": {
+            "type": "object"
+          },
+          "color": {
+            "type": "string"
+          },
+          "background_color": {
+            "type": "string"
+          },
+          "sort_order": {
+            "type": "number"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body_policy": "JSON parameters documented"
+    },
+    "success_statuses": [
+      201
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 201,
+          "kind": "object",
+          "example_keys": [
+            "id",
+            "name",
+            "description_html",
+            "created_at"
+          ]
+        }
+      ],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "body-dependent mutation, unresolved deleted_at effects",
+      "details": [
+        "deleted_at is writable and described as deletion time; source does not specify whether setting it soft-deletes/hides the sticky. Review confirmation policy before implementation."
+      ]
+    },
+    "excluded_reason": "Writable deleted_at semantics and nullability unresolved; cannot classify destructive safety."
+  }
+}

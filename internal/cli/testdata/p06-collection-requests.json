@@ -1,0 +1,536 @@
+[
+  {
+    "id": "v2.collections.get-collection",
+    "handler": "collection-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/ws/collections/collection-id/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "access": 0,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_default": false,
+      "is_global": false,
+      "logo_props": null,
+      "name": "Example name",
+      "owned_by_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "page_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "sort_order": 65535
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.collections.list-collection-pages",
+    "handler": "collection-page-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/ws/collections/collection-id/pages/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+          "name": "Onboarding checklist",
+          "access": 0,
+          "color": "",
+          "is_locked": false,
+          "archived_at": null,
+          "logo_props": {},
+          "view_props": {
+            "full_width": false
+          },
+          "parent_id": null,
+          "owned_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "collection_id": "e1b7c9d3-4a2f-4c86-9d15-3b8f6a0e2c71",
+          "is_global": true,
+          "sort_order": 65535.0,
+          "external_id": null,
+          "external_source": null,
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-15T11:02:37.640118Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+        },
+        {
+          "id": "61c3e8a5-0b9d-4f27-a4e6-c8d2f5b1a097",
+          "name": "Engineering handbook",
+          "access": 0,
+          "color": "",
+          "is_locked": true,
+          "archived_at": null,
+          "logo_props": {},
+          "view_props": {
+            "full_width": false
+          },
+          "parent_id": null,
+          "owned_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "collection_id": "e1b7c9d3-4a2f-4c86-9d15-3b8f6a0e2c71",
+          "is_global": true,
+          "sort_order": 75535.0,
+          "external_id": null,
+          "external_source": null,
+          "created_at": "2026-01-10T08:15:09.204771Z",
+          "updated_at": "2026-01-12T17:44:51.093326Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 2,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.collections.move-collection-page",
+    "handler": "collection-page-move",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/ws/collections/collection-id/pages/page-id/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id",
+      "page": "page-id"
+    },
+    "body": {
+      "collection_id": "73a9f2c4-8e1d-4b57-a6c0-d4e2b9f81a35",
+      "placement": {
+        "type": "before",
+        "target_page_id": "61c3e8a5-0b9d-4f27-a4e6-c8d2f5b1a097"
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "2f8d4b6a-9c1e-4a73-8b05-6e3c7d1f9a42",
+      "collection_id": "73a9f2c4-8e1d-4b57-a6c0-d4e2b9f81a35",
+      "page_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "sort_order": 4500.0,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "destructive": true
+  },
+  {
+    "id": "v1.collection.list-collections",
+    "handler": "collection-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/ws/collections/",
+    "flags": {
+      "workspace": "ws"
+    },
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "0a8a3e6a-3c32-49c7-bbb5-b7a8e32c2f10",
+        "name": "Product docs",
+        "owned_by_id": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+        "access": 0,
+        "current_user_access": null,
+        "has_pages": true,
+        "is_default": false,
+        "is_global": true,
+        "logo_props": {},
+        "sort_order": 65535.0,
+        "workspace": "95d1f03f-16e5-4807-a8c5-ec0c7cf0e4ab",
+        "created_at": "2026-08-18T10:00:00Z",
+        "updated_at": "2026-08-18T10:00:00Z",
+        "created_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+        "updated_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f"
+      }
+    ],
+    "destructive": false
+  },
+  {
+    "id": "v1.collection.create-collection",
+    "handler": "collection-create",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/ws/collections/",
+    "flags": {
+      "workspace": "ws"
+    },
+    "body": {
+      "name": "Product docs",
+      "access": 0,
+      "logo_props": {
+        "emoji": "\ud83d\udcda"
+      }
+    },
+    "status": 201,
+    "response": {
+      "id": "0a8a3e6a-3c32-49c7-bbb5-b7a8e32c2f10",
+      "name": "Product docs",
+      "owned_by_id": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+      "access": 0,
+      "current_user_access": null,
+      "has_pages": false,
+      "is_default": false,
+      "is_global": true,
+      "logo_props": {
+        "emoji": "\ud83d\udcda"
+      },
+      "sort_order": 65535.0,
+      "workspace": "95d1f03f-16e5-4807-a8c5-ec0c7cf0e4ab",
+      "created_at": "2026-08-18T10:00:00Z",
+      "updated_at": "2026-08-18T10:00:00Z",
+      "created_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+      "updated_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.collection.retrieve-collection",
+    "handler": "collection-get",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/ws/collections/collection-id/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "0a8a3e6a-3c32-49c7-bbb5-b7a8e32c2f10",
+      "name": "Product docs",
+      "owned_by_id": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+      "access": 0,
+      "current_user_access": null,
+      "has_pages": true,
+      "is_default": false,
+      "is_global": true,
+      "logo_props": {},
+      "sort_order": 65535.0,
+      "workspace": "95d1f03f-16e5-4807-a8c5-ec0c7cf0e4ab",
+      "created_at": "2026-08-18T10:00:00Z",
+      "updated_at": "2026-08-18T10:00:00Z",
+      "created_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+      "updated_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.collection.update-collection",
+    "handler": "collection-update",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/ws/collections/collection-id/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id"
+    },
+    "body": {
+      "name": "API docs",
+      "sort_order": 25000
+    },
+    "status": 200,
+    "response": {
+      "id": "0a8a3e6a-3c32-49c7-bbb5-b7a8e32c2f10",
+      "name": "API docs",
+      "owned_by_id": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+      "access": 0,
+      "current_user_access": null,
+      "has_pages": true,
+      "is_default": false,
+      "is_global": true,
+      "logo_props": {},
+      "sort_order": 25000.0,
+      "workspace": "95d1f03f-16e5-4807-a8c5-ec0c7cf0e4ab",
+      "created_at": "2026-08-18T10:00:00Z",
+      "updated_at": "2026-08-18T10:05:00Z",
+      "created_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+      "updated_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.collection.delete-collection",
+    "handler": "collection-delete",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/ws/collections/collection-id/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true
+  },
+  {
+    "id": "v1.collection.list-collection-members",
+    "handler": "collection-member-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/ws/collections/collection-id/members/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "4edec253-26f4-4667-8f52-9488dca1c620",
+        "collection": "0a8a3e6a-3c32-49c7-bbb5-b7a8e32c2f10",
+        "member": "6f356c85-bb22-47e0-b8b1-cf18aa6adad3",
+        "access": 0,
+        "workspace": "95d1f03f-16e5-4807-a8c5-ec0c7cf0e4ab",
+        "created_at": "2026-08-18T10:00:00Z",
+        "updated_at": "2026-08-18T10:00:00Z",
+        "created_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+        "updated_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f"
+      }
+    ],
+    "destructive": false
+  },
+  {
+    "id": "v1.collection.add-collection-member",
+    "handler": "collection-member-add",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/ws/collections/collection-id/members/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id"
+    },
+    "body": {
+      "member": "6f356c85-bb22-47e0-b8b1-cf18aa6adad3",
+      "access": 0
+    },
+    "status": 201,
+    "response": {
+      "id": "4edec253-26f4-4667-8f52-9488dca1c620",
+      "collection": "0a8a3e6a-3c32-49c7-bbb5-b7a8e32c2f10",
+      "member": "6f356c85-bb22-47e0-b8b1-cf18aa6adad3",
+      "access": 0,
+      "workspace": "95d1f03f-16e5-4807-a8c5-ec0c7cf0e4ab",
+      "created_at": "2026-08-18T10:00:00Z",
+      "updated_at": "2026-08-18T10:00:00Z",
+      "created_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+      "updated_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.collection.update-collection-member",
+    "handler": "collection-member-update",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/ws/collections/collection-id/members/membership-id/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id",
+      "member": "membership-id"
+    },
+    "body": {
+      "access": 2
+    },
+    "status": 200,
+    "response": {
+      "id": "4edec253-26f4-4667-8f52-9488dca1c620",
+      "collection": "0a8a3e6a-3c32-49c7-bbb5-b7a8e32c2f10",
+      "member": "6f356c85-bb22-47e0-b8b1-cf18aa6adad3",
+      "access": 2,
+      "workspace": "95d1f03f-16e5-4807-a8c5-ec0c7cf0e4ab",
+      "created_at": "2026-08-18T10:00:00Z",
+      "updated_at": "2026-08-18T10:05:00Z",
+      "created_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+      "updated_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.collection.remove-collection-member",
+    "handler": "collection-member-remove",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/ws/collections/collection-id/members/membership-id/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id",
+      "member": "membership-id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true
+  },
+  {
+    "id": "v1.collection.list-collection-pages",
+    "handler": "collection-page-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/ws/collections/collection-id/pages/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "next_cursor": "50:50:0",
+      "prev_cursor": "50:0:0",
+      "next_page_results": false,
+      "prev_page_results": false,
+      "count": 1,
+      "total_pages": 1,
+      "total_results": 1,
+      "extra_stats": null,
+      "results": [
+        {
+          "page_collection_id": "55ebf2cc-61ba-478a-b88c-88db969e29dc",
+          "collection_id": "0a8a3e6a-3c32-49c7-bbb5-b7a8e32c2f10",
+          "parent_id": null,
+          "sort_order": 65535.0,
+          "page": {
+            "id": "ea8ccdab-1cf4-448b-8205-51e4b98d82b8",
+            "name": "API guide",
+            "access": 0,
+            "logo_props": {},
+            "parent_id": null,
+            "collection_id": "0a8a3e6a-3c32-49c7-bbb5-b7a8e32c2f10",
+            "workspace": "95d1f03f-16e5-4807-a8c5-ec0c7cf0e4ab",
+            "sub_pages_count": 2,
+            "is_shared": false,
+            "owned_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+            "updated_at": "2026-08-18T10:00:00Z",
+            "created_at": "2026-08-18T10:00:00Z",
+            "created_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+            "updated_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+            "is_favorite": false,
+            "label_ids": []
+          }
+        }
+      ]
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.collection.search-collection-pages",
+    "handler": "collection-page-search",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/ws/collections/collection-id/pages-search/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "ea8ccdab-1cf4-448b-8205-51e4b98d82b8",
+        "name": "API guide",
+        "logo_props": {
+          "emoji": "\ud83d\udcd8"
+        }
+      }
+    ],
+    "destructive": false
+  },
+  {
+    "id": "v1.collection.add-collection-pages",
+    "handler": "collection-page-add",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/ws/collections/collection-id/pages/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id"
+    },
+    "body": {
+      "page_ids": [
+        "ea8ccdab-1cf4-448b-8205-51e4b98d82b8"
+      ],
+      "placement": {
+        "type": "append",
+        "parent_id": null
+      }
+    },
+    "status": 200,
+    "response": [
+      {
+        "id": "55ebf2cc-61ba-478a-b88c-88db969e29dc",
+        "collection": "0a8a3e6a-3c32-49c7-bbb5-b7a8e32c2f10",
+        "page": "ea8ccdab-1cf4-448b-8205-51e4b98d82b8",
+        "workspace": "95d1f03f-16e5-4807-a8c5-ec0c7cf0e4ab",
+        "sort_order": 65535.0,
+        "created_at": "2026-08-18T10:00:00Z",
+        "updated_at": "2026-08-18T10:00:00Z",
+        "created_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+        "updated_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f"
+      }
+    ],
+    "destructive": true
+  },
+  {
+    "id": "v1.collection.move-or-reorder-collection-page",
+    "handler": "collection-page-move",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/ws/collections/collection-id/pages/placement-id/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id",
+      "page-collection": "placement-id"
+    },
+    "body": {
+      "collection": "target-collection-uuid",
+      "placement": {
+        "type": "append"
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "55ebf2cc-61ba-478a-b88c-88db969e29dc",
+      "collection": "82c72604-2019-43b7-930f-692af61f3ea7",
+      "page": "ea8ccdab-1cf4-448b-8205-51e4b98d82b8",
+      "workspace": "95d1f03f-16e5-4807-a8c5-ec0c7cf0e4ab",
+      "sort_order": 65535.0,
+      "created_at": "2026-08-18T10:00:00Z",
+      "updated_at": "2026-08-18T10:05:00Z",
+      "created_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f",
+      "updated_by": "d2f1b470-55e8-4e7a-8a61-7fc695bc1a4f"
+    },
+    "destructive": true
+  },
+  {
+    "id": "v1.collection.remove-collection-page",
+    "handler": "collection-page-remove",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/ws/collections/collection-id/pages/placement-id/",
+    "flags": {
+      "workspace": "ws",
+      "collection": "collection-id",
+      "page-collection": "placement-id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true
+  }
+]

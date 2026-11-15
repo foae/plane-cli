@@ -1,0 +1,101 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/stickies/create-sticky.md",
+  "source_sha256": "ec7c6c124a856fcb90f5df516a34c3da66226fce15430fcdc2bbdddbfa663226",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v2/workspaces/{slug}/stickies/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body_schema": {
+        "type": "object",
+        "properties": {
+          "background_color": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "color": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "description_html": {
+            "type": "string"
+          },
+          "logo_props": {
+            "type": "string"
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sort_order": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body_policy": "JSON parameters documented"
+    },
+    "success_statuses": [
+      201
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 201,
+          "kind": "object",
+          "example_keys": [
+            "background_color",
+            "color",
+            "created_at",
+            "updated_at",
+            "created_by_id",
+            "updated_by_id",
+            "description_html",
+            "description_stripped",
+            "id",
+            "logo_props",
+            "name",
+            "owner_id",
+            "sort_order"
+          ]
+        }
+      ],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "mutation",
+      "details": []
+    },
+    "excluded_reason": "Unresolved access/editor metadata write type conflicts; whole operation excluded, no reduced writable subset."
+  }
+}

@@ -1,0 +1,742 @@
+[
+  {
+    "version": "v2",
+    "group": "attachment",
+    "action": "list",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-items/work-item-id/attachments/",
+    "parents": {
+      "workspace": "example",
+      "project": "project-id",
+      "work-item": "work-item-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "asset-id",
+          "attributes": {
+            "opaque": [
+              1,
+              {
+                "keep": true
+              }
+            ]
+          },
+          "name": "native",
+          "asset_url": "[REDACTED]"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "version": "v2",
+    "group": "attachment",
+    "action": "get",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-items/work-item-id/attachments/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "project": "project-id",
+      "work-item": "work-item-id",
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "asset-id",
+      "attributes": {
+        "opaque": [
+          1,
+          {
+            "keep": true
+          }
+        ]
+      },
+      "name": "native",
+      "asset_url": "[REDACTED]"
+    }
+  },
+  {
+    "version": "v2",
+    "group": "attachment",
+    "action": "create-upload",
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-items/work-item-id/attachments/",
+    "parents": {
+      "workspace": "example",
+      "project": "project-id",
+      "work-item": "work-item-id"
+    },
+    "body": {
+      "name": "fixture-name",
+      "size": 7,
+      "external_id": "fixture-external_id",
+      "external_source": "fixture-external_source",
+      "type": "fixture-type"
+    },
+    "status": 200,
+    "response": {
+      "asset_id": "asset-id",
+      "asset_url": "https://storage.invalid/object?sig=fixture",
+      "upload_data": {
+        "url": "https://storage.invalid/",
+        "fields": {
+          "key": "fixture/object",
+          "policy": "fixture-policy",
+          "x-amz-signature": "fixture-signature"
+        }
+      }
+    }
+  },
+  {
+    "version": "v2",
+    "group": "attachment",
+    "action": "delete",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-items/work-item-id/attachments/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "project": "project-id",
+      "work-item": "work-item-id",
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "version": "v2",
+    "group": "attachment",
+    "action": "confirm-upload",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/projects/project-id/work-items/work-item-id/attachments/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "project": "project-id",
+      "work-item": "work-item-id",
+      "id": "asset-id"
+    },
+    "body": {
+      "is_uploaded": true
+    },
+    "status": 200,
+    "response": {
+      "id": "asset-id",
+      "attributes": {
+        "opaque": [
+          1,
+          {
+            "keep": true
+          }
+        ]
+      },
+      "name": "native",
+      "asset_url": "[REDACTED]"
+    }
+  },
+  {
+    "version": "v2",
+    "group": "workspace-page-attachment",
+    "action": "list",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/pages/page-id/attachments/",
+    "parents": {
+      "workspace": "example",
+      "page": "page-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "asset-id",
+          "attributes": {
+            "opaque": [
+              1,
+              {
+                "keep": true
+              }
+            ]
+          },
+          "name": "native",
+          "asset_url": "[REDACTED]"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "version": "v2",
+    "group": "workspace-page-attachment",
+    "action": "get",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/pages/page-id/attachments/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "page": "page-id",
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "asset-id",
+      "attributes": {
+        "opaque": [
+          1,
+          {
+            "keep": true
+          }
+        ]
+      },
+      "name": "native",
+      "asset_url": "[REDACTED]"
+    }
+  },
+  {
+    "version": "v2",
+    "group": "workspace-page-attachment",
+    "action": "create-upload",
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/pages/page-id/attachments/",
+    "parents": {
+      "workspace": "example",
+      "page": "page-id"
+    },
+    "body": {
+      "name": "fixture-name",
+      "size": 7,
+      "type": "fixture-type"
+    },
+    "status": 200,
+    "response": {
+      "asset_id": "asset-id",
+      "asset_url": "https://storage.invalid/object?sig=fixture",
+      "upload_data": {
+        "url": "https://storage.invalid/",
+        "fields": {
+          "key": "fixture/object",
+          "policy": "fixture-policy",
+          "x-amz-signature": "fixture-signature"
+        }
+      }
+    }
+  },
+  {
+    "version": "v2",
+    "group": "workspace-page-attachment",
+    "action": "confirm-upload",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/pages/page-id/attachments/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "page": "page-id",
+      "id": "asset-id"
+    },
+    "body": {
+      "is_uploaded": true
+    },
+    "status": 200,
+    "response": {
+      "id": "asset-id",
+      "attributes": {
+        "opaque": [
+          1,
+          {
+            "keep": true
+          }
+        ]
+      },
+      "name": "native",
+      "asset_url": "[REDACTED]"
+    }
+  },
+  {
+    "version": "v2",
+    "group": "workspace-page-attachment",
+    "action": "delete",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/pages/page-id/attachments/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "page": "page-id",
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "version": "v2",
+    "group": "workspace-asset",
+    "action": "list",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/assets/",
+    "parents": {
+      "workspace": "example"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "asset-id",
+          "attributes": {
+            "opaque": [
+              1,
+              {
+                "keep": true
+              }
+            ]
+          },
+          "name": "native",
+          "asset_url": "[REDACTED]"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "version": "v2",
+    "group": "workspace-asset",
+    "action": "get",
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/assets/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "asset-id",
+      "attributes": {
+        "opaque": [
+          1,
+          {
+            "keep": true
+          }
+        ]
+      },
+      "name": "native",
+      "asset_url": "[REDACTED]"
+    }
+  },
+  {
+    "version": "v2",
+    "group": "workspace-asset",
+    "action": "create-upload",
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/assets/",
+    "parents": {
+      "workspace": "example"
+    },
+    "body": {
+      "name": "fixture-name",
+      "size": 7,
+      "entity_type": "WORK_ITEM_IMPORT",
+      "type": "fixture-type"
+    },
+    "status": 200,
+    "response": {
+      "asset_id": "asset-id",
+      "asset_url": "https://storage.invalid/object?sig=fixture",
+      "upload_data": {
+        "url": "https://storage.invalid/",
+        "fields": {
+          "key": "fixture/object",
+          "policy": "fixture-policy",
+          "x-amz-signature": "fixture-signature"
+        }
+      }
+    }
+  },
+  {
+    "version": "v2",
+    "group": "workspace-asset",
+    "action": "delete",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/assets/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "version": "v2",
+    "group": "workspace-asset",
+    "action": "confirm-upload",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/assets/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "asset-id",
+      "attributes": {
+        "opaque": [
+          1,
+          {
+            "keep": true
+          }
+        ]
+      },
+      "name": "native",
+      "asset_url": "[REDACTED]"
+    }
+  },
+  {
+    "version": "v2",
+    "group": "user-asset",
+    "action": "list",
+    "method": "GET",
+    "path": "/api/v2/users/me/assets/",
+    "parents": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "asset-id",
+          "attributes": {
+            "opaque": [
+              1,
+              {
+                "keep": true
+              }
+            ]
+          },
+          "name": "native",
+          "asset_url": "[REDACTED]"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "version": "v2",
+    "group": "user-asset",
+    "action": "get",
+    "method": "GET",
+    "path": "/api/v2/users/me/assets/asset-id/",
+    "parents": {
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "asset-id",
+      "attributes": {
+        "opaque": [
+          1,
+          {
+            "keep": true
+          }
+        ]
+      },
+      "name": "native",
+      "asset_url": "[REDACTED]"
+    }
+  },
+  {
+    "version": "v2",
+    "group": "user-asset",
+    "action": "create-upload",
+    "method": "POST",
+    "path": "/api/v2/users/me/assets/",
+    "parents": {},
+    "body": {
+      "entity_type": "USER_AVATAR",
+      "name": "fixture-name",
+      "size": 7,
+      "type": "fixture-type"
+    },
+    "status": 200,
+    "response": {
+      "asset_id": "asset-id",
+      "asset_url": "https://storage.invalid/object?sig=fixture",
+      "upload_data": {
+        "url": "https://storage.invalid/",
+        "fields": {
+          "key": "fixture/object",
+          "policy": "fixture-policy",
+          "x-amz-signature": "fixture-signature"
+        }
+      }
+    }
+  },
+  {
+    "version": "v2",
+    "group": "user-asset",
+    "action": "delete",
+    "method": "DELETE",
+    "path": "/api/v2/users/me/assets/asset-id/",
+    "parents": {
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "version": "v2",
+    "group": "user-asset",
+    "action": "confirm-upload",
+    "method": "PATCH",
+    "path": "/api/v2/users/me/assets/asset-id/",
+    "parents": {
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "asset-id",
+      "attributes": {
+        "opaque": [
+          1,
+          {
+            "keep": true
+          }
+        ]
+      },
+      "name": "native",
+      "asset_url": "[REDACTED]"
+    }
+  },
+  {
+    "version": "v1",
+    "group": "attachment",
+    "action": "confirm-upload",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/example/projects/project-id/work-items/work-item-id/attachments/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "project": "project-id",
+      "work-item": "work-item-id",
+      "id": "asset-id"
+    },
+    "body": {
+      "is_uploaded": true
+    },
+    "status": 204,
+    "response": null
+  },
+  {
+    "version": "v1",
+    "group": "attachment",
+    "action": "delete",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/example/projects/project-id/work-items/work-item-id/attachments/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "project": "project-id",
+      "work-item": "work-item-id",
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "version": "v1",
+    "group": "user-asset",
+    "action": "create-upload",
+    "method": "POST",
+    "path": "/api/v1/assets/user-assets/",
+    "parents": {},
+    "body": {
+      "name": "fixture-name",
+      "type": "fixture-type",
+      "size": 7,
+      "entity_type": "USER_AVATAR"
+    },
+    "status": 200,
+    "response": {
+      "asset_id": "asset-id",
+      "asset_url": "https://storage.invalid/object?sig=fixture",
+      "upload_data": {
+        "url": "https://storage.invalid/",
+        "fields": {
+          "key": "fixture/object",
+          "policy": "fixture-policy",
+          "x-amz-signature": "fixture-signature"
+        }
+      }
+    }
+  },
+  {
+    "version": "v1",
+    "group": "user-asset",
+    "action": "delete",
+    "method": "DELETE",
+    "path": "/api/v1/assets/user-assets/asset-id/",
+    "parents": {
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "version": "v1",
+    "group": "workspace-asset",
+    "action": "create-upload",
+    "method": "POST",
+    "path": "/api/v1/workspaces/example/assets/",
+    "parents": {
+      "workspace": "example"
+    },
+    "body": {
+      "name": "fixture-name",
+      "type": "fixture-type",
+      "size": 7,
+      "project_id": "fixture-project_id",
+      "entity_type": "PAGE_DESCRIPTION",
+      "entity_identifier": "fixture-entity_identifier",
+      "external_id": "fixture-external_id",
+      "external_source": "fixture-external_source"
+    },
+    "status": 200,
+    "response": {
+      "asset_id": "asset-id",
+      "asset_url": "https://storage.invalid/object?sig=fixture",
+      "upload_data": {
+        "url": "https://storage.invalid/",
+        "fields": {
+          "key": "fixture/object",
+          "policy": "fixture-policy",
+          "x-amz-signature": "fixture-signature"
+        }
+      }
+    }
+  },
+  {
+    "version": "v1",
+    "group": "workspace-asset",
+    "action": "get",
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/assets/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "asset-id",
+      "attributes": {
+        "opaque": [
+          1,
+          {
+            "keep": true
+          }
+        ]
+      },
+      "name": "native",
+      "asset_url": "[REDACTED]"
+    }
+  },
+  {
+    "version": "v1",
+    "group": "workspace-asset",
+    "action": "confirm-upload",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/example/assets/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "id": "asset-id"
+    },
+    "body": {
+      "is_uploaded": true
+    },
+    "status": 204,
+    "response": null
+  },
+  {
+    "version": "v1",
+    "group": "workspace-page-attachment",
+    "action": "get",
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/pages/page-id/attachments/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "page": "page-id",
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "asset-id",
+      "attributes": {
+        "opaque": [
+          1,
+          {
+            "keep": true
+          }
+        ]
+      },
+      "name": "native",
+      "asset_url": "[REDACTED]"
+    }
+  },
+  {
+    "version": "v1",
+    "group": "workspace-page-attachment",
+    "action": "confirm-upload",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/example/pages/page-id/attachments/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "page": "page-id",
+      "id": "asset-id"
+    },
+    "body": {
+      "is_uploaded": true
+    },
+    "status": 204,
+    "response": null
+  },
+  {
+    "version": "v1",
+    "group": "workspace-page-attachment",
+    "action": "delete",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/example/pages/page-id/attachments/asset-id/",
+    "parents": {
+      "workspace": "example",
+      "page": "page-id",
+      "id": "asset-id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  }
+]

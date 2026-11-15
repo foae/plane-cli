@@ -1,0 +1,73 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/collections/update-collection.md",
+  "source_sha256": "2b72b47a6fd1e37bfe539cb9f6c12ff69b88b676c9fe85d1c1ed8a54c98f26b7",
+  "contract": {
+    "kind": "operation",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/{slug}/collections/{pk}/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "pk",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "access",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "is_default",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "is_global",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "logo_props",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sort_order",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "Response shaping": [
+        {
+          "name": "fields",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "expand",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "Scopes": [],
+      "Errors": []
+    },
+    "statuses": [
+      200
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

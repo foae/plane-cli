@@ -1,0 +1,78 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/page/update-workspace-page.md",
+  "source_sha256": "6c56b08fe20fe733510176ac758b8da73172df3e8f372715e47c9d7964ace395",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "PUT",
+    "path": "/api/v1/workspaces/{workspace_slug}/pages/{page_id}/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          },
+          "page_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "page_id"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": null,
+      "body_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description_html": {
+            "type": "string"
+          }
+        },
+        "anyOf": [
+          {
+            "required": [
+              "name"
+            ]
+          },
+          {
+            "required": [
+              "description_html"
+            ]
+          }
+        ],
+        "additionalProperties": false
+      },
+      "body_policy": "JSON parameters documented"
+    },
+    "success_statuses": [
+      200
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 200,
+          "kind": "object",
+          "example_keys": [
+            "id",
+            "name",
+            "description_html"
+          ]
+        }
+      ],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "mutation",
+      "details": [
+        "description_html replaces complete content, not append."
+      ]
+    },
+    "excluded_reason": null
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/collections/create-collection.md",
+  "source_sha256": "12695c1bd85195103ab6a2c744a8d0e3aeb7dc9a8f77e795c1cdcc0f0e7253c4",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v2/workspaces/{slug}/collections/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "access",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "is_default",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "is_global",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "logo_props",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sort_order",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "Response shaping": [
+        {
+          "name": "fields",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "expand",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "Scopes": [],
+      "Errors": []
+    },
+    "statuses": [
+      201
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

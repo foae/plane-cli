@@ -1,0 +1,90 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/collection/list-collection-pages.md",
+  "source_sha256": "e23ca80e90e5523c6f51fe1aed7233b91824e15628f8dae9d5ec5e7ad5bfddf4",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v1/workspaces/{workspace_slug}/collections/{collection_id}/pages/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "collection_id",
+          "type": "uuid",
+          "required": true
+        }
+      ],
+      "Query parameters": [
+        {
+          "name": "parent_id",
+          "type": "uuid",
+          "required": false
+        },
+        {
+          "name": "search",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "created_by",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "favorites",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "labels",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "created_at__gte",
+          "type": "date",
+          "required": false
+        },
+        {
+          "name": "created_at__lte",
+          "type": "date",
+          "required": false
+        },
+        {
+          "name": "owned_by_id",
+          "type": "uuid",
+          "required": false
+        },
+        {
+          "name": "owned_by_id__in",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "parent_id__in",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "Scopes": []
+    },
+    "statuses": [
+      200
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

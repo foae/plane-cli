@@ -1,0 +1,26 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/page/page-content-html.md",
+  "source_sha256": "546034eb484eca270d7b41b408407f177bbbe7cc6b1a0c0683f81d4c36051656",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "guide",
+    "method": null,
+    "path": null,
+    "request": {
+      "path_schema": null,
+      "query_schema": null,
+      "body_schema": null,
+      "body_policy": "No request body documented"
+    },
+    "success_statuses": [],
+    "response": {
+      "documented_examples": [],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "not an operation",
+      "details": []
+    },
+    "excluded_reason": "General guide; no standalone operation."
+  }
+}

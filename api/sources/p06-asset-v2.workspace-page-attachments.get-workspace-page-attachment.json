@@ -1,0 +1,139 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-page-attachments/get-workspace-page-attachment.md",
+  "source_sha256": "fec947dc6bd759d0ffb92c78554b6a40b5e6e5ef1d8dde67ea3cfd6a9af1706e",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/",
+    "request": {
+      "content_type": null,
+      "path_parameters": [
+        {
+          "name": "slug",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "nullable": "not stated"
+        },
+        {
+          "name": "page_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nullable": "not stated"
+        },
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nullable": "not stated"
+        }
+      ],
+      "query_schema": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additional_properties": "not established; do not silently discard"
+      },
+      "body_schema": null,
+      "parameter_nullability": [
+        {
+          "name": "fields",
+          "in": "query",
+          "nullable": "not stated"
+        }
+      ],
+      "body_absence": "no body fields documented"
+    },
+    "responses": [
+      {
+        "status": 200,
+        "shape": {
+          "type": "object",
+          "properties": {
+            "id": "string",
+            "page_id": "string",
+            "name": "string",
+            "content_type": "string",
+            "size": "number",
+            "attributes": {
+              "type": "object",
+              "properties": {
+                "name": "string",
+                "type": "string",
+                "size": "number"
+              }
+            },
+            "asset_url": "string",
+            "is_uploaded": "boolean",
+            "created_at": "string",
+            "updated_at": "string",
+            "created_by_id": "string",
+            "updated_by_id": "string"
+          }
+        }
+      },
+      {
+        "status": 404,
+        "shape": {
+          "type": "object",
+          "properties": {
+            "type": "string",
+            "code": "string",
+            "detail": "string"
+          }
+        }
+      }
+    ],
+    "error_statuses": [
+      {
+        "status": 401,
+        "code": "unauthorized"
+      },
+      {
+        "status": 402,
+        "code": "payment_required"
+      },
+      {
+        "status": 403,
+        "code": "forbidden"
+      },
+      {
+        "status": 404,
+        "code": "not_found"
+      },
+      {
+        "status": 406,
+        "code": "not_acceptable"
+      },
+      {
+        "status": 429,
+        "code": "rate_limited"
+      }
+    ],
+    "auth": {
+      "plane_headers": [
+        "X-Api-Key",
+        "Authorization: Bearer <token> (alternative)"
+      ],
+      "scope_expression": "`wiki.pages:read`",
+      "notes": "Use one configured Plane authentication mode; OAuth scope text is endpoint-specific."
+    },
+    "pagination": {
+      "kind": "none documented"
+    }
+  }
+}

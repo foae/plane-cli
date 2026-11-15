@@ -1,0 +1,86 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/published-pages/get-published-page.md",
+  "source_sha256": "6d796f2f315f7a71bcbe6013d2a34a87ea8cae32818a312cd702cd8a6896f4ed",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v2/workspaces/{slug}/published-pages/{anchor}/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "string",
+            "minLength": 32,
+            "maxLength": 32,
+            "pattern": "^[0-9a-fA-F]{32}$"
+          }
+        },
+        "required": [
+          "slug",
+          "anchor"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body_schema": null,
+      "body_policy": "No request body documented"
+    },
+    "success_statuses": [
+      200
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 200,
+          "kind": "object",
+          "example_keys": [
+            "id",
+            "name",
+            "access",
+            "color",
+            "is_locked",
+            "archived_at",
+            "logo_props",
+            "view_props",
+            "description_html",
+            "description_stripped",
+            "parent_id",
+            "owned_by_id",
+            "collection_id",
+            "project_ids",
+            "is_global",
+            "sort_order",
+            "external_id",
+            "external_source",
+            "created_at",
+            "updated_at",
+            "created_by_id",
+            "updated_by_id"
+          ]
+        }
+      ],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "read",
+      "details": []
+    },
+    "excluded_reason": null
+  }
+}

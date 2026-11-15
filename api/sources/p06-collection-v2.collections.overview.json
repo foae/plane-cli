@@ -1,0 +1,14 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/collections/overview.md",
+  "source_sha256": "bba626408fcb9eaca0a19662c1ca51e2b7e24c42787e577fa90c2ae6e2d57e06",
+  "contract": {
+    "kind": "overview",
+    "method": null,
+    "path": null,
+    "parameters": {
+      "Attributes": []
+    },
+    "statuses": []
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

@@ -1,0 +1,50 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/page/archive-workspace-page.md",
+  "source_sha256": "800f2fdf56d6d322112084ee1ceafb99df69381781b795fcdc7f2e0a33e344da",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v1/workspaces/{workspace_slug}/pages/{page_id}/archive/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          },
+          "page_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "page_id"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": null,
+      "body_schema": null,
+      "body_policy": "No request body documented"
+    },
+    "success_statuses": [
+      204
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 204,
+          "kind": "empty body"
+        }
+      ],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "cascading archive",
+      "details": [
+        "Archives page and subpages; required before delete. v1 source does not independently spell out favorites/publication effects."
+      ]
+    },
+    "excluded_reason": null
+  }
+}

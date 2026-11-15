@@ -1,0 +1,84 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-pages/get-workspace-page.md",
+  "source_sha256": "ee045e49a1f98479e6f762b6b72bf78d1560e81c5081fe7be25c5a1a0c3ca76d",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v2/workspaces/{slug}/pages/{pk}/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "slug",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body_schema": null,
+      "body_policy": "No request body documented"
+    },
+    "success_statuses": [
+      200
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 200,
+          "kind": "object",
+          "example_keys": [
+            "access",
+            "archived_at",
+            "collection_id",
+            "color",
+            "created_at",
+            "updated_at",
+            "created_by_id",
+            "updated_by_id",
+            "description_html",
+            "description_stripped",
+            "external_id",
+            "external_source",
+            "id",
+            "is_global",
+            "is_locked",
+            "logo_props",
+            "name",
+            "owned_by_id",
+            "parent_id",
+            "project_ids",
+            "sort_order",
+            "view_props"
+          ]
+        }
+      ],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "read",
+      "details": []
+    },
+    "excluded_reason": null
+  }
+}

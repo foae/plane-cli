@@ -1,0 +1,61 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/collections/move-collection-page.md",
+  "source_sha256": "6175d823f406d80a93df1ee9d80765daf7684937b9ad82bee166adbf69039b4a",
+  "contract": {
+    "kind": "operation",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/{slug}/collections/{pk}/pages/{page_id}/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "pk",
+          "type": "string (uuid)",
+          "required": true
+        },
+        {
+          "name": "page_id",
+          "type": "string (uuid)",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "collection_id",
+          "type": "string (uuid)",
+          "required": false
+        },
+        {
+          "name": "sort_order",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "object",
+          "required": false
+        }
+      ],
+      "Response shaping": [
+        {
+          "name": "fields",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "Scopes": [],
+      "Errors": [],
+      "Reordering in place": [],
+      "Moving out of a private collection": [],
+      "Moving into a collection": []
+    },
+    "statuses": [
+      200
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

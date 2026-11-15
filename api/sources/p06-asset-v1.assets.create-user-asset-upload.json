@@ -1,0 +1,118 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/assets/create-user-asset-upload.md",
+  "source_sha256": "5733edcb4a6be0f8edccac353eb7caf062753e0df533b7ad1127b2cc60fd0f1e",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v1/assets/user-assets/",
+    "request": {
+      "content_type": "application/json",
+      "path_parameters": [],
+      "query_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additional_properties": "not established; do not silently discard"
+      },
+      "body_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "documented_choices": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/jpg",
+              "image/gif"
+            ]
+          },
+          "size": {
+            "type": "integer"
+          },
+          "entity_type": {
+            "type": "string",
+            "documented_choices": [
+              "USER_AVATAR",
+              "USER_COVER"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "size",
+          "entity_type"
+        ],
+        "additional_properties": "not established; do not silently discard"
+      },
+      "parameter_nullability": [
+        {
+          "name": "name",
+          "in": "body",
+          "nullable": "not stated"
+        },
+        {
+          "name": "type",
+          "in": "body",
+          "nullable": "not stated"
+        },
+        {
+          "name": "size",
+          "in": "body",
+          "nullable": "not stated"
+        },
+        {
+          "name": "entity_type",
+          "in": "body",
+          "nullable": "not stated"
+        }
+      ],
+      "body_absence": "requiredness follows individual fields"
+    },
+    "responses": [
+      {
+        "status": 200,
+        "shape": {
+          "type": "object",
+          "properties": {
+            "asset_id": "string",
+            "asset_url": "string",
+            "upload_data": {
+              "type": "object",
+              "properties": {
+                "url": "string",
+                "fields": {
+                  "type": "object",
+                  "properties": {
+                    "Content-Type": "string",
+                    "key": "string",
+                    "x-amz-algorithm": "string",
+                    "x-amz-credential": "string",
+                    "x-amz-date": "string",
+                    "policy": "string",
+                    "x-amz-signature": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "error_statuses": [],
+    "auth": {
+      "plane_headers": [
+        "X-API-Key",
+        "Authorization: Bearer <token> (alternative)"
+      ],
+      "scope_expression": "`assets:write`",
+      "notes": "Use one configured Plane authentication mode; OAuth scope text is endpoint-specific."
+    },
+    "pagination": {
+      "kind": "none documented"
+    }
+  }
+}

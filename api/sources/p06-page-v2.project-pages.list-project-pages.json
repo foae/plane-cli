@@ -1,0 +1,133 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/project-pages/list-project-pages.md",
+  "source_sha256": "7f8622bc147692f9150837bbcd98a1f6f73e36cf3e6eca949ca6df176bc5a1d8",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/pages/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "project_id"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": {
+        "type": "object",
+        "properties": {
+          "access": {
+            "type": "integer"
+          },
+          "collection_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "count": {
+            "type": "boolean"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "external_source": {
+            "type": "string"
+          },
+          "is_global": {
+            "type": "boolean"
+          },
+          "is_locked": {
+            "type": "boolean"
+          },
+          "offset": {
+            "type": "integer"
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "owned_by_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "parent_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "per_page": {
+            "type": "integer",
+            "maximum": 200
+          },
+          "search": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "all",
+              "archived",
+              "private",
+              "public",
+              "shared"
+            ]
+          },
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body_schema": null,
+      "body_policy": "No request body documented"
+    },
+    "success_statuses": [
+      200
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 200,
+          "kind": "v2 paginated envelope",
+          "example_keys": [
+            "data",
+            "next",
+            "pagination",
+            "previous",
+            "total_count"
+          ],
+          "items_key": "data",
+          "pagination_example": {
+            "style": "offset"
+          },
+          "continuation": {
+            "offset_key": "next",
+            "terminal_value": null
+          }
+        }
+      ],
+      "pagination": "offset default; paginate=cursor documented; cursor envelope details are not exemplified on this source"
+    },
+    "destructive_implications": {
+      "class": "read",
+      "details": []
+    },
+    "excluded_reason": "Cursor mode advertised but operation omits cursor continuation parameter; offset-only narrowing not represented by shared catalog convention (coordinator approved exclusion)."
+  }
+}

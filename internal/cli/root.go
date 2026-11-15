@@ -47,6 +47,11 @@ func HandlerIDs() []string {
 	for id := range projectTypesHandlers() {
 		ids = append(ids, id)
 	}
+	for _, group := range []map[string]handler{contentPagesHandlers(), contentCollectionHandlers(), contentAssetsHandlers(), assetTransferHandlers()} {
+		for id := range group {
+			ids = append(ids, id)
+		}
+	}
 	return ids
 }
 
@@ -141,6 +146,11 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 	}
 	for id, h := range projectTypesHandlers() {
 		handlers[id] = h
+	}
+	for _, group := range []map[string]handler{contentPagesHandlers(), contentCollectionHandlers(), contentAssetsHandlers(), assetTransferHandlers()} {
+		for id, h := range group {
+			handlers[id] = h
+		}
 	}
 	for id, h := range extra {
 		handlers[id] = h

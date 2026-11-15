@@ -1,0 +1,147 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-pages/create-workspace-page.md",
+  "source_sha256": "3964d204a505ab523ceedecc9bafb6a85a42f2e196f747c0ad1879262c69fb82",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "POST",
+    "path": "/api/v2/workspaces/{slug}/pages/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "access": {
+            "type": "string"
+          },
+          "archived_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "collection_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uuid"
+          },
+          "color": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "description_html": {
+            "type": "string"
+          },
+          "external_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "external_source": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "is_locked": {
+            "type": "boolean"
+          },
+          "logo_props": {
+            "type": "string"
+          },
+          "parent_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uuid"
+          },
+          "sort_order": {
+            "type": "number"
+          },
+          "view_props": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "body_policy": "JSON parameters documented"
+    },
+    "success_statuses": [
+      201
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 201,
+          "kind": "object",
+          "example_keys": [
+            "access",
+            "archived_at",
+            "collection_id",
+            "color",
+            "created_at",
+            "updated_at",
+            "created_by_id",
+            "updated_by_id",
+            "description_html",
+            "description_stripped",
+            "external_id",
+            "external_source",
+            "id",
+            "is_global",
+            "is_locked",
+            "logo_props",
+            "name",
+            "owned_by_id",
+            "parent_id",
+            "project_ids",
+            "sort_order",
+            "view_props"
+          ]
+        }
+      ],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "mutation",
+      "details": []
+    },
+    "excluded_reason": "Unresolved access/editor metadata write type conflicts; whole operation excluded, no reduced writable subset."
+  }
+}

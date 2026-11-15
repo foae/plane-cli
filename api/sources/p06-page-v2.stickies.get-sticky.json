@@ -1,0 +1,72 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/stickies/get-sticky.md",
+  "source_sha256": "cf274bfede92580ea5fefb8bf3e1b5541da096d6bb739c7612a57bcc705eb339",
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v2/workspaces/{slug}/stickies/{pk}/",
+    "request": {
+      "path_schema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "slug",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "query_schema": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body_schema": null,
+      "body_policy": "No request body documented"
+    },
+    "success_statuses": [
+      200
+    ],
+    "response": {
+      "documented_examples": [
+        {
+          "status": 200,
+          "kind": "object",
+          "example_keys": [
+            "background_color",
+            "color",
+            "created_at",
+            "updated_at",
+            "created_by_id",
+            "updated_by_id",
+            "description_html",
+            "description_stripped",
+            "id",
+            "logo_props",
+            "name",
+            "owner_id",
+            "sort_order"
+          ]
+        }
+      ],
+      "pagination": "none documented"
+    },
+    "destructive_implications": {
+      "class": "read",
+      "details": []
+    },
+    "excluded_reason": null
+  }
+}

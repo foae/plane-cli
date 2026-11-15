@@ -1,0 +1,45 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/collection/update-collection.md",
+  "source_sha256": "b998c6f666a473b2f1c674ab59b66ec74eb21b4eb9377392d0b8151271224bc6",
+  "contract": {
+    "kind": "operation",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/{workspace_slug}/collections/{collection_id}/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "collection_id",
+          "type": "uuid",
+          "required": true
+        }
+      ],
+      "Body parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "logo_props",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "sort_order",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "Scopes": []
+    },
+    "statuses": [
+      200
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

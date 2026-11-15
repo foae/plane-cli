@@ -1,0 +1,28 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/collection/list-collection-members.md",
+  "source_sha256": "03e61355925ee728d4aa7e90a43e48d5269d69b87bd021f8e01dfdf631d2a5da",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v1/workspaces/{workspace_slug}/collections/{collection_id}/members/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "collection_id",
+          "type": "uuid",
+          "required": true
+        }
+      ],
+      "Scopes": []
+    },
+    "statuses": [
+      200
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

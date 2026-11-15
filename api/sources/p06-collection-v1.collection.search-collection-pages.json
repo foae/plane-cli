@@ -1,0 +1,35 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/collection/search-collection-pages.md",
+  "source_sha256": "e1d4d40067c7eec1783b9f6e4399d12c10cb97bd06699437e8cee2bc258bb1d4",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v1/workspaces/{workspace_slug}/collections/{collection_id}/pages-search/",
+    "parameters": {
+      "Path parameters": [
+        {
+          "name": "workspace_slug",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "collection_id",
+          "type": "uuid",
+          "required": true
+        }
+      ],
+      "Query parameters": [
+        {
+          "name": "search",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "Scopes": []
+    },
+    "statuses": [
+      200
+    ]
+  },
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+}

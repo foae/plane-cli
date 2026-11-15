@@ -1,0 +1,142 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-attachments/get-attachment.md",
+  "source_sha256": "0194cc99a457c2aedc5394cb07f97c83224f9295044d18f7265c2ed2f5b95b67",
+  "contract": {
+    "kind": "operation",
+    "method": "GET",
+    "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/attachments/{pk}/",
+    "request": {
+      "content_type": null,
+      "path_parameters": [
+        {
+          "name": "slug",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "nullable": "not stated"
+        },
+        {
+          "name": "project_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "nullable": "not stated"
+        },
+        {
+          "name": "work_item_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "nullable": "not stated"
+        },
+        {
+          "name": "pk",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nullable": "not stated"
+        }
+      ],
+      "query_schema": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additional_properties": "not established; do not silently discard"
+      },
+      "body_schema": null,
+      "parameter_nullability": [
+        {
+          "name": "fields",
+          "in": "query",
+          "nullable": "not stated"
+        }
+      ],
+      "body_absence": "no body fields documented"
+    },
+    "responses": [
+      {
+        "status": 200,
+        "shape": {
+          "type": "object",
+          "properties": {
+            "asset_url": "string",
+            "attributes": "null sample (not a nullability guarantee)",
+            "content_type": "string",
+            "created_at": "string",
+            "updated_at": "string",
+            "created_by_id": "string",
+            "updated_by_id": "null sample (not a nullability guarantee)",
+            "external_id": "null sample (not a nullability guarantee)",
+            "external_source": "null sample (not a nullability guarantee)",
+            "id": "string",
+            "is_uploaded": "boolean",
+            "name": "string",
+            "size": "number",
+            "work_item_id": "string"
+          }
+        }
+      },
+      {
+        "status": 404,
+        "shape": {
+          "type": "object",
+          "properties": {
+            "type": "string",
+            "code": "string",
+            "detail": "string"
+          }
+        }
+      }
+    ],
+    "error_statuses": [
+      {
+        "status": 401,
+        "code": "unauthorized"
+      },
+      {
+        "status": 402,
+        "code": "payment_required"
+      },
+      {
+        "status": 403,
+        "code": "forbidden"
+      },
+      {
+        "status": 404,
+        "code": "not_found"
+      },
+      {
+        "status": 406,
+        "code": "not_acceptable"
+      },
+      {
+        "status": 429,
+        "code": "rate_limited"
+      }
+    ],
+    "auth": {
+      "plane_headers": [
+        "X-Api-Key",
+        "Authorization: Bearer <token> (alternative)"
+      ],
+      "scope_expression": "`projects.work_items.attachments:read`",
+      "notes": "Use one configured Plane authentication mode; OAuth scope text is endpoint-specific."
+    },
+    "pagination": {
+      "kind": "none documented"
+    }
+  }
+}
