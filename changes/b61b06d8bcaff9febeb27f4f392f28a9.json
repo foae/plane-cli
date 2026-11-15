@@ -1,4 +1,0 @@
-{
-  "level": "patch",
-  "summary": "Repair isolated catalog evidence and reconciliation tests for completed API coverage; publish as v1.0.1 while retaining immutable v1.0.0."
-}
