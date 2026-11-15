@@ -22,5 +22,44 @@
       "details": []
     },
     "excluded_reason": "General guide; no standalone operation."
+  },
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/published-pages/{anchor}/",
+        "description": "Get a published page",
+        "catalog_operation_ids": [
+          "v2.published-pages.get-published-page"
+        ],
+        "catalog_source_ids": [
+          "v2:published-pages:get-published-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:published-pages:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [
+      {
+        "version": "v1",
+        "method": "GET",
+        "method_evidence": "GET inferred from 'this read' and the v2 endpoint table; the migration paragraph does not independently print a v1 method.",
+        "path": "/api/v1/workspaces/{slug}/projects/{project_id}/pages/published/{anchor}/",
+        "catalog_operation_ids": [],
+        "status": "migration-reference-only; insufficient v1 operation contract; not counted as implemented",
+        "evidence": "Changed from v1 says: 'v1 serves this read at /api/v1/workspaces/{slug}/projects/{project_id}/pages/published/{anchor}/ but never uses project_id.' It says v1 resolves an anchor from any workspace URL, and requires authentication and pages read scope without membership checks.",
+        "missing_contract_elements": [
+          "Independent v1 method declaration (GET is inferred from the v2 read reference).",
+          "v1 query/input declarations beyond the named path placeholders and ignored project_id.",
+          "v1 success status and response-body/schema declaration.",
+          "v1 error statuses and response-body contract.",
+          "Authoritative separate v1 operation-detail link; none is supplied by this overview."
+        ],
+        "boundary": "This is a partial migration reference, not evidence that a complete v1 operation contract is absent upstream. No dedicated v1 source row or executable contract exists in the reviewed catalog; the v2 response/error descriptions must not be silently reused for v1."
+      }
+    ],
+    "summary": "One existing v2 read resolves an authenticated caller-held 32-character anchor within the path workspace; it does not check page or workspace membership. No publish endpoint exists. Archive unpublishes; unarchive does not republish. The v1 migration path identifies a separate currently uncataloged read, recorded as a gap below rather than implemented by this overview. collection_id is null in the published response.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
   }
 }

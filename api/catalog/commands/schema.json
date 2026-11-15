@@ -1,0 +1,106 @@
+[
+  {
+    "path": [
+      "schema"
+    ],
+    "handler": "schema",
+    "summary": "Describe one exact command path",
+    "side_effect": "none",
+    "examples": [
+      "plane-cli schema version --api-version v2"
+    ],
+    "versions": {
+      "v1": {
+        "schema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "enum": [
+                    "v1",
+                    "v2"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version"
+              ]
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit API generation (v1 or v2)"
+          }
+        ]
+      },
+      "v2": {
+        "schema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "enum": [
+                    "v1",
+                    "v2"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version"
+              ]
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit API generation (v1 or v2)"
+          }
+        ]
+      }
+    },
+    "local": true
+  }
+]

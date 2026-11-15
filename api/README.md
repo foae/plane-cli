@@ -2,6 +2,14 @@
 
 The [catalog](catalog.json) contains callable local/API command descriptors, operation contracts and the complete source ownership ledger. P00–P02 provide discovery, transport and authentication; P03 adds documented identity, project, state/label and work-item operations. `implemented` is distinct from planner-approved `verified` coverage. Discovery embeds only `schema_version`, `commands`, and `resources`; `operations` and `sources` are evidence, never callable registrations.
 
+Editable records live in `catalog/`: `metadata.json` holds root metadata,
+`commands/*.json` groups descriptors by root command, and `operations/*.json`
+and `sources/*.json` group records by owning packet. Each shard is a JSON array;
+files are combined in filename order, preserving record order within each file.
+Edit these sources, then run `make generate`. Do not edit `catalog.json` or
+`internal/spec/catalog.gen.json` directly: both are deterministic generated
+artifacts. Build/install/startup still use only the committed embedded catalog.
+
 ## Data model
 
 The root `schema_version` is `1`. `commands` follow the [architecture descriptor contract](../docs/design/architecture.md#offline-metadata-and-validation): tokenized `path`, explicit Go `handler` ID, summary, side effect, examples, local classification, and version-indexed schema/flag variants. Flag bindings are JSON pointers into the same input schema. The CLI's registered handler IDs must match descriptors exactly.
@@ -37,6 +45,6 @@ go run ./internal/cmd/checkapi --release
 go run ./internal/cmd/checkdocs
 ```
 
-`genspec --input PATH --output PATH` calls the shared deterministic generator. `checkapi` regenerates in a temporary directory, reads that generated file and compares exact committed bytes, then checks coverage, ownership, provenance/evidence hashes, offline schemas, duplicates, handler mapping and lifecycle evidence. Packet mode prints the explicit completed set and pending source counts by packet; release mode fails incomplete coverage. Release failure is expected at P00, not waived. `checkdocs` validates repository-local documentation links/fragments and embedded schemas without network access. Only [current usage examples](../docs/usage.md) are runnable examples; approved design documents intentionally describe future commands.
+`genspec --input DIRECTORY --catalog PATH --output PATH` assembles the editable sources and calls the shared deterministic descriptor generator. `checkapi` first checks the aggregate against its source shards, then regenerates embedded metadata in a temporary directory and compares exact committed bytes. It checks coverage, ownership, provenance/evidence hashes, offline schemas, duplicates, handler mapping and lifecycle evidence. Packet mode prints the explicit completed set and pending source counts by packet; release mode fails incomplete coverage. Release failure is expected at P00, not waived. `checkdocs` validates repository-local documentation links/fragments and embedded schemas without network access. Only [current usage examples](../docs/usage.md) are runnable examples; approved design documents intentionally describe future commands.
 
 Implemented and verified operations must reference existing Go tests or statically discoverable subtests in `acceptance_scenario_ids`; unknown references fail `checkapi`. Documented, pending operations may retain planned scenario IDs, which do not constitute acceptance evidence.

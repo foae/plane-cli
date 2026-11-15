@@ -52,6 +52,11 @@ func TestEpicWireOperations(t *testing.T) {
 					t.Errorf("unexpected body %s", body)
 				}
 				w.Header().Set("Content-Type", "application/json")
+				if calls > 1 {
+					w.WriteHeader(http.StatusConflict)
+					_, _ = io.WriteString(w, `{"detail":"epic-private-canary"}`)
+					return
+				}
 				if tc.action == "delete" {
 					w.WriteHeader(204)
 					return
@@ -88,6 +93,10 @@ func TestEpicWireOperations(t *testing.T) {
 			}
 			if tc.action != "delete" && !strings.Contains(out, "9007199254740993") {
 				t.Fatalf("native precision lost: %s", out)
+			}
+			code, out, stderr = invoke(t, catalog, args, nil)
+			if code != 5 || calls != 2 || out != "" || !strings.Contains(stderr, "api_error") || strings.Contains(stderr, "epic-private-canary") {
+				t.Fatalf("unsafe upstream rejection: code=%d calls=%d out=%s stderr=%s", code, calls, out, stderr)
 			}
 		})
 	}

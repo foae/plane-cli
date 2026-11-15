@@ -19,6 +19,8 @@ Each operation record requires: stable local ID; one owning packet; version; can
 
 Provenance records the source revision/date, hash and permission/license for retained excerpts or snapshots; do not vendor entire documentation sites without checking reuse terms. Where redistribution is unclear, retain URL/hash and a minimal independently written contract rather than copying source text. A `verified` transition requires linked operation evidence, independently reviewed expected fixtures, acceptance command/result and planner approval; `checkapi` rejects missing links or self-declared status without these records.
 
+Approved upstream gaps/conflicts remain reviewed source rows with their specific resolution and a `completion_exception` link to the focused exception document. `checkapi` validates that document and reports exception counts separately: they close source reconciliation but never create, verify or count an API operation. Pending research cannot use this exception; implemented operations still require the full verification evidence above.
+
 ## Version and edition policy
 
 Explicit `v1|v2` belongs to a connection and may be explicitly overridden per invocation. No `auto` mode, fallback, route probing on failure, automatic migration or silently combined calls across generations. For a locally known v1-only command invoked as v2, fail before credentials or HTTP with exit 7 and actionable explicit-version guidance; the reviewed command union stays registered.

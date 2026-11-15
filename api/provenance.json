@@ -6,6 +6,29 @@
     "rows": 987
   },
   "sources": [
+{"id":"reconcile-v1-_guides-introduction","url":"https://developers.plane.so/api-reference/introduction.md","fetched_at":"2026-11-15","source_revision":"Official raw Markdown capture; upstream revision unavailable","sha256":"27cffd6fd59641628d0038809e1630b3e46f6c3d6fbdfdb50946974c3ff7bf7d","fetched_bytes":11454,"permission":"Redistribution permission unclear; independently authored contract retained; raw capture outside repository","evidence_path":"api/sources/reconcile-v1-_guides-introduction.json","evidence_sha256":"cd2a16e60f41b2ea42519a5d251882a38a97478fb926ff282da1ab0c1b54a2f4","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Raw captured Markdown bytes"},
+{"id":"reconcile-v2-_guides-authentication","url":"https://developers.plane.so/api-reference/v2/authentication.md","fetched_at":"2026-11-15","source_revision":"Official raw Markdown capture; upstream revision unavailable","sha256":"d905f5f2379884bc695ee873c0ff1c46756d4c3ec9769e098c052e93a47276b2","fetched_bytes":23779,"permission":"Redistribution permission unclear; independently authored contract retained; raw capture outside repository","evidence_path":"api/sources/reconcile-v2-_guides-authentication.json","evidence_sha256":"1965eed55cf6e898b021b7281b41ba7a966e8649a5749c6ded27337311ea767c","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Raw captured Markdown bytes"},
+{"id":"reconcile-v2-_guides-errors","url":"https://developers.plane.so/api-reference/v2/errors.md","fetched_at":"2026-11-15","source_revision":"Official raw Markdown capture; upstream revision unavailable","sha256":"b901b316f140419c7f5904eeaddf6cbb85e03d48507cbc2003acc4f18c537319","fetched_bytes":20539,"permission":"Redistribution permission unclear; independently authored contract retained; raw capture outside repository","evidence_path":"api/sources/reconcile-v2-_guides-errors.json","evidence_sha256":"e11b306c370a348fed4a61f7ece6788445b884e275b8b4af6a38fb7b67531d2f","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Raw captured Markdown bytes"},
+{"id":"reconcile-v2-_guides-expanding-relations","url":"https://developers.plane.so/api-reference/v2/expanding-relations.md","fetched_at":"2026-11-15","source_revision":"Official raw Markdown capture; upstream revision unavailable","sha256":"1d03d4b168a1fc60024326c0ad640557703d2151628551ffb6423901b59a4655","fetched_bytes":15322,"permission":"Redistribution permission unclear; independently authored contract retained; raw capture outside repository","evidence_path":"api/sources/reconcile-v2-_guides-expanding-relations.json","evidence_sha256":"454602515ea21d873c14b41ac937aa13b2552e478b3a1028cf1c3c00ec40fd08","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Raw captured Markdown bytes"},
+{"id":"reconcile-v2-_guides-filtering-and-ordering","url":"https://developers.plane.so/api-reference/v2/filtering-and-ordering.md","fetched_at":"2026-11-15","source_revision":"Official raw Markdown capture; upstream revision unavailable","sha256":"8e19ab2957bcbffd9a6295700ddfb808217c6eb0b1988c96ddbb79277edfb36c","fetched_bytes":23201,"permission":"Redistribution permission unclear; independently authored contract retained; raw capture outside repository","evidence_path":"api/sources/reconcile-v2-_guides-filtering-and-ordering.json","evidence_sha256":"7f9f9b35750e2b5879a11c048f952f2f23e215915abd9287b53e0d830f3fd371","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Raw captured Markdown bytes"},
+{"id":"reconcile-v2-_guides-introduction","url":"https://developers.plane.so/api-reference/v2/introduction.md","fetched_at":"2026-11-15","source_revision":"Official raw Markdown capture; upstream revision unavailable","sha256":"7e57714848b203ca6e2d41324ce576690378d75d9a6f543c881528675f0c2d37","fetched_bytes":2394,"permission":"Redistribution permission unclear; independently authored contract retained; raw capture outside repository","evidence_path":"api/sources/reconcile-v2-_guides-introduction.json","evidence_sha256":"6a0a0641970835f94af58c51bee6a3dafd5ce6671dc236430d2b4b5d73719644","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Raw captured Markdown bytes"},
+{"id":"reconcile-v2-_guides-migrating-from-v1","url":"https://developers.plane.so/api-reference/v2/migrating-from-v1.md","fetched_at":"2026-11-15","source_revision":"Official raw Markdown capture; upstream revision unavailable","sha256":"6dc24447f0eaf3d820cf7e62d08e127461e0b9b9f1a728d7c0ffe455ee008122","fetched_bytes":28405,"permission":"Redistribution permission unclear; independently authored contract retained; raw capture outside repository","evidence_path":"api/sources/reconcile-v2-_guides-migrating-from-v1.json","evidence_sha256":"a2f78ac4a0500a9d2f3bae9a4c6073d628de7f5ad1b604a1e87ff03430ff4ec6","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Raw captured Markdown bytes"},
+{"id":"reconcile-v2-_guides-sparse-fields","url":"https://developers.plane.so/api-reference/v2/sparse-fields.md","fetched_at":"2026-11-15","source_revision":"Official raw Markdown capture; upstream revision unavailable","sha256":"139c80869f277188a3be057309f968fe072d60227377040aff9ea1bc5e1429ba","fetched_bytes":9264,"permission":"Redistribution permission unclear; independently authored contract retained; raw capture outside repository","evidence_path":"api/sources/reconcile-v2-_guides-sparse-fields.json","evidence_sha256":"f993e89d9560c386ec717c93cc96a7611a6d47a5b38ce8f27793019d46149c91","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Raw captured Markdown bytes"},
+{"id":"reconcile-v2-_guides-work-item-type-modes","url":"https://developers.plane.so/api-reference/v2/work-item-type-modes.md","fetched_at":"2026-11-15","source_revision":"Official raw Markdown capture; upstream revision unavailable","sha256":"1f9a91532b2be41232f019bf00c8fb1043e8e1be383e9ef27818852773789fd9","fetched_bytes":19964,"permission":"Redistribution permission unclear; independently authored contract retained; raw capture outside repository","evidence_path":"api/sources/reconcile-v2-_guides-work-item-type-modes.json","evidence_sha256":"da6f7953784a65e679ee3478486f0550743fc63560cfd1eccccb9fe1cc07f1d5","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Raw captured Markdown bytes"},
+{"id":"reconcile-v2-work-item-type-governance-overview","url":"https://developers.plane.so/api-reference/v2/work-item-type-governance/overview.md","fetched_at":"2026-11-15","source_revision":"Official raw Markdown capture; upstream revision unavailable","sha256":"b909bc2990c8953edb8b5e02ce137fb5b286d2b61cfe2f2b1c29ee11d0735b1e","fetched_bytes":14343,"permission":"Redistribution permission unclear; independently authored contract retained; raw capture outside repository","evidence_path":"api/sources/reconcile-v2-work-item-type-governance-overview.json","evidence_sha256":"80dc94966822e46f2721f5aea77c86fd665ad71e3b69c8612cdd75c1f3cab5c4","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Raw captured Markdown bytes"},
+{"id":"reconcile-v2-work-item-type-workflows-overview","url":"https://developers.plane.so/api-reference/v2/work-item-type-workflows/overview.md","fetched_at":"2026-11-15","source_revision":"Official raw Markdown capture; upstream revision unavailable","sha256":"e53b3e4772839aef6e51ca32b37210d8af0d4a80b3d44bf731bdbfa16fd0a7f5","fetched_bytes":6167,"permission":"Redistribution permission unclear; independently authored contract retained; raw capture outside repository","evidence_path":"api/sources/reconcile-v2-work-item-type-workflows-overview.json","evidence_sha256":"b2074da8466a25019582471002681c69c57992401235641538d42c517b5060a2","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Raw captured Markdown bytes"},
+{"id":"p10-raw-v2-work-item-attachments-overview","url":"https://developers.plane.so/api-reference/v2/work-item-attachments/overview.md","fetched_at":"2026-11-15","source_revision":"Upstream revision unavailable; supplied raw official Markdown capture","sha256":"fce69fb32576b534c053cf673003bc08f6d045edc51227226ca7690bbf22912b","fetched_bytes":3208,"permission":"Redistribution permission unclear; independently authored contract retained","evidence_path":"api/sources/p10-raw-v2-work-item-attachments-overview.json","evidence_sha256":"d33738dc2be39bac331015279a38509c890021fe2aed215ed7d738207b18ab18","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Exact raw Markdown capture bytes"},
+{"id":"p10-raw-v2-workspace-page-attachments-overview","url":"https://developers.plane.so/api-reference/v2/workspace-page-attachments/overview.md","fetched_at":"2026-11-15","source_revision":"Upstream revision unavailable; supplied raw official Markdown capture","sha256":"2d40eb68d48660c8e5a31cfda0d9b5e24ad40cd1ef98229a57b762e7aaf4c443","fetched_bytes":6764,"permission":"Redistribution permission unclear; independently authored contract retained","evidence_path":"api/sources/p10-raw-v2-workspace-page-attachments-overview.json","evidence_sha256":"40e7d73ccc311f496fd67737fd8c8de31628b26ce483187efbadda152119893e","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Exact raw Markdown capture bytes"},
+{"id":"p10-raw-v2-workspace-assets-overview","url":"https://developers.plane.so/api-reference/v2/workspace-assets/overview.md","fetched_at":"2026-11-15","source_revision":"Upstream revision unavailable; supplied raw official Markdown capture","sha256":"974ff4d64bc138f66b16f8275d54186c8df4cdc2d4b45c445ef8cd163767eb14","fetched_bytes":2896,"permission":"Redistribution permission unclear; independently authored contract retained","evidence_path":"api/sources/p10-raw-v2-workspace-assets-overview.json","evidence_sha256":"358803de82c41bc5910706bfb395ec6120a2a43f2f334ae0dc623525e1c9049f","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Exact raw Markdown capture bytes"},
+{"id":"p10-raw-v2-user-assets-overview","url":"https://developers.plane.so/api-reference/v2/user-assets/overview.md","fetched_at":"2026-11-15","source_revision":"Upstream revision unavailable; supplied raw official Markdown capture","sha256":"3374cfe20869de497abd2c41910d8977d857b268eae68fec9866b08e6e59fd74","fetched_bytes":2597,"permission":"Redistribution permission unclear; independently authored contract retained","evidence_path":"api/sources/p10-raw-v2-user-assets-overview.json","evidence_sha256":"168e9a358bd7e7206c1dffc5383e6dbaa67f79cf1715b292b724bdc57198b9e7","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Exact raw Markdown capture bytes"},
+{"id":"p10-raw-v1-issue-attachments-overview","url":"https://developers.plane.so/api-reference/issue-attachments/overview.md","fetched_at":"2026-11-15","source_revision":"Upstream revision unavailable; supplied raw official Markdown capture","sha256":"944c123e46d3d98cf47375dbf0d798a560345f31fdce9f44089609e17922da94","fetched_bytes":4181,"permission":"Redistribution permission unclear; independently authored contract retained","evidence_path":"api/sources/p10-raw-v1-issue-attachments-overview.json","evidence_sha256":"a17f7e535125c3ccc804040aade82f5a505f67eed39353702d9551987a996322","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Exact raw Markdown capture bytes"},
+{"id":"p10-raw-v1-issue-attachments-get-attachments","url":"https://developers.plane.so/api-reference/issue-attachments/get-attachments.md","fetched_at":"2026-11-15","source_revision":"Upstream revision unavailable; supplied raw official Markdown capture","sha256":"b10d6f5c732dd40ff5408fddf277f655aaa3c25037d1bacd50c52224df2614ec","fetched_bytes":2580,"permission":"Redistribution permission unclear; independently authored contract retained","evidence_path":"api/sources/p10-raw-v1-issue-attachments-get-attachments.json","evidence_sha256":"f1b0d1408d01737f59dce79bf3b5d8f6fc8ede4739fbdec6fc31b650b8a48d0f","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Exact raw Markdown capture bytes"},
+{"id":"p10-raw-v1-issue-attachments-get-attachment-detail","url":"https://developers.plane.so/api-reference/issue-attachments/get-attachment-detail.md","fetched_at":"2026-11-15","source_revision":"Upstream revision unavailable; supplied raw official Markdown capture","sha256":"4875a5cce8d470569f5a5a93bd9d3828b50fcbec3ba727f21b2492f091ad5f8b","fetched_bytes":2576,"permission":"Redistribution permission unclear; independently authored contract retained","evidence_path":"api/sources/p10-raw-v1-issue-attachments-get-attachment-detail.json","evidence_sha256":"0e3e14fb97d7236fd0b13a8ffca2f04e84fab4e938dff921f221fcf924c3e228","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Exact raw Markdown capture bytes"},
+{"id":"p10-raw-v1-issue-attachments-get-upload-credentials","url":"https://developers.plane.so/api-reference/issue-attachments/get-upload-credentials.md","fetched_at":"2026-11-15","source_revision":"Upstream revision unavailable; supplied raw official Markdown capture","sha256":"7ddbf1a902dec5c5450d3f92bc0ef2cb8cd9d306cf0424be6db421301a76e4dd","fetched_bytes":3677,"permission":"Redistribution permission unclear; independently authored contract retained","evidence_path":"api/sources/p10-raw-v1-issue-attachments-get-upload-credentials.json","evidence_sha256":"2f1b3b9462d43a0237533d6e5340b363b740cc9907e33228ee0e9f789f400a3d","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Exact raw Markdown capture bytes"},
+{"id":"p10-raw-v1-issue-attachments-upload-file","url":"https://developers.plane.so/api-reference/issue-attachments/upload-file.md","fetched_at":"2026-11-15","source_revision":"Upstream revision unavailable; supplied raw official Markdown capture","sha256":"ac96aaef3702c06896f7ed6f3fcff6818dc815dd60c7f0d9eabda5e5c6434e7f","fetched_bytes":2741,"permission":"Redistribution permission unclear; independently authored contract retained","evidence_path":"api/sources/p10-raw-v1-issue-attachments-upload-file.json","evidence_sha256":"8d684870e1b90133aceb220ff07917dd95bebbda55f0fa4c582dabd2309554a7","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Exact raw Markdown capture bytes"},
+{"id":"p10-raw-v1-assets-overview","url":"https://developers.plane.so/api-reference/assets/overview.md","fetched_at":"2026-11-15","source_revision":"Upstream revision unavailable; supplied raw official Markdown capture","sha256":"962f81956d18a6ea8ffd50126c56ce21c07acd294fcd22ee068fcc98b0e93060","fetched_bytes":909,"permission":"Redistribution permission unclear; independently authored contract retained","evidence_path":"api/sources/p10-raw-v1-assets-overview.json","evidence_sha256":"4fd2c9568fc81a4245c08299e52782b4ddcd14946dbfc5b722b187140de10ab1","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Exact raw Markdown capture bytes"},
+{"id":"p10-raw-v1-assets-update-user-asset","url":"https://developers.plane.so/api-reference/assets/update-user-asset.md","fetched_at":"2026-11-15","source_revision":"Upstream revision unavailable; supplied raw official Markdown capture","sha256":"a1ea805fa0f4a0f0a07728713a494817d5440b0c6ff59db9e5edfbdd079acf86","fetched_bytes":2404,"permission":"Redistribution permission unclear; independently authored contract retained","evidence_path":"api/sources/p10-raw-v1-assets-update-user-asset.json","evidence_sha256":"b0252159d445d057ee36892081dd2b8b8bf2dd80c580230bba11cb3271773847","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Exact raw Markdown capture bytes"},
+{"id":"p10-raw-supplement-v1-server-upload-variants","url":"https://developers.plane.so/api-reference/v2/migrating-from-v1.md","fetched_at":"2026-11-15","source_revision":"Upstream revision unavailable; supplied raw official Markdown capture","sha256":"6dc24447f0eaf3d820cf7e62d08e127461e0b9b9f1a728d7c0ffe455ee008122","fetched_bytes":28405,"permission":"Redistribution permission unclear; independently authored contract retained","evidence_path":"api/sources/p10-raw-supplement-v1-server-upload-variants.json","evidence_sha256":"ab4d04f9c167d7a517fc8d471aff7c81ccd42c5b6c5925018bfaf0485cb93fe0","evidence_kind":"independently-authored-minimal-contract","digest_representation":"Exact raw Markdown capture bytes"},
     {
       "id": "p07-releases-v2.releases.overview",
       "url": "https://developers.plane.so/api-reference/v2/releases/overview.md",
@@ -4096,7 +4119,7 @@
       "fetched_bytes": 5958,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v2.states.overview.json",
-      "evidence_sha256": "23419f15b5fc05bfe8fb6fb22ca14e6f23eeb64712045c07ea74c3fa8e28b0c8",
+      "evidence_sha256": "d615f2256b66d4a9d81290055cab6258e707603c08b684bafe6540c92ca9481f",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4108,7 +4131,7 @@
       "fetched_bytes": 8649,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v2.workspace-states.overview.json",
-      "evidence_sha256": "ed1f6a943dc6fccb84fe4dc454a26c1729f603c1d4b71fac403d40ef7a38eb1b",
+      "evidence_sha256": "24ed52dca560b214958fa379525c361253ecddc290caf6d1378e4df31a58a141",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4120,7 +4143,7 @@
       "fetched_bytes": 7203,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v2.labels.overview.json",
-      "evidence_sha256": "ace568ffd96d778a66f37f3df4a50e7cdb40b5b762216f70409dddd1e7e30113",
+      "evidence_sha256": "2d3a0b97eb4f49e44ada4b29881af6124147e81101977966c7daece007015ced",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4132,7 +4155,7 @@
       "fetched_bytes": 5318,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v2.project-states.overview.json",
-      "evidence_sha256": "295f81ce11db427adc7409225c8aaaaa512c2e3b8732aba881dea1f54a502123",
+      "evidence_sha256": "0474cca318f125039137942c694c74935fadf3d44cedc85ed2c523bfe23a39c5",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4144,7 +4167,7 @@
       "fetched_bytes": 4423,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v2.project-labels.overview.json",
-      "evidence_sha256": "ac2e0170c2b18c06ecdf3239cae3d0113963fa4fa894180ac0c6a098821b200e",
+      "evidence_sha256": "737d8744504cb5d96652b25bc64d873c3c67cb5db492fa2639db16e663061ada",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4156,7 +4179,7 @@
       "fetched_bytes": 1721,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v1.project-labels.overview.json",
-      "evidence_sha256": "083b0cf75db56fe31db19e367056665de289e768838d76c948a1146fc4aa35fc",
+      "evidence_sha256": "93669ae22a3f722f18ffd9116e47dfd04b6bb833ecfe6786516d4d6ef8fe8854",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4168,7 +4191,7 @@
       "fetched_bytes": 2140,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v1.state.overview.json",
-      "evidence_sha256": "0d3ff34b627f229f8fad83195f44a1c19c5bed40aa14819c6836de6809cff12b",
+      "evidence_sha256": "d23fdcb73794b2fbf20c3978288e8e29eecc6e0b8f4d5a32f20b61e7c55df82b",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4180,7 +4203,7 @@
       "fetched_bytes": 1739,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v1.label.overview.json",
-      "evidence_sha256": "caac0e3ac51ec7fa5a955822dc352b355f8e61e242be7a12702862be878789f5",
+      "evidence_sha256": "3232c39b736edc97a837432dc6b15b4653c648ce7370b341927dc00c0a4d69b5",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4192,7 +4215,7 @@
       "fetched_bytes": 3961,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v1.project.overview.json",
-      "evidence_sha256": "8d238ca14a24a3192fa6b17bd0c64959ab770db1908146c192dca804d8f2ef97",
+      "evidence_sha256": "5547c1cd1326271137a89937b1209deb72720cb753c9c8582738393f63b10b0f",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4204,7 +4227,7 @@
       "fetched_bytes": 6533,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v2.projects.overview.json",
-      "evidence_sha256": "7598d3e4791dcde95aa1a1807647ce5014dd679e3e0d79a8f0e61f662ed96176",
+      "evidence_sha256": "ba6d578f7b9086732ed5959a692e4baf83498fb0633aca8842973fb273ceaa25",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4216,7 +4239,7 @@
       "fetched_bytes": 3830,
       "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
       "evidence_path": "api/sources/p03-v1.issue.overview.json",
-      "evidence_sha256": "ab9c94aa4857634682213b9455c0f3bb84c52f545e490abfae4820fc19438ff8",
+      "evidence_sha256": "ce588b1ab2f5d320397a28c0583a3237edbf91922e1e7a25d0567fedb254a714",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4324,7 +4347,7 @@
       "fetched_bytes": 16537,
       "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
       "evidence_path": "api/sources/p03-v2.work-items.overview.json",
-      "evidence_sha256": "f29c6eb88aff9fdadfb6f9654635ba80eb49577102e529ef756f6a8f68d1878d",
+      "evidence_sha256": "bdcea7475b6fd01699ed3cd105eef446d8187deb978175baa26f52a676424190",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4588,7 +4611,7 @@
       "fetched_bytes": 5284,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v2.users.overview.json",
-      "evidence_sha256": "abf1172ebb0ac0ee8f3c389a0d5b0fe71a46aab00fca495fd12b736395f59749",
+      "evidence_sha256": "81ae65de8327496f7d69a1fcb4b8b0dc1e1c340653716b01837fe794e993d797",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4612,7 +4635,7 @@
       "fetched_bytes": 4235,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v1.epics.overview.json",
-      "evidence_sha256": "1d3d664f08f34811082748c0ad26e5f040294229f1bc1d0bdb69d05200e23fc8",
+      "evidence_sha256": "f7c6954bb2cd4fbc36060874820266bd845c0477dab6061d41fcce005d9c57cb",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4624,7 +4647,7 @@
       "fetched_bytes": 1203,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p03-v1.user.overview.json",
-      "evidence_sha256": "effeb81ae1420a40e1eeaeb9d6bc16c2b70698d784a58ffbe88f20037052fa06",
+      "evidence_sha256": "3b20d4693aff9563101c7c5f6008149ce8b9e5e870abce540cf1f5edc1e26425",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4648,7 +4671,7 @@
       "fetched_bytes": 3662,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p04-v2.intake-work-items.overview.json",
-      "evidence_sha256": "f04b6505c1f5d67501d3996bfb84463c086cad274ed5798c27edb9699401db2b",
+      "evidence_sha256": "6db0a19d3f9ffe17539d582a3f6d54942d31ebe948ff205f997e88780abb84ee",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4720,7 +4743,7 @@
       "fetched_bytes": 9696,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p04-v2.recurring-work-items.overview.json",
-      "evidence_sha256": "d46f6397f05a5bd07d76998a5e478c7c424d3b559756144357cd6a0e35927247",
+      "evidence_sha256": "45fedb431a9943e7e1c4682fc127090fe96c9248f8983462d76e00e63abf6cf9",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4792,7 +4815,7 @@
       "fetched_bytes": 2213,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p04-v1.intake-issue.overview.json",
-      "evidence_sha256": "66a6f0b31c781cd1404965e52a58e547c628a9ace4aec1cced58fc7432e18dfe",
+      "evidence_sha256": "c44f37bce0e8ac75cceca1cc3d94fef97152a6bbd6f3a76851449563014cc5ff",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4948,7 +4971,7 @@
       "fetched_bytes": 1807,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p04-v1.work-item-relations.overview.json",
-      "evidence_sha256": "246c2334b9251465a65838d81dc190fbe128f77c9d18f487648de1c961a00554",
+      "evidence_sha256": "46bd71e53f1248e20ecebbbccb1ba0043c83caa49467199f1f948403ca5442b4",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -4984,7 +5007,7 @@
       "fetched_bytes": 8993,
       "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
       "evidence_path": "api/sources/p04-v2.work-item-comments.overview.json",
-      "evidence_sha256": "0757c7f69d8d3158898f3071a99a3cfa1330e36b8c36136857301184abb83964",
+      "evidence_sha256": "671c4f38bbbdd0dafc9061268eb68127732ae510c490f97ce5fd52e7c37e8617",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -5104,7 +5127,7 @@
       "fetched_bytes": 2433,
       "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
       "evidence_path": "api/sources/p04-v2.work-item-links.overview.json",
-      "evidence_sha256": "373a695c0a711f5b290ceaaf6eb899ec6c4529ba53c32723241452eb87fab8dd",
+      "evidence_sha256": "00c7761142fefc9275ee9de8bf9447b85e1c2f25a60e0941fb4cdb0d7eebe57d",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -5176,7 +5199,7 @@
       "fetched_bytes": 3133,
       "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
       "evidence_path": "api/sources/p04-v2.work-item-activities.overview.json",
-      "evidence_sha256": "028e3a99eae82d0617829687bf535e01a46918124db4df074adb933772994702",
+      "evidence_sha256": "034ae2b2b7c9007de67f5d767ecb2686292c2f7b07a44fded5512572900b549b",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -5212,7 +5235,7 @@
       "fetched_bytes": 2849,
       "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
       "evidence_path": "api/sources/p04-v2.work-item-worklogs.overview.json",
-      "evidence_sha256": "1c72a10d3aafa8a557db535e427f048843f387169424365882fa01c9601c7c26",
+      "evidence_sha256": "1176d5d215521826c32ba28943e4fd81e1fbcee4f8616b7899a3c1749b4cef2f",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -5296,7 +5319,7 @@
       "fetched_bytes": 8667,
       "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
       "evidence_path": "api/sources/p04-v2.work-item-subscribers.overview.json",
-      "evidence_sha256": "58e08b1ce1baf09c2d2b41ad4483be8e7ef5c6c0930b0c6af4d770b846b35ba1",
+      "evidence_sha256": "f02b2933f219ec0d644a7950b907b527616d73b2475c0fef2426f6fd4eaa2c5c",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -5356,7 +5379,7 @@
       "fetched_bytes": 4213,
       "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
       "evidence_path": "api/sources/p04-v2.work-item-votes.overview.json",
-      "evidence_sha256": "514cac11f43eff6d2d5890b75e12a3b5fbc963ce05f6224c64103abc52ee0edc",
+      "evidence_sha256": "a5dfcf6f6eccc60939b4f133e52daf7c6feeb3864e21af1397a44f5f15b29236",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -5404,7 +5427,7 @@
       "fetched_bytes": 1767,
       "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
       "evidence_path": "api/sources/p04-v1.link.overview.json",
-      "evidence_sha256": "afd3b96d4cb3c758cb92a477a67e08b53903a2e3805533c3491adb1881ee127d",
+      "evidence_sha256": "ab563212d856e0f2421955a1f1de5e3a6dd7664b05daa316009a1792601101a0",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -5476,7 +5499,7 @@
       "fetched_bytes": 2359,
       "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
       "evidence_path": "api/sources/p04-v1.issue-activity.overview.json",
-      "evidence_sha256": "be27a5f3ed8a960afd9364aeb4c6fa2d3748462a0c1b5deeb37a223e5b723939",
+      "evidence_sha256": "e1b71510c547b96b608c041cf0d55c0f75263544172a1b578a2f1131cbb48fbd",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -5512,7 +5535,7 @@
       "fetched_bytes": 2839,
       "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
       "evidence_path": "api/sources/p04-v1.issue-comment.overview.json",
-      "evidence_sha256": "5ae17e68d54a5422e89b67a92cf26d9f076c7366b265382509db90eafd3402d2",
+      "evidence_sha256": "33b98db9d776828817f81315115931c0f1527821d1117c21041433489ee9afba",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -5584,7 +5607,7 @@
       "fetched_bytes": 1934,
       "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
       "evidence_path": "api/sources/p04-v1.worklogs.overview.json",
-      "evidence_sha256": "44008217615817f8c4c7336439d1d51d7027b3ade6d21636173509c6bf11f3f4",
+      "evidence_sha256": "83470769bd6aac0aa055c2f233058a89a4abf2fd972ddf9671fda057efb49a3c",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -5656,7 +5679,7 @@
       "fetched_bytes": 10352,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p04-v2.cycles.overview.json",
-      "evidence_sha256": "7ce1a8380b463601175a6a722d8c4f2c5912a6c8aa16ac15347d7d2f98a47c96",
+      "evidence_sha256": "c90b4f9bb8dd6841090fa38e0a9668bfc52b2a5e7f190f31df59698b40db7711",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -5824,7 +5847,7 @@
       "fetched_bytes": 10413,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p04-v2.modules.overview.json",
-      "evidence_sha256": "2c6bbe900a656ee0ade3fd4b4e4722ab47bc94dec7785ce898c4a7c18841c144",
+      "evidence_sha256": "cb35c35f3d6135f08e6c105c03b2a019e4ef58aee4d418d5213985a567551287",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -5980,7 +6003,7 @@
       "fetched_bytes": 3376,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p04-v2.milestones.overview.json",
-      "evidence_sha256": "9c60245f053ada014d7affaae304891e6f3775719ec0bc12366c0d9b9cf6a420",
+      "evidence_sha256": "26de8cdfe75014dfff846cd092837c2f2d4c26693078a17c07f4b94dda4c3523",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -6112,7 +6135,7 @@
       "fetched_bytes": 3102,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p04-v2.estimates.overview.json",
-      "evidence_sha256": "cdaee0d2d5d1d211c0f129289b9348f817f6427393c3623c2e2f8001012dacc3",
+      "evidence_sha256": "26a7787a63aa2697260893b2827b1fd49a5b31c20fa604adb98589c5e6a079ee",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -6232,7 +6255,7 @@
       "fetched_bytes": 3487,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p04-v2.estimate-points.overview.json",
-      "evidence_sha256": "0235718d24d0802885545387c2a54c1cb1b511bd41b358ef368e9ad50e366a01",
+      "evidence_sha256": "ee14710c9e065fc5d276f47af8be3b56a60ee5c988cb7b4589313cf94f8b4289",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -6352,7 +6375,7 @@
       "fetched_bytes": 2287,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p04-v1.cycle.overview.json",
-      "evidence_sha256": "62d78f173f928de1813e8114212e76a8dd6a4dd953c8b42caec7a925d863f518",
+      "evidence_sha256": "f7bedf3126e012f9a178ebdef5055b3ab426a18a92a094cc29df228f4f3c0ceb",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -6508,7 +6531,7 @@
       "fetched_bytes": 2568,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p04-v1.module.overview.json",
-      "evidence_sha256": "5f0b8a1003e338434a50a8a1d23bcc10c95dbed1790caa44e3c526e47143fbb1",
+      "evidence_sha256": "7acf768c315f6c3efc3669be574272e8c6daef13c5f93adde5699182761a54c3",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -6652,7 +6675,7 @@
       "fetched_bytes": 1468,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p04-v1.milestones.overview.json",
-      "evidence_sha256": "3cd56b73928657b5006b9cbede7ce75b68749d41dfc0785ac9476ac53301c7f2",
+      "evidence_sha256": "dacb99672edb336deff8a5676f2cda9b9cdb08746545c1e7fbca2e1964566f22",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -6736,7 +6759,7 @@
       "fetched_bytes": 3511,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p04-v1.estimate.overview.json",
-      "evidence_sha256": "2ad33a53e635172c3d53b433085bde75f82413023098d589d640385830a4e98c",
+      "evidence_sha256": "8748b0c0232e9168551fa92ddefae105e2dc3d3487794a057e914c22207e6f34",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -6856,7 +6879,7 @@
       "fetched_bytes": 11350,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v2.work-item-types.overview.json",
-      "evidence_sha256": "89a68173fd5bb7462d4ea8b36f9024183402eed07cd459dae3f78e476074e495",
+      "evidence_sha256": "ee51172bc1a01ab8f9f4fedbcdb60dd4b4794fdeda49f1c1076ad46887a697bf",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -6976,7 +6999,7 @@
       "fetched_bytes": 11021,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v2.work-item-properties.overview.json",
-      "evidence_sha256": "283e12395dc9cc8ba27a83da74caa96c82dbc391fcdeb86f52ec4cbf79813318",
+      "evidence_sha256": "f723e58d218483c5a6b9a11ad3bef5922a9f168c845df5bcb7582313b4243414",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -7048,7 +7071,7 @@
       "fetched_bytes": 6887,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v2.work-item-property-options.overview.json",
-      "evidence_sha256": "6d3385e8ea7e1bc315e417f569abfafd926aac8a77995ed90aa3b84d5936b46e",
+      "evidence_sha256": "61012750d2770cdefd0a8cffe655d8e48e1c1b449053238e333b6b0246d3859a",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -7120,7 +7143,7 @@
       "fetched_bytes": 9605,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v2.work-item-type-properties.overview.json",
-      "evidence_sha256": "21f4a6e929da30570cbbb8db7b112386619ad3f2fa88d9dee838d479bf2eb25e",
+      "evidence_sha256": "fa35a8e0be72527497fb851bb49d5c02d616f1d597c75d65aaeb1a89f422ea15",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -7180,7 +7203,7 @@
       "fetched_bytes": 2567,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v1.issue-types.types.overview.json",
-      "evidence_sha256": "522427d0746762b244837cb8ebd7bd91b537c484be82ca14bb0b0e556ccbc8a1",
+      "evidence_sha256": "861941b8ef78a328cbc75cae2b721152400ce9898025f892822e4aaffc1bfe7a",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -7264,7 +7287,7 @@
       "fetched_bytes": 2055,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v1.issue-types.properties.overview.json",
-      "evidence_sha256": "cf86713429af89088f09d39b70627e8089fbe9735295587ff87f61c46cc5d6ce",
+      "evidence_sha256": "5a9f176d1453abacdd328be49259ef69a0b6d6c6bd7d24e352b868ac5ccabaab",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -7336,7 +7359,7 @@
       "fetched_bytes": 1801,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v1.issue-types.values.overview.json",
-      "evidence_sha256": "d33f8522ac8766b83693edac7a6a744b41f4254773da77efe426eb6faaeef2de",
+      "evidence_sha256": "d242a0c4fcf23de29dfd74205c0b6b275d737cba2d0ea0aa84fb25c456b94abc",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -7408,7 +7431,7 @@
       "fetched_bytes": 1778,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v1.issue-types.options.overview.json",
-      "evidence_sha256": "6505e684ef9544bd4ca69f016f49017995bf20904f7ef41191a38db8b3852c08",
+      "evidence_sha256": "2b3747715476e1b57f029fef5bc3fbd116e986460660a0b27942bd6b2aee974b",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -7480,7 +7503,7 @@
       "fetched_bytes": 9497,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v2.workspace-work-item-types.overview.json",
-      "evidence_sha256": "b58c22df2f9255334f84bc80f790f6b0473939989d1ab04b52a32c1853ae36ac",
+      "evidence_sha256": "8d3f54a8854fcfc8ea6637af5453fb2aadf9c053ecef46df52549ce7696826d6",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -7564,7 +7587,7 @@
       "fetched_bytes": 9500,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v2.workspace-work-item-properties.overview.json",
-      "evidence_sha256": "f6052b679d7528cb1cdec425c65f3319ded9e683f41d73f7f888af1b00eb76e8",
+      "evidence_sha256": "dd1e79b93d18d239dd392c30d221ed1881024b07bd8b881367a018dac9c605f8",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -7636,7 +7659,7 @@
       "fetched_bytes": 7297,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v2.workspace-work-item-property-options.overview.json",
-      "evidence_sha256": "a3b74ffab0273ad62380efd94fdc825d89b00a00756a9fdcedd060316765458b",
+      "evidence_sha256": "59401ea1b1f5f9ad95a7e1da2ef072d1836a43ce2bd2eaec6f857522e67d38d3",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -7708,7 +7731,7 @@
       "fetched_bytes": 7847,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v2.workspace-work-item-type-properties.overview.json",
-      "evidence_sha256": "2145ba2b530170e732563f15493e9d1204a67512430e6d45e61057d378e907b7",
+      "evidence_sha256": "c9819ad74613c849eabad51d4c390a23ef9c48b0036c609a45392553d38145fb",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -7768,7 +7791,7 @@
       "fetched_bytes": 13564,
       "permission": "Redistribution permission unclear; full source not retained",
       "evidence_path": "api/sources/p05-v2.work-item-property-contexts.overview.json",
-      "evidence_sha256": "fee37bee904870c1340cd5e868abbb6066e828e4ffb20e2957111c3c8f1bdf86",
+      "evidence_sha256": "61623f56693d64fe9ab11ce7bd47cb3cda77b3e7045e91aa288b890b61591cf5",
       "evidence_kind": "independently-authored-minimal-contract"
     },
     {
@@ -7864,7 +7887,7 @@
       "fetched_bytes": 5006,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p06-page-v2.work-item-pages.overview.json",
-      "evidence_sha256": "a127fc9a3ab34b83deb1de47fc0b018a159e264406b675837b49d8f96d7d3cbb",
+      "evidence_sha256": "8b7016320a0d7411ae447f1fc5e13f6a60aaae6bf72873e2df187c0b738625a6",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
     },
@@ -7929,7 +7952,7 @@
       "fetched_bytes": 5041,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p06-page-v2.project-pages.overview.json",
-      "evidence_sha256": "22d3768e8b7f849e897b91facf7937a91d0a727e69e18b90cb0a7ed4fd2fea73",
+      "evidence_sha256": "e48cdad2ffd3b53631f98260d627d75e01e94586ec976fe8e60adb267baad003",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
     },
@@ -8033,7 +8056,7 @@
       "fetched_bytes": 4670,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p06-page-v2.workspace-pages.overview.json",
-      "evidence_sha256": "383cbd9c3a536cbd0d9414671520a854f1979f8545acde6283c2b464a7f58b6e",
+      "evidence_sha256": "1ca97a30cad842a33634db69455b364449aeb28646c1e90f5b310b5bffbd50e3",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
     },
@@ -8137,7 +8160,7 @@
       "fetched_bytes": 5396,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p06-page-v2.published-pages.overview.json",
-      "evidence_sha256": "088231fb1f628cb34506482c7129541b53fa85b989d5070dc9eeecddacf496ec",
+      "evidence_sha256": "5af6341b8d55ce39e7307e96fd5a3a2ea0ef138a3421693e8ddc20c784b91535",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
     },
@@ -8163,7 +8186,7 @@
       "fetched_bytes": 2690,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p06-page-v2.stickies.overview.json",
-      "evidence_sha256": "f5df64aecce84b9f26d9af6a1ba7ed464700fc96b6992ee94491ba588590f171",
+      "evidence_sha256": "42307d15c2b796c2b4321d8673fddf0e2efb687714651e3fd25e3f217a56d302",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
     },
@@ -8241,7 +8264,7 @@
       "fetched_bytes": 1831,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p06-page-v1.work-item-pages.overview.json",
-      "evidence_sha256": "78a34e2756107f385976ee24000bb0bb49243ecd795ed0e557e3ceff85fb2ee3",
+      "evidence_sha256": "59f1cbeee552543ba44432208a3b390cf4f6c5f72b792c7dc435673ac67a4c8d",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
     },
@@ -8306,7 +8329,7 @@
       "fetched_bytes": 2200,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p06-page-v1.page.overview.json",
-      "evidence_sha256": "4aa017e58d3dd8c2a7757343f195cb5cdc8f97b62bfa480840499e4bf04ef88e",
+      "evidence_sha256": "6e965988434dbf313a9fe582f484d31a16667b5e10ee4a19645349315a803cc1",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
     },
@@ -8319,7 +8342,7 @@
       "fetched_bytes": 5784,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p06-page-v1.page.page-content-html.json",
-      "evidence_sha256": "3786c57c434fb99d57528a0646d780bdb87c41e1ea61a75f77279a2d532f1769",
+      "evidence_sha256": "6971d2baec12aff5c3b9dd7af8d6598ca3eb0e7d905658d5a84066d797ed3fe8",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
     },
@@ -8514,7 +8537,7 @@
       "fetched_bytes": 2070,
       "permission": "Redistribution permission unclear; source bytes not retained in repository",
       "evidence_path": "api/sources/p06-page-v1.sticky.overview.json",
-      "evidence_sha256": "d9dabb3fdbe7b57a7b35be245f402242a994a27acc3a34d8cd2a95c2f90da9ed",
+      "evidence_sha256": "235843c914ca77aa0e7b16b5e0948e865087c11e5ae033d2c3ebb85b4b9eda26",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
     },
@@ -8595,7 +8618,7 @@
       "source_revision": "Upstream revision unavailable; reader-derived Markdown digest",
       "permission": "Redistribution permission unclear; only independently authored contract retained",
       "evidence_path": "api/sources/p06-collection-v2.collections.overview.json",
-      "evidence_sha256": "a1519f62867d1dd013c45780741776efa9d6c20c108ce476b8172e52de0ad657",
+      "evidence_sha256": "b1443a6d6e1c33c45fd3945e812afe4c43421c5bc54689bd0092902afb104277",
       "evidence_kind": "independently-authored-minimal-contract",
       "fetched_bytes": 3445
     },
@@ -8611,7 +8634,7 @@
       "source_revision": "Upstream revision unavailable; reader-derived Markdown digest",
       "permission": "Redistribution permission unclear; only independently authored contract retained",
       "evidence_path": "api/sources/p06-collection-v2.collections.list-collection-members.json",
-      "evidence_sha256": "44e1a6908529bda9f21e8cdb545c3dd5f82f37c5dab51b7f2ad2c773ed85de34",
+      "evidence_sha256": "e8fbf47755e14e704a5af55121d840583cd846aed53d3d6d4830842b3bb3c087",
       "evidence_kind": "independently-authored-minimal-contract",
       "fetched_bytes": 4616
     },
@@ -8691,7 +8714,7 @@
       "source_revision": "Upstream revision unavailable; reader-derived Markdown digest",
       "permission": "Redistribution permission unclear; only independently authored contract retained",
       "evidence_path": "api/sources/p06-collection-v2.collections.delete-collection.json",
-      "evidence_sha256": "cec39414cf492c60d5e4cf2bdcd9827878584ea8143ea2e1d14ae5e2cb30cff8",
+      "evidence_sha256": "26b65022605924130983b832f6aab46d67701446301de8fc6bba5795742c09ad",
       "evidence_kind": "independently-authored-minimal-contract",
       "fetched_bytes": 4826
     },
@@ -8723,7 +8746,7 @@
       "source_revision": "Upstream revision unavailable; reader-derived Markdown digest",
       "permission": "Redistribution permission unclear; only independently authored contract retained",
       "evidence_path": "api/sources/p06-collection-v2.collections.manage-collection-pages.json",
-      "evidence_sha256": "27818d52f4782b9d4c4a2c45ca6bf8b2a604164ded4f2a3cc4300a3b6d3efddb",
+      "evidence_sha256": "ad355ea57a3a59ef034d365b6762a22dbae4d3781d42805e379634aab114ce5e",
       "evidence_kind": "independently-authored-minimal-contract",
       "fetched_bytes": 4733
     },
@@ -8771,7 +8794,7 @@
       "source_revision": "Upstream revision unavailable; reader-derived Markdown digest",
       "permission": "Redistribution permission unclear; only independently authored contract retained",
       "evidence_path": "api/sources/p06-collection-v2.collections.search-collection-pages.json",
-      "evidence_sha256": "33d949b240f3b488af2b6ed8d4276488920f0c8e7ba7fc7d0407aef4016ac8e5",
+      "evidence_sha256": "6d2a80438db852a8434b1e18988ac492c570e078fc88bb6d3c30a5f4621a6faf",
       "evidence_kind": "independently-authored-minimal-contract",
       "fetched_bytes": 3745
     },
@@ -8787,7 +8810,7 @@
       "source_revision": "Upstream revision unavailable; reader-derived Markdown digest",
       "permission": "Redistribution permission unclear; only independently authored contract retained",
       "evidence_path": "api/sources/p06-collection-v1.collection.overview.json",
-      "evidence_sha256": "c5211be016c4343acd7b9975ac248dfaa0faf852cb2e30055e5d32bc74b22576",
+      "evidence_sha256": "064efa5fc732a46667c9afb981a3104191ba33c4373691091cadde39cf262a5e",
       "evidence_kind": "independently-authored-minimal-contract",
       "fetched_bytes": 2443
     },
@@ -10913,7 +10936,7 @@
       "fetched_bytes": 8208,
       "permission": "Redistribution permission unclear; independently authored contract retained",
       "evidence_path": "api/sources/p09-automations-v2.project-automations.overview.json",
-      "evidence_sha256": "e58db73c842b6cb07e4372ee4df9c824c3ec0283a8a03166580b7950918d118e",
+      "evidence_sha256": "aa5c96fe9b6a3a7e174f2cde914a34dbeb938402b191ca6539f889e09ebc1284",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal"
     },
@@ -11173,7 +11196,7 @@
       "fetched_bytes": 8171,
       "permission": "Redistribution permission unclear; independently authored contract retained",
       "evidence_path": "api/sources/p09-automations-v2.workspace-automations.overview.json",
-      "evidence_sha256": "7786e0059f6ae06bf3a02a3677d7e0852e0e87b2d96166798fd9c017930764c1",
+      "evidence_sha256": "92eb8a322b8709059f394c726a92add27763dc108f3938352c639e29c5b55155",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal"
     },
@@ -11550,7 +11573,7 @@
       "fetched_bytes": 4779,
       "permission": "Redistribution permission unclear; independently authored contract retained",
       "evidence_path": "api/sources/p09-workflows-v2.workflows.overview.json",
-      "evidence_sha256": "c7634cf08b16aeb65e2fee25d5166077ec85e71f8257980e49d0e4120326bf69",
+      "evidence_sha256": "6ad74c52e5fffce2974aa8ed1498183ab485fb6c70cc6a01f7ad4dd2dc91952b",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived capture including URL/content-type/method preamble; authoritative .complete.md capture used where designated"
     },
@@ -11641,7 +11664,7 @@
       "fetched_bytes": 3747,
       "permission": "Redistribution permission unclear; independently authored contract retained",
       "evidence_path": "api/sources/p09-workflows-v2.workflow-states.overview.json",
-      "evidence_sha256": "67490fac4fe9b53eb476684c4d73948010b4823db75ae593183c4b917026305d",
+      "evidence_sha256": "30311373815cd427e88fff6f1bf77bdd4cb7fe795e77614c8e880f8b65c804f3",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived capture including URL/content-type/method preamble; authoritative .complete.md capture used where designated"
     },
@@ -11719,7 +11742,7 @@
       "fetched_bytes": 5939,
       "permission": "Redistribution permission unclear; independently authored contract retained",
       "evidence_path": "api/sources/p09-workflows-v2.workflow-transitions.overview.json",
-      "evidence_sha256": "dbac344fb5d6271c2ffc67e5db88744e6fb79e24193fd159592a5f45396e4370",
+      "evidence_sha256": "cd21c9187eeb037908ab56f3b29d87e5a3e6a458a8d38a74a7b9e77fdc8af02c",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived capture including URL/content-type/method preamble; authoritative .complete.md capture used where designated"
     },
@@ -11797,7 +11820,7 @@
       "fetched_bytes": 5483,
       "permission": "Redistribution permission unclear; independently authored contract retained",
       "evidence_path": "api/sources/p09-workflows-v2.workflow-activities.overview.json",
-      "evidence_sha256": "6dc41c27149e9c33030987fb2486e42f3b456b822cdabd5710e8d7892e6a8898",
+      "evidence_sha256": "9692abd02454b43094eede6e3d7d22897c9a3114e8faaea57f39bc83cecd8ed2",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived capture including URL/content-type/method preamble; authoritative .complete.md capture used where designated"
     },
@@ -11836,7 +11859,7 @@
       "fetched_bytes": 10245,
       "permission": "Redistribution permission unclear; independently authored contract retained",
       "evidence_path": "api/sources/p09-workflows-v2.workflow-hooks.overview.json",
-      "evidence_sha256": "5d9a1018016b8ab0b4899a47082a6423f6758375bfa8a34e2f70a804ffa4a122",
+      "evidence_sha256": "08a762801bb95471be7ab6efec4770ff945d64cdefeb4e8f81292f48546cace5",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived capture including URL/content-type/method preamble; authoritative .complete.md capture used where designated"
     },
@@ -11940,7 +11963,7 @@
       "fetched_bytes": 19024,
       "permission": "Redistribution permission unclear; independently authored contract retained",
       "evidence_path": "api/sources/p09-workflows-v2.workspace-workflows.overview.json",
-      "evidence_sha256": "60fbcf4575c38b8fe548e7d4ab7b4381c9f362afb470d28704b5675a1d213a08",
+      "evidence_sha256": "b12eb637fa07386db9ed2ffab0a2d45119ebd8fd333045cd94f88d6383bfa931",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived capture including URL/content-type/method preamble; authoritative .complete.md capture used where designated"
     },
@@ -12031,7 +12054,7 @@
       "fetched_bytes": 7014,
       "permission": "Redistribution permission unclear; independently authored contract retained",
       "evidence_path": "api/sources/p09-workflows-v2.workspace-workflow-states.overview.json",
-      "evidence_sha256": "f2eafe30131ece873ee0b58f739df3402dc6193119fb11b462a36463985abe0b",
+      "evidence_sha256": "d0e31366f3aa27d27e93ba2e07c55839aeacd8262c8a40984f8199ed5f99bda2",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived capture including URL/content-type/method preamble; authoritative .complete.md capture used where designated"
     },
@@ -12122,7 +12145,7 @@
       "fetched_bytes": 6689,
       "permission": "Redistribution permission unclear; independently authored contract retained",
       "evidence_path": "api/sources/p09-workflows-v2.workspace-workflow-transitions.overview.json",
-      "evidence_sha256": "0666515fce145e327f04ff5c11cc71dcc4a2acbc661b77a98c80f803c9d8c707",
+      "evidence_sha256": "db02d033e7a0b6c816f3f76438e36f46865fdf922a11976f67c89cfe77a94dca",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived capture including URL/content-type/method preamble; authoritative .complete.md capture used where designated"
     },
@@ -12200,7 +12223,7 @@
       "fetched_bytes": 8026,
       "permission": "Redistribution permission unclear; independently authored contract retained",
       "evidence_path": "api/sources/p09-workflows-v2.workspace-workflow-activities.overview.json",
-      "evidence_sha256": "f784e80ff59dab561143505eaf6c110f685703c06d33f15b33c542c17dc86dae",
+      "evidence_sha256": "a8ac9975435d4f8d644df9329d4e872a8ac8eabc635054c4070f122264ec5b0d",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived capture including URL/content-type/method preamble; authoritative .complete.md capture used where designated"
     },
@@ -12239,7 +12262,7 @@
       "fetched_bytes": 10988,
       "permission": "Redistribution permission unclear; independently authored contract retained",
       "evidence_path": "api/sources/p09-workflows-v2.workspace-workflow-hooks.overview.json",
-      "evidence_sha256": "a5482867712e2cda552baf65bc7dac419d261c2f364018f0b335133369dc7bc4",
+      "evidence_sha256": "a04f2e49a15c7c636af0b916069303e28026ac717d5d703420e19c89d5249c27",
       "evidence_kind": "independently-authored-minimal-contract",
       "digest_representation": "UTF-8 reader-derived capture including URL/content-type/method preamble; authoritative .complete.md capture used where designated"
     },

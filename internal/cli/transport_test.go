@@ -37,6 +37,11 @@ func TestCurrentUser(t *testing.T) {
 					t.Error("wrong identity authentication")
 				}
 				w.Header().Set("Content-Type", "application/json")
+				if calls > 1 {
+					w.WriteHeader(http.StatusConflict)
+					_, _ = w.Write([]byte(`{"detail":"identity-private-canary"}`))
+					return
+				}
 				_, _ = w.Write([]byte(`{"id":"principal","unknown":9007199254740993,"scopes":[]}`))
 			}))
 			defer server.Close()
@@ -47,6 +52,10 @@ func TestCurrentUser(t *testing.T) {
 			code, stdout, stderr := invoke(t, catalog, []string{"user", "me", "--base-url", server.URL + "/prefix"}, nil)
 			if code != 0 || stderr != "" || calls != 1 || !strings.Contains(stdout, `"unknown":9007199254740993`) || !strings.Contains(stdout, `"id":"principal"`) {
 				t.Fatalf("identity: code=%d calls=%d stdout=%s stderr=%s", code, calls, stdout, stderr)
+			}
+			code, stdout, stderr = invoke(t, catalog, []string{"user", "me", "--base-url", server.URL + "/prefix"}, nil)
+			if code != 5 || calls != 2 || stdout != "" || !strings.Contains(stderr, "api_error") || strings.Contains(stderr, "identity-private-canary") {
+				t.Fatalf("unsafe upstream rejection: code=%d calls=%d out=%s stderr=%s", code, calls, stdout, stderr)
 			}
 		})
 	}

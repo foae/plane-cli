@@ -1,6 +1,14 @@
 {
   "source_url": "https://developers.plane.so/api-reference/v2/collections/list-collection-members.md",
   "source_sha256": "fb0d66763be61c6a8fb06450b26a7c7786cccc215393a6a6e778937c8e5947f4",
+  "implementation_decision": {
+    "disposition": "native-pass-through",
+    "operation_id": "v2.collections.list-collection-members",
+    "notes": [
+      "The official 200 example is a single member object despite the list title. Preserve the native object without inventing an array, envelope, pagination, or completeness guarantee.",
+      "Only optional fields and expand query parameters are documented; no v1 queries are imported."
+    ]
+  },
   "contract": {
     "kind": "operation",
     "method": "GET",

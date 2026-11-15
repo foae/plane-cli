@@ -2,5 +2,16 @@
   "source_url": "https://developers.plane.so/api-reference/estimate/overview.md",
   "source_sha256": "5671b8757b5f0d0839fd58b00845e1ab84fb3a254720358c3af0a298aa3bc3d3",
   "kind": "resource-overview",
-  "interpretation": "Resource overview; operation contracts are recorded separately."
+  "interpretation": "Resource overview; operation contracts are recorded separately.",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v1:estimate:overview",
+    "disposition": "resource-schema-only",
+    "operation_mappings": [],
+    "page_facts": [
+      "The body defines two schemas: an estimate scale with categories/points/time type and last_used, and an estimate point with required estimate/value and ordering key.",
+      "Required attributes and examples explain resource shape only; no HTTP methods, routes or actionable request instructions appear."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

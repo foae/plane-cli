@@ -5,5 +5,36 @@
   "reviewed_at": "2026-11-14",
   "notes": [
     "Workspace-scoped type/property surface; operation-specific contracts take precedence over conflicting overview examples."
-  ]
+  ],
+  "contract": {
+    "kind": "overview",
+    "reconciliation": {
+      "reviewed_at": "2026-11-15",
+      "disposition": "mapped-existing-operations",
+      "operation_ids": [
+        "v2.workspace-work-item-property-options.list-workspace-property-options",
+        "v2.workspace-work-item-property-options.get-workspace-property-option",
+        "v2.workspace-work-item-property-options.create-workspace-property-option",
+        "v2.workspace-work-item-property-options.update-workspace-property-option",
+        "v2.workspace-work-item-property-options.delete-workspace-property-option",
+        "v2.workspace-work-item-properties.create-workspace-work-item-property",
+        "v2.workspace-work-item-properties.get-workspace-work-item-property"
+      ],
+      "facts": [
+        "The Endpoints table names the five existing workspace option CRUD operations.",
+        "The introduction requires an OPTION property first; Options are also inlined on the property describes the existing property read as an alternative to option listing.",
+        "Moving the default is explicitly two existing update/create calls, clearing the old default before setting the new one; there is no mark-default action.",
+        "Sort order is assigned and not writable. Workspace-mode write requirements and workspace property scopes add no operations."
+      ],
+      "conflicts": [
+        {
+          "section": "Changed from v1",
+          "excerpt": "`parent`, `logo_props`, `is_active`, and the `created_*` / `updated_*` audit fields are no longer returned.",
+          "other_section": "The property option object, Attributes and response example",
+          "other_excerpt": "\"parent_id\": null",
+          "resolution": "The same page lists parent_id, is_active, logo_props, updated_at and updated_by_id in its read attributes/example despite the trimming claim. Do not remove fields from operation contracts on that claim."
+        }
+      ]
+    }
+  }
 }

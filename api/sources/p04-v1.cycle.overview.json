@@ -2,5 +2,16 @@
   "source_url": "https://developers.plane.so/api-reference/cycle/overview.md",
   "source_sha256": "8f97931d5d9172e98d6ce63882ec0fad3502b8a7beda67ba0d259cb169453bf0",
   "kind": "resource-overview",
-  "interpretation": "Resource overview; operation contracts are recorded separately."
+  "interpretation": "Resource overview; operation contracts are recorded separately.",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v1:cycle:overview",
+    "disposition": "resource-schema-only",
+    "operation_mappings": [],
+    "page_facts": [
+      "The body defines a time-period resource and attributes including start_date/end_date, view_props, sort_order, owned_by, archived_at, timezone and version.",
+      "It provides an object example but no method/path table or actionable HTTP instruction; archive timestamps alone do not establish an archive endpoint."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

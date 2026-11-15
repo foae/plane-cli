@@ -1,0 +1,5946 @@
+[
+  {
+    "path": [
+      "estimate",
+      "list"
+    ],
+    "handler": "estimate-list",
+    "summary": "List estimates",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli estimate list --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "all": {
+                  "type": "boolean"
+                },
+                "max-pages": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "count": {
+                  "type": "boolean"
+                },
+                "external-id": {
+                  "type": "string"
+                },
+                "external-source": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "order-by": {
+                  "type": "string"
+                },
+                "paginate": {
+                  "type": "string",
+                  "enum": [
+                    "cursor"
+                  ]
+                },
+                "per-page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "search": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "categories",
+                    "points",
+                    "time"
+                  ]
+                },
+                "type--in": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                },
+                "cursor": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "boolean"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "order_by": {
+                  "type": "string"
+                },
+                "paginate": {
+                  "type": "string",
+                  "enum": [
+                    "cursor"
+                  ]
+                },
+                "per_page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "search": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "categories",
+                    "points",
+                    "time"
+                  ]
+                },
+                "type__in": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                },
+                "cursor": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "all",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/all",
+            "description": "all"
+          },
+          {
+            "name": "max-pages",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/max-pages",
+            "description": "max pages"
+          },
+          {
+            "name": "count",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/count",
+            "description": "count"
+          },
+          {
+            "name": "external-id",
+            "type": "string",
+            "required": false,
+            "binding": "/query/external_id",
+            "description": "external id"
+          },
+          {
+            "name": "external-source",
+            "type": "string",
+            "required": false,
+            "binding": "/query/external_source",
+            "description": "external source"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/query/name",
+            "description": "name"
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/offset",
+            "description": "offset"
+          },
+          {
+            "name": "order-by",
+            "type": "string",
+            "required": false,
+            "binding": "/query/order_by",
+            "description": "order by"
+          },
+          {
+            "name": "paginate",
+            "type": "string",
+            "required": false,
+            "binding": "/query/paginate",
+            "description": "paginate"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/per_page",
+            "description": "per page"
+          },
+          {
+            "name": "search",
+            "type": "string",
+            "required": false,
+            "binding": "/query/search",
+            "description": "search"
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "required": false,
+            "binding": "/query/type",
+            "description": "type"
+          },
+          {
+            "name": "type--in",
+            "type": "string",
+            "required": false,
+            "binding": "/query/type__in",
+            "description": "type  in"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          },
+          {
+            "name": "cursor",
+            "type": "string",
+            "required": false,
+            "binding": "/query/cursor",
+            "description": "cursor"
+          }
+        ],
+        "pagination": "v2"
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "get"
+    ],
+    "handler": "estimate-get",
+    "summary": "Get an estimate",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli estimate get --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          }
+        ]
+      },
+      "v1": {
+        "method": "GET",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "create"
+    ],
+    "handler": "estimate-create",
+    "summary": "Create an estimate",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli estimate create --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "description": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "categories",
+                    "points",
+                    "time"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          }
+        ]
+      },
+      "v1": {
+        "method": "POST",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "categories",
+                    "points",
+                    "time"
+                  ]
+                },
+                "last_used": {
+                  "type": "boolean"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "update"
+    ],
+    "handler": "estimate-update",
+    "summary": "Update an estimate",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli estimate update --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "PATCH",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "categories",
+                    "points",
+                    "time"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          }
+        ]
+      },
+      "v1": {
+        "method": "PATCH",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "delete"
+    ],
+    "handler": "estimate-delete",
+    "summary": "Delete an estimate",
+    "side_effect": "destructive",
+    "local": false,
+    "examples": [
+      "plane-cli estimate delete --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "DELETE",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          }
+        ]
+      },
+      "v1": {
+        "method": "DELETE",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "upsert"
+    ],
+    "handler": "estimate-upsert",
+    "summary": "Upsert an estimate",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli estimate upsert --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/upsert/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "description": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 255
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "categories",
+                    "points",
+                    "time"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "external_source",
+                "external_id"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "bulk-create"
+    ],
+    "handler": "estimate-bulk-create",
+    "summary": "Bulk create estimates",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli estimate bulk-create --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/bulk-create/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "maxLength": 255
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "external_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "external_source": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "categories",
+                          "points",
+                          "time"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minItems": 1,
+                  "maxItems": 50
+                },
+                "all_or_none": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "items"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "bulk-update"
+    ],
+    "handler": "estimate-bulk-update",
+    "summary": "Bulk update estimates",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli estimate bulk-update --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/bulk-update/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "external_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "external_source": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "name": {
+                        "type": "string",
+                        "maxLength": 255
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "categories",
+                          "points",
+                          "time"
+                        ]
+                      },
+                      "id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "id"
+                    ]
+                  },
+                  "minItems": 1,
+                  "maxItems": 50
+                },
+                "all_or_none": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "items"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "bulk-delete"
+    ],
+    "handler": "estimate-bulk-delete",
+    "summary": "Bulk delete estimates",
+    "side_effect": "destructive",
+    "local": false,
+    "examples": [
+      "plane-cli estimate bulk-delete --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/bulk-delete/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                  },
+                  "minItems": 1,
+                  "maxItems": 50
+                },
+                "all_or_none": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "ids"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "point",
+      "list"
+    ],
+    "handler": "estimate-point-list",
+    "summary": "List estimate points",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli estimate point list --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{estimate_id}/points/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "all": {
+                  "type": "boolean"
+                },
+                "max-pages": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "count": {
+                  "type": "boolean"
+                },
+                "external-id": {
+                  "type": "string"
+                },
+                "external-source": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "integer"
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "order-by": {
+                  "type": "string"
+                },
+                "paginate": {
+                  "type": "string",
+                  "enum": [
+                    "cursor"
+                  ]
+                },
+                "per-page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "search": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "cursor": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "boolean"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "integer"
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "order_by": {
+                  "type": "string"
+                },
+                "paginate": {
+                  "type": "string",
+                  "enum": [
+                    "cursor"
+                  ]
+                },
+                "per_page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "search": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "cursor": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          },
+          {
+            "name": "all",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/all",
+            "description": "all"
+          },
+          {
+            "name": "max-pages",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/max-pages",
+            "description": "max pages"
+          },
+          {
+            "name": "count",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/count",
+            "description": "count"
+          },
+          {
+            "name": "external-id",
+            "type": "string",
+            "required": false,
+            "binding": "/query/external_id",
+            "description": "external id"
+          },
+          {
+            "name": "external-source",
+            "type": "string",
+            "required": false,
+            "binding": "/query/external_source",
+            "description": "external source"
+          },
+          {
+            "name": "key",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/key",
+            "description": "key"
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/offset",
+            "description": "offset"
+          },
+          {
+            "name": "order-by",
+            "type": "string",
+            "required": false,
+            "binding": "/query/order_by",
+            "description": "order by"
+          },
+          {
+            "name": "paginate",
+            "type": "string",
+            "required": false,
+            "binding": "/query/paginate",
+            "description": "paginate"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/per_page",
+            "description": "per page"
+          },
+          {
+            "name": "search",
+            "type": "string",
+            "required": false,
+            "binding": "/query/search",
+            "description": "search"
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "required": false,
+            "binding": "/query/value",
+            "description": "value"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "cursor",
+            "type": "string",
+            "required": false,
+            "binding": "/query/cursor",
+            "description": "cursor"
+          }
+        ],
+        "pagination": "v2"
+      },
+      "v1": {
+        "method": "GET",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/{estimate_id}/estimate-points/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "point",
+      "get"
+    ],
+    "handler": "estimate-point-get",
+    "summary": "Get an estimate point",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli estimate point get --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{estimate_id}/points/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "point",
+      "create"
+    ],
+    "handler": "estimate-point-create",
+    "summary": "Create an estimate point",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli estimate point create --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{estimate_id}/points/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "description": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "key": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "value"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          }
+        ]
+      },
+      "v1": {
+        "method": "POST",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/{estimate_id}/estimate-points/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "estimate_points": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "maxLength": 20
+                      },
+                      "key": {
+                        "type": "integer"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "external_id": {
+                        "type": "string"
+                      },
+                      "external_source": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "value"
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "estimate_points"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "point",
+      "update"
+    ],
+    "handler": "estimate-point-update",
+    "summary": "Update an estimate point",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli estimate point update --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "PATCH",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{estimate_id}/points/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "key": {
+                  "type": "integer"
+                },
+                "value": {
+                  "type": "string",
+                  "maxLength": 255
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          }
+        ]
+      },
+      "v1": {
+        "method": "PATCH",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/{estimate_id}/estimate-points/{estimate_point_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "integer"
+                },
+                "value": {
+                  "type": "string",
+                  "maxLength": 20
+                },
+                "description": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "point",
+      "delete"
+    ],
+    "handler": "estimate-point-delete",
+    "summary": "Delete an estimate point",
+    "side_effect": "destructive",
+    "local": false,
+    "examples": [
+      "plane-cli estimate point delete --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "DELETE",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{estimate_id}/points/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          }
+        ]
+      },
+      "v1": {
+        "method": "DELETE",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/estimates/{estimate_id}/estimate-points/{estimate_point_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "point",
+      "upsert"
+    ],
+    "handler": "estimate-point-upsert",
+    "summary": "Upsert an estimate point",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli estimate point upsert --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{estimate_id}/points/upsert/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "description": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 255
+                },
+                "key": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "value",
+                "external_source",
+                "external_id"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "point",
+      "bulk-create"
+    ],
+    "handler": "estimate-point-bulk-create",
+    "summary": "Bulk create estimate points",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli estimate point bulk-create --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{estimate_id}/points/bulk-create/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "maxLength": 255
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "external_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "external_source": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "key": {
+                        "type": "integer"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "value"
+                    ]
+                  },
+                  "minItems": 1,
+                  "maxItems": 50
+                },
+                "all_or_none": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "items"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "point",
+      "bulk-update"
+    ],
+    "handler": "estimate-point-bulk-update",
+    "summary": "Bulk update estimate points",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli estimate point bulk-update --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{estimate_id}/points/bulk-update/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "external_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "external_source": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "key": {
+                        "type": "integer"
+                      },
+                      "value": {
+                        "type": "string",
+                        "maxLength": 255
+                      },
+                      "id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "id"
+                    ]
+                  },
+                  "minItems": 1,
+                  "maxItems": 50
+                },
+                "all_or_none": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "items"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "estimate",
+      "point",
+      "bulk-delete"
+    ],
+    "handler": "estimate-point-bulk-delete",
+    "summary": "Bulk delete estimate points",
+    "side_effect": "destructive",
+    "local": false,
+    "examples": [
+      "plane-cli estimate point bulk-delete --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/estimates/{estimate_id}/points/bulk-delete/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.estimates:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "estimate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "estimate"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                  },
+                  "minItems": 1,
+                  "maxItems": 50
+                },
+                "all_or_none": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "ids"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "estimate",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/estimate",
+            "description": "estimate"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-modes.md",
+  "reviewed_at": "2026-11-15",
+  "contract": {
+    "modes": {
+      "project": "writes under projects/{project_id}/work-item-types and sibling properties",
+      "workspace": "writes under workspaces/{slug}/work-item-types and sibling properties"
+    },
+    "discovery": {
+      "method": "GET",
+      "path": "/api/v2/workspaces/{slug}/features/",
+      "field": "is_work_item_types_enabled",
+      "true": "workspace, subject to plan availability",
+      "false": "project"
+    },
+    "wrong_write_surface": {
+      "project_write_in_workspace_mode": "409 work_item_types_managed_at_workspace",
+      "workspace_write_in_project_mode": "409 work_item_types_managed_at_project"
+    },
+    "project_write_exceptions": [
+      "mark-default",
+      "PATCH changing only is_active"
+    ],
+    "reads": "both surfaces in both modes",
+    "project_lifecycle": [
+      "enable types",
+      "create type/properties",
+      "attach properties",
+      "read project type schema"
+    ],
+    "workspace_lifecycle": [
+      "create workspace type/properties",
+      "attach and optionally narrow by contexts",
+      "import into project",
+      "read project type schema"
+    ],
+    "mode_switch": "administrative workspace-feature PATCH requiring workspaces.features:write, never implicit",
+    "race": "mode can change after discovery; preserve actionable stable error code without implicit mutation retry",
+    "resolution": "Existing explicit project/workspace scope model remains correct; do not auto-toggle or auto-retry writes."
+  }
+}

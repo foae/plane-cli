@@ -1,6 +1,6 @@
 # Implementation packet router
 
-P00–P02 provide offline discovery, transport and authentication. P03 implements the documented identity, project, state/label and work-item operations; its integration and planner evidence determine completion. Complete packets in dependency order; a packet may be divided into source-family slices, never declared complete with missing operations. The first API milestone is P03, **not** the full release. Shared security contracts require planner review before dependent resource work.
+P00–P02 provide offline discovery, transport and authentication; P03–P09 implement the documented resource families below. Integration evidence and planner review determine verified completion, separately from implementation and approved upstream coverage exceptions. Complete packets in dependency order. Shared security contracts require planner review before dependent resource work.
 
 | Packet | Deliverable | Prerequisites |
 | --- | --- | --- |

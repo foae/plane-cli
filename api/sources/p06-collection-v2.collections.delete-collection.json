@@ -1,6 +1,16 @@
 {
   "source_url": "https://developers.plane.so/api-reference/v2/collections/delete-collection.md",
   "source_sha256": "6c250365ef9d4449730f75af4c7f946ada3341d5922228a7614fc9b7a03ccf9a",
+  "implementation_decision": {
+    "disposition": "native-pass-through",
+    "operation_id": "v2.collections.delete-collection",
+    "scope": "wiki.pages:write",
+    "success": "204 with an empty body",
+    "notes": [
+      "Optional fields and expand are native string query parameters.",
+      "No archive_pages query parameter or cascade guarantee is documented. Their absence does not block the documented DELETE; no v1 deletion semantics are imported."
+    ]
+  },
   "contract": {
     "kind": "operation",
     "method": "DELETE",

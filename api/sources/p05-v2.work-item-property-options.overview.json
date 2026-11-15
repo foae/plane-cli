@@ -2,6 +2,24 @@
   "source_url": "https://developers.plane.so/api-reference/v2/work-item-property-options/overview.md",
   "source_sha256": "78ecbbefe1e6eb4797791c3728cfaf3a200281796909d3d39bdfa5c4a6a2f471",
   "contract": {
-    "kind": "overview"
+    "kind": "overview",
+    "reconciliation": {
+      "reviewed_at": "2026-11-15",
+      "disposition": "mapped-existing-operations",
+      "operation_ids": [
+        "v2.work-item-property-options.list-property-options",
+        "v2.work-item-property-options.get-property-option",
+        "v2.work-item-property-options.create-property-option",
+        "v2.work-item-property-options.update-property-option",
+        "v2.work-item-property-options.delete-property-option",
+        "v2.work-item-properties.create-work-item-property"
+      ],
+      "facts": [
+        "The Endpoints table enumerates the five existing project option CRUD operations, with DELETE returning an empty 204 response.",
+        "Two ways to create options describes inline choices on property creation and later option CRUD; rename and default changes are option updates, not separate routes.",
+        "What you can write names name, description, is_default, external_id and external_source; sort_order is server-assigned and there is no reposition operation.",
+        "Options exist only for OPTION properties; nested project/property/option ownership, project-mode write conflicts and property read/write scopes are resource constraints, not additional actions."
+      ]
+    }
   }
 }

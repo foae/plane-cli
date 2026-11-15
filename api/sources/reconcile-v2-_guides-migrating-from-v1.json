@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/migrating-from-v1.md",
+  "reviewed_at": "2026-11-15",
+  "contract": {
+    "updates": "v2 PATCH only, omitted fields unchanged and null explicitly clears nullable fields",
+    "reads": "relations use *_id/*_ids, expand adds separate keys",
+    "writes": "relation IDs; audit fields read-only",
+    "pagination": {
+      "v1": "results plus cursor strings",
+      "v2_offset": {
+        "items": "data",
+        "next": "integer offset or null",
+        "previous": "integer offset or null",
+        "count": "total_count",
+        "style": "offset"
+      },
+      "v2_cursor": {
+        "items": "data",
+        "next": "next_cursor",
+        "more": "has_more",
+        "style": "cursor"
+      },
+      "v2_per_page_default": 50,
+      "v2_per_page_max": 200,
+      "v2_offset_max": 10000
+    },
+    "v2_list_omissions": {
+      "description_html": "request via fields on supported collections",
+      "custom_fields": "detail-only, collection request returns 400"
+    },
+    "workflow_pick_update": {
+      "v1": "PUT",
+      "v2": "PATCH"
+    },
+    "supplemental_families": [
+      "ai-agents-runs-activities",
+      "integration-jobs",
+      "server-upload-variants",
+      "core-searches-grouped-counts-lite-lists",
+      "scheduling-collaboration-equivalents",
+      "approvals-state-transfers"
+    ],
+    "supplemental_evidence": "Section 12 names families and route fragments only; does not establish full method/path/input/response/side-effect contracts.",
+    "recurring_pause": "enabled read-only; no pause/resume route in either version",
+    "resolution": "General migration guide fully reviewed, but supplements remain explicit evidence-blocked exceptions; do not promote them to implemented coverage."
+  }
+}

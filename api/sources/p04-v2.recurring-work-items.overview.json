@@ -2,5 +2,37 @@
   "source_url": "https://developers.plane.so/api-reference/v2/recurring-work-items/overview.md",
   "source_id": "v2:recurring-work-items:overview",
   "reviewed_at": "2026-11-14",
-  "resolution": "Family overview; operation contracts reviewed separately."
+  "resolution": "Family overview; operation contracts reviewed separately.",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:recurring-work-items:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.recurring-work-items.list-recurring-work-items",
+        "basis": "Explicit endpoint table: List recurring work items."
+      },
+      {
+        "operation_id": "v2.recurring-work-items.get-recurring-work-item",
+        "basis": "Explicit endpoint table: Get a recurring work item."
+      },
+      {
+        "operation_id": "v2.recurring-work-items.create-recurring-work-item",
+        "basis": "Explicit endpoint table: Create a recurring work item."
+      },
+      {
+        "operation_id": "v2.recurring-work-items.update-recurring-work-item",
+        "basis": "Explicit endpoint table: Update a recurring work item."
+      },
+      {
+        "operation_id": "v2.recurring-work-items.delete-recurring-work-item",
+        "basis": "Explicit endpoint table: Delete a recurring work item."
+      }
+    ],
+    "page_facts": [
+      "A project schedule contains its blueprint in a flat object. The blueprint has no independent endpoint.",
+      "Only list, get, create, update and delete appear in the endpoint table. No pause/resume operation exists and enabled is read-only; stopping uses end_at or deletion."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

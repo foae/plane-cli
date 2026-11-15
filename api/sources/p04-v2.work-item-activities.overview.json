@@ -8,5 +8,24 @@
   "retrieval": "curl -A Mozilla/5.0 -fLsS",
   "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
   "classification": "overview",
-  "owner": "P04"
+  "owner": "P04",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:work-item-activities:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.work-item-activities.list-activities",
+        "basis": "Explicit endpoint table: List activities."
+      },
+      {
+        "operation_id": "v2.work-item-activities.get-activity",
+        "basis": "Explicit endpoint table: Get an activity."
+      }
+    ],
+    "page_facts": [
+      "The resource is an append-only work-item audit trail; its endpoint table contains only list and detail reads, not activity writes."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

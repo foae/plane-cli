@@ -145,9 +145,14 @@ func TestProjectWireOperations(t *testing.T) {
 						t.Errorf("unexpected body %s", got)
 					}
 					w.Header().Set("Content-Type", "application/json")
+					if calls > 1 {
+						w.WriteHeader(http.StatusConflict)
+						_, _ = io.WriteString(w, `{"detail":"project-private-canary"}`)
+						return
+					}
 					if strings.HasPrefix(tc.action, "bulk-") {
 						_, _ = fmt.Fprint(w, `{"results":[{"index":0,"result":{"id":"project-id"}}],"succeeded":1,"failed":0}`)
-					} else if tc.action == "delete" {
+					} else if tc.action == "delete" || tc.action == "archive" || tc.action == "unarchive" {
 						w.WriteHeader(204)
 					} else {
 						_, _ = fmt.Fprint(w, `{"id":"project-id","name":"Example"}`)
@@ -175,6 +180,40 @@ func TestProjectWireOperations(t *testing.T) {
 				code, out, stderr := invoke(t, c, args, nil)
 				if code != 0 || stderr != "" || calls != 1 {
 					t.Fatalf("code=%d calls=%d stdout=%s stderr=%s", code, calls, out, stderr)
+				}
+				var envelope struct {
+					Data json.RawMessage `json:"data"`
+					Meta struct {
+						HTTPStatus int `json:"http_status"`
+					} `json:"meta"`
+				}
+				if err := json.Unmarshal([]byte(out), &envelope); err != nil {
+					t.Fatal(err)
+				}
+				want := `{"id":"project-id","name":"Example"}`
+				if strings.HasPrefix(tc.action, "bulk-") {
+					want = `{"results":[{"index":0,"result":{"id":"project-id"}}],"succeeded":1,"failed":0}`
+				} else if tc.action == "delete" || tc.action == "archive" || tc.action == "unarchive" {
+					want = `null`
+					if envelope.Meta.HTTPStatus != http.StatusNoContent {
+						t.Fatalf("empty success lost HTTP status: %s", out)
+					}
+				}
+				var gotValue, wantValue any
+				if err := json.Unmarshal(envelope.Data, &gotValue); err != nil {
+					t.Fatal(err)
+				}
+				if err := json.Unmarshal([]byte(want), &wantValue); err != nil {
+					t.Fatal(err)
+				}
+				gotJSON, _ := json.Marshal(gotValue)
+				wantJSON, _ := json.Marshal(wantValue)
+				if string(gotJSON) != string(wantJSON) {
+					t.Fatalf("native response changed: %s", out)
+				}
+				code, out, stderr = invoke(t, c, args, nil)
+				if code != 5 || calls != 2 || out != "" || !strings.Contains(stderr, "api_error") || strings.Contains(stderr, "project-private-canary") {
+					t.Fatalf("unsafe upstream rejection: code=%d calls=%d out=%s stderr=%s", code, calls, out, stderr)
 				}
 			})
 		}

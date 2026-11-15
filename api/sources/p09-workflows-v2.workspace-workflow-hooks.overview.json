@@ -4,5 +4,98 @@
   "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
   "notes": [
     "Overview establishes the scope-specific workflow domain and associated operation sources."
-  ]
+  ],
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/",
+        "description": "List workspace workflow hooks",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-hooks.list-workspace-workflow-hooks"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-hooks:list-workspace-workflow-hooks"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/",
+        "description": "Get a workspace workflow hook",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-hooks.get-workspace-workflow-hook"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-hooks:get-workspace-workflow-hook"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/",
+        "description": "Create a workspace workflow hook",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-hooks.create-workspace-workflow-hook"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-hooks:create-workspace-workflow-hook"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/",
+        "description": "Update a workspace workflow hook",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-hooks.update-workspace-workflow-hook"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-hooks:update-workspace-workflow-hook"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/",
+        "description": "Delete a workspace workflow hook",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-hooks.delete-workspace-workflow-hook"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-hooks:delete-workspace-workflow-hook"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/executions/",
+        "description": "List workspace workflow hook executions",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-hooks.list-workspace-workflow-hook-executions"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-hooks:list-workspace-workflow-hook-executions"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/regenerate-webhook-secret/",
+        "description": "Regenerate a workspace workflow hook secret",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-hooks.regenerate-workspace-workflow-hook-secret"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-hooks:regenerate-workspace-workflow-hook-secret"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:workspace-workflow-hooks:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Seven endpoint rows repeat existing catalog hook CRUD, execution-list and signing-secret regeneration. Server-run scripts and signed outbound webhook POSTs are effects of a transition, not new Plane API routes. Config merge/secret-header preservation, immutable phase/handler, one-time signing secrets, execution retention and plan/governance guards qualify existing contracts; no new execution-write endpoint is documented.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
 }

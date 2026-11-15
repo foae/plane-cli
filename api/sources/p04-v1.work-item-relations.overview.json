@@ -2,5 +2,29 @@
   "source_url": "https://developers.plane.so/api-reference/work-item-relations/overview.md",
   "source_id": "v1:work-item-relations:overview",
   "reviewed_at": "2026-11-14",
-  "resolution": "Family overview; operation contracts reviewed separately."
+  "resolution": "Family overview; operation contracts reviewed separately.",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v1:work-item-relations:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v1.work-item-relations.list-work-item-relations",
+        "basis": "Action explicitly named in frontmatter description; body supplies relation-response schema only."
+      },
+      {
+        "operation_id": "v1.work-item-relations.create-work-item-relation",
+        "basis": "Action explicitly named in frontmatter description; body supplies relation-response schema only."
+      },
+      {
+        "operation_id": "v1.work-item-relations.remove-work-item-relation",
+        "basis": "Action explicitly named in frontmatter description; body supplies relation-response schema only."
+      }
+    ],
+    "page_facts": [
+      "The body defines response arrays for blocking, blocked_by, duplicate, relates_to and start/finish-before/after relationships.",
+      "Frontmatter explicitly names list/create/remove actions, mapped to existing relation operations; it does not supply their HTTP method/path contracts."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

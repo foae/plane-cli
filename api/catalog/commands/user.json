@@ -1,0 +1,265 @@
+[
+  {
+    "path": [
+      "user",
+      "me"
+    ],
+    "handler": "user-me",
+    "summary": "Read the authenticated principal without workspace scope",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli user me --connection example"
+    ],
+    "versions": {
+      "v1": {
+        "method": "GET",
+        "route": "/api/v1/users/me/",
+        "response_kind": "object",
+        "scopes": [
+          "profile:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "api-version"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit API generation or configured default"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Named connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Plane server base URL"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Authentication mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential storage backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total operation timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Per-request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Additional trusted CA certificates"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Describe request without credentials or HTTP"
+          }
+        ]
+      },
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/users/me/",
+        "response_kind": "object",
+        "scopes": [
+          "read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "api-version"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit API generation or configured default"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Named connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Plane server base URL"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Authentication mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential storage backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total operation timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Per-request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Additional trusted CA certificates"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Describe request without credentials or HTTP"
+          }
+        ]
+      }
+    }
+  }
+]

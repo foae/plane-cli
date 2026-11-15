@@ -2,5 +2,16 @@
   "source_url": "https://developers.plane.so/api-reference/milestones/overview.md",
   "source_sha256": "1f46cb7dfc2dfd5db520e6051669121103de8a548a3630440007fa4a1a5d29f4",
   "kind": "resource-overview",
-  "interpretation": "Resource overview; operation contracts are recorded separately."
+  "interpretation": "Resource overview; operation contracts are recorded separately.",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v1:milestones:overview",
+    "disposition": "resource-schema-only",
+    "operation_mappings": [],
+    "page_facts": [
+      "The body describes dated project checkpoints and the id, title, target_date, external correlation and timestamp fields.",
+      "No method/path table or actionable HTTP request instruction appears; general management wording in frontmatter is not a distinct operation contract."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

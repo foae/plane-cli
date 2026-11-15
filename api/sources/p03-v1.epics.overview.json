@@ -1,4 +1,15 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Resource/schema guidance does not establish a new HTTP operation.",
+    "facts": [
+      "The page explains epic/work-item hierarchy and defines an epic object with type, parent, state, assignees, labels, estimate fields, dates and audit fields, followed by a sample object.",
+      "It contains no concrete method/path or epic conversion or nesting action contract; hierarchy and parent are schema facts, not evidence for inventing an endpoint."
+    ],
+    "operation_mappings": []
+  },
   "source_url": "https://developers.plane.so/api-reference/epics/overview.md",
   "reviewed_at": "2026-11-14",
   "sha256": "f253f525c8cad6e3e4752c7423e2cda402474806f0ec4493f21ad2a150b9654a",

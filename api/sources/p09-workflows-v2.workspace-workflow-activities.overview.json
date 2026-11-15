@@ -4,5 +4,38 @@
   "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
   "notes": [
     "Overview establishes the scope-specific workflow domain and associated operation sources."
-  ]
+  ],
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/activities/",
+        "description": "List workspace workflow activities",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-activities.list-workspace-workflow-activities"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-activities:list-workspace-workflow-activities"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/activities/{pk}/",
+        "description": "Get a workspace workflow activity",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-activities.get-workspace-workflow-activity"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-activities:get-workspace-workflow-activity"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:workspace-workflow-activities:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Both endpoint rows repeat existing read-only catalog audit feed/detail. Pagination and verb/field/actor_id/created_at__gt filters refine the list; strict incremental polling is not a new operation. Governance errors and v1 array comparison describe version behavior, not additional v1 implementation.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
 }

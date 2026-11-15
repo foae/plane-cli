@@ -84,6 +84,11 @@ func TestProjectTypesWireOperations(t *testing.T) {
 						}
 					}
 					w.Header().Set("Content-Type", "application/json")
+					if calls > 1 {
+						w.WriteHeader(http.StatusConflict)
+						_, _ = io.WriteString(w, `{"detail":"project-type-private-canary"}`)
+						return
+					}
 					w.WriteHeader(tc.Status)
 					if tc.Status != 204 {
 						_, _ = w.Write(tc.Response)
@@ -117,6 +122,10 @@ func TestProjectTypesWireOperations(t *testing.T) {
 				}
 				if !reflect.DeepEqual(decoded.(map[string]any)["data"], want) {
 					t.Fatalf("native response changed: %s", out)
+				}
+				code, out, stderr = invoke(t, catalog, args, projectTypesHandlers())
+				if code != 5 || calls != 2 || out != "" || !strings.Contains(stderr, "api_error") || strings.Contains(stderr, "project-type-private-canary") {
+					t.Fatalf("unsafe upstream rejection: code=%d calls=%d out=%s stderr=%s", code, calls, out, stderr)
 				}
 			})
 		}

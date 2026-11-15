@@ -1,4 +1,108 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Every explicitly tabulated operation is already cataloged; retain this page as overview evidence.",
+    "facts": [
+      "Thirteen endpoint rows cover project CRUD/upsert/bulk/archive/unarchive plus workspace list and identifier retrieval.",
+      "UUID and human identifier are alternate keys on existing project routes. Sparse fields, relation expansion, custom_fields and human-readable write inputs describe existing operations.",
+      "Archive and unarchive are explicit POST actions, not PATCH fields; delete is irreversible through the API. Subscriber and property references point to separately indexed resource guidance rather than additional work-item routes."
+    ],
+    "operation_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/",
+        "operation_ids": [
+          "v2.work-items.list-work-items"
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/work-items/",
+        "operation_ids": [
+          "v2.work-items.list-workspace-work-items"
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/work-items/{identifier}/",
+        "operation_ids": [
+          "v2.work-items.get-work-item-by-identifier"
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{pk}/",
+        "operation_ids": [
+          "v2.work-items.get-work-item"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/",
+        "operation_ids": [
+          "v2.work-items.create-work-item"
+        ]
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{pk}/",
+        "operation_ids": [
+          "v2.work-items.update-work-item"
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{pk}/",
+        "operation_ids": [
+          "v2.work-items.delete-work-item"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/upsert/",
+        "operation_ids": [
+          "v2.work-items.upsert-work-item"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/bulk-create/",
+        "operation_ids": [
+          "v2.work-items.bulk-create-work-items"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/bulk-update/",
+        "operation_ids": [
+          "v2.work-items.bulk-update-work-items"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/bulk-delete/",
+        "operation_ids": [
+          "v2.work-items.bulk-delete-work-items"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{pk}/archive/",
+        "operation_ids": [
+          "v2.work-items.archive-work-item"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{pk}/unarchive/",
+        "operation_ids": [
+          "v2.work-items.unarchive-work-item"
+        ]
+      }
+    ]
+  },
   "schema_version": 1,
   "source_url": "https://developers.plane.so/api-reference/v2/work-items/overview.md",
   "reviewed_at": "2026-11-14",

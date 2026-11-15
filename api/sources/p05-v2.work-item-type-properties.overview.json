@@ -2,6 +2,27 @@
   "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-properties/overview.md",
   "source_sha256": "a6b708c2817b2cf6357019d5c9b90caf04866a8934adb8cd75ec2656d68e9677",
   "contract": {
-    "kind": "overview"
+    "kind": "overview",
+    "reconciliation": {
+      "reviewed_at": "2026-11-15",
+      "disposition": "mapped-existing-operations",
+      "operation_ids": [
+        "v2.work-item-type-properties.list-type-properties",
+        "v2.work-item-type-properties.get-type-property",
+        "v2.work-item-type-properties.attach-type-property",
+        "v2.work-item-type-properties.detach-type-property",
+        "v2.work-item-properties.create-work-item-property",
+        "v2.work-item-properties.update-work-item-property",
+        "v2.work-item-properties.delete-work-item-property",
+        "v2.workspace-work-item-type-properties.attach-workspace-type-property",
+        "v1.issue-types.properties.add-property"
+      ],
+      "facts": [
+        "The Endpoints table enumerates list, retrieve, attach and detach; POST accepts existing property ids and there is explicitly no property-create or property-update operation on this resource.",
+        "The opening warning and Detaching section link existing project property create, update and delete operations. The mode warning links the existing workspace attach operation.",
+        "Reads return full property definitions rather than join records; pk is the property id. Attach accepts a properties id array; detach removes this type's link and stored values, not the definition.",
+        "Changed from v1 explicitly identifies the existing v1 property creation route as historical comparison, not an additional v2 operation."
+      ]
+    }
   }
 }

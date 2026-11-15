@@ -1,0 +1,1608 @@
+[
+  {
+    "path": [
+      "view",
+      "list"
+    ],
+    "handler": "view-list",
+    "summary": "List view",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli view list --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/views/",
+        "pagination": "v2",
+        "table_columns": [
+          "id",
+          "name",
+          "access",
+          "is_locked",
+          "owned_by_id"
+        ],
+        "response_kind": "list",
+        "scopes": [
+          "projects.views:read",
+          "workspaces.views:read"
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scope": {
+                  "type": "string",
+                  "enum": [
+                    "project",
+                    "workspace"
+                  ]
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "all": {
+                  "type": "boolean"
+                },
+                "max-pages": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "scope"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "access": {
+                  "type": "integer",
+                  "enum": [
+                    0,
+                    1
+                  ]
+                },
+                "count": {
+                  "type": "boolean"
+                },
+                "is_locked": {
+                  "type": "boolean"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "order_by": {
+                  "type": "string"
+                },
+                "owned_by_id": {
+                  "type": "string"
+                },
+                "paginate": {
+                  "type": "string",
+                  "enum": [
+                    "cursor"
+                  ]
+                },
+                "per_page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "search": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                },
+                "cursor": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "flags": {
+                    "properties": {
+                      "scope": {
+                        "const": "project"
+                      }
+                    }
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "flags": {
+                    "required": [
+                      "project"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Dry run"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "Output"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm deletion or template_data replacement"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace"
+          },
+          {
+            "name": "scope",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/scope",
+            "description": "Explicit resource scope; project routes require --project"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/project",
+            "description": "Project"
+          },
+          {
+            "name": "all",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/all",
+            "description": "All"
+          },
+          {
+            "name": "max-pages",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/max-pages",
+            "description": "Max pages"
+          },
+          {
+            "name": "access",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/access",
+            "description": "Native access query parameter; no query-language conversion"
+          },
+          {
+            "name": "count",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/count",
+            "description": "Native count query parameter; no query-language conversion"
+          },
+          {
+            "name": "is-locked",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/is_locked",
+            "description": "Native is_locked query parameter; no query-language conversion"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/query/name",
+            "description": "Native name query parameter; no query-language conversion"
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/offset",
+            "description": "Native offset query parameter; no query-language conversion"
+          },
+          {
+            "name": "order-by",
+            "type": "string",
+            "required": false,
+            "binding": "/query/order_by",
+            "description": "Native order_by query parameter; no query-language conversion"
+          },
+          {
+            "name": "owned-by-id",
+            "type": "string",
+            "required": false,
+            "binding": "/query/owned_by_id",
+            "description": "Native owned_by_id query parameter; no query-language conversion"
+          },
+          {
+            "name": "paginate",
+            "type": "string",
+            "required": false,
+            "binding": "/query/paginate",
+            "description": "Native paginate query parameter; no query-language conversion"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/per_page",
+            "description": "Native per_page query parameter; no query-language conversion"
+          },
+          {
+            "name": "search",
+            "type": "string",
+            "required": false,
+            "binding": "/query/search",
+            "description": "Native search query parameter; no query-language conversion"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Native fields query parameter; no query-language conversion"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "Native expand query parameter; no query-language conversion"
+          },
+          {
+            "name": "cursor",
+            "type": "string",
+            "required": false,
+            "binding": "/query/cursor",
+            "description": "Native cursor query parameter; no query-language conversion"
+          }
+        ],
+        "routes": {
+          "project": "/api/v2/workspaces/{slug}/projects/{project_id}/views/",
+          "workspace": "/api/v2/workspaces/{slug}/views/"
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "view",
+      "get"
+    ],
+    "handler": "view-get",
+    "summary": "Get view",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli view get --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/views/{pk}/",
+        "pagination": "none",
+        "table_columns": [
+          "id",
+          "name",
+          "access",
+          "is_locked",
+          "owned_by_id"
+        ],
+        "response_kind": "object",
+        "scopes": [
+          "projects.views:read",
+          "workspaces.views:read"
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scope": {
+                  "type": "string",
+                  "enum": [
+                    "project",
+                    "workspace"
+                  ]
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "scope",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "flags": {
+                    "properties": {
+                      "scope": {
+                        "const": "project"
+                      }
+                    }
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "flags": {
+                    "required": [
+                      "project"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Dry run"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "Output"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm deletion or template_data replacement"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace"
+          },
+          {
+            "name": "scope",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/scope",
+            "description": "Explicit resource scope; project routes require --project"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/project",
+            "description": "Project"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "Target resource ID; preserved exactly"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Native fields query parameter; no query-language conversion"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "Native expand query parameter; no query-language conversion"
+          }
+        ],
+        "routes": {
+          "project": "/api/v2/workspaces/{slug}/projects/{project_id}/views/{pk}/",
+          "workspace": "/api/v2/workspaces/{slug}/views/{pk}/"
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "view",
+      "create"
+    ],
+    "handler": "view-create",
+    "summary": "Create view",
+    "side_effect": "write",
+    "examples": [
+      "plane-cli view create --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/views/",
+        "pagination": "none",
+        "table_columns": [],
+        "response_kind": "object",
+        "scopes": [
+          "projects.views:write",
+          "workspaces.views:write"
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scope": {
+                  "type": "string",
+                  "enum": [
+                    "project",
+                    "workspace"
+                  ]
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "scope"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "access": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "display_filters": {
+                  "type": "string"
+                },
+                "display_properties": {
+                  "type": "string"
+                },
+                "filters": {
+                  "type": "string"
+                },
+                "is_locked": {
+                  "type": "boolean"
+                },
+                "logo_props": {
+                  "type": "string"
+                },
+                "pql_filters": {
+                  "type": "string"
+                },
+                "sort_order": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "flags": {
+                    "properties": {
+                      "scope": {
+                        "const": "project"
+                      }
+                    }
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "flags": {
+                    "required": [
+                      "project"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Dry run"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "Output"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm deletion or template_data replacement"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace"
+          },
+          {
+            "name": "scope",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/scope",
+            "description": "Explicit resource scope; project routes require --project"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/project",
+            "description": "Project"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "Complete native JSON body from a file or - for stdin"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Native fields query parameter; no query-language conversion"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "Native expand query parameter; no query-language conversion"
+          }
+        ],
+        "routes": {
+          "project": "/api/v2/workspaces/{slug}/projects/{project_id}/views/",
+          "workspace": "/api/v2/workspaces/{slug}/views/"
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "view",
+      "update"
+    ],
+    "handler": "view-update",
+    "summary": "Update view",
+    "side_effect": "write",
+    "examples": [
+      "plane-cli view update --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "PATCH",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/views/{pk}/",
+        "pagination": "none",
+        "table_columns": [],
+        "response_kind": "object",
+        "scopes": [
+          "projects.views:write",
+          "workspaces.views:write"
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scope": {
+                  "type": "string",
+                  "enum": [
+                    "project",
+                    "workspace"
+                  ]
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "scope",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "access": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "display_filters": {
+                  "type": "string"
+                },
+                "display_properties": {
+                  "type": "string"
+                },
+                "filters": {
+                  "type": "string"
+                },
+                "is_locked": {
+                  "type": "boolean"
+                },
+                "logo_props": {
+                  "type": "string"
+                },
+                "pql_filters": {
+                  "type": "string"
+                },
+                "sort_order": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "flags": {
+                    "properties": {
+                      "scope": {
+                        "const": "project"
+                      }
+                    }
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "flags": {
+                    "required": [
+                      "project"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Dry run"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "Output"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm deletion or template_data replacement"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace"
+          },
+          {
+            "name": "scope",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/scope",
+            "description": "Explicit resource scope; project routes require --project"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/project",
+            "description": "Project"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "Target resource ID; preserved exactly"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "Complete native JSON body from a file or - for stdin"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Native fields query parameter; no query-language conversion"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "Native expand query parameter; no query-language conversion"
+          }
+        ],
+        "routes": {
+          "project": "/api/v2/workspaces/{slug}/projects/{project_id}/views/{pk}/",
+          "workspace": "/api/v2/workspaces/{slug}/views/{pk}/"
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "view",
+      "delete"
+    ],
+    "handler": "view-delete",
+    "summary": "Delete view",
+    "side_effect": "destructive",
+    "examples": [
+      "plane-cli view delete --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "DELETE",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/views/{pk}/",
+        "pagination": "none",
+        "table_columns": [],
+        "response_kind": "object",
+        "scopes": [
+          "projects.views:write",
+          "workspaces.views:write"
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scope": {
+                  "type": "string",
+                  "enum": [
+                    "project",
+                    "workspace"
+                  ]
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "scope",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "flags": {
+                    "properties": {
+                      "scope": {
+                        "const": "project"
+                      }
+                    }
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "flags": {
+                    "required": [
+                      "project"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Dry run"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "Output"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm deletion or template_data replacement"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace"
+          },
+          {
+            "name": "scope",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/scope",
+            "description": "Explicit resource scope; project routes require --project"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/project",
+            "description": "Project"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "Target resource ID; preserved exactly"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Native fields query parameter; no query-language conversion"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "Native expand query parameter; no query-language conversion"
+          }
+        ],
+        "routes": {
+          "project": "/api/v2/workspaces/{slug}/projects/{project_id}/views/{pk}/",
+          "workspace": "/api/v2/workspaces/{slug}/views/{pk}/"
+        }
+      }
+    }
+  }
+]

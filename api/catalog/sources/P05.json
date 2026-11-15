@@ -1,0 +1,1084 @@
+[
+  {
+    "id": "v2:work-item-types:overview",
+    "version": "v2",
+    "family": "work-item-types",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-types/overview.md",
+    "provenance_id": "p05-v2.work-item-types.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:work-item-types:list-work-item-types",
+    "version": "v2",
+    "family": "work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-types/list-work-item-types.md",
+    "provenance_id": "p05-v2.work-item-types.list-work-item-types",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-types.list-work-item-types"
+    ]
+  },
+  {
+    "id": "v2:work-item-types:get-work-item-type",
+    "version": "v2",
+    "family": "work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-types/get-work-item-type.md",
+    "provenance_id": "p05-v2.work-item-types.get-work-item-type",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-types.get-work-item-type"
+    ]
+  },
+  {
+    "id": "v2:work-item-types:get-work-item-type-schema",
+    "version": "v2",
+    "family": "work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-types/get-work-item-type-schema.md",
+    "provenance_id": "p05-v2.work-item-types.get-work-item-type-schema",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-types.get-work-item-type-schema"
+    ]
+  },
+  {
+    "id": "v2:work-item-types:create-work-item-type",
+    "version": "v2",
+    "family": "work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-types/create-work-item-type.md",
+    "provenance_id": "p05-v2.work-item-types.create-work-item-type",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-types.create-work-item-type"
+    ]
+  },
+  {
+    "id": "v2:work-item-types:update-work-item-type",
+    "version": "v2",
+    "family": "work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-types/update-work-item-type.md",
+    "provenance_id": "p05-v2.work-item-types.update-work-item-type",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-types.update-work-item-type"
+    ]
+  },
+  {
+    "id": "v2:work-item-types:delete-work-item-type",
+    "version": "v2",
+    "family": "work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-types/delete-work-item-type.md",
+    "provenance_id": "p05-v2.work-item-types.delete-work-item-type",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-types.delete-work-item-type"
+    ]
+  },
+  {
+    "id": "v2:work-item-types:enable-work-item-types",
+    "version": "v2",
+    "family": "work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-types/enable-work-item-types.md",
+    "provenance_id": "p05-v2.work-item-types.enable-work-item-types",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-types.enable-work-item-types"
+    ]
+  },
+  {
+    "id": "v2:work-item-types:import-work-item-types",
+    "version": "v2",
+    "family": "work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-types/import-work-item-types.md",
+    "provenance_id": "p05-v2.work-item-types.import-work-item-types",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-types.import-work-item-types"
+    ]
+  },
+  {
+    "id": "v2:work-item-types:mark-default-work-item-type",
+    "version": "v2",
+    "family": "work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-types/mark-default-work-item-type.md",
+    "provenance_id": "p05-v2.work-item-types.mark-default-work-item-type",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-types.mark-default-work-item-type"
+    ]
+  },
+  {
+    "id": "v2:work-item-properties:overview",
+    "version": "v2",
+    "family": "work-item-properties",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-properties/overview.md",
+    "provenance_id": "p05-v2.work-item-properties.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:work-item-properties:list-work-item-properties",
+    "version": "v2",
+    "family": "work-item-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-properties/list-work-item-properties.md",
+    "provenance_id": "p05-v2.work-item-properties.list-work-item-properties",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-properties.list-work-item-properties"
+    ]
+  },
+  {
+    "id": "v2:work-item-properties:get-work-item-property",
+    "version": "v2",
+    "family": "work-item-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-properties/get-work-item-property.md",
+    "provenance_id": "p05-v2.work-item-properties.get-work-item-property",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-properties.get-work-item-property"
+    ]
+  },
+  {
+    "id": "v2:work-item-properties:create-work-item-property",
+    "version": "v2",
+    "family": "work-item-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-properties/create-work-item-property.md",
+    "provenance_id": "p05-v2.work-item-properties.create-work-item-property",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-properties.create-work-item-property"
+    ]
+  },
+  {
+    "id": "v2:work-item-properties:update-work-item-property",
+    "version": "v2",
+    "family": "work-item-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-properties/update-work-item-property.md",
+    "provenance_id": "p05-v2.work-item-properties.update-work-item-property",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-properties.update-work-item-property"
+    ]
+  },
+  {
+    "id": "v2:work-item-properties:delete-work-item-property",
+    "version": "v2",
+    "family": "work-item-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-properties/delete-work-item-property.md",
+    "provenance_id": "p05-v2.work-item-properties.delete-work-item-property",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-properties.delete-work-item-property"
+    ]
+  },
+  {
+    "id": "v2:work-item-property-options:overview",
+    "version": "v2",
+    "family": "work-item-property-options",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-property-options/overview.md",
+    "provenance_id": "p05-v2.work-item-property-options.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:work-item-property-options:list-property-options",
+    "version": "v2",
+    "family": "work-item-property-options",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-property-options/list-property-options.md",
+    "provenance_id": "p05-v2.work-item-property-options.list-property-options",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-property-options.list-property-options"
+    ]
+  },
+  {
+    "id": "v2:work-item-property-options:get-property-option",
+    "version": "v2",
+    "family": "work-item-property-options",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-property-options/get-property-option.md",
+    "provenance_id": "p05-v2.work-item-property-options.get-property-option",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-property-options.get-property-option"
+    ]
+  },
+  {
+    "id": "v2:work-item-property-options:create-property-option",
+    "version": "v2",
+    "family": "work-item-property-options",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-property-options/create-property-option.md",
+    "provenance_id": "p05-v2.work-item-property-options.create-property-option",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-property-options.create-property-option"
+    ]
+  },
+  {
+    "id": "v2:work-item-property-options:update-property-option",
+    "version": "v2",
+    "family": "work-item-property-options",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-property-options/update-property-option.md",
+    "provenance_id": "p05-v2.work-item-property-options.update-property-option",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-property-options.update-property-option"
+    ]
+  },
+  {
+    "id": "v2:work-item-property-options:delete-property-option",
+    "version": "v2",
+    "family": "work-item-property-options",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-property-options/delete-property-option.md",
+    "provenance_id": "p05-v2.work-item-property-options.delete-property-option",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-property-options.delete-property-option"
+    ]
+  },
+  {
+    "id": "v2:work-item-type-properties:overview",
+    "version": "v2",
+    "family": "work-item-type-properties",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-type-properties/overview.md",
+    "provenance_id": "p05-v2.work-item-type-properties.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:work-item-type-properties:list-type-properties",
+    "version": "v2",
+    "family": "work-item-type-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-type-properties/list-type-properties.md",
+    "provenance_id": "p05-v2.work-item-type-properties.list-type-properties",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-type-properties.list-type-properties"
+    ]
+  },
+  {
+    "id": "v2:work-item-type-properties:get-type-property",
+    "version": "v2",
+    "family": "work-item-type-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-type-properties/get-type-property.md",
+    "provenance_id": "p05-v2.work-item-type-properties.get-type-property",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-type-properties.get-type-property"
+    ]
+  },
+  {
+    "id": "v2:work-item-type-properties:attach-type-property",
+    "version": "v2",
+    "family": "work-item-type-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-type-properties/attach-type-property.md",
+    "provenance_id": "p05-v2.work-item-type-properties.attach-type-property",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-type-properties.attach-type-property"
+    ]
+  },
+  {
+    "id": "v2:work-item-type-properties:detach-type-property",
+    "version": "v2",
+    "family": "work-item-type-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-type-properties/detach-type-property.md",
+    "provenance_id": "p05-v2.work-item-type-properties.detach-type-property",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v2.work-item-type-properties.detach-type-property"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-types:overview",
+    "version": "v2",
+    "family": "workspace-work-item-types",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-types/overview.md",
+    "provenance_id": "p05-v2.workspace-work-item-types.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:workspace-work-item-types:list-workspace-work-item-types",
+    "version": "v2",
+    "family": "workspace-work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-types/list-workspace-work-item-types.md",
+    "provenance_id": "p05-v2.workspace-work-item-types.list-workspace-work-item-types",
+    "operation_ids": [
+      "v2.workspace-work-item-types.list-workspace-work-item-types"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-types:get-workspace-work-item-type",
+    "version": "v2",
+    "family": "workspace-work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-types/get-workspace-work-item-type.md",
+    "provenance_id": "p05-v2.workspace-work-item-types.get-workspace-work-item-type",
+    "operation_ids": [
+      "v2.workspace-work-item-types.get-workspace-work-item-type"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-types:create-workspace-work-item-type",
+    "version": "v2",
+    "family": "workspace-work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-types/create-workspace-work-item-type.md",
+    "provenance_id": "p05-v2.workspace-work-item-types.create-workspace-work-item-type",
+    "operation_ids": [
+      "v2.workspace-work-item-types.create-workspace-work-item-type"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-types:update-workspace-work-item-type",
+    "version": "v2",
+    "family": "workspace-work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-types/update-workspace-work-item-type.md",
+    "provenance_id": "p05-v2.workspace-work-item-types.update-workspace-work-item-type",
+    "operation_ids": [
+      "v2.workspace-work-item-types.update-workspace-work-item-type"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-types:delete-workspace-work-item-type",
+    "version": "v2",
+    "family": "workspace-work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-types/delete-workspace-work-item-type.md",
+    "provenance_id": "p05-v2.workspace-work-item-types.delete-workspace-work-item-type",
+    "operation_ids": [
+      "v2.workspace-work-item-types.delete-workspace-work-item-type"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-types:mark-default-workspace-work-item-type",
+    "version": "v2",
+    "family": "workspace-work-item-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-types/mark-default-workspace-work-item-type.md",
+    "provenance_id": "p05-v2.workspace-work-item-types.mark-default-workspace-work-item-type",
+    "operation_ids": [
+      "v2.workspace-work-item-types.mark-default-workspace-work-item-type"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-properties:overview",
+    "version": "v2",
+    "family": "workspace-work-item-properties",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-properties/overview.md",
+    "provenance_id": "p05-v2.workspace-work-item-properties.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:workspace-work-item-properties:list-workspace-work-item-properties",
+    "version": "v2",
+    "family": "workspace-work-item-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-properties/list-workspace-work-item-properties.md",
+    "provenance_id": "p05-v2.workspace-work-item-properties.list-workspace-work-item-properties",
+    "operation_ids": [
+      "v2.workspace-work-item-properties.list-workspace-work-item-properties"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-properties:get-workspace-work-item-property",
+    "version": "v2",
+    "family": "workspace-work-item-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-properties/get-workspace-work-item-property.md",
+    "provenance_id": "p05-v2.workspace-work-item-properties.get-workspace-work-item-property",
+    "operation_ids": [
+      "v2.workspace-work-item-properties.get-workspace-work-item-property"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-properties:create-workspace-work-item-property",
+    "version": "v2",
+    "family": "workspace-work-item-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-properties/create-workspace-work-item-property.md",
+    "provenance_id": "p05-v2.workspace-work-item-properties.create-workspace-work-item-property",
+    "operation_ids": [
+      "v2.workspace-work-item-properties.create-workspace-work-item-property"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-properties:update-workspace-work-item-property",
+    "version": "v2",
+    "family": "workspace-work-item-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-properties/update-workspace-work-item-property.md",
+    "provenance_id": "p05-v2.workspace-work-item-properties.update-workspace-work-item-property",
+    "operation_ids": [
+      "v2.workspace-work-item-properties.update-workspace-work-item-property"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-properties:delete-workspace-work-item-property",
+    "version": "v2",
+    "family": "workspace-work-item-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-properties/delete-workspace-work-item-property.md",
+    "provenance_id": "p05-v2.workspace-work-item-properties.delete-workspace-work-item-property",
+    "operation_ids": [
+      "v2.workspace-work-item-properties.delete-workspace-work-item-property"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-property-options:overview",
+    "version": "v2",
+    "family": "workspace-work-item-property-options",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/overview.md",
+    "provenance_id": "p05-v2.workspace-work-item-property-options.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:workspace-work-item-property-options:list-workspace-property-options",
+    "version": "v2",
+    "family": "workspace-work-item-property-options",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/list-workspace-property-options.md",
+    "provenance_id": "p05-v2.workspace-work-item-property-options.list-workspace-property-options",
+    "operation_ids": [
+      "v2.workspace-work-item-property-options.list-workspace-property-options"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-property-options:get-workspace-property-option",
+    "version": "v2",
+    "family": "workspace-work-item-property-options",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/get-workspace-property-option.md",
+    "provenance_id": "p05-v2.workspace-work-item-property-options.get-workspace-property-option",
+    "operation_ids": [
+      "v2.workspace-work-item-property-options.get-workspace-property-option"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-property-options:create-workspace-property-option",
+    "version": "v2",
+    "family": "workspace-work-item-property-options",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/create-workspace-property-option.md",
+    "provenance_id": "p05-v2.workspace-work-item-property-options.create-workspace-property-option",
+    "operation_ids": [
+      "v2.workspace-work-item-property-options.create-workspace-property-option"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-property-options:update-workspace-property-option",
+    "version": "v2",
+    "family": "workspace-work-item-property-options",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/update-workspace-property-option.md",
+    "provenance_id": "p05-v2.workspace-work-item-property-options.update-workspace-property-option",
+    "operation_ids": [
+      "v2.workspace-work-item-property-options.update-workspace-property-option"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-property-options:delete-workspace-property-option",
+    "version": "v2",
+    "family": "workspace-work-item-property-options",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-property-options/delete-workspace-property-option.md",
+    "provenance_id": "p05-v2.workspace-work-item-property-options.delete-workspace-property-option",
+    "operation_ids": [
+      "v2.workspace-work-item-property-options.delete-workspace-property-option"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-type-properties:overview",
+    "version": "v2",
+    "family": "workspace-work-item-type-properties",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-type-properties/overview.md",
+    "provenance_id": "p05-v2.workspace-work-item-type-properties.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:workspace-work-item-type-properties:list-workspace-type-properties",
+    "version": "v2",
+    "family": "workspace-work-item-type-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-type-properties/list-workspace-type-properties.md",
+    "provenance_id": "p05-v2.workspace-work-item-type-properties.list-workspace-type-properties",
+    "operation_ids": [
+      "v2.workspace-work-item-type-properties.list-workspace-type-properties"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-type-properties:get-workspace-type-property",
+    "version": "v2",
+    "family": "workspace-work-item-type-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-type-properties/get-workspace-type-property.md",
+    "provenance_id": "p05-v2.workspace-work-item-type-properties.get-workspace-type-property",
+    "operation_ids": [
+      "v2.workspace-work-item-type-properties.get-workspace-type-property"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-type-properties:attach-workspace-type-property",
+    "version": "v2",
+    "family": "workspace-work-item-type-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-type-properties/attach-workspace-type-property.md",
+    "provenance_id": "p05-v2.workspace-work-item-type-properties.attach-workspace-type-property",
+    "operation_ids": [
+      "v2.workspace-work-item-type-properties.attach-workspace-type-property"
+    ]
+  },
+  {
+    "id": "v2:workspace-work-item-type-properties:detach-workspace-type-property",
+    "version": "v2",
+    "family": "workspace-work-item-type-properties",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-work-item-type-properties/detach-workspace-type-property.md",
+    "provenance_id": "p05-v2.workspace-work-item-type-properties.detach-workspace-type-property",
+    "operation_ids": [
+      "v2.workspace-work-item-type-properties.detach-workspace-type-property"
+    ]
+  },
+  {
+    "id": "v2:work-item-property-contexts:overview",
+    "version": "v2",
+    "family": "work-item-property-contexts",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-property-contexts/overview.md",
+    "provenance_id": "p05-v2.work-item-property-contexts.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:work-item-property-contexts:list-property-contexts",
+    "version": "v2",
+    "family": "work-item-property-contexts",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-property-contexts/list-property-contexts.md",
+    "provenance_id": "p05-v2.work-item-property-contexts.list-property-contexts",
+    "operation_ids": [
+      "v2.work-item-property-contexts.list-property-contexts"
+    ]
+  },
+  {
+    "id": "v2:work-item-property-contexts:get-property-context",
+    "version": "v2",
+    "family": "work-item-property-contexts",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-property-contexts/get-property-context.md",
+    "provenance_id": "p05-v2.work-item-property-contexts.get-property-context",
+    "operation_ids": [
+      "v2.work-item-property-contexts.get-property-context"
+    ]
+  },
+  {
+    "id": "v2:work-item-property-contexts:create-property-context",
+    "version": "v2",
+    "family": "work-item-property-contexts",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-property-contexts/create-property-context.md",
+    "provenance_id": "p05-v2.work-item-property-contexts.create-property-context",
+    "operation_ids": [
+      "v2.work-item-property-contexts.create-property-context"
+    ]
+  },
+  {
+    "id": "v2:work-item-property-contexts:update-property-context",
+    "version": "v2",
+    "family": "work-item-property-contexts",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-property-contexts/update-property-context.md",
+    "provenance_id": "p05-v2.work-item-property-contexts.update-property-context",
+    "operation_ids": [
+      "v2.work-item-property-contexts.update-property-context"
+    ]
+  },
+  {
+    "id": "v2:work-item-property-contexts:delete-property-context",
+    "version": "v2",
+    "family": "work-item-property-contexts",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-property-contexts/delete-property-context.md",
+    "provenance_id": "p05-v2.work-item-property-contexts.delete-property-context",
+    "operation_ids": [
+      "v2.work-item-property-contexts.delete-property-context"
+    ]
+  },
+  {
+    "id": "v1:issue-types:types/overview",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/issue-types/types/overview.md",
+    "provenance_id": "p05-v1.issue-types.types.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v1:issue-types:types/add-issue-type",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/types/add-issue-type.md",
+    "provenance_id": "p05-v1.issue-types.types.add-issue-type",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.types.add-issue-type"
+    ]
+  },
+  {
+    "id": "v1:issue-types:types/list-issue-types",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/types/list-issue-types.md",
+    "provenance_id": "p05-v1.issue-types.types.list-issue-types",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.types.list-issue-types"
+    ]
+  },
+  {
+    "id": "v1:issue-types:types/get-issue-type-details",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/types/get-issue-type-details.md",
+    "provenance_id": "p05-v1.issue-types.types.get-issue-type-details",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.types.get-issue-type-details"
+    ]
+  },
+  {
+    "id": "v1:issue-types:types/get-work-item-type-schema",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/types/get-work-item-type-schema.md",
+    "provenance_id": "p05-v1.issue-types.types.get-work-item-type-schema",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.types.get-work-item-type-schema"
+    ]
+  },
+  {
+    "id": "v1:issue-types:types/update-issue-types",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/types/update-issue-types.md",
+    "provenance_id": "p05-v1.issue-types.types.update-issue-types",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.types.update-issue-types"
+    ]
+  },
+  {
+    "id": "v1:issue-types:types/delete-issue-type",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/types/delete-issue-type.md",
+    "provenance_id": "p05-v1.issue-types.types.delete-issue-type",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.types.delete-issue-type"
+    ]
+  },
+  {
+    "id": "v1:issue-types:properties/overview",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/issue-types/properties/overview.md",
+    "provenance_id": "p05-v1.issue-types.properties.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v1:issue-types:properties/add-property",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/properties/add-property.md",
+    "provenance_id": "p05-v1.issue-types.properties.add-property",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.properties.add-property"
+    ]
+  },
+  {
+    "id": "v1:issue-types:properties/list-properties",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/properties/list-properties.md",
+    "provenance_id": "p05-v1.issue-types.properties.list-properties",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.properties.list-properties"
+    ]
+  },
+  {
+    "id": "v1:issue-types:properties/get-property-details",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/properties/get-property-details.md",
+    "provenance_id": "p05-v1.issue-types.properties.get-property-details",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.properties.get-property-details"
+    ]
+  },
+  {
+    "id": "v1:issue-types:properties/update-property",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/properties/update-property.md",
+    "provenance_id": "p05-v1.issue-types.properties.update-property",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.properties.update-property"
+    ]
+  },
+  {
+    "id": "v1:issue-types:properties/delete-property",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/properties/delete-property.md",
+    "provenance_id": "p05-v1.issue-types.properties.delete-property",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.properties.delete-property"
+    ]
+  },
+  {
+    "id": "v1:issue-types:values/overview",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/issue-types/values/overview.md",
+    "provenance_id": "p05-v1.issue-types.values.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v1:issue-types:values/add-property-values",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/values/add-property-values.md",
+    "provenance_id": "p05-v1.issue-types.values.add-property-values",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.values.add-property-values"
+    ]
+  },
+  {
+    "id": "v1:issue-types:values/list-property-values",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "duplicate-alias",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/issue-types/values/list-property-values.md",
+    "provenance_id": "p05-v1.issue-types.values.list-property-values",
+    "review_resolution": "duplicate-alias",
+    "alias_of": "v1:issue-types:values/get-property-value-detail"
+  },
+  {
+    "id": "v1:issue-types:values/get-property-value-detail",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/values/get-property-value-detail.md",
+    "provenance_id": "p05-v1.issue-types.values.get-property-value-detail",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.values.get-property-value-detail"
+    ]
+  },
+  {
+    "id": "v1:issue-types:values/update-property-value",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/values/update-property-value.md",
+    "provenance_id": "p05-v1.issue-types.values.update-property-value",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.values.update-property-value"
+    ]
+  },
+  {
+    "id": "v1:issue-types:values/delete-property-value",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/values/delete-property-value.md",
+    "provenance_id": "p05-v1.issue-types.values.delete-property-value",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.values.delete-property-value"
+    ]
+  },
+  {
+    "id": "v1:issue-types:options/overview",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/issue-types/options/overview.md",
+    "provenance_id": "p05-v1.issue-types.options.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v1:issue-types:options/add-dropdown-options",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/options/add-dropdown-options.md",
+    "provenance_id": "p05-v1.issue-types.options.add-dropdown-options",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.options.add-dropdown-options"
+    ]
+  },
+  {
+    "id": "v1:issue-types:options/list-dropdown-options",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/options/list-dropdown-options.md",
+    "provenance_id": "p05-v1.issue-types.options.list-dropdown-options",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.options.list-dropdown-options"
+    ]
+  },
+  {
+    "id": "v1:issue-types:options/get-option-details",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/options/get-option-details.md",
+    "provenance_id": "p05-v1.issue-types.options.get-option-details",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.options.get-option-details"
+    ]
+  },
+  {
+    "id": "v1:issue-types:options/update-dropdown-options",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/options/update-dropdown-options.md",
+    "provenance_id": "p05-v1.issue-types.options.update-dropdown-options",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.options.update-dropdown-options"
+    ]
+  },
+  {
+    "id": "v1:issue-types:options/delete-dropdown-options",
+    "version": "v1",
+    "family": "issue-types",
+    "packet": "P05",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/issue-types/options/delete-dropdown-options.md",
+    "provenance_id": "p05-v1.issue-types.options.delete-dropdown-options",
+    "review_resolution": "implemented",
+    "operation_ids": [
+      "v1.issue-types.options.delete-dropdown-options"
+    ]
+  }
+]

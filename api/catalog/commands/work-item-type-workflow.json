@@ -1,0 +1,655 @@
+[
+  {
+    "path": [
+      "work-item-type-workflow",
+      "list"
+    ],
+    "handler": "work-item-type-workflow-list",
+    "summary": "List work item type workflows",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli work-item-type-workflow list --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/workflows/",
+        "pagination": "none",
+        "response_kind": "native",
+        "scopes": [
+          "projects.workflows:read"
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "project": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "work-item-type-workflow",
+      "get"
+    ],
+    "handler": "work-item-type-workflow-get",
+    "summary": "Get work item type workflow",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli work-item-type-workflow get --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{type_id}/workflow/",
+        "pagination": "none",
+        "response_kind": "native",
+        "scopes": [
+          "projects.workflows:read"
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "project": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "type"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/type",
+            "description": "type"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "work-item-type-workflow",
+      "update"
+    ],
+    "handler": "work-item-type-workflow-update",
+    "summary": "Update work item type workflow",
+    "side_effect": "write",
+    "examples": [
+      "plane-cli work-item-type-workflow update --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "PATCH",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{type_id}/workflow/",
+        "pagination": "none",
+        "response_kind": "native",
+        "scopes": [
+          "projects.workflows:write"
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "project": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "type"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "dry_run": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "workflow_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "state_mapping": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "workflow_id"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/type",
+            "description": "type"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "server-preview",
+            "type": "boolean",
+            "binding": "/query/dry_run",
+            "description": "Send nonmutating upstream dry_run=true"
+          }
+        ]
+      }
+    }
+  }
+]

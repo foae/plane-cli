@@ -8,7 +8,7 @@ Final catalog/provenance integration, documentation router/status, version/relea
 
 ## Bounded delivery slices
 
-P10a provides version tooling; remaining slices are implementation plans, not completed features. The canonical contracts above define behavior; create exact file/fixture handoffs before execution.
+P10a–P10d provide version tooling, a portable skill, local artifact packaging, an approval-gated publication workflow and explicit update checks. P10e reconciles source coverage and records integrated acceptance. Publication is a separate authorized action, not the definition of local package completion.
 
 | Slice | Deliverable | Prerequisites |
 | --- | --- | --- |
@@ -32,4 +32,4 @@ Acceptance by slice: P10a temporary-repository version tooling scenarios; P10b p
 
 ## Acceptance and release decision
 
-Planner verifies the final gate in [verification](../verification.md#final-gate). A complete local snapshot is deliverable without publishing. A full release cannot be called complete if required operation mappings are unresolved. If the maintainer authorizes publication, follow the reviewed release workflow; authorization for implementation is not permission to push tags or release artifacts.
+Planner verifies the final gate in [verification](../verification.md#final-gate). A complete local snapshot is deliverable without publishing. Every properly documented operation must be implemented and mock-tested; genuine upstream documentation gaps/conflicts are recorded in focused package exceptions and count as completion, not delivery blockers. Never claim an unsupported operation works. If the maintainer authorizes publication, follow the reviewed release workflow; authorization for implementation is not permission to push tags or release artifacts.

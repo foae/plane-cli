@@ -8,5 +8,16 @@
   "retrieval": "curl -A Mozilla/5.0 -fLsS",
   "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
   "classification": "overview",
-  "owner": "P04"
+  "owner": "P04",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v1:link:overview",
+    "disposition": "resource-schema-only",
+    "operation_mappings": [],
+    "page_facts": [
+      "The body defines the link object with required url, optional title/metadata, server audit fields and issue/project/workspace associations.",
+      "No method/path table or actionable HTTP instruction appears in the body; generic frontmatter about endpoints does not establish an operation contract."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

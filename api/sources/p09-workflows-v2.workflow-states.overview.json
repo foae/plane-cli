@@ -4,5 +4,74 @@
   "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
   "notes": [
     "Overview establishes the scope-specific workflow domain and associated operation sources."
-  ]
+  ],
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/states/",
+        "description": "List workflow states",
+        "catalog_operation_ids": [
+          "v2.workflow-states.list-workflow-states"
+        ],
+        "catalog_source_ids": [
+          "v2:workflow-states:list-workflow-states"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/states/{pk}/",
+        "description": "Get a workflow state",
+        "catalog_operation_ids": [
+          "v2.workflow-states.get-workflow-state"
+        ],
+        "catalog_source_ids": [
+          "v2:workflow-states:get-workflow-state"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/states/",
+        "description": "Create a workflow state",
+        "catalog_operation_ids": [
+          "v2.workflow-states.create-workflow-state"
+        ],
+        "catalog_source_ids": [
+          "v2:workflow-states:create-workflow-state"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/states/{pk}/",
+        "description": "Update a workflow state",
+        "catalog_operation_ids": [
+          "v2.workflow-states.update-workflow-state"
+        ],
+        "catalog_source_ids": [
+          "v2:workflow-states:update-workflow-state"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/states/{pk}/",
+        "description": "Delete a workflow state",
+        "catalog_operation_ids": [
+          "v2.workflow-states.delete-workflow-state"
+        ],
+        "catalog_source_ids": [
+          "v2:workflow-states:delete-workflow-state"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:workflow-states:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "The five endpoint rows repeat existing project workflow-state operations. States belong to a project workflow; catalog workflows return 404 on these routes and use the existing workspace workflow-state family instead. The object, permission context and sparse reads introduce no new operation.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
 }

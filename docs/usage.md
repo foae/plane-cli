@@ -22,6 +22,21 @@ Unknown command paths (including help topics), invalid UTF-8 arguments or unknow
 
 Schemas resolve only embedded resources. JSON parsing rejects duplicate keys and trailing values while preserving exact numbers and the distinction between omitted properties, null and explicit zero values. No schema is fetched at runtime.
 
+## Explicit update checking
+
+```sh manual
+plane-cli update check
+plane-cli update check --include-prerelease --timeout 30s
+```
+
+This is CLI distribution metadata, not the Plane `release` resource. Only an explicit `update check` contacts the public GitHub Releases API for `foae/plane-cli`; help, completion, discovery, startup and version output remain offline. It reads no Plane configuration or credentials, writes no local files, follows no redirects and never installs anything. HTTPS uses normal certificate/proxy trust, not Plane `--ca-file` settings. Only `--include-prerelease` and a positive `--timeout` (default 30 seconds) apply.
+
+The check compares SemVer numerically across at most ten 100-release pages, ignoring drafts and non-SemVer tags. Stable is the default; `--include-prerelease` also considers published prereleases. An incomplete bounded scan, malformed metadata, rate limit or network failure is an error, never an “up to date” result.
+
+The success envelope's `data` has `current_version`, nullable `latest_version`, nullable `update_available`, `channel` (`stable` or `prerelease`), nullable `release_url` and `status`. Status is `update_available` or `up_to_date` for a known installed version with a release, `no_release` when no eligible release exists, or `unknown_current` for a development build (including when no release exists). Development builds keep `update_available:null`; latest versions omit the tag's leading `v`. An available update still exits 0.
+
+Upgrade deliberately: Homebrew users run their tap's `brew upgrade plane-cli`; archive users verify the published checksums and explicitly replace their binary; `go install` users choose the exact published tag, for example `go install github.com/foae/plane-cli/cmd/plane-cli@vX.Y.Z`. Installing the matching versioned skill is a separate intentional operation. The check does not detect an installation method, replace binaries, execute upgrade instructions or install the skill.
+
 ## Connections and environment credentials
 
 ```sh

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/errors.md",
+  "reviewed_at": "2026-11-15",
+  "contract": {
+    "content_type": "application/problem+json",
+    "required_fields": {
+      "type": "string",
+      "code": "string",
+      "detail": "string"
+    },
+    "status_source": "HTTP status line; no body status/title; type is bare slug",
+    "dispatch": "stable code, then category type for unknown code; never prose matching",
+    "validation_errors": {
+      "ordinary": "array of field/code/message objects",
+      "exceptions": {
+        "project_template_data": "object keyed by failing template_data key",
+        "workspace_workflow_chain": "object with error member"
+      }
+    },
+    "special_payloads": {
+      "workflow_state_orphans": {
+        "status": 409,
+        "members": [
+          "orphans.orphans[].state_id",
+          "orphans.orphans[].state_name",
+          "orphans.orphans[].count",
+          "orphans.orphans[].per_project",
+          "orphans.invalid_targets"
+        ]
+      },
+      "workflow_allowlist_excludes_in_use": {
+        "status": 409,
+        "members": [
+          "workflows[].id",
+          "workflows[].name"
+        ]
+      }
+    },
+    "feature_gate": "402 payment_required",
+    "rate_limit": "429 rate_limited; Retry-After seconds",
+    "tenant_hiding": "404 not_found",
+    "label_governance_exception": "400 v1-shaped {error,code:workspace_managed}",
+    "specific_overview_exception": "Governance overview permits two pin reads outside governed mode; do not apply errors guide's broader every-call claim to those reads.",
+    "cli_security_policy": "Never relay detail, arbitrary bodies or reflected validation messages; existing design permits known-safe normalized fields only.",
+    "resolution": "Source reviewed as non-operation. Existing problem resource's errors array-only schema is narrower than explicit object variants. Transport currently omits upstream_code despite docs/design/cli-contract.md example; safe allowlisted code/type extraction is prerequisite, not raw body passthrough."
+  }
+}

@@ -8,5 +8,16 @@
   "retrieval": "curl -A Mozilla/5.0 -fLsS",
   "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
   "classification": "overview",
-  "owner": "P04"
+  "owner": "P04",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v1:worklogs:overview",
+    "disposition": "resource-schema-only",
+    "operation_mappings": [],
+    "page_facts": [
+      "The body defines a time record with duration in minutes, description, logged_by, audit timestamps/users and project/workspace associations.",
+      "It provides an object example but no methods, routes or actionable HTTP request instructions."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

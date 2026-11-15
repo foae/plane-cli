@@ -1,0 +1,4664 @@
+[
+  {
+    "path": [
+      "project",
+      "create"
+    ],
+    "handler": "project-create",
+    "summary": "Create projects",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli project create --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "POST",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "project_lead": {
+                  "type": "string"
+                },
+                "default_assignee": {
+                  "type": "string"
+                },
+                "identifier": {
+                  "type": "string"
+                },
+                "icon_prop": {
+                  "type": "object"
+                },
+                "emoji": {
+                  "type": "string"
+                },
+                "cover_image": {
+                  "type": "string"
+                },
+                "module_view": {
+                  "type": "boolean"
+                },
+                "cycle_view": {
+                  "type": "boolean"
+                },
+                "issue_views_view": {
+                  "type": "boolean"
+                },
+                "page_view": {
+                  "type": "boolean"
+                },
+                "intake_view": {
+                  "type": "boolean"
+                },
+                "guest_view_all_features": {
+                  "type": "boolean"
+                },
+                "archive_in": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 12
+                },
+                "close_in": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 12
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "is_issue_type_enabled": {
+                  "type": "boolean"
+                },
+                "is_time_tracking_enabled": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "identifier"
+              ]
+            }
+          },
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/body/name",
+            "description": "name"
+          },
+          {
+            "name": "identifier",
+            "type": "string",
+            "required": false,
+            "binding": "/body/identifier",
+            "description": "identifier"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false,
+            "binding": "/body/description",
+            "description": "description"
+          }
+        ]
+      },
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "identifier": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "archive_in": {
+                  "type": "integer"
+                },
+                "close_in": {
+                  "type": "integer"
+                },
+                "cover_image": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "cycle_view": {
+                  "type": "boolean"
+                },
+                "default_assignee_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "default_state_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "description": {
+                  "type": "string"
+                },
+                "emoji": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "estimate_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "external_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "guest_view_all_features": {
+                  "type": "boolean"
+                },
+                "icon_prop": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "intake_view": {
+                  "type": "boolean"
+                },
+                "is_issue_type_enabled": {
+                  "type": "boolean"
+                },
+                "is_time_tracking_enabled": {
+                  "type": "boolean"
+                },
+                "issue_views_view": {
+                  "type": "boolean"
+                },
+                "logo_props": {
+                  "type": "string"
+                },
+                "module_view": {
+                  "type": "boolean"
+                },
+                "network": {
+                  "type": "string"
+                },
+                "page_view": {
+                  "type": "boolean"
+                },
+                "priority": {
+                  "type": "string",
+                  "enum": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "urgent"
+                  ]
+                },
+                "project_lead_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "start_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "state_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "target_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "timezone": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "identifier",
+                "name"
+              ]
+            }
+          },
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/body/name",
+            "description": "name"
+          },
+          {
+            "name": "identifier",
+            "type": "string",
+            "required": false,
+            "binding": "/body/identifier",
+            "description": "identifier"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false,
+            "binding": "/body/description",
+            "description": "description"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "project",
+      "archive"
+    ],
+    "handler": "project-archive",
+    "summary": "Archive projects",
+    "side_effect": "destructive",
+    "local": false,
+    "examples": [
+      "plane-cli project archive --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "POST",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/archive/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          }
+        ]
+      },
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{pk}/archive/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "project",
+      "create-with-template"
+    ],
+    "handler": "project-create-with-template",
+    "summary": "Create with template projects",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli project create-with-template --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "POST",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/templates/use/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "template_id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "identifier": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "network": {
+                  "type": "integer"
+                },
+                "project_lead": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "template_id"
+              ]
+            }
+          },
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/body/name",
+            "description": "name"
+          },
+          {
+            "name": "identifier",
+            "type": "string",
+            "required": false,
+            "binding": "/body/identifier",
+            "description": "identifier"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false,
+            "binding": "/body/description",
+            "description": "description"
+          },
+          {
+            "name": "template-id",
+            "type": "string",
+            "required": false,
+            "binding": "/body/template_id",
+            "description": "template id"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "project",
+      "delete"
+    ],
+    "handler": "project-delete",
+    "summary": "Delete projects",
+    "side_effect": "destructive",
+    "local": false,
+    "examples": [
+      "plane-cli project delete --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "DELETE",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{resource_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          }
+        ]
+      },
+      "v2": {
+        "method": "DELETE",
+        "route": "/api/v2/workspaces/{slug}/projects/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "project",
+      "get"
+    ],
+    "handler": "project-get",
+    "summary": "Get projects",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli project get --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "GET",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{resource_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          }
+        ],
+        "table_columns": [
+          "id",
+          "identifier",
+          "name"
+        ]
+      },
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          }
+        ],
+        "table_columns": [
+          "id",
+          "identifier",
+          "name"
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "project",
+      "list"
+    ],
+    "handler": "project-list",
+    "summary": "List projects",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli project list --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "GET",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                },
+                "all": {
+                  "type": "boolean"
+                },
+                "max-pages": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "cursor": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "order_by": {
+                  "type": "string"
+                },
+                "per_page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "cursor",
+            "type": "string",
+            "required": false,
+            "binding": "/query/cursor",
+            "description": "cursor"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "order-by",
+            "type": "string",
+            "required": false,
+            "binding": "/query/order_by",
+            "description": "order by"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/per_page",
+            "description": "per page"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "all",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/all",
+            "description": "all"
+          },
+          {
+            "name": "max-pages",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/max-pages",
+            "description": "max pages"
+          }
+        ],
+        "table_columns": [
+          "id",
+          "identifier",
+          "name"
+        ],
+        "pagination": "v1"
+      },
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                },
+                "all": {
+                  "type": "boolean"
+                },
+                "max-pages": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "boolean"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                },
+                "identifier": {
+                  "type": "string"
+                },
+                "include_archived": {
+                  "type": "boolean"
+                },
+                "is_archived": {
+                  "type": "boolean"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "network": {
+                  "type": "integer"
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "order_by": {
+                  "type": "string"
+                },
+                "paginate": {
+                  "type": "string",
+                  "enum": [
+                    "cursor"
+                  ]
+                },
+                "per_page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "priority": {
+                  "type": "string",
+                  "enum": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "urgent"
+                  ]
+                },
+                "priority__in": {
+                  "type": "string"
+                },
+                "search": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                },
+                "cursor": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "count",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/count",
+            "description": "count"
+          },
+          {
+            "name": "external-id",
+            "type": "string",
+            "required": false,
+            "binding": "/query/external_id",
+            "description": "external id"
+          },
+          {
+            "name": "external-source",
+            "type": "string",
+            "required": false,
+            "binding": "/query/external_source",
+            "description": "external source"
+          },
+          {
+            "name": "identifier",
+            "type": "string",
+            "required": false,
+            "binding": "/query/identifier",
+            "description": "identifier"
+          },
+          {
+            "name": "include-archived",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/include_archived",
+            "description": "include archived"
+          },
+          {
+            "name": "is-archived",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/is_archived",
+            "description": "is archived"
+          },
+          {
+            "name": "key",
+            "type": "string",
+            "required": false,
+            "binding": "/query/key",
+            "description": "key"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/query/name",
+            "description": "name"
+          },
+          {
+            "name": "network",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/network",
+            "description": "network"
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/offset",
+            "description": "offset"
+          },
+          {
+            "name": "order-by",
+            "type": "string",
+            "required": false,
+            "binding": "/query/order_by",
+            "description": "order by"
+          },
+          {
+            "name": "paginate",
+            "type": "string",
+            "required": false,
+            "binding": "/query/paginate",
+            "description": "paginate"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/per_page",
+            "description": "per page"
+          },
+          {
+            "name": "priority",
+            "type": "string",
+            "required": false,
+            "binding": "/query/priority",
+            "description": "priority"
+          },
+          {
+            "name": "priority--in",
+            "type": "string",
+            "required": false,
+            "binding": "/query/priority__in",
+            "description": "priority  in"
+          },
+          {
+            "name": "search",
+            "type": "string",
+            "required": false,
+            "binding": "/query/search",
+            "description": "search"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "all",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/all",
+            "description": "all"
+          },
+          {
+            "name": "max-pages",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/max-pages",
+            "description": "max pages"
+          },
+          {
+            "name": "cursor",
+            "type": "string",
+            "required": false,
+            "binding": "/query/cursor",
+            "description": "Opaque native cursor"
+          }
+        ],
+        "table_columns": [
+          "id",
+          "identifier",
+          "name"
+        ],
+        "pagination": "v2"
+      }
+    }
+  },
+  {
+    "path": [
+      "project",
+      "unarchive"
+    ],
+    "handler": "project-unarchive",
+    "summary": "Unarchive projects",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli project unarchive --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "DELETE",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/archive/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          }
+        ]
+      },
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{pk}/unarchive/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "project",
+      "update"
+    ],
+    "handler": "project-update",
+    "summary": "Update projects",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli project update --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "PATCH",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{resource_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "project_lead": {
+                  "type": "string"
+                },
+                "default_assignee": {
+                  "type": "string"
+                },
+                "identifier": {
+                  "type": "string"
+                },
+                "icon_prop": {
+                  "type": "object"
+                },
+                "emoji": {
+                  "type": "string"
+                },
+                "cover_image": {
+                  "type": "string"
+                },
+                "module_view": {
+                  "type": "boolean"
+                },
+                "cycle_view": {
+                  "type": "boolean"
+                },
+                "issue_views_view": {
+                  "type": "boolean"
+                },
+                "page_view": {
+                  "type": "boolean"
+                },
+                "intake_view": {
+                  "type": "boolean"
+                },
+                "guest_view_all_features": {
+                  "type": "boolean"
+                },
+                "archive_in": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 12
+                },
+                "close_in": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 12
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "is_issue_type_enabled": {
+                  "type": "boolean"
+                },
+                "is_time_tracking_enabled": {
+                  "type": "boolean"
+                },
+                "default_state": {
+                  "type": "string"
+                },
+                "estimate": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/body/name",
+            "description": "name"
+          },
+          {
+            "name": "identifier",
+            "type": "string",
+            "required": false,
+            "binding": "/body/identifier",
+            "description": "identifier"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false,
+            "binding": "/body/description",
+            "description": "description"
+          }
+        ]
+      },
+      "v2": {
+        "method": "PATCH",
+        "route": "/api/v2/workspaces/{slug}/projects/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "archive_in": {
+                  "type": "integer"
+                },
+                "close_in": {
+                  "type": "integer"
+                },
+                "cover_image": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "cycle_view": {
+                  "type": "boolean"
+                },
+                "default_assignee_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "default_state_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "description": {
+                  "type": "string"
+                },
+                "emoji": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "estimate_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "external_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "guest_view_all_features": {
+                  "type": "boolean"
+                },
+                "icon_prop": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "identifier": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "intake_view": {
+                  "type": "boolean"
+                },
+                "is_issue_type_enabled": {
+                  "type": "boolean"
+                },
+                "is_time_tracking_enabled": {
+                  "type": "boolean"
+                },
+                "issue_views_view": {
+                  "type": "boolean"
+                },
+                "logo_props": {
+                  "type": "string"
+                },
+                "module_view": {
+                  "type": "boolean"
+                },
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "network": {
+                  "type": "string"
+                },
+                "page_view": {
+                  "type": "boolean"
+                },
+                "priority": {
+                  "type": "string",
+                  "enum": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "urgent"
+                  ]
+                },
+                "project_lead_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "start_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "state_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "target_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "timezone": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/body/name",
+            "description": "name"
+          },
+          {
+            "name": "identifier",
+            "type": "string",
+            "required": false,
+            "binding": "/body/identifier",
+            "description": "identifier"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false,
+            "binding": "/body/description",
+            "description": "description"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "project",
+      "bulk-create"
+    ],
+    "handler": "project-bulk-create",
+    "summary": "Bulk create projects",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli project bulk-create --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/bulk-create/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 50,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "maxLength": 255
+                      },
+                      "name": {
+                        "type": "string",
+                        "maxLength": 255
+                      },
+                      "archive_in": {
+                        "type": "integer"
+                      },
+                      "close_in": {
+                        "type": "integer"
+                      },
+                      "cover_image": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "cycle_view": {
+                        "type": "boolean"
+                      },
+                      "default_assignee_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "default_state_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "emoji": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "estimate_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "external_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "external_source": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "guest_view_all_features": {
+                        "type": "boolean"
+                      },
+                      "icon_prop": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "intake_view": {
+                        "type": "boolean"
+                      },
+                      "is_issue_type_enabled": {
+                        "type": "boolean"
+                      },
+                      "is_time_tracking_enabled": {
+                        "type": "boolean"
+                      },
+                      "issue_views_view": {
+                        "type": "boolean"
+                      },
+                      "logo_props": {
+                        "type": "string"
+                      },
+                      "module_view": {
+                        "type": "boolean"
+                      },
+                      "network": {
+                        "type": "string"
+                      },
+                      "page_view": {
+                        "type": "boolean"
+                      },
+                      "priority": {
+                        "type": "string",
+                        "enum": [
+                          "none",
+                          "low",
+                          "medium",
+                          "high",
+                          "urgent"
+                        ]
+                      },
+                      "project_lead_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "start_date": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                      },
+                      "state_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "target_date": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                      },
+                      "timezone": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "identifier",
+                      "name"
+                    ]
+                  }
+                },
+                "all_or_none": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "items"
+              ]
+            }
+          },
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "project",
+      "bulk-update"
+    ],
+    "handler": "project-bulk-update",
+    "summary": "Bulk update projects",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli project bulk-update --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/bulk-update/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 50,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "archive_in": {
+                        "type": "integer"
+                      },
+                      "close_in": {
+                        "type": "integer"
+                      },
+                      "cover_image": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "cycle_view": {
+                        "type": "boolean"
+                      },
+                      "default_assignee_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "default_state_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "emoji": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "estimate_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "external_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "external_source": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "guest_view_all_features": {
+                        "type": "boolean"
+                      },
+                      "icon_prop": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "identifier": {
+                        "type": "string",
+                        "maxLength": 255
+                      },
+                      "intake_view": {
+                        "type": "boolean"
+                      },
+                      "is_issue_type_enabled": {
+                        "type": "boolean"
+                      },
+                      "is_time_tracking_enabled": {
+                        "type": "boolean"
+                      },
+                      "issue_views_view": {
+                        "type": "boolean"
+                      },
+                      "logo_props": {
+                        "type": "string"
+                      },
+                      "module_view": {
+                        "type": "boolean"
+                      },
+                      "name": {
+                        "type": "string",
+                        "maxLength": 255
+                      },
+                      "network": {
+                        "type": "string"
+                      },
+                      "page_view": {
+                        "type": "boolean"
+                      },
+                      "priority": {
+                        "type": "string",
+                        "enum": [
+                          "none",
+                          "low",
+                          "medium",
+                          "high",
+                          "urgent"
+                        ]
+                      },
+                      "project_lead_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "start_date": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                      },
+                      "state_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "target_date": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                      },
+                      "timezone": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "all_or_none": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "items"
+              ]
+            }
+          },
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "project",
+      "summary"
+    ],
+    "handler": "project-summary",
+    "summary": "Summary projects",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli project summary --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/{pk}/summary/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "counts": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "counts",
+            "type": "string",
+            "required": false,
+            "binding": "/query/counts",
+            "description": "counts"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "project",
+      "upsert"
+    ],
+    "handler": "project-upsert",
+    "summary": "Upsert projects",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli project upsert --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/upsert/",
+        "response_kind": "native",
+        "scopes": [
+          "projects:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "identifier": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "archive_in": {
+                  "type": "integer"
+                },
+                "close_in": {
+                  "type": "integer"
+                },
+                "cover_image": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "cycle_view": {
+                  "type": "boolean"
+                },
+                "default_assignee_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "default_state_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "description": {
+                  "type": "string"
+                },
+                "emoji": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "estimate_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "external_id": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "guest_view_all_features": {
+                  "type": "boolean"
+                },
+                "icon_prop": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "intake_view": {
+                  "type": "boolean"
+                },
+                "is_issue_type_enabled": {
+                  "type": "boolean"
+                },
+                "is_time_tracking_enabled": {
+                  "type": "boolean"
+                },
+                "issue_views_view": {
+                  "type": "boolean"
+                },
+                "logo_props": {
+                  "type": "string"
+                },
+                "module_view": {
+                  "type": "boolean"
+                },
+                "network": {
+                  "type": "string"
+                },
+                "page_view": {
+                  "type": "boolean"
+                },
+                "priority": {
+                  "type": "string",
+                  "enum": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "urgent"
+                  ]
+                },
+                "project_lead_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "start_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "state_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "target_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "timezone": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "identifier",
+                "name",
+                "external_id",
+                "external_source"
+              ]
+            }
+          },
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/body/name",
+            "description": "name"
+          },
+          {
+            "name": "identifier",
+            "type": "string",
+            "required": false,
+            "binding": "/body/identifier",
+            "description": "identifier"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false,
+            "binding": "/body/description",
+            "description": "description"
+          }
+        ]
+      }
+    }
+  }
+]

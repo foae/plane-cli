@@ -22,5 +22,92 @@
       "details": []
     },
     "excluded_reason": "General guide; no standalone operation."
+  },
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/pages/",
+        "description": "List workspace pages",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:workspace-pages:list-workspace-pages"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/pages/{pk}/",
+        "description": "Get a workspace page",
+        "catalog_operation_ids": [
+          "v2.workspace-pages.get-workspace-page"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-pages:get-workspace-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/pages/",
+        "description": "Create a workspace page",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:workspace-pages:create-workspace-page"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/pages/{pk}/",
+        "description": "Update a workspace page",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:workspace-pages:update-workspace-page"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/pages/{pk}/",
+        "description": "Delete a workspace page",
+        "catalog_operation_ids": [
+          "v2.workspace-pages.delete-workspace-page"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-pages:delete-workspace-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/pages/{pk}/archive/",
+        "description": "Archive a workspace page",
+        "catalog_operation_ids": [
+          "v2.workspace-pages.archive-workspace-page"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-pages:archive-workspace-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/pages/{pk}/unarchive/",
+        "description": "Unarchive a workspace page",
+        "catalog_operation_ids": [
+          "v2.workspace-pages.unarchive-workspace-page"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-pages:unarchive-workspace-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:workspace-pages:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "The seven endpoint rows repeat existing workspace-page sources. Archive recursively archives nested pages and unpublishes; unarchive restores them; deletion requires prior archival. These qualify the existing lifecycle operations. Existing conflicting list/write sources remain unresolved; this overview does not create replacement contracts.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
   }
 }

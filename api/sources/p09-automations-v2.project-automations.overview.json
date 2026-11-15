@@ -7,5 +7,242 @@
     "Project automations run in one project; workspace automations run across a workspace.",
     "New automations are draft and disabled. Explicit status writes enable/disable.",
     "Project overview says project_ids writes are ignored; leaf create/update describe replacement. No client-side emulation."
-  ]
+  ],
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/activities/",
+        "description": "List automation activities",
+        "catalog_operation_ids": [
+          "v2.project-automations.list-automation-activities"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:list-automation-activities"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/edges/",
+        "description": "List automation edges",
+        "catalog_operation_ids": [
+          "v2.project-automations.list-automation-edges"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:list-automation-edges"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/nodes/",
+        "description": "List automation nodes",
+        "catalog_operation_ids": [
+          "v2.project-automations.list-automation-nodes"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:list-automation-nodes"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/",
+        "description": "List project automations",
+        "catalog_operation_ids": [
+          "v2.project-automations.list-project-automations"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:list-project-automations"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/activities/{pk}/",
+        "description": "Get an automation activity",
+        "catalog_operation_ids": [
+          "v2.project-automations.get-automation-activity"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:get-automation-activity"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/edges/{pk}/",
+        "description": "Get an automation edge",
+        "catalog_operation_ids": [
+          "v2.project-automations.get-automation-edge"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:get-automation-edge"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/nodes/{pk}/",
+        "description": "Get an automation node",
+        "catalog_operation_ids": [
+          "v2.project-automations.get-automation-node"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:get-automation-node"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{pk}/",
+        "description": "Get a project automation",
+        "catalog_operation_ids": [
+          "v2.project-automations.get-project-automation"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:get-project-automation"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/edges/",
+        "description": "Create an automation edge",
+        "catalog_operation_ids": [
+          "v2.project-automations.create-automation-edge"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:create-automation-edge"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/nodes/",
+        "description": "Create an automation node",
+        "catalog_operation_ids": [
+          "v2.project-automations.create-automation-node"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:create-automation-node"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/",
+        "description": "Create a project automation",
+        "catalog_operation_ids": [
+          "v2.project-automations.create-project-automation"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:create-project-automation"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/edges/{pk}/",
+        "description": "Update an automation edge",
+        "catalog_operation_ids": [
+          "v2.project-automations.update-automation-edge"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:update-automation-edge"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/nodes/{pk}/",
+        "description": "Update an automation node",
+        "catalog_operation_ids": [
+          "v2.project-automations.update-automation-node"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:update-automation-node"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{pk}/",
+        "description": "Update a project automation",
+        "catalog_operation_ids": [
+          "v2.project-automations.update-project-automation"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:update-project-automation"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/edges/{pk}/",
+        "description": "Delete an automation edge",
+        "catalog_operation_ids": [
+          "v2.project-automations.delete-automation-edge"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:delete-automation-edge"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/nodes/{pk}/",
+        "description": "Delete an automation node",
+        "catalog_operation_ids": [
+          "v2.project-automations.delete-automation-node"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:delete-automation-node"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{pk}/",
+        "description": "Delete a project automation",
+        "catalog_operation_ids": [
+          "v2.project-automations.delete-project-automation"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:delete-project-automation"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/nodes/{pk}/regenerate-webhook-secret/",
+        "description": "Regenerate an automation node webhook secret",
+        "catalog_operation_ids": [
+          "v2.project-automations.regenerate-node-webhook-secret"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:regenerate-node-webhook-secret"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{pk}/status/",
+        "description": "Enable or disable a project automation",
+        "catalog_operation_ids": [
+          "v2.project-automations.set-project-automation-status"
+        ],
+        "catalog_source_ids": [
+          "v2:project-automations:set-project-automation-status"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:project-automations:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "The nineteen endpoint rows repeat existing project automation, activity, graph-node/edge, secret-regeneration and status operations. draft/published/disabled and is_enabled describe the existing status operation, not a publish endpoint. project_ids is a one-project list and overview says body writes are ignored; the existing conflict with create/update leaf replacement wording remains explicit. Activity actor/run/version identifiers are response fields, not extra run/version APIs.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
 }

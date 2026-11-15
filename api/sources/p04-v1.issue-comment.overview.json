@@ -8,5 +8,16 @@
   "retrieval": "curl -A Mozilla/5.0 -fLsS",
   "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
   "classification": "overview",
-  "owner": "P04"
+  "owner": "P04",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v1:issue-comment:overview",
+    "disposition": "resource-schema-only",
+    "operation_mappings": [],
+    "page_facts": [
+      "The body defines comment HTML/plain-text/JSON representations, attachments, INTERNAL/EXTERNAL access, external correlation and actor/issue associations.",
+      "It explains discussion capabilities without a method/path table or actionable request instruction."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

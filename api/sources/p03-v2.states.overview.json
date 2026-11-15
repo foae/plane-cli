@@ -1,4 +1,79 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Every explicitly tabulated operation is already cataloged; retain this page as overview evidence.",
+    "facts": [
+      "State attributes distinguish is_default and managed is_triage, and enumerate six workflow groups.",
+      "The endpoint table covers nine existing project-state operations. Governed-workspace write failures and default/nonempty delete conflicts qualify those routes; they do not add routes."
+    ],
+    "operation_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/",
+        "operation_ids": [
+          "v2.states.list-states"
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/{pk}/",
+        "operation_ids": [
+          "v2.states.get-state"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/",
+        "operation_ids": [
+          "v2.states.create-state"
+        ]
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/{pk}/",
+        "operation_ids": [
+          "v2.states.update-state"
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/{pk}/",
+        "operation_ids": [
+          "v2.states.delete-state"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/upsert/",
+        "operation_ids": [
+          "v2.states.upsert-state"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/bulk-create/",
+        "operation_ids": [
+          "v2.states.bulk-create-states"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/bulk-update/",
+        "operation_ids": [
+          "v2.states.bulk-update-states"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/states/bulk-delete/",
+        "operation_ids": [
+          "v2.states.bulk-delete-states"
+        ]
+      }
+    ]
+  },
   "source_url": "https://developers.plane.so/api-reference/v2/states/overview.md",
   "classification": "non-operation",
   "review": "Overview resource attributes and links to independently indexed operations; no additional unmatched operation."

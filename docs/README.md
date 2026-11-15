@@ -1,10 +1,10 @@
 # Documentation router
 
-P00–P02 provide offline discovery, named connections and persistent/user/bot authentication. P03 adds documented identity, project, state/label and work-item operations. [Current usage](usage.md) describes working commands; design contracts describe the broader approved target, not current API coverage.
+The CLI provides offline discovery, named connections, authentication and documented P03–P09 resource operations. [Current usage](usage.md) describes working commands; [coverage exceptions](reference/api-contract-gaps.md) distinguish upstream evidence gaps from implemented API coverage.
 
 ## Choose your task
 
-- Use the implemented offline CLI → [usage](usage.md).
+- Use the CLI → [usage](usage.md).
 - Product scope, choices, exclusions → [decisions](planning/decisions.md).
 - Implement a bounded slice → [packet sequence](implementation/README.md), then only its prerequisites.
 - Command names, inputs, JSON, errors, tables → [CLI contract](design/cli-contract.md).

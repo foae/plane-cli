@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "reconciliation_snapshot": "Missing-handler notes describe pre-change requirements; implementation status records the resulting patch. Acceptance is authored, not executed.",
+  "source_id": "v1:assets:overview",
+  "source_url": "https://developers.plane.so/api-reference/assets/overview.md",
+  "reviewed_at": "2026-11-15",
+  "source_sha256": "962f81956d18a6ea8ffd50126c56ce21c07acd294fcd22ee068fcc98b0e93060",
+  "source_bytes": 909,
+  "retention": "Independently authored contract; raw documentation not redistributed.",
+  "verification": "Source and implementation inspected; no tests run; planner review unchanged.",
+  "resolution": "non-operation",
+  "contract": {
+    "kind": "resource-overview",
+    "notes": [
+      "Illustrative asset object only; no new endpoint."
+    ]
+  },
+  "existing_operation_mappings": [],
+  "missing_handler_behavior": [],
+  "contract_conflicts": [],
+  "implementation_evidence": [
+    "internal/cli/content_assets.go:13-65",
+    "internal/cli/asset_transfers.go:103-200",
+    "internal/cli/asset_transfers.go:202-267",
+    "internal/cli/content_assets_test.go:30-114",
+    "internal/cli/testdata/p06-asset-native-wire.json",
+    "internal/cli/asset_transfers_test.go:54-61"
+  ],
+  "v1_v2_equivalence_claimed": false,
+  "implementation_status": "reviewed source; no verification promotion",
+  "overview_reconciliation": {
+    "endpoint_mappings": [],
+    "source_id": "v1:assets:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Schema/example-only overview with an empty Attributes section and illustrative asset ID. No method, path or upload request schema is declared. Generic upload/manage prose describes the existing six user/workspace asset source rows and cannot supply any missing operation contract.",
+    "referenced_catalog_source_ids": [
+      "v1:assets:create-user-asset-upload",
+      "v1:assets:update-user-asset",
+      "v1:assets:delete-user-asset",
+      "v1:assets:create-workspace-asset-upload",
+      "v1:assets:get-workspace-asset",
+      "v1:assets:update-workspace-asset"
+    ],
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
+}

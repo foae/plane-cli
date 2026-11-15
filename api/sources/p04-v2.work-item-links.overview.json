@@ -8,5 +8,36 @@
   "retrieval": "curl -A Mozilla/5.0 -fLsS",
   "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
   "classification": "overview",
-  "owner": "P04"
+  "owner": "P04",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:work-item-links:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.work-item-links.list-links",
+        "basis": "Explicit endpoint table: List links."
+      },
+      {
+        "operation_id": "v2.work-item-links.get-link",
+        "basis": "Explicit endpoint table: Get a link."
+      },
+      {
+        "operation_id": "v2.work-item-links.create-link",
+        "basis": "Explicit endpoint table: Create a link."
+      },
+      {
+        "operation_id": "v2.work-item-links.update-link",
+        "basis": "Explicit endpoint table: Update a link."
+      },
+      {
+        "operation_id": "v2.work-item-links.delete-link",
+        "basis": "Explicit endpoint table: Delete a link."
+      }
+    ],
+    "page_facts": [
+      "External URLs are attached to one work item; the endpoint table explicitly enumerates list, detail and three write actions."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

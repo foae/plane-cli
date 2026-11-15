@@ -8,5 +8,29 @@
   "retrieval": "curl -A Mozilla/5.0 -fLsS",
   "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
   "classification": "overview",
-  "owner": "P04"
+  "owner": "P04",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:work-item-votes:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.work-item-votes.list-work-item-votes",
+        "basis": "Explicit endpoint table: List work item votes."
+      },
+      {
+        "operation_id": "v2.work-item-votes.cast-work-item-vote",
+        "basis": "Explicit endpoint table: Cast a vote on a work item."
+      },
+      {
+        "operation_id": "v2.work-item-votes.retract-work-item-vote",
+        "basis": "Explicit endpoint table: Retract your vote on a work item."
+      }
+    ],
+    "page_facts": [
+      "List, cast and retract operate on a work item; cast/retract address the caller rather than a vote id.",
+      "At most one vote per caller/work item exists; repeating cast updates it and retract returns 204 even without an existing vote."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/introduction.md",
+  "reviewed_at": "2026-11-15",
+  "contract": {
+    "base_url": "https://api.plane.so/",
+    "path_prefix": "/api/v1/",
+    "self_hosted": "instance-specific base URL",
+    "representation": "JSON",
+    "authentication": {
+      "api_key_header": "X-API-Key",
+      "oauth_and_bridge": "Authorization: Bearer <token>"
+    },
+    "verbs": [
+      "GET",
+      "POST",
+      "DELETE",
+      "PATCH"
+    ],
+    "pagination": {
+      "cursor_format": "value:offset:is_prev",
+      "per_page_default": 100,
+      "per_page_max": 100,
+      "response_fields": [
+        "next_cursor",
+        "prev_cursor",
+        "next_page_results",
+        "prev_page_results",
+        "count",
+        "total_pages",
+        "total_results",
+        "extra_stats",
+        "results"
+      ]
+    },
+    "rate_limit": {
+      "requests_per_minute": 60,
+      "scope": "API key",
+      "response_headers": [
+        "X-RateLimit-Remaining",
+        "X-RateLimit-Reset"
+      ]
+    },
+    "shaping": {
+      "fields": "comma-separated field names",
+      "expand": "comma-separated relations"
+    },
+    "conflicts": [
+      "V1 introduction says invalid fields error; migration guide says v1 ignores unknown fields. Do not invent universal v1 local shaping validation from these conflicting generic claims.",
+      "Verb overview omits PUT, while exact v1 workflow pick contract uses PUT; endpoint-specific method wins.",
+      "200 description incorrectly says new resource created; retain HTTP/operation-specific success semantics."
+    ],
+    "resolution": "General guide reviewed as non-operation; no new v1 operation invented."
+  }
+}

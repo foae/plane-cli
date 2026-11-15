@@ -2,6 +2,24 @@
   "source_url": "https://developers.plane.so/api-reference/issue-types/values/overview.md",
   "source_sha256": "f71408bcb985c0d193106eb83431bae08ce26145b67d006d907ff9392e3f9e15",
   "contract": {
-    "kind": "overview"
+    "kind": "overview",
+    "reconciliation": {
+      "reviewed_at": "2026-11-15",
+      "disposition": "schema-only",
+      "operation_ids": [],
+      "facts": [
+        "The body says custom property values store data on specific work items, then contains only The values object, Attributes and one 200 response example.",
+        "Attributes describe workspace/project ownership, audit fields and external correlation; there is no method, endpoint path, request body, action instruction or operation link.",
+        "The example has option-style name, sort_order, is_default, property and parent fields, but no submitted value field. It does not establish the add/get/update/delete value operations' request shapes."
+      ],
+      "conflicts": [
+        {
+          "section": "Overview and THE VALUES OBJECT response example",
+          "excerpt": "Custom property values store the data entered into custom properties on specific work items.",
+          "other_excerpt": "\"name\": \"issue property option 3\"",
+          "resolution": "The value resource description and option-shaped example do not establish a usable value-write schema; retain operation-specific value contracts rather than infer one from the example."
+        }
+      ]
+    }
   }
 }

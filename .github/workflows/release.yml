@@ -1,0 +1,134 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing reviewed annotated vVERSION tag
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ inputs.tag }}
+  cancel-in-progress: false
+
+env:
+  GOTOOLCHAIN: local
+  GOFLAGS: -mod=readonly
+  GOSUMDB: sum.golang.org
+
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    outputs:
+      commit: ${{ steps.source.outputs.commit }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ inputs.tag }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Validate selected immutable annotated tag
+        id: source
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          test "$RELEASE_TAG" = "v$(cat VERSION)"
+          test "$(git cat-file -t "refs/tags/$RELEASE_TAG")" = tag
+          test "$(git rev-parse "refs/tags/$RELEASE_TAG^{commit}")" = "$(git rev-parse HEAD)"
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - id: pins
+        run: echo "go-version=$(sh scripts/install-tools.sh --print-go-version)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
+        with:
+          go-version: ${{ steps.pins.outputs.go-version }}
+          check-latest: false
+      - run: make tools
+      - run: make check race security cross
+      - run: make package-release ARTIFACT_DIR=dist/release
+      - run: make artifact-check ARTIFACT_DIR=dist/release
+      - run: make installation-check ARTIFACT_DIR=dist/release
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-assets
+          path: dist/release/
+          if-no-files-found: error
+  native:
+    needs: prepare
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ needs.prepare.outputs.commit }}
+          fetch-depth: 0
+          persist-credentials: false
+      - id: pins
+        run: echo "go-version=$(sh scripts/install-tools.sh --print-go-version)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
+        with:
+          go-version: ${{ steps.pins.outputs.go-version }}
+          check-latest: false
+      - run: make test
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: release-assets
+          path: dist/release
+      - run: make artifact-check ARTIFACT_DIR=dist/release
+      - run: make installation-check ARTIFACT_DIR=dist/release
+  draft:
+    needs: [prepare, native]
+    environment: release-draft
+    permissions:
+      contents: write
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ needs.prepare.outputs.commit }}
+          fetch-depth: 0
+          persist-credentials: false
+      - id: pins
+        run: echo "go-version=$(sh scripts/install-tools.sh --print-go-version)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
+        with:
+          go-version: ${{ steps.pins.outputs.go-version }}
+          check-latest: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: release-assets
+          path: dist/release
+      - run: sh scripts/publish-release.sh dist/release draft
+        env:
+          GH_TOKEN: ${{ github.token }}
+  publish:
+    needs: [prepare, draft]
+    environment: release
+    permissions:
+      contents: write
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ needs.prepare.outputs.commit }}
+          fetch-depth: 0
+          persist-credentials: false
+      - id: pins
+        run: echo "go-version=$(sh scripts/install-tools.sh --print-go-version)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
+        with:
+          go-version: ${{ steps.pins.outputs.go-version }}
+          check-latest: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: release-assets
+          path: dist/release
+      - run: sh scripts/publish-release.sh dist/release publish
+        env:
+          GH_TOKEN: ${{ github.token }}

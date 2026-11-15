@@ -21,21 +21,23 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/foae/plane-cli/internal/catalogsource"
 	"github.com/foae/plane-cli/internal/cli"
 	"github.com/foae/plane-cli/internal/spec"
 )
 
 type source struct {
-	ID               string `json:"id"`
-	Version          string `json:"version"`
-	Family           string `json:"family"`
-	Packet           string `json:"packet"`
-	Disposition      string `json:"disposition"`
-	EvidenceStatus   string `json:"evidence_status"`
-	URL              string `json:"url"`
-	ReviewResolution string `json:"review_resolution"`
-	AliasOf          string `json:"alias_of"`
-	ProvenanceID     string `json:"provenance_id"`
+	ID                  string `json:"id"`
+	Version             string `json:"version"`
+	Family              string `json:"family"`
+	Packet              string `json:"packet"`
+	Disposition         string `json:"disposition"`
+	EvidenceStatus      string `json:"evidence_status"`
+	URL                 string `json:"url"`
+	ReviewResolution    string `json:"review_resolution"`
+	AliasOf             string `json:"alias_of"`
+	ProvenanceID        string `json:"provenance_id"`
+	CompletionException string `json:"completion_exception,omitempty"`
 }
 
 type operation struct {
@@ -115,6 +117,10 @@ func main() {
 	if *release {
 		*mode = "release"
 	}
+	if err := catalogsource.Check("api/catalog", "api/catalog.json"); err != nil {
+		fmt.Fprintln(os.Stderr, "checkapi:", err)
+		os.Exit(1)
+	}
 	if err := run(*mode, *packet); err != nil {
 		fmt.Fprintln(os.Stderr, "checkapi:", err)
 		os.Exit(1)
@@ -166,6 +172,14 @@ func resolvedNonOperation(s source) bool {
 func resolvedSource(s source, sources map[string]source, visiting map[string]bool) bool {
 	if s.EvidenceStatus == "verified" || resolvedNonOperation(s) {
 		return true
+	}
+	// Approved upstream gaps close source reconciliation, not API coverage.
+	if s.CompletionException != "" && s.ProvenanceID != "" &&
+		(s.EvidenceStatus == "reviewed" || s.EvidenceStatus == "reviewed-partial") {
+		switch s.Disposition {
+		case "operation-source", "evidence-conflict", "supplemental-evidence":
+			return true
+		}
 	}
 	if s.Disposition != "duplicate-alias" || s.EvidenceStatus != "reviewed" ||
 		s.ReviewResolution != "duplicate-alias" || s.ProvenanceID == "" || visiting[s.ID] {
@@ -606,6 +620,19 @@ func run(mode, packet string) (result error) {
 		} else if s.EvidenceStatus != "pending" {
 			return fmt.Errorf("source evidence missing: %s", s.ID)
 		}
+		if s.CompletionException != "" {
+			if s.ReviewResolution == "" || (s.EvidenceStatus != "reviewed" && s.EvidenceStatus != "reviewed-partial") {
+				return fmt.Errorf("unreviewed completion exception: %s", s.ID)
+			}
+			switch s.Disposition {
+			case "operation-source", "evidence-conflict", "supplemental-evidence":
+			default:
+				return fmt.Errorf("invalid completion exception disposition: %s", s.ID)
+			}
+			if err := localFile(s.CompletionException); err != nil {
+				return fmt.Errorf("completion exception %s: %w", s.ID, err)
+			}
+		}
 		sources[s.ID] = s
 	}
 	for _, s := range c.Sources {
@@ -687,7 +714,10 @@ func run(mode, packet string) (result error) {
 		if op.ID == "" || opIDs[op.ID].ID != "" {
 			return fmt.Errorf("duplicate/empty operation ID %q", op.ID)
 		}
-		if !validPacket(op.Packet) || (op.Version != "v1" && op.Version != "v2") || len(op.CommandPath) == 0 || op.Scope == "" || !strings.HasPrefix(op.Path, "/api/"+op.Version+"/") || !strings.HasSuffix(op.Path, "/") {
+		apiPath := strings.HasPrefix(op.Path, "/api/"+op.Version+"/") && strings.HasSuffix(op.Path, "/")
+		// Storage targets come from signed credentials, never from an invented API route.
+		storagePath := op.Scope == "storage" && op.Path == "{upload_url}" && op.Method == "POST" && op.Action == "upload-file"
+		if !validPacket(op.Packet) || (op.Version != "v1" && op.Version != "v2") || len(op.CommandPath) == 0 || op.Scope == "" || (!apiPath && !storagePath) {
 			return fmt.Errorf("malformed operation %s", op.ID)
 		}
 		switch op.Method {
@@ -845,6 +875,13 @@ func run(mode, packet string) (result error) {
 	}
 	sort.Strings(packets)
 	fmt.Printf("packet=%s completed_api_operations=%d ids=%v indexed_sources=%d supplemental_sources=%d documented_operations=%d verified_operations=%d\n", packet, len(completed), completed, count, len(c.Supplements), len(c.Operations), len(verified))
+	exceptions := 0
+	for _, s := range c.Sources {
+		if s.CompletionException != "" {
+			exceptions++
+		}
+	}
+	fmt.Printf("approved_upstream_source_exceptions=%d (not implemented API operations)\n", exceptions)
 	for _, p := range packets {
 		fmt.Printf("pending_sources packet=%s count=%d\n", p, pending[p])
 		total += pending[p]

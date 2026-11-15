@@ -225,6 +225,10 @@ func settingsError(cmd *cobra.Command, err error) error {
 
 func effectiveSettings(cmd *cobra.Command) (config.Resolved, error) {
 	flags := settingFlags(cmd)
+	if cmd.Annotations["transport"] == "storage" {
+		// Signed storage destinations do not require a configured Plane API origin.
+		flags["base-url"] = "http://storage.invalid"
+	}
 	f, err := config.Read()
 	if err != nil {
 		// Explicit settings can operate without a usable local store, but an

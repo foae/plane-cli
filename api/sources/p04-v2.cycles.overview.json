@@ -2,5 +2,74 @@
   "source_url": "https://developers.plane.so/api-reference/v2/cycles/overview.md",
   "source_sha256": "18b4b1fd925759ed13121af9e48a372a5c716113d922a8862e98ac560e08435e",
   "kind": "resource-overview",
-  "interpretation": "Resource overview; operation contracts are recorded separately."
+  "interpretation": "Resource overview; operation contracts are recorded separately.",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:cycles:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.cycles.list-cycles",
+        "basis": "Explicit endpoint table: List cycles."
+      },
+      {
+        "operation_id": "v2.cycles.get-cycle",
+        "basis": "Explicit endpoint table: Get a cycle."
+      },
+      {
+        "operation_id": "v2.cycles.create-cycle",
+        "basis": "Explicit endpoint table: Create a cycle."
+      },
+      {
+        "operation_id": "v2.cycles.update-cycle",
+        "basis": "Explicit endpoint table: Update a cycle."
+      },
+      {
+        "operation_id": "v2.cycles.delete-cycle",
+        "basis": "Explicit endpoint table: Delete a cycle."
+      },
+      {
+        "operation_id": "v2.cycles.upsert-cycle",
+        "basis": "Explicit endpoint table: Upsert a cycle."
+      },
+      {
+        "operation_id": "v2.cycles.bulk-create-cycles",
+        "basis": "Explicit endpoint table: Bulk create cycles."
+      },
+      {
+        "operation_id": "v2.cycles.bulk-update-cycles",
+        "basis": "Explicit endpoint table: Bulk update cycles."
+      },
+      {
+        "operation_id": "v2.cycles.bulk-delete-cycles",
+        "basis": "Explicit endpoint table: Bulk delete cycles."
+      },
+      {
+        "operation_id": "v2.cycles.manage-cycle-work-items",
+        "basis": "Explicit endpoint table: Add or remove cycle work items."
+      },
+      {
+        "operation_id": "v2.cycles.transfer-cycle-work-items",
+        "basis": "Explicit endpoint table: Transfer work items between cycles."
+      },
+      {
+        "operation_id": "v2.cycles.archive-cycle",
+        "basis": "Explicit endpoint table: Archive a cycle."
+      },
+      {
+        "operation_id": "v2.cycles.unarchive-cycle",
+        "basis": "Explicit endpoint table: Unarchive a cycle."
+      },
+      {
+        "operation_id": "v2.work-items.list-work-items",
+        "basis": "Explicit linked operation in overview narrative."
+      }
+    ],
+    "page_facts": [
+      "Project-local iterations have optional timestamp boundaries interpreted in their own timezone; ownership is read-only.",
+      "The endpoint table includes bulk writes, transfer, archive/unarchive and membership management; listing cycle work items uses the work-item list filtered by cycle_id.",
+      "The v1 comparison describes different archived-list and unarchive routes, not wire equivalence."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

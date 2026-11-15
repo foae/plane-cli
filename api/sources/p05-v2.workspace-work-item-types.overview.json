@@ -5,5 +5,29 @@
   "reviewed_at": "2026-11-14",
   "notes": [
     "Workspace-scoped type/property surface; operation-specific contracts take precedence over conflicting overview examples."
-  ]
+  ],
+  "contract": {
+    "kind": "overview",
+    "reconciliation": {
+      "reviewed_at": "2026-11-15",
+      "disposition": "mapped-existing-operations",
+      "operation_ids": [
+        "v2.workspace-work-item-types.list-workspace-work-item-types",
+        "v2.workspace-work-item-types.get-workspace-work-item-type",
+        "v2.workspace-work-item-types.create-workspace-work-item-type",
+        "v2.workspace-work-item-types.update-workspace-work-item-type",
+        "v2.workspace-work-item-types.delete-workspace-work-item-type",
+        "v2.workspace-work-item-types.mark-default-workspace-work-item-type",
+        "v2.work-item-types.enable-work-item-types",
+        "v2.work-item-types.import-work-item-types",
+        "v2.work-item-type-governance.update-work-item-type-governance"
+      ],
+      "facts": [
+        "The Endpoints table names the six existing workspace type operations; enable and import are explicitly project-only actions, not missing workspace routes.",
+        "How a project gets workspace types specifies the existing project import POST using ids from workspace type listing.",
+        "Defaults uses the listed mark-default POST. Retiring a type describes is_active changes through update and an empty 204 delete, not additional retire/reactivate endpoints.",
+        "The governance_mode attribute links the separate governance update operation; workspace type writes require workspace mode and reads work in either mode."
+      ]
+    }
+  }
 }

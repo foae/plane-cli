@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "reconciliation_snapshot": "Missing-handler notes describe pre-change requirements; implementation status records the resulting patch. Acceptance is authored, not executed.",
+  "source_id": "v1:issue-attachments:get-attachments",
+  "source_url": "https://developers.plane.so/api-reference/issue-attachments/get-attachments.md",
+  "reviewed_at": "2026-11-15",
+  "source_sha256": "b10d6f5c732dd40ff5408fddf277f655aaa3c25037d1bacd50c52224df2614ec",
+  "source_bytes": 2580,
+  "retention": "Independently authored contract; raw documentation not redistributed.",
+  "verification": "Source and implementation inspected; no tests run; planner review unchanged.",
+  "resolution": "missing-operation",
+  "contract": {
+    "id": "v1.issue-attachments.get-attachments",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/attachments/",
+    "path_required": [
+      "workspace_slug",
+      "project_id",
+      "work_item_id"
+    ],
+    "query": {},
+    "body": null,
+    "responses": [
+      {
+        "status": 200,
+        "kind": "json",
+        "documented_example_kind": "object",
+        "fields": [
+          "id",
+          "name",
+          "size",
+          "asset_url",
+          "attributes",
+          "created_at",
+          "updated_at"
+        ]
+      }
+    ],
+    "pagination": "none documented; do not infer v2 envelope",
+    "scopes": [
+      "projects.work_items.attachments:read"
+    ],
+    "command_path": [
+      "attachment",
+      "list"
+    ]
+  },
+  "existing_operation_mappings": [],
+  "missing_handler_behavior": [
+    "Add v1 command version and operation metadata; existing native handler builds exact route. Add independent v1 wire fixture; no v1 list fixture exists."
+  ],
+  "contract_conflicts": [
+    "Title says list but success example is a single object; preserve native response, do not invent list schema."
+  ],
+  "implementation_evidence": [
+    "internal/cli/content_assets.go:13-65",
+    "internal/cli/asset_transfers.go:103-200",
+    "internal/cli/asset_transfers.go:202-267",
+    "internal/cli/content_assets_test.go:30-114",
+    "internal/cli/testdata/p06-asset-native-wire.json",
+    "internal/cli/asset_transfers_test.go:54-61"
+  ],
+  "v1_v2_equivalence_claimed": false,
+  "implementation_status": "implemented; acceptance authored, not executed"
+}

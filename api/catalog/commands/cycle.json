@@ -1,0 +1,6468 @@
+[
+  {
+    "path": [
+      "cycle",
+      "list"
+    ],
+    "handler": "cycle-list",
+    "summary": "List cycles",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli cycle list --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "all": {
+                  "type": "boolean"
+                },
+                "max-pages": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "owned-by-id": {
+                  "type": "string",
+                  "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                },
+                "external-id": {
+                  "type": "string"
+                },
+                "external-source": {
+                  "type": "string"
+                },
+                "is-archived": {
+                  "type": "boolean"
+                },
+                "include-archived": {
+                  "type": "boolean"
+                },
+                "search": {
+                  "type": "string"
+                },
+                "order-by": {
+                  "type": "string"
+                },
+                "per-page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "paginate": {
+                  "type": "string",
+                  "enum": [
+                    "cursor"
+                  ]
+                },
+                "count": {
+                  "type": "boolean"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                },
+                "cursor": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "owned_by_id": {
+                  "type": "string",
+                  "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                },
+                "is_archived": {
+                  "type": "boolean"
+                },
+                "include_archived": {
+                  "type": "boolean"
+                },
+                "search": {
+                  "type": "string"
+                },
+                "order_by": {
+                  "type": "string"
+                },
+                "per_page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "paginate": {
+                  "type": "string",
+                  "enum": [
+                    "cursor"
+                  ]
+                },
+                "count": {
+                  "type": "boolean"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                },
+                "cursor": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "all",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/all",
+            "description": "all"
+          },
+          {
+            "name": "max-pages",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/max-pages",
+            "description": "max pages"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/query/name",
+            "description": "name"
+          },
+          {
+            "name": "owned-by-id",
+            "type": "string",
+            "required": false,
+            "binding": "/query/owned_by_id",
+            "description": "owned by id"
+          },
+          {
+            "name": "external-id",
+            "type": "string",
+            "required": false,
+            "binding": "/query/external_id",
+            "description": "external id"
+          },
+          {
+            "name": "external-source",
+            "type": "string",
+            "required": false,
+            "binding": "/query/external_source",
+            "description": "external source"
+          },
+          {
+            "name": "is-archived",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/is_archived",
+            "description": "is archived"
+          },
+          {
+            "name": "include-archived",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/include_archived",
+            "description": "include archived"
+          },
+          {
+            "name": "search",
+            "type": "string",
+            "required": false,
+            "binding": "/query/search",
+            "description": "search"
+          },
+          {
+            "name": "order-by",
+            "type": "string",
+            "required": false,
+            "binding": "/query/order_by",
+            "description": "order by"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/per_page",
+            "description": "per page"
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/offset",
+            "description": "offset"
+          },
+          {
+            "name": "paginate",
+            "type": "string",
+            "required": false,
+            "binding": "/query/paginate",
+            "description": "paginate"
+          },
+          {
+            "name": "count",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/count",
+            "description": "count"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          },
+          {
+            "name": "cursor",
+            "type": "string",
+            "required": false,
+            "binding": "/query/cursor",
+            "description": "cursor"
+          }
+        ],
+        "pagination": "v2",
+        "table_columns": [
+          "id",
+          "name"
+        ]
+      },
+      "v1": {
+        "method": "GET",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "all": {
+                  "type": "boolean"
+                },
+                "max-pages": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                },
+                "cursor": {
+                  "type": "string"
+                },
+                "cycle-view": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "order-by": {
+                  "type": "string"
+                },
+                "per-page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "cursor": {
+                  "type": "string"
+                },
+                "cycle_view": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "order_by": {
+                  "type": "string"
+                },
+                "per_page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "all",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/all",
+            "description": "all"
+          },
+          {
+            "name": "max-pages",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/max-pages",
+            "description": "max pages"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "cursor",
+            "type": "string",
+            "required": false,
+            "binding": "/query/cursor",
+            "description": "cursor"
+          },
+          {
+            "name": "cycle-view",
+            "type": "string",
+            "required": false,
+            "binding": "/query/cycle_view",
+            "description": "cycle view"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "order-by",
+            "type": "string",
+            "required": false,
+            "binding": "/query/order_by",
+            "description": "order by"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/per_page",
+            "description": "per page"
+          }
+        ],
+        "pagination": "v1",
+        "table_columns": [
+          "id",
+          "name"
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "get"
+    ],
+    "handler": "cycle-get",
+    "summary": "Get a cycle",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli cycle get --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          }
+        ],
+        "table_columns": [
+          "id",
+          "name"
+        ]
+      },
+      "v1": {
+        "method": "GET",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/{resource_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          }
+        ],
+        "table_columns": [
+          "id",
+          "name"
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "create"
+    ],
+    "handler": "cycle-create",
+    "summary": "Create a cycle",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli cycle create --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "description": {
+                  "type": "string"
+                },
+                "start_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+                },
+                "end_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "sort_order": {
+                  "type": "number"
+                },
+                "logo_props": true,
+                "external_id": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": "string",
+                  "maxLength": 255
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          }
+        ]
+      },
+      "v1": {
+        "method": "POST",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "start_date": {
+                  "type": "string"
+                },
+                "end_date": {
+                  "type": "string"
+                },
+                "owned_by": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "timezone": {
+                  "type": "string",
+                  "enum": [
+                    "Africa/Abidjan",
+                    "Africa/Accra",
+                    "Africa/Addis_Ababa",
+                    "Africa/Algiers",
+                    "Africa/Asmara",
+                    "Africa/Bamako",
+                    "Africa/Bangui",
+                    "Africa/Banjul",
+                    "Africa/Bissau",
+                    "Africa/Blantyre",
+                    "Africa/Brazzaville",
+                    "Africa/Bujumbura",
+                    "Africa/Cairo",
+                    "Africa/Casablanca",
+                    "Africa/Ceuta",
+                    "Africa/Conakry",
+                    "Africa/Dakar",
+                    "Africa/Dar_es_Salaam",
+                    "Africa/Djibouti",
+                    "Africa/Douala",
+                    "Africa/El_Aaiun",
+                    "Africa/Freetown",
+                    "Africa/Gaborone",
+                    "Africa/Harare",
+                    "Africa/Johannesburg",
+                    "Africa/Juba",
+                    "Africa/Kampala",
+                    "Africa/Khartoum",
+                    "Africa/Kigali",
+                    "Africa/Kinshasa",
+                    "Africa/Lagos",
+                    "Africa/Libreville",
+                    "Africa/Lome",
+                    "Africa/Luanda",
+                    "Africa/Lubumbashi",
+                    "Africa/Lusaka",
+                    "Africa/Malabo",
+                    "Africa/Maputo",
+                    "Africa/Maseru",
+                    "Africa/Mbabane",
+                    "Africa/Mogadishu",
+                    "Africa/Monrovia",
+                    "Africa/Nairobi",
+                    "Africa/Ndjamena",
+                    "Africa/Niamey",
+                    "Africa/Nouakchott",
+                    "Africa/Ouagadougou",
+                    "Africa/Porto-Novo",
+                    "Africa/Sao_Tome",
+                    "Africa/Tripoli",
+                    "Africa/Tunis",
+                    "Africa/Windhoek",
+                    "America/Adak",
+                    "America/Anchorage",
+                    "America/Anguilla",
+                    "America/Antigua",
+                    "America/Araguaina",
+                    "America/Argentina/Buenos_Aires",
+                    "America/Argentina/Catamarca",
+                    "America/Argentina/Cordoba",
+                    "America/Argentina/Jujuy",
+                    "America/Argentina/La_Rioja",
+                    "America/Argentina/Mendoza",
+                    "America/Argentina/Rio_Gallegos",
+                    "America/Argentina/Salta",
+                    "America/Argentina/San_Juan",
+                    "America/Argentina/San_Luis",
+                    "America/Argentina/Tucuman",
+                    "America/Argentina/Ushuaia",
+                    "America/Aruba",
+                    "America/Asuncion",
+                    "America/Atikokan",
+                    "America/Bahia",
+                    "America/Bahia_Banderas",
+                    "America/Barbados",
+                    "America/Belem",
+                    "America/Belize",
+                    "America/Blanc-Sablon",
+                    "America/Boa_Vista",
+                    "America/Bogota",
+                    "America/Boise",
+                    "America/Cambridge_Bay",
+                    "America/Campo_Grande",
+                    "America/Cancun",
+                    "America/Caracas",
+                    "America/Cayenne",
+                    "America/Cayman",
+                    "America/Chicago",
+                    "America/Chihuahua",
+                    "America/Ciudad_Juarez",
+                    "America/Costa_Rica",
+                    "America/Creston",
+                    "America/Cuiaba",
+                    "America/Curacao",
+                    "America/Danmarkshavn",
+                    "America/Dawson",
+                    "America/Dawson_Creek",
+                    "America/Denver",
+                    "America/Detroit",
+                    "America/Dominica",
+                    "America/Edmonton",
+                    "America/Eirunepe",
+                    "America/El_Salvador",
+                    "America/Fort_Nelson",
+                    "America/Fortaleza",
+                    "America/Glace_Bay",
+                    "America/Goose_Bay",
+                    "America/Grand_Turk",
+                    "America/Grenada",
+                    "America/Guadeloupe",
+                    "America/Guatemala",
+                    "America/Guayaquil",
+                    "America/Guyana",
+                    "America/Halifax",
+                    "America/Havana",
+                    "America/Hermosillo",
+                    "America/Indiana/Indianapolis",
+                    "America/Indiana/Knox",
+                    "America/Indiana/Marengo",
+                    "America/Indiana/Petersburg",
+                    "America/Indiana/Tell_City",
+                    "America/Indiana/Vevay",
+                    "America/Indiana/Vincennes",
+                    "America/Indiana/Winamac",
+                    "America/Inuvik",
+                    "America/Iqaluit",
+                    "America/Jamaica",
+                    "America/Juneau",
+                    "America/Kentucky/Louisville",
+                    "America/Kentucky/Monticello",
+                    "America/Kralendijk",
+                    "America/La_Paz",
+                    "America/Lima",
+                    "America/Los_Angeles",
+                    "America/Lower_Princes",
+                    "America/Maceio",
+                    "America/Managua",
+                    "America/Manaus",
+                    "America/Marigot",
+                    "America/Martinique",
+                    "America/Matamoros",
+                    "America/Mazatlan",
+                    "America/Menominee",
+                    "America/Merida",
+                    "America/Metlakatla",
+                    "America/Mexico_City",
+                    "America/Miquelon",
+                    "America/Moncton",
+                    "America/Monterrey",
+                    "America/Montevideo",
+                    "America/Montserrat",
+                    "America/Nassau",
+                    "America/New_York",
+                    "America/Nome",
+                    "America/Noronha",
+                    "America/North_Dakota/Beulah",
+                    "America/North_Dakota/Center",
+                    "America/North_Dakota/New_Salem",
+                    "America/Nuuk",
+                    "America/Ojinaga",
+                    "America/Panama",
+                    "America/Paramaribo",
+                    "America/Phoenix",
+                    "America/Port-au-Prince",
+                    "America/Port_of_Spain",
+                    "America/Porto_Velho",
+                    "America/Puerto_Rico",
+                    "America/Punta_Arenas",
+                    "America/Rankin_Inlet",
+                    "America/Recife",
+                    "America/Regina",
+                    "America/Resolute",
+                    "America/Rio_Branco",
+                    "America/Santarem",
+                    "America/Santiago",
+                    "America/Santo_Domingo",
+                    "America/Sao_Paulo",
+                    "America/Scoresbysund",
+                    "America/Sitka",
+                    "America/St_Barthelemy",
+                    "America/St_Johns",
+                    "America/St_Kitts",
+                    "America/St_Lucia",
+                    "America/St_Thomas",
+                    "America/St_Vincent",
+                    "America/Swift_Current",
+                    "America/Tegucigalpa",
+                    "America/Thule",
+                    "America/Tijuana",
+                    "America/Toronto",
+                    "America/Tortola",
+                    "America/Vancouver",
+                    "America/Whitehorse",
+                    "America/Winnipeg",
+                    "America/Yakutat",
+                    "Antarctica/Casey",
+                    "Antarctica/Davis",
+                    "Antarctica/DumontDUrville",
+                    "Antarctica/Macquarie",
+                    "Antarctica/Mawson",
+                    "Antarctica/McMurdo",
+                    "Antarctica/Palmer",
+                    "Antarctica/Rothera",
+                    "Antarctica/Syowa",
+                    "Antarctica/Troll",
+                    "Antarctica/Vostok",
+                    "Arctic/Longyearbyen",
+                    "Asia/Aden",
+                    "Asia/Almaty",
+                    "Asia/Amman",
+                    "Asia/Anadyr",
+                    "Asia/Aqtau",
+                    "Asia/Aqtobe",
+                    "Asia/Ashgabat",
+                    "Asia/Atyrau",
+                    "Asia/Baghdad",
+                    "Asia/Bahrain",
+                    "Asia/Baku",
+                    "Asia/Bangkok",
+                    "Asia/Barnaul",
+                    "Asia/Beirut",
+                    "Asia/Bishkek",
+                    "Asia/Brunei",
+                    "Asia/Chita",
+                    "Asia/Choibalsan",
+                    "Asia/Colombo",
+                    "Asia/Damascus",
+                    "Asia/Dhaka",
+                    "Asia/Dili",
+                    "Asia/Dubai",
+                    "Asia/Dushanbe",
+                    "Asia/Famagusta",
+                    "Asia/Gaza",
+                    "Asia/Hebron",
+                    "Asia/Ho_Chi_Minh",
+                    "Asia/Hong_Kong",
+                    "Asia/Hovd",
+                    "Asia/Irkutsk",
+                    "Asia/Jakarta",
+                    "Asia/Jayapura",
+                    "Asia/Jerusalem",
+                    "Asia/Kabul",
+                    "Asia/Kamchatka",
+                    "Asia/Karachi",
+                    "Asia/Kathmandu",
+                    "Asia/Khandyga",
+                    "Asia/Kolkata",
+                    "Asia/Krasnoyarsk",
+                    "Asia/Kuala_Lumpur",
+                    "Asia/Kuching",
+                    "Asia/Kuwait",
+                    "Asia/Macau",
+                    "Asia/Magadan",
+                    "Asia/Makassar",
+                    "Asia/Manila",
+                    "Asia/Muscat",
+                    "Asia/Nicosia",
+                    "Asia/Novokuznetsk",
+                    "Asia/Novosibirsk",
+                    "Asia/Omsk",
+                    "Asia/Oral",
+                    "Asia/Phnom_Penh",
+                    "Asia/Pontianak",
+                    "Asia/Pyongyang",
+                    "Asia/Qatar",
+                    "Asia/Qostanay",
+                    "Asia/Qyzylorda",
+                    "Asia/Riyadh",
+                    "Asia/Sakhalin",
+                    "Asia/Samarkand",
+                    "Asia/Seoul",
+                    "Asia/Shanghai",
+                    "Asia/Singapore",
+                    "Asia/Srednekolymsk",
+                    "Asia/Taipei",
+                    "Asia/Tashkent",
+                    "Asia/Tbilisi",
+                    "Asia/Tehran",
+                    "Asia/Thimphu",
+                    "Asia/Tokyo",
+                    "Asia/Tomsk",
+                    "Asia/Ulaanbaatar",
+                    "Asia/Urumqi",
+                    "Asia/Ust-Nera",
+                    "Asia/Vientiane",
+                    "Asia/Vladivostok",
+                    "Asia/Yakutsk",
+                    "Asia/Yangon",
+                    "Asia/Yekaterinburg",
+                    "Asia/Yerevan",
+                    "Atlantic/Azores",
+                    "Atlantic/Bermuda",
+                    "Atlantic/Canary",
+                    "Atlantic/Cape_Verde",
+                    "Atlantic/Faroe",
+                    "Atlantic/Madeira",
+                    "Atlantic/Reykjavik",
+                    "Atlantic/South_Georgia",
+                    "Atlantic/St_Helena",
+                    "Atlantic/Stanley",
+                    "Australia/Adelaide",
+                    "Australia/Brisbane",
+                    "Australia/Broken_Hill",
+                    "Australia/Darwin",
+                    "Australia/Eucla",
+                    "Australia/Hobart",
+                    "Australia/Lindeman",
+                    "Australia/Lord_Howe",
+                    "Australia/Melbourne",
+                    "Australia/Perth",
+                    "Australia/Sydney",
+                    "Canada/Atlantic",
+                    "Canada/Central",
+                    "Canada/Eastern",
+                    "Canada/Mountain",
+                    "Canada/Newfoundland",
+                    "Canada/Pacific",
+                    "Europe/Amsterdam",
+                    "Europe/Andorra",
+                    "Europe/Astrakhan",
+                    "Europe/Athens",
+                    "Europe/Belgrade",
+                    "Europe/Berlin",
+                    "Europe/Bratislava",
+                    "Europe/Brussels",
+                    "Europe/Bucharest",
+                    "Europe/Budapest",
+                    "Europe/Busingen",
+                    "Europe/Chisinau",
+                    "Europe/Copenhagen",
+                    "Europe/Dublin",
+                    "Europe/Gibraltar",
+                    "Europe/Guernsey",
+                    "Europe/Helsinki",
+                    "Europe/Isle_of_Man",
+                    "Europe/Istanbul",
+                    "Europe/Jersey",
+                    "Europe/Kaliningrad",
+                    "Europe/Kirov",
+                    "Europe/Kyiv",
+                    "Europe/Lisbon",
+                    "Europe/Ljubljana",
+                    "Europe/London",
+                    "Europe/Luxembourg",
+                    "Europe/Madrid",
+                    "Europe/Malta",
+                    "Europe/Mariehamn",
+                    "Europe/Minsk",
+                    "Europe/Monaco",
+                    "Europe/Moscow",
+                    "Europe/Oslo",
+                    "Europe/Paris",
+                    "Europe/Podgorica",
+                    "Europe/Prague",
+                    "Europe/Riga",
+                    "Europe/Rome",
+                    "Europe/Samara",
+                    "Europe/San_Marino",
+                    "Europe/Sarajevo",
+                    "Europe/Saratov",
+                    "Europe/Simferopol",
+                    "Europe/Skopje",
+                    "Europe/Sofia",
+                    "Europe/Stockholm",
+                    "Europe/Tallinn",
+                    "Europe/Tirane",
+                    "Europe/Ulyanovsk",
+                    "Europe/Vaduz",
+                    "Europe/Vatican",
+                    "Europe/Vienna",
+                    "Europe/Vilnius",
+                    "Europe/Volgograd",
+                    "Europe/Warsaw",
+                    "Europe/Zagreb",
+                    "Europe/Zurich",
+                    "GMT",
+                    "Indian/Antananarivo",
+                    "Indian/Chagos",
+                    "Indian/Christmas",
+                    "Indian/Cocos",
+                    "Indian/Comoro",
+                    "Indian/Kerguelen",
+                    "Indian/Mahe",
+                    "Indian/Maldives",
+                    "Indian/Mauritius",
+                    "Indian/Mayotte",
+                    "Indian/Reunion",
+                    "Pacific/Apia",
+                    "Pacific/Auckland",
+                    "Pacific/Bougainville",
+                    "Pacific/Chatham",
+                    "Pacific/Chuuk",
+                    "Pacific/Easter",
+                    "Pacific/Efate",
+                    "Pacific/Fakaofo",
+                    "Pacific/Fiji",
+                    "Pacific/Funafuti",
+                    "Pacific/Galapagos",
+                    "Pacific/Gambier",
+                    "Pacific/Guadalcanal",
+                    "Pacific/Guam",
+                    "Pacific/Honolulu",
+                    "Pacific/Kanton",
+                    "Pacific/Kiritimati",
+                    "Pacific/Kosrae",
+                    "Pacific/Kwajalein",
+                    "Pacific/Majuro",
+                    "Pacific/Marquesas",
+                    "Pacific/Midway",
+                    "Pacific/Nauru",
+                    "Pacific/Niue",
+                    "Pacific/Norfolk",
+                    "Pacific/Noumea",
+                    "Pacific/Pago_Pago",
+                    "Pacific/Palau",
+                    "Pacific/Pitcairn",
+                    "Pacific/Pohnpei",
+                    "Pacific/Port_Moresby",
+                    "Pacific/Rarotonga",
+                    "Pacific/Saipan",
+                    "Pacific/Tahiti",
+                    "Pacific/Tarawa",
+                    "Pacific/Tongatapu",
+                    "Pacific/Wake",
+                    "Pacific/Wallis",
+                    "US/Alaska",
+                    "US/Arizona",
+                    "US/Central",
+                    "US/Eastern",
+                    "US/Hawaii",
+                    "US/Mountain",
+                    "US/Pacific",
+                    "UTC"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "update"
+    ],
+    "handler": "cycle-update",
+    "summary": "Update a cycle",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli cycle update --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "PATCH",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "description": {
+                  "type": "string"
+                },
+                "start_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+                },
+                "end_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "sort_order": {
+                  "type": "number"
+                },
+                "logo_props": true,
+                "external_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 255
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          }
+        ]
+      },
+      "v1": {
+        "method": "PATCH",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/{resource_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "start_date": {
+                  "type": "string"
+                },
+                "end_date": {
+                  "type": "string"
+                },
+                "owned_by": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "timezone": {
+                  "type": "string",
+                  "enum": [
+                    "Africa/Abidjan",
+                    "Africa/Accra",
+                    "Africa/Addis_Ababa",
+                    "Africa/Algiers",
+                    "Africa/Asmara",
+                    "Africa/Bamako",
+                    "Africa/Bangui",
+                    "Africa/Banjul",
+                    "Africa/Bissau",
+                    "Africa/Blantyre",
+                    "Africa/Brazzaville",
+                    "Africa/Bujumbura",
+                    "Africa/Cairo",
+                    "Africa/Casablanca",
+                    "Africa/Ceuta",
+                    "Africa/Conakry",
+                    "Africa/Dakar",
+                    "Africa/Dar_es_Salaam",
+                    "Africa/Djibouti",
+                    "Africa/Douala",
+                    "Africa/El_Aaiun",
+                    "Africa/Freetown",
+                    "Africa/Gaborone",
+                    "Africa/Harare",
+                    "Africa/Johannesburg",
+                    "Africa/Juba",
+                    "Africa/Kampala",
+                    "Africa/Khartoum",
+                    "Africa/Kigali",
+                    "Africa/Kinshasa",
+                    "Africa/Lagos",
+                    "Africa/Libreville",
+                    "Africa/Lome",
+                    "Africa/Luanda",
+                    "Africa/Lubumbashi",
+                    "Africa/Lusaka",
+                    "Africa/Malabo",
+                    "Africa/Maputo",
+                    "Africa/Maseru",
+                    "Africa/Mbabane",
+                    "Africa/Mogadishu",
+                    "Africa/Monrovia",
+                    "Africa/Nairobi",
+                    "Africa/Ndjamena",
+                    "Africa/Niamey",
+                    "Africa/Nouakchott",
+                    "Africa/Ouagadougou",
+                    "Africa/Porto-Novo",
+                    "Africa/Sao_Tome",
+                    "Africa/Tripoli",
+                    "Africa/Tunis",
+                    "Africa/Windhoek",
+                    "America/Adak",
+                    "America/Anchorage",
+                    "America/Anguilla",
+                    "America/Antigua",
+                    "America/Araguaina",
+                    "America/Argentina/Buenos_Aires",
+                    "America/Argentina/Catamarca",
+                    "America/Argentina/Cordoba",
+                    "America/Argentina/Jujuy",
+                    "America/Argentina/La_Rioja",
+                    "America/Argentina/Mendoza",
+                    "America/Argentina/Rio_Gallegos",
+                    "America/Argentina/Salta",
+                    "America/Argentina/San_Juan",
+                    "America/Argentina/San_Luis",
+                    "America/Argentina/Tucuman",
+                    "America/Argentina/Ushuaia",
+                    "America/Aruba",
+                    "America/Asuncion",
+                    "America/Atikokan",
+                    "America/Bahia",
+                    "America/Bahia_Banderas",
+                    "America/Barbados",
+                    "America/Belem",
+                    "America/Belize",
+                    "America/Blanc-Sablon",
+                    "America/Boa_Vista",
+                    "America/Bogota",
+                    "America/Boise",
+                    "America/Cambridge_Bay",
+                    "America/Campo_Grande",
+                    "America/Cancun",
+                    "America/Caracas",
+                    "America/Cayenne",
+                    "America/Cayman",
+                    "America/Chicago",
+                    "America/Chihuahua",
+                    "America/Ciudad_Juarez",
+                    "America/Costa_Rica",
+                    "America/Creston",
+                    "America/Cuiaba",
+                    "America/Curacao",
+                    "America/Danmarkshavn",
+                    "America/Dawson",
+                    "America/Dawson_Creek",
+                    "America/Denver",
+                    "America/Detroit",
+                    "America/Dominica",
+                    "America/Edmonton",
+                    "America/Eirunepe",
+                    "America/El_Salvador",
+                    "America/Fort_Nelson",
+                    "America/Fortaleza",
+                    "America/Glace_Bay",
+                    "America/Goose_Bay",
+                    "America/Grand_Turk",
+                    "America/Grenada",
+                    "America/Guadeloupe",
+                    "America/Guatemala",
+                    "America/Guayaquil",
+                    "America/Guyana",
+                    "America/Halifax",
+                    "America/Havana",
+                    "America/Hermosillo",
+                    "America/Indiana/Indianapolis",
+                    "America/Indiana/Knox",
+                    "America/Indiana/Marengo",
+                    "America/Indiana/Petersburg",
+                    "America/Indiana/Tell_City",
+                    "America/Indiana/Vevay",
+                    "America/Indiana/Vincennes",
+                    "America/Indiana/Winamac",
+                    "America/Inuvik",
+                    "America/Iqaluit",
+                    "America/Jamaica",
+                    "America/Juneau",
+                    "America/Kentucky/Louisville",
+                    "America/Kentucky/Monticello",
+                    "America/Kralendijk",
+                    "America/La_Paz",
+                    "America/Lima",
+                    "America/Los_Angeles",
+                    "America/Lower_Princes",
+                    "America/Maceio",
+                    "America/Managua",
+                    "America/Manaus",
+                    "America/Marigot",
+                    "America/Martinique",
+                    "America/Matamoros",
+                    "America/Mazatlan",
+                    "America/Menominee",
+                    "America/Merida",
+                    "America/Metlakatla",
+                    "America/Mexico_City",
+                    "America/Miquelon",
+                    "America/Moncton",
+                    "America/Monterrey",
+                    "America/Montevideo",
+                    "America/Montserrat",
+                    "America/Nassau",
+                    "America/New_York",
+                    "America/Nome",
+                    "America/Noronha",
+                    "America/North_Dakota/Beulah",
+                    "America/North_Dakota/Center",
+                    "America/North_Dakota/New_Salem",
+                    "America/Nuuk",
+                    "America/Ojinaga",
+                    "America/Panama",
+                    "America/Paramaribo",
+                    "America/Phoenix",
+                    "America/Port-au-Prince",
+                    "America/Port_of_Spain",
+                    "America/Porto_Velho",
+                    "America/Puerto_Rico",
+                    "America/Punta_Arenas",
+                    "America/Rankin_Inlet",
+                    "America/Recife",
+                    "America/Regina",
+                    "America/Resolute",
+                    "America/Rio_Branco",
+                    "America/Santarem",
+                    "America/Santiago",
+                    "America/Santo_Domingo",
+                    "America/Sao_Paulo",
+                    "America/Scoresbysund",
+                    "America/Sitka",
+                    "America/St_Barthelemy",
+                    "America/St_Johns",
+                    "America/St_Kitts",
+                    "America/St_Lucia",
+                    "America/St_Thomas",
+                    "America/St_Vincent",
+                    "America/Swift_Current",
+                    "America/Tegucigalpa",
+                    "America/Thule",
+                    "America/Tijuana",
+                    "America/Toronto",
+                    "America/Tortola",
+                    "America/Vancouver",
+                    "America/Whitehorse",
+                    "America/Winnipeg",
+                    "America/Yakutat",
+                    "Antarctica/Casey",
+                    "Antarctica/Davis",
+                    "Antarctica/DumontDUrville",
+                    "Antarctica/Macquarie",
+                    "Antarctica/Mawson",
+                    "Antarctica/McMurdo",
+                    "Antarctica/Palmer",
+                    "Antarctica/Rothera",
+                    "Antarctica/Syowa",
+                    "Antarctica/Troll",
+                    "Antarctica/Vostok",
+                    "Arctic/Longyearbyen",
+                    "Asia/Aden",
+                    "Asia/Almaty",
+                    "Asia/Amman",
+                    "Asia/Anadyr",
+                    "Asia/Aqtau",
+                    "Asia/Aqtobe",
+                    "Asia/Ashgabat",
+                    "Asia/Atyrau",
+                    "Asia/Baghdad",
+                    "Asia/Bahrain",
+                    "Asia/Baku",
+                    "Asia/Bangkok",
+                    "Asia/Barnaul",
+                    "Asia/Beirut",
+                    "Asia/Bishkek",
+                    "Asia/Brunei",
+                    "Asia/Chita",
+                    "Asia/Choibalsan",
+                    "Asia/Colombo",
+                    "Asia/Damascus",
+                    "Asia/Dhaka",
+                    "Asia/Dili",
+                    "Asia/Dubai",
+                    "Asia/Dushanbe",
+                    "Asia/Famagusta",
+                    "Asia/Gaza",
+                    "Asia/Hebron",
+                    "Asia/Ho_Chi_Minh",
+                    "Asia/Hong_Kong",
+                    "Asia/Hovd",
+                    "Asia/Irkutsk",
+                    "Asia/Jakarta",
+                    "Asia/Jayapura",
+                    "Asia/Jerusalem",
+                    "Asia/Kabul",
+                    "Asia/Kamchatka",
+                    "Asia/Karachi",
+                    "Asia/Kathmandu",
+                    "Asia/Khandyga",
+                    "Asia/Kolkata",
+                    "Asia/Krasnoyarsk",
+                    "Asia/Kuala_Lumpur",
+                    "Asia/Kuching",
+                    "Asia/Kuwait",
+                    "Asia/Macau",
+                    "Asia/Magadan",
+                    "Asia/Makassar",
+                    "Asia/Manila",
+                    "Asia/Muscat",
+                    "Asia/Nicosia",
+                    "Asia/Novokuznetsk",
+                    "Asia/Novosibirsk",
+                    "Asia/Omsk",
+                    "Asia/Oral",
+                    "Asia/Phnom_Penh",
+                    "Asia/Pontianak",
+                    "Asia/Pyongyang",
+                    "Asia/Qatar",
+                    "Asia/Qostanay",
+                    "Asia/Qyzylorda",
+                    "Asia/Riyadh",
+                    "Asia/Sakhalin",
+                    "Asia/Samarkand",
+                    "Asia/Seoul",
+                    "Asia/Shanghai",
+                    "Asia/Singapore",
+                    "Asia/Srednekolymsk",
+                    "Asia/Taipei",
+                    "Asia/Tashkent",
+                    "Asia/Tbilisi",
+                    "Asia/Tehran",
+                    "Asia/Thimphu",
+                    "Asia/Tokyo",
+                    "Asia/Tomsk",
+                    "Asia/Ulaanbaatar",
+                    "Asia/Urumqi",
+                    "Asia/Ust-Nera",
+                    "Asia/Vientiane",
+                    "Asia/Vladivostok",
+                    "Asia/Yakutsk",
+                    "Asia/Yangon",
+                    "Asia/Yekaterinburg",
+                    "Asia/Yerevan",
+                    "Atlantic/Azores",
+                    "Atlantic/Bermuda",
+                    "Atlantic/Canary",
+                    "Atlantic/Cape_Verde",
+                    "Atlantic/Faroe",
+                    "Atlantic/Madeira",
+                    "Atlantic/Reykjavik",
+                    "Atlantic/South_Georgia",
+                    "Atlantic/St_Helena",
+                    "Atlantic/Stanley",
+                    "Australia/Adelaide",
+                    "Australia/Brisbane",
+                    "Australia/Broken_Hill",
+                    "Australia/Darwin",
+                    "Australia/Eucla",
+                    "Australia/Hobart",
+                    "Australia/Lindeman",
+                    "Australia/Lord_Howe",
+                    "Australia/Melbourne",
+                    "Australia/Perth",
+                    "Australia/Sydney",
+                    "Canada/Atlantic",
+                    "Canada/Central",
+                    "Canada/Eastern",
+                    "Canada/Mountain",
+                    "Canada/Newfoundland",
+                    "Canada/Pacific",
+                    "Europe/Amsterdam",
+                    "Europe/Andorra",
+                    "Europe/Astrakhan",
+                    "Europe/Athens",
+                    "Europe/Belgrade",
+                    "Europe/Berlin",
+                    "Europe/Bratislava",
+                    "Europe/Brussels",
+                    "Europe/Bucharest",
+                    "Europe/Budapest",
+                    "Europe/Busingen",
+                    "Europe/Chisinau",
+                    "Europe/Copenhagen",
+                    "Europe/Dublin",
+                    "Europe/Gibraltar",
+                    "Europe/Guernsey",
+                    "Europe/Helsinki",
+                    "Europe/Isle_of_Man",
+                    "Europe/Istanbul",
+                    "Europe/Jersey",
+                    "Europe/Kaliningrad",
+                    "Europe/Kirov",
+                    "Europe/Kyiv",
+                    "Europe/Lisbon",
+                    "Europe/Ljubljana",
+                    "Europe/London",
+                    "Europe/Luxembourg",
+                    "Europe/Madrid",
+                    "Europe/Malta",
+                    "Europe/Mariehamn",
+                    "Europe/Minsk",
+                    "Europe/Monaco",
+                    "Europe/Moscow",
+                    "Europe/Oslo",
+                    "Europe/Paris",
+                    "Europe/Podgorica",
+                    "Europe/Prague",
+                    "Europe/Riga",
+                    "Europe/Rome",
+                    "Europe/Samara",
+                    "Europe/San_Marino",
+                    "Europe/Sarajevo",
+                    "Europe/Saratov",
+                    "Europe/Simferopol",
+                    "Europe/Skopje",
+                    "Europe/Sofia",
+                    "Europe/Stockholm",
+                    "Europe/Tallinn",
+                    "Europe/Tirane",
+                    "Europe/Ulyanovsk",
+                    "Europe/Vaduz",
+                    "Europe/Vatican",
+                    "Europe/Vienna",
+                    "Europe/Vilnius",
+                    "Europe/Volgograd",
+                    "Europe/Warsaw",
+                    "Europe/Zagreb",
+                    "Europe/Zurich",
+                    "GMT",
+                    "Indian/Antananarivo",
+                    "Indian/Chagos",
+                    "Indian/Christmas",
+                    "Indian/Cocos",
+                    "Indian/Comoro",
+                    "Indian/Kerguelen",
+                    "Indian/Mahe",
+                    "Indian/Maldives",
+                    "Indian/Mauritius",
+                    "Indian/Mayotte",
+                    "Indian/Reunion",
+                    "Pacific/Apia",
+                    "Pacific/Auckland",
+                    "Pacific/Bougainville",
+                    "Pacific/Chatham",
+                    "Pacific/Chuuk",
+                    "Pacific/Easter",
+                    "Pacific/Efate",
+                    "Pacific/Fakaofo",
+                    "Pacific/Fiji",
+                    "Pacific/Funafuti",
+                    "Pacific/Galapagos",
+                    "Pacific/Gambier",
+                    "Pacific/Guadalcanal",
+                    "Pacific/Guam",
+                    "Pacific/Honolulu",
+                    "Pacific/Kanton",
+                    "Pacific/Kiritimati",
+                    "Pacific/Kosrae",
+                    "Pacific/Kwajalein",
+                    "Pacific/Majuro",
+                    "Pacific/Marquesas",
+                    "Pacific/Midway",
+                    "Pacific/Nauru",
+                    "Pacific/Niue",
+                    "Pacific/Norfolk",
+                    "Pacific/Noumea",
+                    "Pacific/Pago_Pago",
+                    "Pacific/Palau",
+                    "Pacific/Pitcairn",
+                    "Pacific/Pohnpei",
+                    "Pacific/Port_Moresby",
+                    "Pacific/Rarotonga",
+                    "Pacific/Saipan",
+                    "Pacific/Tahiti",
+                    "Pacific/Tarawa",
+                    "Pacific/Tongatapu",
+                    "Pacific/Wake",
+                    "Pacific/Wallis",
+                    "US/Alaska",
+                    "US/Arizona",
+                    "US/Central",
+                    "US/Eastern",
+                    "US/Hawaii",
+                    "US/Mountain",
+                    "US/Pacific",
+                    "UTC"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "delete"
+    ],
+    "handler": "cycle-delete",
+    "summary": "Delete a cycle",
+    "side_effect": "destructive",
+    "local": false,
+    "examples": [
+      "plane-cli cycle delete --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "DELETE",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          }
+        ]
+      },
+      "v1": {
+        "method": "DELETE",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/{resource_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "upsert"
+    ],
+    "handler": "cycle-upsert",
+    "summary": "Upsert a cycle",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli cycle upsert --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/upsert/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                },
+                "expand": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "description": {
+                  "type": "string"
+                },
+                "end_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "external_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 255
+                },
+                "logo_props": {
+                  "type": "string"
+                },
+                "sort_order": {
+                  "type": "number"
+                },
+                "start_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "timezone": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "external_source",
+                "external_id"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "fields"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "binding": "/query/expand",
+            "description": "expand"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "bulk-create"
+    ],
+    "handler": "cycle-bulk-create",
+    "summary": "Bulk create cycles",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli cycle bulk-create --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/bulk-create/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "maxLength": 255
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "start_date": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+                      },
+                      "end_date": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+                      },
+                      "timezone": {
+                        "type": "string"
+                      },
+                      "sort_order": {
+                        "type": "number"
+                      },
+                      "logo_props": true,
+                      "external_id": {
+                        "type": "string",
+                        "maxLength": 255
+                      },
+                      "external_source": {
+                        "type": "string",
+                        "maxLength": 255
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minItems": 1,
+                  "maxItems": 50
+                },
+                "all_or_none": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "items"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "bulk-update"
+    ],
+    "handler": "cycle-bulk-update",
+    "summary": "Bulk update cycles",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli cycle bulk-update --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/bulk-update/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "maxLength": 255
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "start_date": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+                      },
+                      "end_date": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+                      },
+                      "timezone": {
+                        "type": "string"
+                      },
+                      "sort_order": {
+                        "type": "number"
+                      },
+                      "logo_props": true,
+                      "external_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "external_source": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "maxLength": 255
+                      },
+                      "id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "id"
+                    ]
+                  },
+                  "minItems": 1,
+                  "maxItems": 50
+                },
+                "all_or_none": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "items"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "bulk-delete"
+    ],
+    "handler": "cycle-bulk-delete",
+    "summary": "Bulk delete cycles",
+    "side_effect": "destructive",
+    "local": false,
+    "examples": [
+      "plane-cli cycle bulk-delete --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/bulk-delete/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                  },
+                  "minItems": 1,
+                  "maxItems": 50
+                },
+                "all_or_none": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "ids"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "manage-work-items"
+    ],
+    "handler": "cycle-manage-work-items",
+    "summary": "Add or remove cycle work items",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli cycle manage-work-items --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/{pk}/work-items/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "add": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                  }
+                },
+                "remove": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "transfer-work-items"
+    ],
+    "handler": "cycle-transfer-work-items",
+    "summary": "Transfer work items between cycles",
+    "side_effect": "destructive",
+    "local": false,
+    "examples": [
+      "plane-cli cycle transfer-work-items --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/{pk}/transfer/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "new_cycle_id": {
+                  "type": "string",
+                  "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "new_cycle_id"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      },
+      "v1": {
+        "method": "POST",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/{cycle_id}/transfer-issues/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "new_cycle_id": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "new_cycle_id"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "archive"
+    ],
+    "handler": "cycle-archive",
+    "summary": "Archive a cycle",
+    "side_effect": "destructive",
+    "local": false,
+    "examples": [
+      "plane-cli cycle archive --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/{pk}/archive/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          }
+        ]
+      },
+      "v1": {
+        "method": "POST",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/{cycle_id}/archive/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "unarchive"
+    ],
+    "handler": "cycle-unarchive",
+    "summary": "Unarchive a cycle",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli cycle unarchive --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/projects/{project_id}/cycles/{pk}/unarchive/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          }
+        ]
+      },
+      "v1": {
+        "method": "DELETE",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/archived-cycles/{cycle_id}/unarchive/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "add-work-items"
+    ],
+    "handler": "cycle-add-work-items",
+    "summary": "Add work items to cycle",
+    "side_effect": "write",
+    "local": false,
+    "examples": [
+      "plane-cli cycle add-work-items --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "POST",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/{cycle_id}/cycle-issues/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "issues": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "issues"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "body file"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "list-work-items"
+    ],
+    "handler": "cycle-list-work-items",
+    "summary": "List all work items in a cycle",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli cycle list-work-items --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "GET",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/{cycle_id}/cycle-issues/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "all": {
+                  "type": "boolean"
+                },
+                "max-pages": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "cursor": {
+                  "type": "string"
+                },
+                "per-page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "cursor": {
+                  "type": "string"
+                },
+                "per_page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "all",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/all",
+            "description": "all"
+          },
+          {
+            "name": "max-pages",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/max-pages",
+            "description": "max pages"
+          },
+          {
+            "name": "cursor",
+            "type": "string",
+            "required": false,
+            "binding": "/query/cursor",
+            "description": "cursor"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/per_page",
+            "description": "per page"
+          }
+        ],
+        "pagination": "v1"
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "list-archived"
+    ],
+    "handler": "cycle-list-archived",
+    "summary": "List all archived cycles",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli cycle list-archived --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "GET",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/archived-cycles/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "all": {
+                  "type": "boolean"
+                },
+                "max-pages": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                },
+                "cursor": {
+                  "type": "string"
+                },
+                "per-page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "cursor": {
+                  "type": "string"
+                },
+                "per_page": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "all",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/all",
+            "description": "all"
+          },
+          {
+            "name": "max-pages",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/max-pages",
+            "description": "max pages"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "cursor",
+            "type": "string",
+            "required": false,
+            "binding": "/query/cursor",
+            "description": "cursor"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/per_page",
+            "description": "per page"
+          }
+        ],
+        "pagination": "v1",
+        "table_columns": [
+          "id",
+          "name"
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "cycle",
+      "remove-work-item"
+    ],
+    "handler": "cycle-remove-work-item",
+    "summary": "Remove work item from cycle",
+    "side_effect": "destructive",
+    "local": false,
+    "examples": [
+      "plane-cli cycle remove-work-item --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "DELETE",
+        "route": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/cycles/{cycle_id}/cycle-issues/{work_item_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "projects.cycles:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "project": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "cycle": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "project",
+                "cycle",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "project",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/project",
+            "description": "project"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "cycle",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/cycle",
+            "description": "cycle"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          }
+        ]
+      }
+    }
+  }
+]

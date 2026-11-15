@@ -1,6 +1,6 @@
 # Plane CLI: agent entry point
 
-The P00 offline foundation is implemented; Plane resource commands and authentication remain planned. Do not report planned commands as implemented. Binary: `plane-cli`; module: `github.com/foae/plane-cli`. See [current usage](docs/usage.md).
+The CLI implements offline discovery, authentication and documented P03–P09 resource commands, with explicit upstream coverage exceptions. Binary: `plane-cli`; module: `github.com/foae/plane-cli`. See [current usage](docs/usage.md) and [coverage exceptions](docs/reference/api-contract-gaps.md); never report blocked operations as implemented.
 
 ## Read only what this task needs
 

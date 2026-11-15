@@ -15,8 +15,14 @@ Parent scope uses `--workspace`, `--project`, `--work-item`, etc.; the target re
 - `commands [GROUP] --api-version v1|v2`: JSON summary catalog, not every nested schema.
 - `schema <command-path...> --api-version v1|v2`: offline JSON Schema 2020-12 for CLI arguments/body plus method/path, response kind, scopes and destructive classification. The positional tokens are the exact canonical command path without `plane-cli`, including every nested group and the leaf verb; e.g. `schema work-item get`. No dotted/slash shorthand. Resolve the entire path, not just its first two tokens. Requires explicit version when not derivable from local settings, never credentials or network.
 - `version` and `--version`: identical structured metadata; no update checks.
-- Planned P10 `update check` explicitly queries CLI distribution metadata without Plane configuration/authentication. It never installs updates or runs implicitly; its output/error and network rules are in [releases](../releases.md#explicit-update-checking--planned-p10d).
+- `update check` explicitly queries CLI distribution metadata without Plane configuration/authentication. It never installs updates or runs implicitly; its output/error and network rules are in [releases](../releases.md#explicit-update-checking). Its only flags are `--include-prerelease` and positive `--timeout` (default 30s); Plane global API flags do not apply.
 - Shell completion is local/static; never network-discover workspace names on tab completion.
+
+### Explicit update-check result
+
+`update check` uses the local success envelope (no API-only metadata). `data` contains `current_version`, nullable `latest_version`, nullable `update_available`, `channel` (`stable` or `prerelease`), nullable `release_url` and `status` (`up_to_date`, `update_available`, `no_release` or `unknown_current`). Versions selected from release tags omit a leading `v`; the current build identity is preserved. Unknown development identity takes `unknown_current` precedence even when no eligible release exists and never guesses an installed SemVer. An available update exits 0.
+
+Selection compares published SemVer releases numerically, ignores drafts/non-SemVer tags, and scans at most ten pages of 100 releases. An incomplete scan is a protocol error (exit 5), not a latest-release claim. Requests use a dedicated verified-HTTPS client for the expected GitHub repository, normal proxy trust, total timeout/cancellation and no redirects, Plane config, credentials, persistent cache or writes. Release URLs must be the exact expected HTTPS repository/tag URL. Network/TLS/deadline errors use exit 4, interruption 130, GitHub authentication/authorization failures 3 and rate limits or malformed metadata 5. No upstream response text or upgrade instructions are printed.
 
 ## Global settings and input
 
@@ -61,6 +67,8 @@ One compact JSON error line on stderr; optional warnings are separate structured
 ```
 
 Only known safe normalized fields appear. Add safe field-level validation details, `retry_after_seconds`, and recovery IDs when meaningful. `retryable` means an explicit caller retry may be appropriate, not that the CLI retried; uncertain mutation outcomes use `outcome_unknown:true` and no blanket retry advice. Do not echo arbitrary response bodies, request bodies, HTML proxy responses, auth headers, signed URLs or secret-bearing validation values. Auth exchange errors suppress reflected server messages.
+
+For ordinary v2 API failures with `application/problem+json`, `upstream_code` is emitted only for an explicitly allowlisted documented code whose category and HTTP status agree. Problem parsing is bounded to 64 KiB. Unknown codes, invalid/mismatched problems, oversized bodies and non-problem responses keep the generic status-based error; no upstream `detail`, `errors`, arbitrary members or category text is printed. This does not change exit codes, mutation uncertainty, retry behavior or auth-exchange redaction.
 
 | Exit | Meaning |
 | --- | --- |

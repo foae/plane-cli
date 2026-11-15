@@ -1,4 +1,15 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Resource/schema guidance does not establish a new HTTP operation.",
+    "facts": [
+      "The body consists of project attributes and a sample project object: identifier, network values 0/2, member counts, default_assignee, project_lead, estimate and default_state.",
+      "There is no method/path table or action contract. UI enablement flags and automatic archiving/closing fields are object schema, not standalone operations."
+    ],
+    "operation_mappings": []
+  },
   "source_url": "https://developers.plane.so/api-reference/project/overview.md",
   "classification": "non-operation",
   "review": "Overview resource attributes and links to independently indexed operations; no additional unmatched operation."

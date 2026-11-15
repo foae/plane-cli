@@ -1,0 +1,2063 @@
+[
+  {
+    "id": "v2:cycles:overview",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "general-guide",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/overview.md",
+    "provenance_id": "p04-v2.cycles.overview"
+  },
+  {
+    "id": "v2:cycles:list-cycles",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/list-cycles.md",
+    "provenance_id": "p04-v2.cycles.list-cycles"
+  },
+  {
+    "id": "v2:cycles:get-cycle",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/get-cycle.md",
+    "provenance_id": "p04-v2.cycles.get-cycle"
+  },
+  {
+    "id": "v2:cycles:create-cycle",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/create-cycle.md",
+    "provenance_id": "p04-v2.cycles.create-cycle"
+  },
+  {
+    "id": "v2:cycles:update-cycle",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/update-cycle.md",
+    "provenance_id": "p04-v2.cycles.update-cycle"
+  },
+  {
+    "id": "v2:cycles:delete-cycle",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/delete-cycle.md",
+    "provenance_id": "p04-v2.cycles.delete-cycle"
+  },
+  {
+    "id": "v2:cycles:upsert-cycle",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/upsert-cycle.md",
+    "provenance_id": "p04-v2.cycles.upsert-cycle"
+  },
+  {
+    "id": "v2:cycles:bulk-create-cycles",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/bulk-create-cycles.md",
+    "provenance_id": "p04-v2.cycles.bulk-create-cycles"
+  },
+  {
+    "id": "v2:cycles:bulk-update-cycles",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/bulk-update-cycles.md",
+    "provenance_id": "p04-v2.cycles.bulk-update-cycles"
+  },
+  {
+    "id": "v2:cycles:bulk-delete-cycles",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/bulk-delete-cycles.md",
+    "provenance_id": "p04-v2.cycles.bulk-delete-cycles"
+  },
+  {
+    "id": "v2:cycles:manage-cycle-work-items",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/manage-cycle-work-items.md",
+    "provenance_id": "p04-v2.cycles.manage-cycle-work-items"
+  },
+  {
+    "id": "v2:cycles:transfer-cycle-work-items",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/transfer-cycle-work-items.md",
+    "provenance_id": "p04-v2.cycles.transfer-cycle-work-items"
+  },
+  {
+    "id": "v2:cycles:archive-cycle",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/archive-cycle.md",
+    "provenance_id": "p04-v2.cycles.archive-cycle"
+  },
+  {
+    "id": "v2:cycles:unarchive-cycle",
+    "version": "v2",
+    "family": "cycles",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/cycles/unarchive-cycle.md",
+    "provenance_id": "p04-v2.cycles.unarchive-cycle"
+  },
+  {
+    "id": "v2:modules:overview",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "general-guide",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/v2/modules/overview.md",
+    "provenance_id": "p04-v2.modules.overview"
+  },
+  {
+    "id": "v2:modules:list-modules",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/modules/list-modules.md",
+    "provenance_id": "p04-v2.modules.list-modules"
+  },
+  {
+    "id": "v2:modules:get-module",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/modules/get-module.md",
+    "provenance_id": "p04-v2.modules.get-module"
+  },
+  {
+    "id": "v2:modules:create-module",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/modules/create-module.md",
+    "provenance_id": "p04-v2.modules.create-module"
+  },
+  {
+    "id": "v2:modules:update-module",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/modules/update-module.md",
+    "provenance_id": "p04-v2.modules.update-module"
+  },
+  {
+    "id": "v2:modules:delete-module",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/modules/delete-module.md",
+    "provenance_id": "p04-v2.modules.delete-module"
+  },
+  {
+    "id": "v2:modules:upsert-module",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/modules/upsert-module.md",
+    "provenance_id": "p04-v2.modules.upsert-module"
+  },
+  {
+    "id": "v2:modules:bulk-create-modules",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/modules/bulk-create-modules.md",
+    "provenance_id": "p04-v2.modules.bulk-create-modules"
+  },
+  {
+    "id": "v2:modules:bulk-update-modules",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/modules/bulk-update-modules.md",
+    "provenance_id": "p04-v2.modules.bulk-update-modules"
+  },
+  {
+    "id": "v2:modules:bulk-delete-modules",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/modules/bulk-delete-modules.md",
+    "provenance_id": "p04-v2.modules.bulk-delete-modules"
+  },
+  {
+    "id": "v2:modules:manage-module-work-items",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/modules/manage-module-work-items.md",
+    "provenance_id": "p04-v2.modules.manage-module-work-items"
+  },
+  {
+    "id": "v2:modules:archive-module",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/modules/archive-module.md",
+    "provenance_id": "p04-v2.modules.archive-module"
+  },
+  {
+    "id": "v2:modules:unarchive-module",
+    "version": "v2",
+    "family": "modules",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/modules/unarchive-module.md",
+    "provenance_id": "p04-v2.modules.unarchive-module"
+  },
+  {
+    "id": "v2:milestones:overview",
+    "version": "v2",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "general-guide",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/v2/milestones/overview.md",
+    "provenance_id": "p04-v2.milestones.overview"
+  },
+  {
+    "id": "v2:milestones:list-milestones",
+    "version": "v2",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/milestones/list-milestones.md",
+    "provenance_id": "p04-v2.milestones.list-milestones"
+  },
+  {
+    "id": "v2:milestones:get-milestone",
+    "version": "v2",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/milestones/get-milestone.md",
+    "provenance_id": "p04-v2.milestones.get-milestone"
+  },
+  {
+    "id": "v2:milestones:create-milestone",
+    "version": "v2",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/milestones/create-milestone.md",
+    "provenance_id": "p04-v2.milestones.create-milestone"
+  },
+  {
+    "id": "v2:milestones:update-milestone",
+    "version": "v2",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/milestones/update-milestone.md",
+    "provenance_id": "p04-v2.milestones.update-milestone"
+  },
+  {
+    "id": "v2:milestones:delete-milestone",
+    "version": "v2",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/milestones/delete-milestone.md",
+    "provenance_id": "p04-v2.milestones.delete-milestone"
+  },
+  {
+    "id": "v2:milestones:upsert-milestone",
+    "version": "v2",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/milestones/upsert-milestone.md",
+    "provenance_id": "p04-v2.milestones.upsert-milestone"
+  },
+  {
+    "id": "v2:milestones:bulk-create-milestones",
+    "version": "v2",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/milestones/bulk-create-milestones.md",
+    "provenance_id": "p04-v2.milestones.bulk-create-milestones"
+  },
+  {
+    "id": "v2:milestones:bulk-update-milestones",
+    "version": "v2",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/milestones/bulk-update-milestones.md",
+    "provenance_id": "p04-v2.milestones.bulk-update-milestones"
+  },
+  {
+    "id": "v2:milestones:bulk-delete-milestones",
+    "version": "v2",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/milestones/bulk-delete-milestones.md",
+    "provenance_id": "p04-v2.milestones.bulk-delete-milestones"
+  },
+  {
+    "id": "v2:milestones:manage-milestone-work-items",
+    "version": "v2",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/milestones/manage-milestone-work-items.md",
+    "provenance_id": "p04-v2.milestones.manage-milestone-work-items"
+  },
+  {
+    "id": "v2:estimates:overview",
+    "version": "v2",
+    "family": "estimates",
+    "packet": "P04",
+    "disposition": "general-guide",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/v2/estimates/overview.md",
+    "provenance_id": "p04-v2.estimates.overview"
+  },
+  {
+    "id": "v2:estimates:list-estimates",
+    "version": "v2",
+    "family": "estimates",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimates/list-estimates.md",
+    "provenance_id": "p04-v2.estimates.list-estimates"
+  },
+  {
+    "id": "v2:estimates:get-estimate",
+    "version": "v2",
+    "family": "estimates",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimates/get-estimate.md",
+    "provenance_id": "p04-v2.estimates.get-estimate"
+  },
+  {
+    "id": "v2:estimates:create-estimate",
+    "version": "v2",
+    "family": "estimates",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimates/create-estimate.md",
+    "provenance_id": "p04-v2.estimates.create-estimate"
+  },
+  {
+    "id": "v2:estimates:update-estimate",
+    "version": "v2",
+    "family": "estimates",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimates/update-estimate.md",
+    "provenance_id": "p04-v2.estimates.update-estimate"
+  },
+  {
+    "id": "v2:estimates:delete-estimate",
+    "version": "v2",
+    "family": "estimates",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimates/delete-estimate.md",
+    "provenance_id": "p04-v2.estimates.delete-estimate"
+  },
+  {
+    "id": "v2:estimates:upsert-estimate",
+    "version": "v2",
+    "family": "estimates",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimates/upsert-estimate.md",
+    "provenance_id": "p04-v2.estimates.upsert-estimate"
+  },
+  {
+    "id": "v2:estimates:bulk-create-estimates",
+    "version": "v2",
+    "family": "estimates",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimates/bulk-create-estimates.md",
+    "provenance_id": "p04-v2.estimates.bulk-create-estimates"
+  },
+  {
+    "id": "v2:estimates:bulk-update-estimates",
+    "version": "v2",
+    "family": "estimates",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimates/bulk-update-estimates.md",
+    "provenance_id": "p04-v2.estimates.bulk-update-estimates"
+  },
+  {
+    "id": "v2:estimates:bulk-delete-estimates",
+    "version": "v2",
+    "family": "estimates",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimates/bulk-delete-estimates.md",
+    "provenance_id": "p04-v2.estimates.bulk-delete-estimates"
+  },
+  {
+    "id": "v2:estimate-points:overview",
+    "version": "v2",
+    "family": "estimate-points",
+    "packet": "P04",
+    "disposition": "general-guide",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/v2/estimate-points/overview.md",
+    "provenance_id": "p04-v2.estimate-points.overview"
+  },
+  {
+    "id": "v2:estimate-points:list-estimate-points",
+    "version": "v2",
+    "family": "estimate-points",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimate-points/list-estimate-points.md",
+    "provenance_id": "p04-v2.estimate-points.list-estimate-points"
+  },
+  {
+    "id": "v2:estimate-points:get-estimate-point",
+    "version": "v2",
+    "family": "estimate-points",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimate-points/get-estimate-point.md",
+    "provenance_id": "p04-v2.estimate-points.get-estimate-point"
+  },
+  {
+    "id": "v2:estimate-points:create-estimate-point",
+    "version": "v2",
+    "family": "estimate-points",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimate-points/create-estimate-point.md",
+    "provenance_id": "p04-v2.estimate-points.create-estimate-point"
+  },
+  {
+    "id": "v2:estimate-points:update-estimate-point",
+    "version": "v2",
+    "family": "estimate-points",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimate-points/update-estimate-point.md",
+    "provenance_id": "p04-v2.estimate-points.update-estimate-point"
+  },
+  {
+    "id": "v2:estimate-points:delete-estimate-point",
+    "version": "v2",
+    "family": "estimate-points",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimate-points/delete-estimate-point.md",
+    "provenance_id": "p04-v2.estimate-points.delete-estimate-point"
+  },
+  {
+    "id": "v2:estimate-points:upsert-estimate-point",
+    "version": "v2",
+    "family": "estimate-points",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimate-points/upsert-estimate-point.md",
+    "provenance_id": "p04-v2.estimate-points.upsert-estimate-point"
+  },
+  {
+    "id": "v2:estimate-points:bulk-create-estimate-points",
+    "version": "v2",
+    "family": "estimate-points",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimate-points/bulk-create-estimate-points.md",
+    "provenance_id": "p04-v2.estimate-points.bulk-create-estimate-points"
+  },
+  {
+    "id": "v2:estimate-points:bulk-update-estimate-points",
+    "version": "v2",
+    "family": "estimate-points",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimate-points/bulk-update-estimate-points.md",
+    "provenance_id": "p04-v2.estimate-points.bulk-update-estimate-points"
+  },
+  {
+    "id": "v2:estimate-points:bulk-delete-estimate-points",
+    "version": "v2",
+    "family": "estimate-points",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/estimate-points/bulk-delete-estimate-points.md",
+    "provenance_id": "p04-v2.estimate-points.bulk-delete-estimate-points"
+  },
+  {
+    "id": "v2:intake-work-items:overview",
+    "version": "v2",
+    "family": "intake-work-items",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/intake-work-items/overview.md",
+    "provenance_id": "p04-v2.intake-work-items.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:intake-work-items:list-intake-work-items",
+    "version": "v2",
+    "family": "intake-work-items",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/intake-work-items/list-intake-work-items.md",
+    "provenance_id": "p04-v2.intake-work-items.list-intake-work-items"
+  },
+  {
+    "id": "v2:intake-work-items:get-intake-work-item",
+    "version": "v2",
+    "family": "intake-work-items",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/intake-work-items/get-intake-work-item.md",
+    "provenance_id": "p04-v2.intake-work-items.get-intake-work-item"
+  },
+  {
+    "id": "v2:intake-work-items:create-intake-work-item",
+    "version": "v2",
+    "family": "intake-work-items",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/intake-work-items/create-intake-work-item.md",
+    "provenance_id": "p04-v2.intake-work-items.create-intake-work-item"
+  },
+  {
+    "id": "v2:intake-work-items:update-intake-work-item",
+    "version": "v2",
+    "family": "intake-work-items",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/intake-work-items/update-intake-work-item.md",
+    "provenance_id": "p04-v2.intake-work-items.update-intake-work-item"
+  },
+  {
+    "id": "v2:intake-work-items:delete-intake-work-item",
+    "version": "v2",
+    "family": "intake-work-items",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/intake-work-items/delete-intake-work-item.md",
+    "provenance_id": "p04-v2.intake-work-items.delete-intake-work-item"
+  },
+  {
+    "id": "v2:work-item-comments:overview",
+    "version": "v2",
+    "family": "work-item-comments",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-comments/overview.md",
+    "provenance_id": "p04-v2.work-item-comments.overview"
+  },
+  {
+    "id": "v2:work-item-comments:list-comments",
+    "version": "v2",
+    "family": "work-item-comments",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-comments/list-comments.md",
+    "provenance_id": "p04-v2.work-item-comments.list-comments",
+    "operation_ids": [
+      "v2.work-item-comments.list-comments"
+    ]
+  },
+  {
+    "id": "v2:work-item-comments:get-comment",
+    "version": "v2",
+    "family": "work-item-comments",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-comments/get-comment.md",
+    "provenance_id": "p04-v2.work-item-comments.get-comment",
+    "operation_ids": [
+      "v2.work-item-comments.get-comment"
+    ]
+  },
+  {
+    "id": "v2:work-item-comments:create-comment",
+    "version": "v2",
+    "family": "work-item-comments",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-comments/create-comment.md",
+    "provenance_id": "p04-v2.work-item-comments.create-comment",
+    "operation_ids": [
+      "v2.work-item-comments.create-comment"
+    ]
+  },
+  {
+    "id": "v2:work-item-comments:update-comment",
+    "version": "v2",
+    "family": "work-item-comments",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-comments/update-comment.md",
+    "provenance_id": "p04-v2.work-item-comments.update-comment",
+    "operation_ids": [
+      "v2.work-item-comments.update-comment"
+    ]
+  },
+  {
+    "id": "v2:work-item-comments:delete-comment",
+    "version": "v2",
+    "family": "work-item-comments",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-comments/delete-comment.md",
+    "provenance_id": "p04-v2.work-item-comments.delete-comment",
+    "operation_ids": [
+      "v2.work-item-comments.delete-comment"
+    ]
+  },
+  {
+    "id": "v2:work-item-comments:upsert-comment",
+    "version": "v2",
+    "family": "work-item-comments",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-comments/upsert-comment.md",
+    "provenance_id": "p04-v2.work-item-comments.upsert-comment",
+    "operation_ids": [
+      "v2.work-item-comments.upsert-comment"
+    ]
+  },
+  {
+    "id": "v2:work-item-comments:bulk-create-comments",
+    "version": "v2",
+    "family": "work-item-comments",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-comments/bulk-create-comments.md",
+    "provenance_id": "p04-v2.work-item-comments.bulk-create-comments",
+    "operation_ids": [
+      "v2.work-item-comments.bulk-create-comments"
+    ]
+  },
+  {
+    "id": "v2:work-item-comments:bulk-update-comments",
+    "version": "v2",
+    "family": "work-item-comments",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-comments/bulk-update-comments.md",
+    "provenance_id": "p04-v2.work-item-comments.bulk-update-comments",
+    "operation_ids": [
+      "v2.work-item-comments.bulk-update-comments"
+    ]
+  },
+  {
+    "id": "v2:work-item-comments:bulk-delete-comments",
+    "version": "v2",
+    "family": "work-item-comments",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-comments/bulk-delete-comments.md",
+    "provenance_id": "p04-v2.work-item-comments.bulk-delete-comments",
+    "operation_ids": [
+      "v2.work-item-comments.bulk-delete-comments"
+    ]
+  },
+  {
+    "id": "v2:work-item-links:overview",
+    "version": "v2",
+    "family": "work-item-links",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-links/overview.md",
+    "provenance_id": "p04-v2.work-item-links.overview"
+  },
+  {
+    "id": "v2:work-item-links:list-links",
+    "version": "v2",
+    "family": "work-item-links",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-links/list-links.md",
+    "provenance_id": "p04-v2.work-item-links.list-links",
+    "operation_ids": [
+      "v2.work-item-links.list-links"
+    ]
+  },
+  {
+    "id": "v2:work-item-links:get-link",
+    "version": "v2",
+    "family": "work-item-links",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-links/get-link.md",
+    "provenance_id": "p04-v2.work-item-links.get-link",
+    "operation_ids": [
+      "v2.work-item-links.get-link"
+    ]
+  },
+  {
+    "id": "v2:work-item-links:create-link",
+    "version": "v2",
+    "family": "work-item-links",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-links/create-link.md",
+    "provenance_id": "p04-v2.work-item-links.create-link",
+    "operation_ids": [
+      "v2.work-item-links.create-link"
+    ]
+  },
+  {
+    "id": "v2:work-item-links:update-link",
+    "version": "v2",
+    "family": "work-item-links",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-links/update-link.md",
+    "provenance_id": "p04-v2.work-item-links.update-link",
+    "operation_ids": [
+      "v2.work-item-links.update-link"
+    ]
+  },
+  {
+    "id": "v2:work-item-links:delete-link",
+    "version": "v2",
+    "family": "work-item-links",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-links/delete-link.md",
+    "provenance_id": "p04-v2.work-item-links.delete-link",
+    "operation_ids": [
+      "v2.work-item-links.delete-link"
+    ]
+  },
+  {
+    "id": "v2:work-item-activities:overview",
+    "version": "v2",
+    "family": "work-item-activities",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-activities/overview.md",
+    "provenance_id": "p04-v2.work-item-activities.overview"
+  },
+  {
+    "id": "v2:work-item-activities:list-activities",
+    "version": "v2",
+    "family": "work-item-activities",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-activities/list-activities.md",
+    "provenance_id": "p04-v2.work-item-activities.list-activities",
+    "operation_ids": [
+      "v2.work-item-activities.list-activities"
+    ]
+  },
+  {
+    "id": "v2:work-item-activities:get-activity",
+    "version": "v2",
+    "family": "work-item-activities",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-activities/get-activity.md",
+    "provenance_id": "p04-v2.work-item-activities.get-activity",
+    "operation_ids": [
+      "v2.work-item-activities.get-activity"
+    ]
+  },
+  {
+    "id": "v2:work-item-worklogs:overview",
+    "version": "v2",
+    "family": "work-item-worklogs",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-worklogs/overview.md",
+    "provenance_id": "p04-v2.work-item-worklogs.overview"
+  },
+  {
+    "id": "v2:work-item-worklogs:list-worklogs",
+    "version": "v2",
+    "family": "work-item-worklogs",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-worklogs/list-worklogs.md",
+    "provenance_id": "p04-v2.work-item-worklogs.list-worklogs",
+    "operation_ids": [
+      "v2.work-item-worklogs.list-worklogs"
+    ]
+  },
+  {
+    "id": "v2:work-item-worklogs:get-project-worklog-summary",
+    "version": "v2",
+    "family": "work-item-worklogs",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-worklogs/get-project-worklog-summary.md",
+    "provenance_id": "p04-v2.work-item-worklogs.get-project-worklog-summary",
+    "operation_ids": [
+      "v2.work-item-worklogs.get-project-worklog-summary"
+    ]
+  },
+  {
+    "id": "v2:work-item-worklogs:get-worklog",
+    "version": "v2",
+    "family": "work-item-worklogs",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-worklogs/get-worklog.md",
+    "provenance_id": "p04-v2.work-item-worklogs.get-worklog",
+    "operation_ids": [
+      "v2.work-item-worklogs.get-worklog"
+    ]
+  },
+  {
+    "id": "v2:work-item-worklogs:create-worklog",
+    "version": "v2",
+    "family": "work-item-worklogs",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-worklogs/create-worklog.md",
+    "provenance_id": "p04-v2.work-item-worklogs.create-worklog",
+    "operation_ids": [
+      "v2.work-item-worklogs.create-worklog"
+    ]
+  },
+  {
+    "id": "v2:work-item-worklogs:update-worklog",
+    "version": "v2",
+    "family": "work-item-worklogs",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-worklogs/update-worklog.md",
+    "provenance_id": "p04-v2.work-item-worklogs.update-worklog",
+    "operation_ids": [
+      "v2.work-item-worklogs.update-worklog"
+    ]
+  },
+  {
+    "id": "v2:work-item-worklogs:delete-worklog",
+    "version": "v2",
+    "family": "work-item-worklogs",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-worklogs/delete-worklog.md",
+    "provenance_id": "p04-v2.work-item-worklogs.delete-worklog",
+    "operation_ids": [
+      "v2.work-item-worklogs.delete-worklog"
+    ]
+  },
+  {
+    "id": "v2:work-item-subscribers:overview",
+    "version": "v2",
+    "family": "work-item-subscribers",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-subscribers/overview.md",
+    "provenance_id": "p04-v2.work-item-subscribers.overview"
+  },
+  {
+    "id": "v2:work-item-subscribers:get-subscribers",
+    "version": "v2",
+    "family": "work-item-subscribers",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-subscribers/get-subscribers.md",
+    "provenance_id": "p04-v2.work-item-subscribers.get-subscribers",
+    "operation_ids": [
+      "v2.work-item-subscribers.get-subscribers"
+    ]
+  },
+  {
+    "id": "v2:work-item-subscribers:get-subscribers-by-identifier",
+    "version": "v2",
+    "family": "work-item-subscribers",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-subscribers/get-subscribers-by-identifier.md",
+    "provenance_id": "p04-v2.work-item-subscribers.get-subscribers-by-identifier",
+    "operation_ids": [
+      "v2.work-item-subscribers.get-subscribers-by-identifier"
+    ]
+  },
+  {
+    "id": "v2:work-item-subscribers:update-subscribers",
+    "version": "v2",
+    "family": "work-item-subscribers",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-subscribers/update-subscribers.md",
+    "provenance_id": "p04-v2.work-item-subscribers.update-subscribers",
+    "operation_ids": [
+      "v2.work-item-subscribers.update-subscribers"
+    ]
+  },
+  {
+    "id": "v2:work-item-subscribers:update-subscribers-by-identifier",
+    "version": "v2",
+    "family": "work-item-subscribers",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-subscribers/update-subscribers-by-identifier.md",
+    "provenance_id": "p04-v2.work-item-subscribers.update-subscribers-by-identifier",
+    "operation_ids": [
+      "v2.work-item-subscribers.update-subscribers-by-identifier"
+    ]
+  },
+  {
+    "id": "v2:work-item-votes:overview",
+    "version": "v2",
+    "family": "work-item-votes",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-votes/overview.md",
+    "provenance_id": "p04-v2.work-item-votes.overview"
+  },
+  {
+    "id": "v2:work-item-votes:list-work-item-votes",
+    "version": "v2",
+    "family": "work-item-votes",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-votes/list-work-item-votes.md",
+    "provenance_id": "p04-v2.work-item-votes.list-work-item-votes",
+    "operation_ids": [
+      "v2.work-item-votes.list-work-item-votes"
+    ]
+  },
+  {
+    "id": "v2:work-item-votes:cast-work-item-vote",
+    "version": "v2",
+    "family": "work-item-votes",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-votes/cast-work-item-vote.md",
+    "provenance_id": "p04-v2.work-item-votes.cast-work-item-vote",
+    "operation_ids": [
+      "v2.work-item-votes.cast-work-item-vote"
+    ]
+  },
+  {
+    "id": "v2:work-item-votes:retract-work-item-vote",
+    "version": "v2",
+    "family": "work-item-votes",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/v2/work-item-votes/retract-work-item-vote.md",
+    "provenance_id": "p04-v2.work-item-votes.retract-work-item-vote",
+    "operation_ids": [
+      "v2.work-item-votes.retract-work-item-vote"
+    ]
+  },
+  {
+    "id": "v2:recurring-work-items:overview",
+    "version": "v2",
+    "family": "recurring-work-items",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/recurring-work-items/overview.md",
+    "provenance_id": "p04-v2.recurring-work-items.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:recurring-work-items:list-recurring-work-items",
+    "version": "v2",
+    "family": "recurring-work-items",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/recurring-work-items/list-recurring-work-items.md",
+    "provenance_id": "p04-v2.recurring-work-items.list-recurring-work-items"
+  },
+  {
+    "id": "v2:recurring-work-items:get-recurring-work-item",
+    "version": "v2",
+    "family": "recurring-work-items",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/recurring-work-items/get-recurring-work-item.md",
+    "provenance_id": "p04-v2.recurring-work-items.get-recurring-work-item"
+  },
+  {
+    "id": "v2:recurring-work-items:create-recurring-work-item",
+    "version": "v2",
+    "family": "recurring-work-items",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/recurring-work-items/create-recurring-work-item.md",
+    "provenance_id": "p04-v2.recurring-work-items.create-recurring-work-item"
+  },
+  {
+    "id": "v2:recurring-work-items:update-recurring-work-item",
+    "version": "v2",
+    "family": "recurring-work-items",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/recurring-work-items/update-recurring-work-item.md",
+    "provenance_id": "p04-v2.recurring-work-items.update-recurring-work-item"
+  },
+  {
+    "id": "v2:recurring-work-items:delete-recurring-work-item",
+    "version": "v2",
+    "family": "recurring-work-items",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/recurring-work-items/delete-recurring-work-item.md",
+    "provenance_id": "p04-v2.recurring-work-items.delete-recurring-work-item"
+  },
+  {
+    "id": "v1:link:overview",
+    "version": "v1",
+    "family": "link",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/link/overview.md",
+    "provenance_id": "p04-v1.link.overview"
+  },
+  {
+    "id": "v1:link:add-link",
+    "version": "v1",
+    "family": "link",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/link/add-link.md",
+    "provenance_id": "p04-v1.link.add-link",
+    "operation_ids": [
+      "v1.link.add-link"
+    ]
+  },
+  {
+    "id": "v1:link:list-links",
+    "version": "v1",
+    "family": "link",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/link/list-links.md",
+    "provenance_id": "p04-v1.link.list-links",
+    "operation_ids": [
+      "v1.link.list-links"
+    ]
+  },
+  {
+    "id": "v1:link:get-link-detail",
+    "version": "v1",
+    "family": "link",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/link/get-link-detail.md",
+    "provenance_id": "p04-v1.link.get-link-detail",
+    "operation_ids": [
+      "v1.link.get-link-detail"
+    ]
+  },
+  {
+    "id": "v1:link:update-link-detail",
+    "version": "v1",
+    "family": "link",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/link/update-link-detail.md",
+    "provenance_id": "p04-v1.link.update-link-detail",
+    "operation_ids": [
+      "v1.link.update-link-detail"
+    ]
+  },
+  {
+    "id": "v1:link:delete-link",
+    "version": "v1",
+    "family": "link",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/link/delete-link.md",
+    "provenance_id": "p04-v1.link.delete-link",
+    "operation_ids": [
+      "v1.link.delete-link"
+    ]
+  },
+  {
+    "id": "v1:issue-activity:overview",
+    "version": "v1",
+    "family": "issue-activity",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/issue-activity/overview.md",
+    "provenance_id": "p04-v1.issue-activity.overview"
+  },
+  {
+    "id": "v1:issue-activity:list-issue-activities",
+    "version": "v1",
+    "family": "issue-activity",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/issue-activity/list-issue-activities.md",
+    "provenance_id": "p04-v1.issue-activity.list-issue-activities",
+    "operation_ids": [
+      "v1.issue-activity.list-issue-activities"
+    ]
+  },
+  {
+    "id": "v1:issue-activity:get-issue-activity-detail",
+    "version": "v1",
+    "family": "issue-activity",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/issue-activity/get-issue-activity-detail.md",
+    "provenance_id": "p04-v1.issue-activity.get-issue-activity-detail",
+    "operation_ids": [
+      "v1.issue-activity.get-issue-activity-detail"
+    ]
+  },
+  {
+    "id": "v1:issue-comment:overview",
+    "version": "v1",
+    "family": "issue-comment",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/issue-comment/overview.md",
+    "provenance_id": "p04-v1.issue-comment.overview"
+  },
+  {
+    "id": "v1:issue-comment:add-issue-comment",
+    "version": "v1",
+    "family": "issue-comment",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/issue-comment/add-issue-comment.md",
+    "provenance_id": "p04-v1.issue-comment.add-issue-comment",
+    "operation_ids": [
+      "v1.issue-comment.add-issue-comment"
+    ]
+  },
+  {
+    "id": "v1:issue-comment:list-issue-comments",
+    "version": "v1",
+    "family": "issue-comment",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/issue-comment/list-issue-comments.md",
+    "provenance_id": "p04-v1.issue-comment.list-issue-comments",
+    "operation_ids": [
+      "v1.issue-comment.list-issue-comments"
+    ]
+  },
+  {
+    "id": "v1:issue-comment:get-issue-comment-detail",
+    "version": "v1",
+    "family": "issue-comment",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/issue-comment/get-issue-comment-detail.md",
+    "provenance_id": "p04-v1.issue-comment.get-issue-comment-detail",
+    "operation_ids": [
+      "v1.issue-comment.get-issue-comment-detail"
+    ]
+  },
+  {
+    "id": "v1:issue-comment:update-issue-comment-detail",
+    "version": "v1",
+    "family": "issue-comment",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/issue-comment/update-issue-comment-detail.md",
+    "provenance_id": "p04-v1.issue-comment.update-issue-comment-detail",
+    "operation_ids": [
+      "v1.issue-comment.update-issue-comment-detail"
+    ]
+  },
+  {
+    "id": "v1:issue-comment:delete-issue-comment",
+    "version": "v1",
+    "family": "issue-comment",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/issue-comment/delete-issue-comment.md",
+    "provenance_id": "p04-v1.issue-comment.delete-issue-comment",
+    "operation_ids": [
+      "v1.issue-comment.delete-issue-comment"
+    ]
+  },
+  {
+    "id": "v1:cycle:overview",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "general-guide",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/cycle/overview.md",
+    "provenance_id": "p04-v1.cycle.overview"
+  },
+  {
+    "id": "v1:cycle:add-cycle",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/cycle/add-cycle.md",
+    "provenance_id": "p04-v1.cycle.add-cycle"
+  },
+  {
+    "id": "v1:cycle:add-cycle-work-items",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/cycle/add-cycle-work-items.md",
+    "provenance_id": "p04-v1.cycle.add-cycle-work-items"
+  },
+  {
+    "id": "v1:cycle:transfer-cycle-work-items",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/cycle/transfer-cycle-work-items.md",
+    "provenance_id": "p04-v1.cycle.transfer-cycle-work-items"
+  },
+  {
+    "id": "v1:cycle:archive-cycle",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/cycle/archive-cycle.md",
+    "provenance_id": "p04-v1.cycle.archive-cycle"
+  },
+  {
+    "id": "v1:cycle:list-cycles",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/cycle/list-cycles.md",
+    "provenance_id": "p04-v1.cycle.list-cycles"
+  },
+  {
+    "id": "v1:cycle:get-cycle-detail",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/cycle/get-cycle-detail.md",
+    "provenance_id": "p04-v1.cycle.get-cycle-detail"
+  },
+  {
+    "id": "v1:cycle:list-cycle-work-items",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/cycle/list-cycle-work-items.md",
+    "provenance_id": "p04-v1.cycle.list-cycle-work-items"
+  },
+  {
+    "id": "v1:cycle:list-archived-cycles",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/cycle/list-archived-cycles.md",
+    "provenance_id": "p04-v1.cycle.list-archived-cycles"
+  },
+  {
+    "id": "v1:cycle:update-cycle-detail",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/cycle/update-cycle-detail.md",
+    "provenance_id": "p04-v1.cycle.update-cycle-detail"
+  },
+  {
+    "id": "v1:cycle:unarchive-cycle",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/cycle/unarchive-cycle.md",
+    "provenance_id": "p04-v1.cycle.unarchive-cycle"
+  },
+  {
+    "id": "v1:cycle:remove-cycle-work-item",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/cycle/remove-cycle-work-item.md",
+    "provenance_id": "p04-v1.cycle.remove-cycle-work-item"
+  },
+  {
+    "id": "v1:cycle:delete-cycle",
+    "version": "v1",
+    "family": "cycle",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/cycle/delete-cycle.md",
+    "provenance_id": "p04-v1.cycle.delete-cycle"
+  },
+  {
+    "id": "v1:module:overview",
+    "version": "v1",
+    "family": "module",
+    "packet": "P04",
+    "disposition": "general-guide",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/module/overview.md",
+    "provenance_id": "p04-v1.module.overview"
+  },
+  {
+    "id": "v1:module:add-module",
+    "version": "v1",
+    "family": "module",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/module/add-module.md",
+    "provenance_id": "p04-v1.module.add-module"
+  },
+  {
+    "id": "v1:module:add-module-work-items",
+    "version": "v1",
+    "family": "module",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/module/add-module-work-items.md",
+    "provenance_id": "p04-v1.module.add-module-work-items"
+  },
+  {
+    "id": "v1:module:archive-module",
+    "version": "v1",
+    "family": "module",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/module/archive-module.md",
+    "provenance_id": "p04-v1.module.archive-module"
+  },
+  {
+    "id": "v1:module:list-modules",
+    "version": "v1",
+    "family": "module",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/module/list-modules.md",
+    "provenance_id": "p04-v1.module.list-modules"
+  },
+  {
+    "id": "v1:module:get-module-detail",
+    "version": "v1",
+    "family": "module",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/module/get-module-detail.md",
+    "provenance_id": "p04-v1.module.get-module-detail"
+  },
+  {
+    "id": "v1:module:list-module-work-items",
+    "version": "v1",
+    "family": "module",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/module/list-module-work-items.md",
+    "provenance_id": "p04-v1.module.list-module-work-items"
+  },
+  {
+    "id": "v1:module:list-archived-modules",
+    "version": "v1",
+    "family": "module",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/module/list-archived-modules.md",
+    "provenance_id": "p04-v1.module.list-archived-modules"
+  },
+  {
+    "id": "v1:module:update-module-detail",
+    "version": "v1",
+    "family": "module",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/module/update-module-detail.md",
+    "provenance_id": "p04-v1.module.update-module-detail"
+  },
+  {
+    "id": "v1:module:unarchive-module",
+    "version": "v1",
+    "family": "module",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/module/unarchive-module.md",
+    "provenance_id": "p04-v1.module.unarchive-module"
+  },
+  {
+    "id": "v1:module:remove-module-work-item",
+    "version": "v1",
+    "family": "module",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/module/remove-module-work-item.md",
+    "provenance_id": "p04-v1.module.remove-module-work-item"
+  },
+  {
+    "id": "v1:module:delete-module",
+    "version": "v1",
+    "family": "module",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/module/delete-module.md",
+    "provenance_id": "p04-v1.module.delete-module"
+  },
+  {
+    "id": "v1:intake-issue:overview",
+    "version": "v1",
+    "family": "intake-issue",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/intake-issue/overview.md",
+    "provenance_id": "p04-v1.intake-issue.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v1:intake-issue:add-intake-issue",
+    "version": "v1",
+    "family": "intake-issue",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/intake-issue/add-intake-issue.md",
+    "provenance_id": "p04-v1.intake-issue.add-intake-issue"
+  },
+  {
+    "id": "v1:intake-issue:list-intake-issues",
+    "version": "v1",
+    "family": "intake-issue",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/intake-issue/list-intake-issues.md",
+    "provenance_id": "p04-v1.intake-issue.list-intake-issues"
+  },
+  {
+    "id": "v1:intake-issue:get-intake-issue-detail",
+    "version": "v1",
+    "family": "intake-issue",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/intake-issue/get-intake-issue-detail.md",
+    "provenance_id": "p04-v1.intake-issue.get-intake-issue-detail"
+  },
+  {
+    "id": "v1:intake-issue:update-intake-issue-detail",
+    "version": "v1",
+    "family": "intake-issue",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/intake-issue/update-intake-issue-detail.md",
+    "provenance_id": "p04-v1.intake-issue.update-intake-issue-detail"
+  },
+  {
+    "id": "v1:intake-issue:delete-intake-issue",
+    "version": "v1",
+    "family": "intake-issue",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/intake-issue/delete-intake-issue.md",
+    "provenance_id": "p04-v1.intake-issue.delete-intake-issue"
+  },
+  {
+    "id": "v1:milestones:overview",
+    "version": "v1",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "general-guide",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/milestones/overview.md",
+    "provenance_id": "p04-v1.milestones.overview"
+  },
+  {
+    "id": "v1:milestones:add-milestone",
+    "version": "v1",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/milestones/add-milestone.md",
+    "provenance_id": "p04-v1.milestones.add-milestone"
+  },
+  {
+    "id": "v1:milestones:list-milestones",
+    "version": "v1",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/milestones/list-milestones.md",
+    "provenance_id": "p04-v1.milestones.list-milestones"
+  },
+  {
+    "id": "v1:milestones:get-milestone-detail",
+    "version": "v1",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/milestones/get-milestone-detail.md",
+    "provenance_id": "p04-v1.milestones.get-milestone-detail"
+  },
+  {
+    "id": "v1:milestones:list-milestone-work-items",
+    "version": "v1",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/milestones/list-milestone-work-items.md",
+    "provenance_id": "p04-v1.milestones.list-milestone-work-items"
+  },
+  {
+    "id": "v1:milestones:update-milestone-detail",
+    "version": "v1",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/milestones/update-milestone-detail.md",
+    "provenance_id": "p04-v1.milestones.update-milestone-detail"
+  },
+  {
+    "id": "v1:milestones:delete-milestone",
+    "version": "v1",
+    "family": "milestones",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/milestones/delete-milestone.md",
+    "provenance_id": "p04-v1.milestones.delete-milestone"
+  },
+  {
+    "id": "v1:estimate:overview",
+    "version": "v1",
+    "family": "estimate",
+    "packet": "P04",
+    "disposition": "general-guide",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/estimate/overview.md",
+    "provenance_id": "p04-v1.estimate.overview"
+  },
+  {
+    "id": "v1:estimate:add-estimate",
+    "version": "v1",
+    "family": "estimate",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/estimate/add-estimate.md",
+    "provenance_id": "p04-v1.estimate.add-estimate"
+  },
+  {
+    "id": "v1:estimate:get-estimate",
+    "version": "v1",
+    "family": "estimate",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/estimate/get-estimate.md",
+    "provenance_id": "p04-v1.estimate.get-estimate"
+  },
+  {
+    "id": "v1:estimate:update-estimate",
+    "version": "v1",
+    "family": "estimate",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/estimate/update-estimate.md",
+    "provenance_id": "p04-v1.estimate.update-estimate"
+  },
+  {
+    "id": "v1:estimate:delete-estimate",
+    "version": "v1",
+    "family": "estimate",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/estimate/delete-estimate.md",
+    "provenance_id": "p04-v1.estimate.delete-estimate"
+  },
+  {
+    "id": "v1:estimate:list-estimate-points",
+    "version": "v1",
+    "family": "estimate",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/estimate/list-estimate-points.md",
+    "provenance_id": "p04-v1.estimate.list-estimate-points"
+  },
+  {
+    "id": "v1:estimate:add-estimate-points",
+    "version": "v1",
+    "family": "estimate",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/estimate/add-estimate-points.md",
+    "provenance_id": "p04-v1.estimate.add-estimate-points"
+  },
+  {
+    "id": "v1:estimate:update-estimate-point",
+    "version": "v1",
+    "family": "estimate",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/estimate/update-estimate-point.md",
+    "provenance_id": "p04-v1.estimate.update-estimate-point"
+  },
+  {
+    "id": "v1:estimate:delete-estimate-point",
+    "version": "v1",
+    "family": "estimate",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/estimate/delete-estimate-point.md",
+    "provenance_id": "p04-v1.estimate.delete-estimate-point"
+  },
+  {
+    "id": "v1:worklogs:overview",
+    "version": "v1",
+    "family": "worklogs",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "review_resolution": "non-operation",
+    "url": "https://developers.plane.so/api-reference/worklogs/overview.md",
+    "provenance_id": "p04-v1.worklogs.overview"
+  },
+  {
+    "id": "v1:worklogs:create-worklog",
+    "version": "v1",
+    "family": "worklogs",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/worklogs/create-worklog.md",
+    "provenance_id": "p04-v1.worklogs.create-worklog",
+    "operation_ids": [
+      "v1.worklogs.create-worklog"
+    ]
+  },
+  {
+    "id": "v1:worklogs:get-worklogs-for-issue",
+    "version": "v1",
+    "family": "worklogs",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/worklogs/get-worklogs-for-issue.md",
+    "provenance_id": "p04-v1.worklogs.get-worklogs-for-issue",
+    "operation_ids": [
+      "v1.worklogs.get-worklogs-for-issue"
+    ]
+  },
+  {
+    "id": "v1:worklogs:get-total-time",
+    "version": "v1",
+    "family": "worklogs",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/worklogs/get-total-time.md",
+    "provenance_id": "p04-v1.worklogs.get-total-time",
+    "operation_ids": [
+      "v1.worklogs.get-total-time"
+    ]
+  },
+  {
+    "id": "v1:worklogs:update-worklog",
+    "version": "v1",
+    "family": "worklogs",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/worklogs/update-worklog.md",
+    "provenance_id": "p04-v1.worklogs.update-worklog",
+    "operation_ids": [
+      "v1.worklogs.update-worklog"
+    ]
+  },
+  {
+    "id": "v1:worklogs:delete-worklog",
+    "version": "v1",
+    "family": "worklogs",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "review_resolution": "mapped",
+    "url": "https://developers.plane.so/api-reference/worklogs/delete-worklog.md",
+    "provenance_id": "p04-v1.worklogs.delete-worklog",
+    "operation_ids": [
+      "v1.worklogs.delete-worklog"
+    ]
+  },
+  {
+    "id": "v1:inbox-issue:add-inbox-issue",
+    "version": "v1",
+    "family": "inbox-issue",
+    "packet": "P04",
+    "disposition": "duplicate-alias",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/inbox-issue/add-inbox-issue.md",
+    "provenance_id": "p04-v1.inbox-issue.add-inbox-issue",
+    "review_resolution": "duplicate-alias",
+    "alias_of": "v1:intake-issue:add-intake-issue"
+  },
+  {
+    "id": "v1:work-item-relations:create-work-item-relation",
+    "version": "v1",
+    "family": "work-item-relations",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/work-item-relations/create-work-item-relation.md",
+    "provenance_id": "p04-v1.work-item-relations.create-work-item-relation"
+  },
+  {
+    "id": "v1:inbox-issue:delete-inbox-issue",
+    "version": "v1",
+    "family": "inbox-issue",
+    "packet": "P04",
+    "disposition": "duplicate-alias",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/inbox-issue/delete-inbox-issue.md",
+    "provenance_id": "p04-v1.inbox-issue.delete-inbox-issue",
+    "review_resolution": "duplicate-alias",
+    "alias_of": "v1:intake-issue:delete-intake-issue"
+  },
+  {
+    "id": "v1:inbox-issue:get-inbox-issue-detail",
+    "version": "v1",
+    "family": "inbox-issue",
+    "packet": "P04",
+    "disposition": "duplicate-alias",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/inbox-issue/get-inbox-issue-detail.md",
+    "provenance_id": "p04-v1.inbox-issue.get-inbox-issue-detail",
+    "review_resolution": "duplicate-alias",
+    "alias_of": "v1:intake-issue:get-intake-issue-detail"
+  },
+  {
+    "id": "v1:inbox-issue:list-inbox-issues",
+    "version": "v1",
+    "family": "inbox-issue",
+    "packet": "P04",
+    "disposition": "duplicate-alias",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/inbox-issue/list-inbox-issues.md",
+    "provenance_id": "p04-v1.inbox-issue.list-inbox-issues",
+    "review_resolution": "duplicate-alias",
+    "alias_of": "v1:intake-issue:list-intake-issues"
+  },
+  {
+    "id": "v1:work-item-relations:list-work-item-relations",
+    "version": "v1",
+    "family": "work-item-relations",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/work-item-relations/list-work-item-relations.md",
+    "provenance_id": "p04-v1.work-item-relations.list-work-item-relations"
+  },
+  {
+    "id": "v1:inbox-issue:overview",
+    "version": "v1",
+    "family": "inbox-issue",
+    "packet": "P04",
+    "disposition": "duplicate-alias",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/inbox-issue/overview.md",
+    "provenance_id": "p04-v1.inbox-issue.overview",
+    "review_resolution": "duplicate-alias",
+    "alias_of": "v1:intake-issue:overview"
+  },
+  {
+    "id": "v1:work-item-relations:overview",
+    "version": "v1",
+    "family": "work-item-relations",
+    "packet": "P04",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/work-item-relations/overview.md",
+    "provenance_id": "p04-v1.work-item-relations.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v1:work-item-relations:remove-work-item-relation",
+    "version": "v1",
+    "family": "work-item-relations",
+    "packet": "P04",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/work-item-relations/remove-work-item-relation.md",
+    "provenance_id": "p04-v1.work-item-relations.remove-work-item-relation"
+  },
+  {
+    "id": "v1:inbox-issue:update-inbox-issue-detail",
+    "version": "v1",
+    "family": "inbox-issue",
+    "packet": "P04",
+    "disposition": "duplicate-alias",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/inbox-issue/update-inbox-issue-detail.md",
+    "provenance_id": "p04-v1.inbox-issue.update-inbox-issue-detail",
+    "review_resolution": "duplicate-alias",
+    "alias_of": "v1:intake-issue:update-intake-issue-detail"
+  },
+  {
+    "id": "supplement:v1:scheduling-collaboration-equivalents",
+    "version": "v1",
+    "family": "scheduling-collaboration-equivalents",
+    "packet": "P04",
+    "disposition": "supplemental-evidence",
+    "evidence_status": "reviewed-partial",
+    "completion_exception": "docs/reference/api-contract-gaps.md",
+    "review_resolution": "upstream-contract-gap",
+    "url": "https://developers.plane.so/api-reference/v2/migrating-from-v1.md",
+    "provenance_id": "v2-migrating-from-v1"
+  }
+]

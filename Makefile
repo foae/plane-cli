@@ -19,13 +19,14 @@ export RELEASE_SUMMARY := $(value SUMMARY)
 export RELEASE_VERSION = $(VERSION)
 export RELEASE_BASE = $(BASE)
 export RELEASE_PREPARATION
+export ARTIFACT_DIR ?= dist/snapshot
 
-.PHONY: help tools toolchain fmt fmt-check vet test lint mod-check api-check docs-check generate check race security fuzz build cross change version-plan release-prepare version-check
+.PHONY: help tools toolchain fmt fmt-check vet test lint mod-check api-check docs-check generate check race security fuzz build cross change version-plan release-prepare version-check snapshot package-release artifact-check installation-check
 
 help: ## List recipes, prerequisites and side effects; no writes.
 	@printf '%s\n' 'Prerequisites: Go $(GO_VERSION), GNU make, POSIX shell; make tools additionally needs curl, tar, awk and SHA-256 tooling.' 'Run make tools explicitly before lint/check/security; checks never install tools.' ''
 	@awk 'BEGIN {FS = ":.*## "} /^[a-z][a-z-]*:.*## / {printf "  %-14s %s\n", $$1, $$2}' Makefile
-	@printf '\n%s\n' 'Options: PKG=./... TESTFLAGS=... PACKET=P00; fuzz requires FUZZ_PKG=./path FUZZ_TARGET=FuzzName [FUZZTIME=30s].' 'snapshot: deferred to P10; no target, publishing or hooks.'
+	@printf '\n%s\n' 'Options: PKG=./... TESTFLAGS=... PACKET=P00; fuzz requires FUZZ_PKG=./path FUZZ_TARGET=FuzzName [FUZZTIME=30s].' 'Artifacts: ARTIFACT_DIR defaults to dist/snapshot and must not exist when packaging; no publication or hooks.'
 
 tools: ## Install pinned verified tools in .bin/; needs network and setup prerequisites.
 	sh scripts/install-tools.sh
@@ -60,13 +61,14 @@ api-check: toolchain ## Reconcile offline catalog/schema/coverage for PACKET (de
 docs-check: toolchain ## Check local documentation links and catalog consistency offline; no writes.
 	go run ./internal/cmd/checkdocs
 
-generate: toolchain ## Regenerate committed embedded metadata from the catalog offline; writes generated JSON.
+generate: toolchain ## Assemble catalog shards and regenerate embedded metadata offline; writes generated JSON.
 	go run ./internal/cmd/genspec
 
 check: fmt-check lint test mod-check api-check docs-check version-check ## Run the reviewed packet gate; no source writes; needs make tools.
 
 race: toolchain ## Run race-enabled tests on ./...; needs C compiler and supported host; test temp/cache only.
-	CGO_ENABLED=1 go test -race ./...
+	# Full-catalog reconciliation under race exceeds Go's default 10-minute package timeout.
+	CGO_ENABLED=1 go test -race -timeout=20m ./...
 
 security: toolchain ## Scan reachable vulnerabilities; needs make tools and advisory network; cache only.
 	@status=0; .bin/govulncheck ./... || status=$$?; \
@@ -111,3 +113,16 @@ cross: toolchain ## Build CGO-free Linux/macOS amd64/arm64 binaries into bin/; w
 	    CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch sh scripts/build.sh "bin/plane-cli-$$os-$$arch"; \
 	  done; \
 	done
+
+snapshot: toolchain ## Build four deterministic archives and matching skill/formula locally; no publication.
+	go run ./internal/cmd/package --output "$$ARTIFACT_DIR"
+
+package-release: toolchain ## Package clean exact-tagged release source; never publish.
+	go run ./internal/cmd/package --release --output "$$ARTIFACT_DIR"
+
+artifact-check: toolchain ## Verify staged archives, formula/provenance checksums and packaged host/skill acceptance.
+	PLANE_CLI_ARTIFACT_DIR="$$(cd "$$ARTIFACT_DIR" && pwd -P)" go test ./internal/cmd/package -run '^TestArtifacts$$' -count=1
+	sh scripts/check-packaged-skill.sh "$$ARTIFACT_DIR"
+
+installation-check: toolchain ## Require isolated go install and real Homebrew audit/install/test against staged local HTTP assets; needs Homebrew.
+	sh scripts/check-installation.sh "$$ARTIFACT_DIR"

@@ -8,5 +8,42 @@
   "retrieval": "curl -A Mozilla/5.0 -fLsS",
   "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
   "classification": "overview",
-  "owner": "P04"
+  "owner": "P04",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:work-item-subscribers:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.work-item-subscribers.get-subscribers",
+        "basis": "Explicit endpoint table: Get subscribers."
+      },
+      {
+        "operation_id": "v2.work-item-subscribers.get-subscribers-by-identifier",
+        "basis": "Explicit endpoint table: Get subscribers by identifier."
+      },
+      {
+        "operation_id": "v2.work-item-subscribers.update-subscribers",
+        "basis": "Explicit endpoint table: Update subscribers."
+      },
+      {
+        "operation_id": "v2.work-item-subscribers.update-subscribers-by-identifier",
+        "basis": "Explicit endpoint table: Update subscribers by identifier."
+      },
+      {
+        "operation_id": "v2.members.list-project-members",
+        "basis": "Explicit linked operation in overview narrative."
+      },
+      {
+        "operation_id": "v2.work-item-activities.list-activities",
+        "basis": "Explicit linked operation in overview narrative."
+      }
+    ],
+    "page_facts": [
+      "There is no independently addressed subscriber object. GET reads the complete list and PATCH changes add/remove arrays.",
+      "Both project/work-item UUID routes and workspace identifier routes address the same list. PUT is explicitly unsupported.",
+      "Self subscription and managing other users have different authorization/feature requirements; activity and membership links refer to existing read operations."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

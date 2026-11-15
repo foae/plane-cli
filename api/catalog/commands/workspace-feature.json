@@ -1,0 +1,906 @@
+[
+  {
+    "path": [
+      "workspace-feature",
+      "get"
+    ],
+    "handler": "workspace-feature-get",
+    "summary": "Read workspace-feature get",
+    "side_effect": "read",
+    "local": false,
+    "examples": [
+      "plane-cli workspace-feature get --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/features/",
+        "response_kind": "native",
+        "scopes": [
+          "workspaces.features:read"
+        ],
+        "sensitivity": {
+          "review": "Permission and feature records declare no one-time secrets or signed upload targets. Preserve native resource values.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [],
+          "signed_form_paths": [],
+          "extension_fields": "Preserve native extension fields; no role inference or numeric role translation."
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit native API generation"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Named connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Plane API base URL"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Authentication mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total operation timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Per-request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Additional trusted CA certificates"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Validate and describe the request without credentials or HTTP"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "Native JSON result"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace slug"
+          }
+        ]
+      },
+      "v1": {
+        "method": "GET",
+        "route": "/api/v1/workspaces/{workspace_slug}/features/",
+        "response_kind": "native",
+        "scopes": [
+          "workspaces.features:read"
+        ],
+        "sensitivity": {
+          "review": "Permission and feature records declare no one-time secrets or signed upload targets. Preserve native resource values.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [],
+          "signed_form_paths": [],
+          "extension_fields": "Preserve native extension fields; no role inference or numeric role translation."
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit native API generation"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Named connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Plane API base URL"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Authentication mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total operation timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Per-request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Additional trusted CA certificates"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Validate and describe the request without credentials or HTTP"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "Native JSON result"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace slug"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "workspace-feature",
+      "update"
+    ],
+    "handler": "workspace-feature-update",
+    "summary": "Explicitly change workspace-feature update",
+    "side_effect": "destructive",
+    "local": false,
+    "examples": [
+      "plane-cli workspace-feature update --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "PATCH",
+        "route": "/api/v2/workspaces/{slug}/features/",
+        "response_kind": "native",
+        "scopes": [
+          "workspaces.features:write"
+        ],
+        "sensitivity": {
+          "review": "Permission and feature records declare no one-time secrets or signed upload targets. Preserve native resource values.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [],
+          "signed_form_paths": [],
+          "extension_fields": "Preserve native extension fields; no role inference or numeric role translation."
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "is_work_item_types_enabled": {
+                  "type": "boolean"
+                },
+                "work_item_type_default_level": {
+                  "type": "integer"
+                },
+                "is_workitem_hierarchy_enabled": {
+                  "type": "boolean"
+                },
+                "is_project_grouping_enabled": {
+                  "type": "boolean"
+                },
+                "is_teams_enabled": {
+                  "type": "boolean"
+                },
+                "is_wiki_enabled": {
+                  "type": "boolean"
+                },
+                "is_initiative_enabled": {
+                  "type": "boolean"
+                },
+                "is_customer_enabled": {
+                  "type": "boolean"
+                },
+                "is_release_enabled": {
+                  "type": "boolean"
+                },
+                "is_state_duration_enabled": {
+                  "type": "boolean"
+                },
+                "is_pi_enabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [],
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit native API generation"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Named connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Plane API base URL"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Authentication mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total operation timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Per-request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Additional trusted CA certificates"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Validate and describe the request without credentials or HTTP"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "Native JSON result"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm this administrative change before credentials or HTTP"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace slug"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "Complete native JSON body from file or - for stdin"
+          },
+          {
+            "name": "is-work-item-types-enabled",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/is_work_item_types_enabled",
+            "description": "Native is_work_item_types_enabled body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "work-item-type-default-level",
+            "type": "integer",
+            "required": false,
+            "binding": "/body/work_item_type_default_level",
+            "description": "Native work_item_type_default_level body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "is-workitem-hierarchy-enabled",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/is_workitem_hierarchy_enabled",
+            "description": "Native is_workitem_hierarchy_enabled body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "is-project-grouping-enabled",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/is_project_grouping_enabled",
+            "description": "Native is_project_grouping_enabled body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "is-teams-enabled",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/is_teams_enabled",
+            "description": "Native is_teams_enabled body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "is-wiki-enabled",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/is_wiki_enabled",
+            "description": "Native is_wiki_enabled body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "is-initiative-enabled",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/is_initiative_enabled",
+            "description": "Native is_initiative_enabled body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "is-customer-enabled",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/is_customer_enabled",
+            "description": "Native is_customer_enabled body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "is-release-enabled",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/is_release_enabled",
+            "description": "Native is_release_enabled body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "is-state-duration-enabled",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/is_state_duration_enabled",
+            "description": "Native is_state_duration_enabled body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "is-pi-enabled",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/is_pi_enabled",
+            "description": "Native is_pi_enabled body field; use --body-file for null or arrays"
+          }
+        ]
+      },
+      "v1": {
+        "method": "PATCH",
+        "route": "/api/v1/workspaces/{workspace_slug}/features/",
+        "response_kind": "native",
+        "scopes": [
+          "workspaces.features:write"
+        ],
+        "sensitivity": {
+          "review": "Permission and feature records declare no one-time secrets or signed upload targets. Preserve native resource values.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [],
+          "signed_form_paths": [],
+          "extension_fields": "Preserve native extension fields; no role inference or numeric role translation."
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "project_grouping": {
+                  "type": "boolean"
+                },
+                "initiatives": {
+                  "type": "boolean"
+                },
+                "teams": {
+                  "type": "boolean"
+                },
+                "customers": {
+                  "type": "boolean"
+                },
+                "wiki": {
+                  "type": "boolean"
+                },
+                "pi": {
+                  "type": "boolean"
+                }
+              },
+              "required": [],
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit native API generation"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Named connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Plane API base URL"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Authentication mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total operation timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Per-request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Additional trusted CA certificates"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Validate and describe the request without credentials or HTTP"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "Native JSON result"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm this administrative change before credentials or HTTP"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace slug"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "Complete native JSON body from file or - for stdin"
+          },
+          {
+            "name": "project-grouping",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/project_grouping",
+            "description": "Native project_grouping body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "initiatives",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/initiatives",
+            "description": "Native initiatives body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "teams",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/teams",
+            "description": "Native teams body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "customers",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/customers",
+            "description": "Native customers body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "wiki",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/wiki",
+            "description": "Native wiki body field; use --body-file for null or arrays"
+          },
+          {
+            "name": "pi",
+            "type": "boolean",
+            "required": false,
+            "binding": "/body/pi",
+            "description": "Native pi body field; use --body-file for null or arrays"
+          }
+        ]
+      }
+    }
+  }
+]

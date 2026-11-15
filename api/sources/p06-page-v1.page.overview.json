@@ -22,5 +22,34 @@
       "details": []
     },
     "excluded_reason": "General guide; no standalone operation."
+  },
+  "overview_reconciliation": {
+    "endpoint_mappings": [],
+    "source_id": "v1:page:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Schema-only overview of workspace/project documents and their collaborative body: id/name/description_html, parent/collection/placement IDs, archive/lock and audit fields. No method/path or endpoint table is declared; collection_id and page_collection_id are fields, not additional collection operations. Existing page CRUD/lifecycle and attachment sources remain separately cataloged.",
+    "referenced_catalog_source_ids": [
+      "v1:page:page-content-html",
+      "v1:page:list-workspace-pages",
+      "v1:page:add-workspace-page",
+      "v1:page:get-workspace-page",
+      "v1:page:update-workspace-page",
+      "v1:page:archive-workspace-page",
+      "v1:page:restore-workspace-page",
+      "v1:page:delete-workspace-page",
+      "v1:page:get-workspace-page-attachment",
+      "v1:page:confirm-workspace-page-attachment-upload",
+      "v1:page:download-workspace-page-attachment",
+      "v1:page:delete-workspace-page-attachment",
+      "v1:page:list-project-pages",
+      "v1:page:add-project-page",
+      "v1:page:get-project-page",
+      "v1:page:update-project-page",
+      "v1:page:archive-project-page",
+      "v1:page:restore-project-page",
+      "v1:page:delete-project-page"
+    ],
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
   }
 }

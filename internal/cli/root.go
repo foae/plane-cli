@@ -17,7 +17,7 @@ import (
 type handler func(*cobra.Command, []string, map[string]any) error
 
 func HandlerIDs() []string {
-	ids := []string{"commands", "schema", "version", "connection-add", "connection-update", "connection-list", "connection-show", "connection-use", "connection-delete", "auth-status", "auth-login", "auth-complete", "auth-logout", "auth-migrate", "user-me"}
+	ids := []string{"commands", "schema", "version", "update-check", "connection-add", "connection-update", "connection-list", "connection-show", "connection-use", "connection-delete", "auth-status", "auth-login", "auth-complete", "auth-logout", "auth-migrate", "user-me"}
 	for id := range projectHandlers() {
 		ids = append(ids, id)
 	}
@@ -102,8 +102,9 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 		"version": func(cmd *cobra.Command, _ []string, _ map[string]any) error {
 			return output.Success(out, commandName(cmd), build)
 		},
-		"commands": commandsHandler(catalog, out),
-		"schema":   schemaHandler(catalog, out),
+		"commands":     commandsHandler(catalog, out),
+		"schema":       schemaHandler(catalog, out),
+		"update-check": updateCheckHandler(build, out, nil),
 		"user-me": func(cmd *cobra.Command, _ []string, _ map[string]any) error {
 			version, err := effectiveAPIVersion(cmd)
 			if err != nil {
@@ -243,6 +244,9 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 				"table_columns":        strings.Join(variant.TableColumns, ","),
 				"side_effect":          d.SideEffect,
 				"empty_success_status": strconv.Itoa(variant.EmptySuccessStatus),
+			}
+			if variant.Route == "{upload_url}" {
+				cmd.Annotations["transport"] = "storage"
 			}
 			if !d.Local {
 				settings, err := effectiveSettings(cmd)

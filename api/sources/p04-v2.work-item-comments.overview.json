@@ -8,5 +8,53 @@
   "retrieval": "curl -A Mozilla/5.0 -fLsS",
   "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
   "classification": "overview",
-  "owner": "P04"
+  "owner": "P04",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:work-item-comments:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.work-item-comments.list-comments",
+        "basis": "Explicit endpoint table: List comments."
+      },
+      {
+        "operation_id": "v2.work-item-comments.get-comment",
+        "basis": "Explicit endpoint table: Get a comment."
+      },
+      {
+        "operation_id": "v2.work-item-comments.create-comment",
+        "basis": "Explicit endpoint table: Create a comment."
+      },
+      {
+        "operation_id": "v2.work-item-comments.update-comment",
+        "basis": "Explicit endpoint table: Update a comment."
+      },
+      {
+        "operation_id": "v2.work-item-comments.delete-comment",
+        "basis": "Explicit endpoint table: Delete a comment."
+      },
+      {
+        "operation_id": "v2.work-item-comments.upsert-comment",
+        "basis": "Explicit endpoint table: Upsert a comment."
+      },
+      {
+        "operation_id": "v2.work-item-comments.bulk-create-comments",
+        "basis": "Explicit endpoint table: Bulk create comments."
+      },
+      {
+        "operation_id": "v2.work-item-comments.bulk-update-comments",
+        "basis": "Explicit endpoint table: Bulk update comments."
+      },
+      {
+        "operation_id": "v2.work-item-comments.bulk-delete-comments",
+        "basis": "Explicit endpoint table: Bulk delete comments."
+      }
+    ],
+    "page_facts": [
+      "All comment routes are work-item subresources; there is no project-wide or workspace-wide comment feed.",
+      "Posting identical HTML or external_id does not deduplicate comments. Replies use parent_id and inherit parent access; access changes use the existing update operation."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

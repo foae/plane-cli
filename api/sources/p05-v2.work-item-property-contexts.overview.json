@@ -5,5 +5,36 @@
   "reviewed_at": "2026-11-14",
   "notes": [
     "Contexts replace required, multiple, default, settings and option constraints in their scope; most specific matching tier wins."
-  ]
+  ],
+  "contract": {
+    "kind": "overview",
+    "reconciliation": {
+      "reviewed_at": "2026-11-15",
+      "disposition": "mapped-existing-operations",
+      "operation_ids": [
+        "v2.work-item-property-contexts.list-property-contexts",
+        "v2.work-item-property-contexts.get-property-context",
+        "v2.work-item-property-contexts.create-property-context",
+        "v2.work-item-property-contexts.update-property-context",
+        "v2.work-item-property-contexts.delete-property-context",
+        "v2.workspace-work-item-properties.create-workspace-work-item-property",
+        "v2.workspace-work-item-property-options.create-workspace-property-option"
+      ],
+      "facts": [
+        "The Endpoints table names the five existing context CRUD operations; the seeded Default context is explicitly readable, updateable and deleteable through those same operations.",
+        "The introduction describes automatic Default context creation with workspace property creation; Options belong to a context describes property option creation targeting the all-projects/all-types context and inline options on context create/update.",
+        "Wildcard flags and explicit project/type lists describe scope validation; four-tier matching chooses one context without merging. There is no resolve or preview endpoint on this page.",
+        "Options omitted during context update are removed with recorded values. Contexts require workspace properties, workspace-mode writes and workspace property scopes."
+      ],
+      "conflicts": [
+        {
+          "section": "Every property already has one context",
+          "excerpt": "Plane seeds a context named `Default` that covers all projects and all work item types",
+          "other_source_url": "https://developers.plane.so/api-reference/v2/workspace-work-item-properties/overview.md",
+          "other_excerpt": "If you skip step 2, the property exists but appears nowhere.",
+          "resolution": "Automatic Default context creation conflicts with the property overview's mandatory manual-context sequence; preserve operation contracts and do not synthesize a second context request."
+        }
+      ]
+    }
+  }
 }

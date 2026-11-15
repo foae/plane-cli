@@ -1,4 +1,51 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Every explicitly tabulated operation is already cataloged; retain this page as overview evidence.",
+    "facts": [
+      "The five endpoint rows describe a workspace catalog under governance and a read-only cross-project view otherwise; triage is excluded.",
+      "Catalog workflow membership and governance migration describe restrictions on these existing writes, not separate operations."
+    ],
+    "operation_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/states/",
+        "operation_ids": [
+          "v2.workspace-states.list-workspace-states"
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/states/{pk}/",
+        "operation_ids": [
+          "v2.workspace-states.get-workspace-state"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/states/",
+        "operation_ids": [
+          "v2.workspace-states.create-workspace-state"
+        ]
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/states/{pk}/",
+        "operation_ids": [
+          "v2.workspace-states.update-workspace-state"
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/states/{pk}/",
+        "operation_ids": [
+          "v2.workspace-states.delete-workspace-state"
+        ]
+      }
+    ]
+  },
   "source_url": "https://developers.plane.so/api-reference/v2/workspace-states/overview.md",
   "classification": "non-operation",
   "review": "Overview resource attributes and links to independently indexed operations; no additional unmatched operation."

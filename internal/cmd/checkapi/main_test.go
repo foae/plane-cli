@@ -19,7 +19,7 @@ func fixture(t *testing.T) {
 		t.Fatal(err)
 	}
 	dest := t.TempDir()
-	for _, name := range []string{"api", "docs/reference", "internal"} {
+	for _, name := range []string{"api", "docs", "internal"} {
 		if err := filepath.WalkDir(filepath.Join(root, name), func(path string, entry os.DirEntry, walkErr error) error {
 			if walkErr != nil {
 				return walkErr
@@ -32,7 +32,7 @@ func fixture(t *testing.T) {
 			if entry.IsDir() {
 				return os.MkdirAll(target, 0755)
 			}
-			if !strings.HasSuffix(path, ".json") && !strings.HasSuffix(path, ".tsv") && !strings.HasSuffix(path, ".go") {
+			if !strings.HasSuffix(path, ".json") && !strings.HasSuffix(path, ".tsv") && !strings.HasSuffix(path, ".go") && !strings.HasSuffix(path, ".md") {
 				return nil
 			}
 			data, err := os.ReadFile(path)
@@ -327,6 +327,43 @@ func TestAliasRequiresResolvedTarget(t *testing.T) {
 	sources["canonical"] = target
 	if resolvedSource(alias, sources, map[string]bool{}) {
 		t.Fatal("cyclic aliases masked missing coverage")
+	}
+}
+
+func TestApprovedUpstreamException(t *testing.T) {
+	for _, disposition := range []string{"operation-source", "evidence-conflict", "supplemental-evidence"} {
+		s := source{ID: "gap", Disposition: disposition, EvidenceStatus: "reviewed-partial", ProvenanceID: "evidence", ReviewResolution: "upstream-contract-gap", CompletionException: "docs/reference/api-contract-gaps.md"}
+		if !resolvedSource(s, nil, map[string]bool{}) {
+			t.Fatalf("documented %s exception did not close reconciliation", disposition)
+		}
+		s.CompletionException = ""
+		if resolvedSource(s, nil, map[string]bool{}) {
+			t.Fatal("undocumented gap closed reconciliation")
+		}
+		s.CompletionException = "docs/reference/api-contract-gaps.md"
+		s.EvidenceStatus = "pending"
+		if resolvedSource(s, nil, map[string]bool{}) {
+			t.Fatal("unreviewed source closed reconciliation")
+		}
+	}
+}
+
+func TestRejectMissingExceptionDocument(t *testing.T) {
+	fixture(t)
+	rewrite(t, "api/catalog.json", func(c map[string]any) {
+		for _, value := range c["sources"].([]any) {
+			s := value.(map[string]any)
+			if s["disposition"] == "operation-source" && s["provenance_id"] != nil {
+				s["evidence_status"] = "reviewed"
+				s["review_resolution"] = "upstream-contract-gap"
+				s["completion_exception"] = "docs/missing-exception.md"
+				return
+			}
+		}
+		t.Fatal("fixture has no reviewed operation source")
+	})
+	if err := run("packet", "P00"); err == nil || !strings.Contains(err.Error(), "completion exception") {
+		t.Fatalf("missing exception document accepted: %v", err)
 	}
 }
 

@@ -1,0 +1,2656 @@
+[
+  {
+    "path": [
+      "workspace-page-attachment",
+      "list"
+    ],
+    "handler": "workspace-page-attachment-list",
+    "summary": "List workspace page attachment",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli workspace-page-attachment list --help"
+    ],
+    "local": false,
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/",
+        "response_kind": "native",
+        "scopes": [
+          "wiki.pages:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "page"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "is_uploaded": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "order_by": {
+                  "type": "string",
+                  "default": "-created_at",
+                  "enum": [
+                    "created_at",
+                    "-created_at",
+                    "id",
+                    "-id"
+                  ]
+                },
+                "per_page": {
+                  "type": "integer",
+                  "default": 50,
+                  "maximum": 200
+                },
+                "offset": {
+                  "type": "integer",
+                  "maximum": 10000
+                },
+                "paginate": {
+                  "type": "string",
+                  "enum": [
+                    "cursor"
+                  ]
+                },
+                "count": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace identifier"
+          },
+          {
+            "name": "page",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/page",
+            "description": "page identifier"
+          },
+          {
+            "name": "is-uploaded",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/is_uploaded",
+            "description": "Documented is_uploaded query parameter"
+          },
+          {
+            "name": "order-by",
+            "type": "string",
+            "required": false,
+            "binding": "/query/order_by",
+            "description": "Documented order_by query parameter"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/per_page",
+            "description": "Documented per_page query parameter"
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/offset",
+            "description": "Documented offset query parameter"
+          },
+          {
+            "name": "paginate",
+            "type": "string",
+            "required": false,
+            "binding": "/query/paginate",
+            "description": "Documented paginate query parameter"
+          },
+          {
+            "name": "count",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/count",
+            "description": "Documented count query parameter"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Documented fields query parameter"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "workspace-page-attachment",
+      "get"
+    ],
+    "handler": "workspace-page-attachment-get",
+    "summary": "Get workspace page attachment",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli workspace-page-attachment get --help"
+    ],
+    "local": false,
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "wiki.pages:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "page",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace identifier"
+          },
+          {
+            "name": "page",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/page",
+            "description": "page identifier"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Documented fields query parameter"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      },
+      "v1": {
+        "method": "GET",
+        "route": "/api/v1/workspaces/{workspace_slug}/pages/{page_id}/attachments/{attachment_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "read",
+          "wiki.pages:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "page",
+                "id"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace identifier"
+          },
+          {
+            "name": "page",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/page",
+            "description": "page identifier"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "workspace-page-attachment",
+      "create-upload"
+    ],
+    "handler": "workspace-page-attachment-create-upload",
+    "summary": "Issue upload credentials (sensitive signed JSON; use --secret-output-file for protected delivery)",
+    "side_effect": "write",
+    "examples": [
+      "plane-cli workspace-page-attachment create-upload --help"
+    ],
+    "local": false,
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/",
+        "response_kind": "native",
+        "scopes": [
+          "wiki.pages:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "secret-output-file": {
+                  "type": "string"
+                },
+                "overwrite": {
+                  "type": "boolean"
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "page"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "type": {
+                  "type": "string",
+                  "default": "application/octet-stream"
+                }
+              },
+              "required": [
+                "name",
+                "size"
+              ],
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace identifier"
+          },
+          {
+            "name": "page",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/page",
+            "description": "page identifier"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "JSON body file"
+          },
+          {
+            "name": "secret-output-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/secret-output-file",
+            "description": "Deliver sensitive signed JSON to a protected owner-only file instead of stdout"
+          },
+          {
+            "name": "overwrite",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/overwrite",
+            "description": "Replace existing protected output only with --yes"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm destructive operation or protected output replacement"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Documented fields query parameter"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [
+            "/upload_data/url",
+            "/upload_data/fields",
+            "/asset_url"
+          ],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": true,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "workspace-page-attachment",
+      "confirm-upload"
+    ],
+    "handler": "workspace-page-attachment-confirm-upload",
+    "summary": "Confirm upload workspace page attachment",
+    "side_effect": "write",
+    "examples": [
+      "plane-cli workspace-page-attachment confirm-upload --help"
+    ],
+    "local": false,
+    "versions": {
+      "v2": {
+        "method": "PATCH",
+        "route": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "wiki.pages:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "page",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "is_uploaded": {
+                  "type": "boolean",
+                  "default": true
+                }
+              },
+              "required": [],
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace identifier"
+          },
+          {
+            "name": "page",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/page",
+            "description": "page identifier"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "JSON body file"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Documented fields query parameter"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      },
+      "v1": {
+        "method": "PATCH",
+        "route": "/api/v1/workspaces/{workspace_slug}/pages/{page_id}/attachments/{attachment_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "write",
+          "wiki.pages:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "page",
+                "id"
+              ]
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "is_uploaded": {
+                  "type": "boolean",
+                  "default": true
+                }
+              },
+              "required": [],
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace identifier"
+          },
+          {
+            "name": "page",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/page",
+            "description": "page identifier"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "JSON body file"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "workspace-page-attachment",
+      "delete"
+    ],
+    "handler": "workspace-page-attachment-delete",
+    "summary": "Delete workspace page attachment",
+    "side_effect": "destructive",
+    "examples": [
+      "plane-cli workspace-page-attachment delete --help"
+    ],
+    "local": false,
+    "versions": {
+      "v2": {
+        "method": "DELETE",
+        "route": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "wiki.pages:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "page",
+                "id"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace identifier"
+          },
+          {
+            "name": "page",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/page",
+            "description": "page identifier"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm destructive operation or protected output replacement"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      },
+      "v1": {
+        "method": "DELETE",
+        "route": "/api/v1/workspaces/{workspace_slug}/pages/{page_id}/attachments/{attachment_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "write",
+          "wiki.pages:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "page",
+                "id"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace identifier"
+          },
+          {
+            "name": "page",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/page",
+            "description": "page identifier"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm destructive operation or protected output replacement"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "workspace-page-attachment",
+      "upload"
+    ],
+    "handler": "workspace-page-attachment-upload",
+    "summary": "Stream a local file through metadata, credential-free storage and confirmation; no retries",
+    "side_effect": "write",
+    "examples": [
+      "plane-cli workspace-page-attachment upload --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "POST",
+        "route": "/api/v1/workspaces/{workspace_slug}/assets/",
+        "response_kind": "native",
+        "scopes": [
+          "assets:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "page": {
+                  "type": "string"
+                },
+                "file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "page",
+                "file"
+              ]
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "project_id": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "external_source": {
+                  "type": "string"
+                },
+                "name": false,
+                "size": false,
+                "entity_type": false,
+                "entity_identifier": false
+              },
+              "required": [],
+              "additionalProperties": true,
+              "description": "PAGE_DESCRIPTION requires entity_identifier identifying a workspace/wiki page. project_id does not establish project-page attachment support."
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace identifier"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "JSON body file"
+          },
+          {
+            "name": "page",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/page",
+            "description": "page"
+          },
+          {
+            "name": "file",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/file",
+            "description": "Regular local file; basename and byte size become upload metadata"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      },
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/",
+        "response_kind": "native",
+        "scopes": [
+          "wiki.pages:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "page",
+                "file"
+              ]
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "default": "application/octet-stream"
+                },
+                "name": false,
+                "size": false
+              },
+              "required": [],
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace identifier"
+          },
+          {
+            "name": "page",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/page",
+            "description": "page identifier"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "JSON body file"
+          },
+          {
+            "name": "file",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/file",
+            "description": "Regular local file; basename and byte size become upload metadata"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "workspace-page-attachment",
+      "download"
+    ],
+    "handler": "workspace-page-attachment-download",
+    "summary": "Download through isolated storage into an atomic owner-only destination",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli workspace-page-attachment download --help"
+    ],
+    "versions": {
+      "v1": {
+        "method": "GET",
+        "route": "/api/v1/workspaces/{workspace_slug}/pages/{page_id}/attachments/{attachment_id}/download/",
+        "response_kind": "native",
+        "scopes": [
+          "read",
+          "wiki.pages:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "output-file": {
+                  "type": "string"
+                },
+                "overwrite": {
+                  "type": "boolean"
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "page",
+                "id",
+                "output-file"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace identifier"
+          },
+          {
+            "name": "page",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/page",
+            "description": "page identifier"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          },
+          {
+            "name": "output-file",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/output-file",
+            "description": "output file"
+          },
+          {
+            "name": "overwrite",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/overwrite",
+            "description": "overwrite"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      },
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/download/",
+        "response_kind": "native",
+        "scopes": [
+          "wiki.pages:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "output-file": {
+                  "type": "string"
+                },
+                "overwrite": {
+                  "type": "boolean"
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "page",
+                "id",
+                "output-file"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace identifier"
+          },
+          {
+            "name": "page",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/page",
+            "description": "page identifier"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          },
+          {
+            "name": "output-file",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/output-file",
+            "description": "output file"
+          },
+          {
+            "name": "overwrite",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/overwrite",
+            "description": "overwrite"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  }
+]

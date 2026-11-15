@@ -1,0 +1,575 @@
+[
+  {
+    "path": [
+      "audit-log",
+      "list"
+    ],
+    "handler": "audit-log-list",
+    "summary": "List audit log",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli audit-log list --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/audit-logs/",
+        "pagination": "v2",
+        "response_kind": "native",
+        "scopes": [
+          "workspaces.audit_logs:read"
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "all": {
+                  "type": "boolean"
+                },
+                "max-pages": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "created_after": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "created_before": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "actor_id": {
+                  "type": "string"
+                },
+                "event_name": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "outcome": {
+                  "type": "string"
+                },
+                "target_type": {
+                  "type": "string"
+                },
+                "target_id": {
+                  "type": "string"
+                },
+                "ip_address": {
+                  "type": "string"
+                },
+                "search": {
+                  "type": "string"
+                },
+                "order_by": {
+                  "type": "string"
+                },
+                "per_page": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "paginate": {
+                  "type": "string"
+                },
+                "count": {
+                  "type": "boolean"
+                },
+                "fields": {
+                  "type": "string"
+                },
+                "cursor": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "all",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/all",
+            "description": "all"
+          },
+          {
+            "name": "max-pages",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/max-pages",
+            "description": "Maximum aggregate pages (default 1000)"
+          },
+          {
+            "name": "created-after",
+            "type": "string",
+            "binding": "/query/created_after",
+            "description": "Native created_after query parameter"
+          },
+          {
+            "name": "created-before",
+            "type": "string",
+            "binding": "/query/created_before",
+            "description": "Native created_before query parameter"
+          },
+          {
+            "name": "actor-id",
+            "type": "string",
+            "binding": "/query/actor_id",
+            "description": "Native actor_id query parameter"
+          },
+          {
+            "name": "event-name",
+            "type": "string",
+            "binding": "/query/event_name",
+            "description": "Native event_name query parameter"
+          },
+          {
+            "name": "category",
+            "type": "string",
+            "binding": "/query/category",
+            "description": "Native category query parameter"
+          },
+          {
+            "name": "outcome",
+            "type": "string",
+            "binding": "/query/outcome",
+            "description": "Native outcome query parameter"
+          },
+          {
+            "name": "target-type",
+            "type": "string",
+            "binding": "/query/target_type",
+            "description": "Native target_type query parameter"
+          },
+          {
+            "name": "target-id",
+            "type": "string",
+            "binding": "/query/target_id",
+            "description": "Native target_id query parameter"
+          },
+          {
+            "name": "ip-address",
+            "type": "string",
+            "binding": "/query/ip_address",
+            "description": "Native ip_address query parameter"
+          },
+          {
+            "name": "search",
+            "type": "string",
+            "binding": "/query/search",
+            "description": "Native search query parameter"
+          },
+          {
+            "name": "order-by",
+            "type": "string",
+            "binding": "/query/order_by",
+            "description": "Native order_by query parameter"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "binding": "/query/per_page",
+            "description": "Native per_page query parameter"
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "binding": "/query/offset",
+            "description": "Native offset query parameter"
+          },
+          {
+            "name": "paginate",
+            "type": "string",
+            "binding": "/query/paginate",
+            "description": "Native paginate query parameter"
+          },
+          {
+            "name": "count",
+            "type": "boolean",
+            "binding": "/query/count",
+            "description": "Native count query parameter"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "binding": "/query/fields",
+            "description": "Native fields query parameter"
+          },
+          {
+            "name": "cursor",
+            "type": "string",
+            "binding": "/query/cursor",
+            "description": "Native cursor query parameter"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": [
+      "audit-log",
+      "get"
+    ],
+    "handler": "audit-log-get",
+    "summary": "Get audit log",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli audit-log get --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/audit-logs/{pk}/",
+        "pagination": "none",
+        "response_kind": "native",
+        "scopes": [
+          "workspaces.audit_logs:read"
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        },
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "yes"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "workspace"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "binding": "/query/fields",
+            "description": "Native fields query parameter"
+          }
+        ]
+      }
+    }
+  }
+]

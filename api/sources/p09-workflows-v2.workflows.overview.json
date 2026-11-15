@@ -4,5 +4,110 @@
   "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
   "notes": [
     "Overview establishes the scope-specific workflow domain and associated operation sources."
-  ]
+  ],
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/",
+        "description": "List workflows",
+        "catalog_operation_ids": [
+          "v2.workflows.list-workflows"
+        ],
+        "catalog_source_ids": [
+          "v2:workflows:list-workflows"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{pk}/",
+        "description": "Get a workflow",
+        "catalog_operation_ids": [
+          "v2.workflows.get-workflow"
+        ],
+        "catalog_source_ids": [
+          "v2:workflows:get-workflow"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/",
+        "description": "Create a workflow",
+        "catalog_operation_ids": [
+          "v2.workflows.create-workflow"
+        ],
+        "catalog_source_ids": [
+          "v2:workflows:create-workflow"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{pk}/",
+        "description": "Update a workflow",
+        "catalog_operation_ids": [
+          "v2.workflows.update-workflow"
+        ],
+        "catalog_source_ids": [
+          "v2:workflows:update-workflow"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{pk}/",
+        "description": "Delete a workflow",
+        "catalog_operation_ids": [
+          "v2.workflows.delete-workflow"
+        ],
+        "catalog_source_ids": [
+          "v2:workflows:delete-workflow"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/activities/",
+        "description": "List workflow activities",
+        "catalog_operation_ids": [
+          "v2.workflow-activities.list-workflow-activities"
+        ],
+        "catalog_source_ids": [
+          "v2:workflow-activities:list-workflow-activities"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/activities/{pk}/",
+        "description": "Get a workflow activity",
+        "catalog_operation_ids": [
+          "v2.workflow-activities.get-workflow-activity"
+        ],
+        "catalog_source_ids": [
+          "v2:workflow-activities:get-workflow-activity"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflow-fallback-preview/",
+        "description": "Preview a workflow fallback",
+        "catalog_operation_ids": [
+          "v2.workflows.preview-workflow-fallback"
+        ],
+        "catalog_source_ids": [
+          "v2:workflows:preview-workflow-fallback"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:workflows:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "The eight endpoint rows reconcile to six existing workflow operations plus the two workflow-activity operations in their separate family. State/transition/hook links cross-reference existing families, not extra operations. Project routes do not expose catalog workflows (404); fallback preview and project type picks require governance. No new operation is introduced by these explanations.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
 }

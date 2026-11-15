@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "reconciliation_snapshot": "Missing-handler notes describe pre-change requirements; implementation status records the resulting patch. Acceptance is authored, not executed.",
+  "source_id": "v2:workspace-assets:overview",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-assets/overview.md",
+  "reviewed_at": "2026-11-15",
+  "source_sha256": "974ff4d64bc138f66b16f8275d54186c8df4cdc2d4b45c445ef8cd163767eb14",
+  "source_bytes": 2896,
+  "retention": "Independently authored contract; raw documentation not redistributed.",
+  "verification": "Source and implementation inspected; no tests run; planner review unchanged.",
+  "resolution": "non-operation",
+  "contract": {
+    "kind": "resource-overview",
+    "endpoints": [
+      [
+        "GET",
+        "/api/v2/workspaces/{slug}/assets/"
+      ],
+      [
+        "GET",
+        "/api/v2/workspaces/{slug}/assets/{pk}/"
+      ],
+      [
+        "POST",
+        "/api/v2/workspaces/{slug}/assets/"
+      ],
+      [
+        "DELETE",
+        "/api/v2/workspaces/{slug}/assets/{pk}/"
+      ],
+      [
+        "PATCH",
+        "/api/v2/workspaces/{slug}/assets/{pk}/"
+      ]
+    ],
+    "response_shaping": "Object reads accept fields; shared problem+json errors.",
+    "notes": []
+  },
+  "existing_operation_mappings": [
+    {
+      "operation_id": "v2.workspace-assets.list-workspace-assets",
+      "version": "v2",
+      "method": "GET",
+      "path": "/api/v2/workspaces/{slug}/assets/",
+      "command_path": [
+        "workspace-asset",
+        "list"
+      ]
+    },
+    {
+      "operation_id": "v2.workspace-assets.get-asset",
+      "version": "v2",
+      "method": "GET",
+      "path": "/api/v2/workspaces/{slug}/assets/{pk}/",
+      "command_path": [
+        "workspace-asset",
+        "get"
+      ]
+    },
+    {
+      "operation_id": "v2.workspace-assets.create-workspace-asset",
+      "version": "v2",
+      "method": "POST",
+      "path": "/api/v2/workspaces/{slug}/assets/",
+      "command_path": [
+        "workspace-asset",
+        "create-upload"
+      ]
+    },
+    {
+      "operation_id": "v2.workspace-assets.delete-asset",
+      "version": "v2",
+      "method": "DELETE",
+      "path": "/api/v2/workspaces/{slug}/assets/{pk}/",
+      "command_path": [
+        "workspace-asset",
+        "delete"
+      ]
+    },
+    {
+      "operation_id": "v2.workspace-assets.confirm-workspace-asset",
+      "version": "v2",
+      "method": "PATCH",
+      "path": "/api/v2/workspaces/{slug}/assets/{pk}/",
+      "command_path": [
+        "workspace-asset",
+        "confirm-upload"
+      ]
+    }
+  ],
+  "missing_handler_behavior": [],
+  "contract_conflicts": [],
+  "implementation_evidence": [
+    "internal/cli/content_assets.go:13-65",
+    "internal/cli/asset_transfers.go:103-200",
+    "internal/cli/asset_transfers.go:202-267",
+    "internal/cli/content_assets_test.go:30-114",
+    "internal/cli/testdata/p06-asset-native-wire.json",
+    "internal/cli/asset_transfers_test.go:54-61"
+  ],
+  "v1_v2_equivalence_claimed": false,
+  "implementation_status": "reviewed source; no verification promotion",
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/assets/",
+        "description": "List workspace assets",
+        "catalog_operation_ids": [
+          "v2.workspace-assets.list-workspace-assets"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-assets:list-workspace-assets"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/assets/{pk}/",
+        "description": "Get an asset",
+        "catalog_operation_ids": [
+          "v2.workspace-assets.get-asset"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-assets:get-asset"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/assets/",
+        "description": "Create a workspace asset upload",
+        "catalog_operation_ids": [
+          "v2.workspace-assets.create-workspace-asset"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-assets:create-workspace-asset"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/assets/{pk}/",
+        "description": "Delete an asset",
+        "catalog_operation_ids": [
+          "v2.workspace-assets.delete-asset"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-assets:delete-asset"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/assets/{pk}/",
+        "description": "Confirm a workspace asset upload",
+        "catalog_operation_ids": [
+          "v2.workspace-assets.confirm-workspace-asset"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-assets:confirm-workspace-asset"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:workspace-assets:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Five endpoint rows repeat existing workspace asset list/get/create-upload/delete/confirm operations. entity_type and relative-or-null asset_url describe the object, not additional entity-specific routes.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
+}

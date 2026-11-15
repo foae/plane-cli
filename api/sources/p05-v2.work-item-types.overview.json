@@ -2,6 +2,41 @@
   "source_url": "https://developers.plane.so/api-reference/v2/work-item-types/overview.md",
   "source_sha256": "371e9d855cf516b630ca7b0908fcf7102532c6752c8fceb86b0c82fb672a2da1",
   "contract": {
-    "kind": "overview"
+    "kind": "overview",
+    "reconciliation": {
+      "reviewed_at": "2026-11-15",
+      "disposition": "mapped-existing-operations",
+      "operation_ids": [
+        "v2.work-item-types.list-work-item-types",
+        "v2.work-item-types.get-work-item-type",
+        "v2.work-item-types.get-work-item-type-schema",
+        "v2.work-item-types.create-work-item-type",
+        "v2.work-item-types.update-work-item-type",
+        "v2.work-item-types.delete-work-item-type",
+        "v2.work-item-types.enable-work-item-types",
+        "v2.work-item-types.import-work-item-types",
+        "v2.work-item-types.mark-default-work-item-type",
+        "v2.work-item-properties.create-work-item-property",
+        "v2.work-item-type-properties.attach-type-property",
+        "v2.work-items.create-work-item",
+        "v2.work-item-type-governance.update-work-item-type-governance",
+        "v2.workspace-work-item-types.list-workspace-work-item-types"
+      ],
+      "facts": [
+        "The Endpoints table names all nine existing project type operations, including enable, import, mark-default and the per-type schema route; none is a new operation.",
+        "The project-mode lifecycle explicitly orders enable, type create, project property create, attach and schema read, then work item creation using type_id and custom_fields.",
+        "The governance_mode attribute links its separate governance update operation, and the mode warning links workspace type listing as the other surface; the remaining attributes explain the type response resource.",
+        "Reads work in either mode; project writes normally require project mode, import requires workspace mode, and mark-default and is_active-only updates are exceptions."
+      ],
+      "conflicts": [
+        {
+          "section": "The project-mode lifecycle, step 4",
+          "excerpt": "this is where you decide whether it is required for that type",
+          "other_source_url": "https://developers.plane.so/api-reference/v2/work-item-type-properties/overview.md",
+          "other_excerpt": "It only accepts a list of ids.",
+          "resolution": "Do not infer per-attachment settings from the lifecycle prose; preserve the existing attach operation contract."
+        }
+      ]
+    }
   }
 }

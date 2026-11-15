@@ -117,7 +117,7 @@ func apiRequest(cmd *cobra.Command, method string, segments []string, query url.
 func apiTransportError(cmd *cobra.Command, version string, err error) error {
 	var remote *httpx.Error
 	if errors.As(err, &remote) {
-		return &output.Error{Code: remote.Code, Message: remote.Message, Command: commandName(cmd), Exit: remote.Exit, APIVersion: version, HTTPStatus: remote.Status, RetryAfterSeconds: remote.RetryAfterSeconds, OutcomeUnknown: remote.OutcomeUnknown}
+		return &output.Error{Code: remote.Code, Message: remote.Message, Command: commandName(cmd), Exit: remote.Exit, APIVersion: version, HTTPStatus: remote.Status, UpstreamCode: remote.UpstreamCode, RetryAfterSeconds: remote.RetryAfterSeconds, OutcomeUnknown: remote.OutcomeUnknown}
 	}
 	return &output.Error{Code: "transport_error", Message: "API request failed", Command: commandName(cmd), Exit: 4, APIVersion: version}
 }

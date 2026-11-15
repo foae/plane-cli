@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/expanding-relations.md",
+  "reviewed_at": "2026-11-15",
+  "contract": {
+    "parameter": "expand",
+    "encoding": "comma-separated relation names",
+    "semantics": "add relation key beside stable *_id or *_ids; never replace identifier; fields selection independently may omit id key",
+    "allowlists": {
+      "work_items": [
+        "state",
+        "type",
+        "parent",
+        "assignees",
+        "labels",
+        "cycle",
+        "modules",
+        "estimate_point"
+      ],
+      "projects": [
+        "project_lead",
+        "default_assignee"
+      ],
+      "cycles": [
+        "owned_by"
+      ],
+      "modules": [
+        "lead",
+        "members"
+      ],
+      "initiatives": [
+        "lead"
+      ],
+      "teamspaces": [
+        "lead"
+      ],
+      "releases_and_project_releases": [
+        "lead",
+        "tag"
+      ],
+      "estimates": [
+        "points"
+      ],
+      "comments_activities_votes": [
+        "actor"
+      ],
+      "worklogs": [
+        "logged_by"
+      ],
+      "pages": [
+        "owned_by",
+        "parent"
+      ],
+      "work_item_pages": [
+        "page"
+      ],
+      "collections": [
+        "owned_by"
+      ],
+      "views": [
+        "owned_by"
+      ],
+      "members": [
+        "member"
+      ],
+      "roles": [
+        "permission_schemes"
+      ],
+      "notifications": [
+        "triggered_by"
+      ]
+    },
+    "child_lists": "inherit returned resource's allowlist",
+    "undeclared_values": "400 invalid_request, including all values for resources with no expansions",
+    "to_many_empty": [],
+    "to_one_unset": null,
+    "nested_expansion": false,
+    "writes": "identifiers only, not nested relation creation",
+    "resolution": "Retain native expanded JSON. Do not infer expand for governance/workflow bespoke bodies."
+  }
+}

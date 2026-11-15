@@ -1,4 +1,15 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Resource/schema guidance does not establish a new HTTP operation.",
+    "facts": [
+      "The body defines a work-item object including priority, state, assignees, labels, type, module, parent, is_draft and archived_at, plus a sample object.",
+      "The expand parameter names type, module, labels, assignees, state and project; these are retrieval shaping guidance, not separate operations. No concrete method/path or new action is specified."
+    ],
+    "operation_mappings": []
+  },
   "schema_version": 1,
   "source_url": "https://developers.plane.so/api-reference/issue/overview.md",
   "reviewed_at": "2026-11-14",

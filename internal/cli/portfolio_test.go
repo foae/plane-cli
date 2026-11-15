@@ -135,6 +135,37 @@ func TestP07PortfolioRequests(t *testing.T) {
 	}
 }
 
+func TestP07PortfolioManualCursor(t *testing.T) {
+	catalog, err := spec.Load()
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, tc := range []struct{ group, path string }{
+		{"initiative", "/api/v2/workspaces/team/initiatives/"},
+		{"initiative-label", "/api/v2/workspaces/team/initiatives/labels/"},
+		{"teamspace", "/api/v2/workspaces/team/teamspaces/"},
+	} {
+		t.Run(tc.group, func(t *testing.T) {
+			transportEnv(t)
+			calls := 0
+			server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				calls++
+				if r.Method != http.MethodGet || r.URL.RequestURI() != tc.path+"?cursor=b3A9MTcx&per_page=25" {
+					t.Errorf("unexpected continuation request: %s %s", r.Method, r.URL.RequestURI())
+				}
+				w.Header().Set("Content-Type", "application/json")
+				_, _ = io.WriteString(w, `{"data":[{"id":"continued-item"}],"next_cursor":null,"has_more":false,"pagination":{"style":"cursor"}}`)
+			}))
+			defer server.Close()
+			args := []string{tc.group, "list", "--api-version", "v2", "--auth-mode", "external", "--base-url", server.URL, "--workspace", "team", "--cursor", "b3A9MTcx", "--per-page", "25"}
+			code, out, stderr := invoke(t, catalog, args, nil)
+			if code != 0 || calls != 1 || stderr != "" || !strings.Contains(out, `"id":"continued-item"`) {
+				t.Fatalf("manual continuation failed: code=%d calls=%d out=%s err=%s", code, calls, out, stderr)
+			}
+		})
+	}
+}
+
 func TestP07PortfolioReplacementConfirmation(t *testing.T) {
 	catalog, err := spec.Load()
 	if err != nil {

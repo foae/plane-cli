@@ -2,5 +2,16 @@
   "source_url": "https://developers.plane.so/api-reference/module/overview.md",
   "source_sha256": "4639a1589df868fa7b2793bb0db2e37e93e4272d9e8a691d84a7bde3fbf0f223",
   "kind": "resource-overview",
-  "interpretation": "Resource overview; operation contracts are recorded separately."
+  "interpretation": "Resource overview; operation contracts are recorded separately.",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v1:module:overview",
+    "disposition": "resource-schema-only",
+    "operation_mappings": [],
+    "page_facts": [
+      "The body defines grouped project work with a six-value status enum, start/target dates, lead, member IDs, archive timestamp and description representations.",
+      "These are object attributes and an example, not callable HTTP instructions; no endpoint table appears."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

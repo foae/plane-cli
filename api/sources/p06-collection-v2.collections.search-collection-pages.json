@@ -1,6 +1,14 @@
 {
   "source_url": "https://developers.plane.so/api-reference/v2/collections/search-collection-pages.md",
   "source_sha256": "97c8d3dc66bc53259c6336014b5ee722e4b83cd49cddb776116d8548900786e9",
+  "implementation_decision": {
+    "disposition": "native-pass-through",
+    "operation_id": "v2.collections.search-collection-pages",
+    "notes": [
+      "The official 200 example is a single object with id, logo_props, and name. Preserve it without inventing an array, envelope, or completeness guarantee.",
+      "Only optional fields is documented. No search, q, expand, cursor, offset, or v1 search semantics are imported."
+    ]
+  },
   "contract": {
     "kind": "operation",
     "method": "GET",

@@ -27,7 +27,7 @@ func TestActualMakeReleaseRecipesInTemporaryRepository(t *testing.T) {
 		}
 		put(t, c.root, relative, string(data))
 	}
-	for _, path := range []string{"Makefile", "tools/versions.mk", "go.mod", "go.sum"} {
+	for _, path := range []string{"Makefile", "tools/versions.mk", "go.mod", "go.sum", "internal/semver/version.go"} {
 		copyFile(filepath.Join(repository, path), path)
 	}
 	entries, err := os.ReadDir(sourceDir)

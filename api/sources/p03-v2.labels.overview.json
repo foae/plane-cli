@@ -1,4 +1,79 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Every explicitly tabulated operation is already cataloged; retain this page as overview evidence.",
+    "facts": [
+      "The nine endpoint rows cover project label CRUD, upsert, and bulk operations.",
+      "parent_id nesting is metadata rather than inheritance. Governed writes return workspace_managed; the page explicitly says v2 has no workspace label routes and no undelete endpoint."
+    ],
+    "operation_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/",
+        "operation_ids": [
+          "v2.labels.list-labels"
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/{pk}/",
+        "operation_ids": [
+          "v2.labels.get-label"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/",
+        "operation_ids": [
+          "v2.labels.create-label"
+        ]
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/{pk}/",
+        "operation_ids": [
+          "v2.labels.update-label"
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/{pk}/",
+        "operation_ids": [
+          "v2.labels.delete-label"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/upsert/",
+        "operation_ids": [
+          "v2.labels.upsert-label"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/bulk-create/",
+        "operation_ids": [
+          "v2.labels.bulk-create-labels"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/bulk-update/",
+        "operation_ids": [
+          "v2.labels.bulk-update-labels"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/labels/bulk-delete/",
+        "operation_ids": [
+          "v2.labels.bulk-delete-labels"
+        ]
+      }
+    ]
+  },
   "source_url": "https://developers.plane.so/api-reference/v2/labels/overview.md",
   "classification": "non-operation",
   "review": "Overview resource attributes and links to independently indexed operations; no additional unmatched operation."

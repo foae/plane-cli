@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/introduction.md",
+  "reviewed_at": "2026-11-15",
+  "contract": {
+    "base_url": "https://api.plane.so",
+    "self_hosted_base": "instance URL",
+    "path_prefix": "/api/v2/",
+    "trailing_slash": true,
+    "representation": "JSON",
+    "identity_probe": {
+      "method": "GET",
+      "path": "/api/v2/users/me/",
+      "workspace_required": false,
+      "project_required": false
+    },
+    "schema_discovery": {
+      "method": "GET",
+      "path": "/api/v2/schema/"
+    },
+    "resolution": "General conventions, not a new operation inventory; existing operation-specific contracts remain authoritative."
+  }
+}

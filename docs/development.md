@@ -42,7 +42,7 @@ Runtime dependency pins belong in `go.mod`, not the tool pin file. The initial d
 | `docs-check` | Offline local links and examples/catalog consistency | None |
 | `generate` | Regenerate committed embedded metadata from the reviewed catalog | `internal/spec/catalog.gen.json` |
 | `check` | fmt-check, lint, test, mod-check, api-check, docs-check, version-check | No source writes; installed tools required |
-| `race` | `CGO_ENABLED=1 go test -race ./...` | Test temp/cache; supported host and C compiler |
+| `race` | `CGO_ENABLED=1 go test -race -timeout=20m ./...` | Test temp/cache; supported host and C compiler; full-catalog validation exceeds Go's default timeout |
 | `security` | `.bin/govulncheck ./...` reachable-advisory scan | Cache/network; installed tools required |
 | `fuzz` | One named fuzz target in one explicit package for bounded seconds | Fuzz cache; explicit package/target required |
 | `build` | Build `./cmd/plane-cli` into `bin/plane-cli` | Host build output |
@@ -52,7 +52,7 @@ Runtime dependency pins belong in `go.mod`, not the tool pin file. The initial d
 | `release-prepare` | Update version/notes and consume fragments | Clean tree; explicit `VERSION`; no tags/publication |
 | `version-check` | Validate version/history and optional PR release impact | Read-only; `BASE` enables change-set check |
 
-`snapshot` is P10 work and is not implemented or represented by a no-op target. Archives/checksums and publishing are outside P00.
+`make snapshot` packages four binary archives, the matching portable skill, checksums, provenance metadata and a rendered Homebrew formula into a new `ARTIFACT_DIR` (default `dist/snapshot`). `make artifact-check` verifies headers/checksums and runs the packaged host CLI/skill recipes against fake servers. `make package-release` additionally requires clean exact-tagged source; neither recipe publishes anything. See [release acceptance](releases.md#artifact-verification).
 
 P10a provides SemVer change-entry, version-plan, release-preparation and check recipes. [Releases](releases.md#version-policy-and-tooling) defines the single version source, per-work-item release-impact policy and clean-tag build identity. No git hooks or automatic tag/publish step.
 
@@ -82,6 +82,11 @@ go run ./internal/cmd/checkapi --release
 ```
 
 The checker entry points are `./internal/cmd/checkapi`, `./internal/cmd/checkdocs`, and `./internal/cmd/genspec`. Packet mode explicitly names the completed operation set and reports pending scope; passing P00 does not claim full API coverage. Release mode requires full verified coverage and is not the P00 gate. Generation is explicit and offline; build/install/startup use committed embedded metadata without repository-relative reads or generation. Review catalog/provenance and generated metadata changes together.
+
+Edit the small source files under `api/catalog/`, not the generated
+`api/catalog.json` aggregate. `make generate` assembles those shards and the
+embedded runtime metadata together; packet and release checks reject a stale
+aggregate. See [the metadata layout](../api/README.md).
 
 ### Race, security and fuzzing
 

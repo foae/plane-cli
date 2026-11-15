@@ -54,12 +54,13 @@ func openAssetSession(cmd *cobra.Command) (assetSession, error) {
 
 func assetTransferHandlers() map[string]handler {
 	handlers := map[string]handler{}
+	handlers["attachment-upload-file"] = uploadAttachmentFile
 	for _, group := range []string{"attachment", "workspace-page-attachment", "user-asset", "workspace-asset"} {
 		handlers[group+"-upload"] = func(cmd *cobra.Command, _ []string, input map[string]any) error {
 			return uploadAsset(cmd, group, input)
 		}
 	}
-	for _, group := range []string{"workspace-page-attachment", "workspace-asset"} {
+	for _, group := range []string{"attachment", "workspace-page-attachment", "workspace-asset"} {
 		handlers[group+"-download"] = func(cmd *cobra.Command, _ []string, input map[string]any) error {
 			return downloadAsset(cmd, group, input)
 		}
@@ -199,6 +200,61 @@ func uploadAsset(cmd *cobra.Command, group string, input map[string]any) error {
 	}
 	return nil
 }
+
+// uploadAttachmentFile is the documented v1 storage phase. Its credentials are
+// supplied explicitly because the v1 credential response envelope is unspecified.
+func uploadAttachmentFile(cmd *cobra.Command, _ []string, input map[string]any) error {
+	flags := input["flags"].(map[string]any)
+	body, err := resourceBody(cmd, input)
+	if err != nil {
+		return err
+	}
+	var credential struct {
+		URL    string            `json:"url"`
+		Fields map[string]string `json:"fields"`
+	}
+	if json.Unmarshal(body, &credential) != nil || credential.URL == "" {
+		return assetFailure(cmd, "usage_error", "Upload credentials require url and fields", 2)
+	}
+	for _, key := range []string{"Content-Type", "key", "policy", "x-amz-signature"} {
+		if credential.Fields[key] == "" {
+			return assetFailure(cmd, "usage_error", "Upload credentials are missing a required form field", 2)
+		}
+	}
+	file, err := os.OpenFile(flags["file"].(string), os.O_RDONLY|syscall.O_NONBLOCK, 0)
+	if err != nil {
+		return assetFailure(cmd, "usage_error", "Cannot open upload file", 2)
+	}
+	defer func() { _ = file.Close() }()
+	info, err := file.Stat()
+	if err != nil || !info.Mode().IsRegular() {
+		return assetFailure(cmd, "usage_error", "Upload source must be a regular file", 2)
+	}
+	dry, _ := cmd.Flags().GetBool("dry-run")
+	if dry {
+		return output.Success(cmd.OutOrStdout(), commandName(cmd), map[string]any{"dry_run": true, "phase": "storage", "size": info.Size()})
+	}
+	settings, err := effectiveSettings(cmd)
+	if err != nil {
+		return err
+	}
+	storage, err := httpx.New("http://storage.invalid", 0, settings.CAFile)
+	if err != nil {
+		return assetFailure(cmd, "configuration_error", "Could not initialize storage transport", 1)
+	}
+	if err := storage.Upload(cmd.Context(), credential.URL, credential.Fields, filepath.Base(file.Name()), file, info.Size()); err != nil {
+		return apiTransportError(cmd, "v1", err)
+	}
+	if err := output.Success(cmd.OutOrStdout(), commandName(cmd), map[string]any{"phase": "storage", "size": info.Size(), "confirmation_required": true}); err != nil {
+		e := assetFailure(cmd, "partial_failure", "Storage upload succeeded but result delivery failed", 6)
+		e.APIVersion = "v1"
+		e.RemoteChanged = true
+		e.Phase = "storage"
+		e.Recovery = "Storage upload completed; do not repeat it. Explicitly confirm the attachment using the ID from the preceding credential request."
+		return e
+	}
+	return nil
+}
 func downloadAsset(cmd *cobra.Command, group string, input map[string]any) error {
 	flags := input["flags"].(map[string]any)
 	version := flags["api-version"].(string)
@@ -228,26 +284,35 @@ func downloadAsset(cmd *cobra.Command, group string, input map[string]any) error
 	} else {
 		path = append(assetTransferPath(group, flags), id)
 	}
-	metadata, err := s.api.DoRead(cmd.Context(), http.MethodGet, path, nil, nil, s.header, s.token)
-	if err != nil {
-		return apiTransportError(cmd, version, err)
-	}
-	var data struct {
-		Size     *json.Number `json:"size"`
-		AssetURL string       `json:"asset_url"`
-	}
-	if json.Unmarshal(metadata.Data, &data) != nil {
-		return assetFailure(cmd, "invalid_response", "Invalid attachment metadata", 5)
-	}
 	expected := int64(-1)
-	if data.Size != nil {
-		var size float64
-		if size, err = data.Size.Float64(); err != nil || size < 0 || size >= float64(int64(^uint64(0)>>1)) || size != float64(int64(size)) {
-			return assetFailure(cmd, "invalid_response", "Invalid attachment size", 5)
+	target := ""
+	if group == "attachment" && version == "v1" {
+		// The v1 resource GET is a download redirect, not v2 metadata.
+		target, err = s.api.DownloadLocation(cmd.Context(), path, s.header, s.token)
+		if err != nil {
+			return apiTransportError(cmd, version, err)
 		}
-		expected = int64(size)
+	} else {
+		metadata, readErr := s.api.DoRead(cmd.Context(), http.MethodGet, path, nil, nil, s.header, s.token)
+		if readErr != nil {
+			return apiTransportError(cmd, version, readErr)
+		}
+		var data struct {
+			Size     *json.Number `json:"size"`
+			AssetURL string       `json:"asset_url"`
+		}
+		if json.Unmarshal(metadata.Data, &data) != nil {
+			return assetFailure(cmd, "invalid_response", "Invalid attachment metadata", 5)
+		}
+		if data.Size != nil {
+			var size float64
+			if size, err = data.Size.Float64(); err != nil || size < 0 || size >= float64(int64(^uint64(0)>>1)) || size != float64(int64(size)) {
+				return assetFailure(cmd, "invalid_response", "Invalid attachment size", 5)
+			}
+			expected = int64(size)
+		}
+		target = data.AssetURL
 	}
-	target := data.AssetURL
 	if group == "workspace-page-attachment" {
 		target, err = s.api.DownloadLocation(cmd.Context(), append(path, "download"), s.header, s.token)
 		if err != nil {

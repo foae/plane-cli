@@ -23,6 +23,7 @@ type contentAssetWireCase struct {
 	Body     json.RawMessage   `json:"body"`
 	Status   int               `json:"status"`
 	Response json.RawMessage   `json:"response"`
+	Expected json.RawMessage   `json:"expected,omitempty"`
 }
 
 // TestContentAssetsNativeWire covers the ordinary API phases only. Storage and
@@ -103,7 +104,11 @@ func TestContentAssetsNativeWire(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			want, err := spec.Decode(tc.Response)
+			expected := tc.Response
+			if len(tc.Expected) != 0 {
+				expected = tc.Expected
+			}
+			want, err := spec.Decode(expected)
 			if err != nil {
 				t.Fatal(err)
 			}

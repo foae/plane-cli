@@ -8,5 +8,40 @@
   "retrieval": "curl -A Mozilla/5.0 -fLsS",
   "permission": "Full-source redistribution not established; URL/hash and minimal independent contract retained only",
   "classification": "overview",
-  "owner": "P04"
+  "owner": "P04",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:work-item-worklogs:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.work-item-worklogs.list-worklogs",
+        "basis": "Explicit endpoint table: List worklogs."
+      },
+      {
+        "operation_id": "v2.work-item-worklogs.get-project-worklog-summary",
+        "basis": "Explicit endpoint table: Get the project worklog summary."
+      },
+      {
+        "operation_id": "v2.work-item-worklogs.get-worklog",
+        "basis": "Explicit endpoint table: Get a worklog."
+      },
+      {
+        "operation_id": "v2.work-item-worklogs.create-worklog",
+        "basis": "Explicit endpoint table: Create a worklog."
+      },
+      {
+        "operation_id": "v2.work-item-worklogs.update-worklog",
+        "basis": "Explicit endpoint table: Update a worklog."
+      },
+      {
+        "operation_id": "v2.work-item-worklogs.delete-worklog",
+        "basis": "Explicit endpoint table: Delete a worklog."
+      }
+    ],
+    "page_facts": [
+      "Work-item time records have ordinary list/detail/write routes; a distinct project-scoped worklogs/summary route provides totals."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

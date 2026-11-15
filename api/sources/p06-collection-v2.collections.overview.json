@@ -10,5 +10,130 @@
     },
     "statuses": []
   },
-  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/collections/{pk}/members/",
+        "description": "List collection members",
+        "catalog_operation_ids": ["v2.collections.list-collection-members"],
+        "catalog_source_ids": [
+          "v2:collections:list-collection-members"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/collections/",
+        "description": "List collections",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:collections:list-collections"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/collections/{pk}/",
+        "description": "Get a collection",
+        "catalog_operation_ids": [
+          "v2.collections.get-collection"
+        ],
+        "catalog_source_ids": [
+          "v2:collections:get-collection"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/collections/",
+        "description": "Create a collection",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:collections:create-collection"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/collections/{pk}/",
+        "description": "Update a collection",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:collections:update-collection"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/collections/{pk}/",
+        "description": "Delete a collection",
+        "catalog_operation_ids": ["v2.collections.delete-collection"],
+        "catalog_source_ids": [
+          "v2:collections:delete-collection"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/collections/{pk}/members/",
+        "description": "Add or remove collection members",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:collections:manage-collection-members"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/collections/{pk}/pages/",
+        "description": "List collection pages",
+        "catalog_operation_ids": [
+          "v2.collections.list-collection-pages"
+        ],
+        "catalog_source_ids": [
+          "v2:collections:list-collection-pages"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/collections/{pk}/pages/",
+        "description": "Add or remove pages in a collection",
+        "catalog_operation_ids": ["v2.collections.manage-collection-pages"],
+        "catalog_source_ids": [
+          "v2:collections:manage-collection-pages"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/collections/{pk}/pages/{page_id}/",
+        "description": "Move or reorder a collection page",
+        "catalog_operation_ids": [
+          "v2.collections.move-collection-page"
+        ],
+        "catalog_source_ids": [
+          "v2:collections:move-collection-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/collections/{pk}/pages-search/",
+        "description": "Search pages for a collection",
+        "catalog_operation_ids": ["v2.collections.search-collection-pages"],
+        "catalog_source_ids": [
+          "v2:collections:search-collection-pages"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:collections:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "The endpoint table repeats the eleven catalog source operations below. It does not independently resolve contradictory operation-specific request schemas; unresolved collection source rows remain gaps, not implemented contracts. Object attributes and sparse-field support add resource/read context, not new endpoints.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
 }

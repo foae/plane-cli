@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "reconciliation_snapshot": "Missing-handler notes describe pre-change requirements; implementation status records the resulting patch. Acceptance is authored, not executed.",
+  "source_id": "supplement:v1:server-upload-variants",
+  "source_url": "https://developers.plane.so/api-reference/v2/migrating-from-v1.md",
+  "reviewed_at": "2026-11-15",
+  "source_sha256": "6dc24447f0eaf3d820cf7e62d08e127461e0b9b9f1a728d7c0ffe455ee008122",
+  "source_bytes": 28405,
+  "retention": "Independently authored contract; raw documentation not redistributed.",
+  "verification": "Source and implementation inspected; no tests run; planner review unchanged.",
+  "resolution": "evidence-blocked",
+  "contract": {
+    "kind": "supplemental-family",
+    "known": "v1 has /server/ variants of two-step upload routes; no v2 equivalent",
+    "unknown": [
+      "exact methods",
+      "full paths",
+      "request schemas",
+      "response schemas",
+      "authentication details"
+    ]
+  },
+  "existing_operation_mappings": [],
+  "missing_handler_behavior": [
+    "No guessed handler. Retain narrowly documented P06 exception; direct-to-storage upload-file is independently documented and is not this exception."
+  ],
+  "contract_conflicts": [],
+  "implementation_evidence": [
+    "internal/cli/content_assets.go:13-65",
+    "internal/cli/asset_transfers.go:103-200",
+    "internal/cli/asset_transfers.go:202-267",
+    "internal/cli/content_assets_test.go:30-114",
+    "internal/cli/testdata/p06-asset-native-wire.json",
+    "internal/cli/asset_transfers_test.go:54-61"
+  ],
+  "v1_v2_equivalence_claimed": false,
+  "implementation_status": "reviewed source; no verification promotion"
+}

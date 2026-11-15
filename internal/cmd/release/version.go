@@ -2,12 +2,10 @@ package main
 
 import (
 	"fmt"
-	"regexp"
 	"strings"
-)
 
-// Only the release channels in the repository's release contract are accepted.
-var versionPattern = regexp.MustCompile(`^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-(alpha|beta|rc)\.(0|[1-9][0-9]*))?$`)
+	"github.com/foae/plane-cli/internal/semver"
+)
 
 type version struct {
 	major, minor, patch string
@@ -15,11 +13,17 @@ type version struct {
 }
 
 func parseVersion(s string) (version, error) {
-	m := versionPattern.FindStringSubmatch(s)
-	if m == nil {
+	v, err := semver.Parse(s)
+	stage, sequence, _ := strings.Cut(v.Prerelease, ".")
+	if err != nil || v.Build != "" || (v.Prerelease != "" && ((stage != "alpha" && stage != "beta" && stage != "rc") || sequence == "")) {
 		return version{}, fmt.Errorf("invalid canonical release version %q (want X.Y.Z[-alpha.N|-beta.N|-rc.N])", s)
 	}
-	return version{m[1], m[2], m[3], m[4], m[5]}, nil
+	for i := range len(sequence) {
+		if sequence[i] < '0' || sequence[i] > '9' {
+			return version{}, fmt.Errorf("invalid canonical release version %q (want X.Y.Z[-alpha.N|-beta.N|-rc.N])", s)
+		}
+	}
+	return version{v.Major, v.Minor, v.Patch, stage, sequence}, nil
 }
 
 func (v version) String() string {
@@ -33,13 +37,7 @@ func (v version) String() string {
 func (v version) core() string { return v.major + "." + v.minor + "." + v.patch }
 
 func compareNumber(a, b string) int {
-	if len(a) < len(b) {
-		return -1
-	}
-	if len(a) > len(b) {
-		return 1
-	}
-	return strings.Compare(a, b)
+	return semver.CompareNumber(a, b)
 }
 
 func compareCore(a, b version) int {

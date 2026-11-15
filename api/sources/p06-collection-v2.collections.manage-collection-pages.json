@@ -1,6 +1,17 @@
 {
   "source_url": "https://developers.plane.so/api-reference/v2/collections/manage-collection-pages.md",
   "source_sha256": "c18bba37eb6575166812995464686ccea99c39435c9241620b262fa5a0af6f39",
+  "implementation_decision": {
+    "disposition": "native-pass-through",
+    "operation_id": "v2.collections.manage-collection-pages",
+    "scope": "wiki.pages:write",
+    "success": "200 object containing added and removed UUID arrays",
+    "notes": [
+      "add and remove are optional UUID arrays; no minimum count, uniqueness, or overlap restriction is documented.",
+      "The official example includes the same UUID in add and remove. Pass both arrays unchanged without inventing precedence, transaction, or partial-failure guarantees.",
+      "No v1 page-tree, placement, visibility, or protection semantics are imported."
+    ]
+  },
   "contract": {
     "kind": "operation",
     "method": "POST",

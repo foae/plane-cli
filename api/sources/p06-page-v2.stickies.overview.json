@@ -22,5 +22,68 @@
       "details": []
     },
     "excluded_reason": "General guide; no standalone operation."
+  },
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/stickies/",
+        "description": "List stickies",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:stickies:list-stickies"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/stickies/{pk}/",
+        "description": "Get a sticky",
+        "catalog_operation_ids": [
+          "v2.stickies.get-sticky"
+        ],
+        "catalog_source_ids": [
+          "v2:stickies:get-sticky"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/stickies/",
+        "description": "Create a sticky",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:stickies:create-sticky"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/stickies/{pk}/",
+        "description": "Update a sticky",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:stickies:update-sticky"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/stickies/{pk}/",
+        "description": "Delete a sticky",
+        "catalog_operation_ids": [
+          "v2.stickies.delete-sticky"
+        ],
+        "catalog_source_ids": [
+          "v2:stickies:delete-sticky"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:stickies:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "The object is a private note owned by the calling user. Its five endpoint rows repeat existing sticky sources; object fields and sparse reads do not add operations. Existing unresolved sticky list/write contracts are not supplied or implemented by the overview.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
   }
 }

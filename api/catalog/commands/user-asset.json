@@ -1,0 +1,1830 @@
+[
+  {
+    "path": [
+      "user-asset",
+      "list"
+    ],
+    "handler": "user-asset-list",
+    "summary": "List user asset",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli user-asset list --help"
+    ],
+    "local": false,
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/users/me/assets/",
+        "response_kind": "native",
+        "scopes": [
+          "assets:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "boolean"
+                },
+                "offset": {
+                  "type": "integer",
+                  "maximum": 10000
+                },
+                "order_by": {
+                  "type": "string"
+                },
+                "paginate": {
+                  "type": "string",
+                  "enum": [
+                    "cursor"
+                  ]
+                },
+                "per_page": {
+                  "type": "integer",
+                  "default": 50,
+                  "maximum": 200
+                },
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "count",
+            "type": "boolean",
+            "required": false,
+            "binding": "/query/count",
+            "description": "Documented count query parameter"
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/offset",
+            "description": "Documented offset query parameter"
+          },
+          {
+            "name": "order-by",
+            "type": "string",
+            "required": false,
+            "binding": "/query/order_by",
+            "description": "Documented order_by query parameter"
+          },
+          {
+            "name": "paginate",
+            "type": "string",
+            "required": false,
+            "binding": "/query/paginate",
+            "description": "Documented paginate query parameter"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "required": false,
+            "binding": "/query/per_page",
+            "description": "Documented per_page query parameter"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Documented fields query parameter"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "user-asset",
+      "get"
+    ],
+    "handler": "user-asset-get",
+    "summary": "Get user asset",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli user-asset get --help"
+    ],
+    "local": false,
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/users/me/assets/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "assets:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Documented fields query parameter"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "user-asset",
+      "create-upload"
+    ],
+    "handler": "user-asset-create-upload",
+    "summary": "Issue upload credentials (sensitive signed JSON; use --secret-output-file for protected delivery)",
+    "side_effect": "write",
+    "examples": [
+      "plane-cli user-asset create-upload --help"
+    ],
+    "local": false,
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/users/me/assets/",
+        "response_kind": "native",
+        "scopes": [
+          "assets:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "secret-output-file": {
+                  "type": "string"
+                },
+                "overwrite": {
+                  "type": "boolean"
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "entity_type": {
+                  "type": "string",
+                  "enum": [
+                    "USER_AVATAR",
+                    "USER_COVER"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "type": {
+                  "type": "string",
+                  "default": "image/jpeg"
+                }
+              },
+              "required": [
+                "entity_type",
+                "name",
+                "size"
+              ],
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "JSON body file"
+          },
+          {
+            "name": "secret-output-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/secret-output-file",
+            "description": "Deliver sensitive signed JSON to a protected owner-only file instead of stdout"
+          },
+          {
+            "name": "overwrite",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/overwrite",
+            "description": "Replace existing protected output only with --yes"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm destructive operation or protected output replacement"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Documented fields query parameter"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [
+            "/upload_data/url",
+            "/upload_data/fields",
+            "/asset_url"
+          ],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": true,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      },
+      "v1": {
+        "method": "POST",
+        "route": "/api/v1/assets/user-assets/",
+        "response_kind": "native",
+        "scopes": [
+          "assets:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "secret-output-file": {
+                  "type": "string"
+                },
+                "overwrite": {
+                  "type": "boolean"
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version"
+              ]
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "integer"
+                },
+                "entity_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "size",
+                "entity_type"
+              ],
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "JSON body file"
+          },
+          {
+            "name": "secret-output-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/secret-output-file",
+            "description": "Deliver sensitive signed JSON to a protected owner-only file instead of stdout"
+          },
+          {
+            "name": "overwrite",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/overwrite",
+            "description": "Replace existing protected output only with --yes"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm destructive operation or protected output replacement"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [
+            "/upload_data/url",
+            "/upload_data/fields",
+            "/asset_url"
+          ],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": true,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "user-asset",
+      "delete"
+    ],
+    "handler": "user-asset-delete",
+    "summary": "Delete user asset",
+    "side_effect": "destructive",
+    "examples": [
+      "plane-cli user-asset delete --help"
+    ],
+    "local": false,
+    "versions": {
+      "v2": {
+        "method": "DELETE",
+        "route": "/api/v2/users/me/assets/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "assets:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm destructive operation or protected output replacement"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Documented fields query parameter"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      },
+      "v1": {
+        "method": "DELETE",
+        "route": "/api/v1/assets/user-assets/{asset_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "assets:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "id"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm destructive operation or protected output replacement"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "user-asset",
+      "confirm-upload"
+    ],
+    "handler": "user-asset-confirm-upload",
+    "summary": "Confirm upload user asset",
+    "side_effect": "write",
+    "examples": [
+      "plane-cli user-asset confirm-upload --help"
+    ],
+    "local": false,
+    "versions": {
+      "v1": {
+        "method": "PATCH",
+        "route": "/api/v1/assets/user-assets/{asset_id}/",
+        "response_kind": "native",
+        "scopes": [
+          "assets:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v1"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "id"
+              ]
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "type": "object"
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "JSON body file"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      },
+      "v2": {
+        "method": "PATCH",
+        "route": "/api/v2/users/me/assets/{pk}/",
+        "response_kind": "native",
+        "scopes": [
+          "assets:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "id"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id identifier"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/query/fields",
+            "description": "Documented fields query parameter"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  },
+  {
+    "path": [
+      "user-asset",
+      "upload"
+    ],
+    "handler": "user-asset-upload",
+    "summary": "Stream a local file through metadata, credential-free storage and confirmation; no retries",
+    "side_effect": "write",
+    "examples": [
+      "plane-cli user-asset upload --help"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/users/me/assets/",
+        "response_kind": "native",
+        "scopes": [
+          "assets:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "body-file": {
+                  "type": "string"
+                },
+                "file": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "api-version",
+                "file"
+              ]
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "entity_type": {
+                  "type": "string",
+                  "enum": [
+                    "USER_AVATAR",
+                    "USER_COVER"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "default": "image/jpeg"
+                },
+                "name": false,
+                "size": false
+              },
+              "required": [
+                "entity_type"
+              ],
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ]
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "api version"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "base url"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "auth mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "credential backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "ca file"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "dry run"
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "JSON body file"
+          },
+          {
+            "name": "file",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/file",
+            "description": "Regular local file; basename and byte size become upload metadata"
+          }
+        ],
+        "pagination": "none",
+        "sensitivity": {
+          "review": "Signed targets and multipart credentials are secrets; preserve native nonsecret resource JSON.",
+          "input": [],
+          "output": [],
+          "ordinary_read_redaction": [
+            "/upload_data",
+            "/asset_url",
+            "/download_url",
+            "/signed_url",
+            "/presigned_url"
+          ],
+          "intentional_secret_delivery": false,
+          "signed_target_paths": [
+            "/upload_data/url",
+            "/asset_url"
+          ],
+          "signed_form_paths": [
+            "/upload_data/fields"
+          ],
+          "extension_fields": "Preserve native user content; recursively redact signed target and credential keys outside intentional issuance."
+        }
+      }
+    }
+  }
+]

@@ -1,4 +1,15 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Resource/schema guidance does not establish a new HTTP operation.",
+    "facts": [
+      "The body defines the project label object with workspace, name, description, color, sort_order and audit fields, followed by a sample object.",
+      "Its resource introduction describes reusable project classifications but supplies no attachment action or method/path; none is inferred."
+    ],
+    "operation_mappings": []
+  },
   "source_url": "https://developers.plane.so/api-reference/project-labels/overview.md",
   "classification": "non-operation",
   "review": "Overview resource attributes and links to independently indexed operations; no additional unmatched operation."

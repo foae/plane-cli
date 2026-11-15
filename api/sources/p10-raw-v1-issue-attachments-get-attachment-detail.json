@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "reconciliation_snapshot": "Missing-handler notes describe pre-change requirements; implementation status records the resulting patch. Acceptance is authored, not executed.",
+  "source_id": "v1:issue-attachments:get-attachment-detail",
+  "source_url": "https://developers.plane.so/api-reference/issue-attachments/get-attachment-detail.md",
+  "reviewed_at": "2026-11-15",
+  "source_sha256": "4875a5cce8d470569f5a5a93bd9d3828b50fcbec3ba727f21b2492f091ad5f8b",
+  "source_bytes": 2576,
+  "retention": "Independently authored contract; raw documentation not redistributed.",
+  "verification": "Source and implementation inspected; no tests run; planner review unchanged.",
+  "resolution": "missing-operation",
+  "contract": {
+    "id": "v1.issue-attachments.get-attachment-detail",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/work-items/{work_item_id}/attachments/{resource_id}/",
+    "path_required": [
+      "workspace_slug",
+      "project_id",
+      "work_item_id",
+      "resource_id"
+    ],
+    "body": null,
+    "query": {},
+    "responses": [
+      {
+        "kind": "redirect",
+        "location": "presigned download URL",
+        "status": "unspecified by source"
+      },
+      {
+        "status": 401,
+        "kind": "json",
+        "fields": [
+          "detail"
+        ]
+      }
+    ],
+    "scopes": [
+      "projects.work_items.attachments:read"
+    ],
+    "command_path_proposal": [
+      "attachment",
+      "download"
+    ]
+  },
+  "existing_operation_mappings": [],
+  "missing_handler_behavior": [
+    "Implement authenticated API redirect acquisition at v1 resource route, followed by credential-isolated storage streaming and atomic destination installation. Existing downloadAsset assumes JSON metadata; cannot alias to that behavior or v2 attachment get. Add redirect, no-auth-leak, output and error tests."
+  ],
+  "contract_conflicts": [
+    "Success redirect code not specified; do not author an exact 302 claim. Examples call response.json despite explicit download redirect prose; prose determines behavior."
+  ],
+  "implementation_evidence": [
+    "internal/cli/content_assets.go:13-65",
+    "internal/cli/asset_transfers.go:103-200",
+    "internal/cli/asset_transfers.go:202-267",
+    "internal/cli/content_assets_test.go:30-114",
+    "internal/cli/testdata/p06-asset-native-wire.json",
+    "internal/cli/asset_transfers_test.go:54-61"
+  ],
+  "v1_v2_equivalence_claimed": false,
+  "implementation_status": "implemented; acceptance authored, not executed"
+}

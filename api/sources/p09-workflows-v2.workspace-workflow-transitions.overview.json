@@ -4,5 +4,74 @@
   "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
   "notes": [
     "Overview establishes the scope-specific workflow domain and associated operation sources."
-  ]
+  ],
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/",
+        "description": "List workspace workflow transitions",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-transitions.list-workspace-workflow-transitions"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-transitions:list-workspace-workflow-transitions"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{pk}/",
+        "description": "Get a workspace workflow transition",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-transitions.get-workspace-workflow-transition"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-transitions:get-workspace-workflow-transition"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/",
+        "description": "Create a workspace workflow transition",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-transitions.create-workspace-workflow-transition"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-transitions:create-workspace-workflow-transition"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{pk}/",
+        "description": "Update a workspace workflow transition",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-transitions.update-workspace-workflow-transition"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-transitions:update-workspace-workflow-transition"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{pk}/",
+        "description": "Delete a workspace workflow transition",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-transitions.delete-workspace-workflow-transition"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-transitions:delete-workspace-workflow-transition"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:workspace-workflow-transitions:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Five endpoint rows repeat existing catalog transition operations. Source/target/rejection IDs are catalog states in the workflow chain; approvers are active workspace members. Duplicate source/target create returns 409 but update can leave duplicates. Changing a state type deletes outgoing transitions. These are existing mutation semantics, not extra delete/approval operations.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
 }

@@ -22,5 +22,60 @@
       "details": []
     },
     "excluded_reason": "General guide; no standalone operation."
+  },
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/pages/",
+        "description": "List work item pages",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:work-item-pages:list-work-item-pages"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/pages/{pk}/",
+        "description": "Get a work item page",
+        "catalog_operation_ids": [
+          "v2.work-item-pages.get-work-item-page"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-pages:get-work-item-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/pages/",
+        "description": "Create a work item page",
+        "catalog_operation_ids": [
+          "v2.work-item-pages.create-work-item-page"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-pages:create-work-item-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-items/{work_item_id}/pages/{pk}/",
+        "description": "Delete a work item page",
+        "catalog_operation_ids": [
+          "v2.work-item-pages.delete-work-item-page"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-pages:delete-work-item-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:work-item-pages:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "The resource is the association, not the page: pk is the link ID and deletion leaves the page intact. v2 links any page in the workspace, rejects duplicates with 409, accepts page_id filtering and expand=page, and does not enforce page visibility. These qualify the four existing link operations, not extra page mutations.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
   }
 }

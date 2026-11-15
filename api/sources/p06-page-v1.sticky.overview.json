@@ -22,5 +22,20 @@
       "details": []
     },
     "excluded_reason": "General guide; no standalone operation."
+  },
+  "overview_reconciliation": {
+    "endpoint_mappings": [],
+    "source_id": "v1:sticky:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Schema-only overview: name, JSON/HTML/stripped/binary descriptions, visual properties, owner/workspace, sort order and audit fields describe the existing sticky object. No method/path or endpoint table is declared; description representations are not separate conversion/content operations.",
+    "referenced_catalog_source_ids": [
+      "v1:sticky:add-sticky",
+      "v1:sticky:list-stickies",
+      "v1:sticky:get-sticky-detail",
+      "v1:sticky:update-sticky-detail",
+      "v1:sticky:delete-sticky"
+    ],
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
   }
 }

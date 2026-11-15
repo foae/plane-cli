@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-governance/overview.md",
+  "reviewed_at": "2026-11-15",
+  "contract": {
+    "modes": {
+      "any": "clear allowlist; pins and picks remain; no movement",
+      "constrained": "workflow_ids required; removing in-use workflow requires acknowledge; removes affected picks/pins and falls back to workspace default",
+      "required": "required_workflow_id required; without acknowledge return {preview:...} and no changes; with acknowledge mandate all active pairs and delete pins"
+    },
+    "governance_fields": [
+      "mode",
+      "required_workflow_id",
+      "allowlist"
+    ],
+    "allowlist_entry": [
+      "workflow_id",
+      "name",
+      "locked",
+      "in_use_by_project_ids"
+    ],
+    "pin_fields": [
+      "id",
+      "project_id",
+      "workflow_id",
+      "work_item_type_id",
+      "created_at",
+      "updated_at"
+    ],
+    "preview": {
+      "total": "integer",
+      "per_state": "array of state_id/count; duplicate state_id entries across projects are valid"
+    },
+    "pin_create": "upserts per-project pin and pick, moves items outside pinned workflow to default state; unavailable under required with 409 workflow_pins_unavailable",
+    "pin_delete": "remove marker only, retain pick",
+    "orphan_gate": {
+      "status": 409,
+      "code": "workflow_state_orphans",
+      "mapping": "source state UUID to target-workflow state UUID",
+      "invalid_uuid_key": "ignored upstream",
+      "invalid_target": "reported and prevents change",
+      "archived_items": "count and move",
+      "drafts": "excluded",
+      "triage": "never moves",
+      "over_500_per_project": "background movement may outlive response"
+    },
+    "gates": {
+      "ungoverned": "409 states_managed_at_project except two pin reads",
+      "feature_unavailable": "402 payment_required"
+    },
+    "shaping": "fields only on pin reads; governance/preview objects do not support fields",
+    "resolution": "Seven existing P09 methods/routes match; no new operation. Specific overview wins over general errors guide on ungoverned pin reads. Existing operation-specific sources may allow fields on pin-create/delete; do not delete exact-endpoint parameters based solely on overview's pin-reads summary."
+  },
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/",
+        "description": "Get work item type governance",
+        "catalog_operation_ids": [
+          "v2.work-item-type-governance.get-work-item-type-governance"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-type-governance:get-work-item-type-governance"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/",
+        "description": "Update work item type governance",
+        "catalog_operation_ids": [
+          "v2.work-item-type-governance.update-work-item-type-governance"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-type-governance:update-work-item-type-governance"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/preview/",
+        "description": "Preview a governance change",
+        "catalog_operation_ids": [
+          "v2.work-item-type-governance.preview-work-item-type-governance"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-type-governance:preview-work-item-type-governance"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/pins/",
+        "description": "List workflow pins",
+        "catalog_operation_ids": [
+          "v2.work-item-type-governance.list-work-item-type-workflow-pins"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-type-governance:list-work-item-type-workflow-pins"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/pins/{pk}/",
+        "description": "Get a workflow pin",
+        "catalog_operation_ids": [
+          "v2.work-item-type-governance.get-work-item-type-workflow-pin"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-type-governance:get-work-item-type-workflow-pin"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/pins/",
+        "description": "Create workflow pins",
+        "catalog_operation_ids": [
+          "v2.work-item-type-governance.create-work-item-type-workflow-pin"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-type-governance:create-work-item-type-workflow-pin"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/pins/{pk}/",
+        "description": "Delete a workflow pin",
+        "catalog_operation_ids": [
+          "v2.work-item-type-governance.delete-work-item-type-workflow-pin"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-type-governance:delete-work-item-type-workflow-pin"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:work-item-type-governance:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Seven endpoint rows repeat existing governance get/update/preview and pin list/get/create/delete operations. any/constrained/required, acknowledge, orphan mappings and background movement describe consequences of those writes, not extra move APIs. The required PATCH preview response is not another preview route. Pin deletion retains the project pick; pin-read exceptions to governance and shaping remain specific to these resources.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
+}

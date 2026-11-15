@@ -22,5 +22,19 @@
       "details": []
     },
     "excluded_reason": "General guide; no standalone operation."
+  },
+  "overview_reconciliation": {
+    "endpoint_mappings": [],
+    "source_id": "v1:work-item-pages:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Schema-only overview: the link has id, embedded page, issue/project/workspace identifiers and audit timestamps. It declares no method/path or endpoint table. Linking prose describes the four existing v1 link CRUD sources; the page object is not an additional page-read operation.",
+    "referenced_catalog_source_ids": [
+      "v1:work-item-pages:add-work-item-page",
+      "v1:work-item-pages:list-work-item-pages",
+      "v1:work-item-pages:get-work-item-page-detail",
+      "v1:work-item-pages:delete-work-item-page"
+    ],
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
   }
 }

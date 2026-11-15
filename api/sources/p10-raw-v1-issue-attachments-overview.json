@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "reconciliation_snapshot": "Missing-handler notes describe pre-change requirements; implementation status records the resulting patch. Acceptance is authored, not executed.",
+  "source_id": "v1:issue-attachments:overview",
+  "source_url": "https://developers.plane.so/api-reference/issue-attachments/overview.md",
+  "reviewed_at": "2026-11-15",
+  "source_sha256": "944c123e46d3d98cf47375dbf0d798a560345f31fdce9f44089609e17922da94",
+  "source_bytes": 4181,
+  "retention": "Independently authored contract; raw documentation not redistributed.",
+  "verification": "Source and implementation inspected; no tests run; planner review unchanged.",
+  "resolution": "non-operation",
+  "contract": {
+    "kind": "resource-overview",
+    "notes": [
+      "Resource model and workflow context; no new independently callable endpoint.",
+      "v1 attachment object is not v2 object: attributes metadata, asset, storage_metadata and issue fields are distinct."
+    ]
+  },
+  "existing_operation_mappings": [],
+  "missing_handler_behavior": [],
+  "contract_conflicts": [],
+  "implementation_evidence": [
+    "internal/cli/content_assets.go:13-65",
+    "internal/cli/asset_transfers.go:103-200",
+    "internal/cli/asset_transfers.go:202-267",
+    "internal/cli/content_assets_test.go:30-114",
+    "internal/cli/testdata/p06-asset-native-wire.json",
+    "internal/cli/asset_transfers_test.go:54-61"
+  ],
+  "v1_v2_equivalence_claimed": false,
+  "implementation_status": "reviewed source; no verification promotion",
+  "overview_reconciliation": {
+    "endpoint_mappings": [],
+    "source_id": "v1:issue-attachments:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Resource schema plus an upload recipe linking the existing get-upload-credentials, upload-file and complete-upload sources. Storage upload is a returned-URL operation, not a new Plane endpoint. Intake mention does not provide an Intake-specific method/path or contract; no such operation is inferred. attributes, asset, storage_metadata and issue are v1 fields, not aliases of the v2 object.",
+    "referenced_catalog_source_ids": [
+      "v1:issue-attachments:get-attachments",
+      "v1:issue-attachments:get-attachment-detail",
+      "v1:issue-attachments:get-upload-credentials",
+      "v1:issue-attachments:upload-file",
+      "v1:issue-attachments:complete-upload",
+      "v1:issue-attachments:update-attachment",
+      "v1:issue-attachments:delete-attachment"
+    ],
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
+}

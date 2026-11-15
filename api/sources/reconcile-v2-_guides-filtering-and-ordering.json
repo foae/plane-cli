@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/filtering-and-ordering.md",
+  "reviewed_at": "2026-11-15",
+  "contract": {
+    "filters_combine": "AND",
+    "filter_support": "per endpoint; no universal generated filters",
+    "forms": {
+      "exact": "name=value",
+      "membership": "name__in=comma,separated,values",
+      "null": "name__isnull=true|false",
+      "inclusive_range": [
+        "name__gte",
+        "name__lte"
+      ]
+    },
+    "relation_filter": "*_id, not bare relation name",
+    "name_lookup": "case-insensitive exact, except automation and node names use substring",
+    "search": "case-insensitive partial text; no PQL/operators; work items search name only",
+    "path_identifiers": {
+      "default": "UUID",
+      "exceptions": [
+        "workspace slug",
+        "project identifier on project detail and parent segment",
+        "work item PROJ-123 on by-identifier, project detail and work_item_id parent"
+      ]
+    },
+    "removed_scheme_prefixed_ids": "404; use explicit list identity filters instead",
+    "enum_filter_invalid": "400 invalid_request, validate every membership element",
+    "unknown_ordering": "upstream falls back to resource default",
+    "descending_prefix": "-",
+    "work_item_semantic_ordering": {
+      "priority": [
+        "urgent",
+        "high",
+        "medium",
+        "low",
+        "none"
+      ],
+      "state_group": [
+        "backlog",
+        "unstarted",
+        "started",
+        "completed",
+        "cancelled",
+        "triage"
+      ]
+    },
+    "work_item_cursor_orderings": [
+      "created_at",
+      "updated_at",
+      "sequence_id",
+      "id"
+    ],
+    "offset_only_orderings": [
+      "priority",
+      "state_group",
+      "sort_order"
+    ],
+    "ineligible_cursor_error": "400 ordering_not_cursor_eligible",
+    "source_conflicts": [
+      "Opening 'public parameter names never contain __' conflicts with its own explicit suffix table; retain documented suffix parameters.",
+      "Opening every-list pagination generalization does not override workflow overview's explicit plain-array exception."
+    ],
+    "resolution": "Retain per-operation schemas and explicit identifier allowances. No blanket filters or ordering schema relaxation from general prose."
+  }
+}

@@ -4,5 +4,86 @@
   "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
   "notes": [
     "Overview establishes the scope-specific workflow domain and associated operation sources."
-  ]
+  ],
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/",
+        "description": "List workspace workflow states",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-states.list-workspace-workflow-states"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-states:list-workspace-workflow-states"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/{state_id}/",
+        "description": "Get a workspace workflow state",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-states.get-workspace-workflow-state"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-states:get-workspace-workflow-state"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/",
+        "description": "Add states to a workspace workflow",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-states.add-workspace-workflow-states"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-states:add-workspace-workflow-states"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/{state_id}/",
+        "description": "Update a workspace workflow state",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-states.update-workspace-workflow-state"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-states:update-workspace-workflow-state"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/{state_id}/",
+        "description": "Remove a state from a workspace workflow",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-states.remove-workspace-workflow-state"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-states:remove-workspace-workflow-state"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/{state_id}/mark-default/",
+        "description": "Mark a workspace workflow state as default",
+        "catalog_operation_ids": [
+          "v2.workspace-workflow-states.mark-default-workspace-workflow-state"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflow-states:mark-default-workspace-workflow-state"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:workspace-workflow-states:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Six endpoint rows repeat existing chain-state list/get/add/update/remove/mark-default operations. Reordering uses workspace-workflows.update-workspace-workflow states replacement, not another route. Added states get sequence 65535. Default replacement, orphan/dependency checks and governance/plan guards qualify existing writes; catalog state IDs are not chain-entry IDs.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
 }

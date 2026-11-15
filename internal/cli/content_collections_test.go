@@ -136,3 +136,77 @@ func TestP06CollectionRequests(t *testing.T) {
 		})
 	}
 }
+
+func TestP06CollectionV2Schemas(t *testing.T) {
+	catalog, err := spec.Load()
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, handler := range []string{"collection-delete", "collection-manage-pages", "collection-member-list", "collection-page-search"} {
+		t.Run(handler, func(t *testing.T) {
+			for _, command := range catalog.Commands {
+				if command.Handler != handler {
+					continue
+				}
+				version, ok := command.Versions["v2"]
+				if !ok {
+					t.Fatal("missing v2 descriptor")
+				}
+				raw, err := json.Marshal(version)
+				if err != nil {
+					t.Fatal(err)
+				}
+				var descriptor map[string]any
+				if err := json.Unmarshal(raw, &descriptor); err != nil {
+					t.Fatal(err)
+				}
+				schema := descriptor["schema"].(map[string]any)
+				properties := schema["properties"].(map[string]any)
+				flags := properties["flags"].(map[string]any)["properties"].(map[string]any)
+				if flags["api-version"].(map[string]any)["const"] != "v2" {
+					t.Fatal("schema is not version-exact")
+				}
+				switch handler {
+				case "collection-delete":
+					query := properties["query"].(map[string]any)["properties"].(map[string]any)
+					if len(query) != 2 || query["fields"] == nil || query["expand"] == nil {
+						t.Fatalf("delete query = %#v", query)
+					}
+					if properties["body"] != nil {
+						t.Fatal("delete must not import a request body")
+					}
+				case "collection-manage-pages":
+					if _, ok := command.Versions["v1"]; ok {
+						t.Fatal("manage-pages must remain separate from v1 add/remove")
+					}
+					body := properties["body"].(map[string]any)
+					fields := body["properties"].(map[string]any)
+					if len(fields) != 2 || body["required"] != nil {
+						t.Fatalf("body = %#v", body)
+					}
+					for _, name := range []string{"add", "remove"} {
+						field := fields[name].(map[string]any)
+						items := field["items"].(map[string]any)
+						if field["type"] != "array" || items["type"] != "string" || items["format"] != "uuid" || field["minItems"] != nil || field["uniqueItems"] != nil {
+							t.Fatalf("%s = %#v", name, field)
+						}
+					}
+				default:
+					query := properties["query"].(map[string]any)["properties"].(map[string]any)
+					want := 2
+					if handler == "collection-page-search" {
+						want = 1
+					}
+					if len(query) != want || query["fields"] == nil || (want == 2 && query["expand"] == nil) {
+						t.Fatalf("native query = %#v", query)
+					}
+					if properties["body"] != nil || descriptor["response_kind"] != "object" || descriptor["pagination"] != "none" {
+						t.Fatal("native object reads must not import v1 body or pagination semantics")
+					}
+				}
+				return
+			}
+			t.Fatal("missing command")
+		})
+	}
+}

@@ -2,5 +2,74 @@
   "source_url": "https://developers.plane.so/api-reference/v2/modules/overview.md",
   "source_sha256": "e08e8b04259d1d8e56bebb0cad13fe019f7f8f393cc2a251dc0008059b63cf1c",
   "kind": "resource-overview",
-  "interpretation": "Resource overview; operation contracts are recorded separately."
+  "interpretation": "Resource overview; operation contracts are recorded separately.",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:modules:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.modules.list-modules",
+        "basis": "Explicit endpoint table: List modules."
+      },
+      {
+        "operation_id": "v2.modules.get-module",
+        "basis": "Explicit endpoint table: Get a module."
+      },
+      {
+        "operation_id": "v2.modules.create-module",
+        "basis": "Explicit endpoint table: Create a module."
+      },
+      {
+        "operation_id": "v2.modules.update-module",
+        "basis": "Explicit endpoint table: Update a module."
+      },
+      {
+        "operation_id": "v2.modules.delete-module",
+        "basis": "Explicit endpoint table: Delete a module."
+      },
+      {
+        "operation_id": "v2.modules.upsert-module",
+        "basis": "Explicit endpoint table: Upsert a module."
+      },
+      {
+        "operation_id": "v2.modules.bulk-create-modules",
+        "basis": "Explicit endpoint table: Bulk create modules."
+      },
+      {
+        "operation_id": "v2.modules.bulk-update-modules",
+        "basis": "Explicit endpoint table: Bulk update modules."
+      },
+      {
+        "operation_id": "v2.modules.bulk-delete-modules",
+        "basis": "Explicit endpoint table: Bulk delete modules."
+      },
+      {
+        "operation_id": "v2.modules.manage-module-work-items",
+        "basis": "Explicit endpoint table: Add or remove module work items."
+      },
+      {
+        "operation_id": "v2.modules.archive-module",
+        "basis": "Explicit endpoint table: Archive a module."
+      },
+      {
+        "operation_id": "v2.modules.unarchive-module",
+        "basis": "Explicit endpoint table: Unarchive a module."
+      },
+      {
+        "operation_id": "v2.members.list-project-members",
+        "basis": "Explicit linked operation in overview narrative."
+      },
+      {
+        "operation_id": "v2.work-items.list-work-items",
+        "basis": "Explicit linked operation in overview narrative."
+      }
+    ],
+    "page_facts": [
+      "Project-local deliverables have a six-value lifecycle, date-only boundaries and a project-member lead.",
+      "member_ids is read-only; there is no v2 module-member write operation.",
+      "The endpoint table includes bulk writes, archive/unarchive and work-item membership; module work items are listed through the work-item list with module_id."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

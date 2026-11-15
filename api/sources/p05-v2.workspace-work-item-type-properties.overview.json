@@ -5,5 +5,25 @@
   "reviewed_at": "2026-11-14",
   "notes": [
     "Workspace-scoped type/property surface; operation-specific contracts take precedence over conflicting overview examples."
-  ]
+  ],
+  "contract": {
+    "kind": "overview",
+    "reconciliation": {
+      "reviewed_at": "2026-11-15",
+      "disposition": "mapped-existing-operations",
+      "operation_ids": [
+        "v2.workspace-work-item-type-properties.list-workspace-type-properties",
+        "v2.workspace-work-item-type-properties.get-workspace-type-property",
+        "v2.workspace-work-item-type-properties.attach-workspace-type-property",
+        "v2.workspace-work-item-type-properties.detach-workspace-type-property",
+        "v2.workspace-work-item-properties.delete-workspace-work-item-property"
+      ],
+      "facts": [
+        "The Endpoints table names the four existing workspace type-property list, retrieve, attach and detach operations.",
+        "The opening explanation links the existing workspace property delete operation for deleting the definition; detach removes only this type's association.",
+        "POST attaches existing property ids through properties; the page explicitly excludes property-create POST and property-edit PATCH on this route.",
+        "Reads return full property objects rather than join records; the retrieve route reports attachment through 200 versus 404. Workspace-mode writes and context-based narrower scoping add no route."
+      ]
+    }
+  }
 }

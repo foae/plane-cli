@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "reconciliation_snapshot": "Missing-handler notes describe pre-change requirements; implementation status records the resulting patch. Acceptance is authored, not executed.",
+  "source_id": "v2:workspace-page-attachments:overview",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-page-attachments/overview.md",
+  "reviewed_at": "2026-11-15",
+  "source_sha256": "2d40eb68d48660c8e5a31cfda0d9b5e24ad40cd1ef98229a57b762e7aaf4c443",
+  "source_bytes": 6764,
+  "retention": "Independently authored contract; raw documentation not redistributed.",
+  "verification": "Source and implementation inspected; no tests run; planner review unchanged.",
+  "resolution": "non-operation",
+  "contract": {
+    "kind": "resource-overview",
+    "endpoints": [
+      [
+        "GET",
+        "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/"
+      ],
+      [
+        "GET",
+        "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/"
+      ],
+      [
+        "POST",
+        "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/"
+      ],
+      [
+        "PATCH",
+        "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/"
+      ],
+      [
+        "DELETE",
+        "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/"
+      ],
+      [
+        "GET",
+        "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/download/"
+      ]
+    ],
+    "response_shaping": "Object reads accept fields; shared problem+json errors.",
+    "notes": [
+      "Workspace wiki pages only; project-page ID returns 404.",
+      "Three stages: create, storage multipart with file last, confirm.",
+      "Unconfirmed attachments omitted by default list; download returns 400 before confirmation.",
+      "asset_url contains projects/None and must not be used as download URL.",
+      "Page body unchanged; locked/archived writes 400; private-page writes require edit permission.",
+      "v1 creation separately maps workspace assets entity_type PAGE_DESCRIPTION; no v1 page list inferred."
+    ]
+  },
+  "existing_operation_mappings": [
+    {
+      "operation_id": "v2.workspace-page-attachments.list-workspace-page-attachments",
+      "version": "v2",
+      "method": "GET",
+      "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/",
+      "command_path": [
+        "workspace-page-attachment",
+        "list"
+      ]
+    },
+    {
+      "operation_id": "v2.workspace-page-attachments.get-workspace-page-attachment",
+      "version": "v2",
+      "method": "GET",
+      "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/",
+      "command_path": [
+        "workspace-page-attachment",
+        "get"
+      ]
+    },
+    {
+      "operation_id": "v2.workspace-page-attachments.create-workspace-page-attachment",
+      "version": "v2",
+      "method": "POST",
+      "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/",
+      "command_path": [
+        "workspace-page-attachment",
+        "create-upload"
+      ]
+    },
+    {
+      "operation_id": "v2.workspace-page-attachments.update-workspace-page-attachment",
+      "version": "v2",
+      "method": "PATCH",
+      "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/",
+      "command_path": [
+        "workspace-page-attachment",
+        "confirm-upload"
+      ]
+    },
+    {
+      "operation_id": "v2.workspace-page-attachments.delete-workspace-page-attachment",
+      "version": "v2",
+      "method": "DELETE",
+      "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/",
+      "command_path": [
+        "workspace-page-attachment",
+        "delete"
+      ]
+    },
+    {
+      "operation_id": "v2.workspace-page-attachments.download",
+      "version": "v2",
+      "method": "GET",
+      "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/download/",
+      "command_path": [
+        "workspace-page-attachment",
+        "download"
+      ]
+    }
+  ],
+  "missing_handler_behavior": [],
+  "contract_conflicts": [],
+  "implementation_evidence": [
+    "internal/cli/content_assets.go:13-65",
+    "internal/cli/asset_transfers.go:103-200",
+    "internal/cli/asset_transfers.go:202-267",
+    "internal/cli/content_assets_test.go:30-114",
+    "internal/cli/testdata/p06-asset-native-wire.json",
+    "internal/cli/asset_transfers_test.go:54-61"
+  ],
+  "v1_v2_equivalence_claimed": false,
+  "implementation_status": "reviewed source; no verification promotion",
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/",
+        "description": "List workspace page attachments",
+        "catalog_operation_ids": [
+          "v2.workspace-page-attachments.list-workspace-page-attachments"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-page-attachments:list-workspace-page-attachments"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/",
+        "description": "Get a workspace page attachment",
+        "catalog_operation_ids": [
+          "v2.workspace-page-attachments.get-workspace-page-attachment"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-page-attachments:get-workspace-page-attachment"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/",
+        "description": "Create a workspace page attachment upload",
+        "catalog_operation_ids": [
+          "v2.workspace-page-attachments.create-workspace-page-attachment"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-page-attachments:create-workspace-page-attachment"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/",
+        "description": "Confirm a workspace page attachment upload",
+        "catalog_operation_ids": [
+          "v2.workspace-page-attachments.update-workspace-page-attachment"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-page-attachments:update-workspace-page-attachment"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/",
+        "description": "Delete a workspace page attachment",
+        "catalog_operation_ids": [
+          "v2.workspace-page-attachments.delete-workspace-page-attachment"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-page-attachments:delete-workspace-page-attachment"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/pages/{page_id}/attachments/{pk}/download/",
+        "description": "Download a workspace page attachment",
+        "catalog_operation_ids": [
+          "v2.workspace-page-attachments.download"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-page-attachments:download-workspace-page-attachment"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:workspace-page-attachments:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Six endpoint rows repeat existing attachment list/get/create/confirm/delete/download operations. The storage multipart POST uses returned upload_data.url and is not a seventh Plane route. Creation does not change page body; the attachment must be confirmed before list/download. Wiki-only scope, projects/None asset_url, edit/lock/archive gates and v1 asset-upload comparison qualify existing operations.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
+}

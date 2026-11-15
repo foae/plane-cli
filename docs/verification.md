@@ -54,7 +54,7 @@ A family is complete only when all indexed/supplemental operations are accounted
 
 ## Final gate
 
-- Every requested public operation is either verified against the documented mock contract or an explicitly unresolved evidence conflict presented to the user; unresolved required operations mean the full release is **not complete**.
+- Every requested public operation is verified against the documented mock contract, or its genuine upstream documentation gap/conflict is recorded as an approved package-specific completion exception in [API contract gaps](reference/api-contract-gaps.md). Exceptions close source reconciliation, not implemented API coverage. Available but unread documentation and unfinished implementation remain blockers.
 - `make check`, race, security and four-target cross-build pass; native fake-server CLI tests pass on Linux/macOS. Record actual commands/versions/results; no rerun just to relabel a failure.
 - Snapshot archives/checksums/version metadata, `go install` path and Homebrew formula are exercised per [releases](releases.md).
 - Release-version tooling enforces per-work-item SemVer impact, tag/metadata agreement and immutable `v1.0.0` promotion gates. The matching versioned agent skill passes packaged recipe/disclosure checks; explicit update checking passes fake-GitHub scenarios and never adds network access to ordinary commands. See [P10 slices](implementation/10-delivery.md#bounded-delivery-slices).
@@ -62,3 +62,57 @@ A family is complete only when all indexed/supplemental operations are accounted
 - Documentation examples/catalog agree with actual commands; root status changes from planned to implemented only when true. Compatibility notes explicitly say documentation-backed/mock-tested, not universally live-certified.
 
 If official sources conflict or an operation cannot be mapped from accessible evidence, the implementation model reports exact evidence and asks the planner. It does not invent a fixture as proof of the guessed contract, waive coverage or downgrade scope without approval.
+
+## P10 acceptance record — 2026-11-15
+
+The coordinator accepts the documented mock-tested scope: 820 operations across
+P03–P09. The catalog's per-operation verification links identify the operation
+record and runnable expectation file; `acceptance_scenario_ids` identify the exact
+scenarios. The 27 approved upstream source exceptions are not implemented
+operations. The inventory contains 987 indexed sources and six supplements.
+
+Independent bounded planner reviews approved P03/P04 (252 operations), P05/P06
+(157), P07 (224), and P08/P09 (187), conditional on coordinator acceptance.
+Those conditions are satisfied by the results below. Review repairs cover empty
+project archive/unarchive responses, storage-success/output-failure evidence,
+download metadata, governance sensitivity and explicit portfolio cursor inputs.
+This approval is documentation-backed mock verification, not live edition
+certification or authorization to publish.
+
+Executed acceptance:
+
+- `make check PACKET=P10`: passed formatting, lint (zero issues), all Go tests,
+  module consistency, packet reconciliation, local docs and version checks.
+- After recording planner approvals: `make generate`,
+  `go run ./internal/cmd/checkapi --release` and `make docs-check` passed.
+  Release reconciliation reported 820 documented/verified operations, 27 approved
+  upstream source exceptions and no pending sources.
+- `make race`: passed all packages with `-race -timeout=20m`.
+- `make security`: zero reachable vulnerabilities; two advisories in required
+  modules were reported as not called by this code.
+- `make cross`: built Linux/macOS amd64/arm64.
+- Native macOS arm64, Go 1.27.4: `make test` passed in an isolated source copy;
+  the subsequently added `TestP07PortfolioManualCursor` also passed there.
+- `make snapshot`, `make artifact-check` and `make installation-check`, with
+  `ARTIFACT_DIR=/tmp/plane-p10-final.Ni1P8I/snapshot`: passed four-target archive,
+  checksum, identity, license-notice and packaged-skill acceptance; isolated
+  `go install` discovery checks; Homebrew syntax, four-target audit, staged
+  local-HTTP installation and formula test on Linux amd64. These are snapshot
+  installation checks, not published-release installation evidence.
+
+The default five-seat review (Opus, Sol, Sonnet, Astra, Terra; all completed,
+scoring disabled) reviewed the frozen working tree based on
+`e23a1b8b4cdf68625fa5a2ef2211394cef29e616`, run `20261115-134757`.
+Validated major findings were repaired: immutable publication identity and asset
+sets, installation gates, artifact path resolution and release-tool fixture
+dependencies. The coordinator's checks above cover the repaired tree.
+Configured HTTP remains intentional policy; malformed update metadata remains a
+protocol error rather than silently ignored data. Neither is a publication gate
+waiver. No tags, releases or external Homebrew taps were published or changed.
+
+Installation acceptance exposed formula style issues and local HTTP-server
+lifetime issues, which were repaired before the passing run. Homebrew still
+emits its third-party RuboCop configuration warning and nonstandard-prefix
+warning for the intentionally isolated test installation; neither failed
+acceptance. Native credential services and live Plane deployments remain outside
+this deterministic acceptance evidence.

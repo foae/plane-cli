@@ -24,6 +24,7 @@ type Error struct {
 	Exit              int                 `json:"-"`
 	APIVersion        string              `json:"api_version,omitempty"`
 	HTTPStatus        int                 `json:"http_status,omitempty"`
+	UpstreamCode      string              `json:"upstream_code,omitempty"`
 	RetryAfterSeconds *int                `json:"retry_after_seconds,omitempty"`
 	OutcomeUnknown    bool                `json:"outcome_unknown,omitempty"`
 	RemoteChanged     bool                `json:"remote_changed,omitempty"`

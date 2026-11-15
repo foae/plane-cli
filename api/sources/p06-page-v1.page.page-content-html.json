@@ -22,5 +22,22 @@
       "details": []
     },
     "excluded_reason": "General guide; no standalone operation."
+  },
+  "overview_reconciliation": {
+    "endpoint_mappings": [],
+    "source_id": "v1:page:page-content-html",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "General HTML/body authoring guide, not an endpoint: description_html is sanitized, converted to editor format and replaces the entire page body on update. Standard HTML, safe URL protocols and entity-backed editor components are payload shapes on existing page create/update operations. The attachment recipe reuses workspace asset credentials with entity_type PAGE_DESCRIPTION, storage upload_data.url, existing page confirmation, then a full body write containing attachment-component with the returned asset ID. There is explicitly no multipart page-attachment endpoint. Visibility and unlocked/active edit requirements qualify existing attachment operations, not new routes.",
+    "recommended_disposition": "general-guide",
+    "referenced_catalog_source_ids": [
+      "v1:page:add-workspace-page",
+      "v1:page:update-workspace-page",
+      "v1:page:add-project-page",
+      "v1:page:update-project-page",
+      "v1:assets:create-workspace-asset-upload",
+      "v1:page:confirm-workspace-page-attachment-upload"
+    ],
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
   }
 }

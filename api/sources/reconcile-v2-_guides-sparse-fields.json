@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/sparse-fields.md",
+  "reviewed_at": "2026-11-15",
+  "contract": {
+    "parameter": "fields",
+    "encoding": "comma-separated field names",
+    "omitted_fields": "absent, not null",
+    "id": "always included except parent-addressed singletons without own id",
+    "all": "all requestable fields; wins over other tokens",
+    "empty_value": "no filtering",
+    "unknown_field": "400 invalid_request",
+    "applies_to": [
+      "resource list/retrieve",
+      "POST/PATCH echoes",
+      "upsert",
+      "custom list actions"
+    ],
+    "exceptions": [
+      "APIView bodies including current user, workspace features, effective permissions, artifacts",
+      "bulk per-row envelopes",
+      "upload credentials",
+      "grouped relation reads",
+      "compact Lite serializers"
+    ],
+    "deferred_collection_fields": {
+      "general": "unbounded description_html where resource declares it",
+      "templates": [
+        "description_html",
+        "template_data"
+      ],
+      "pages": [
+        "description_html",
+        "description_stripped",
+        "project_ids"
+      ],
+      "stickies": [
+        "description_html",
+        "description_stripped"
+      ],
+      "cycles_and_modules": [
+        "total_issues",
+        "backlog_issues",
+        "unstarted_issues",
+        "started_issues",
+        "completed_issues",
+        "cancelled_issues"
+      ]
+    },
+    "detail_only": {
+      "work_items": [
+        "custom_fields"
+      ],
+      "workspace_workflows": [
+        "states",
+        "referenced_resources",
+        "project_ids",
+        "work_item_type_ids"
+      ]
+    },
+    "detail_only_requested_on_collection": "400",
+    "expand_composition": "independent namespaces; requested expansions survive field selection even if corresponding id field omitted",
+    "required_read_properties": "only id on ordinary resource components; other keys may be absent",
+    "resolution": "Server-side shaping only on declared endpoints; no local filling of absent keys, no universal fields parameter."
+  }
+}

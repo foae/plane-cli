@@ -1,4 +1,18 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Resource/schema guidance does not establish a new HTTP operation.",
+    "facts": [
+      "The introductory retrieval capability corresponds to existing v1.user.get-current-user; the page itself does not supply an HTTP method or path.",
+      "The rest of the body defines id, first_name, last_name, email, avatar, avatar_url and display_name with a sample user object. No arbitrary-user lookup or mutation is specified."
+    ],
+    "operation_mappings": [],
+    "mentioned_operation_ids": [
+      "v1.user.get-current-user"
+    ]
+  },
   "source_url": "https://developers.plane.so/api-reference/user/overview.md",
   "reviewed_at": "2026-11-14",
   "sha256": "3f7697667cadc5bd9fcf81757159ef2d55c370236007a5926c7bc9c7d15fbf35",

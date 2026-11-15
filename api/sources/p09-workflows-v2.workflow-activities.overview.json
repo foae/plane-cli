@@ -4,5 +4,38 @@
   "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
   "notes": [
     "Overview establishes the scope-specific workflow domain and associated operation sources."
-  ]
+  ],
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/activities/",
+        "description": "List workflow activities",
+        "catalog_operation_ids": [
+          "v2.workflow-activities.list-workflow-activities"
+        ],
+        "catalog_source_ids": [
+          "v2:workflow-activities:list-workflow-activities"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/activities/{pk}/",
+        "description": "Get a workflow activity",
+        "catalog_operation_ids": [
+          "v2.workflow-activities.get-workflow-activity"
+        ],
+        "catalog_source_ids": [
+          "v2:workflow-activities:get-workflow-activity"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:workflow-activities:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Both endpoint rows are the existing read-only workflow audit feed/detail. created_at__gt is a strict incremental filter on the existing oldest-first list, not a poll endpoint. Catalog workflows use the already-cataloged workspace feed; project routes return 404. No write activity operation is documented.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
 }

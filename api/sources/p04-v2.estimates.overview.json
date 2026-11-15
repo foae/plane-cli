@@ -2,5 +2,52 @@
   "source_url": "https://developers.plane.so/api-reference/v2/estimates/overview.md",
   "source_sha256": "10a9d4ced0df39bba8e43bde34879f42916e4c68d3b422b971b35a29f16e7046",
   "kind": "resource-overview",
-  "interpretation": "Resource overview; operation contracts are recorded separately."
+  "interpretation": "Resource overview; operation contracts are recorded separately.",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:estimates:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.estimates.list-estimates",
+        "basis": "Explicit endpoint table: List estimates."
+      },
+      {
+        "operation_id": "v2.estimates.get-estimate",
+        "basis": "Explicit endpoint table: Get an estimate."
+      },
+      {
+        "operation_id": "v2.estimates.create-estimate",
+        "basis": "Explicit endpoint table: Create an estimate."
+      },
+      {
+        "operation_id": "v2.estimates.update-estimate",
+        "basis": "Explicit endpoint table: Update an estimate."
+      },
+      {
+        "operation_id": "v2.estimates.delete-estimate",
+        "basis": "Explicit endpoint table: Delete an estimate."
+      },
+      {
+        "operation_id": "v2.estimates.upsert-estimate",
+        "basis": "Explicit endpoint table: Upsert an estimate."
+      },
+      {
+        "operation_id": "v2.estimates.bulk-create-estimates",
+        "basis": "Explicit endpoint table: Bulk create estimates."
+      },
+      {
+        "operation_id": "v2.estimates.bulk-update-estimates",
+        "basis": "Explicit endpoint table: Bulk update estimates."
+      },
+      {
+        "operation_id": "v2.estimates.bulk-delete-estimates",
+        "basis": "Explicit endpoint table: Bulk delete estimates."
+      }
+    ],
+    "page_facts": [
+      "The resource is the sizing scale used by a project; its endpoint table includes ordinary, upsert and bulk operations."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

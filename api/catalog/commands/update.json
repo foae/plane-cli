@@ -1,0 +1,114 @@
+[
+  {
+    "path": [
+      "update",
+      "check"
+    ],
+    "handler": "update-check",
+    "summary": "Explicitly check GitHub for a CLI update; never install",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli update check",
+      "plane-cli update check --include-prerelease --timeout 30s"
+    ],
+    "local": true,
+    "versions": {
+      "v1": {
+        "schema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "include-prerelease": {
+                  "type": "boolean"
+                },
+                "timeout": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "include-prerelease",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/include-prerelease",
+            "description": "Include published prerelease SemVer versions"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total GitHub check deadline (positive duration; default 30s)"
+          }
+        ]
+      },
+      "v2": {
+        "schema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "include-prerelease": {
+                  "type": "boolean"
+                },
+                "timeout": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "include-prerelease",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/include-prerelease",
+            "description": "Include published prerelease SemVer versions"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total GitHub check deadline (positive duration; default 30s)"
+          }
+        ]
+      }
+    }
+  }
+]

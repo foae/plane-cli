@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-workflows/overview.md",
+  "reviewed_at": "2026-11-15",
+  "contract": {
+    "object_fields": [
+      "type_id",
+      "governance",
+      "allowlist_count",
+      "allowlist_total",
+      "effective_workflow_id",
+      "effective_workflow_name",
+      "source",
+      "options"
+    ],
+    "governance_precedence": [
+      "required",
+      "pinned",
+      "constrained",
+      "any"
+    ],
+    "source_values": [
+      "required",
+      "pin",
+      "pick",
+      "workspace_default",
+      null
+    ],
+    "effective_workflow_name": null,
+    "no_resolved_workflow": "effective_workflow_id and source null",
+    "options": "empty for required/pinned, allowlist for constrained, all active catalog workflows for any",
+    "list_response": "plain JSON array, no pagination",
+    "shaping": "no fields or expand",
+    "paths": {
+      "list": "GET /api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/workflows/",
+      "get": "GET /api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{type_id}/workflow/",
+      "update": "PATCH /api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{type_id}/workflow/"
+    },
+    "preview": "update query dry_run=true counts affected items without mutation",
+    "errors": {
+      "ungoverned": "409 states_managed_at_project",
+      "required": "403 workflow_mandated",
+      "pinned": "403 workflow_assigned_by_workspace",
+      "outside_allowlist": "400 workflow_outside_allowlist",
+      "unmapped_states": "409 workflow_state_orphans"
+    },
+    "v1_update_method": "PUT",
+    "resolution": "All three existing P09 mappings match method/path/pagination/query; preserve explicit server-preview vs local dry-run. No additional operation."
+  },
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/workflows/",
+        "description": "List work item type workflows",
+        "catalog_operation_ids": [
+          "v2.work-item-type-workflows.list-work-item-type-workflows"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-type-workflows:list-work-item-type-workflows"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{type_id}/workflow/",
+        "description": "Get a work item type workflow",
+        "catalog_operation_ids": [
+          "v2.work-item-type-workflows.get-work-item-type-workflow"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-type-workflows:get-work-item-type-workflow"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{type_id}/workflow/",
+        "description": "Update a work item type workflow",
+        "catalog_operation_ids": [
+          "v2.work-item-type-workflows.update-work-item-type-workflow"
+        ],
+        "catalog_source_ids": [
+          "v2:work-item-type-workflows:update-work-item-type-workflow"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:work-item-type-workflows:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Three endpoint rows repeat existing list/get/PATCH project workflow-pick operations. dry_run=true is a server preview query on PATCH, not another endpoint. Governance precedence, null resolution, options and error gates describe those operations. The list is an unpaginated array and fields/expand are unsupported; the v1 PUT mention is migration context.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
+}

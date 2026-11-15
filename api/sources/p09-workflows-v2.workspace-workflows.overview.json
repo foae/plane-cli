@@ -4,5 +4,86 @@
   "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
   "notes": [
     "Overview establishes the scope-specific workflow domain and associated operation sources."
-  ]
+  ],
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/workflows/",
+        "description": "List workspace workflows",
+        "catalog_operation_ids": [
+          "v2.workspace-workflows.list-workspace-workflows"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflows:list-workspace-workflows"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/workflows/{pk}/",
+        "description": "Get a workspace workflow",
+        "catalog_operation_ids": [
+          "v2.workspace-workflows.get-workspace-workflow"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflows:get-workspace-workflow"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/workflows/",
+        "description": "Create a workspace workflow",
+        "catalog_operation_ids": [
+          "v2.workspace-workflows.create-workspace-workflow"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflows:create-workspace-workflow"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/workflows/{pk}/",
+        "description": "Update a workspace workflow",
+        "catalog_operation_ids": [
+          "v2.workspace-workflows.update-workspace-workflow"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflows:update-workspace-workflow"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/workflows/{pk}/",
+        "description": "Delete a workspace workflow",
+        "catalog_operation_ids": [
+          "v2.workspace-workflows.delete-workspace-workflow"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflows:delete-workspace-workflow"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/workflows/{pk}/usage/",
+        "description": "Get workspace workflow usage",
+        "catalog_operation_ids": [
+          "v2.workspace-workflows.get-workspace-workflow-usage"
+        ],
+        "catalog_source_ids": [
+          "v2:workspace-workflows:get-workspace-workflow-usage"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:workspace-workflows:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Six endpoint rows repeat existing catalog workflow CRUD and usage operations. The setup recipe uses existing state/transition/hook operations and PATCH is_active; it is not a new activate operation. Chain replacement/order/default, orphan mappings, dependency/in-use guards and plan gates describe existing writes. List omits detail-only fields and requesting them via fields returns 400. Governed catalog resolution is not a new endpoint.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
 }

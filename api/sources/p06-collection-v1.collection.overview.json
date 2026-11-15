@@ -8,5 +8,29 @@
     "parameters": {},
     "statuses": []
   },
-  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes"
+  "digest_representation": "UTF-8 reader-derived Markdown after URL/content-type/method preamble removal; reader extraction, NOT raw HTTP response bytes",
+  "overview_reconciliation": {
+    "endpoint_mappings": [],
+    "source_id": "v1:collection:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "Resource/schema and authorization overview only, with no method/path or endpoint table. access 0/1, private member access 0/1/2, immutable collection access, owner/admin membership management, protected default collection and subtree movement explain existing collection CRUD/member/page operations. They do not define new permission, move-subtree or access-change operations.",
+    "referenced_catalog_source_ids": [
+      "v1:collection:list-collections",
+      "v1:collection:create-collection",
+      "v1:collection:retrieve-collection",
+      "v1:collection:update-collection",
+      "v1:collection:delete-collection",
+      "v1:collection:list-collection-members",
+      "v1:collection:add-collection-member",
+      "v1:collection:update-collection-member",
+      "v1:collection:remove-collection-member",
+      "v1:collection:list-collection-pages",
+      "v1:collection:search-collection-pages",
+      "v1:collection:add-collection-pages",
+      "v1:collection:move-or-reorder-collection-page",
+      "v1:collection:remove-collection-page"
+    ],
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
+  }
 }

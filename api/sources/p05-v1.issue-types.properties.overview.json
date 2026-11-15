@@ -2,6 +2,16 @@
   "source_url": "https://developers.plane.so/api-reference/issue-types/properties/overview.md",
   "source_sha256": "67850b1cf3a6e81bb489b716cd3a5017c8c21c13486b2f2365e1f2709617dd28",
   "contract": {
-    "kind": "overview"
+    "kind": "overview",
+    "reconciliation": {
+      "reviewed_at": "2026-11-15",
+      "disposition": "schema-only",
+      "operation_ids": [],
+      "facts": [
+        "The body introduces workflow-specific custom fields, links a conceptual add-custom-properties article, and contains only The properties object, Attributes and one 200 response example.",
+        "The attributes explain automatically set workspace/project ownership and audit fields plus external correlation; the example supplies the definition fields and issue_type relationship.",
+        "No method, endpoint path, request body, operation link or API action is specified. The conceptual documentation anchor is not a property-create HTTP contract."
+      ]
+    }
   }
 }

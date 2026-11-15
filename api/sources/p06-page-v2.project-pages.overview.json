@@ -22,5 +22,92 @@
       "details": []
     },
     "excluded_reason": "General guide; no standalone operation."
+  },
+  "overview_reconciliation": {
+    "endpoint_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/pages/",
+        "description": "List project pages",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:project-pages:list-project-pages"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/pages/{pk}/",
+        "description": "Get a project page",
+        "catalog_operation_ids": [
+          "v2.project-pages.get-project-page"
+        ],
+        "catalog_source_ids": [
+          "v2:project-pages:get-project-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/pages/",
+        "description": "Create a project page",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:project-pages:create-project-page"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/pages/{pk}/",
+        "description": "Update a project page",
+        "catalog_operation_ids": [],
+        "catalog_source_ids": [
+          "v2:project-pages:update-project-page"
+        ],
+        "implementation_reconciliation": "Existing source row only; executable contract remains excluded by recorded upstream conflict, not implemented by this overview."
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/pages/{pk}/",
+        "description": "Delete a project page",
+        "catalog_operation_ids": [
+          "v2.project-pages.delete-project-page"
+        ],
+        "catalog_source_ids": [
+          "v2:project-pages:delete-project-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/pages/{pk}/archive/",
+        "description": "Archive a project page",
+        "catalog_operation_ids": [
+          "v2.project-pages.archive-project-page"
+        ],
+        "catalog_source_ids": [
+          "v2:project-pages:archive-project-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{project_id}/pages/{pk}/unarchive/",
+        "description": "Unarchive a project page",
+        "catalog_operation_ids": [
+          "v2.project-pages.unarchive-project-page"
+        ],
+        "catalog_source_ids": [
+          "v2:project-pages:unarchive-project-page"
+        ],
+        "implementation_reconciliation": "Existing executable catalog operation; no additional operation."
+      }
+    ],
+    "source_id": "v2:project-pages:overview",
+    "recommended_review_resolution": "non-operation",
+    "additional_operations": [],
+    "summary": "The seven endpoint rows repeat existing project-page sources. Archive recursively archives nested pages and unpublishes; unarchive restores them; deletion requires prior archival. These are semantics of existing archive/unarchive/delete operations, not additional operations. Existing conflicting list/write sources remain unresolved, not implemented by this overview.",
+    "capture_policy": "Existing capture digests, byte counts and digest representation preserved; this review adds independently authored reconciliation, not a replacement capture."
   }
 }

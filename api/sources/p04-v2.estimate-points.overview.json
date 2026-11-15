@@ -2,5 +2,52 @@
   "source_url": "https://developers.plane.so/api-reference/v2/estimate-points/overview.md",
   "source_sha256": "723434be508f47dc40ca691707d934e75646677cfb95f64d153dae0260a3a059",
   "kind": "resource-overview",
-  "interpretation": "Resource overview; operation contracts are recorded separately."
+  "interpretation": "Resource overview; operation contracts are recorded separately.",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:estimate-points:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.estimate-points.list-estimate-points",
+        "basis": "Explicit endpoint table: List estimate points."
+      },
+      {
+        "operation_id": "v2.estimate-points.get-estimate-point",
+        "basis": "Explicit endpoint table: Get an estimate point."
+      },
+      {
+        "operation_id": "v2.estimate-points.create-estimate-point",
+        "basis": "Explicit endpoint table: Create an estimate point."
+      },
+      {
+        "operation_id": "v2.estimate-points.update-estimate-point",
+        "basis": "Explicit endpoint table: Update an estimate point."
+      },
+      {
+        "operation_id": "v2.estimate-points.delete-estimate-point",
+        "basis": "Explicit endpoint table: Delete an estimate point."
+      },
+      {
+        "operation_id": "v2.estimate-points.upsert-estimate-point",
+        "basis": "Explicit endpoint table: Upsert an estimate point."
+      },
+      {
+        "operation_id": "v2.estimate-points.bulk-create-estimate-points",
+        "basis": "Explicit endpoint table: Bulk create estimate points."
+      },
+      {
+        "operation_id": "v2.estimate-points.bulk-update-estimate-points",
+        "basis": "Explicit endpoint table: Bulk update estimate points."
+      },
+      {
+        "operation_id": "v2.estimate-points.bulk-delete-estimate-points",
+        "basis": "Explicit endpoint table: Bulk delete estimate points."
+      }
+    ],
+    "page_facts": [
+      "Individual scale values are nested under estimate_id; its endpoint table includes ordinary, upsert and bulk operations."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

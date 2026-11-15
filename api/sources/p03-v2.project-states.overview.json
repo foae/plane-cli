@@ -1,4 +1,58 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Every explicitly tabulated operation is already cataloged; retain this page as overview evidence.",
+    "facts": [
+      "The six endpoint rows manage project lifecycle stages, not work-item states, and include mark-default.",
+      "Plan and settings gates return payment_required; governance does not change these routes. The v1 default path in migration notes is historical, not an additional v2 endpoint."
+    ],
+    "operation_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/project-states/",
+        "operation_ids": [
+          "v2.project-states.list-project-states"
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/project-states/{pk}/",
+        "operation_ids": [
+          "v2.project-states.get-project-state"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/project-states/",
+        "operation_ids": [
+          "v2.project-states.create-project-state"
+        ]
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/project-states/{pk}/",
+        "operation_ids": [
+          "v2.project-states.update-project-state"
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/project-states/{pk}/",
+        "operation_ids": [
+          "v2.project-states.delete-project-state"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/project-states/{pk}/mark-default/",
+        "operation_ids": [
+          "v2.project-states.mark-default-project-state"
+        ]
+      }
+    ]
+  },
   "source_url": "https://developers.plane.so/api-reference/v2/project-states/overview.md",
   "classification": "non-operation",
   "review": "Overview resource attributes and links to independently indexed operations; no additional unmatched operation."

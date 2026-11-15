@@ -97,16 +97,36 @@ func TestP09WorkflowGovernanceRequests(t *testing.T) {
 				if calls != 1 {
 					t.Fatalf("calls=%d code=%d err=%s", calls, code, stderr)
 				}
-				if status == 403 {
+				switch status {
+				case 403:
 					if code != 3 || out != "" {
 						t.Fatalf("permission code=%d out=%s err=%s", code, out, stderr)
 					}
-				} else if status == 409 {
+				case 409:
 					if code != 5 || out != "" {
 						t.Fatalf("conflict code=%d out=%s err=%s", code, out, stderr)
 					}
-				} else if code != 0 {
-					t.Fatalf("code=%d err=%s", code, stderr)
+				default:
+					if code != 0 || stderr != "" {
+						t.Fatalf("code=%d err=%s", code, stderr)
+					}
+					var envelope struct {
+						Data json.RawMessage `json:"data"`
+					}
+					if err := json.Unmarshal([]byte(out), &envelope); err != nil {
+						t.Fatal(err)
+					}
+					got, err := spec.Decode(envelope.Data)
+					if err != nil {
+						t.Fatal(err)
+					}
+					want, err := spec.Decode(f.Response)
+					if err != nil {
+						t.Fatal(err)
+					}
+					if !reflect.DeepEqual(got, want) {
+						t.Fatalf("native response changed: %s; want %s", out, f.Response)
+					}
 				}
 			}
 		})

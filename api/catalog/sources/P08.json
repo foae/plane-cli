@@ -1,0 +1,1243 @@
+[
+  {
+    "id": "v2:project-features:overview",
+    "version": "v2",
+    "family": "project-features",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/project-features/overview.md",
+    "provenance_id": "p08-permissions-v2.project-features.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:project-features:get-project-features",
+    "version": "v2",
+    "family": "project-features",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/project-features/get-project-features.md",
+    "provenance_id": "p08-permissions-v2.project-features.get-project-features",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.project-features.get-project-features"
+    ]
+  },
+  {
+    "id": "v2:project-features:update-project-features",
+    "version": "v2",
+    "family": "project-features",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/project-features/update-project-features.md",
+    "provenance_id": "p08-permissions-v2.project-features.update-project-features",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.project-features.update-project-features"
+    ]
+  },
+  {
+    "id": "v2:members:overview",
+    "version": "v2",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/members/overview.md",
+    "provenance_id": "p08-membership-v2.members.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:members:list-project-members",
+    "version": "v2",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/members/list-project-members.md",
+    "provenance_id": "p08-membership-v2.members.list-project-members"
+  },
+  {
+    "id": "v2:members:list-workspace-members",
+    "version": "v2",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/members/list-workspace-members.md",
+    "provenance_id": "p08-membership-v2.members.list-workspace-members"
+  },
+  {
+    "id": "v2:members:get-project-member",
+    "version": "v2",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/members/get-project-member.md",
+    "provenance_id": "p08-membership-v2.members.get-project-member"
+  },
+  {
+    "id": "v2:members:get-project-role-distribution",
+    "version": "v2",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/members/get-project-role-distribution.md",
+    "provenance_id": "p08-membership-v2.members.get-project-role-distribution"
+  },
+  {
+    "id": "v2:members:create-project-member",
+    "version": "v2",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/members/create-project-member.md",
+    "provenance_id": "p08-membership-v2.members.create-project-member"
+  },
+  {
+    "id": "v2:members:update-project-member",
+    "version": "v2",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/members/update-project-member.md",
+    "provenance_id": "p08-membership-v2.members.update-project-member"
+  },
+  {
+    "id": "v2:members:delete-project-member",
+    "version": "v2",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/members/delete-project-member.md",
+    "provenance_id": "p08-membership-v2.members.delete-project-member"
+  },
+  {
+    "id": "v2:members:remove-workspace-member",
+    "version": "v2",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/members/remove-workspace-member.md",
+    "provenance_id": "p08-membership-v2.members.remove-workspace-member"
+  },
+  {
+    "id": "v2:invitations:overview",
+    "version": "v2",
+    "family": "invitations",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/invitations/overview.md",
+    "provenance_id": "p08-membership-v2.invitations.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:invitations:list-invitations",
+    "version": "v2",
+    "family": "invitations",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/invitations/list-invitations.md",
+    "provenance_id": "p08-membership-v2.invitations.list-invitations"
+  },
+  {
+    "id": "v2:invitations:get-invitation",
+    "version": "v2",
+    "family": "invitations",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/invitations/get-invitation.md",
+    "provenance_id": "p08-membership-v2.invitations.get-invitation"
+  },
+  {
+    "id": "v2:invitations:create-invitation",
+    "version": "v2",
+    "family": "invitations",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/invitations/create-invitation.md",
+    "provenance_id": "p08-membership-v2.invitations.create-invitation"
+  },
+  {
+    "id": "v2:invitations:delete-invitation",
+    "version": "v2",
+    "family": "invitations",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/invitations/delete-invitation.md",
+    "provenance_id": "p08-membership-v2.invitations.delete-invitation"
+  },
+  {
+    "id": "v2:invitations:bulk-invitations",
+    "version": "v2",
+    "family": "invitations",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/invitations/bulk-invitations.md",
+    "provenance_id": "p08-membership-v2.invitations.bulk-invitations"
+  },
+  {
+    "id": "v2:roles:overview",
+    "version": "v2",
+    "family": "roles",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/roles/overview.md",
+    "provenance_id": "p08-permissions-v2.roles.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:roles:list-roles",
+    "version": "v2",
+    "family": "roles",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/roles/list-roles.md",
+    "provenance_id": "p08-permissions-v2.roles.list-roles",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.roles.list-roles"
+    ]
+  },
+  {
+    "id": "v2:roles:get-role",
+    "version": "v2",
+    "family": "roles",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/roles/get-role.md",
+    "provenance_id": "p08-permissions-v2.roles.get-role",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.roles.get-role"
+    ]
+  },
+  {
+    "id": "v2:permissions:overview",
+    "version": "v2",
+    "family": "permissions",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/permissions/overview.md",
+    "provenance_id": "p08-permissions-v2.permissions.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:permissions:get-project-permissions",
+    "version": "v2",
+    "family": "permissions",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permissions/get-project-permissions.md",
+    "provenance_id": "p08-permissions-v2.permissions.get-project-permissions",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permissions.get-project-permissions"
+    ]
+  },
+  {
+    "id": "v2:permissions:get-workspace-permissions",
+    "version": "v2",
+    "family": "permissions",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permissions/get-workspace-permissions.md",
+    "provenance_id": "p08-permissions-v2.permissions.get-workspace-permissions",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permissions.get-workspace-permissions"
+    ]
+  },
+  {
+    "id": "v2:permissions:check-permission",
+    "version": "v2",
+    "family": "permissions",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permissions/check-permission.md",
+    "provenance_id": "p08-permissions-v2.permissions.check-permission",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permissions.check-permission"
+    ]
+  },
+  {
+    "id": "v2:permissions:list-resource-permissions",
+    "version": "v2",
+    "family": "permissions",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permissions/list-resource-permissions.md",
+    "provenance_id": "p08-permissions-v2.permissions.list-resource-permissions",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permissions.list-resource-permissions"
+    ]
+  },
+  {
+    "id": "v2:permissions:list-accessible-resources",
+    "version": "v2",
+    "family": "permissions",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permissions/list-accessible-resources.md",
+    "provenance_id": "p08-permissions-v2.permissions.list-accessible-resources",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permissions.list-accessible-resources"
+    ]
+  },
+  {
+    "id": "v2:permissions:get-resource-relation",
+    "version": "v2",
+    "family": "permissions",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permissions/get-resource-relation.md",
+    "provenance_id": "p08-permissions-v2.permissions.get-resource-relation",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permissions.get-resource-relation"
+    ]
+  },
+  {
+    "id": "v2:permission-grants:overview",
+    "version": "v2",
+    "family": "permission-grants",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/permission-grants/overview.md",
+    "provenance_id": "p08-permissions-v2.permission-grants.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:permission-grants:list-permission-grants",
+    "version": "v2",
+    "family": "permission-grants",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permission-grants/list-permission-grants.md",
+    "provenance_id": "p08-permissions-v2.permission-grants.list-permission-grants",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permission-grants.list-permission-grants"
+    ]
+  },
+  {
+    "id": "v2:permission-grants:get-permission-grant",
+    "version": "v2",
+    "family": "permission-grants",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permission-grants/get-permission-grant.md",
+    "provenance_id": "p08-permissions-v2.permission-grants.get-permission-grant",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permission-grants.get-permission-grant"
+    ]
+  },
+  {
+    "id": "v2:permission-grants:create-permission-grant",
+    "version": "v2",
+    "family": "permission-grants",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permission-grants/create-permission-grant.md",
+    "provenance_id": "p08-permissions-v2.permission-grants.create-permission-grant",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permission-grants.create-permission-grant"
+    ]
+  },
+  {
+    "id": "v2:permission-grants:update-permission-grant",
+    "version": "v2",
+    "family": "permission-grants",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permission-grants/update-permission-grant.md",
+    "provenance_id": "p08-permissions-v2.permission-grants.update-permission-grant",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permission-grants.update-permission-grant"
+    ]
+  },
+  {
+    "id": "v2:permission-grants:delete-permission-grant",
+    "version": "v2",
+    "family": "permission-grants",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permission-grants/delete-permission-grant.md",
+    "provenance_id": "p08-permissions-v2.permission-grants.delete-permission-grant",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permission-grants.delete-permission-grant"
+    ]
+  },
+  {
+    "id": "v2:permission-schemes:overview",
+    "version": "v2",
+    "family": "permission-schemes",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/permission-schemes/overview.md",
+    "provenance_id": "p08-permissions-v2.permission-schemes.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:permission-schemes:list-permission-schemes",
+    "version": "v2",
+    "family": "permission-schemes",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permission-schemes/list-permission-schemes.md",
+    "provenance_id": "p08-permissions-v2.permission-schemes.list-permission-schemes",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permission-schemes.list-permission-schemes"
+    ]
+  },
+  {
+    "id": "v2:permission-schemes:get-permission-scheme",
+    "version": "v2",
+    "family": "permission-schemes",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/permission-schemes/get-permission-scheme.md",
+    "provenance_id": "p08-permissions-v2.permission-schemes.get-permission-scheme",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.permission-schemes.get-permission-scheme"
+    ]
+  },
+  {
+    "id": "v2:workspace-features:overview",
+    "version": "v2",
+    "family": "workspace-features",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-features/overview.md",
+    "provenance_id": "p08-permissions-v2.workspace-features.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:workspace-features:get-workspace-features",
+    "version": "v2",
+    "family": "workspace-features",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-features/get-workspace-features.md",
+    "provenance_id": "p08-permissions-v2.workspace-features.get-workspace-features",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.workspace-features.get-workspace-features"
+    ]
+  },
+  {
+    "id": "v2:workspace-features:update-workspace-features",
+    "version": "v2",
+    "family": "workspace-features",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/workspace-features/update-workspace-features.md",
+    "provenance_id": "p08-permissions-v2.workspace-features.update-workspace-features",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v2.workspace-features.update-workspace-features"
+    ]
+  },
+  {
+    "id": "v2:audit-logs:overview",
+    "version": "v2",
+    "family": "audit-logs",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/audit-logs/overview.md",
+    "provenance_id": "p08-integrations-v2.audit-logs.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:audit-logs:list-audit-logs",
+    "version": "v2",
+    "family": "audit-logs",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/audit-logs/list-audit-logs.md",
+    "provenance_id": "p08-integrations-v2.audit-logs.list-audit-logs",
+    "operation_ids": [
+      "v2.audit-logs.list-audit-logs"
+    ]
+  },
+  {
+    "id": "v2:audit-logs:get-audit-log",
+    "version": "v2",
+    "family": "audit-logs",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/audit-logs/get-audit-log.md",
+    "provenance_id": "p08-integrations-v2.audit-logs.get-audit-log",
+    "operation_ids": [
+      "v2.audit-logs.get-audit-log"
+    ]
+  },
+  {
+    "id": "v2:group-sync:overview",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/overview.md",
+    "provenance_id": "p08-membership-v2.group-sync.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:group-sync:list-project-mappings",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/list-project-mappings.md",
+    "provenance_id": "p08-membership-v2.group-sync.list-project-mappings"
+  },
+  {
+    "id": "v2:group-sync:list-workspace-mappings",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/list-workspace-mappings.md",
+    "provenance_id": "p08-membership-v2.group-sync.list-workspace-mappings"
+  },
+  {
+    "id": "v2:group-sync:get-group-sync-config",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/get-group-sync-config.md",
+    "provenance_id": "p08-membership-v2.group-sync.get-group-sync-config"
+  },
+  {
+    "id": "v2:group-sync:get-project-mapping",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/get-project-mapping.md",
+    "provenance_id": "p08-membership-v2.group-sync.get-project-mapping"
+  },
+  {
+    "id": "v2:group-sync:get-workspace-mapping",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/get-workspace-mapping.md",
+    "provenance_id": "p08-membership-v2.group-sync.get-workspace-mapping"
+  },
+  {
+    "id": "v2:group-sync:create-project-mapping",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/create-project-mapping.md",
+    "provenance_id": "p08-membership-v2.group-sync.create-project-mapping"
+  },
+  {
+    "id": "v2:group-sync:create-workspace-mapping",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/create-workspace-mapping.md",
+    "provenance_id": "p08-membership-v2.group-sync.create-workspace-mapping"
+  },
+  {
+    "id": "v2:group-sync:update-group-sync-config",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/update-group-sync-config.md",
+    "provenance_id": "p08-membership-v2.group-sync.update-group-sync-config"
+  },
+  {
+    "id": "v2:group-sync:update-project-mapping",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/update-project-mapping.md",
+    "provenance_id": "p08-membership-v2.group-sync.update-project-mapping"
+  },
+  {
+    "id": "v2:group-sync:update-workspace-mapping",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/update-workspace-mapping.md",
+    "provenance_id": "p08-membership-v2.group-sync.update-workspace-mapping"
+  },
+  {
+    "id": "v2:group-sync:delete-project-mapping",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/delete-project-mapping.md",
+    "provenance_id": "p08-membership-v2.group-sync.delete-project-mapping"
+  },
+  {
+    "id": "v2:group-sync:delete-workspace-mapping",
+    "version": "v2",
+    "family": "group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/group-sync/delete-workspace-mapping.md",
+    "provenance_id": "p08-membership-v2.group-sync.delete-workspace-mapping"
+  },
+  {
+    "id": "v2:webhooks:overview",
+    "version": "v2",
+    "family": "webhooks",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/webhooks/overview.md",
+    "provenance_id": "p08-integrations-v2.webhooks.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:webhooks:list-webhooks",
+    "version": "v2",
+    "family": "webhooks",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/webhooks/list-webhooks.md",
+    "provenance_id": "p08-integrations-v2.webhooks.list-webhooks",
+    "operation_ids": [
+      "v2.webhooks.list-webhooks"
+    ]
+  },
+  {
+    "id": "v2:webhooks:get-webhook",
+    "version": "v2",
+    "family": "webhooks",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/webhooks/get-webhook.md",
+    "provenance_id": "p08-integrations-v2.webhooks.get-webhook",
+    "operation_ids": [
+      "v2.webhooks.get-webhook"
+    ]
+  },
+  {
+    "id": "v2:webhooks:create-webhook",
+    "version": "v2",
+    "family": "webhooks",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/webhooks/create-webhook.md",
+    "provenance_id": "p08-integrations-v2.webhooks.create-webhook",
+    "operation_ids": [
+      "v2.webhooks.create-webhook"
+    ]
+  },
+  {
+    "id": "v2:webhooks:update-webhook",
+    "version": "v2",
+    "family": "webhooks",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/webhooks/update-webhook.md",
+    "provenance_id": "p08-integrations-v2.webhooks.update-webhook",
+    "operation_ids": [
+      "v2.webhooks.update-webhook"
+    ]
+  },
+  {
+    "id": "v2:webhooks:delete-webhook",
+    "version": "v2",
+    "family": "webhooks",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/webhooks/delete-webhook.md",
+    "provenance_id": "p08-integrations-v2.webhooks.delete-webhook",
+    "operation_ids": [
+      "v2.webhooks.delete-webhook"
+    ]
+  },
+  {
+    "id": "v2:webhooks:regenerate-webhook-secret",
+    "version": "v2",
+    "family": "webhooks",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/webhooks/regenerate-webhook-secret.md",
+    "provenance_id": "p08-integrations-v2.webhooks.regenerate-webhook-secret",
+    "operation_ids": [
+      "v2.webhooks.regenerate-webhook-secret"
+    ]
+  },
+  {
+    "id": "v2:webhook-logs:overview",
+    "version": "v2",
+    "family": "webhook-logs",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/webhook-logs/overview.md",
+    "provenance_id": "p08-integrations-v2.webhook-logs.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:webhook-logs:list-webhook-logs",
+    "version": "v2",
+    "family": "webhook-logs",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/webhook-logs/list-webhook-logs.md",
+    "provenance_id": "p08-integrations-v2.webhook-logs.list-webhook-logs",
+    "operation_ids": [
+      "v2.webhook-logs.list-webhook-logs"
+    ]
+  },
+  {
+    "id": "v2:webhook-logs:get-webhook-log",
+    "version": "v2",
+    "family": "webhook-logs",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/webhook-logs/get-webhook-log.md",
+    "provenance_id": "p08-integrations-v2.webhook-logs.get-webhook-log",
+    "operation_ids": [
+      "v2.webhook-logs.get-webhook-log"
+    ]
+  },
+  {
+    "id": "v2:notifications:overview",
+    "version": "v2",
+    "family": "notifications",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/notifications/overview.md",
+    "provenance_id": "p08-integrations-v2.notifications.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:notifications:list-notifications",
+    "version": "v2",
+    "family": "notifications",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/notifications/list-notifications.md",
+    "provenance_id": "p08-integrations-v2.notifications.list-notifications",
+    "operation_ids": [
+      "v2.notifications.list-notifications"
+    ]
+  },
+  {
+    "id": "v2:notifications:get-notification",
+    "version": "v2",
+    "family": "notifications",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/notifications/get-notification.md",
+    "provenance_id": "p08-integrations-v2.notifications.get-notification",
+    "operation_ids": [
+      "v2.notifications.get-notification"
+    ]
+  },
+  {
+    "id": "v2:artifacts:overview",
+    "version": "v2",
+    "family": "artifacts",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/v2/artifacts/overview.md",
+    "provenance_id": "p08-integrations-v2.artifacts.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v2:artifacts:get-artifact",
+    "version": "v2",
+    "family": "artifacts",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/artifacts/get-artifact.md",
+    "provenance_id": "p08-integrations-v2.artifacts.get-artifact",
+    "operation_ids": [
+      "v2.artifacts.get-artifact"
+    ]
+  },
+  {
+    "id": "v2:artifacts:create-artifact",
+    "version": "v2",
+    "family": "artifacts",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/artifacts/create-artifact.md",
+    "provenance_id": "p08-integrations-v2.artifacts.create-artifact",
+    "operation_ids": [
+      "v2.artifacts.create-artifact"
+    ]
+  },
+  {
+    "id": "v2:artifacts:update-artifact",
+    "version": "v2",
+    "family": "artifacts",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/artifacts/update-artifact.md",
+    "provenance_id": "p08-integrations-v2.artifacts.update-artifact",
+    "operation_ids": [
+      "v2.artifacts.update-artifact"
+    ]
+  },
+  {
+    "id": "v2:artifacts:publish-artifact",
+    "version": "v2",
+    "family": "artifacts",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/v2/artifacts/publish-artifact.md",
+    "provenance_id": "p08-integrations-v2.artifacts.publish-artifact",
+    "operation_ids": [
+      "v2.artifacts.publish-artifact"
+    ]
+  },
+  {
+    "id": "v1:project-features:overview",
+    "version": "v1",
+    "family": "project-features",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/project-features/overview.md",
+    "provenance_id": "p08-permissions-v1.project-features.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v1:project-features:get-project-features",
+    "version": "v1",
+    "family": "project-features",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/project-features/get-project-features.md",
+    "provenance_id": "p08-permissions-v1.project-features.get-project-features",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v1.project-features.get-project-features"
+    ]
+  },
+  {
+    "id": "v1:project-features:update-project-features",
+    "version": "v1",
+    "family": "project-features",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/project-features/update-project-features.md",
+    "provenance_id": "p08-permissions-v1.project-features.update-project-features",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v1.project-features.update-project-features"
+    ]
+  },
+  {
+    "id": "v1:workspace-features:overview",
+    "version": "v1",
+    "family": "workspace-features",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/workspace-features/overview.md",
+    "provenance_id": "p08-permissions-v1.workspace-features.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v1:workspace-features:get-workspace-features",
+    "version": "v1",
+    "family": "workspace-features",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/workspace-features/get-workspace-features.md",
+    "provenance_id": "p08-permissions-v1.workspace-features.get-workspace-features",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v1.workspace-features.get-workspace-features"
+    ]
+  },
+  {
+    "id": "v1:workspace-features:update-workspace-features",
+    "version": "v1",
+    "family": "workspace-features",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/workspace-features/update-workspace-features.md",
+    "provenance_id": "p08-permissions-v1.workspace-features.update-workspace-features",
+    "review_resolution": "mapped",
+    "operation_ids": [
+      "v1.workspace-features.update-workspace-features"
+    ]
+  },
+  {
+    "id": "v1:workspace-invitations:overview",
+    "version": "v1",
+    "family": "workspace-invitations",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/workspace-invitations/overview.md",
+    "provenance_id": "p08-membership-v1.workspace-invitations.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v1:workspace-invitations:add-workspace-invitation",
+    "version": "v1",
+    "family": "workspace-invitations",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/workspace-invitations/add-workspace-invitation.md",
+    "provenance_id": "p08-membership-v1.workspace-invitations.add-workspace-invitation"
+  },
+  {
+    "id": "v1:workspace-invitations:list-workspace-invitations",
+    "version": "v1",
+    "family": "workspace-invitations",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/workspace-invitations/list-workspace-invitations.md",
+    "provenance_id": "p08-membership-v1.workspace-invitations.list-workspace-invitations"
+  },
+  {
+    "id": "v1:workspace-invitations:get-workspace-invitation-detail",
+    "version": "v1",
+    "family": "workspace-invitations",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/workspace-invitations/get-workspace-invitation-detail.md",
+    "provenance_id": "p08-membership-v1.workspace-invitations.get-workspace-invitation-detail"
+  },
+  {
+    "id": "v1:workspace-invitations:update-workspace-invitation",
+    "version": "v1",
+    "family": "workspace-invitations",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/workspace-invitations/update-workspace-invitation.md",
+    "provenance_id": "p08-membership-v1.workspace-invitations.update-workspace-invitation"
+  },
+  {
+    "id": "v1:workspace-invitations:delete-workspace-invitation",
+    "version": "v1",
+    "family": "workspace-invitations",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/workspace-invitations/delete-workspace-invitation.md",
+    "provenance_id": "p08-membership-v1.workspace-invitations.delete-workspace-invitation"
+  },
+  {
+    "id": "v1:members:overview",
+    "version": "v1",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/members/overview.md",
+    "provenance_id": "p08-membership-v1.members.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v1:members:get-workspace-members",
+    "version": "v1",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/members/get-workspace-members.md",
+    "provenance_id": "p08-membership-v1.members.get-workspace-members"
+  },
+  {
+    "id": "v1:members:get-project-members",
+    "version": "v1",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/members/get-project-members.md",
+    "provenance_id": "p08-membership-v1.members.get-project-members"
+  },
+  {
+    "id": "v1:members:add-project-member",
+    "version": "v1",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/members/add-project-member.md",
+    "provenance_id": "p08-membership-v1.members.add-project-member"
+  },
+  {
+    "id": "v1:members:get-project-member-detail",
+    "version": "v1",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/members/get-project-member-detail.md",
+    "provenance_id": "p08-membership-v1.members.get-project-member-detail"
+  },
+  {
+    "id": "v1:members:update-project-member",
+    "version": "v1",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/members/update-project-member.md",
+    "provenance_id": "p08-membership-v1.members.update-project-member"
+  },
+  {
+    "id": "v1:members:delete-project-member",
+    "version": "v1",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/members/delete-project-member.md",
+    "provenance_id": "p08-membership-v1.members.delete-project-member"
+  },
+  {
+    "id": "v1:members:remove-workspace-member",
+    "version": "v1",
+    "family": "members",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "reviewed-partial",
+    "completion_exception": "docs/reference/api-contract-gaps.md",
+    "url": "https://developers.plane.so/api-reference/members/remove-workspace-member.md",
+    "provenance_id": "p08-membership-v1.members.remove-workspace-member",
+    "review_resolution": "upstream-blocked"
+  },
+  {
+    "id": "v1:idp-group-sync:overview",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "overview",
+    "evidence_status": "reviewed",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/overview.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.overview",
+    "review_resolution": "non-operation"
+  },
+  {
+    "id": "v1:idp-group-sync:get-group-sync-config",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/get-group-sync-config.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.get-group-sync-config"
+  },
+  {
+    "id": "v1:idp-group-sync:update-group-sync-config",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/update-group-sync-config.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.update-group-sync-config"
+  },
+  {
+    "id": "v1:idp-group-sync:list-project-mappings",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/list-project-mappings.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.list-project-mappings"
+  },
+  {
+    "id": "v1:idp-group-sync:create-project-mapping",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/create-project-mapping.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.create-project-mapping"
+  },
+  {
+    "id": "v1:idp-group-sync:get-project-mapping",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/get-project-mapping.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.get-project-mapping"
+  },
+  {
+    "id": "v1:idp-group-sync:update-project-mapping",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/update-project-mapping.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.update-project-mapping"
+  },
+  {
+    "id": "v1:idp-group-sync:update-project-mapping-by-key",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/update-project-mapping-by-key.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.update-project-mapping-by-key"
+  },
+  {
+    "id": "v1:idp-group-sync:delete-project-mapping",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/delete-project-mapping.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.delete-project-mapping"
+  },
+  {
+    "id": "v1:idp-group-sync:list-workspace-mappings",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/list-workspace-mappings.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.list-workspace-mappings"
+  },
+  {
+    "id": "v1:idp-group-sync:create-workspace-mapping",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/create-workspace-mapping.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.create-workspace-mapping"
+  },
+  {
+    "id": "v1:idp-group-sync:get-workspace-mapping",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/get-workspace-mapping.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.get-workspace-mapping"
+  },
+  {
+    "id": "v1:idp-group-sync:update-workspace-mapping",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/update-workspace-mapping.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.update-workspace-mapping"
+  },
+  {
+    "id": "v1:idp-group-sync:delete-workspace-mapping",
+    "version": "v1",
+    "family": "idp-group-sync",
+    "packet": "P08",
+    "disposition": "operation-source",
+    "evidence_status": "verified",
+    "url": "https://developers.plane.so/api-reference/idp-group-sync/delete-workspace-mapping.md",
+    "provenance_id": "p08-membership-v1.idp-group-sync.delete-workspace-mapping"
+  }
+]

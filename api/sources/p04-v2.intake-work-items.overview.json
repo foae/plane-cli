@@ -2,5 +2,37 @@
   "source_url": "https://developers.plane.so/api-reference/v2/intake-work-items/overview.md",
   "source_id": "v2:intake-work-items:overview",
   "reviewed_at": "2026-11-14",
-  "resolution": "Family overview; operation contracts reviewed separately."
+  "resolution": "Family overview; operation contracts reviewed separately.",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:intake-work-items:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.intake-work-items.list-intake-work-items",
+        "basis": "Explicit endpoint table: List intake work items."
+      },
+      {
+        "operation_id": "v2.intake-work-items.get-intake-work-item",
+        "basis": "Explicit endpoint table: Get an intake work item."
+      },
+      {
+        "operation_id": "v2.intake-work-items.create-intake-work-item",
+        "basis": "Explicit endpoint table: Create an intake work item."
+      },
+      {
+        "operation_id": "v2.intake-work-items.update-intake-work-item",
+        "basis": "Explicit endpoint table: Update an intake work item."
+      },
+      {
+        "operation_id": "v2.intake-work-items.delete-intake-work-item",
+        "basis": "Explicit endpoint table: Delete an intake work item."
+      }
+    ],
+    "page_facts": [
+      "The resource is a project triage queue. The endpoint table uses intake-issues in all five routes despite the intake-work-items documentation family name.",
+      "This v2 table is not evidence that legacy v1 inbox routes and intake routes are wire-equivalent."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

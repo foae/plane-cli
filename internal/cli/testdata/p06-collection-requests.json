@@ -1,5 +1,53 @@
 [
   {
+    "id": "v2.collections.list-collection-members",
+    "handler": "collection-member-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/ws/collections/collection-id/members/?expand=member&fields=all",
+    "flags": {"workspace": "ws", "collection": "collection-id", "fields": "all", "expand": "member"},
+    "body": null,
+    "status": 200,
+    "response": {"access": 0, "collection_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f", "created_at": "2026-01-14T09:22:41.478363Z", "updated_at": "2026-01-14T09:22:41.478363Z", "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430", "updated_by_id": null, "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53", "member_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f", "source": "manual"},
+    "destructive": false
+  },
+  {
+    "id": "v2.collections.search-collection-pages",
+    "handler": "collection-page-search",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/ws/collections/collection-id/pages-search/?fields=all",
+    "flags": {"workspace": "ws", "collection": "collection-id", "fields": "all"},
+    "body": null,
+    "status": 200,
+    "response": {"id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53", "logo_props": null, "name": "Example name"},
+    "destructive": false
+  },
+  {
+    "id": "v2.collections.delete-collection",
+    "handler": "collection-delete",
+    "version": "v2",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/ws/collections/collection-id/?expand=owned_by&fields=id",
+    "flags": {"workspace": "ws", "collection": "collection-id", "fields": "id", "expand": "owned_by"},
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true
+  },
+  {
+    "id": "v2.collections.manage-collection-pages",
+    "handler": "collection-manage-pages",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/ws/collections/collection-id/pages/",
+    "flags": {"workspace": "ws", "collection": "collection-id"},
+    "body": {"add": ["f960d3c2-8524-4a41-b8eb-055ce4be2a7f"], "remove": ["f960d3c2-8524-4a41-b8eb-055ce4be2a7f"]},
+    "status": 200,
+    "response": {"added": ["f960d3c2-8524-4a41-b8eb-055ce4be2a7f"], "removed": ["f960d3c2-8524-4a41-b8eb-055ce4be2a7f"]},
+    "destructive": true
+  },
+  {
     "id": "v2.collections.get-collection",
     "handler": "collection-get",
     "version": "v2",

@@ -2,6 +2,16 @@
   "source_url": "https://developers.plane.so/api-reference/issue-types/types/overview.md",
   "source_sha256": "de0fea1d4f8301371eb8908a203a0fb579fb081c695af4cef4eed5f0d4337567",
   "contract": {
-    "kind": "overview"
+    "kind": "overview",
+    "reconciliation": {
+      "reviewed_at": "2026-11-15",
+      "disposition": "schema-only",
+      "operation_ids": [],
+      "facts": [
+        "The body defines project work item categories and links a conceptual work-item-types article, then contains only The work item type object, Attributes and one 200 response example.",
+        "Attributes describe id, name, description, logo_props, epic/default/active flags, level, workspace/project ownership, audit/deletion and external correlation fields.",
+        "There is no method/path table, request body, action instruction or operation link in the page body. The generic front-matter description mentioning endpoints does not supply an HTTP contract."
+      ]
+    }
   }
 }

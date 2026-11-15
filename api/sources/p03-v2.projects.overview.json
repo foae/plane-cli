@@ -1,4 +1,93 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Every explicitly tabulated operation is already cataloged; retain this page as overview evidence.",
+    "facts": [
+      "The eleven endpoint rows cover CRUD, summary, upsert, bulk create/update and archive/unarchive; the single-project GET maps to existing v2-project-get rather than an invented alias.",
+      "Project attributes and sparse-response guidance describe this resource and the listed reads; no additional action is specified."
+    ],
+    "operation_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/",
+        "operation_ids": [
+          "v2.projects.list-projects"
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{pk}/summary/",
+        "operation_ids": [
+          "v2.projects.get-project-summary"
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/projects/{pk}/",
+        "operation_ids": [
+          "v2-project-get"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/",
+        "operation_ids": [
+          "v2.projects.create-project"
+        ]
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/projects/{pk}/",
+        "operation_ids": [
+          "v2.projects.update-project"
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/projects/{pk}/",
+        "operation_ids": [
+          "v2.projects.delete-project"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/upsert/",
+        "operation_ids": [
+          "v2.projects.upsert-project"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/bulk-create/",
+        "operation_ids": [
+          "v2.projects.bulk-create-projects"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/bulk-update/",
+        "operation_ids": [
+          "v2.projects.bulk-update-projects"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{pk}/archive/",
+        "operation_ids": [
+          "v2.projects.archive-project"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/projects/{pk}/unarchive/",
+        "operation_ids": [
+          "v2.projects.unarchive-project"
+        ]
+      }
+    ]
+  },
   "source_url": "https://developers.plane.so/api-reference/v2/projects/overview.md",
   "classification": "non-operation",
   "review": "Overview resource attributes and links to independently indexed operations; no additional unmatched operation."

@@ -2,6 +2,27 @@
   "source_url": "https://developers.plane.so/api-reference/v2/work-item-properties/overview.md",
   "source_sha256": "fc349cb818a854a5c0a2d95cc364b90012691c2e8497f5461b1757555b4f91b8",
   "contract": {
-    "kind": "overview"
+    "kind": "overview",
+    "reconciliation": {
+      "reviewed_at": "2026-11-15",
+      "disposition": "mapped-existing-operations",
+      "operation_ids": [
+        "v2.work-item-properties.list-work-item-properties",
+        "v2.work-item-properties.get-work-item-property",
+        "v2.work-item-properties.create-work-item-property",
+        "v2.work-item-properties.update-work-item-property",
+        "v2.work-item-properties.delete-work-item-property",
+        "v2.work-item-type-properties.attach-type-property",
+        "v2.work-item-property-options.list-property-options",
+        "v2.work-item-property-options.create-property-option",
+        "v2.workspace-work-item-properties.list-workspace-work-item-properties"
+      ],
+      "facts": [
+        "The Endpoints table enumerates the five existing project property CRUD operations.",
+        "Attaching a property to a type links existing create and attach operations; the options sections link existing option list and create operations, and the introduction links workspace property listing as the equivalent surface.",
+        "The property type and relation_type tables describe value/default shapes, not separate value endpoints. display_name is writable and name is derived.",
+        "Defining options describes inline choices on property create/update; deactivation uses the existing update operation and deletion uses the existing delete operation, not additional actions."
+      ]
+    }
   }
 }

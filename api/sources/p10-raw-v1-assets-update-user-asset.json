@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "reconciliation_snapshot": "Missing-handler notes describe pre-change requirements; implementation status records the resulting patch. Acceptance is authored, not executed.",
+  "source_id": "v1:assets:update-user-asset",
+  "source_url": "https://developers.plane.so/api-reference/assets/update-user-asset.md",
+  "reviewed_at": "2026-11-15",
+  "source_sha256": "a1ea805fa0f4a0f0a07728713a494817d5440b0c6ff59db9e5edfbdd079acf86",
+  "source_bytes": 2404,
+  "retention": "Independently authored contract; raw documentation not redistributed.",
+  "verification": "Source and implementation inspected; no tests run; planner review unchanged.",
+  "resolution": "missing-operation",
+  "contract": {
+    "id": "v1.assets.update-user-asset",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/assets/user-assets/{asset_id}/",
+    "path_required": [
+      "asset_id"
+    ],
+    "body": {
+      "optional": {
+        "attributes": "object"
+      }
+    },
+    "responses": [
+      {
+        "status": 204,
+        "body": null
+      }
+    ],
+    "scopes": [
+      "assets:write"
+    ],
+    "semantics": "Marks asset uploaded",
+    "command_path": [
+      "user-asset",
+      "confirm-upload"
+    ]
+  },
+  "existing_operation_mappings": [],
+  "missing_handler_behavior": [
+    "Add v1 confirmation version/operation metadata; existing native handler already builds PATCH path and passes supplied body. Add v1 attributes-body and empty-204 wire fixtures."
+  ],
+  "contract_conflicts": [
+    "entity_type appears only in request examples, not declared body parameters; do not make it required or advertise it as established field. v2 confirmation has distinct path and 200 response."
+  ],
+  "implementation_evidence": [
+    "internal/cli/content_assets.go:13-65",
+    "internal/cli/asset_transfers.go:103-200",
+    "internal/cli/asset_transfers.go:202-267",
+    "internal/cli/content_assets_test.go:30-114",
+    "internal/cli/testdata/p06-asset-native-wire.json",
+    "internal/cli/asset_transfers_test.go:54-61"
+  ],
+  "v1_v2_equivalence_claimed": false,
+  "implementation_status": "implemented; acceptance authored, not executed"
+}

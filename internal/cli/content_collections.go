@@ -156,6 +156,8 @@ func contentCollectionHandlers() map[string]handler {
 			switch version {
 			case "v1":
 				segments = []string{"api", "v1", "workspaces", flags["workspace"].(string), "collections", flags["collection"].(string)}
+			case "v2":
+				segments = []string{"api", "v2", "workspaces", flags["workspace"].(string), "collections", flags["collection"].(string)}
 			default:
 				return &output.Error{Code: "usage_error", Message: "Unsupported collection operation version", Exit: 2}
 			}
@@ -178,6 +180,8 @@ func contentCollectionHandlers() map[string]handler {
 			switch version {
 			case "v1":
 				segments = []string{"api", "v1", "workspaces", flags["workspace"].(string), "collections", flags["collection"].(string), "members"}
+			case "v2":
+				segments = []string{"api", "v2", "workspaces", flags["workspace"].(string), "collections", flags["collection"].(string), "members"}
 			default:
 				return &output.Error{Code: "usage_error", Message: "Unsupported collection operation version", Exit: 2}
 			}
@@ -266,6 +270,8 @@ func contentCollectionHandlers() map[string]handler {
 			switch version {
 			case "v1":
 				segments = []string{"api", "v1", "workspaces", flags["workspace"].(string), "collections", flags["collection"].(string), "pages-search"}
+			case "v2":
+				segments = []string{"api", "v2", "workspaces", flags["workspace"].(string), "collections", flags["collection"].(string), "pages-search"}
 			default:
 				return &output.Error{Code: "usage_error", Message: "Unsupported collection operation version", Exit: 2}
 			}
@@ -344,6 +350,18 @@ func contentCollectionHandlers() map[string]handler {
 				return err
 			}
 			return apiRequest(cmd, "DELETE", segments, query, body, true)
+		},
+		"collection-manage-pages": func(cmd *cobra.Command, _ []string, input map[string]any) error {
+			flags := input["flags"].(map[string]any)
+			if flags["api-version"] != "v2" {
+				return &output.Error{Code: "usage_error", Message: "Unsupported collection operation version", Exit: 2}
+			}
+			segments := []string{"api", "v2", "workspaces", flags["workspace"].(string), "collections", flags["collection"].(string), "pages"}
+			body, err := resourceBody(cmd, input)
+			if err != nil {
+				return err
+			}
+			return apiRequest(cmd, "POST", segments, url.Values{}, body, true)
 		},
 	}
 }

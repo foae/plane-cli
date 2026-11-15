@@ -1,4 +1,51 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Every explicitly tabulated operation is already cataloged; retain this page as overview evidence.",
+    "facts": [
+      "The five endpoint rows manage the workspace catalog of labels for projects, distinct from work-item labels.",
+      "Rename, recolor and reorder are changes to name, color and sort_order through the existing update operation. The page explicitly excludes any endpoint or project field attaching labels to projects."
+    ],
+    "operation_mappings": [
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/project-labels/",
+        "operation_ids": [
+          "v2.project-labels.list-project-labels"
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v2/workspaces/{slug}/project-labels/{pk}/",
+        "operation_ids": [
+          "v2.project-labels.get-project-label"
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v2/workspaces/{slug}/project-labels/",
+        "operation_ids": [
+          "v2.project-labels.create-project-label"
+        ]
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v2/workspaces/{slug}/project-labels/{pk}/",
+        "operation_ids": [
+          "v2.project-labels.update-project-label"
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v2/workspaces/{slug}/project-labels/{pk}/",
+        "operation_ids": [
+          "v2.project-labels.delete-project-label"
+        ]
+      }
+    ]
+  },
   "source_url": "https://developers.plane.so/api-reference/v2/project-labels/overview.md",
   "classification": "non-operation",
   "review": "Overview resource attributes and links to independently indexed operations; no additional unmatched operation."

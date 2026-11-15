@@ -2,5 +2,56 @@
   "source_url": "https://developers.plane.so/api-reference/v2/milestones/overview.md",
   "source_sha256": "ce9e74ef6173f5ad545dbf30b14b3451b364d96cfaa9f56c94804e4672094146",
   "kind": "resource-overview",
-  "interpretation": "Resource overview; operation contracts are recorded separately."
+  "interpretation": "Resource overview; operation contracts are recorded separately.",
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "source_id": "v2:milestones:overview",
+    "disposition": "operation-bearing-overview",
+    "operation_mappings": [
+      {
+        "operation_id": "v2.milestones.list-milestones",
+        "basis": "Explicit endpoint table: List milestones."
+      },
+      {
+        "operation_id": "v2.milestones.get-milestone",
+        "basis": "Explicit endpoint table: Get a milestone."
+      },
+      {
+        "operation_id": "v2.milestones.create-milestone",
+        "basis": "Explicit endpoint table: Create a milestone."
+      },
+      {
+        "operation_id": "v2.milestones.update-milestone",
+        "basis": "Explicit endpoint table: Update a milestone."
+      },
+      {
+        "operation_id": "v2.milestones.delete-milestone",
+        "basis": "Explicit endpoint table: Delete a milestone."
+      },
+      {
+        "operation_id": "v2.milestones.upsert-milestone",
+        "basis": "Explicit endpoint table: Upsert a milestone."
+      },
+      {
+        "operation_id": "v2.milestones.bulk-create-milestones",
+        "basis": "Explicit endpoint table: Bulk create milestones."
+      },
+      {
+        "operation_id": "v2.milestones.bulk-update-milestones",
+        "basis": "Explicit endpoint table: Bulk update milestones."
+      },
+      {
+        "operation_id": "v2.milestones.bulk-delete-milestones",
+        "basis": "Explicit endpoint table: Bulk delete milestones."
+      },
+      {
+        "operation_id": "v2.milestones.manage-milestone-work-items",
+        "basis": "Explicit endpoint table: Add or remove milestone work items."
+      }
+    ],
+    "page_facts": [
+      "Dated project checkpoints are described by the milestone object; the endpoint table explicitly includes bulk writes and work-item membership management."
+    ],
+    "contract_boundary": "Overview reconciliation only; operational contracts remain in their separately sourced catalog entries."
+  }
 }

@@ -48,6 +48,7 @@ type Error struct {
 	Exit              int
 	RetryAfterSeconds *int
 	OutcomeUnknown    bool
+	UpstreamCode      string
 }
 
 func (e *Error) Error() string { return e.Message }
@@ -156,7 +157,7 @@ func (c *Client) do(ctx context.Context, method string, segments []string, query
 	}
 	defer func() { _ = resp.Body.Close() }()
 	result := Response{Status: resp.StatusCode}
-	if download && resp.StatusCode == http.StatusFound {
+	if download && downloadRedirect(resp.StatusCode) {
 		result.Location = resp.Header.Get("Location")
 		if _, err := storageURL(result.Location); err != nil {
 			return result, &Error{Code: "invalid_response", Message: "Invalid download destination", Status: resp.StatusCode, Exit: 5}
@@ -172,6 +173,9 @@ func (c *Client) do(ctx context.Context, method string, segments []string, query
 			e.Code = "auth_error"
 			e.Message = "API authentication or authorization rejected"
 			e.Exit = 3
+		}
+		if len(segments) >= 2 && segments[0] == "api" && segments[1] == "v2" {
+			e.UpstreamCode = safeProblemCode(resp)
 		}
 		return result, e
 	}

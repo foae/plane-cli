@@ -1,4 +1,15 @@
 {
+  "reconciliation": {
+    "reviewed_at": "2026-11-15",
+    "disposition_recommendation": "overview",
+    "review_resolution": "non-operation",
+    "basis": "Resource/schema guidance does not establish a new HTTP operation.",
+    "facts": [
+      "The body defines label name, description, color, sort_order, project, workspace and nullable parent, followed by a sample object.",
+      "The parent field is a resource relationship. No hierarchy-management action or method/path is specified."
+    ],
+    "operation_mappings": []
+  },
   "source_url": "https://developers.plane.so/api-reference/label/overview.md",
   "classification": "non-operation",
   "review": "Overview resource attributes and links to independently indexed operations; no additional unmatched operation."

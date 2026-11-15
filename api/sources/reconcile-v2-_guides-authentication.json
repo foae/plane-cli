@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "source_url": "https://developers.plane.so/api-reference/v2/authentication.md",
+  "reviewed_at": "2026-11-15",
+  "contract": {
+    "api_key_header": "X-Api-Key",
+    "header_names_case_insensitive": true,
+    "bearer_header": "Authorization: Bearer <token>",
+    "credential_classes": [
+      "API key",
+      "OAuth 2.0",
+      "OAuth Bridge"
+    ],
+    "api_key_and_bridge_permissions": "user's full permissions; OAuth scopes do not constrain them",
+    "oauth_scope_rule": "matching global read/write OR matching resource:read/write, subject to user's permissions",
+    "global_scope_exceptions": {
+      "effective_permission_reads": "workspaces.permissions:read only",
+      "project_worklog_summary": "projects.work_items.worklogs:read only"
+    },
+    "identity_probe": {
+      "method": "GET",
+      "path": "/api/v2/users/me/",
+      "oauth_required_scopes": [
+        "read"
+      ],
+      "fine_grained_scope_alternative": false,
+      "response_fields": [
+        "id",
+        "email",
+        "display_name",
+        "principal_kind",
+        "scopes"
+      ],
+      "principal_kind_values": [
+        "oauth",
+        "api_key",
+        "other"
+      ]
+    },
+    "oauth_overview_paths": {
+      "authorize": "/auth/o/authorize/",
+      "token": "/auth/o/token/"
+    },
+    "tenancy": {
+      "missing_or_invalid_credential": 401,
+      "cross_tenant_or_missing": 404,
+      "visible_but_action_denied": 403
+    },
+    "scope_catalog_is_not_route_evidence": true,
+    "resolution": "Correct users/me catalog scopes to [read]. General OAuth summary does not supersede separately documented Plane app authorization flow."
+  }
+}

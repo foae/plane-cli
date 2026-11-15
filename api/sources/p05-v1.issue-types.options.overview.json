@@ -2,6 +2,16 @@
   "source_url": "https://developers.plane.so/api-reference/issue-types/options/overview.md",
   "source_sha256": "7c9a29b1d1cff3a0aefde0f68ae541376f59d97425541eae5173ae8fd917d9bd",
   "contract": {
-    "kind": "overview"
+    "kind": "overview",
+    "reconciliation": {
+      "reviewed_at": "2026-11-15",
+      "disposition": "schema-only",
+      "operation_ids": [],
+      "facts": [
+        "The body defines choices for dropdown-style custom properties, then contains only The options object, Attributes and one 200 response example.",
+        "The attributes explain workspace/project ownership, automatic audit fields and external correlation; the example includes name, sort_order, is_active, is_default, property and parent.",
+        "No method, endpoint path, request body, action instruction or operation link appears. The read example is resource evidence, not a create/update option contract."
+      ]
+    }
   }
 }

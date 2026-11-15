@@ -1,0 +1,1517 @@
+[
+  {
+    "path": [
+      "project-state",
+      "list"
+    ],
+    "handler": "project-state-list",
+    "summary": "List project states",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli project-state list --workspace example"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/project-states/",
+        "response_kind": "object",
+        "scopes": [
+          "workspaces.project_states:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Return project states whose name matches this value, compared case-insensitively. Name uniqueness is case-sensitive, so `Discovery` and `discovery` can both exist, and this filter returns both."
+                },
+                "group": {
+                  "type": "string",
+                  "description": "Return only project states in this lifecycle group. One of `draft`, `planning`, `execution`, `monitoring`, `completed`, or `cancelled`. Use `group__in` to match several groups at once, comma-separated: `?group__in=execution,monitoring`."
+                },
+                "is-default": {
+                  "type": "boolean",
+                  "description": "Return only the default project state (`true`) or only the others (`false`)."
+                },
+                "external-id": {
+                  "type": "string",
+                  "description": "Return project states whose `external_id` matches exactly."
+                },
+                "external-source": {
+                  "type": "string",
+                  "description": "Return project states that came from a particular system. Combine it with `external_id`."
+                },
+                "search": {
+                  "type": "string",
+                  "description": "A search term matched against the project state name."
+                },
+                "order-by": {
+                  "type": "string",
+                  "description": "Field to sort by. Prefix with `-` for descending. Defaults to `sequence`, the lifecycle order. - `sequence`, `-sequence` - `name`, `-name` - `created_at`, `-created_at` - `id`, `-id`"
+                },
+                "per-page": {
+                  "type": "integer",
+                  "description": "Page size. Defaults to 50, maximum 200.",
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "offset": {
+                  "type": "integer",
+                  "description": "Number of rows to skip from the start of the result set. Maximum 10000. Use the `next` value from the response instead of computing offsets yourself.",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "paginate": {
+                  "type": "string",
+                  "description": "Set to `cursor` to switch to the keyset envelope (no `COUNT` query), which returns `next_cursor` and `has_more` instead of `next` and `total_count`. Cursor pagination needs `order_by` set to `created_at`, `-created_at`, `id`, or `-id`. Any other ordering, including the default `sequence`, returns `400 ordering_not_cursor_eligible`."
+                },
+                "count": {
+                  "type": "boolean",
+                  "description": "Defaults to `true`. Set to `false` to skip the `COUNT(*)` behind `total_count`. The response then omits `total_count`."
+                },
+                "fields": {
+                  "type": "string",
+                  "description": "Comma-separated list of fields to return on each row. Fields you don't request are left out of the response instead of coming back as `null`, so a missing key means you didn't ask for it and `null` means the value is null. `id` is always included, whether or not you name it. Pass `all` to get every requestable field. An unknown field name returns `400` with the list of valid names and the closest match, so a typo is caught instead of being silently ignored. Requestable here: `color`, `created_at`, `created_by_id`, `description`, `external_id`, `external_source`, `group`, `id`, `is_default`, `name`, `sequence`, `updated_at`, `updated_by_id`. See [Sparse fields](/api-reference/v2/sparse-fields)."
+                },
+                "group-in": {
+                  "type": "string",
+                  "description": "Comma-separated workflow groups"
+                },
+                "cursor": {
+                  "type": "string",
+                  "description": "Opaque native continuation cursor"
+                },
+                "all": {
+                  "type": "boolean"
+                },
+                "max-pages": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit API generation or configured default"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Named connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Plane server base URL"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Authentication mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential storage backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total operation timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Per-request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Additional trusted CA certificates"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Describe request without credentials or HTTP"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace slug or configured default"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/name",
+            "description": "Return project states whose name matches this value, compared case-insensitively. Name uniqueness is case-sensitive, so `Discovery` and `discovery` can both exist, and this filter returns both."
+          },
+          {
+            "name": "group",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/group",
+            "description": "Return only project states in this lifecycle group. One of `draft`, `planning`, `execution`, `monitoring`, `completed`, or `cancelled`. Use `group__in` to match several groups at once, comma-separated: `?group__in=execution,monitoring`."
+          },
+          {
+            "name": "is-default",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/is-default",
+            "description": "Return only the default project state (`true`) or only the others (`false`)."
+          },
+          {
+            "name": "external-id",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/external-id",
+            "description": "Return project states whose `external_id` matches exactly."
+          },
+          {
+            "name": "external-source",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/external-source",
+            "description": "Return project states that came from a particular system. Combine it with `external_id`."
+          },
+          {
+            "name": "search",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/search",
+            "description": "A search term matched against the project state name."
+          },
+          {
+            "name": "order-by",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/order-by",
+            "description": "Field to sort by. Prefix with `-` for descending. Defaults to `sequence`, the lifecycle order. - `sequence`, `-sequence` - `name`, `-name` - `created_at`, `-created_at` - `id`, `-id`"
+          },
+          {
+            "name": "per-page",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/per-page",
+            "description": "Page size. Defaults to 50, maximum 200."
+          },
+          {
+            "name": "offset",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/offset",
+            "description": "Number of rows to skip from the start of the result set. Maximum 10000. Use the `next` value from the response instead of computing offsets yourself."
+          },
+          {
+            "name": "paginate",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/paginate",
+            "description": "Set to `cursor` to switch to the keyset envelope (no `COUNT` query), which returns `next_cursor` and `has_more` instead of `next` and `total_count`. Cursor pagination needs `order_by` set to `created_at`, `-created_at`, `id`, or `-id`. Any other ordering, including the default `sequence`, returns `400 ordering_not_cursor_eligible`."
+          },
+          {
+            "name": "count",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/count",
+            "description": "Defaults to `true`. Set to `false` to skip the `COUNT(*)` behind `total_count`. The response then omits `total_count`."
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/fields",
+            "description": "Comma-separated list of fields to return on each row. Fields you don't request are left out of the response instead of coming back as `null`, so a missing key means you didn't ask for it and `null` means the value is null. `id` is always included, whether or not you name it. Pass `all` to get every requestable field. An unknown field name returns `400` with the list of valid names and the closest match, so a typo is caught instead of being silently ignored. Requestable here: `color`, `created_at`, `created_by_id`, `description`, `external_id`, `external_source`, `group`, `id`, `is_default`, `name`, `sequence`, `updated_at`, `updated_by_id`. See [Sparse fields](/api-reference/v2/sparse-fields)."
+          },
+          {
+            "name": "group-in",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/group-in",
+            "description": "Comma-separated workflow groups"
+          },
+          {
+            "name": "cursor",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/cursor",
+            "description": "Opaque native continuation cursor"
+          },
+          {
+            "name": "all",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/all",
+            "description": "Traverse native pages before delivering any output"
+          },
+          {
+            "name": "max-pages",
+            "type": "integer",
+            "required": false,
+            "binding": "/flags/max-pages",
+            "description": "Maximum pages for --all (default 1000)"
+          }
+        ],
+        "pagination": "v2",
+        "sensitivity": {
+          "input": [],
+          "output": []
+        },
+        "table_columns": [
+          "id",
+          "name",
+          "group"
+        ]
+      }
+    },
+    "local": false
+  },
+  {
+    "path": [
+      "project-state",
+      "get"
+    ],
+    "handler": "project-state-get",
+    "summary": "Get a project state",
+    "side_effect": "read",
+    "examples": [
+      "plane-cli project-state get --workspace example --id RESOURCE_ID"
+    ],
+    "versions": {
+      "v2": {
+        "method": "GET",
+        "route": "/api/v2/workspaces/{slug}/project-states/{pk}/",
+        "response_kind": "object",
+        "scopes": [
+          "workspaces.project_states:read"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "table"
+                  ]
+                },
+                "fields": {
+                  "type": "string",
+                  "description": "Comma-separated list of fields to return. Fields you don't request are left out of the response instead of coming back as `null`, so a missing key means you didn't ask for it and `null` means the value is null. `id` is always included, whether or not you name it. Pass `all` to get every requestable field. An unknown field name returns `400` with the list of valid names and the closest match, so a typo is caught instead of being silently ignored. Requestable here: `color`, `created_at`, `created_by_id`, `description`, `external_id`, `external_source`, `group`, `id`, `is_default`, `name`, `sequence`, `updated_at`, `updated_by_id`. See [Sparse fields](/api-reference/v2/sparse-fields)."
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit API generation or configured default"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Named connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Plane server base URL"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Authentication mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential storage backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total operation timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Per-request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Additional trusted CA certificates"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Describe request without credentials or HTTP"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace slug or configured default"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/fields",
+            "description": "Comma-separated list of fields to return. Fields you don't request are left out of the response instead of coming back as `null`, so a missing key means you didn't ask for it and `null` means the value is null. `id` is always included, whether or not you name it. Pass `all` to get every requestable field. An unknown field name returns `400` with the list of valid names and the closest match, so a typo is caught instead of being silently ignored. Requestable here: `color`, `created_at`, `created_by_id`, `description`, `external_id`, `external_source`, `group`, `id`, `is_default`, `name`, `sequence`, `updated_at`, `updated_by_id`. See [Sparse fields](/api-reference/v2/sparse-fields)."
+          }
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        },
+        "table_columns": [
+          "id",
+          "name",
+          "group"
+        ]
+      }
+    },
+    "local": false
+  },
+  {
+    "path": [
+      "project-state",
+      "create"
+    ],
+    "handler": "project-state-create",
+    "summary": "Create a project state",
+    "side_effect": "write",
+    "examples": [
+      "plane-cli project-state create --workspace example --body-file request.json"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/project-states/",
+        "response_kind": "object",
+        "scopes": [
+          "workspaces.project_states:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "fields": {
+                  "type": "string",
+                  "description": "Comma-separated list of fields to return. Fields you don't request are left out of the response instead of coming back as `null`, so a missing key means you didn't ask for it and `null` means the value is null. `id` is always included, whether or not you name it. Pass `all` to get every requestable field. An unknown field name returns `400` with the list of valid names and the closest match, so a typo is caught instead of being silently ignored. Requestable here: `color`, `created_at`, `created_by_id`, `description`, `external_id`, `external_source`, `group`, `id`, `is_default`, `name`, `sequence`, `updated_at`, `updated_by_id`. See [Sparse fields](/api-reference/v2/sparse-fields)."
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace"
+              ],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Display name, unique in the workspace. Maximum 50 characters. A name already in use returns `409 conflict`. The comparison is case-sensitive, so `Discovery` and `discovery` can both exist.",
+                  "maxLength": 50
+                },
+                "color": {
+                  "type": "string",
+                  "description": "Hex color used wherever the project state is rendered, for example `#F59E0B`. Maximum 255 characters.",
+                  "maxLength": 255
+                },
+                "group": {
+                  "type": "string",
+                  "description": "The lifecycle group. Defaults to `draft`. - `draft` - `planning` - `execution` - `monitoring` - `completed` - `cancelled` Work item state groups such as `started` are not accepted and return `400 invalid_request`.",
+                  "enum": [
+                    "draft",
+                    "planning",
+                    "execution",
+                    "monitoring",
+                    "completed",
+                    "cancelled"
+                  ]
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Free-form description of what the stage means."
+                },
+                "sequence": {
+                  "type": "number",
+                  "description": "Ordering weight. Lower values sort first. Plane places a new project state after the last one and uses your value only when the workspace has no project states. To reposition a state, send `sequence` in [Update a project state](/api-reference/v2/project-states/update-project-state)."
+                },
+                "external_id": {
+                  "type": "string",
+                  "description": "Your system's identifier for this project state. Maximum 255 characters.",
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": "string",
+                  "description": "The system `external_id` came from. Maximum 255 characters.",
+                  "maxLength": 255
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "color"
+              ]
+            }
+          },
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit API generation or configured default"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Named connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Plane server base URL"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Authentication mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential storage backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total operation timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Per-request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Additional trusted CA certificates"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Describe request without credentials or HTTP"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace slug or configured default"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/fields",
+            "description": "Comma-separated list of fields to return. Fields you don't request are left out of the response instead of coming back as `null`, so a missing key means you didn't ask for it and `null` means the value is null. `id` is always included, whether or not you name it. Pass `all` to get every requestable field. An unknown field name returns `400` with the list of valid names and the closest match, so a typo is caught instead of being silently ignored. Requestable here: `color`, `created_at`, `created_by_id`, `description`, `external_id`, `external_source`, `group`, `id`, `is_default`, `name`, `sequence`, `updated_at`, `updated_by_id`. See [Sparse fields](/api-reference/v2/sparse-fields)."
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "Complete writable JSON body from a file, or - for stdin"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/body/name",
+            "description": "Display name, unique in the workspace. Maximum 50 characters. A name already in use returns `409 conflict`. The comparison is case-sensitive, so `Discovery` and `discovery` can both exist."
+          },
+          {
+            "name": "color",
+            "type": "string",
+            "required": false,
+            "binding": "/body/color",
+            "description": "Hex color used wherever the project state is rendered, for example `#F59E0B`. Maximum 255 characters."
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false,
+            "binding": "/body/description",
+            "description": "Free-form description of what the stage means."
+          },
+          {
+            "name": "group",
+            "type": "string",
+            "required": false,
+            "binding": "/body/group",
+            "description": "The lifecycle group. Defaults to `draft`. - `draft` - `planning` - `execution` - `monitoring` - `completed` - `cancelled` Work item state groups such as `started` are not accepted and return `400 invalid_request`."
+          },
+          {
+            "name": "external-id",
+            "type": "string",
+            "required": false,
+            "binding": "/body/external_id",
+            "description": "Your system's identifier for this project state. Maximum 255 characters."
+          },
+          {
+            "name": "external-source",
+            "type": "string",
+            "required": false,
+            "binding": "/body/external_source",
+            "description": "The system `external_id` came from. Maximum 255 characters."
+          }
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        }
+      }
+    },
+    "local": false
+  },
+  {
+    "path": [
+      "project-state",
+      "update"
+    ],
+    "handler": "project-state-update",
+    "summary": "Update a project state",
+    "side_effect": "write",
+    "examples": [
+      "plane-cli project-state update --workspace example --id RESOURCE_ID --body-file request.json"
+    ],
+    "versions": {
+      "v2": {
+        "method": "PATCH",
+        "route": "/api/v2/workspaces/{slug}/project-states/{pk}/",
+        "response_kind": "object",
+        "scopes": [
+          "workspaces.project_states:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "fields": {
+                  "type": "string",
+                  "description": "Comma-separated list of fields to return. Fields you don't request are left out of the response instead of coming back as `null`, so a missing key means you didn't ask for it and `null` means the value is null. `id` is always included, whether or not you name it. Pass `all` to get every requestable field. An unknown field name returns `400` with the list of valid names and the closest match, so a typo is caught instead of being silently ignored. Requestable here: `color`, `created_at`, `created_by_id`, `description`, `external_id`, `external_source`, `group`, `id`, `is_default`, `name`, `sequence`, `updated_at`, `updated_by_id`. See [Sparse fields](/api-reference/v2/sparse-fields)."
+                },
+                "body-file": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "New display name, unique in the workspace. Maximum 50 characters. The comparison is case-sensitive.",
+                  "maxLength": 50
+                },
+                "color": {
+                  "type": "string",
+                  "description": "Hex color used wherever the project state is rendered. Maximum 255 characters.",
+                  "maxLength": 255
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Free-form description of what the stage means."
+                },
+                "group": {
+                  "type": "string",
+                  "description": "Move the project state to a different lifecycle group. One of `draft`, `planning`, `execution`, `monitoring`, `completed`, or `cancelled`.",
+                  "enum": [
+                    "draft",
+                    "planning",
+                    "execution",
+                    "monitoring",
+                    "completed",
+                    "cancelled"
+                  ]
+                },
+                "sequence": {
+                  "type": "number",
+                  "description": "Ordering weight. Lower values sort first. Set it to reposition the stage."
+                },
+                "external_id": {
+                  "type": "string",
+                  "description": "Your system's identifier for this project state. Maximum 255 characters.",
+                  "maxLength": 255
+                },
+                "external_source": {
+                  "type": "string",
+                  "description": "The system `external_id` came from. Maximum 255 characters.",
+                  "maxLength": 255
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit API generation or configured default"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Named connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Plane server base URL"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Authentication mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential storage backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total operation timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Per-request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Additional trusted CA certificates"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Describe request without credentials or HTTP"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace slug or configured default"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/fields",
+            "description": "Comma-separated list of fields to return. Fields you don't request are left out of the response instead of coming back as `null`, so a missing key means you didn't ask for it and `null` means the value is null. `id` is always included, whether or not you name it. Pass `all` to get every requestable field. An unknown field name returns `400` with the list of valid names and the closest match, so a typo is caught instead of being silently ignored. Requestable here: `color`, `created_at`, `created_by_id`, `description`, `external_id`, `external_source`, `group`, `id`, `is_default`, `name`, `sequence`, `updated_at`, `updated_by_id`. See [Sparse fields](/api-reference/v2/sparse-fields)."
+          },
+          {
+            "name": "body-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/body-file",
+            "description": "Complete writable JSON body from a file, or - for stdin"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "binding": "/body/name",
+            "description": "New display name, unique in the workspace. Maximum 50 characters. The comparison is case-sensitive."
+          },
+          {
+            "name": "color",
+            "type": "string",
+            "required": false,
+            "binding": "/body/color",
+            "description": "Hex color used wherever the project state is rendered. Maximum 255 characters."
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false,
+            "binding": "/body/description",
+            "description": "Free-form description of what the stage means."
+          },
+          {
+            "name": "group",
+            "type": "string",
+            "required": false,
+            "binding": "/body/group",
+            "description": "Move the project state to a different lifecycle group. One of `draft`, `planning`, `execution`, `monitoring`, `completed`, or `cancelled`."
+          },
+          {
+            "name": "external-id",
+            "type": "string",
+            "required": false,
+            "binding": "/body/external_id",
+            "description": "Your system's identifier for this project state. Maximum 255 characters."
+          },
+          {
+            "name": "external-source",
+            "type": "string",
+            "required": false,
+            "binding": "/body/external_source",
+            "description": "The system `external_id` came from. Maximum 255 characters."
+          }
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        }
+      }
+    },
+    "local": false
+  },
+  {
+    "path": [
+      "project-state",
+      "delete"
+    ],
+    "handler": "project-state-delete",
+    "summary": "Delete a project state",
+    "side_effect": "delete",
+    "examples": [
+      "plane-cli project-state delete --workspace example --id RESOURCE_ID --yes"
+    ],
+    "versions": {
+      "v2": {
+        "method": "DELETE",
+        "route": "/api/v2/workspaces/{slug}/project-states/{pk}/",
+        "response_kind": "empty",
+        "scopes": [
+          "workspaces.project_states:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "yes": {
+                  "type": "boolean"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "fields": {
+                  "type": "string",
+                  "description": "Comma-separated list of fields to return. Fields you don't request are left out of the response instead of coming back as `null`, so a missing key means you didn't ask for it and `null` means the value is null. `id` is always included, whether or not you name it. Pass `all` to get every requestable field. An unknown field name returns `400` with the list of valid names and the closest match, so a typo is caught instead of being silently ignored. Requestable here: `color`, `created_at`, `created_by_id`, `description`, `external_id`, `external_source`, `group`, `id`, `is_default`, `name`, `sequence`, `updated_at`, `updated_by_id`. See [Sparse fields](/api-reference/v2/sparse-fields)."
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit API generation or configured default"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Named connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Plane server base URL"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Authentication mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential storage backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total operation timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Per-request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Additional trusted CA certificates"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Describe request without credentials or HTTP"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace slug or configured default"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "yes",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/yes",
+            "description": "Confirm irreversible deletion"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/fields",
+            "description": "Comma-separated list of fields to return. Fields you don't request are left out of the response instead of coming back as `null`, so a missing key means you didn't ask for it and `null` means the value is null. `id` is always included, whether or not you name it. Pass `all` to get every requestable field. An unknown field name returns `400` with the list of valid names and the closest match, so a typo is caught instead of being silently ignored. Requestable here: `color`, `created_at`, `created_by_id`, `description`, `external_id`, `external_source`, `group`, `id`, `is_default`, `name`, `sequence`, `updated_at`, `updated_by_id`. See [Sparse fields](/api-reference/v2/sparse-fields)."
+          }
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        }
+      }
+    },
+    "local": false
+  },
+  {
+    "path": [
+      "project-state",
+      "mark-default"
+    ],
+    "handler": "project-state-mark-default",
+    "summary": "Mark a project state as default",
+    "side_effect": "write",
+    "examples": [
+      "plane-cli project-state mark-default --workspace example --id RESOURCE_ID"
+    ],
+    "versions": {
+      "v2": {
+        "method": "POST",
+        "route": "/api/v2/workspaces/{slug}/project-states/{pk}/mark-default/",
+        "response_kind": "object",
+        "scopes": [
+          "workspaces.project_states:write"
+        ],
+        "schema": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "api-version": {
+                  "type": "string",
+                  "const": "v2"
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "base-url": {
+                  "type": "string"
+                },
+                "auth-mode": {
+                  "type": "string"
+                },
+                "credential-backend": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                },
+                "request-timeout": {
+                  "type": "string"
+                },
+                "ca-file": {
+                  "type": "string"
+                },
+                "dry-run": {
+                  "type": "boolean"
+                },
+                "workspace": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json"
+                  ]
+                },
+                "fields": {
+                  "type": "string",
+                  "description": "Comma-separated list of fields to return. Fields you don't request are left out of the response instead of coming back as `null`, so a missing key means you didn't ask for it and `null` means the value is null. `id` is always included, whether or not you name it. Pass `all` to get every requestable field. An unknown field name returns `400` with the list of valid names and the closest match, so a typo is caught instead of being silently ignored. Requestable here: `color`, `created_at`, `created_by_id`, `description`, `external_id`, `external_source`, `group`, `id`, `is_default`, `name`, `sequence`, `updated_at`, `updated_by_id`. See [Sparse fields](/api-reference/v2/sparse-fields)."
+                }
+              },
+              "required": [
+                "api-version",
+                "workspace",
+                "id"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "arguments",
+            "flags"
+          ],
+          "additionalProperties": false
+        },
+        "flags": [
+          {
+            "name": "api-version",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/api-version",
+            "description": "Explicit API generation or configured default"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/connection",
+            "description": "Named connection"
+          },
+          {
+            "name": "base-url",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/base-url",
+            "description": "Plane server base URL"
+          },
+          {
+            "name": "auth-mode",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/auth-mode",
+            "description": "Authentication mode"
+          },
+          {
+            "name": "credential-backend",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/credential-backend",
+            "description": "Credential storage backend"
+          },
+          {
+            "name": "timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/timeout",
+            "description": "Total operation timeout"
+          },
+          {
+            "name": "request-timeout",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/request-timeout",
+            "description": "Per-request timeout"
+          },
+          {
+            "name": "ca-file",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/ca-file",
+            "description": "Additional trusted CA certificates"
+          },
+          {
+            "name": "dry-run",
+            "type": "boolean",
+            "required": false,
+            "binding": "/flags/dry-run",
+            "description": "Describe request without credentials or HTTP"
+          },
+          {
+            "name": "workspace",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/workspace",
+            "description": "Workspace slug or configured default"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "binding": "/flags/id",
+            "description": "id"
+          },
+          {
+            "name": "output",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/output",
+            "description": "output"
+          },
+          {
+            "name": "fields",
+            "type": "string",
+            "required": false,
+            "binding": "/flags/fields",
+            "description": "Comma-separated list of fields to return. Fields you don't request are left out of the response instead of coming back as `null`, so a missing key means you didn't ask for it and `null` means the value is null. `id` is always included, whether or not you name it. Pass `all` to get every requestable field. An unknown field name returns `400` with the list of valid names and the closest match, so a typo is caught instead of being silently ignored. Requestable here: `color`, `created_at`, `created_by_id`, `description`, `external_id`, `external_source`, `group`, `id`, `is_default`, `name`, `sequence`, `updated_at`, `updated_by_id`. See [Sparse fields](/api-reference/v2/sparse-fields)."
+          }
+        ],
+        "sensitivity": {
+          "input": [],
+          "output": []
+        }
+      }
+    },
+    "local": false
+  }
+]

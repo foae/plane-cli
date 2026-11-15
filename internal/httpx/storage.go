@@ -50,17 +50,26 @@ func (w *downloadWriter) Write(p []byte) (int, error) {
 	return n, err
 }
 
-// DownloadLocation intercepts only the documented 302 wiki download phase.
+// DownloadLocation intercepts standard HTTP redirects without forwarding credentials.
 // The returned signed destination must never be included in diagnostics.
 func (c *Client) DownloadLocation(ctx context.Context, segments []string, header, token string) (string, error) {
 	response, err := c.do(ctx, http.MethodGet, segments, nil, nil, header, token, false, true)
 	if err != nil {
 		return "", err
 	}
-	if response.Status != http.StatusFound || response.Location == "" {
+	if !downloadRedirect(response.Status) || response.Location == "" {
 		return "", &Error{Code: "invalid_response", Message: "Expected a download redirect", Status: response.Status, Exit: 5}
 	}
 	return response.Location, nil
+}
+
+func downloadRedirect(status int) bool {
+	switch status {
+	case http.StatusMovedPermanently, http.StatusFound, http.StatusSeeOther, http.StatusTemporaryRedirect, http.StatusPermanentRedirect:
+		return true
+	default:
+		return false
+	}
 }
 
 // Upload streams one signed multipart POST without API credentials or redirects.

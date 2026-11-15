@@ -427,3 +427,150 @@ func TestAssetTransferLocalValidation(t *testing.T) {
 		t.Fatalf("dry-run created destination: %v", err)
 	}
 }
+
+func TestP06V1AttachmentRedirect(t *testing.T) {
+	for _, status := range []int{301, 302, 303, 307, 308} {
+		t.Run(http.StatusText(status), func(t *testing.T) {
+			catalog := transferCatalog(t)
+			storageCalls := 0
+			storage := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				storageCalls++
+				if r.Header.Get("X-API-Key") != "" || r.Header.Get("Authorization") != "" || r.Header.Get("Cookie") != "" {
+					t.Error("Plane credentials reached storage")
+				}
+				_, _ = io.WriteString(w, "download-bytes")
+			}))
+			defer storage.Close()
+			apiCalls := 0
+			api := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				apiCalls++
+				if r.Method != "GET" || r.URL.Path != "/api/v1/workspaces/team/projects/"+transferID+"/work-items/"+transferID+"/attachments/"+transferID+"/" || r.Header.Get("X-API-Key") != "private-api-key" {
+					t.Error("incorrect v1 redirect request")
+				}
+				w.Header().Set("Location", storage.URL+"/signed-file")
+				w.WriteHeader(status)
+			}))
+			defer api.Close()
+			destination := filepath.Join(t.TempDir(), "download")
+			args := append([]string{"attachment", "download", "--api-version", "v1", "--base-url", api.URL, "--id", transferID, "--output-file", destination}, transferParents("attachment")...)
+			code, out, stderr := invoke(t, catalog, args, assetTransferHandlers())
+			if code != 0 || stderr != "" || apiCalls != 1 || storageCalls != 1 {
+				t.Fatalf("code=%d api=%d storage=%d out=%s err=%s", code, apiCalls, storageCalls, out, stderr)
+			}
+			data, err := os.ReadFile(destination)
+			if err != nil || string(data) != "download-bytes" {
+				t.Fatalf("download=%q err=%v", data, err)
+			}
+		})
+	}
+	for _, phase := range []string{"api", "storage"} {
+		t.Run(phase+"-rejection", func(t *testing.T) {
+			catalog := transferCatalog(t)
+			storageCalls := 0
+			storage := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				storageCalls++
+				if r.Header.Get("X-API-Key") != "" || r.Header.Get("Authorization") != "" || r.Header.Get("Cookie") != "" {
+					t.Error("Plane credentials reached storage")
+				}
+				w.WriteHeader(500)
+				_, _ = io.WriteString(w, "private-storage-canary")
+			}))
+			defer storage.Close()
+			apiCalls := 0
+			api := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				apiCalls++
+				if phase == "api" {
+					w.WriteHeader(500)
+					_, _ = io.WriteString(w, "private-api-canary")
+					return
+				}
+				w.Header().Set("Location", storage.URL+"?signature=private-target-canary")
+				w.WriteHeader(302)
+			}))
+			defer api.Close()
+			destination := filepath.Join(t.TempDir(), "download")
+			args := append([]string{"attachment", "download", "--api-version", "v1", "--base-url", api.URL, "--id", transferID, "--output-file", destination}, transferParents("attachment")...)
+			code, out, stderr := invoke(t, catalog, args, assetTransferHandlers())
+			wantStorage := 0
+			if phase == "storage" {
+				wantStorage = 1
+			}
+			if code != 5 || out != "" || apiCalls != 1 || storageCalls != wantStorage || strings.Contains(stderr, "private-") {
+				t.Fatalf("unsafe failure: code=%d calls=%d/%d out=%s err=%s", code, apiCalls, storageCalls, out, stderr)
+			}
+			if _, err := os.Stat(destination); !errors.Is(err, os.ErrNotExist) {
+				t.Fatalf("failed download installed destination: %v", err)
+			}
+			files, err := filepath.Glob(filepath.Join(filepath.Dir(destination), ".plane-cli-transfer-*"))
+			if err != nil || len(files) != 0 {
+				t.Fatalf("temporary output leaked: %v %v", files, err)
+			}
+		})
+	}
+}
+
+func TestP06V1AttachmentStorage(t *testing.T) {
+	catalog := transferCatalog(t)
+	calls := 0
+	storage := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		calls++
+		if r.Method != "POST" || r.Header.Get("X-API-Key") != "" || r.Header.Get("Authorization") != "" || r.Header.Get("Cookie") != "" {
+			t.Error("storage received Plane credentials or wrong method")
+		}
+		reader, err := r.MultipartReader()
+		if err != nil {
+			t.Fatal(err)
+		}
+		fields := map[string]string{}
+		last := ""
+		for {
+			part, err := reader.NextPart()
+			if err == io.EOF {
+				break
+			}
+			if err != nil {
+				t.Fatal(err)
+			}
+			raw, _ := io.ReadAll(part)
+			last = part.FormName()
+			fields[last] = string(raw)
+		}
+		if last != "file" || fields["file"] != "binary-bytes" || fields["Content-Type"] != "image/png" || fields["key"] != "attachment-key" || fields["policy"] != "private-policy" || fields["x-amz-signature"] != "private-signature" {
+			t.Error("documented signed multipart fields changed")
+		}
+		if calls > 2 {
+			w.WriteHeader(500)
+			_, _ = io.WriteString(w, "private-storage-canary")
+			return
+		}
+		w.WriteHeader(204)
+	}))
+	defer storage.Close()
+	credential, _ := json.Marshal(map[string]any{"url": storage.URL, "fields": map[string]string{"Content-Type": "image/png", "key": "attachment-key", "policy": "private-policy", "x-amz-signature": "private-signature"}})
+	args := []string{"attachment", "upload-file", "--api-version", "v1", "--file", transferFile(t, "payload.png", "binary-bytes"), "--body-file", transferFile(t, "credentials.json", string(credential))}
+	code, out, stderr := invoke(t, catalog, args, assetTransferHandlers())
+	if code != 0 || stderr != "" || calls != 1 || strings.Contains(out, "private-") || !strings.Contains(out, `"confirmation_required":true`) {
+		t.Fatalf("code=%d calls=%d out=%s err=%s", code, calls, out, stderr)
+	}
+	var diagnostic bytes.Buffer
+	code = Run(context.Background(), args, Streams{Out: failedAssetWriter{}, Err: &diagnostic}, Build{})
+	var failure struct {
+		Error struct {
+			Code          string `json:"code"`
+			RemoteChanged bool   `json:"remote_changed"`
+			Phase         string `json:"phase"`
+			Recovery      string `json:"recovery"`
+			AssetID       string `json:"asset_id"`
+		} `json:"error"`
+	}
+	if err := json.Unmarshal(diagnostic.Bytes(), &failure); err != nil {
+		t.Fatal(err)
+	}
+	if code != 6 || calls != 2 || failure.Error.Code != "partial_failure" || !failure.Error.RemoteChanged || failure.Error.Phase != "storage" || failure.Error.Recovery == "" || failure.Error.AssetID != "" || strings.Contains(diagnostic.String(), "private-") {
+		t.Fatalf("lost successful storage phase: code=%d calls=%d err=%s", code, calls, diagnostic.String())
+	}
+	code, out, stderr = invoke(t, catalog, args, assetTransferHandlers())
+	if code != 5 || calls != 3 || out != "" || strings.Contains(stderr, "private-") {
+		t.Fatalf("unsafe storage rejection: code=%d calls=%d out=%s err=%s", code, calls, out, stderr)
+	}
+}

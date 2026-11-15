@@ -103,6 +103,11 @@ func TestStateLabelRequests(t *testing.T) {
 					}
 				}
 				w.Header().Set("Content-Type", "application/json")
+				if calls > 1 {
+					w.WriteHeader(http.StatusConflict)
+					_, _ = io.WriteString(w, `{"detail":"state-private-canary"}`)
+					return
+				}
 				if tt.action == "delete" {
 					w.WriteHeader(204)
 					return
@@ -160,6 +165,10 @@ func TestStateLabelRequests(t *testing.T) {
 				}
 			} else if !strings.HasPrefix(tt.action, "bulk-") && !strings.Contains(stdout, `"unknown":9007199254740993`) {
 				t.Fatal(stdout)
+			}
+			code, stdout, stderr = invoke(t, catalog, args, stateLabelHandlers())
+			if code != 5 || calls != 2 || stdout != "" || !strings.Contains(stderr, "api_error") || strings.Contains(stderr, "state-private-canary") {
+				t.Fatalf("unsafe upstream rejection: code=%d calls=%d out=%s stderr=%s", code, calls, stdout, stderr)
 			}
 		})
 	}
