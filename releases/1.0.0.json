@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "date": "2026-11-15",
+  "changes": [
+    {
+      "level": "minor",
+      "summary": "Add native administration, membership, permissions, webhook and artifact commands with protected secret delivery"
+    },
+    {
+      "level": "minor",
+      "summary": "Deliver reconciled API coverage, portable skill and four-target packaging with guarded publication, isolated installation acceptance and explicit update checks."
+    },
+    {
+      "level": "patch",
+      "summary": "Refresh repository onboarding and current usage coverage for stable release."
+    },
+    {
+      "level": "minor",
+      "summary": "Implement documented portfolio, release, customer and template/view commands"
+    },
+    {
+      "level": "minor",
+      "summary": "Add release-impact fragments, version planning and preparation, CI version checks, and trustworthy build identity."
+    }
+  ]
+}

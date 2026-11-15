@@ -1,4 +1,0 @@
-{
-  "level": "minor",
-  "summary": "Add release-impact fragments, version planning and preparation, CI version checks, and trustworthy build identity."
-}
