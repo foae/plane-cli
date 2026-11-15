@@ -2,6 +2,35 @@
 
 Release tooling provides version planning, artifact packaging, a portable skill, explicit update checking and an approval-gated publication workflow. Published versions and assets are listed on [GitHub Releases](https://github.com/foae/plane-cli/releases). Publishing tags/releases and external Homebrew tap changes need explicit maintainer authorization. The ordered delivery slices are in [P10](implementation/10-delivery.md).
 
+## Standard release procedure
+
+A request to make a stable release authorizes and requires the complete delivery
+sequence below, including the `foae/homebrew-tap` update. A tag alone is not a
+release, and a published GitHub Release without the tap update is not complete.
+Keep the approval gates; do not bypass failed checks or move existing tags.
+
+1. Prepare the version and release notes with `make release-prepare VERSION=X.Y.Z`,
+   verify the release inputs, and commit the preparation.
+2. Create and push an annotated immutable `vX.Y.Z` tag on that commit, then
+   dispatch `Release` with that tag.
+3. Pass the required Linux/macOS checks and approve the `release-draft` and
+   `release` environments. Publish a full GitHub Release with four binary
+   archives, the matching skill archive, formula, metadata and `SHA256SUMS`.
+4. Download the public assets and verify their checksums and release identity.
+   Copy the verified `plane-cli.rb` asset to `Formula/plane-cli.rb` in
+   `foae/homebrew-tap`, commit the version bump and push it. Do not regenerate
+   checksums independently or point the formula at unpublished assets.
+5. Verify the public tagged `go install`, downloaded host archive and real tap
+   installation, including `brew test foae/tap/plane-cli`. Check offline
+   version/help/schema and packaged skill acceptance; record actual results.
+6. Report the release URL, tap commit and verification results. Any failed or
+   pending stage means release delivery is unfinished, not silently optional.
+
+Prereleases follow the same tag, asset publication and verification sequence but
+do not replace the stable Homebrew formula. The GitHub workflow handles release
+publication; the cross-repository tap bump is a required maintainer operation,
+not currently an automated workflow step.
+
 ## Supported artifacts
 
 Four CGO-free binaries: `linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`, all named `plane-cli` inside their archive. Builds use `-trimpath`, controlled version/commit ldflags and explicit GOOS/GOARCH. The source commit date is recorded in archive timestamps and release metadata, not a new public `version` field. Build metadata falls back to Go's `debug.ReadBuildInfo` for `go install`; untagged builds say development, never impersonate a release.

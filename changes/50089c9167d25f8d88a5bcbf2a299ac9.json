@@ -1,0 +1,4 @@
+{
+  "level": "patch",
+  "summary": "Define stable release completion as immutable tag, full GitHub asset publication, verified Homebrew tap bump and public installation checks."
+}
