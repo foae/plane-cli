@@ -1,14 +1,64 @@
 # Plane CLI
 
-An agent-first Go CLI for Plane, with an offline foundation available now.
+An agent-first, JSON-first CLI for [Plane](https://plane.so), for humans, scripts and AI coding agents. Manage projects, work items, cycles, pages, customers, releases and more through explicit API v1/v2 connections.
 
-**Status: P00/P01 foundation.** The binary implements offline discovery, named connections and environment-auth status. Safe API transport is covered by fake-server acceptance; no Plane resource commands or persistent login are callable yet.
+## Install
 
-Build with `make build`, then run `bin/plane-cli --help`. See [offline usage](docs/usage.md) and [contributor setup](docs/development.md). The approved design targets explicit API v1/v2 connections and documented public API coverage on Linux/macOS amd64/arm64; it is not a claim of current API or edition compatibility.
+**Homebrew (Linux and macOS):**
 
-- **Implement:** start at [AGENTS.md](AGENTS.md), then take one [work packet](docs/implementation/README.md).
-- **Understand the plan:** [documentation router](docs/README.md).
-- **Review decisions:** [scope and decisions](docs/planning/decisions.md).
-- **Evaluate evidence:** [research and limitations](docs/reference/research.md).
+```sh
+brew install foae/tap/plane-cli
+```
 
-Documentation uses progressive disclosure: start small and follow task-specific links. There are no git hooks; [development recipes](docs/development.md) provide explicit feedback.
+**Go (Go 1.27.4 or later):**
+
+```sh
+go install github.com/foae/plane-cli/cmd/plane-cli@v1.0.0
+```
+
+Or download a Linux/macOS **amd64 or arm64** archive from [Releases](https://github.com/foae/plane-cli/releases/latest). Verify it against `SHA256SUMS`, extract it, and put `plane-cli` on your `PATH`. The matching agent skill is a separate `plane-cli-skill_1.0.0.tar.gz` asset.
+
+## First request
+
+Replace the server URL and workspace slug below with your own. Select the API generation supported by your server; the CLI never silently switches versions.
+
+```sh
+plane-cli connection add personal --base-url https://plane.example.net --api-version v2
+plane-cli connection use personal
+plane-cli auth login --connection personal --api-key-file -
+# Supply your API key on stdin, then EOF. Do not put secrets in command arguments.
+plane-cli user me
+plane-cli project list --workspace YOUR_WORKSPACE
+```
+
+Credentials are stored in owner-only files by default. OS keyring storage is opt-in; environment injection and OAuth are also supported. See [authentication and connections](docs/usage.md#connections-and-environment-credentials).
+
+## Discover before acting
+
+Help and JSON schemas work offline, without credentials:
+
+```sh
+plane-cli --help
+plane-cli commands --api-version v2
+plane-cli work-item --help
+plane-cli schema work-item create --api-version v2
+plane-cli version
+```
+
+Commands return JSON by default. Use `--body-file` for native JSON request bodies, `--dry-run` to validate resource operations without sending them, and explicit `--yes` for destructive actions. [Usage and recipes](docs/usage.md) cover scopes, pagination, tables and exit codes.
+
+## Coverage and safety
+
+Documented operations are implemented across API v1/v2, with [27 approved upstream contract exceptions](docs/reference/api-contract-gaps.md). Unsupported operations are not guessed or silently redirected. Deterministic fake-server acceptance verifies protocols; it does **not** establish live Plane edition compatibility. Native keyring smoke testing remains separate.
+
+Updates are explicit: `plane-cli update check` checks for releases but never installs anything. Upgrade using your original installation method.
+
+## Agents and contributors
+
+- **Agent skill:** download the matching release skill archive; follow its `SKILL.md` and task-specific references.
+- **Build and contribute:** [development setup and checks](docs/development.md). Start with `make build`, then `bin/plane-cli --help`.
+- **Architecture and contracts:** [documentation router](docs/README.md).
+- **Implementation guidance:** [AGENTS.md](AGENTS.md) and [work packets](docs/implementation/README.md).
+- **Release verification:** [distribution and provenance](docs/releases.md).
+
+Licensed under [MIT](LICENSE).

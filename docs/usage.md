@@ -1,6 +1,6 @@
 # CLI usage
 
-P00-P02 implement offline discovery, named connections, persistent credentials, user/bot OAuth and the safe API transport foundation. P03 exposes identity, projects, work items and state/label definitions. P04 adds scheduling, estimates, intake, recurrence and work-item collaboration for their documented API generations. Supplemental v1 evidence gaps remain listed in [API contract gaps](reference/api-contract-gaps.md); this is not full public API coverage.
+The CLI implements offline discovery, named connections, persistent credentials, OAuth and documented P03–P09 resource commands across explicit API v1/v2 connections. The [27 approved upstream contract exceptions](reference/api-contract-gaps.md) remain visible limitations, not implemented operations.
 
 Build with Go 1.27.4 and `make build`, or install from this source checkout with `go install ./cmd/plane-cli`. Generated metadata is committed and embedded: the installed binary does not need repository files. Contributor setup and checks are in [development](development.md).
 
@@ -71,7 +71,7 @@ plane-cli user me --base-url https://plane.example.net --api-version v2 --dry-ru
 plane-cli user me --connection personal
 ```
 
-Contracts: [v1 current user](https://developers.plane.so/api-reference/user/get-current-user.md), [v2 current user](https://developers.plane.so/api-reference/v2/users/get-current-user.md). Deterministic request fixtures cover both generations; this is not completed P03 coverage or planner approval.
+Contracts: [v1 current user](https://developers.plane.so/api-reference/user/get-current-user.md), [v2 current user](https://developers.plane.so/api-reference/v2/users/get-current-user.md). Deterministic request fixtures cover both generations; live edition compatibility remains unverified.
 
 ## Project and work-item lifecycle
 
@@ -169,7 +169,7 @@ Scheduling commands retain version-specific membership, archive and transfer rou
 
 Cycle timezone validation embeds IANA timezone data and does not require host zoneinfo. V2 collaboration lists accept opaque `--cursor` values for manual continuation. Automatic traversal is bounded with `--max-pages`, not an item-count limit.
 
-The [packet router](implementation/README.md) identifies remaining work. Deterministic fake-server acceptance does not establish live Plane edition compatibility.
+The [packet router](implementation/README.md) describes implementation scope. Deterministic fake-server acceptance does not establish live Plane edition compatibility.
 
 ## Types and custom properties
 
@@ -218,7 +218,7 @@ Downloads require `--output-file`; existing destinations require `--overwrite --
 
 Downloads preserve stored bytes, including gzip-encoded objects. No-clobber installation requires filesystem hard-link support; unsupported destinations fail safely without replacement.
 
-P06 is a bounded implementation, not a completed packet. Conflicting v2 collection schemas, undocumented supplemental server-mediated uploads and unresolved source contracts remain recorded in the inventory; unavailable operations are not guessed or counted as delivered. Fake HTTP acceptance verifies protocol behavior, not live edition compatibility.
+Conflicting v2 collection schemas, undocumented supplemental server-mediated uploads and unresolved source contracts remain documented upstream exceptions; unavailable operations are not guessed or counted as delivered. Fake HTTP acceptance verifies protocol behavior, not live edition compatibility.
 
 ## Portfolio, customers and templates
 
