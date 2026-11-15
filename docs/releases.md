@@ -112,7 +112,7 @@ Dispatch `Release` with an existing annotated tag. It runs the agreed gates, pac
 
 The maintainer-owned tap is [foae/homebrew-tap](https://github.com/foae/homebrew-tap), not a Homebrew/core submission. Install with `brew install foae/tap/plane-cli`. Packaging renders a formula from the exact staged archive checksums; update the tap only after published-byte verification. Prereleases do not replace the stable formula. Formula/version/URLs/checksums must agree; test both target selection and the installed CLI as described above.
 
-Both `release-draft` and `release` environments require approval from `foae` and permit the `main` dispatch branch. A failed release never permits moving an existing tag: prepare a corrected patch version instead. `v1.0.0` remains an immutable source tag; its publication gate caught an incomplete catalog-test fixture before release assets were uploaded. The corrected release target is `v1.0.1`.
+Both `release-draft` and `release` environments require approval from `foae` and permit the `main` dispatch branch. A failed release never permits moving an existing tag: prepare a corrected patch version instead. `v1.0.0` and `v1.0.1` remain immutable source tags without published release assets: their gates caught catalog-test fixture and macOS staged-download server defects respectively. The corrected release target is `v1.0.2`.
 
 ## Explicit update checking
 

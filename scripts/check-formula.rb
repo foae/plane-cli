@@ -92,8 +92,9 @@ begin
               socket.write "HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\nConnection: close\r\n\r\n"
             end
           end
-        rescue Errno::EPIPE, Errno::ECONNRESET
-          # A client can close a probe/download early; later requests still need service.
+        rescue Errno::EPIPE, Errno::ECONNRESET, Errno::ENOTCONN
+          # macOS sendfile reports ENOTCONN when Homebrew closes a probe early.
+          # A disconnected client must not terminate service for later downloads.
           next
         ensure
           socket.close

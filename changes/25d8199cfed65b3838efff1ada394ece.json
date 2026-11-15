@@ -1,0 +1,4 @@
+{
+  "level": "patch",
+  "summary": "Keep the staged Homebrew download server alive when macOS sendfile reports ENOTCONN after a client disconnects."
+}
