@@ -1,0 +1,146 @@
+[
+  {
+    "id": "v2.work-item-type-workflows.list-work-item-type-workflows",
+    "command": [
+      "work-item-type-workflow",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/workflows/",
+    "status": 200,
+    "response": [],
+    "body": null,
+    "mutation": false
+  },
+  {
+    "id": "v2.work-item-type-workflows.get-work-item-type-workflow",
+    "command": [
+      "work-item-type-workflow",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{type_id}/workflow/",
+    "status": 200,
+    "response": {
+      "mode": "any"
+    },
+    "body": null,
+    "mutation": false
+  },
+  {
+    "id": "v2.work-item-type-workflows.update-work-item-type-workflow",
+    "command": [
+      "work-item-type-workflow",
+      "update"
+    ],
+    "method": "PATCH",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{type_id}/workflow/",
+    "status": 200,
+    "response": {
+      "mode": "any"
+    },
+    "body": {
+      "workflow_id": "11111111-1111-4111-8111-111111111111"
+    },
+    "mutation": true
+  },
+  {
+    "id": "v2.work-item-type-governance.update-work-item-type-governance",
+    "command": [
+      "work-item-type-governance",
+      "update"
+    ],
+    "method": "PATCH",
+    "route": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/",
+    "status": 200,
+    "response": {
+      "mode": "any"
+    },
+    "body": {
+      "mode": "any"
+    },
+    "mutation": true
+  },
+  {
+    "id": "v2.work-item-type-governance.preview-work-item-type-governance",
+    "command": [
+      "work-item-type-governance",
+      "preview"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/preview/",
+    "status": 200,
+    "response": {
+      "mode": "any"
+    },
+    "body": {
+      "mode": "any"
+    },
+    "mutation": false
+  },
+  {
+    "id": "v2.work-item-type-governance.list-work-item-type-workflow-pins",
+    "command": [
+      "work-item-type-governance",
+      "pin",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/pins/",
+    "status": 200,
+    "response": [],
+    "body": null,
+    "mutation": false
+  },
+  {
+    "id": "v2.work-item-type-governance.get-work-item-type-workflow-pin",
+    "command": [
+      "work-item-type-governance",
+      "pin",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/pins/{pk}/",
+    "status": 200,
+    "response": {
+      "mode": "any"
+    },
+    "body": null,
+    "mutation": false
+  },
+  {
+    "id": "v2.work-item-type-governance.create-work-item-type-workflow-pin",
+    "command": [
+      "work-item-type-governance",
+      "pin",
+      "create"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/pins/",
+    "status": 201,
+    "response": [],
+    "body": {
+      "workflow_id": "11111111-1111-4111-8111-111111111111",
+      "project_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "mutation": true
+  },
+  {
+    "id": "v2.work-item-type-governance.delete-work-item-type-workflow-pin",
+    "command": [
+      "work-item-type-governance",
+      "pin",
+      "delete"
+    ],
+    "method": "DELETE",
+    "route": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/pins/{pk}/",
+    "status": 204,
+    "response": {
+      "mode": "any"
+    },
+    "body": null,
+    "mutation": true
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "id": "v2.work-item-type-governance.create-work-item-type-workflow-pin",
+  "owner": "P09",
+  "version": "v2",
+  "source_group": "work-item-type-governance",
+  "source_slug": "create-work-item-type-workflow-pin",
+  "command": [
+    "work-item-type-governance",
+    "pin",
+    "create"
+  ],
+  "handler": "work-item-type-governance-pin-create",
+  "scope": "workspace",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/pins/",
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-governance/create-work-item-type-workflow-pin.md",
+  "snapshot_sha256": "bd1c2b0bf8c7b67b8f1491234aef376efbee0bb171e3b333f1216dde0172a4d2",
+  "snapshot_bytes": 10198,
+  "pagination": "none",
+  "success_statuses": [
+    201
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "type_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "type_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "workflow_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "project_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workflow_id",
+          "project_ids"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "acceptance_scenarios": [
+    "TestP09WorkflowGovernanceRequests/v2.work-item-type-governance.create-work-item-type-workflow-pin"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "source_id": "v2:workspace-automations:update-automation-edge",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-automations/update-automation-edge.md",
+  "review": "Independently authored native contract from official captured operation; no upstream document redistributed. Explicit field declarations govern writes; conflicting examples are recorded separately.",
+  "operation": "v2.workspace-automations.update-automation-edge",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/automations/{automation_id}/edges/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "automation_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "automation_id",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "execution_order": {
+            "type": "integer"
+          },
+          "source_node_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          },
+          "target_node_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          }
+        },
+        "additionalProperties": false,
+        "required": []
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "success_statuses": [
+    200
+  ],
+  "documented_error_statuses": [
+    400,
+    401,
+    402,
+    403,
+    404,
+    406,
+    409,
+    413,
+    415,
+    429
+  ],
+  "pagination": "none",
+  "notes": [
+    "Every mutation requires --yes. No retries, automatic feature/mode writes, graph repair or association emulation.",
+    "Explicit field declarations govern inputs; native response nulls and unknown fields are preserved."
+  ]
+}

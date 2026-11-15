@@ -1,0 +1,76 @@
+{
+  "source_id": "v2:workflow-transitions:list-workflow-transitions",
+  "source_url": "https://developers.plane.so/api-reference/v2/workflow-transitions/list-workflow-transitions.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.workflow-transitions.list-workflow-transitions",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "workflow_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "workflow_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "v2",
+  "notes": []
+}

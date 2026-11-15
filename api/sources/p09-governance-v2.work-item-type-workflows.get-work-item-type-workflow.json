@@ -1,0 +1,57 @@
+{
+  "id": "v2.work-item-type-workflows.get-work-item-type-workflow",
+  "owner": "P09",
+  "version": "v2",
+  "source_group": "work-item-type-workflows",
+  "source_slug": "get-work-item-type-workflow",
+  "command": [
+    "work-item-type-workflow",
+    "get"
+  ],
+  "handler": "work-item-type-workflow-get",
+  "scope": "project",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{type_id}/workflow/",
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-workflows/get-work-item-type-workflow.md",
+  "snapshot_sha256": "d0f7d47ff9161a4e591b3aa4091f01bea6eec1d6e32b571a662fc3e533d2465b",
+  "snapshot_bytes": 4454,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "type_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "type_id"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "acceptance_scenarios": [
+    "TestP09WorkflowGovernanceRequests/v2.work-item-type-workflows.get-work-item-type-workflow"
+  ]
+}

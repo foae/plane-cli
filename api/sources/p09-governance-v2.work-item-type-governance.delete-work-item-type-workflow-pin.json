@@ -1,0 +1,68 @@
+{
+  "id": "v2.work-item-type-governance.delete-work-item-type-workflow-pin",
+  "owner": "P09",
+  "version": "v2",
+  "source_group": "work-item-type-governance",
+  "source_slug": "delete-work-item-type-workflow-pin",
+  "command": [
+    "work-item-type-governance",
+    "pin",
+    "delete"
+  ],
+  "handler": "work-item-type-governance-pin-delete",
+  "scope": "workspace",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/pins/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-governance/delete-work-item-type-workflow-pin.md",
+  "snapshot_sha256": "805a37c642dd499d9fd95974dfd635ec8c2a8f46fca67c7b1c4e5a42a0ba7bb5",
+  "snapshot_bytes": 5351,
+  "pagination": "none",
+  "success_statuses": [
+    204
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "type_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "type_id",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "acceptance_scenarios": [
+    "TestP09WorkflowGovernanceRequests/v2.work-item-type-governance.delete-work-item-type-workflow-pin"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "source_id": "v2:project-automations:overview",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-automations/overview.md",
+  "review": "Independently authored native contract from official captured operation; no upstream document redistributed. Explicit field declarations govern writes; conflicting examples are recorded separately.",
+  "classification": "overview",
+  "notes": [
+    "Project automations run in one project; workspace automations run across a workspace.",
+    "New automations are draft and disabled. Explicit status writes enable/disable.",
+    "Project overview says project_ids writes are ignored; leaf create/update describe replacement. No client-side emulation."
+  ]
+}

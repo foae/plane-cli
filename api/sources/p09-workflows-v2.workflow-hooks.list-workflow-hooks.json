@@ -1,0 +1,94 @@
+{
+  "source_id": "v2:workflow-hooks:list-workflow-hooks",
+  "source_url": "https://developers.plane.so/api-reference/v2/workflow-hooks/list-workflow-hooks.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.workflow-hooks.list-workflow-hooks",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "workflow_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "transition_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "workflow_id",
+          "transition_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "phase": {
+            "type": "string",
+            "enum": [
+              "pre",
+              "post"
+            ]
+          },
+          "handler_name": {
+            "type": "string"
+          },
+          "is_enabled": {
+            "type": "boolean"
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "count": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "v2",
+  "notes": []
+}

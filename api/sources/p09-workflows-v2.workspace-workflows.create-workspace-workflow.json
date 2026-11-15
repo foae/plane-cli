@@ -1,0 +1,63 @@
+{
+  "source_id": "v2:workspace-workflows:create-workspace-workflow",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-workflows/create-workspace-workflow.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.workspace-workflows.create-workspace-workflow",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/workflows/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "success_statuses": [
+    201
+  ],
+  "pagination": "none",
+  "notes": []
+}

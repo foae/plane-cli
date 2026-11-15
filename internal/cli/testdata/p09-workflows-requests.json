@@ -1,0 +1,2296 @@
+[
+  {
+    "id": "v2.workflows.list-workflows",
+    "command": [
+      "workflow",
+      "project",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "description": "What this is for.",
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "is_active": true,
+          "is_default": false,
+          "name": "Example name",
+          "work_item_type_ids": [
+            "d1e7a4c9-2b58-4f36-9a0e-7c3b5d81f240"
+          ]
+        },
+        {
+          "created_at": "2026-01-13T16:04:02.911204Z",
+          "updated_at": "2026-01-13T16:04:02.911204Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "description": "What this is for.",
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "is_active": true,
+          "is_default": false,
+          "name": "Another example",
+          "work_item_type_ids": [
+            "d1e7a4c9-2b58-4f36-9a0e-7c3b5d81f240"
+          ]
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    },
+    "query": {
+      "fields": "id",
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workflows.get-workflow",
+    "command": [
+      "workflow",
+      "project",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{pk}/",
+    "status": 200,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "description": "What this is for.",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_active": true,
+      "is_default": false,
+      "name": "Example name",
+      "work_item_type_ids": [
+        "d1e7a4c9-2b58-4f36-9a0e-7c3b5d81f240"
+      ]
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workflows.create-workflow",
+    "command": [
+      "workflow",
+      "project",
+      "create"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/",
+    "status": 201,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "description": "What this is for.",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_active": true,
+      "is_default": false,
+      "name": "Example name",
+      "work_item_type_ids": [
+        "d1e7a4c9-2b58-4f36-9a0e-7c3b5d81f240"
+      ]
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "name": "Example name",
+      "description": "What this is for.",
+      "is_active": true,
+      "work_item_type_ids": [
+        "d1e7a4c9-2b58-4f36-9a0e-7c3b5d81f240"
+      ]
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workflows.update-workflow",
+    "command": [
+      "workflow",
+      "project",
+      "update"
+    ],
+    "method": "PATCH",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{pk}/",
+    "status": 200,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-02-03T16:45:12.904117Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "description": "What this is for.",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_active": true,
+      "is_default": false,
+      "name": "Example name",
+      "work_item_type_ids": [
+        "d1e7a4c9-2b58-4f36-9a0e-7c3b5d81f240"
+      ]
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "description": "What this is for.",
+      "is_active": true,
+      "name": "Example name"
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workflows.delete-workflow",
+    "command": [
+      "workflow",
+      "project",
+      "delete"
+    ],
+    "method": "DELETE",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{pk}/",
+    "status": 204,
+    "response": null,
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workflows.preview-workflow-fallback",
+    "command": [
+      "workflow",
+      "project",
+      "preview-fallback"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflow-fallback-preview/",
+    "status": 200,
+    "response": {
+      "total": 5,
+      "per_state": [
+        {
+          "state_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "count": 5
+        }
+      ]
+    },
+    "query": {},
+    "body": {
+      "type_id": "d1e7a4c9-2b58-4f36-9a0e-7c3b5d81f240",
+      "new_type_id": "c3b81f5d-7a29-4e64-9d0b-2f6e8a1c4d73"
+    },
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-states.list-workflow-states",
+    "command": [
+      "workflow",
+      "project",
+      "state",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/states/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "allow_issue_creation": false,
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "is_default": false,
+          "state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "type": "transition",
+          "workflow_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        },
+        {
+          "allow_issue_creation": false,
+          "created_at": "2026-01-13T16:04:02.911204Z",
+          "updated_at": "2026-01-13T16:04:02.911204Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "is_default": false,
+          "state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "type": "transition",
+          "workflow_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    },
+    "query": {
+      "fields": "id",
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-states.get-workflow-state",
+    "command": [
+      "workflow",
+      "project",
+      "state",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/states/{pk}/",
+    "status": 200,
+    "response": {
+      "allow_issue_creation": false,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_default": false,
+      "state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "type": "transition",
+      "workflow_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-states.create-workflow-state",
+    "command": [
+      "workflow",
+      "project",
+      "state",
+      "create"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/states/",
+    "status": 201,
+    "response": [
+      {
+        "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+        "state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+        "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+        "type": "transition",
+        "allow_issue_creation": true,
+        "is_default": true,
+        "created_at": "2026-01-12T15:04:10.478363Z",
+        "updated_at": "2026-01-13T08:30:55.478363Z",
+        "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+        "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      },
+      {
+        "id": "5d2a8c71-0e4f-4b39-a6d8-1f7c3e9b2a40",
+        "state_id": "3c8e1f47-92ab-4d65-b0f1-7a2d9e4c6b18",
+        "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+        "type": "transition",
+        "allow_issue_creation": true,
+        "is_default": false,
+        "created_at": "2026-01-14T09:22:41.478363Z",
+        "updated_at": "2026-01-14T09:22:41.478363Z",
+        "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+        "updated_by_id": null
+      }
+    ],
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "state_ids": [
+        "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+        "3c8e1f47-92ab-4d65-b0f1-7a2d9e4c6b18"
+      ]
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-states.update-workflow-state",
+    "command": [
+      "workflow",
+      "project",
+      "state",
+      "update"
+    ],
+    "method": "PATCH",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/states/{pk}/",
+    "status": 200,
+    "response": {
+      "allow_issue_creation": false,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-02-03T16:45:12.904117Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_default": false,
+      "state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "type": "transition",
+      "workflow_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "allow_issue_creation": false,
+      "is_default": false,
+      "type": "transition"
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-states.delete-workflow-state",
+    "command": [
+      "workflow",
+      "project",
+      "state",
+      "delete"
+    ],
+    "method": "DELETE",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/states/{pk}/",
+    "status": 204,
+    "response": null,
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-transitions.list-workflow-transitions",
+    "command": [
+      "workflow",
+      "project",
+      "transition",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "member_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ],
+          "rejection_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "required_approvals": 1,
+          "transition_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "workflow_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        },
+        {
+          "created_at": "2026-01-13T16:04:02.911204Z",
+          "updated_at": "2026-01-13T16:04:02.911204Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "member_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ],
+          "rejection_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "required_approvals": 1,
+          "transition_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "workflow_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    },
+    "query": {
+      "fields": "id",
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-transitions.get-workflow-transition",
+    "command": [
+      "workflow",
+      "project",
+      "transition",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/{pk}/",
+    "status": 200,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "member_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "rejection_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "required_approvals": 1,
+      "transition_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "workflow_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-transitions.create-workflow-transition",
+    "command": [
+      "workflow",
+      "project",
+      "transition",
+      "create"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/",
+    "status": 201,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "id": "c41e8f27-6a93-4b05-8d1e-9f2a7c3b5e60",
+      "member_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "rejection_state_id": "7e19c5a2-4d8b-4f30-a6e1-3b9c0d2f8e57",
+      "required_approvals": 1,
+      "transition_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "workflow_state_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "state_id": "2b7d4e90-1c3a-4f68-9e52-8a0f6d3b7c14",
+      "transition_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "member_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "rejection_state_id": "7e19c5a2-4d8b-4f30-a6e1-3b9c0d2f8e57",
+      "required_approvals": 1
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-transitions.update-workflow-transition",
+    "command": [
+      "workflow",
+      "project",
+      "transition",
+      "update"
+    ],
+    "method": "PATCH",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/{pk}/",
+    "status": 200,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-02-03T16:45:12.904117Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "member_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "rejection_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "required_approvals": 1,
+      "transition_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "workflow_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "member_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "rejection_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "required_approvals": 1
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-transitions.delete-workflow-transition",
+    "command": [
+      "workflow",
+      "project",
+      "transition",
+      "delete"
+    ],
+    "method": "DELETE",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/{pk}/",
+    "status": 204,
+    "response": null,
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-activities.list-workflow-activities",
+    "command": [
+      "workflow",
+      "project",
+      "activity",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/activities/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "a41d7c93-5e28-4b06-9f17-3c8e2b6d0a54",
+          "workflow_id": "9e3f6a2c-7b14-4d8e-a5c1-2f60b8d4e719",
+          "actor_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "state_id": "2c4d16f8-9b3e-4a52-8d71-1f0e6c9a5b48",
+          "verb": "added",
+          "field": "transition_rule",
+          "old_value": null,
+          "new_value": "send_webhook",
+          "old_identifier": null,
+          "new_identifier": "3b7e9a15-6c2d-4f84-9b31-0e5d8c7a2f69",
+          "epoch": 1768382561.0,
+          "created_at": "2026-01-14T09:22:41.478363Z"
+        },
+        {
+          "id": "c0e58b27-91d4-4a3f-8e62-7b19d4f3a085",
+          "workflow_id": "9e3f6a2c-7b14-4d8e-a5c1-2f60b8d4e719",
+          "actor_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "state_id": "2c4d16f8-9b3e-4a52-8d71-1f0e6c9a5b48",
+          "verb": "updated",
+          "field": "transition_rule",
+          "old_value": null,
+          "new_value": "send_webhook",
+          "old_identifier": "3b7e9a15-6c2d-4f84-9b31-0e5d8c7a2f69",
+          "new_identifier": "3b7e9a15-6c2d-4f84-9b31-0e5d8c7a2f69",
+          "epoch": 1768382810.0,
+          "created_at": "2026-01-14T09:26:50.107219Z"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 2,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "query": {
+      "fields": "id",
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-activities.get-workflow-activity",
+    "command": [
+      "workflow",
+      "project",
+      "activity",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/activities/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "a41d7c93-5e28-4b06-9f17-3c8e2b6d0a54",
+      "workflow_id": "9e3f6a2c-7b14-4d8e-a5c1-2f60b8d4e719",
+      "actor_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "state_id": "2c4d16f8-9b3e-4a52-8d71-1f0e6c9a5b48",
+      "verb": "added",
+      "field": "transition_rule",
+      "old_value": null,
+      "new_value": "send_webhook",
+      "old_identifier": null,
+      "new_identifier": "3b7e9a15-6c2d-4f84-9b31-0e5d8c7a2f69",
+      "epoch": 1768382561.0,
+      "created_at": "2026-01-14T09:22:41.478363Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-hooks.list-workflow-hooks",
+    "command": [
+      "workflow",
+      "project",
+      "hook",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "3b7e9a15-6c2d-4f84-9b31-0e5d8c7a2f69",
+          "workflow_transition_id": "5c8d2e71-4a9f-4b36-8e05-d17f3a6b9c42",
+          "project_id": "4af68566-94a4-4eb3-94aa-50dc9427067b",
+          "phase": "post",
+          "handler_name": "send_webhook",
+          "is_enabled": true,
+          "execution_order": 1,
+          "config": {
+            "url": "https://hooks.example.com/plane/transitions",
+            "headers": [
+              {
+                "key": "X-Team",
+                "value": "platform",
+                "is_secret": false
+              }
+            ]
+          },
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-14T09:22:41.478363Z"
+        },
+        {
+          "id": "6e1a4c8d-2f97-4b53-a0d6-9c3e7b15f824",
+          "workflow_transition_id": "5c8d2e71-4a9f-4b36-8e05-d17f3a6b9c42",
+          "project_id": "4af68566-94a4-4eb3-94aa-50dc9427067b",
+          "phase": "post",
+          "handler_name": "run_script",
+          "is_enabled": false,
+          "execution_order": 2,
+          "config": {
+            "script_id": "d82f5b4e-7a13-4c69-9e0b-3f6a1c8d2e57",
+            "execution_variables": {
+              "channel": "releases"
+            }
+          },
+          "created_at": "2026-01-14T09:31:07.215846Z",
+          "updated_at": "2026-01-15T11:04:52.630194Z"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 2,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "query": {
+      "fields": "id",
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-hooks.get-workflow-hook",
+    "command": [
+      "workflow",
+      "project",
+      "hook",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "3b7e9a15-6c2d-4f84-9b31-0e5d8c7a2f69",
+      "workflow_transition_id": "5c8d2e71-4a9f-4b36-8e05-d17f3a6b9c42",
+      "project_id": "4af68566-94a4-4eb3-94aa-50dc9427067b",
+      "phase": "post",
+      "handler_name": "send_webhook",
+      "is_enabled": true,
+      "execution_order": 1,
+      "config": {
+        "url": "https://hooks.example.com/plane/transitions",
+        "headers": [
+          {
+            "key": "X-Team",
+            "value": "platform",
+            "is_secret": false
+          }
+        ]
+      },
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-hooks.create-workflow-hook",
+    "command": [
+      "workflow",
+      "project",
+      "hook",
+      "create"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/",
+    "status": 201,
+    "response": {
+      "id": "3b7e9a15-6c2d-4f84-9b31-0e5d8c7a2f69",
+      "workflow_transition_id": "5c8d2e71-4a9f-4b36-8e05-d17f3a6b9c42",
+      "project_id": "4af68566-94a4-4eb3-94aa-50dc9427067b",
+      "phase": "post",
+      "handler_name": "send_webhook",
+      "is_enabled": true,
+      "execution_order": 1,
+      "config": {
+        "url": "https://hooks.example.com/plane/transitions",
+        "headers": [
+          {
+            "key": "X-Team",
+            "value": "platform",
+            "is_secret": false
+          }
+        ],
+        "secret_plaintext": "plane_wh_4f9c2a7e1b8d4e63a5c0f7d29b1e8a46"
+      },
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z"
+    },
+    "query": {},
+    "body": {
+      "phase": "post",
+      "handler_name": "send_webhook",
+      "config": {
+        "url": "https://hooks.example.com/plane/transitions",
+        "headers": [
+          {
+            "key": "X-Team",
+            "value": "platform",
+            "is_secret": false
+          }
+        ]
+      }
+    },
+    "destructive": true,
+    "secret": true
+  },
+  {
+    "id": "v2.workflow-hooks.update-workflow-hook",
+    "command": [
+      "workflow",
+      "project",
+      "hook",
+      "update"
+    ],
+    "method": "PATCH",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "3b7e9a15-6c2d-4f84-9b31-0e5d8c7a2f69",
+      "workflow_transition_id": "5c8d2e71-4a9f-4b36-8e05-d17f3a6b9c42",
+      "project_id": "4af68566-94a4-4eb3-94aa-50dc9427067b",
+      "phase": "post",
+      "handler_name": "send_webhook",
+      "is_enabled": true,
+      "execution_order": 1,
+      "config": {
+        "url": "https://hooks.example.com/plane/v2/transitions",
+        "headers": [
+          {
+            "key": "X-Team",
+            "value": "platform",
+            "is_secret": false
+          }
+        ]
+      },
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-02-03T16:45:12.904117Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "config": {
+        "url": "https://hooks.example.com/plane/v2/transitions"
+      }
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-hooks.delete-workflow-hook",
+    "command": [
+      "workflow",
+      "project",
+      "hook",
+      "delete"
+    ],
+    "method": "DELETE",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/",
+    "status": 204,
+    "response": null,
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-hooks.list-workflow-hook-executions",
+    "command": [
+      "workflow",
+      "project",
+      "hook",
+      "list-executions"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/executions/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "e7b2c94a-1d58-4f36-b0a7-5c3e9d1f2a86",
+          "work_item_id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "status": "failed",
+          "started_at": "2026-01-15T14:08:12.338104Z",
+          "completed_at": "2026-01-15T14:08:22.341927Z",
+          "input_data": {
+            "url_host": "hooks.example.com",
+            "event_type": "workflow.transition",
+            "phase": "post"
+          },
+          "output_data": {
+            "delivery_id": "0b6f3e1c-8a24-4d97-9e5b-2c71f4a8d036",
+            "status_code": 503,
+            "response_body": "Service Unavailable",
+            "duration_ms": 10003,
+            "error": null
+          },
+          "error_message": "HTTP 503"
+        },
+        {
+          "id": "4d91a6f2-7c3b-4e58-8a10-b6e2f9c5d473",
+          "work_item_id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "status": "success",
+          "started_at": "2026-01-14T10:02:47.912655Z",
+          "completed_at": "2026-01-14T10:02:48.104382Z",
+          "input_data": {
+            "url_host": "hooks.example.com",
+            "event_type": "workflow.transition",
+            "phase": "post"
+          },
+          "output_data": {
+            "delivery_id": "9a3d5f7b-2e16-4c84-b1f0-6d8e2a4c7b95",
+            "status_code": 200,
+            "response_body": "ok",
+            "duration_ms": 191,
+            "error": null
+          },
+          "error_message": ""
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 2,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "query": {
+      "fields": "id",
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workflow-hooks.regenerate-workflow-hook-secret",
+    "command": [
+      "workflow",
+      "project",
+      "hook",
+      "regenerate-secret"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/regenerate-webhook-secret/",
+    "status": 200,
+    "response": {
+      "secret": "plane_wh_8d2c6f1a9e4b47d3b0a5e7c19f3d6a28"
+    },
+    "query": {},
+    "body": null,
+    "destructive": true,
+    "secret": true
+  },
+  {
+    "id": "v2.workspace-workflows.list-workspace-workflows",
+    "command": [
+      "workflow",
+      "workspace",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/workflows/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+          "name": "Delivery",
+          "description": "Engineering delivery flow with a review gate",
+          "is_active": true,
+          "is_default": false,
+          "states_count": 4,
+          "projects_count": 2,
+          "work_item_types_count": 1,
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-15T11:04:52.660219Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+        },
+        {
+          "id": "3e8a5d21-7b4c-4f19-a6e2-0d9c8b7f5a14",
+          "name": "Standard",
+          "description": "Workspace default workflow",
+          "is_active": true,
+          "is_default": true,
+          "states_count": 5,
+          "projects_count": 14,
+          "work_item_types_count": 3,
+          "created_at": "2025-11-02T08:15:27.331846Z",
+          "updated_at": "2025-11-02T08:15:27.331846Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 2,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "query": {
+      "fields": "id",
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflows.get-workspace-workflow",
+    "command": [
+      "workflow",
+      "workspace",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/workflows/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "name": "Delivery",
+      "description": "Engineering delivery flow with a review gate",
+      "is_active": true,
+      "is_default": false,
+      "states_count": 4,
+      "projects_count": 2,
+      "work_item_types_count": 1,
+      "states": [
+        {
+          "id": "2c4d16f8-9b3e-4a52-8d71-1f0e6c9a5b48",
+          "allow_issue_creation": true,
+          "is_default": true,
+          "sequence": 10000.0,
+          "type": "transition",
+          "transitions": [
+            {
+              "id": "8d2f6a41-5c3e-4b97-a1d0-7e9c4b2f8a63",
+              "transition_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+              "rejection_state_id": null,
+              "member_ids": [],
+              "required_approvals": null,
+              "pre_rules": [],
+              "post_rules": []
+            }
+          ]
+        },
+        {
+          "id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "allow_issue_creation": true,
+          "is_default": false,
+          "sequence": 20000.0,
+          "type": "transition",
+          "transitions": [
+            {
+              "id": "d7a3f5c9-0b2e-4d81-b6f4-9e1c3a5d7b20",
+              "transition_state_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+              "rejection_state_id": null,
+              "member_ids": [],
+              "required_approvals": null,
+              "pre_rules": [
+                {
+                  "id": "9a1c5e37-8b2d-4f60-a4e9-6c3b7d0f1e28",
+                  "handler_name": "run_script",
+                  "rule_type": "validation",
+                  "config": {
+                    "script_id": "5d8e2a6c-3f1b-4a97-8c04-2e9b7d1f6a35",
+                    "execution_variables": {
+                      "min_estimate": "1"
+                    }
+                  }
+                }
+              ],
+              "post_rules": [
+                {
+                  "id": "e4b7c9a2-3d1f-4e68-8a52-9f0c6b3d7e15",
+                  "handler_name": "send_webhook",
+                  "rule_type": "action",
+                  "config": {
+                    "url": "https://hooks.example.com/plane",
+                    "headers": [
+                      {
+                        "key": "X-Team",
+                        "is_secret": false,
+                        "value": "platform"
+                      }
+                    ],
+                    "secret": "plane_wh_\u2022\u2022\u2022\u20227c1d"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "allow_issue_creation": false,
+          "is_default": false,
+          "sequence": 30000.0,
+          "type": "approval",
+          "transitions": [
+            {
+              "id": "4b6e1d93-2a7f-4c58-9e30-1d8b5f7a2c46",
+              "transition_state_id": "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613",
+              "rejection_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+              "member_ids": [
+                "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84"
+              ],
+              "required_approvals": 1,
+              "pre_rules": [],
+              "post_rules": []
+            }
+          ]
+        },
+        {
+          "id": "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613",
+          "allow_issue_creation": false,
+          "is_default": false,
+          "sequence": 40000.0,
+          "type": "transition",
+          "transitions": []
+        }
+      ],
+      "referenced_resources": {
+        "states": {
+          "2c4d16f8-9b3e-4a52-8d71-1f0e6c9a5b48": {
+            "id": "2c4d16f8-9b3e-4a52-8d71-1f0e6c9a5b48",
+            "name": "Backlog",
+            "color": "#8b8d98",
+            "group": "backlog",
+            "sequence": 15000.0,
+            "default": false,
+            "project_id": null,
+            "workspace_id": "b1c4e7a2-5d8f-4a3b-9c6e-0f2d4a7b8c91"
+          },
+          "f960d3c2-8524-4a41-b8eb-055ce4be2a7f": {
+            "id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+            "name": "In Progress",
+            "color": "#3f76ff",
+            "group": "started",
+            "sequence": 25000.0,
+            "default": false,
+            "project_id": null,
+            "workspace_id": "b1c4e7a2-5d8f-4a3b-9c6e-0f2d4a7b8c91"
+          },
+          "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53": {
+            "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+            "name": "In Review",
+            "color": "#f5a623",
+            "group": "started",
+            "sequence": 35000.0,
+            "default": false,
+            "project_id": null,
+            "workspace_id": "b1c4e7a2-5d8f-4a3b-9c6e-0f2d4a7b8c91"
+          },
+          "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613": {
+            "id": "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613",
+            "name": "Done",
+            "color": "#26a05f",
+            "group": "completed",
+            "sequence": 45000.0,
+            "default": false,
+            "project_id": null,
+            "workspace_id": "b1c4e7a2-5d8f-4a3b-9c6e-0f2d4a7b8c91"
+          }
+        },
+        "users": {
+          "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84": {
+            "id": "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84",
+            "display_name": "priya",
+            "avatar_url": null,
+            "is_bot": false,
+            "first_name": "Priya",
+            "last_name": "Raman",
+            "workspace_id": "b1c4e7a2-5d8f-4a3b-9c6e-0f2d4a7b8c91"
+          }
+        }
+      },
+      "project_ids": [
+        "4af68566-94a4-4eb3-94aa-50dc9427067b",
+        "d1e8a3c5-7f2b-4a96-8e04-3b6c9d1f5a27"
+      ],
+      "work_item_type_ids": [
+        "2d9d1a97-5c6f-4a1e-9d5b-8c2f7e30b6a4"
+      ],
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-15T11:04:52.660219Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflows.create-workspace-workflow",
+    "command": [
+      "workflow",
+      "workspace",
+      "create"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/workflows/",
+    "status": 201,
+    "response": {
+      "id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "name": "Delivery",
+      "description": "Engineering delivery flow with a review gate",
+      "is_active": false,
+      "is_default": false,
+      "states_count": 0,
+      "projects_count": 0,
+      "work_item_types_count": 0,
+      "states": [],
+      "referenced_resources": {
+        "states": {},
+        "users": {}
+      },
+      "project_ids": [],
+      "work_item_type_ids": [],
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "name": "Delivery",
+      "description": "Engineering delivery flow with a review gate"
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflows.update-workspace-workflow",
+    "command": [
+      "workflow",
+      "workspace",
+      "update"
+    ],
+    "method": "PATCH",
+    "route": "/api/v2/workspaces/{slug}/workflows/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "name": "Delivery",
+      "description": "Engineering delivery flow with a review gate",
+      "is_active": true,
+      "is_default": false,
+      "states_count": 4,
+      "projects_count": 2,
+      "work_item_types_count": 1,
+      "states": [
+        {
+          "id": "2c4d16f8-9b3e-4a52-8d71-1f0e6c9a5b48",
+          "allow_issue_creation": true,
+          "is_default": true,
+          "sequence": 10000.0,
+          "type": "transition",
+          "transitions": [
+            {
+              "id": "8d2f6a41-5c3e-4b97-a1d0-7e9c4b2f8a63",
+              "transition_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+              "rejection_state_id": null,
+              "member_ids": [],
+              "required_approvals": null,
+              "pre_rules": [],
+              "post_rules": []
+            }
+          ]
+        },
+        {
+          "id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "allow_issue_creation": true,
+          "is_default": false,
+          "sequence": 20000.0,
+          "type": "transition",
+          "transitions": [
+            {
+              "id": "d7a3f5c9-0b2e-4d81-b6f4-9e1c3a5d7b20",
+              "transition_state_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+              "rejection_state_id": null,
+              "member_ids": [],
+              "required_approvals": null,
+              "pre_rules": [
+                {
+                  "id": "9a1c5e37-8b2d-4f60-a4e9-6c3b7d0f1e28",
+                  "handler_name": "run_script",
+                  "rule_type": "validation",
+                  "config": {
+                    "script_id": "5d8e2a6c-3f1b-4a97-8c04-2e9b7d1f6a35",
+                    "execution_variables": {
+                      "min_estimate": "1"
+                    }
+                  }
+                }
+              ],
+              "post_rules": [
+                {
+                  "id": "e4b7c9a2-3d1f-4e68-8a52-9f0c6b3d7e15",
+                  "handler_name": "send_webhook",
+                  "rule_type": "action",
+                  "config": {
+                    "url": "https://hooks.example.com/plane",
+                    "headers": [
+                      {
+                        "key": "X-Team",
+                        "is_secret": false,
+                        "value": "platform"
+                      }
+                    ],
+                    "secret": "plane_wh_\u2022\u2022\u2022\u20227c1d"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "allow_issue_creation": false,
+          "is_default": false,
+          "sequence": 30000.0,
+          "type": "approval",
+          "transitions": [
+            {
+              "id": "4b6e1d93-2a7f-4c58-9e30-1d8b5f7a2c46",
+              "transition_state_id": "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613",
+              "rejection_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+              "member_ids": [
+                "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84"
+              ],
+              "required_approvals": 1,
+              "pre_rules": [],
+              "post_rules": []
+            }
+          ]
+        },
+        {
+          "id": "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613",
+          "allow_issue_creation": false,
+          "is_default": false,
+          "sequence": 40000.0,
+          "type": "transition",
+          "transitions": []
+        }
+      ],
+      "referenced_resources": {
+        "states": {
+          "2c4d16f8-9b3e-4a52-8d71-1f0e6c9a5b48": {
+            "id": "2c4d16f8-9b3e-4a52-8d71-1f0e6c9a5b48",
+            "name": "Backlog",
+            "color": "#8b8d98",
+            "group": "backlog",
+            "sequence": 15000.0,
+            "default": false,
+            "project_id": null,
+            "workspace_id": "b1c4e7a2-5d8f-4a3b-9c6e-0f2d4a7b8c91"
+          },
+          "f960d3c2-8524-4a41-b8eb-055ce4be2a7f": {
+            "id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+            "name": "In Progress",
+            "color": "#3f76ff",
+            "group": "started",
+            "sequence": 25000.0,
+            "default": false,
+            "project_id": null,
+            "workspace_id": "b1c4e7a2-5d8f-4a3b-9c6e-0f2d4a7b8c91"
+          },
+          "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53": {
+            "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+            "name": "In Review",
+            "color": "#f5a623",
+            "group": "started",
+            "sequence": 35000.0,
+            "default": false,
+            "project_id": null,
+            "workspace_id": "b1c4e7a2-5d8f-4a3b-9c6e-0f2d4a7b8c91"
+          },
+          "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613": {
+            "id": "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613",
+            "name": "Done",
+            "color": "#26a05f",
+            "group": "completed",
+            "sequence": 45000.0,
+            "default": false,
+            "project_id": null,
+            "workspace_id": "b1c4e7a2-5d8f-4a3b-9c6e-0f2d4a7b8c91"
+          }
+        },
+        "users": {
+          "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84": {
+            "id": "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84",
+            "display_name": "priya",
+            "avatar_url": null,
+            "is_bot": false,
+            "first_name": "Priya",
+            "last_name": "Raman",
+            "workspace_id": "b1c4e7a2-5d8f-4a3b-9c6e-0f2d4a7b8c91"
+          }
+        }
+      },
+      "project_ids": [
+        "4af68566-94a4-4eb3-94aa-50dc9427067b",
+        "d1e8a3c5-7f2b-4a96-8e04-3b6c9d1f5a27"
+      ],
+      "work_item_type_ids": [
+        "2d9d1a97-5c6f-4a1e-9d5b-8c2f7e30b6a4"
+      ],
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-02-03T16:45:12.904117Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "is_active": true
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflows.delete-workspace-workflow",
+    "command": [
+      "workflow",
+      "workspace",
+      "delete"
+    ],
+    "method": "DELETE",
+    "route": "/api/v2/workspaces/{slug}/workflows/{pk}/",
+    "status": 204,
+    "response": null,
+    "query": {},
+    "body": null,
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflows.get-workspace-workflow-usage",
+    "command": [
+      "workflow",
+      "workspace",
+      "get-usage"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/workflows/{pk}/usage/",
+    "status": 200,
+    "response": {
+      "projects": [
+        {
+          "project_id": "4af68566-94a4-4eb3-94aa-50dc9427067b",
+          "name": "Mobile App",
+          "types": [
+            "2d9d1a97-5c6f-4a1e-9d5b-8c2f7e30b6a4"
+          ]
+        },
+        {
+          "project_id": "d1e8a3c5-7f2b-4a96-8e04-3b6c9d1f5a27",
+          "name": "Platform",
+          "types": [
+            "2d9d1a97-5c6f-4a1e-9d5b-8c2f7e30b6a4"
+          ]
+        }
+      ],
+      "types_mandating": [],
+      "types_allowing": [
+        "2d9d1a97-5c6f-4a1e-9d5b-8c2f7e30b6a4"
+      ]
+    },
+    "query": {},
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-states.list-workspace-workflow-states",
+    "command": [
+      "workflow",
+      "workspace",
+      "state",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "5a7c2e19-8d3f-4b61-9e0a-2f4d6c8b1a37",
+          "state_id": "2c4d16f8-9b3e-4a52-8d71-1f0e6c9a5b48",
+          "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+          "type": "transition",
+          "is_default": true,
+          "allow_issue_creation": true,
+          "sequence": 10000.0,
+          "updated_at": "2026-01-14T09:31:07.215904Z"
+        },
+        {
+          "id": "0e6b4d82-1c9a-4f53-b7e2-9a3d5f8c6e10",
+          "state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+          "type": "transition",
+          "is_default": false,
+          "allow_issue_creation": true,
+          "sequence": 20000.0,
+          "updated_at": "2026-01-14T09:31:07.215904Z"
+        },
+        {
+          "id": "c48f1a6d-2e7b-4d95-8c03-6b1e9f2a7d54",
+          "state_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+          "type": "approval",
+          "is_default": false,
+          "allow_issue_creation": false,
+          "sequence": 30000.0,
+          "updated_at": "2026-01-14T09:31:07.215904Z"
+        },
+        {
+          "id": "61d9b3f7-4a2c-4e86-9f15-3c7a0e8d2b96",
+          "state_id": "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613",
+          "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+          "type": "transition",
+          "is_default": false,
+          "allow_issue_creation": false,
+          "sequence": 40000.0,
+          "updated_at": "2026-01-14T09:31:07.215904Z"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 4,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "query": {
+      "fields": "id",
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-states.get-workspace-workflow-state",
+    "command": [
+      "workflow",
+      "workspace",
+      "state",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/{state_id}/",
+    "status": 200,
+    "response": {
+      "id": "c48f1a6d-2e7b-4d95-8c03-6b1e9f2a7d54",
+      "state_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "type": "approval",
+      "is_default": false,
+      "allow_issue_creation": false,
+      "sequence": 30000.0,
+      "updated_at": "2026-01-14T09:31:07.215904Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-states.add-workspace-workflow-states",
+    "command": [
+      "workflow",
+      "workspace",
+      "state",
+      "add"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/",
+    "status": 201,
+    "response": [
+      {
+        "id": "a2d6f9c1-7e3b-4a58-9b14-5c8e0d3f7a62",
+        "state_id": "e5a1c8d3-4b7f-4e29-a6d0-2c9f5b8e1a74",
+        "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+        "type": "transition",
+        "is_default": false,
+        "allow_issue_creation": true,
+        "sequence": 65535.0,
+        "updated_at": "2026-01-14T09:31:07.215904Z"
+      }
+    ],
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "state_ids": [
+        "e5a1c8d3-4b7f-4e29-a6d0-2c9f5b8e1a74"
+      ]
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-states.update-workspace-workflow-state",
+    "command": [
+      "workflow",
+      "workspace",
+      "state",
+      "update"
+    ],
+    "method": "PATCH",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/{state_id}/",
+    "status": 200,
+    "response": {
+      "id": "0e6b4d82-1c9a-4f53-b7e2-9a3d5f8c6e10",
+      "state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "type": "transition",
+      "is_default": false,
+      "allow_issue_creation": false,
+      "sequence": 20000.0,
+      "updated_at": "2026-02-03T16:45:12.904117Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "allow_issue_creation": false
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-states.remove-workspace-workflow-state",
+    "command": [
+      "workflow",
+      "workspace",
+      "state",
+      "remove"
+    ],
+    "method": "DELETE",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/{state_id}/",
+    "status": 204,
+    "response": null,
+    "query": {},
+    "body": {
+      "state_mapping": {
+        "e5a1c8d3-4b7f-4e29-a6d0-2c9f5b8e1a74": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+      }
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-states.mark-default-workspace-workflow-state",
+    "command": [
+      "workflow",
+      "workspace",
+      "state",
+      "mark-default"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/{state_id}/mark-default/",
+    "status": 200,
+    "response": {
+      "id": "0e6b4d82-1c9a-4f53-b7e2-9a3d5f8c6e10",
+      "state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "type": "transition",
+      "is_default": true,
+      "allow_issue_creation": true,
+      "sequence": 20000.0,
+      "updated_at": "2026-02-03T16:45:12.904117Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-transitions.list-workspace-workflow-transitions",
+    "command": [
+      "workflow",
+      "workspace",
+      "transition",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "8d2f6a41-5c3e-4b97-a1d0-7e9c4b2f8a63",
+          "workflow_state_id": "5a7c2e19-8d3f-4b61-9e0a-2f4d6c8b1a37",
+          "transition_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "rejection_state_id": null,
+          "required_approvals": null,
+          "member_ids": [],
+          "created_at": "2026-01-14T09:31:07.215904Z",
+          "updated_at": "2026-01-14T09:31:07.215904Z"
+        },
+        {
+          "id": "d7a3f5c9-0b2e-4d81-b6f4-9e1c3a5d7b20",
+          "workflow_state_id": "0e6b4d82-1c9a-4f53-b7e2-9a3d5f8c6e10",
+          "transition_state_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "rejection_state_id": null,
+          "required_approvals": null,
+          "member_ids": [],
+          "created_at": "2026-01-14T09:31:07.215904Z",
+          "updated_at": "2026-01-14T09:31:07.215904Z"
+        },
+        {
+          "id": "4b6e1d93-2a7f-4c58-9e30-1d8b5f7a2c46",
+          "workflow_state_id": "c48f1a6d-2e7b-4d95-8c03-6b1e9f2a7d54",
+          "transition_state_id": "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613",
+          "rejection_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "required_approvals": 1,
+          "member_ids": [
+            "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84"
+          ],
+          "created_at": "2026-01-15T11:04:52.660219Z",
+          "updated_at": "2026-01-15T11:04:52.660219Z"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 3,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "query": {
+      "fields": "id",
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-transitions.get-workspace-workflow-transition",
+    "command": [
+      "workflow",
+      "workspace",
+      "transition",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "4b6e1d93-2a7f-4c58-9e30-1d8b5f7a2c46",
+      "workflow_state_id": "c48f1a6d-2e7b-4d95-8c03-6b1e9f2a7d54",
+      "transition_state_id": "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613",
+      "rejection_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "required_approvals": 1,
+      "member_ids": [
+        "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84"
+      ],
+      "created_at": "2026-01-15T11:04:52.660219Z",
+      "updated_at": "2026-01-15T11:04:52.660219Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-transitions.create-workspace-workflow-transition",
+    "command": [
+      "workflow",
+      "workspace",
+      "transition",
+      "create"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/",
+    "status": 201,
+    "response": {
+      "id": "4b6e1d93-2a7f-4c58-9e30-1d8b5f7a2c46",
+      "workflow_state_id": "c48f1a6d-2e7b-4d95-8c03-6b1e9f2a7d54",
+      "transition_state_id": "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613",
+      "rejection_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "required_approvals": 1,
+      "member_ids": [
+        "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84"
+      ],
+      "created_at": "2026-01-15T11:04:52.660219Z",
+      "updated_at": "2026-01-15T11:04:52.660219Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "state_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "transition_state_id": "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613",
+      "rejection_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "required_approvals": 1,
+      "member_ids": [
+        "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84"
+      ]
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-transitions.update-workspace-workflow-transition",
+    "command": [
+      "workflow",
+      "workspace",
+      "transition",
+      "update"
+    ],
+    "method": "PATCH",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "4b6e1d93-2a7f-4c58-9e30-1d8b5f7a2c46",
+      "workflow_state_id": "c48f1a6d-2e7b-4d95-8c03-6b1e9f2a7d54",
+      "transition_state_id": "7b1e9d40-3c86-4f2a-9a5d-8e2b0c47d613",
+      "rejection_state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "required_approvals": 2,
+      "member_ids": [
+        "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84",
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "created_at": "2026-01-15T11:04:52.660219Z",
+      "updated_at": "2026-02-03T16:45:12.904117Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "member_ids": [
+        "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84",
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "required_approvals": 2
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-transitions.delete-workspace-workflow-transition",
+    "command": [
+      "workflow",
+      "workspace",
+      "transition",
+      "delete"
+    ],
+    "method": "DELETE",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{pk}/",
+    "status": 204,
+    "response": null,
+    "query": {},
+    "body": null,
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-activities.list-workspace-workflow-activities",
+    "command": [
+      "workflow",
+      "workspace",
+      "activity",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/activities/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "1f7a3c9e-6b2d-4e84-a0c5-9d3e7b1f4a28",
+          "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+          "actor_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "state_id": null,
+          "verb": "created",
+          "field": "workflow",
+          "old_value": null,
+          "new_value": null,
+          "old_identifier": null,
+          "new_identifier": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+          "epoch": 1768382561.0,
+          "created_at": "2026-01-14T09:22:41.478363Z"
+        },
+        {
+          "id": "7c4e9b2a-5f1d-4a36-8e70-2b9d6c3f1a85",
+          "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+          "actor_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "state_id": null,
+          "verb": "added",
+          "field": "workflow_state",
+          "old_value": null,
+          "new_value": "In Review",
+          "old_identifier": null,
+          "new_identifier": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "epoch": 1768383067.0,
+          "created_at": "2026-01-14T09:31:07.215904Z"
+        },
+        {
+          "id": "3a8d1f6c-9e2b-4c57-b4a1-6f0e8d2c9b73",
+          "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+          "actor_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "state_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "verb": "added",
+          "field": "state_approvers",
+          "old_value": "",
+          "new_value": "priya",
+          "old_identifier": null,
+          "new_identifier": "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84",
+          "epoch": 1768475092.0,
+          "created_at": "2026-01-15T11:04:52.660219Z"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 3,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "query": {
+      "fields": "id",
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-activities.get-workspace-workflow-activity",
+    "command": [
+      "workflow",
+      "workspace",
+      "activity",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/activities/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "3a8d1f6c-9e2b-4c57-b4a1-6f0e8d2c9b73",
+      "workflow_id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "actor_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "state_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "verb": "added",
+      "field": "state_approvers",
+      "old_value": "",
+      "new_value": "priya",
+      "old_identifier": null,
+      "new_identifier": "a3f92c71-6e4b-4d08-9b5a-1c7e3d9f2b84",
+      "epoch": 1768475092.0,
+      "created_at": "2026-01-15T11:04:52.660219Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-hooks.list-workspace-workflow-hooks",
+    "command": [
+      "workflow",
+      "workspace",
+      "hook",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "e4b7c9a2-3d1f-4e68-8a52-9f0c6b3d7e15",
+          "workflow_transition_id": "d7a3f5c9-0b2e-4d81-b6f4-9e1c3a5d7b20",
+          "project_id": null,
+          "phase": "post",
+          "handler_name": "send_webhook",
+          "is_enabled": true,
+          "execution_order": 1,
+          "config": {
+            "url": "https://hooks.example.com/plane",
+            "headers": [
+              {
+                "key": "X-Team",
+                "value": "platform",
+                "is_secret": false
+              }
+            ]
+          },
+          "created_at": "2026-01-15T11:04:52.660219Z",
+          "updated_at": "2026-01-15T11:04:52.660219Z"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "query": {
+      "fields": "id",
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-hooks.get-workspace-workflow-hook",
+    "command": [
+      "workflow",
+      "workspace",
+      "hook",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "e4b7c9a2-3d1f-4e68-8a52-9f0c6b3d7e15",
+      "workflow_transition_id": "d7a3f5c9-0b2e-4d81-b6f4-9e1c3a5d7b20",
+      "project_id": null,
+      "phase": "post",
+      "handler_name": "send_webhook",
+      "is_enabled": true,
+      "execution_order": 1,
+      "config": {
+        "url": "https://hooks.example.com/plane",
+        "headers": [
+          {
+            "key": "X-Team",
+            "value": "platform",
+            "is_secret": false
+          }
+        ]
+      },
+      "created_at": "2026-01-15T11:04:52.660219Z",
+      "updated_at": "2026-01-15T11:04:52.660219Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-hooks.create-workspace-workflow-hook",
+    "command": [
+      "workflow",
+      "workspace",
+      "hook",
+      "create"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/",
+    "status": 201,
+    "response": {
+      "id": "e4b7c9a2-3d1f-4e68-8a52-9f0c6b3d7e15",
+      "workflow_transition_id": "d7a3f5c9-0b2e-4d81-b6f4-9e1c3a5d7b20",
+      "project_id": null,
+      "phase": "post",
+      "handler_name": "send_webhook",
+      "is_enabled": true,
+      "execution_order": 1,
+      "config": {
+        "url": "https://hooks.example.com/plane",
+        "headers": [
+          {
+            "key": "X-Team",
+            "value": "platform",
+            "is_secret": false
+          }
+        ],
+        "secret_plaintext": "plane_wh_4f9a2c7e1b8d4e3fa6c05d9b2e7f7c1d"
+      },
+      "created_at": "2026-01-15T11:04:52.660219Z",
+      "updated_at": "2026-01-15T11:04:52.660219Z"
+    },
+    "query": {},
+    "body": {
+      "phase": "post",
+      "handler_name": "send_webhook",
+      "config": {
+        "url": "https://hooks.example.com/plane",
+        "headers": [
+          {
+            "key": "X-Team",
+            "value": "platform",
+            "is_secret": false
+          }
+        ]
+      }
+    },
+    "destructive": true,
+    "secret": true
+  },
+  {
+    "id": "v2.workspace-workflow-hooks.update-workspace-workflow-hook",
+    "command": [
+      "workflow",
+      "workspace",
+      "hook",
+      "update"
+    ],
+    "method": "PATCH",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "e4b7c9a2-3d1f-4e68-8a52-9f0c6b3d7e15",
+      "workflow_transition_id": "d7a3f5c9-0b2e-4d81-b6f4-9e1c3a5d7b20",
+      "project_id": null,
+      "phase": "post",
+      "handler_name": "send_webhook",
+      "is_enabled": false,
+      "execution_order": 1,
+      "config": {
+        "url": "https://hooks.example.com/plane",
+        "headers": [
+          {
+            "key": "X-Team",
+            "value": "platform",
+            "is_secret": false
+          }
+        ]
+      },
+      "created_at": "2026-01-15T11:04:52.660219Z",
+      "updated_at": "2026-02-03T16:45:12.904117Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "is_enabled": false
+    },
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-hooks.delete-workspace-workflow-hook",
+    "command": [
+      "workflow",
+      "workspace",
+      "hook",
+      "delete"
+    ],
+    "method": "DELETE",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/",
+    "status": 204,
+    "response": null,
+    "query": {},
+    "body": null,
+    "destructive": true,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-hooks.list-workspace-workflow-hook-executions",
+    "command": [
+      "workflow",
+      "workspace",
+      "hook",
+      "list-executions"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/executions/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "73c1e8f4-9a2b-4d56-b0e7-5f3a8c1d9e62",
+          "work_item_id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "status": "success",
+          "started_at": "2026-02-03T16:45:13.120554Z",
+          "completed_at": "2026-02-03T16:45:13.482917Z",
+          "input_data": {
+            "url_host": "hooks.example.com",
+            "event_type": "workflow.transition",
+            "phase": "post"
+          },
+          "output_data": {
+            "delivery_id": "c9e2b5f8-1a4d-4b73-8e06-7d3a9f2c5b18",
+            "status_code": 200,
+            "response_body": "ok",
+            "duration_ms": 362,
+            "error": null
+          },
+          "error_message": ""
+        },
+        {
+          "id": "2b9e5d17-6c4a-4f83-9d21-8e0b3a7c5f49",
+          "work_item_id": "6e2a9c4f-1b7d-4e35-8a90-3f5c7d2b1e84",
+          "status": "failed",
+          "started_at": "2026-02-02T10:12:40.904371Z",
+          "completed_at": "2026-02-02T10:12:42.118036Z",
+          "input_data": {
+            "url_host": "hooks.example.com",
+            "event_type": "workflow.transition",
+            "phase": "post"
+          },
+          "output_data": {
+            "delivery_id": "0d4b8f2e-6a1c-4e97-b3d5-8f2a6c1e9b40",
+            "status_code": 503,
+            "response_body": "Service Unavailable",
+            "duration_ms": 1213,
+            "error": null
+          },
+          "error_message": "HTTP 503"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 2,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "query": {
+      "fields": "id",
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false,
+    "secret": false
+  },
+  {
+    "id": "v2.workspace-workflow-hooks.regenerate-workspace-workflow-hook-secret",
+    "command": [
+      "workflow",
+      "workspace",
+      "hook",
+      "regenerate-secret"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/{pk}/regenerate-webhook-secret/",
+    "status": 200,
+    "response": {
+      "secret": "plane_wh_8e1d5b3a9c6f4e27b0d4a3f6c9e2b5a8"
+    },
+    "query": {},
+    "body": null,
+    "destructive": true,
+    "secret": true
+  }
+]

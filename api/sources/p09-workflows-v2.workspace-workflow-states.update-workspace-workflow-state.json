@@ -1,0 +1,67 @@
+{
+  "source_id": "v2:workspace-workflow-states:update-workspace-workflow-state",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-workflow-states/update-workspace-workflow-state.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.workspace-workflow-states.update-workspace-workflow-state",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/states/{state_id}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "workflow_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "state_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "workflow_id",
+          "state_id"
+        ]
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "allow_issue_creation": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "none",
+  "notes": [
+    "Changed type is not enum validated upstream; changing type deletes outgoing transitions and approvers and applies only type. Send allow_issue_creation separately."
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "source_id": "v2:workspace-workflow-transitions:update-workspace-workflow-transition",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-workflow-transitions/update-workspace-workflow-transition.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.workspace-workflow-transitions.update-workspace-workflow-transition",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "workflow_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "workflow_id",
+          "pk"
+        ]
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "state_id": true,
+          "transition_state_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uuid"
+          },
+          "rejection_state_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uuid"
+          },
+          "required_approvals": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "member_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "none",
+  "notes": ["Source-state updates are explicitly ignored by this route. state_id is accepted without invented validation; delete and create to change the source."]
+}

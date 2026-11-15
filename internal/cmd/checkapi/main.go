@@ -126,7 +126,8 @@ func readJSON(path string, target any) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	if _, err := spec.Decode(data); err != nil {
+	// Repository metadata is not a runtime request body and grows with coverage.
+	if _, err := spec.DecodeWithLimit(data, len(data)); err != nil {
 		return nil, fmt.Errorf("%s: invalid or duplicate-key JSON", path)
 	}
 	decoder := json.NewDecoder(bytes.NewReader(data))

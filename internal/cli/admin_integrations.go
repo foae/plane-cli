@@ -57,7 +57,7 @@ func adminIntegrationHandlers() map[string]handler {
 					return err
 				}
 				if family == "webhook" && (action == "create" || action == "regenerate-secret") {
-					return apiWebhookSecretRequest(cmd, segments, query, body)
+					return apiIntentionalSecretRequest(cmd, method, segments, query, body, []string{"/secret_key"}, "Inspect webhook list/get for the affected webhook. Reads do not return the secret; if delivery failed, an operator must explicitly rotate it with webhook regenerate-secret --yes. No retry or rollback was attempted.")
 				}
 				return apiRequest(cmd, method, segments, query, body, method != http.MethodGet)
 			}

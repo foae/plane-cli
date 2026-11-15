@@ -1,0 +1,96 @@
+{
+  "source_id": "v2:workspace-automations:list-automation-edges",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-automations/list-automation-edges.md",
+  "review": "Independently authored native contract from official captured operation; no upstream document redistributed. Explicit field declarations govern writes; conflicting examples are recorded separately.",
+  "operation": "v2.workspace-automations.list-automation-edges",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/automations/{automation_id}/edges/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "automation_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "automation_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "source_node_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          },
+          "target_node_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "success_statuses": [
+    200
+  ],
+  "documented_error_statuses": [
+    401,
+    402,
+    403,
+    404,
+    406,
+    429
+  ],
+  "pagination": "v2",
+  "notes": [
+    "Every mutation requires --yes. No retries, automatic feature/mode writes, graph repair or association emulation.",
+    "Explicit field declarations govern inputs; native response nulls and unknown fields are preserved.",
+    "Cursor parameter and envelope use shared v2 pagination guide (p03-v2._guides.pagination); leaf documents paginate=cursor but omits continuation input/example."
+  ]
+}

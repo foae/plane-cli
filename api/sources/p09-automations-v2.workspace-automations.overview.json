@@ -1,0 +1,10 @@
+{
+  "source_id": "v2:workspace-automations:overview",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-automations/overview.md",
+  "review": "Independently authored native contract from official captured operation; no upstream document redistributed. Explicit field declarations govern writes; conflicting examples are recorded separately.",
+  "classification": "overview",
+  "notes": [
+    "Workspace automations are global rule graphs. project_ids replaces the associated project set; IDs outside this workspace are dropped by the server.",
+    "New automations are draft and disabled. Explicit status writes enable/disable."
+  ]
+}

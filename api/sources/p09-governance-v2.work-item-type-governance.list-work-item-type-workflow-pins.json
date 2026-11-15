@@ -1,0 +1,93 @@
+{
+  "id": "v2.work-item-type-governance.list-work-item-type-workflow-pins",
+  "owner": "P09",
+  "version": "v2",
+  "source_group": "work-item-type-governance",
+  "source_slug": "list-work-item-type-workflow-pins",
+  "command": [
+    "work-item-type-governance",
+    "pin",
+    "list"
+  ],
+  "handler": "work-item-type-governance-pin-list",
+  "scope": "workspace",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/pins/",
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-governance/list-work-item-type-workflow-pins.md",
+  "snapshot_sha256": "3a4a6438df9a2199080fda29feeebc17eca584a5a6f944491b4a78a514d3743d",
+  "snapshot_bytes": 7196,
+  "pagination": "v2",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "type_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "type_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order_by": {
+            "type": "string",
+            "enum": [
+              "created_at",
+              "-created_at",
+              "id",
+              "-id"
+            ]
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "acceptance_scenarios": [
+    "TestP09WorkflowGovernanceRequests/v2.work-item-type-governance.list-work-item-type-workflow-pins"
+  ]
+}

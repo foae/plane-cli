@@ -58,7 +58,9 @@ func Load() (Catalog, error) {
 
 // Generate emits only callable descriptors and their offline resources, never pending APIs.
 func Generate(source []byte) ([]byte, error) {
-	if _, err := Decode(source); err != nil {
+	// The build-time catalog grows with API coverage; the runtime body limit
+	// applies to caller input, not this already-loaded repository artifact.
+	if _, err := DecodeWithLimit(source, len(source)); err != nil {
 		return nil, err
 	}
 	var c Catalog

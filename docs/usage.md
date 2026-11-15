@@ -232,3 +232,16 @@ redact credential fields. Artifact HTML is data, never locally executed.
 
 P08 remains bounded: the v1 workspace-member removal source lacks a documented
 target field, so no callable removal command is invented for that generation.
+
+## Workflows and automations
+
+P09 provides documented v2 [workflows](workflows.md),
+[work-item-type workflow governance](workflow-governance.md), and
+[automations](automations.md). Project and workspace scopes remain explicit;
+commands never change workspace governance implicitly. One-time hook/node signing
+secrets support protected-file delivery; ordinary reads remain redacted.
+
+Successful workflow mutations do not prove background work-item relocation has
+finished. Supplemental v1 AI, integration-job and workflow approval/transfer
+contracts remain [evidence-blocked](reference/api-contract-gaps.md#p09-supplemental-v1-evidence),
+not implemented coverage.

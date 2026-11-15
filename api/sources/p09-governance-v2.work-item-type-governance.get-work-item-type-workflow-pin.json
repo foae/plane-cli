@@ -1,0 +1,68 @@
+{
+  "id": "v2.work-item-type-governance.get-work-item-type-workflow-pin",
+  "owner": "P09",
+  "version": "v2",
+  "source_group": "work-item-type-governance",
+  "source_slug": "get-work-item-type-workflow-pin",
+  "command": [
+    "work-item-type-governance",
+    "pin",
+    "get"
+  ],
+  "handler": "work-item-type-governance-pin-get",
+  "scope": "workspace",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/work-item-types/{type_id}/governance/pins/{pk}/",
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-governance/get-work-item-type-workflow-pin.md",
+  "snapshot_sha256": "72b334fb6636e60c80d38df3684463184fed67125dbd7a449673c3bbef0a202a",
+  "snapshot_bytes": 4834,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "read",
+  "state": "implemented",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "type_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "type_id",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "acceptance_scenarios": [
+    "TestP09WorkflowGovernanceRequests/v2.work-item-type-governance.get-work-item-type-workflow-pin"
+  ]
+}

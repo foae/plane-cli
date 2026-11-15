@@ -1,0 +1,69 @@
+{
+  "source_id": "v2:workflow-states:create-workflow-state",
+  "source_url": "https://developers.plane.so/api-reference/v2/workflow-states/create-workflow-state.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.workflow-states.create-workflow-state",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/workflows/{workflow_id}/states/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "workflow_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "workflow_id"
+        ]
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "state_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "state_ids"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "success_statuses": [
+    201
+  ],
+  "pagination": "none",
+  "notes": []
+}

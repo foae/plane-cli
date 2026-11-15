@@ -48,7 +48,7 @@ func HandlerIDs() []string {
 	for id := range projectTypesHandlers() {
 		ids = append(ids, id)
 	}
-	for _, group := range []map[string]handler{contentPagesHandlers(), contentCollectionHandlers(), contentAssetsHandlers(), assetTransferHandlers(), portfolioHandlers(), portfolioCustomerHandlers(), portfolioTemplateHandlers(), portfolioReleaseHandlers(), adminIntegrationHandlers(), adminMembershipHandlers(), adminPermissionsHandlers()} {
+	for _, group := range []map[string]handler{contentPagesHandlers(), contentCollectionHandlers(), contentAssetsHandlers(), assetTransferHandlers(), portfolioHandlers(), portfolioCustomerHandlers(), portfolioTemplateHandlers(), portfolioReleaseHandlers(), adminIntegrationHandlers(), adminMembershipHandlers(), adminPermissionsHandlers(), workflowHandlers(), automationHandlers(), workflowGovernanceHandlers()} {
 		for id := range group {
 			ids = append(ids, id)
 		}
@@ -148,7 +148,7 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 	for id, h := range projectTypesHandlers() {
 		handlers[id] = h
 	}
-	for _, group := range []map[string]handler{contentPagesHandlers(), contentCollectionHandlers(), contentAssetsHandlers(), assetTransferHandlers(), portfolioHandlers(), portfolioCustomerHandlers(), portfolioTemplateHandlers(), portfolioReleaseHandlers(), adminIntegrationHandlers(), adminMembershipHandlers(), adminPermissionsHandlers()} {
+	for _, group := range []map[string]handler{contentPagesHandlers(), contentCollectionHandlers(), contentAssetsHandlers(), assetTransferHandlers(), portfolioHandlers(), portfolioCustomerHandlers(), portfolioTemplateHandlers(), portfolioReleaseHandlers(), adminIntegrationHandlers(), adminMembershipHandlers(), adminPermissionsHandlers(), workflowHandlers(), automationHandlers(), workflowGovernanceHandlers()} {
 		for id, h := range group {
 			handlers[id] = h
 		}

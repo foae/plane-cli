@@ -1,0 +1,92 @@
+{
+  "source_id": "v2:project-automations:create-automation-edge",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-automations/create-automation-edge.md",
+  "review": "Independently authored native contract from official captured operation; no upstream document redistributed. Explicit field declarations govern writes; conflicting examples are recorded separately.",
+  "operation": "v2.project-automations.create-automation-edge",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/automations/{automation_id}/edges/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "automation_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "automation_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "source_node_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          },
+          "target_node_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          },
+          "execution_order": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_node_id",
+          "target_node_id"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "success_statuses": [
+    201
+  ],
+  "documented_error_statuses": [
+    400,
+    401,
+    402,
+    403,
+    404,
+    406,
+    409,
+    413,
+    415,
+    429
+  ],
+  "pagination": "none",
+  "notes": [
+    "Every mutation requires --yes. No retries, automatic feature/mode writes, graph repair or association emulation.",
+    "Explicit field declarations govern inputs; native response nulls and unknown fields are preserved."
+  ]
+}

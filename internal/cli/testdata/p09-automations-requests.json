@@ -1,0 +1,1726 @@
+[
+  {
+    "id": "v2.project-automations.list-automation-activities",
+    "args": [
+      "automation",
+      "project",
+      "activity",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--count=false",
+      "--created-at--gt=2026-01-14T09:22:41Z",
+      "--field=example",
+      "--offset=0",
+      "--order-by=-created_at",
+      "--per-page=2",
+      "--verb=example",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/activities/",
+    "query": {
+      "count": false,
+      "created_at__gt": "2026-01-14T09:22:41Z",
+      "field": "example",
+      "offset": 0,
+      "order_by": "-created_at",
+      "per_page": 2,
+      "verb": "example",
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "actor_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "automation_edge_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "automation_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "automation_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "automation_run_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "automation_scope": "example",
+          "automation_version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "updated_by_id": null,
+          "epoch": 1,
+          "field": "example",
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "new_identifier": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "new_value": "example",
+          "node_execution_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "old_identifier": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "old_value": "example",
+          "verb": "example"
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    }
+  },
+  {
+    "id": "v2.project-automations.list-automation-edges",
+    "args": [
+      "automation",
+      "project",
+      "edge",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--count=false",
+      "--offset=0",
+      "--order-by=-created_at",
+      "--per-page=2",
+      "--source-node-id=b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--target-node-id=b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/edges/",
+    "query": {
+      "count": false,
+      "offset": 0,
+      "order_by": "-created_at",
+      "per_page": 2,
+      "source_node_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "target_node_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "execution_order": 1,
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "target_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        },
+        {
+          "created_at": "2026-01-13T16:04:02.911204Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "execution_order": 1,
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "target_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    }
+  },
+  {
+    "id": "v2.project-automations.list-automation-nodes",
+    "args": [
+      "automation",
+      "project",
+      "node",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--count=false",
+      "--handler-name=example",
+      "--is-enabled=false",
+      "--name=example",
+      "--node-type=example",
+      "--offset=0",
+      "--order-by=-created_at",
+      "--per-page=2",
+      "--search=example",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/nodes/",
+    "query": {
+      "count": false,
+      "handler_name": "example",
+      "is_enabled": false,
+      "name": "example",
+      "node_type": "example",
+      "offset": 0,
+      "order_by": "-created_at",
+      "per_page": 2,
+      "search": "example",
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "config": null,
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "handler_name": "example",
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "is_enabled": false,
+          "last_triggered_at": "2026-01-14T09:22:41.478363Z",
+          "name": "Example name",
+          "next_scheduled_at": "2026-01-14T09:22:41.478363Z",
+          "node_type": null,
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        },
+        {
+          "config": null,
+          "created_at": "2026-01-13T16:04:02.911204Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "handler_name": "example",
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "is_enabled": false,
+          "last_triggered_at": "2026-01-14T09:22:41.478363Z",
+          "name": "Another example",
+          "next_scheduled_at": "2026-01-14T09:22:41.478363Z",
+          "node_type": null,
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    }
+  },
+  {
+    "id": "v2.project-automations.list-project-automations",
+    "args": [
+      "automation",
+      "project",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--count=false",
+      "--is-enabled=false",
+      "--is-global=false",
+      "--name=example",
+      "--offset=0",
+      "--order-by=-created_at",
+      "--per-page=2",
+      "--scope=example",
+      "--search=example",
+      "--status=example",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/",
+    "query": {
+      "count": false,
+      "is_enabled": false,
+      "is_global": false,
+      "name": "example",
+      "offset": 0,
+      "order_by": "-created_at",
+      "per_page": 2,
+      "scope": "example",
+      "search": "example",
+      "status": "example",
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "bot_user_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "current_version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "description": "What this is for.",
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "is_enabled": false,
+          "is_global": false,
+          "last_run_at": "2026-01-14T09:22:41.478363Z",
+          "name": "Example name",
+          "project_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ],
+          "run_count": 3,
+          "scope": "work-item",
+          "status": "draft",
+          "updated_at": "2026-01-14T09:22:41.478363Z"
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    }
+  },
+  {
+    "id": "v2.project-automations.get-automation-activity",
+    "args": [
+      "automation",
+      "project",
+      "activity",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/activities/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "actor_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "automation_edge_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "automation_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "automation_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "automation_run_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "automation_scope": "example",
+      "automation_version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "updated_by_id": null,
+      "epoch": 1,
+      "field": "example",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "new_identifier": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "new_value": "example",
+      "node_execution_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "old_identifier": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "old_value": "example",
+      "verb": "example"
+    }
+  },
+  {
+    "id": "v2.project-automations.get-automation-edge",
+    "args": [
+      "automation",
+      "project",
+      "edge",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/edges/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "execution_order": 1,
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "target_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    }
+  },
+  {
+    "id": "v2.project-automations.get-automation-node",
+    "args": [
+      "automation",
+      "project",
+      "node",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/nodes/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "config": null,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "handler_name": "example",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_enabled": false,
+      "last_triggered_at": "2026-01-14T09:22:41.478363Z",
+      "name": "Example name",
+      "next_scheduled_at": "2026-01-14T09:22:41.478363Z",
+      "node_type": null,
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    }
+  },
+  {
+    "id": "v2.project-automations.get-project-automation",
+    "args": [
+      "automation",
+      "project",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "bot_user_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "current_version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "description": "What this is for.",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_enabled": false,
+      "is_global": false,
+      "last_run_at": "2026-01-14T09:22:41.478363Z",
+      "name": "Example name",
+      "project_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "run_count": 3,
+      "scope": "work-item",
+      "status": "draft",
+      "updated_at": "2026-01-14T09:22:41.478363Z"
+    }
+  },
+  {
+    "id": "v2.project-automations.create-automation-edge",
+    "args": [
+      "automation",
+      "project",
+      "edge",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/edges/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "target_node_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "execution_order": 0
+    },
+    "status": 201,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "execution_order": 1,
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "target_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    }
+  },
+  {
+    "id": "v2.project-automations.create-automation-node",
+    "args": [
+      "automation",
+      "project",
+      "node",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/nodes/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "handler_name": "record_created",
+      "name": "Triage new bugs",
+      "node_type": "trigger",
+      "config": "{}",
+      "is_enabled": false
+    },
+    "status": 201,
+    "response": {
+      "config": null,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "handler_name": "example",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_enabled": false,
+      "last_triggered_at": "2026-01-14T09:22:41.478363Z",
+      "name": "Example name",
+      "next_scheduled_at": "2026-01-14T09:22:41.478363Z",
+      "node_type": null,
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    }
+  },
+  {
+    "id": "v2.project-automations.create-project-automation",
+    "args": [
+      "automation",
+      "project",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "name": "Triage new bugs",
+      "scope": "work-item",
+      "description": "",
+      "project_ids": []
+    },
+    "status": 201,
+    "response": {
+      "bot_user_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "current_version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "description": "What this is for.",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_enabled": false,
+      "is_global": false,
+      "last_run_at": "2026-01-14T09:22:41.478363Z",
+      "name": "Example name",
+      "project_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "run_count": 3,
+      "scope": "work-item",
+      "status": "draft",
+      "updated_at": "2026-01-14T09:22:41.478363Z"
+    }
+  },
+  {
+    "id": "v2.project-automations.update-automation-edge",
+    "args": [
+      "automation",
+      "project",
+      "edge",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/edges/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "execution_order": 0,
+      "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "target_node_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "status": 200,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "execution_order": 1,
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "target_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "updated_at": "2026-01-15T11:35:48.478363Z",
+      "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    }
+  },
+  {
+    "id": "v2.project-automations.update-automation-node",
+    "args": [
+      "automation",
+      "project",
+      "node",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/nodes/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "config": "{}",
+      "handler_name": "record_created",
+      "is_enabled": false,
+      "name": "Triage new bugs",
+      "node_type": "trigger"
+    },
+    "status": 200,
+    "response": {
+      "config": null,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "handler_name": "example",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_enabled": false,
+      "last_triggered_at": "2026-01-14T09:22:41.478363Z",
+      "name": "Example name",
+      "next_scheduled_at": "2026-01-14T09:22:41.478363Z",
+      "node_type": null,
+      "updated_at": "2026-01-15T11:35:48.478363Z",
+      "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    }
+  },
+  {
+    "id": "v2.project-automations.update-project-automation",
+    "args": [
+      "automation",
+      "project",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "description": "",
+      "name": "Triage new bugs",
+      "project_ids": [],
+      "scope": "work-item"
+    },
+    "status": 200,
+    "response": {
+      "bot_user_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "current_version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "description": "What this is for.",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_enabled": false,
+      "is_global": false,
+      "last_run_at": "2026-01-14T09:22:41.478363Z",
+      "name": "Example name",
+      "project_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "run_count": 3,
+      "scope": "work-item",
+      "status": "draft",
+      "updated_at": "2026-01-15T11:35:48.478363Z"
+    }
+  },
+  {
+    "id": "v2.project-automations.delete-automation-edge",
+    "args": [
+      "automation",
+      "project",
+      "edge",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/edges/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.project-automations.delete-automation-node",
+    "args": [
+      "automation",
+      "project",
+      "node",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/nodes/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.project-automations.delete-project-automation",
+    "args": [
+      "automation",
+      "project",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.project-automations.regenerate-node-webhook-secret",
+    "args": [
+      "automation",
+      "project",
+      "node",
+      "regenerate-webhook-secret",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/nodes/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/regenerate-webhook-secret/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "secret": "example"
+    }
+  },
+  {
+    "id": "v2.project-automations.set-project-automation-status",
+    "args": [
+      "automation",
+      "project",
+      "set-status",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/Fixture-Team/projects/ENG/automations/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/status/",
+    "query": {},
+    "body": {
+      "is_enabled": false
+    },
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.workspace-automations.list-automation-activities",
+    "args": [
+      "automation",
+      "workspace",
+      "activity",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--count=false",
+      "--created-at--gt=2026-01-14T09:22:41Z",
+      "--field=example",
+      "--offset=0",
+      "--order-by=-created_at",
+      "--per-page=2",
+      "--verb=example",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/activities/",
+    "query": {
+      "count": false,
+      "created_at__gt": "2026-01-14T09:22:41Z",
+      "field": "example",
+      "offset": 0,
+      "order_by": "-created_at",
+      "per_page": 2,
+      "verb": "example",
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "actor_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "automation_edge_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "automation_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "automation_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "automation_run_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "automation_scope": "example",
+          "automation_version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "updated_by_id": null,
+          "epoch": 1,
+          "field": "example",
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "new_identifier": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "new_value": "example",
+          "node_execution_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "old_identifier": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "old_value": "example",
+          "verb": "example"
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    }
+  },
+  {
+    "id": "v2.workspace-automations.list-automation-edges",
+    "args": [
+      "automation",
+      "workspace",
+      "edge",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--count=false",
+      "--offset=0",
+      "--order-by=-created_at",
+      "--per-page=2",
+      "--source-node-id=b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--target-node-id=b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/edges/",
+    "query": {
+      "count": false,
+      "offset": 0,
+      "order_by": "-created_at",
+      "per_page": 2,
+      "source_node_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "target_node_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "execution_order": 1,
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "target_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        },
+        {
+          "created_at": "2026-01-13T16:04:02.911204Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "execution_order": 1,
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "target_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    }
+  },
+  {
+    "id": "v2.workspace-automations.list-automation-nodes",
+    "args": [
+      "automation",
+      "workspace",
+      "node",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--count=false",
+      "--handler-name=example",
+      "--is-enabled=false",
+      "--name=example",
+      "--node-type=example",
+      "--offset=0",
+      "--order-by=-created_at",
+      "--per-page=2",
+      "--search=example",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/nodes/",
+    "query": {
+      "count": false,
+      "handler_name": "example",
+      "is_enabled": false,
+      "name": "example",
+      "node_type": "example",
+      "offset": 0,
+      "order_by": "-created_at",
+      "per_page": 2,
+      "search": "example",
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "config": null,
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "handler_name": "example",
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "is_enabled": false,
+          "last_triggered_at": "2026-01-14T09:22:41.478363Z",
+          "name": "Example name",
+          "next_scheduled_at": "2026-01-14T09:22:41.478363Z",
+          "node_type": null,
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        },
+        {
+          "config": null,
+          "created_at": "2026-01-13T16:04:02.911204Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "handler_name": "example",
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "is_enabled": false,
+          "last_triggered_at": "2026-01-14T09:22:41.478363Z",
+          "name": "Another example",
+          "next_scheduled_at": "2026-01-14T09:22:41.478363Z",
+          "node_type": null,
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    }
+  },
+  {
+    "id": "v2.workspace-automations.list-workspace-automations",
+    "args": [
+      "automation",
+      "workspace",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--count=false",
+      "--is-enabled=false",
+      "--is-global=false",
+      "--name=example",
+      "--offset=0",
+      "--order-by=-created_at",
+      "--per-page=2",
+      "--scope=example",
+      "--search=example",
+      "--status=example",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/",
+    "query": {
+      "count": false,
+      "is_enabled": false,
+      "is_global": false,
+      "name": "example",
+      "offset": 0,
+      "order_by": "-created_at",
+      "per_page": 2,
+      "scope": "example",
+      "search": "example",
+      "status": "example",
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "bot_user_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "current_version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "description": "What this is for.",
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "is_enabled": false,
+          "is_global": true,
+          "last_run_at": "2026-01-14T09:22:41.478363Z",
+          "name": "Example name",
+          "project_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ],
+          "run_count": 3,
+          "scope": "work-item",
+          "status": "draft",
+          "updated_at": "2026-01-14T09:22:41.478363Z"
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    }
+  },
+  {
+    "id": "v2.workspace-automations.get-automation-activity",
+    "args": [
+      "automation",
+      "workspace",
+      "activity",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/activities/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "actor_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "automation_edge_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "automation_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "automation_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "automation_run_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "automation_scope": "example",
+      "automation_version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "updated_by_id": null,
+      "epoch": 1,
+      "field": "example",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "new_identifier": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "new_value": "example",
+      "node_execution_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "old_identifier": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "old_value": "example",
+      "verb": "example"
+    }
+  },
+  {
+    "id": "v2.workspace-automations.get-automation-edge",
+    "args": [
+      "automation",
+      "workspace",
+      "edge",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/edges/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "execution_order": 1,
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "target_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    }
+  },
+  {
+    "id": "v2.workspace-automations.get-automation-node",
+    "args": [
+      "automation",
+      "workspace",
+      "node",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/nodes/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "config": null,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "handler_name": "example",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_enabled": false,
+      "last_triggered_at": "2026-01-14T09:22:41.478363Z",
+      "name": "Example name",
+      "next_scheduled_at": "2026-01-14T09:22:41.478363Z",
+      "node_type": null,
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    }
+  },
+  {
+    "id": "v2.workspace-automations.get-workspace-automation",
+    "args": [
+      "automation",
+      "workspace",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "bot_user_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "current_version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "description": "What this is for.",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_enabled": false,
+      "is_global": true,
+      "last_run_at": "2026-01-14T09:22:41.478363Z",
+      "name": "Example name",
+      "project_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "run_count": 3,
+      "scope": "work-item",
+      "status": "draft",
+      "updated_at": "2026-01-14T09:22:41.478363Z"
+    }
+  },
+  {
+    "id": "v2.workspace-automations.create-automation-edge",
+    "args": [
+      "automation",
+      "workspace",
+      "edge",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/edges/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "target_node_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "execution_order": 0
+    },
+    "status": 201,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "execution_order": 1,
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "target_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    }
+  },
+  {
+    "id": "v2.workspace-automations.create-automation-node",
+    "args": [
+      "automation",
+      "workspace",
+      "node",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/nodes/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "handler_name": "record_created",
+      "name": "Triage new bugs",
+      "node_type": "trigger",
+      "config": "{}",
+      "is_enabled": false
+    },
+    "status": 201,
+    "response": {
+      "config": null,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "handler_name": "example",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_enabled": false,
+      "last_triggered_at": "2026-01-14T09:22:41.478363Z",
+      "name": "Example name",
+      "next_scheduled_at": "2026-01-14T09:22:41.478363Z",
+      "node_type": null,
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    }
+  },
+  {
+    "id": "v2.workspace-automations.create-workspace-automation",
+    "args": [
+      "automation",
+      "workspace",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "name": "Triage new bugs",
+      "scope": "work-item",
+      "description": "",
+      "project_ids": []
+    },
+    "status": 201,
+    "response": {
+      "bot_user_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "current_version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "description": "What this is for.",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_enabled": false,
+      "is_global": true,
+      "last_run_at": "2026-01-14T09:22:41.478363Z",
+      "name": "Example name",
+      "project_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "run_count": 3,
+      "scope": "work-item",
+      "status": "draft",
+      "updated_at": "2026-01-14T09:22:41.478363Z"
+    }
+  },
+  {
+    "id": "v2.workspace-automations.update-automation-edge",
+    "args": [
+      "automation",
+      "workspace",
+      "edge",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/edges/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "execution_order": 0,
+      "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "target_node_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "status": 200,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "execution_order": 1,
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "source_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "target_node_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "updated_at": "2026-01-15T11:35:48.478363Z",
+      "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    }
+  },
+  {
+    "id": "v2.workspace-automations.update-automation-node",
+    "args": [
+      "automation",
+      "workspace",
+      "node",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/nodes/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "config": "{}",
+      "handler_name": "record_created",
+      "is_enabled": false,
+      "name": "Triage new bugs",
+      "node_type": "trigger"
+    },
+    "status": 200,
+    "response": {
+      "config": null,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "handler_name": "example",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_enabled": false,
+      "last_triggered_at": "2026-01-14T09:22:41.478363Z",
+      "name": "Example name",
+      "next_scheduled_at": "2026-01-14T09:22:41.478363Z",
+      "node_type": null,
+      "updated_at": "2026-01-15T11:35:48.478363Z",
+      "version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    }
+  },
+  {
+    "id": "v2.workspace-automations.update-workspace-automation",
+    "args": [
+      "automation",
+      "workspace",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "description": "",
+      "name": "Triage new bugs",
+      "project_ids": [],
+      "scope": "work-item"
+    },
+    "status": 200,
+    "response": {
+      "bot_user_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "current_version_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "description": "What this is for.",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "is_enabled": false,
+      "is_global": true,
+      "last_run_at": "2026-01-14T09:22:41.478363Z",
+      "name": "Example name",
+      "project_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "run_count": 3,
+      "scope": "work-item",
+      "status": "draft",
+      "updated_at": "2026-01-15T11:35:48.478363Z"
+    }
+  },
+  {
+    "id": "v2.workspace-automations.delete-automation-edge",
+    "args": [
+      "automation",
+      "workspace",
+      "edge",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/edges/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.workspace-automations.delete-automation-node",
+    "args": [
+      "automation",
+      "workspace",
+      "node",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/nodes/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.workspace-automations.delete-workspace-automation",
+    "args": [
+      "automation",
+      "workspace",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--fields=id",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.workspace-automations.regenerate-node-webhook-secret",
+    "args": [
+      "automation",
+      "workspace",
+      "node",
+      "regenerate-webhook-secret",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--automation",
+      "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88/nodes/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/regenerate-webhook-secret/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "secret": "example"
+    }
+  },
+  {
+    "id": "v2.workspace-automations.set-workspace-automation-status",
+    "args": [
+      "automation",
+      "workspace",
+      "set-status",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Fixture-Team",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/Fixture-Team/automations/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/status/",
+    "query": {},
+    "body": {
+      "is_enabled": false
+    },
+    "status": 204,
+    "response": null
+  }
+]

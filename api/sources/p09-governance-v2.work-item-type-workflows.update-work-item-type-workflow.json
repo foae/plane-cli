@@ -1,0 +1,87 @@
+{
+  "id": "v2.work-item-type-workflows.update-work-item-type-workflow",
+  "owner": "P09",
+  "version": "v2",
+  "source_group": "work-item-type-workflows",
+  "source_slug": "update-work-item-type-workflow",
+  "command": [
+    "work-item-type-workflow",
+    "update"
+  ],
+  "handler": "work-item-type-workflow-update",
+  "scope": "project",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-types/{type_id}/workflow/",
+  "source_url": "https://developers.plane.so/api-reference/v2/work-item-type-workflows/update-work-item-type-workflow.md",
+  "snapshot_sha256": "83c43a5507110999e0a6a7b3d0e2eea703c98491371b273a45679866389b13ca",
+  "snapshot_bytes": 10896,
+  "pagination": "none",
+  "success_statuses": [
+    200
+  ],
+  "side_effect": "write",
+  "state": "implemented",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "type_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "type_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "dry_run": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "workflow_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "state_mapping": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "workflow_id"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "acceptance_scenarios": [
+    "TestP09WorkflowGovernanceRequests/v2.work-item-type-workflows.update-work-item-type-workflow"
+  ]
+}

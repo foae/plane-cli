@@ -1,0 +1,87 @@
+{
+  "source_id": "v2:workspace-workflow-hooks:create-workspace-workflow-hook",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-workflow-hooks/create-workspace-workflow-hook.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.workspace-workflow-hooks.create-workspace-workflow-hook",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/workflows/{workflow_id}/state-transitions/{transition_id}/hooks/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "workflow_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "transition_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "workflow_id",
+          "transition_id"
+        ]
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "phase": {
+            "type": "string",
+            "enum": [
+              "pre",
+              "post"
+            ]
+          },
+          "handler_name": {
+            "type": "string",
+            "enum": [
+              "send_webhook",
+              "run_script"
+            ]
+          },
+          "config": {
+            "type": "object"
+          },
+          "is_enabled": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "phase",
+          "handler_name",
+          "config"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "success_statuses": [
+    201
+  ],
+  "pagination": "none",
+  "notes": [
+    "Intentional one-time secret delivery: create send_webhook uses /config/secret_plaintext; regenerate-secret uses /secret. run_script creation has no signing secret."
+  ]
+}
