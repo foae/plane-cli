@@ -1,4 +1,0 @@
-{
-  "level": "patch",
-  "summary": "Default API selection to v2 for commands, offline discovery and new connections, preserving explicit flags, environment overrides and saved v1 connections."
-}

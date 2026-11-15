@@ -1,4 +1,0 @@
-{
-  "level": "patch",
-  "summary": "Give the CI race job a 40-minute overall deadline while preserving the 20-minute per-package test timeout and all checks."
-}

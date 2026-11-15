@@ -1,0 +1,14 @@
+{
+  "version": "1.0.3",
+  "date": "2026-11-15",
+  "changes": [
+    {
+      "level": "patch",
+      "summary": "Default API selection to v2 for commands, offline discovery and new connections, preserving explicit flags, environment overrides and saved v1 connections."
+    },
+    {
+      "level": "patch",
+      "summary": "Give the CI race job a 40-minute overall deadline while preserving the 20-minute per-package test timeout and all checks."
+    }
+  ]
+}
