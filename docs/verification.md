@@ -57,6 +57,7 @@ A family is complete only when all indexed/supplemental operations are accounted
 - Every requested public operation is either verified against the documented mock contract or an explicitly unresolved evidence conflict presented to the user; unresolved required operations mean the full release is **not complete**.
 - `make check`, race, security and four-target cross-build pass; native fake-server CLI tests pass on Linux/macOS. Record actual commands/versions/results; no rerun just to relabel a failure.
 - Snapshot archives/checksums/version metadata, `go install` path and Homebrew formula are exercised per [releases](releases.md).
+- Release-version tooling enforces per-work-item SemVer impact, tag/metadata agreement and immutable `v1.0.0` promotion gates. The matching versioned agent skill passes packaged recipe/disclosure checks; explicit update checking passes fake-GitHub scenarios and never adds network access to ordinary commands. See [P10 slices](implementation/10-delivery.md#bounded-delivery-slices).
 - No hooks, credentials in artifacts/fixtures, runtime schema download, automatic version fallback, hidden prompts or network-dependent help.
 - Documentation examples/catalog agree with actual commands; root status changes from planned to implemented only when true. Compatibility notes explicitly say documentation-backed/mock-tested, not universally live-certified.
 

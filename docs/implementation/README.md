@@ -14,9 +14,11 @@ P00–P02 provide offline discovery, transport and authentication. P03 implement
 | [P07](07-portfolio.md) | Portfolio/customers/releases/templates/views | P03, P05, P06 |
 | [P08](08-administration.md) | Membership/permissions/webhooks/admin | P03, P05 |
 | [P09](09-automation-legacy.md) | Workflows/automations/v1 supplemental gaps | P04, P05, P08 |
-| [P10](10-delivery.md) | Full reconciliation, packaging, final review | P00–P09 |
+| [P10](10-delivery.md) | SemVer tooling, versioned agent skill, packaging/Homebrew, update checks, final review | Preparation after P00/P03; final release after P00–P09 |
 
 P04/P05/P06 can proceed independently after shared P03 contracts are reviewed. P07/P08 can overlap after their prerequisites. Each worker owns disjoint domain files/catalog shards; one coordinator integrates shared root registration/catalog generation. Do not use parallel writers on the same registry, go.mod, Makefile or fixtures. Tool/dependency changes stay with the integration owner.
+
+P07's releases are Plane domain resources, not CLI distribution. Delivery work belongs to [P10a–P10e](10-delivery.md#bounded-delivery-slices); start version tooling before further feature work, grow the skill from reviewed P03 recipes, and retain the full-scope gate for `v1.0.0`.
 
 ## Before each packet
 

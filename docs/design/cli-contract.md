@@ -15,6 +15,7 @@ Parent scope uses `--workspace`, `--project`, `--work-item`, etc.; the target re
 - `commands [GROUP] --api-version v1|v2`: JSON summary catalog, not every nested schema.
 - `schema <command-path...> --api-version v1|v2`: offline JSON Schema 2020-12 for CLI arguments/body plus method/path, response kind, scopes and destructive classification. The positional tokens are the exact canonical command path without `plane-cli`, including every nested group and the leaf verb; e.g. `schema work-item get`. No dotted/slash shorthand. Resolve the entire path, not just its first two tokens. Requires explicit version when not derivable from local settings, never credentials or network.
 - `version` and `--version`: identical structured metadata; no update checks.
+- Planned P10 `update check` explicitly queries CLI distribution metadata without Plane configuration/authentication. It never installs updates or runs implicitly; its output/error and network rules are in [releases](../releases.md#explicit-update-checking--planned-p10d).
 - Shell completion is local/static; never network-discover workspace names on tab completion.
 
 ## Global settings and input

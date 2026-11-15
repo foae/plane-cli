@@ -20,6 +20,8 @@ Planning record, 2026-11-14. User decisions are binding; engineering defaults be
 - Official docs + mocks/fake HTTP servers are sufficient acceptance. No live end-to-end requirement. A Commercial Free instance is available later, not part of this task or a gate.
 - Agent-first discovery and feedback; progressive-disclosure docs; no git hooks.
 - Research and interview precede implementation. Record an independent design before examining Kaneo. Lower-capability implementers get bounded instructions; planner retains contract decisions and final review.
+- First full stable CLI tag `v1.0.0`; subsequent work records SemVer impact through release tooling. Versioned binary and matching agent-skill artifacts share a release; GitHub Releases and a maintainer-selected Homebrew tap are distribution targets. See [release plan](../releases.md).
+- A portable progressively disclosed agent skill includes a working P00–P03 core and indexes focused references for additional implemented families. Explicit CLI update checking is supported; automatic checking and self-installation are not. See [skill plan](../design/agent-skill.md).
 
 ## Engineering defaults
 
@@ -29,7 +31,7 @@ Planning record, 2026-11-14. User decisions are binding; engineering defaults be
 - New connections require explicit base URL and API version. No implicit Cloud destination and no automatic version detection. A command may override version explicitly, never silently.
 - Auth mode and storage are distinct. Default auth mode `api-key`, default persistent backend `file`; `env` and `keyring` remain explicit alternatives. No automatic persistence of environment overrides and no silent backend fallback.
 - No general-purpose raw HTTP escape hatch or PQL translator in this release. Complete reviewed commands, not `api request`, satisfy coverage.
-- No automatic HTTP retries, telemetry, network update checks, persistent capability cache, or auto-browser launch. OAuth renewal happens before API dispatch when expiry is known, never by replaying a failed mutation.
+- No automatic HTTP retries, telemetry, background/startup network update checks, persistent capability cache, or auto-browser launch. Explicit `update check` is planned under [P10](../implementation/10-delivery.md) with no Plane credential access. OAuth renewal happens before API dispatch when expiry is known, never by replaying a failed mutation.
 - HTTPS certificate verification remains enabled, with custom CA support rather than `--insecure`. Never silently rewrite a selected URL's scheme. HTTP acceptance is independent of TLS certificate validation.
 - No generic batch orchestration or client-emulated bulk operations. No automatic rollback across several upstream calls.
 - Go 1.27 baseline, reproducible checks with Go 1.27.4; tool/library pins in [development](../development.md). Maintain latest supported patch through reviewed updates, not floating CI downloads.

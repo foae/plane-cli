@@ -13,7 +13,14 @@ FUZZ_PKG ?=
 FUZZ_TARGET ?=
 FUZZTIME ?= 30s
 
-.PHONY: help tools toolchain fmt fmt-check vet test lint mod-check api-check docs-check generate check race security fuzz build cross
+# Export values rather than interpolating user text into shell commands.
+export RELEASE_LEVEL = $(LEVEL)
+export RELEASE_SUMMARY := $(value SUMMARY)
+export RELEASE_VERSION = $(VERSION)
+export RELEASE_BASE = $(BASE)
+export RELEASE_PREPARATION
+
+.PHONY: help tools toolchain fmt fmt-check vet test lint mod-check api-check docs-check generate check race security fuzz build cross change version-plan release-prepare version-check
 
 help: ## List recipes, prerequisites and side effects; no writes.
 	@printf '%s\n' 'Prerequisites: Go $(GO_VERSION), GNU make, POSIX shell; make tools additionally needs curl, tar, awk and SHA-256 tooling.' 'Run make tools explicitly before lint/check/security; checks never install tools.' ''
@@ -56,7 +63,7 @@ docs-check: toolchain ## Check local documentation links and catalog consistency
 generate: toolchain ## Regenerate committed embedded metadata from the catalog offline; writes generated JSON.
 	go run ./internal/cmd/genspec
 
-check: fmt-check lint test mod-check api-check docs-check ## Run the reviewed packet gate; no source writes; needs make tools.
+check: fmt-check lint test mod-check api-check docs-check version-check ## Run the reviewed packet gate; no source writes; needs make tools.
 
 race: toolchain ## Run race-enabled tests on ./...; needs C compiler and supported host; test temp/cache only.
 	CGO_ENABLED=1 go test -race ./...
@@ -79,15 +86,28 @@ fuzz: toolchain ## Fuzz one explicit package/target for FUZZTIME seconds; fuzz c
 	printf '%s\n' "$$targets" | grep -Fxq '$(FUZZ_TARGET)' || { printf '%s\n' 'Named fuzz target was not found in FUZZ_PKG.' >&2; exit 2; }; \
 	go test '$(FUZZ_PKG)' -run '^$$' -fuzz '^$(FUZZ_TARGET)$$' -fuzztime='$(FUZZTIME)'
 
+change: toolchain ## Create a release fragment; requires LEVEL and SUMMARY.
+	go run ./internal/cmd/release change
+
+version-plan: toolchain ## Validate release inputs and show the pending version plan; read-only.
+	go run ./internal/cmd/release version-plan
+
+release-prepare: toolchain ## Prepare VERSION and release notes; requires clean tree and VERSION; no tags/publication.
+	@case "$$RELEASE_VERSION" in '') printf '%s\n' 'Set VERSION=X.Y.Z[-prerelease].' >&2; exit 2 ;; *-*) ;; *) go run ./internal/cmd/checkapi --release ;; esac
+	go run ./internal/cmd/release release-prepare
+
+version-check: toolchain ## Validate release identity and notes; BASE optionally checks the PR change set.
+	go run ./internal/cmd/release version-check
+
 build: toolchain ## Build ./cmd/plane-cli for the host into bin/plane-cli; writes build output.
 	mkdir -p bin
-	go build -trimpath -o bin/plane-cli ./cmd/plane-cli
+	sh scripts/build.sh bin/plane-cli
 
 cross: toolchain ## Build CGO-free Linux/macOS amd64/arm64 binaries into bin/; writes build output.
 	@set -eu; mkdir -p bin; \
 	for os in linux darwin; do \
 	  for arch in amd64 arm64; do \
 	    printf 'Building %s/%s\n' "$$os" "$$arch"; \
-	    CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath -o "bin/plane-cli-$$os-$$arch" ./cmd/plane-cli; \
+	    CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch sh scripts/build.sh "bin/plane-cli-$$os-$$arch"; \
 	  done; \
 	done

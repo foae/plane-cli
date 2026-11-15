@@ -50,6 +50,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
+          fetch-depth: 0
       - name: Read authoritative Go pin
         id: pins
         shell: bash
@@ -70,3 +71,12 @@ jobs:
         run: make tools
       - name: Run shared contributor recipe
         run: make ${{ matrix.target }}
+      - name: Check pull request release impact
+        if: github.event_name == 'pull_request' && matrix.target == 'check'
+        env:
+          RELEASE_BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if git cat-file -e "$RELEASE_BASE:VERSION" 2>/dev/null && ! git diff --quiet "$RELEASE_BASE" HEAD -- VERSION; then
+            export RELEASE_PREPARATION=1
+          fi
+          go run ./internal/cmd/release version-check

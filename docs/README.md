@@ -14,6 +14,7 @@ P00–P02 provide offline discovery, named connections and persistent/user/bot a
 - Format, lint, test, CI, reproducible tool setup → [development](development.md).
 - Mock acceptance and final review → [verification](verification.md).
 - Archives, `go install`, Homebrew → [releases](releases.md).
+- Agent skill layout, progressive disclosure and compatibility → [skill delivery plan](design/agent-skill.md).
 - Why these decisions were made → [research](reference/research.md), [independent baseline](planning/independent-design.md), [Kaneo comparison](planning/kaneo-comparison.md).
 
 ## Disclosure rules for every contribution

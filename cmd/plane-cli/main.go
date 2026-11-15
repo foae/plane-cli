@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/signal"
 	"runtime"
+	"runtime/debug"
 	"syscall"
 
 	"github.com/foae/plane-cli/internal/auth"
@@ -26,7 +27,9 @@ func run() int {
 	defer signal.Stop(pipe)
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
+	info, _ := debug.ReadBuildInfo()
+	buildVersion, buildCommit := buildIdentity(version, commit, info)
 	return cli.Run(ctx, os.Args[1:], cli.Streams{In: os.Stdin, Out: os.Stdout, Err: os.Stderr}, cli.Build{
-		Version: version, Commit: commit, GoVersion: runtime.Version(), OS: runtime.GOOS, Arch: runtime.GOARCH,
+		Version: buildVersion, Commit: buildCommit, GoVersion: runtime.Version(), OS: runtime.GOOS, Arch: runtime.GOARCH,
 	})
 }

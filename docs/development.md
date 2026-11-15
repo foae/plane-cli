@@ -41,14 +41,20 @@ Runtime dependency pins belong in `go.mod`, not the tool pin file. The initial d
 | `api-check` | Offline operation/schema/provenance/coverage reconciliation for `PACKET` | None; default `PACKET=P00` |
 | `docs-check` | Offline local links and examples/catalog consistency | None |
 | `generate` | Regenerate committed embedded metadata from the reviewed catalog | `internal/spec/catalog.gen.json` |
-| `check` | fmt-check, lint, test, mod-check, api-check, docs-check | No source writes; installed tools required |
+| `check` | fmt-check, lint, test, mod-check, api-check, docs-check, version-check | No source writes; installed tools required |
 | `race` | `CGO_ENABLED=1 go test -race ./...` | Test temp/cache; supported host and C compiler |
 | `security` | `.bin/govulncheck ./...` reachable-advisory scan | Cache/network; installed tools required |
 | `fuzz` | One named fuzz target in one explicit package for bounded seconds | Fuzz cache; explicit package/target required |
 | `build` | Build `./cmd/plane-cli` into `bin/plane-cli` | Host build output |
 | `cross` | CGO-free Linux/macOS amd64/arm64 builds | Four `bin/plane-cli-OS-ARCH` binaries |
+| `change` | Create a uniquely named release-impact fragment | `changes/`; explicit `LEVEL` and `SUMMARY` |
+| `version-plan` | Validate release inputs and report the pending bump/notes | Read-only |
+| `release-prepare` | Update version/notes and consume fragments | Clean tree; explicit `VERSION`; no tags/publication |
+| `version-check` | Validate version/history and optional PR release impact | Read-only; `BASE` enables change-set check |
 
 `snapshot` is P10 work and is not implemented or represented by a no-op target. Archives/checksums and publishing are outside P00.
+
+P10a provides SemVer change-entry, version-plan, release-preparation and check recipes. [Releases](releases.md#version-policy-and-tooling) defines the single version source, per-work-item release-impact policy and clean-tag build identity. No git hooks or automatic tag/publish step.
 
 `PKG ?= ./...`, `TESTFLAGS ?=`, `PACKET ?= P00`. A focused local loop:
 
