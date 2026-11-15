@@ -1,0 +1,50 @@
+{
+  "source_id": "v2:customers:delete-customer",
+  "source_url": "https://developers.plane.so/api-reference/v2/customers/delete-customer.md",
+  "review": "Exact bounded official source reviewed; independently authored contract, not copied documentation.",
+  "operation": "v2.customers.delete-customer",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/{slug}/customers/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pk": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "slug",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    204
+  ],
+  "pagination": "none",
+  "notes": []
+}

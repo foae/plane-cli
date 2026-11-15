@@ -1,0 +1,42 @@
+{
+  "source_id": "v1:customer:delete-customer-property",
+  "source_url": "https://developers.plane.so/api-reference/customer/delete-customer-property.md",
+  "review": "Exact bounded official source reviewed; independently authored contract, not copied documentation.",
+  "operation": "v1.customer.delete-customer-property",
+  "method": "DELETE",
+  "path": "/api/v1/workspaces/{workspace_slug}/customer-properties/{property_id}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "property_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "property_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    204
+  ],
+  "pagination": "none",
+  "notes": [
+    "Path badge and code examples identify property_id; generic resource_id parameter label is inconsistent."
+  ]
+}

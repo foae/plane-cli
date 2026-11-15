@@ -1,0 +1,13 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/project-release-comments/overview.md",
+  "version": "v2",
+  "family": "project-release-comments",
+  "review": "Overview object and endpoint review; all listed operations have dedicated operation contracts.",
+  "operation_ids": [
+    "v2.project-release-comments.list-project-release-comments",
+    "v2.project-release-comments.get-project-release-comment",
+    "v2.project-release-comments.create-project-release-comment",
+    "v2.project-release-comments.update-project-release-comment",
+    "v2.project-release-comments.delete-project-release-comment"
+  ]
+}

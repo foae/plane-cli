@@ -1,0 +1,9 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/template-categories/overview.md",
+  "review_resolution": "non-operation",
+  "scope": "global",
+  "resource": "template-category",
+  "notes": [
+    "Overview object and route inventory reviewed; every documented method is represented by its operation-source record."
+  ]
+}

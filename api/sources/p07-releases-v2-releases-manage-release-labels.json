@@ -1,0 +1,63 @@
+{
+  "id": "v2.releases.manage-release-labels",
+  "version": "v2",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/releases/{pk}/labels/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "add": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "remove": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "releases:write"
+  ],
+  "side_effect": "write",
+  "source_url": "https://developers.plane.so/api-reference/v2/releases/manage-release-labels.md"
+}

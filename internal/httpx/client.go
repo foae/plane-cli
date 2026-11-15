@@ -27,6 +27,9 @@ const maxRetryAfterSeconds = 86400
 type Client struct {
 	base string
 	http *http.Client
+	// EmptySuccessStatus permits a zero-byte body only for this documented status.
+	// Zero leaves JSON validation unchanged.
+	EmptySuccessStatus int
 }
 
 type Response struct {
@@ -177,6 +180,10 @@ func (c *Client) do(ctx context.Context, method string, segments []string, query
 	}
 	if len(raw) > maxResponseBytes {
 		return result, &Error{Code: "response_limit", Message: "API response exceeds 16 MiB; use manual pagination", Status: resp.StatusCode, Exit: 5, OutcomeUnknown: mutation}
+	}
+	if len(raw) == 0 && resp.StatusCode == c.EmptySuccessStatus {
+		result.Data = json.RawMessage("null")
+		return result, nil
 	}
 	media, _, mediaErr := mime.ParseMediaType(resp.Header.Get("Content-Type"))
 	if mediaErr != nil || (media != "application/json" && (!strings.HasPrefix(media, "application/") || !strings.HasSuffix(media, "+json"))) || !utf8.Valid(raw) {

@@ -1,0 +1,132 @@
+{
+  "id": "v2.workspace-work-item-templates.create-workspace-work-item-template",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-work-item-templates/create-workspace-work-item-template.md",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/work-item-templates/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "short_description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description_html": {
+            "type": "string"
+          },
+          "is_published": {
+            "type": "boolean"
+          },
+          "template_data": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "maxLength": 255
+              },
+              "description_html": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "low",
+                  "medium",
+                  "high",
+                  "urgent"
+                ]
+              },
+              "state": {
+                "type": "object"
+              },
+              "assignees": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "labels": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "type": {
+                "type": "object"
+              },
+              "modules": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "properties": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "name"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "template_data"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "responses": [
+    {
+      "status": 201,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "templates.work_items:write"
+  ],
+  "side_effect": "write",
+  "notes": []
+}

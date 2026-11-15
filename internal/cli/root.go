@@ -6,6 +6,7 @@ import (
 	"errors"
 	"io"
 	"slices"
+	"strconv"
 	"strings"
 
 	"github.com/foae/plane-cli/internal/output"
@@ -47,7 +48,7 @@ func HandlerIDs() []string {
 	for id := range projectTypesHandlers() {
 		ids = append(ids, id)
 	}
-	for _, group := range []map[string]handler{contentPagesHandlers(), contentCollectionHandlers(), contentAssetsHandlers(), assetTransferHandlers()} {
+	for _, group := range []map[string]handler{contentPagesHandlers(), contentCollectionHandlers(), contentAssetsHandlers(), assetTransferHandlers(), portfolioHandlers(), portfolioCustomerHandlers(), portfolioTemplateHandlers(), portfolioReleaseHandlers()} {
 		for id := range group {
 			ids = append(ids, id)
 		}
@@ -147,7 +148,7 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 	for id, h := range projectTypesHandlers() {
 		handlers[id] = h
 	}
-	for _, group := range []map[string]handler{contentPagesHandlers(), contentCollectionHandlers(), contentAssetsHandlers(), assetTransferHandlers()} {
+	for _, group := range []map[string]handler{contentPagesHandlers(), contentCollectionHandlers(), contentAssetsHandlers(), assetTransferHandlers(), portfolioHandlers(), portfolioCustomerHandlers(), portfolioTemplateHandlers(), portfolioReleaseHandlers()} {
 		for id, h := range group {
 			handlers[id] = h
 		}
@@ -238,9 +239,10 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 				return unavailable(commandName(cmd))
 			}
 			cmd.Annotations = map[string]string{
-				"pagination":    variant.Pagination,
-				"table_columns": strings.Join(variant.TableColumns, ","),
-				"side_effect":   d.SideEffect,
+				"pagination":           variant.Pagination,
+				"table_columns":        strings.Join(variant.TableColumns, ","),
+				"side_effect":          d.SideEffect,
+				"empty_success_status": strconv.Itoa(variant.EmptySuccessStatus),
 			}
 			if !d.Local {
 				settings, err := effectiveSettings(cmd)

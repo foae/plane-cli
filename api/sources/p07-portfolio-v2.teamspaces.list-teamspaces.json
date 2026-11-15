@@ -1,0 +1,126 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/teamspaces/list-teamspaces.md",
+  "operations": [
+    {
+      "id": "v2.teamspaces.list-teamspaces",
+      "packet": "P07",
+      "version": "v2",
+      "command_path": [
+        "teamspace",
+        "list"
+      ],
+      "action": "list",
+      "scope": "workspace",
+      "method": "GET",
+      "path": "/api/v2/workspaces/{slug}/teamspaces/",
+      "request_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "slug"
+            ]
+          },
+          "query": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "boolean"
+              },
+              "lead_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "offset": {
+                "type": "integer"
+              },
+              "order_by": {
+                "type": "string"
+              },
+              "paginate": {
+                "type": "string"
+              },
+              "per_page": {
+                "type": "integer"
+              },
+              "search": {
+                "type": "string"
+              },
+              "fields": {
+                "type": "string"
+              },
+              "expand": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "path"
+        ]
+      },
+      "response_schema": true,
+      "responses": [
+        {
+          "status": 200,
+          "content_type": "application/json",
+          "schema": true
+        }
+      ],
+      "pagination": "v2",
+      "scopes": [
+        "teamspaces:read"
+      ],
+      "feature_evidence": "Official operation contract; native fake-server acceptance does not establish deployed availability.",
+      "side_effect": "read",
+      "source_url": "https://developers.plane.so/api-reference/v2/teamspaces/list-teamspaces.md",
+      "provenance_id": "p07-portfolio-v2.teamspaces.list-teamspaces",
+      "lifecycle": "implemented",
+      "acceptance_scenario_ids": [
+        "TestP07PortfolioRequests"
+      ],
+      "sensitivity": {
+        "review": "Documented resource fields contain no declared authentication secrets.",
+        "input": [],
+        "output": [],
+        "ordinary_read_redaction": [],
+        "intentional_secret_delivery": false,
+        "signed_target_paths": [],
+        "signed_form_paths": [],
+        "extension_fields": "Native resource data is preserved; callers must treat user-provided content as sensitive."
+      },
+      "availability": {
+        "v2": "implemented"
+      },
+      "review_status": "awaiting-packet-planner-review",
+      "notes": [],
+      "error_contract": {
+        "schema": {
+          "$ref": "urn:plane-cli:problem-v2"
+        },
+        "content_type": "application/problem+json",
+        "provenance_id": "v2-errors",
+        "documented_statuses": [
+          401,
+          402,
+          403,
+          404,
+          406,
+          429
+        ]
+      }
+    }
+  ],
+  "notes": []
+}

@@ -1,0 +1,68 @@
+{
+  "id": "v1.release.update-release-comment-detail",
+  "version": "v1",
+  "method": "PATCH",
+  "path": "/api/v1/workspaces/{workspace_slug}/releases/{release_id}/comments/{comment_id}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          },
+          "release_id": {
+            "type": "string"
+          },
+          "comment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "release_id",
+          "comment_id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "comment_html": {
+            "type": "string"
+          },
+          "parent": {
+            "type": "string"
+          },
+          "is_resolved": {
+            "type": "boolean"
+          },
+          "edited_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "releases.comments:write"
+  ],
+  "side_effect": "write",
+  "source_url": "https://developers.plane.so/api-reference/release/update-release-comment-detail.md"
+}

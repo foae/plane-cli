@@ -1,0 +1,78 @@
+{
+  "source_id": "v2:customer-requests:list-customer-requests",
+  "source_url": "https://developers.plane.so/api-reference/v2/customer-requests/list-customer-requests.md",
+  "review": "Exact bounded official source reviewed; independently authored contract, not copied documentation.",
+  "operation": "v2.customer-requests.list-customer-requests",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/customers/{customer_id}/requests/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "customer_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "slug",
+          "customer_id"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "search": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "v2",
+  "notes": []
+}

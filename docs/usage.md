@@ -204,3 +204,16 @@ Downloads require `--output-file`; existing destinations require `--overwrite --
 Downloads preserve stored bytes, including gzip-encoded objects. No-clobber installation requires filesystem hard-link support; unsupported destinations fail safely without replacement.
 
 P06 is a bounded implementation, not a completed packet. Conflicting v2 collection schemas, undocumented supplemental server-mediated uploads and unresolved source contracts remain recorded in the inventory; unavailable operations are not guessed or counted as delivered. Fake HTTP acceptance verifies protocol behavior, not live edition compatibility.
+
+## Portfolio, customers and templates
+
+P07 exposes documented initiative/teamspace, customer, release and template/view
+operations in their supported API generations. Workspace releases and project
+releases are separate command scopes; customer properties and recorded values
+are separate resources. See [initiatives/teamspaces](portfolio.md),
+[customers](customers.md), [releases](releases-api.md), and
+[templates/views](templates-views.md) for native payloads and safeguards.
+
+Deterministic fake-server acceptance is protocol evidence, not live entitlement
+or edition verification. Unsupported operations never fall back to another scope
+or API generation.

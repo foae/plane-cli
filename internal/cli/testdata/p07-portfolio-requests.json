@@ -1,0 +1,1777 @@
+[
+  {
+    "id": "v1.initiative.add-epics-to-initiative",
+    "handler": "initiative-add-epics",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/epics/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "epic_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "Example Name",
+      "description": "Example description"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.add-initiative-label",
+    "handler": "initiative-label-create",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/labels/",
+    "flags": {
+      "workspace": "test-workspace"
+    },
+    "body": {
+      "name": "Example",
+      "description": "Example",
+      "color": "Example",
+      "sort_order": 1
+    },
+    "status": 201,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "Example Name",
+      "description": "Example description",
+      "created_at": "2024-01-01T00:00:00Z"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.add-initiative",
+    "handler": "initiative-create",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/",
+    "flags": {
+      "workspace": "test-workspace"
+    },
+    "body": {
+      "name": "Example",
+      "description": "Example",
+      "description_html": "Example",
+      "description_stripped": "Example",
+      "start_date": "2026-11-15",
+      "end_date": "2026-11-15",
+      "logo_props": {},
+      "state": "ACTIVE",
+      "archived_at": "Example",
+      "created_by": "Example",
+      "updated_by": "Example",
+      "lead": "Example"
+    },
+    "status": 201,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "Example Name",
+      "description": "Example description"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.add-labels-to-initiative",
+    "handler": "initiative-add-labels",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/labels/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "label_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "Example Name",
+      "description": "Example description",
+      "created_at": "2024-01-01T00:00:00Z"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.add-projects-to-initiative",
+    "handler": "initiative-add-projects",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/projects/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "project_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "Example Name",
+      "description": "Example description",
+      "identifier": "PROJ-123",
+      "network": 2,
+      "project_lead": "550e8400-e29b-41d4-a716-446655440000",
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.delete-initiative-label",
+    "handler": "initiative-label-delete",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/labels/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true
+  },
+  {
+    "id": "v1.initiative.delete-initiative",
+    "handler": "initiative-delete",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true
+  },
+  {
+    "id": "v1.initiative.get-initiative-detail",
+    "handler": "initiative-get",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "Example Name",
+      "description": "Example description"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.get-initiative-label-detail",
+    "handler": "initiative-label-get",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/labels/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "Example Name",
+      "description": "Example description",
+      "created_at": "2024-01-01T00:00:00Z"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.list-initiative-epics",
+    "handler": "initiative-list-epics",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/epics/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "grouped_by": "state",
+      "sub_grouped_by": "priority",
+      "total_count": 150,
+      "next_cursor": "20:1:0",
+      "prev_cursor": "20:0:0",
+      "next_page_results": true,
+      "prev_page_results": false,
+      "count": 20,
+      "total_pages": 8,
+      "total_results": 150,
+      "extra_stats": null,
+      "results": [
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440000",
+          "name": "Example Name",
+          "description": "Example description",
+          "priority": "high",
+          "sequence_id": 123,
+          "state": {
+            "id": "550e8400-e29b-41d4-a716-446655440000",
+            "name": "Example Name",
+            "group": "started"
+          },
+          "assignees": [],
+          "labels": [],
+          "created_at": "2024-01-01T00:00:00Z"
+        }
+      ]
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.list-initiative-labels-for-initiative",
+    "handler": "initiative-list-labels",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/labels/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "grouped_by": "state",
+      "sub_grouped_by": "priority",
+      "total_count": 150,
+      "next_cursor": "20:1:0",
+      "prev_cursor": "20:0:0",
+      "next_page_results": true,
+      "prev_page_results": false,
+      "count": 20,
+      "total_pages": 8,
+      "total_results": 150,
+      "extra_stats": null,
+      "results": [
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440000",
+          "name": "Example Name",
+          "description": "Example description",
+          "created_at": "2024-01-01T00:00:00Z"
+        }
+      ]
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.list-initiative-labels",
+    "handler": "initiative-label-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/labels/",
+    "flags": {
+      "workspace": "test-workspace"
+    },
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "grouped_by": "state",
+        "sub_grouped_by": "priority",
+        "total_count": 150,
+        "next_cursor": "20:1:0",
+        "prev_cursor": "20:0:0",
+        "next_page_results": true,
+        "prev_page_results": false,
+        "count": 20,
+        "total_pages": 8,
+        "total_results": 150,
+        "extra_stats": null,
+        "results": [
+          {
+            "id": "550e8400-e29b-41d4-a716-446655440000",
+            "name": "Example Name",
+            "description": "Example description",
+            "created_at": "2024-01-01T00:00:00Z"
+          }
+        ]
+      }
+    ],
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.list-initiative-projects",
+    "handler": "initiative-list-projects",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/projects/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "grouped_by": "state",
+      "sub_grouped_by": "priority",
+      "total_count": 150,
+      "next_cursor": "20:1:0",
+      "prev_cursor": "20:0:0",
+      "next_page_results": true,
+      "prev_page_results": false,
+      "count": 20,
+      "total_pages": 8,
+      "total_results": 150,
+      "extra_stats": null,
+      "results": [
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440000",
+          "name": "Example Name",
+          "description": "Example description",
+          "identifier": "PROJ-123",
+          "network": 2
+        }
+      ]
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.list-initiatives",
+    "handler": "initiative-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/",
+    "flags": {
+      "workspace": "test-workspace"
+    },
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "grouped_by": "state",
+        "sub_grouped_by": "priority",
+        "total_count": 150,
+        "next_cursor": "20:1:0",
+        "prev_cursor": "20:0:0",
+        "next_page_results": true,
+        "prev_page_results": false,
+        "count": 20,
+        "total_pages": 8,
+        "total_results": 150,
+        "extra_stats": null,
+        "results": [
+          {
+            "id": "550e8400-e29b-41d4-a716-446655440000",
+            "name": "Example Name",
+            "description": "Example description",
+            "created_at": "2024-01-01T00:00:00Z"
+          }
+        ]
+      }
+    ],
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.remove-epics-from-initiative",
+    "handler": "initiative-remove-epics",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/epics/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true
+  },
+  {
+    "id": "v1.initiative.remove-labels-from-initiative",
+    "handler": "initiative-remove-labels",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/labels/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true
+  },
+  {
+    "id": "v1.initiative.remove-projects-from-initiative",
+    "handler": "initiative-remove-projects",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/projects/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true
+  },
+  {
+    "id": "v1.initiative.update-initiative-detail",
+    "handler": "initiative-update",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "name": "Example",
+      "description": "Example",
+      "description_html": "Example",
+      "description_stripped": "Example",
+      "start_date": "2026-11-15",
+      "end_date": "2026-11-15",
+      "logo_props": {},
+      "state": "ACTIVE",
+      "archived_at": "Example",
+      "created_by": "Example",
+      "updated_by": "Example",
+      "lead": "Example"
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "Example Name",
+      "description": "Example description"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.initiative.update-initiative-label-detail",
+    "handler": "initiative-label-update",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/test-workspace/initiatives/labels/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "name": "Example",
+      "description": "Example",
+      "color": "Example",
+      "sort_order": 1
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "Example Name",
+      "description": "Example description",
+      "created_at": "2024-01-01T00:00:00Z"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.teamspace.add-projects-to-teamspace",
+    "handler": "teamspace-add-projects",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/projects/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "project_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 200,
+    "response": [
+      {
+        "id": "00918ea1-52f7-48bd-abe3-d3efe76ff7dd",
+        "created_at": "2023-11-19T10:40:15.426652Z",
+        "updated_at": "2023-11-19T10:40:15.426672Z",
+        "name": "Project X",
+        "description": "",
+        "identifier": "PROJX",
+        "network": 2,
+        "workspace": "cd4ab5a2-1a5f-4516-a6c6-8da1a9fa5be4",
+        "project_lead": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      }
+    ],
+    "destructive": false
+  },
+  {
+    "id": "v1.teamspace.add-teamspace-members",
+    "handler": "teamspace-add-members",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/members/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "member_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 200,
+    "response": [
+      {
+        "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "user@example.com",
+        "avatar": "",
+        "avatar_url": "https://example.com/assets/example-image.png",
+        "display_name": "john"
+      }
+    ],
+    "destructive": false
+  },
+  {
+    "id": "v1.teamspace.add-teamspace",
+    "handler": "teamspace-create",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/test-workspace/teamspaces/",
+    "flags": {
+      "workspace": "test-workspace"
+    },
+    "body": {
+      "name": "Example",
+      "description_html": "Example",
+      "description_json": {},
+      "description_stripped": "Example",
+      "logo_props": {},
+      "lead": "Example"
+    },
+    "status": 201,
+    "response": {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "created_at": "2023-11-19T11:56:55.176802Z",
+      "updated_at": "2023-11-19T11:56:55.176809Z",
+      "deleted_at": null,
+      "name": "Engineering Team",
+      "description_json": {},
+      "description_html": "<p>Engineering team workspace</p>",
+      "description_stripped": null,
+      "description_binary": null,
+      "logo_props": {
+        "in_use": "emoji",
+        "emoji": {
+          "value": "1f680"
+        }
+      },
+      "created_by": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by": null,
+      "workspace": "cd4ab5a2-1a5f-4516-a6c6-8da1a9fa5be4",
+      "lead": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.teamspace.delete-teamspace",
+    "handler": "teamspace-delete",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true
+  },
+  {
+    "id": "v1.teamspace.get-teamspace-detail",
+    "handler": "teamspace-get",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "created_at": "2023-11-19T11:56:55.176802Z",
+      "updated_at": "2023-11-19T11:56:55.176809Z",
+      "deleted_at": null,
+      "name": "Engineering Team",
+      "description_json": {},
+      "description_html": "<p>Engineering team workspace</p>",
+      "description_stripped": "Engineering team workspace",
+      "description_binary": null,
+      "logo_props": {
+        "in_use": "emoji",
+        "emoji": {
+          "value": "1f680"
+        }
+      },
+      "created_by": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by": null,
+      "workspace": "cd4ab5a2-1a5f-4516-a6c6-8da1a9fa5be4",
+      "lead": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.teamspace.list-teamspace-members",
+    "handler": "teamspace-list-members",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/members/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "grouped_by": null,
+      "sub_grouped_by": null,
+      "total_count": 1,
+      "next_cursor": "20:1:0",
+      "prev_cursor": "20:0:0",
+      "next_page_results": false,
+      "prev_page_results": false,
+      "count": 1,
+      "total_pages": 1,
+      "total_results": 1,
+      "total_groups": null,
+      "next_group_offset": null,
+      "sub_total_groups": null,
+      "sub_next_group_offset": null,
+      "extra_stats": null,
+      "results": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "first_name": "John",
+          "last_name": "Doe",
+          "email": "user@example.com",
+          "avatar": "",
+          "avatar_url": "https://example.com/assets/example-image.png",
+          "display_name": "john"
+        }
+      ]
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.teamspace.list-teamspace-projects",
+    "handler": "teamspace-list-projects",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/projects/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "grouped_by": null,
+      "sub_grouped_by": null,
+      "total_count": 1,
+      "next_cursor": "20:1:0",
+      "prev_cursor": "20:0:0",
+      "next_page_results": false,
+      "prev_page_results": false,
+      "count": 1,
+      "total_pages": 1,
+      "total_results": 1,
+      "total_groups": null,
+      "next_group_offset": null,
+      "sub_total_groups": null,
+      "sub_next_group_offset": null,
+      "extra_stats": null,
+      "results": [
+        {
+          "id": "00918ea1-52f7-48bd-abe3-d3efe76ff7dd",
+          "created_at": "2023-11-19T10:40:15.426652Z",
+          "updated_at": "2023-11-19T10:40:15.426672Z",
+          "name": "Project X",
+          "description": "",
+          "identifier": "PROJX",
+          "network": 2,
+          "workspace": "cd4ab5a2-1a5f-4516-a6c6-8da1a9fa5be4",
+          "project_lead": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+        }
+      ]
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.teamspace.list-teamspaces",
+    "handler": "teamspace-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/test-workspace/teamspaces/",
+    "flags": {
+      "workspace": "test-workspace"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "grouped_by": null,
+      "sub_grouped_by": null,
+      "total_count": 2,
+      "next_cursor": "20:1:0",
+      "prev_cursor": "20:0:0",
+      "next_page_results": false,
+      "prev_page_results": false,
+      "count": 2,
+      "total_pages": 1,
+      "total_results": 2,
+      "total_groups": null,
+      "next_group_offset": null,
+      "sub_total_groups": null,
+      "sub_next_group_offset": null,
+      "extra_stats": null,
+      "results": [
+        {
+          "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "created_at": "2023-11-19T11:56:55.176802Z",
+          "updated_at": "2023-11-19T11:56:55.176809Z",
+          "deleted_at": null,
+          "name": "Engineering Team",
+          "description_json": {},
+          "description_html": "<p>Engineering team workspace</p>",
+          "description_stripped": "Engineering team workspace",
+          "description_binary": null,
+          "logo_props": {
+            "in_use": "emoji",
+            "emoji": {
+              "value": "1f680"
+            }
+          },
+          "created_by": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by": null,
+          "workspace": "cd4ab5a2-1a5f-4516-a6c6-8da1a9fa5be4",
+          "lead": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+        }
+      ]
+    },
+    "destructive": false
+  },
+  {
+    "id": "v1.teamspace.remove-projects-from-teamspace",
+    "handler": "teamspace-remove-projects",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/projects/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "project_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 204,
+    "response": null,
+    "destructive": true
+  },
+  {
+    "id": "v1.teamspace.remove-teamspace-members",
+    "handler": "teamspace-remove-members",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/members/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "member_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 204,
+    "response": null,
+    "destructive": true
+  },
+  {
+    "id": "v1.teamspace.update-teamspace-detail",
+    "handler": "teamspace-update",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "name": "Example",
+      "description_html": "Example",
+      "description_json": {},
+      "description_stripped": "Example",
+      "logo_props": {},
+      "lead": "Example"
+    },
+    "status": 200,
+    "response": {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "created_at": "2023-11-19T11:56:55.176802Z",
+      "updated_at": "2023-11-20T09:12:41.001233Z",
+      "deleted_at": null,
+      "name": "Platform Team",
+      "description_json": {},
+      "description_html": "<p>Engineering team workspace</p>",
+      "description_stripped": "Engineering team workspace",
+      "description_binary": null,
+      "logo_props": {
+        "in_use": "emoji",
+        "emoji": {
+          "value": "1f680"
+        }
+      },
+      "created_by": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "workspace": "cd4ab5a2-1a5f-4516-a6c6-8da1a9fa5be4",
+      "lead": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.initiative-labels.create-initiative-label",
+    "handler": "initiative-label-create",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/labels/",
+    "flags": {
+      "workspace": "test-workspace"
+    },
+    "body": {
+      "name": "Example",
+      "color": "Example",
+      "description": "Example",
+      "sort_order": 1
+    },
+    "status": 201,
+    "response": {
+      "color": "#3f76ff",
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "description": "What this is for.",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Example name",
+      "sort_order": 65535
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.initiative-labels.delete-initiative-label",
+    "handler": "initiative-label-delete",
+    "version": "v2",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/labels/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 204,
+    "response": {
+      "type": "not_found",
+      "code": "not_found",
+      "detail": "No initiative label matches the given query."
+    },
+    "destructive": true
+  },
+  {
+    "id": "v2.initiative-labels.get-initiative-label",
+    "handler": "initiative-label-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/labels/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "color": "#3f76ff",
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "description": "What this is for.",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Example name",
+      "sort_order": 65535
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.initiative-labels.list-initiative-labels",
+    "handler": "initiative-label-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/labels/",
+    "flags": {
+      "workspace": "test-workspace"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "color": "#3f76ff",
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "description": "What this is for.",
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Example name",
+          "sort_order": 65535
+        },
+        {
+          "color": "#3f76ff",
+          "created_at": "2026-01-13T16:04:02.911204Z",
+          "updated_at": "2026-01-13T16:04:02.911204Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "description": "What this is for.",
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "name": "Another example",
+          "sort_order": 65535
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.initiative-labels.update-initiative-label",
+    "handler": "initiative-label-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/labels/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "color": "Example",
+      "description": "Example",
+      "name": "Example",
+      "sort_order": 1
+    },
+    "status": 200,
+    "response": {
+      "color": "#3f76ff",
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-02-03T16:45:12.904117Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "description": "What this is for.",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Example name",
+      "sort_order": 65535
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.initiatives.create-initiative",
+    "handler": "initiative-create",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/",
+    "flags": {
+      "workspace": "test-workspace"
+    },
+    "body": {
+      "name": "Example",
+      "description": "Example",
+      "description_html": "Example",
+      "end_date": "2026-11-15",
+      "lead_id": "Example",
+      "logo_props": "Example",
+      "project_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ],
+      "start_date": "2026-11-15",
+      "state": "ACTIVE"
+    },
+    "status": 201,
+    "response": {
+      "archived_at": null,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "description": "What this is for.",
+      "description_html": "<p>Details go here.</p>",
+      "end_date": "2026-01-31",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "label_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "lead_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "logo_props": null,
+      "name": "Example name",
+      "project_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "start_date": "2026-01-12",
+      "state": "DRAFT"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.initiatives.delete-initiative",
+    "handler": "initiative-delete",
+    "version": "v2",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 204,
+    "response": {
+      "type": "not_found",
+      "code": "not_found",
+      "detail": "No initiative matches the given query."
+    },
+    "destructive": true
+  },
+  {
+    "id": "v2.initiatives.get-initiative",
+    "handler": "initiative-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "archived_at": null,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "description": "What this is for.",
+      "description_html": "<p>Details go here.</p>",
+      "end_date": "2026-01-31",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "label_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "lead_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "logo_props": null,
+      "name": "Example name",
+      "project_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "start_date": "2026-01-12",
+      "state": "DRAFT"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.initiatives.list-initiative-labels",
+    "handler": "initiative-list-labels",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/labels/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "6e1d9b47-3a28-4f5c-8b70-2c9e4a1f7d35",
+          "name": "Strategic",
+          "description": "Board-level priority for the year",
+          "color": "#8b5cf6",
+          "sort_order": 65535.0,
+          "created_at": "2026-01-08T10:12:33.204871Z",
+          "updated_at": "2026-01-08T10:12:33.204871Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null
+        },
+        {
+          "id": "b3f04c6a-91d2-4e87-a5b3-7d0e2f8c4a19",
+          "name": "Q1",
+          "description": "",
+          "color": "#26a05f",
+          "sort_order": 131070.0,
+          "created_at": "2026-01-02T15:47:19.665302Z",
+          "updated_at": "2026-01-02T15:47:19.665302Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 2,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.initiatives.list-initiative-projects",
+    "handler": "initiative-list-projects",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/projects/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "a51e8c37-2f94-4d06-b8c1-7e3d0a6f9b25",
+          "name": "Mobile",
+          "identifier": "MOB",
+          "project_lead_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "project_lead": {
+            "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+            "display_name": "Priya Raghavan",
+            "avatar_url": "https://assets.plane.so/avatars/16c61a3a.png",
+            "email": "priya@example.com"
+          }
+        },
+        {
+          "id": "4af68566-94a4-4eb3-94aa-50dc9427067b",
+          "name": "Platform",
+          "identifier": "PROJ",
+          "project_lead_id": null,
+          "project_lead": null
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 2,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.initiatives.list-initiative-work-items",
+    "handler": "initiative-list-work-items",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/work-items/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "name": "Fix login redirect loop",
+          "identifier": "PROJ-142",
+          "sequence_id": 142,
+          "priority": "high",
+          "project_id": "4af68566-94a4-4eb3-94aa-50dc9427067b",
+          "state_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "type_id": "2d9d1a97-5c6f-4a1e-9d5b-8c2f7e30b6a4",
+          "assignee_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ],
+          "label_ids": [
+            "c1b8f3d6-9a44-4e12-8f7a-2b6d5c9e1a03"
+          ],
+          "cycle_id": "e3a71c52-8d4f-4b19-a6e0-5f2c9d8b1a74",
+          "module_ids": [],
+          "parent_id": null,
+          "estimate_point_id": null,
+          "start_date": "2026-01-12",
+          "target_date": "2026-01-20",
+          "is_draft": false,
+          "sort_order": 65535.0,
+          "completed_at": null,
+          "archived_at": null,
+          "external_id": null,
+          "external_source": null,
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-15T11:03:27.115902Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "state": {
+            "id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+            "name": "In Progress",
+            "color": "#3f76ff",
+            "group": "started"
+          }
+        },
+        {
+          "id": "5d2e8a61-7b39-4c04-9f18-3a6c1e9b4d70",
+          "name": "Offline mode for the mobile app",
+          "identifier": "MOB-37",
+          "sequence_id": 37,
+          "priority": "medium",
+          "project_id": "a51e8c37-2f94-4d06-b8c1-7e3d0a6f9b25",
+          "state_id": "0b9e4d27-6a13-4f85-8c2d-1e7a5f3b9c06",
+          "type_id": "7a3c1e58-0f62-4b9d-a4e7-2d8b6c0f1e93",
+          "assignee_ids": [],
+          "label_ids": [],
+          "cycle_id": null,
+          "module_ids": [
+            "d4b80f2a-6e17-4c39-b5a1-9f3e2c7d8a64"
+          ],
+          "parent_id": null,
+          "estimate_point_id": null,
+          "start_date": null,
+          "target_date": "2026-03-31",
+          "is_draft": false,
+          "sort_order": 131070.0,
+          "completed_at": null,
+          "archived_at": null,
+          "external_id": null,
+          "external_source": null,
+          "created_at": "2026-01-09T14:51:08.604217Z",
+          "updated_at": "2026-01-09T14:51:08.604217Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "state": {
+            "id": "0b9e4d27-6a13-4f85-8c2d-1e7a5f3b9c06",
+            "name": "Todo",
+            "color": "#a3a3a3",
+            "group": "unstarted"
+          }
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 2,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.initiatives.list-initiatives",
+    "handler": "initiative-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/",
+    "flags": {
+      "workspace": "test-workspace"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "archived_at": null,
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "description": "What this is for.",
+          "description_html": "<p>Details go here.</p>",
+          "end_date": "2026-01-31",
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "label_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ],
+          "lead_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "logo_props": null,
+          "name": "Example name",
+          "project_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ],
+          "start_date": "2026-01-12",
+          "state": "DRAFT"
+        },
+        {
+          "archived_at": null,
+          "created_at": "2026-01-13T16:04:02.911204Z",
+          "updated_at": "2026-01-13T16:04:02.911204Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "description": "What this is for.",
+          "description_html": "<p>Details go here.</p>",
+          "end_date": "2026-01-31",
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "label_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ],
+          "lead_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "logo_props": null,
+          "name": "Another example",
+          "project_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ],
+          "start_date": "2026-01-12",
+          "state": "DRAFT"
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.initiatives.manage-initiative-labels",
+    "handler": "initiative-manage-labels",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/labels/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "add": [
+        "11111111-1111-4111-8111-111111111111"
+      ],
+      "remove": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "added": [
+        "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+      ],
+      "removed": [
+        "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+      ]
+    },
+    "destructive": true
+  },
+  {
+    "id": "v2.initiatives.manage-initiative-projects",
+    "handler": "initiative-manage-projects",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/projects/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "add": [
+        "11111111-1111-4111-8111-111111111111"
+      ],
+      "remove": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "added": [
+        "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+      ],
+      "removed": [
+        "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+      ]
+    },
+    "destructive": true
+  },
+  {
+    "id": "v2.initiatives.manage-initiative-work-items",
+    "handler": "initiative-manage-work-items",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/work-items/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "add": [
+        "11111111-1111-4111-8111-111111111111"
+      ],
+      "remove": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "added": [
+        "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+      ],
+      "removed": [
+        "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+      ]
+    },
+    "destructive": true
+  },
+  {
+    "id": "v2.initiatives.update-initiative",
+    "handler": "initiative-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/test-workspace/initiatives/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "description": "Example",
+      "description_html": "Example",
+      "end_date": "2026-11-15",
+      "lead_id": "Example",
+      "logo_props": "Example",
+      "name": "Example",
+      "project_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ],
+      "start_date": "2026-11-15",
+      "state": "ACTIVE"
+    },
+    "status": 200,
+    "response": {
+      "archived_at": null,
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-02-03T16:45:12.904117Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "description": "What this is for.",
+      "description_html": "<p>Details go here.</p>",
+      "end_date": "2026-01-31",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "label_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "lead_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "logo_props": null,
+      "name": "Example name",
+      "project_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "start_date": "2026-01-12",
+      "state": "DRAFT"
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.teamspaces.create-teamspace",
+    "handler": "teamspace-create",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/test-workspace/teamspaces/",
+    "flags": {
+      "workspace": "test-workspace"
+    },
+    "body": {
+      "name": "Example",
+      "description_html": "Example",
+      "lead_id": "Example",
+      "logo_props": "Example",
+      "member_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ],
+      "project_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 201,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "description_html": "<p>Details go here.</p>",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "lead_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "logo_props": null,
+      "member_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "name": "Example name",
+      "project_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.teamspaces.delete-teamspace",
+    "handler": "teamspace-delete",
+    "version": "v2",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 204,
+    "response": {
+      "type": "not_found",
+      "code": "not_found",
+      "detail": "No teamspace matches the given query."
+    },
+    "destructive": true
+  },
+  {
+    "id": "v2.teamspaces.get-teamspace",
+    "handler": "teamspace-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "description_html": "<p>Details go here.</p>",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "lead_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "logo_props": null,
+      "member_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "name": "Example name",
+      "project_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.teamspaces.list-teamspace-members",
+    "handler": "teamspace-list-members",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/members/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "3e8a5d17-9c40-4b2f-81d6-4a7f2b9e0c53",
+          "member_id": "7f2b9e04-6c1d-4a58-9e3b-0d4c8a2f6b71",
+          "role": "member",
+          "member": {
+            "id": "7f2b9e04-6c1d-4a58-9e3b-0d4c8a2f6b71",
+            "display_name": "Devansh Kapoor",
+            "avatar_url": null,
+            "email": "devansh@example.com"
+          }
+        },
+        {
+          "id": "c1b7e4a9-2f66-4a1d-9c3b-7d5e2f8a1b40",
+          "member_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "role": "owner",
+          "member": {
+            "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+            "display_name": "Priya Raghavan",
+            "avatar_url": "https://assets.plane.so/avatars/16c61a3a.png",
+            "email": "priya@example.com"
+          }
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 2,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.teamspaces.list-teamspace-projects",
+    "handler": "teamspace-list-projects",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/projects/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "a51e8c37-2f94-4d06-b8c1-7e3d0a6f9b25",
+          "name": "Mobile",
+          "identifier": "MOB",
+          "archived_at": null
+        },
+        {
+          "id": "4af68566-94a4-4eb3-94aa-50dc9427067b",
+          "name": "Platform",
+          "identifier": "PROJ",
+          "archived_at": null
+        },
+        {
+          "id": "e07c4b92-5a1f-4d38-9b6e-3f2a8c1d7e50",
+          "name": "Legacy billing",
+          "identifier": "BILL",
+          "archived_at": "2025-11-30T18:02:44.519306Z"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 3,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.teamspaces.list-teamspaces",
+    "handler": "teamspace-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/test-workspace/teamspaces/",
+    "flags": {
+      "workspace": "test-workspace"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "description_html": "<p>Details go here.</p>",
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "lead_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "logo_props": null,
+          "member_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ],
+          "name": "Example name",
+          "project_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ]
+        },
+        {
+          "created_at": "2026-01-13T16:04:02.911204Z",
+          "updated_at": "2026-01-13T16:04:02.911204Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null,
+          "description_html": "<p>Details go here.</p>",
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "lead_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+          "logo_props": null,
+          "member_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ],
+          "name": "Another example",
+          "project_ids": [
+            "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+          ]
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    },
+    "destructive": false
+  },
+  {
+    "id": "v2.teamspaces.update-teamspace",
+    "handler": "teamspace-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/test-workspace/teamspaces/11111111-1111-4111-8111-111111111111/",
+    "flags": {
+      "workspace": "test-workspace",
+      "id": "11111111-1111-4111-8111-111111111111"
+    },
+    "body": {
+      "description_html": "Example",
+      "lead_id": "Example",
+      "logo_props": "Example",
+      "member_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ],
+      "name": "Example",
+      "project_ids": [
+        "11111111-1111-4111-8111-111111111111"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-02-03T16:45:12.904117Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "description_html": "<p>Details go here.</p>",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "lead_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f",
+      "logo_props": null,
+      "member_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "name": "Example name",
+      "project_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "destructive": false
+  }
+]

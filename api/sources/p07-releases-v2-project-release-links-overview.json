@@ -1,0 +1,13 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/project-release-links/overview.md",
+  "version": "v2",
+  "family": "project-release-links",
+  "review": "Overview object and endpoint review; all listed operations have dedicated operation contracts.",
+  "operation_ids": [
+    "v2.project-release-links.list-project-release-links",
+    "v2.project-release-links.get-project-release-link",
+    "v2.project-release-links.create-project-release-link",
+    "v2.project-release-links.update-project-release-link",
+    "v2.project-release-links.delete-project-release-link"
+  ]
+}

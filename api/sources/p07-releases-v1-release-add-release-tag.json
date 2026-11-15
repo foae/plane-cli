@@ -1,0 +1,65 @@
+{
+  "id": "v1.release.add-release-tag",
+  "version": "v1",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_slug}/releases/tags/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "commit_hash": {
+            "type": "string"
+          },
+          "git_tag": {
+            "type": "string"
+          },
+          "project": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "version"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 201,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "releases.tags:write"
+  ],
+  "side_effect": "write",
+  "source_url": "https://developers.plane.so/api-reference/release/add-release-tag.md"
+}

@@ -1,0 +1,60 @@
+{
+  "id": "v1.release.add-release-comment",
+  "version": "v1",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_slug}/releases/{release_id}/comments/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          },
+          "release_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "release_id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "comment_html": {
+            "type": "string"
+          },
+          "parent": {
+            "type": "string"
+          },
+          "is_resolved": {
+            "type": "boolean"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 201,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "releases.comments:write"
+  ],
+  "side_effect": "write",
+  "source_url": "https://developers.plane.so/api-reference/release/add-release-comment.md"
+}

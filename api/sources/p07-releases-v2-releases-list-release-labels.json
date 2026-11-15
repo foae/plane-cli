@@ -1,0 +1,67 @@
+{
+  "id": "v2.releases.list-release-labels",
+  "version": "v2",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/releases/{pk}/labels/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "count": {
+            "type": "boolean"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "v2",
+  "scopes": [
+    "releases:read"
+  ],
+  "side_effect": "read",
+  "source_url": "https://developers.plane.so/api-reference/v2/releases/list-release-labels.md"
+}

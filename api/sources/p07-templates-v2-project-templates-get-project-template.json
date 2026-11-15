@@ -1,0 +1,54 @@
+{
+  "id": "v2.project-templates.get-project-template",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-templates/get-project-template.md",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/project-templates/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "templates.projects:read"
+  ],
+  "side_effect": "read",
+  "notes": []
+}

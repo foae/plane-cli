@@ -6,6 +6,7 @@ import (
 	"errors"
 	"net/url"
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/foae/plane-cli/internal/auth"
@@ -49,6 +50,7 @@ func apiRequest(cmd *cobra.Command, method string, segments []string, query url.
 	if e != nil {
 		return &output.Error{Code: "configuration_error", Message: "Could not initialize API transport or CA certificates", Command: commandName(cmd), Exit: 1}
 	}
+	client.EmptySuccessStatus, _ = strconv.Atoi(cmd.Annotations["empty_success_status"])
 	mutation := cmd.Annotations["side_effect"] != "none" && cmd.Annotations["side_effect"] != "read"
 	var response httpx.Response
 	if mutation {

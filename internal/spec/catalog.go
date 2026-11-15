@@ -29,16 +29,17 @@ type Command struct {
 }
 
 type Variant struct {
-	Schema       json.RawMessage   `json:"schema"`
-	Flags        []Flag            `json:"flags"`
-	Method       string            `json:"method,omitempty"`
-	Route        string            `json:"route,omitempty"`
-	Routes       map[string]string `json:"routes,omitempty"`
-	Pagination   string            `json:"pagination,omitempty"`
-	TableColumns []string          `json:"table_columns,omitempty"`
-	ResponseKind string            `json:"response_kind,omitempty"`
-	Scopes       []string          `json:"scopes,omitempty"`
-	Sensitivity  json.RawMessage   `json:"sensitivity,omitempty"`
+	Schema             json.RawMessage   `json:"schema"`
+	Flags              []Flag            `json:"flags"`
+	Method             string            `json:"method,omitempty"`
+	Route              string            `json:"route,omitempty"`
+	Routes             map[string]string `json:"routes,omitempty"`
+	Pagination         string            `json:"pagination,omitempty"`
+	TableColumns       []string          `json:"table_columns,omitempty"`
+	ResponseKind       string            `json:"response_kind,omitempty"`
+	Scopes             []string          `json:"scopes,omitempty"`
+	Sensitivity        json.RawMessage   `json:"sensitivity,omitempty"`
+	EmptySuccessStatus int               `json:"empty_success_status,omitempty"`
 }
 
 type Flag struct {
@@ -104,6 +105,9 @@ func CheckCatalog(c Catalog) error {
 		for version, v := range d.Versions {
 			if version != "v1" && version != "v2" {
 				return errors.New("invalid API version")
+			}
+			if v.EmptySuccessStatus != 0 && (v.EmptySuccessStatus < 200 || v.EmptySuccessStatus >= 300) {
+				return errors.New("empty success status must be a 2xx status")
 			}
 			if err := Compile(v.Schema, c.Resources); err != nil {
 				return fmt.Errorf("schema for %s: %w", path, err)

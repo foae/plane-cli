@@ -1,0 +1,65 @@
+{
+  "id": "v2.project-templates.copy-project-template",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-templates/copy-project-template.md",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/project-templates/copy/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "template_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "template_id"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "responses": [
+    {
+      "status": 201,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "templates.projects:write"
+  ],
+  "side_effect": "write",
+  "notes": [
+    "Copies only a published template to the destination workspace. Returns the new template; drops bundled workitems, publication, verification, categories and source-workspace references upstream."
+  ]
+}

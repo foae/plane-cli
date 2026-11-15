@@ -1,0 +1,42 @@
+{
+  "source_id": "v1:customer:list-customer-work-items",
+  "source_url": "https://developers.plane.so/api-reference/customer/list-customer-work-items.md",
+  "review": "Exact bounded official source reviewed; independently authored contract, not copied documentation.",
+  "operation": "v1.customer.list-customer-work-items",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/customers/{customer_id}/issues/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "customer_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "customer_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "none",
+  "notes": [
+    "Legacy prose mentions optional filtering/request scoping but supplies no selector names; no undocumented selectors are invented."
+  ]
+}

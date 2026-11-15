@@ -1,0 +1,46 @@
+{
+  "id": "v1.release.delete-release-tag",
+  "version": "v1",
+  "method": "DELETE",
+  "path": "/api/v1/workspaces/{workspace_slug}/releases/tags/{tag_id}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          },
+          "tag_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "tag_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 204,
+      "content_type": "application/json",
+      "schema": {
+        "type": "null"
+      }
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "releases.tags:write"
+  ],
+  "side_effect": "delete",
+  "source_url": "https://developers.plane.so/api-reference/release/delete-release-tag.md"
+}

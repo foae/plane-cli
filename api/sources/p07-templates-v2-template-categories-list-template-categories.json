@@ -1,0 +1,81 @@
+{
+  "id": "v2.template-categories.list-template-categories",
+  "source_url": "https://developers.plane.so/api-reference/v2/template-categories/list-template-categories.md",
+  "method": "GET",
+  "path": "/api/v2/template-categories/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "object",
+        "properties": {
+          "is_active": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "search": {
+            "type": "string"
+          },
+          "order_by": {
+            "type": "string",
+            "enum": [
+              "sort_order",
+              "-sort_order",
+              "name",
+              "-name",
+              "created_at",
+              "-created_at",
+              "id",
+              "-id"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "count": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "v2",
+  "scopes": [
+    "template_categories:read"
+  ],
+  "side_effect": "read",
+  "notes": []
+}

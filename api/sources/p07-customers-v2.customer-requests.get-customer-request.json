@@ -1,0 +1,55 @@
+{
+  "source_id": "v2:customer-requests:get-customer-request",
+  "source_url": "https://developers.plane.so/api-reference/v2/customer-requests/get-customer-request.md",
+  "review": "Exact bounded official source reviewed; independently authored contract, not copied documentation.",
+  "operation": "v2.customer-requests.get-customer-request",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/customers/{customer_id}/requests/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "customer_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pk": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "slug",
+          "customer_id",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "none",
+  "notes": []
+}

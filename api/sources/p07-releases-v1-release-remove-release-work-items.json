@@ -1,0 +1,62 @@
+{
+  "id": "v1.release.remove-release-work-items",
+  "version": "v1",
+  "method": "DELETE",
+  "path": "/api/v1/workspaces/{workspace_slug}/releases/{release_id}/work-items/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          },
+          "release_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "release_id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "work_item_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "work_item_ids"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 204,
+      "content_type": "application/json",
+      "schema": {
+        "type": "null"
+      }
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "releases.work_items:write"
+  ],
+  "side_effect": "delete",
+  "source_url": "https://developers.plane.so/api-reference/release/remove-release-work-items.md"
+}

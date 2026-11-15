@@ -1,0 +1,76 @@
+{
+  "id": "v2.release-comments.create-release-comment",
+  "version": "v2",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/releases/{release_id}/comments/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "release_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "release_id"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "comment_html": {
+            "type": "string"
+          },
+          "is_resolved": {
+            "type": "boolean"
+          },
+          "parent_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "comment_html"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 201,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "releases.comments:write"
+  ],
+  "side_effect": "write",
+  "source_url": "https://developers.plane.so/api-reference/v2/release-comments/create-release-comment.md"
+}

@@ -1,0 +1,76 @@
+{
+  "id": "v2.project-work-item-templates.use-work-item-template",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-work-item-templates/use-work-item-template.md",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/work-item-templates/{pk}/use/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "responses": [
+    {
+      "status": 201,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "templates.work_items:write"
+  ],
+  "side_effect": "write",
+  "notes": [
+    "Creates only in path project; body project_id is accepted but ignored upstream. Only name, description_html and priority apply; other seed fields do not."
+  ]
+}

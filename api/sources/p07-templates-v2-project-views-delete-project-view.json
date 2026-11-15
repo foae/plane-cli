@@ -1,0 +1,63 @@
+{
+  "id": "v2.project-views.delete-project-view",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-views/delete-project-view.md",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/views/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "responses": [
+    {
+      "status": 204,
+      "content_type": "none",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.views:write"
+  ],
+  "side_effect": "destructive",
+  "notes": [
+    "Write access is a string per operation parameters; integer response and list-filter access are distinct. Saved filters/display values and pql_filters are strings and are never parsed or translated. Stored query is read-only."
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "source_id": "v1:customer:update-customer-detail",
+  "source_url": "https://developers.plane.so/api-reference/customer/update-customer-detail.md",
+  "review": "Exact bounded official source reviewed; independently authored contract, not copied documentation.",
+  "operation": "v1.customer.update-customer-detail",
+  "method": "PATCH",
+  "path": "/api/v1/workspaces/{workspace_slug}/customers/{resource_id}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "resource_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "resource_id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "object"
+          },
+          "description_html": {
+            "type": "string"
+          },
+          "description_stripped": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "website_url": {
+            "type": "string"
+          },
+          "logo_props": {
+            "type": "object"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "employees": {
+            "type": "integer"
+          },
+          "stage": {
+            "type": "string"
+          },
+          "contract_status": {
+            "type": "string"
+          },
+          "revenue": {
+            "type": "string"
+          },
+          "archived_at": {
+            "type": "string"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          },
+          "logo_asset": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "none",
+  "notes": []
+}

@@ -1,0 +1,114 @@
+{
+  "source_id": "v1:customer:update-customer-property-detail",
+  "source_url": "https://developers.plane.so/api-reference/customer/update-customer-property-detail.md",
+  "review": "Exact bounded official source reviewed; independently authored contract, not copied documentation.",
+  "operation": "v1.customer.update-customer-property-detail",
+  "method": "PATCH",
+  "path": "/api/v1/workspaces/{workspace_slug}/customer-properties/{property_id}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "property_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "property_id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "display_name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "logo_props": {
+            "type": "object"
+          },
+          "sort_order": {
+            "type": "number"
+          },
+          "property_type": {
+            "type": "string",
+            "enum": [
+              "TEXT",
+              "DATETIME",
+              "DECIMAL",
+              "BOOLEAN",
+              "OPTION",
+              "RELATION",
+              "URL",
+              "EMAIL",
+              "FILE"
+            ]
+          },
+          "relation_type": {
+            "type": "string",
+            "enum": [
+              "ISSUE",
+              "USER"
+            ]
+          },
+          "is_required": {
+            "type": "boolean"
+          },
+          "default_value": {
+            "type": "array",
+            "items": {}
+          },
+          "settings": {
+            "type": "object"
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "is_multi": {
+            "type": "boolean"
+          },
+          "validation_rules": {
+            "type": "object"
+          },
+          "external_source": {
+            "type": "string"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "none",
+  "notes": [
+    "Path badge and code examples identify property_id; generic resource_id parameter label is inconsistent."
+  ]
+}

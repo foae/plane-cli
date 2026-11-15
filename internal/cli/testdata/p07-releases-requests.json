@@ -1,0 +1,2867 @@
+[
+  {
+    "id": "v2.releases.list-releases",
+    "handler": "release-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/?count=false&expand=lead%2Ctag&fields=all&per_page=2&status__in=released%2Cunreleased",
+    "flags": {
+      "workspace": "my-team",
+      "per-page": "2",
+      "count": "false",
+      "fields": "all",
+      "expand": "lead,tag",
+      "status--in": "released,unreleased"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Ship 2026.11",
+          "status": "released",
+          "project_id": null,
+          "release_date": "2026-11-15",
+          "target_date": "2026-11-30"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "list"
+    ]
+  },
+  {
+    "id": "v2.releases.get-release",
+    "handler": "release-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/?expand=lead%2Ctag&fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "fields": "all",
+      "expand": "lead,tag"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Ship 2026.11",
+      "status": "released",
+      "project_id": null,
+      "release_date": "2026-11-15",
+      "target_date": "2026-11-30"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "get"
+    ]
+  },
+  {
+    "id": "v2.releases.get-release-changelog",
+    "handler": "release-changelog-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/changelog/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "description_html": "",
+      "description_json": {}
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "changelog",
+      "get"
+    ]
+  },
+  {
+    "id": "v2.releases.create-release",
+    "handler": "release-create",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/my-team/releases/?expand=lead%2Ctag&fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "fields": "all",
+      "expand": "lead,tag"
+    },
+    "body": {
+      "name": "Ship 2026.11",
+      "description_html": "<p>Keep exact HTML</p>",
+      "description_json": {
+        "custom": {
+          "empty": []
+        }
+      },
+      "external_id": null,
+      "external_source": null,
+      "is_latest": false,
+      "is_prerelease": false,
+      "lead_id": null,
+      "release_date": null,
+      "status": "released",
+      "tag_id": null,
+      "target_date": null
+    },
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Ship 2026.11",
+      "status": "released",
+      "project_id": null,
+      "release_date": "2026-11-15",
+      "target_date": "2026-11-30"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "create"
+    ]
+  },
+  {
+    "id": "v2.releases.update-release",
+    "handler": "release-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/?expand=lead%2Ctag&fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "fields": "all",
+      "expand": "lead,tag"
+    },
+    "body": {
+      "description_html": "<p>Keep exact HTML</p>",
+      "description_json": {
+        "custom": {
+          "empty": []
+        }
+      },
+      "external_id": null,
+      "external_source": null,
+      "is_latest": false,
+      "is_prerelease": false,
+      "lead_id": null,
+      "name": "Ship 2026.11",
+      "release_date": "2026-11-15",
+      "status": "released",
+      "tag_id": null,
+      "target_date": null
+    },
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Ship 2026.11",
+      "status": "released",
+      "project_id": null,
+      "release_date": "2026-11-15",
+      "target_date": "2026-11-30"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "update"
+    ]
+  },
+  {
+    "id": "v2.releases.update-release-changelog",
+    "handler": "release-changelog-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/changelog/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "description_html": "",
+      "description_json": {}
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "description_html": "",
+      "description_json": {}
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "changelog",
+      "update"
+    ]
+  },
+  {
+    "id": "v2.releases.delete-release",
+    "handler": "release-delete",
+    "version": "v2",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/?expand=lead%2Ctag&fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "fields": "all",
+      "expand": "lead,tag"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "delete"
+    ]
+  },
+  {
+    "id": "v2.releases.list-release-labels",
+    "handler": "release-label-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/labels/?count=false&fields=all&per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "per-page": "2",
+      "count": "false",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "name": "Stable",
+          "color": "#3f76ff",
+          "sort_order": 7
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "label",
+      "list"
+    ]
+  },
+  {
+    "id": "v2.releases.manage-release-labels",
+    "handler": "release-label-manage",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/labels/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "add": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "remove": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "added": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "removed": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "destructive": true,
+    "command": [
+      "release",
+      "label",
+      "manage"
+    ]
+  },
+  {
+    "id": "v2.releases.list-release-work-items",
+    "handler": "release-work-item-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/work-items/?count=false&expand=state%2Clabels&fields=all&per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "per-page": "2",
+      "count": "false",
+      "fields": "all",
+      "expand": "state,labels"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "project_id": "b38b8643-0604-4d1c-abf6-2b5f1ebf2577",
+          "name": "Shipped work"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "work-item",
+      "list"
+    ]
+  },
+  {
+    "id": "v2.releases.manage-release-work-items",
+    "handler": "release-work-item-manage",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/work-items/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "add": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "remove": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "added": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "removed": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "destructive": true,
+    "command": [
+      "release",
+      "work-item",
+      "manage"
+    ]
+  },
+  {
+    "id": "v2.release-tags.list-release-tags",
+    "handler": "release-tag-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/tags/?count=false&fields=all&per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "per-page": "2",
+      "count": "false",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "version": "release/2026.11+build-007",
+          "git_tag": "release/2026.11+build-007",
+          "commit_hash": "abcdef0123456789",
+          "description": "Exact version string"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "tag",
+      "list"
+    ]
+  },
+  {
+    "id": "v2.release-tags.get-release-tag",
+    "handler": "release-tag-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/tags/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "tag": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "version": "release/2026.11+build-007",
+      "git_tag": "release/2026.11+build-007",
+      "commit_hash": "abcdef0123456789",
+      "description": "Exact version string"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "tag",
+      "get"
+    ]
+  },
+  {
+    "id": "v2.release-tags.create-release-tag",
+    "handler": "release-tag-create",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/my-team/releases/tags/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "fields": "all"
+    },
+    "body": {
+      "version": "release/2026.11+build-007",
+      "commit_hash": null,
+      "description": null,
+      "git_tag": null
+    },
+    "status": 201,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "version": "release/2026.11+build-007",
+      "git_tag": "release/2026.11+build-007",
+      "commit_hash": "abcdef0123456789",
+      "description": "Exact version string"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "tag",
+      "create"
+    ]
+  },
+  {
+    "id": "v2.release-tags.update-release-tag",
+    "handler": "release-tag-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/my-team/releases/tags/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "tag": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": {
+      "commit_hash": null,
+      "description": null,
+      "git_tag": null,
+      "version": "release/2026.11+build-007"
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "version": "release/2026.11+build-007",
+      "git_tag": "release/2026.11+build-007",
+      "commit_hash": "abcdef0123456789",
+      "description": "Exact version string"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "tag",
+      "update"
+    ]
+  },
+  {
+    "id": "v2.release-tags.delete-release-tag",
+    "handler": "release-tag-delete",
+    "version": "v2",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/my-team/releases/tags/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "tag": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "tag",
+      "delete"
+    ]
+  },
+  {
+    "id": "v2.release-labels.list-release-labels",
+    "handler": "release-label-catalog-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/labels/?count=false&fields=all&per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "per-page": "2",
+      "count": "false",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "name": "Stable",
+          "color": "#3f76ff",
+          "sort_order": 7
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "label-catalog",
+      "list"
+    ]
+  },
+  {
+    "id": "v2.release-labels.get-release-label",
+    "handler": "release-label-catalog-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/labels/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "label": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "name": "Stable",
+      "color": "#3f76ff",
+      "sort_order": 7
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "label-catalog",
+      "get"
+    ]
+  },
+  {
+    "id": "v2.release-labels.create-release-label",
+    "handler": "release-label-catalog-create",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/my-team/releases/labels/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "fields": "all"
+    },
+    "body": {
+      "name": "Ship 2026.11",
+      "color": "#3f76ff",
+      "sort_order": 7
+    },
+    "status": 201,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "name": "Stable",
+      "color": "#3f76ff",
+      "sort_order": 7
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "label-catalog",
+      "create"
+    ]
+  },
+  {
+    "id": "v2.release-labels.update-release-label",
+    "handler": "release-label-catalog-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/my-team/releases/labels/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "label": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": {
+      "color": "#3f76ff",
+      "name": "Ship 2026.11",
+      "sort_order": 7
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "name": "Stable",
+      "color": "#3f76ff",
+      "sort_order": 7
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "label-catalog",
+      "update"
+    ]
+  },
+  {
+    "id": "v2.release-labels.delete-release-label",
+    "handler": "release-label-catalog-delete",
+    "version": "v2",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/my-team/releases/labels/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "label": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "label-catalog",
+      "delete"
+    ]
+  },
+  {
+    "id": "v2.release-comments.list-release-comments",
+    "handler": "release-comment-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/?count=false&fields=all&per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "per-page": "2",
+      "count": "false",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "parent_id": null,
+          "is_resolved": false,
+          "comment_html": "<p>Thread</p>",
+          "comment_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "comment",
+      "list"
+    ]
+  },
+  {
+    "id": "v2.release-comments.get-release-comment",
+    "handler": "release-comment-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "comment": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "parent_id": null,
+      "is_resolved": false,
+      "comment_html": "<p>Thread</p>",
+      "comment_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "comment",
+      "get"
+    ]
+  },
+  {
+    "id": "v2.release-comments.create-release-comment",
+    "handler": "release-comment-create",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "fields": "all"
+    },
+    "body": {
+      "comment_html": "<p>Thread</p>",
+      "is_resolved": false,
+      "parent_id": null
+    },
+    "status": 201,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "parent_id": null,
+      "is_resolved": false,
+      "comment_html": "<p>Thread</p>",
+      "comment_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "comment",
+      "create"
+    ]
+  },
+  {
+    "id": "v2.release-comments.update-release-comment",
+    "handler": "release-comment-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "comment": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": {
+      "comment_html": "<p>Thread</p>",
+      "is_resolved": false,
+      "parent_id": null
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "parent_id": null,
+      "is_resolved": false,
+      "comment_html": "<p>Thread</p>",
+      "comment_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "comment",
+      "update"
+    ]
+  },
+  {
+    "id": "v2.release-comments.delete-release-comment",
+    "handler": "release-comment-delete",
+    "version": "v2",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "comment": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "comment",
+      "delete"
+    ]
+  },
+  {
+    "id": "v2.release-links.list-release-links",
+    "handler": "release-link-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/?count=false&fields=all&per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "per-page": "2",
+      "count": "false",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "title": "Build",
+          "url": "https://example.com/build?version=2026.11",
+          "metadata": "exact metadata"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "link",
+      "list"
+    ]
+  },
+  {
+    "id": "v2.release-links.get-release-link",
+    "handler": "release-link-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "link": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": "exact metadata"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "link",
+      "get"
+    ]
+  },
+  {
+    "id": "v2.release-links.create-release-link",
+    "handler": "release-link-create",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "fields": "all"
+    },
+    "body": {
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "status": 201,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": "exact metadata"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "link",
+      "create"
+    ]
+  },
+  {
+    "id": "v2.release-links.update-release-link",
+    "handler": "release-link-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "link": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": {
+      "metadata": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11"
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": "exact metadata"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "link",
+      "update"
+    ]
+  },
+  {
+    "id": "v2.release-links.delete-release-link",
+    "handler": "release-link-delete",
+    "version": "v2",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "link": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "link",
+      "delete"
+    ]
+  },
+  {
+    "id": "v2.project-releases.list-project-releases",
+    "handler": "release-project-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/?count=false&expand=lead%2Ctag&fields=all&per_page=2&status__in=released%2Cunreleased",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "per-page": "2",
+      "count": "false",
+      "fields": "all",
+      "expand": "lead,tag",
+      "status--in": "released,unreleased"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Ship 2026.11",
+          "status": "released",
+          "project_id": "b38b8643-0604-4d1c-abf6-2b5f1ebf2577",
+          "release_date": "2026-11-15",
+          "target_date": "2026-11-30"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "list"
+    ]
+  },
+  {
+    "id": "v2.project-releases.get-project-release",
+    "handler": "release-project-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/?expand=lead%2Ctag&fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "fields": "all",
+      "expand": "lead,tag"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Ship 2026.11",
+      "status": "released",
+      "project_id": "b38b8643-0604-4d1c-abf6-2b5f1ebf2577",
+      "release_date": "2026-11-15",
+      "target_date": "2026-11-30"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "get"
+    ]
+  },
+  {
+    "id": "v2.project-releases.create-project-release",
+    "handler": "release-project-create",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/?expand=lead%2Ctag&fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "fields": "all",
+      "expand": "lead,tag"
+    },
+    "body": {
+      "name": "Ship 2026.11",
+      "status": "released",
+      "target_date": null,
+      "release_date": null,
+      "lead_id": null,
+      "tag_id": null,
+      "is_latest": false,
+      "is_prerelease": false,
+      "description_html": "<p>Keep exact HTML</p>",
+      "description_json": {
+        "custom": {
+          "empty": []
+        }
+      },
+      "external_id": null,
+      "external_source": null
+    },
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Ship 2026.11",
+      "status": "released",
+      "project_id": "b38b8643-0604-4d1c-abf6-2b5f1ebf2577",
+      "release_date": "2026-11-15",
+      "target_date": "2026-11-30"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "create"
+    ]
+  },
+  {
+    "id": "v2.project-releases.update-project-release",
+    "handler": "release-project-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/?expand=lead%2Ctag&fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "fields": "all",
+      "expand": "lead,tag"
+    },
+    "body": {
+      "name": "Ship 2026.11",
+      "status": "released",
+      "target_date": null,
+      "release_date": "2026-11-15",
+      "lead_id": null,
+      "tag_id": null,
+      "is_latest": false,
+      "is_prerelease": false,
+      "description_html": "<p>Keep exact HTML</p>",
+      "description_json": {
+        "custom": {
+          "empty": []
+        }
+      },
+      "external_id": null,
+      "external_source": null
+    },
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Ship 2026.11",
+      "status": "released",
+      "project_id": "b38b8643-0604-4d1c-abf6-2b5f1ebf2577",
+      "release_date": "2026-11-15",
+      "target_date": "2026-11-30"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "update"
+    ]
+  },
+  {
+    "id": "v2.project-releases.delete-project-release",
+    "handler": "release-project-delete",
+    "version": "v2",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/?expand=lead%2Ctag&fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "fields": "all",
+      "expand": "lead,tag"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "project",
+      "delete"
+    ]
+  },
+  {
+    "id": "v2.project-releases.get-project-release-changelog",
+    "handler": "release-project-changelog-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/changelog/",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "description_html": "",
+      "description_json": {}
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "changelog",
+      "get"
+    ]
+  },
+  {
+    "id": "v2.project-releases.update-project-release-changelog",
+    "handler": "release-project-changelog-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/changelog/",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "description_html": "",
+      "description_json": {}
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "description_html": "",
+      "description_json": {}
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "changelog",
+      "update"
+    ]
+  },
+  {
+    "id": "v2.project-releases.list-project-release-labels",
+    "handler": "release-project-label-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/labels/?count=false&fields=all&per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "per-page": "2",
+      "count": "false",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "name": "Stable",
+          "color": "#3f76ff",
+          "sort_order": 7
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "label",
+      "list"
+    ]
+  },
+  {
+    "id": "v2.project-releases.manage-project-release-labels",
+    "handler": "release-project-label-manage",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/labels/",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "add": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "remove": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "added": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "removed": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "destructive": true,
+    "command": [
+      "release",
+      "project",
+      "label",
+      "manage"
+    ]
+  },
+  {
+    "id": "v2.project-releases.list-project-release-work-items",
+    "handler": "release-project-work-item-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/work-items/?count=false&expand=state%2Clabels&fields=all&per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "per-page": "2",
+      "count": "false",
+      "fields": "all",
+      "expand": "state,labels"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "project_id": "b38b8643-0604-4d1c-abf6-2b5f1ebf2577",
+          "name": "Shipped work"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "work-item",
+      "list"
+    ]
+  },
+  {
+    "id": "v2.project-releases.manage-project-release-work-items",
+    "handler": "release-project-work-item-manage",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/work-items/",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "add": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "remove": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "added": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ],
+      "removed": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "destructive": true,
+    "command": [
+      "release",
+      "project",
+      "work-item",
+      "manage"
+    ]
+  },
+  {
+    "id": "v2.project-release-comments.list-project-release-comments",
+    "handler": "release-project-comment-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/?count=false&fields=all&per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "per-page": "2",
+      "count": "false",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "parent_id": null,
+          "is_resolved": false,
+          "comment_html": "<p>Thread</p>",
+          "comment_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "comment",
+      "list"
+    ]
+  },
+  {
+    "id": "v2.project-release-comments.get-project-release-comment",
+    "handler": "release-project-comment-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "comment": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "parent_id": null,
+      "is_resolved": false,
+      "comment_html": "<p>Thread</p>",
+      "comment_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "comment",
+      "get"
+    ]
+  },
+  {
+    "id": "v2.project-release-comments.create-project-release-comment",
+    "handler": "release-project-comment-create",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "fields": "all"
+    },
+    "body": {
+      "comment_html": "<p>Thread</p>",
+      "parent_id": null,
+      "is_resolved": false
+    },
+    "status": 201,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "parent_id": null,
+      "is_resolved": false,
+      "comment_html": "<p>Thread</p>",
+      "comment_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "comment",
+      "create"
+    ]
+  },
+  {
+    "id": "v2.project-release-comments.update-project-release-comment",
+    "handler": "release-project-comment-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "comment": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": {
+      "comment_html": "<p>Thread</p>",
+      "is_resolved": false,
+      "parent_id": null
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "parent_id": null,
+      "is_resolved": false,
+      "comment_html": "<p>Thread</p>",
+      "comment_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "comment",
+      "update"
+    ]
+  },
+  {
+    "id": "v2.project-release-comments.delete-project-release-comment",
+    "handler": "release-project-comment-delete",
+    "version": "v2",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "comment": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "project",
+      "comment",
+      "delete"
+    ]
+  },
+  {
+    "id": "v2.project-release-links.list-project-release-links",
+    "handler": "release-project-link-list",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/?count=false&fields=all&per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "per-page": "2",
+      "count": "false",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "title": "Build",
+          "url": "https://example.com/build?version=2026.11",
+          "metadata": {
+            "build": "2026.11"
+          }
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "link",
+      "list"
+    ]
+  },
+  {
+    "id": "v2.project-release-links.get-project-release-link",
+    "handler": "release-project-link-get",
+    "version": "v2",
+    "method": "GET",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "link": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": {
+        "build": "2026.11"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "link",
+      "get"
+    ]
+  },
+  {
+    "id": "v2.project-release-links.create-project-release-link",
+    "handler": "release-project-link-create",
+    "version": "v2",
+    "method": "POST",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "fields": "all"
+    },
+    "body": {
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": {
+        "custom": {
+          "empty": []
+        }
+      }
+    },
+    "status": 201,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": {
+        "build": "2026.11"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "link",
+      "create"
+    ]
+  },
+  {
+    "id": "v2.project-release-links.update-project-release-link",
+    "handler": "release-project-link-update",
+    "version": "v2",
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "link": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": {
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": {
+        "custom": {
+          "empty": []
+        }
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": {
+        "build": "2026.11"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "link",
+      "update"
+    ]
+  },
+  {
+    "id": "v2.project-release-links.delete-project-release-link",
+    "handler": "release-project-link-delete",
+    "version": "v2",
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/16c61a3a-512a-48ac-b0be-b6b46fe6f430/?fields=all",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "link": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "fields": "all"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "project",
+      "link",
+      "delete"
+    ]
+  },
+  {
+    "id": "v1.release.add-release",
+    "handler": "release-create",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/my-team/releases/",
+    "flags": {
+      "workspace": "my-team"
+    },
+    "body": {
+      "name": "Ship 2026.11",
+      "description_html": "<p>Keep exact HTML</p>",
+      "description_json": {
+        "custom": {
+          "empty": []
+        }
+      },
+      "status": "released",
+      "target_date": "2026-11-30",
+      "release_date": "2026-11-15",
+      "lead": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "tag": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "is_latest": false,
+      "is_prerelease": false,
+      "external_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "external_source": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Ship 2026.11",
+      "status": "released",
+      "project": null,
+      "release_date": "2026-11-15",
+      "target_date": "2026-11-30"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "create"
+    ]
+  },
+  {
+    "id": "v1.release.list-releases",
+    "handler": "release-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/?per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "per-page": "2"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Ship 2026.11",
+          "status": "released",
+          "project": null,
+          "release_date": "2026-11-15",
+          "target_date": "2026-11-30"
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": "1000:0:0"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "list"
+    ]
+  },
+  {
+    "id": "v1.release.get-release-detail",
+    "handler": "release-get",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Ship 2026.11",
+      "status": "released",
+      "project": null,
+      "release_date": "2026-11-15",
+      "target_date": "2026-11-30"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "get"
+    ]
+  },
+  {
+    "id": "v1.release.update-release-detail",
+    "handler": "release-update",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "name": "Ship 2026.11",
+      "description_html": "<p>Keep exact HTML</p>",
+      "description_json": {
+        "custom": {
+          "empty": []
+        }
+      },
+      "status": "released",
+      "target_date": "2026-11-30",
+      "release_date": "2026-11-15",
+      "lead": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "tag": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "is_latest": false,
+      "is_prerelease": false,
+      "external_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "external_source": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Ship 2026.11",
+      "status": "released",
+      "project": null,
+      "release_date": "2026-11-15",
+      "target_date": "2026-11-30"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "update"
+    ]
+  },
+  {
+    "id": "v1.release.delete-release",
+    "handler": "release-delete",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "delete"
+    ]
+  },
+  {
+    "id": "v1.release.add-project-release",
+    "handler": "release-project-create",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/my-team/projects/ENG/releases/",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG"
+    },
+    "body": {
+      "name": "Ship 2026.11",
+      "description_html": "<p>Keep exact HTML</p>",
+      "description_json": {
+        "custom": {
+          "empty": []
+        }
+      },
+      "status": "released",
+      "target_date": "2026-11-30",
+      "release_date": "2026-11-15",
+      "lead": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "tag": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "is_latest": false,
+      "is_prerelease": false,
+      "external_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "external_source": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Ship 2026.11",
+      "status": "released",
+      "project": "b38b8643-0604-4d1c-abf6-2b5f1ebf2577",
+      "release_date": "2026-11-15",
+      "target_date": "2026-11-30"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "create"
+    ]
+  },
+  {
+    "id": "v1.release.list-project-releases",
+    "handler": "release-project-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/projects/ENG/releases/?per_page=2&status__in=released%2Cunreleased",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "per-page": "2",
+      "status--in": "released,unreleased"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Ship 2026.11",
+          "status": "released",
+          "project": "b38b8643-0604-4d1c-abf6-2b5f1ebf2577",
+          "release_date": "2026-11-15",
+          "target_date": "2026-11-30"
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": "1000:0:0"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "list"
+    ]
+  },
+  {
+    "id": "v1.release.get-project-release-detail",
+    "handler": "release-project-get",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Ship 2026.11",
+      "status": "released",
+      "project": "b38b8643-0604-4d1c-abf6-2b5f1ebf2577",
+      "release_date": "2026-11-15",
+      "target_date": "2026-11-30"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "get"
+    ]
+  },
+  {
+    "id": "v1.release.update-project-release-detail",
+    "handler": "release-project-update",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "name": "Ship 2026.11",
+      "description_html": "<p>Keep exact HTML</p>",
+      "description_json": {
+        "custom": {
+          "empty": []
+        }
+      },
+      "status": "released",
+      "target_date": "2026-11-30",
+      "release_date": "2026-11-15",
+      "lead": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "tag": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "is_latest": false,
+      "is_prerelease": false,
+      "external_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "external_source": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Ship 2026.11",
+      "status": "released",
+      "project": "b38b8643-0604-4d1c-abf6-2b5f1ebf2577",
+      "release_date": "2026-11-15",
+      "target_date": "2026-11-30"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "project",
+      "update"
+    ]
+  },
+  {
+    "id": "v1.release.delete-project-release",
+    "handler": "release-project-delete",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/my-team/projects/ENG/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "flags": {
+      "workspace": "my-team",
+      "project": "ENG",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "project",
+      "delete"
+    ]
+  },
+  {
+    "id": "v1.release.add-release-work-items",
+    "handler": "release-work-item-add",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/work-items/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "work_item_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "project_id": "b38b8643-0604-4d1c-abf6-2b5f1ebf2577",
+      "name": "Shipped work"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "work-item",
+      "add"
+    ]
+  },
+  {
+    "id": "v1.release.list-release-work-items",
+    "handler": "release-work-item-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/work-items/?per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "per-page": "2"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "project_id": "b38b8643-0604-4d1c-abf6-2b5f1ebf2577",
+          "name": "Shipped work"
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": "1000:0:0"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "work-item",
+      "list"
+    ]
+  },
+  {
+    "id": "v1.release.remove-release-work-items",
+    "handler": "release-work-item-remove",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/work-items/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "work_item_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "work-item",
+      "remove"
+    ]
+  },
+  {
+    "id": "v1.release.add-release-label",
+    "handler": "release-label-catalog-create",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/my-team/releases/labels/",
+    "flags": {
+      "workspace": "my-team"
+    },
+    "body": {
+      "name": "Ship 2026.11",
+      "color": "#3f76ff",
+      "sort_order": 7,
+      "project": "ENG"
+    },
+    "status": 201,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "name": "Stable",
+      "color": "#3f76ff",
+      "sort_order": 7
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "label-catalog",
+      "create"
+    ]
+  },
+  {
+    "id": "v1.release.list-release-labels",
+    "handler": "release-label-catalog-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/labels/?per_page=2&project_id=ENG",
+    "flags": {
+      "workspace": "my-team",
+      "per-page": "2",
+      "project-id": "ENG"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "name": "Stable",
+          "color": "#3f76ff",
+          "sort_order": 7
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": "1000:0:0"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "label-catalog",
+      "list"
+    ]
+  },
+  {
+    "id": "v1.release.get-release-label-detail",
+    "handler": "release-label-catalog-get",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/labels/16c61a3a-512a-48ac-b0be-b6b46fe6f430/",
+    "flags": {
+      "workspace": "my-team",
+      "label": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "name": "Stable",
+      "color": "#3f76ff",
+      "sort_order": 7
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "label-catalog",
+      "get"
+    ]
+  },
+  {
+    "id": "v1.release.update-release-label-detail",
+    "handler": "release-label-catalog-update",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/my-team/releases/labels/16c61a3a-512a-48ac-b0be-b6b46fe6f430/",
+    "flags": {
+      "workspace": "my-team",
+      "label": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "body": {
+      "name": "Ship 2026.11",
+      "color": "#3f76ff",
+      "sort_order": 7
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "name": "Stable",
+      "color": "#3f76ff",
+      "sort_order": 7
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "label-catalog",
+      "update"
+    ]
+  },
+  {
+    "id": "v1.release.delete-release-label",
+    "handler": "release-label-catalog-delete",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/my-team/releases/labels/16c61a3a-512a-48ac-b0be-b6b46fe6f430/",
+    "flags": {
+      "workspace": "my-team",
+      "label": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "label-catalog",
+      "delete"
+    ]
+  },
+  {
+    "id": "v1.release.add-labels-to-release",
+    "handler": "release-label-add",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/labels/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "label_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "name": "Stable",
+      "color": "#3f76ff",
+      "sort_order": 7
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "label",
+      "add"
+    ]
+  },
+  {
+    "id": "v1.release.list-labels-for-release",
+    "handler": "release-label-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/labels/?per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "per-page": "2"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "name": "Stable",
+          "color": "#3f76ff",
+          "sort_order": 7
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": "1000:0:0"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "label",
+      "list"
+    ]
+  },
+  {
+    "id": "v1.release.remove-labels-from-release",
+    "handler": "release-label-remove",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/labels/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "label_ids": [
+        "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+      ]
+    },
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "label",
+      "remove"
+    ]
+  },
+  {
+    "id": "v1.release.add-release-tag",
+    "handler": "release-tag-create",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/my-team/releases/tags/",
+    "flags": {
+      "workspace": "my-team"
+    },
+    "body": {
+      "version": "release/2026.11+build-007",
+      "description": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "commit_hash": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "git_tag": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "project": "ENG"
+    },
+    "status": 201,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "version": "release/2026.11+build-007",
+      "git_tag": "release/2026.11+build-007",
+      "commit_hash": "abcdef0123456789",
+      "description": "Exact version string"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "tag",
+      "create"
+    ]
+  },
+  {
+    "id": "v1.release.list-release-tags",
+    "handler": "release-tag-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/tags/?per_page=2&project_id=ENG",
+    "flags": {
+      "workspace": "my-team",
+      "per-page": "2",
+      "project-id": "ENG"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "version": "release/2026.11+build-007",
+          "git_tag": "release/2026.11+build-007",
+          "commit_hash": "abcdef0123456789",
+          "description": "Exact version string"
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": "1000:0:0"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "tag",
+      "list"
+    ]
+  },
+  {
+    "id": "v1.release.get-release-tag-detail",
+    "handler": "release-tag-get",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/tags/16c61a3a-512a-48ac-b0be-b6b46fe6f430/",
+    "flags": {
+      "workspace": "my-team",
+      "tag": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "version": "release/2026.11+build-007",
+      "git_tag": "release/2026.11+build-007",
+      "commit_hash": "abcdef0123456789",
+      "description": "Exact version string"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "tag",
+      "get"
+    ]
+  },
+  {
+    "id": "v1.release.update-release-tag-detail",
+    "handler": "release-tag-update",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/my-team/releases/tags/16c61a3a-512a-48ac-b0be-b6b46fe6f430/",
+    "flags": {
+      "workspace": "my-team",
+      "tag": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "body": {
+      "version": "release/2026.11+build-007",
+      "description": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "commit_hash": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "git_tag": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "version": "release/2026.11+build-007",
+      "git_tag": "release/2026.11+build-007",
+      "commit_hash": "abcdef0123456789",
+      "description": "Exact version string"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "tag",
+      "update"
+    ]
+  },
+  {
+    "id": "v1.release.delete-release-tag",
+    "handler": "release-tag-delete",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/my-team/releases/tags/16c61a3a-512a-48ac-b0be-b6b46fe6f430/",
+    "flags": {
+      "workspace": "my-team",
+      "tag": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "tag",
+      "delete"
+    ]
+  },
+  {
+    "id": "v1.release.add-release-comment",
+    "handler": "release-comment-create",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "comment_html": "<p>Thread</p>",
+      "parent": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "is_resolved": false
+    },
+    "status": 201,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "parent": null,
+      "is_resolved": false,
+      "comment": {
+        "description_html": "<p>Thread</p>",
+        "description_json": {}
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "comment",
+      "create"
+    ]
+  },
+  {
+    "id": "v1.release.list-release-comments",
+    "handler": "release-comment-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/?per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "per-page": "2"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "parent": null,
+          "is_resolved": false,
+          "comment": {
+            "description_html": "<p>Thread</p>",
+            "description_json": {}
+          }
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": "1000:0:0"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "comment",
+      "list"
+    ]
+  },
+  {
+    "id": "v1.release.get-release-comment-detail",
+    "handler": "release-comment-get",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/16c61a3a-512a-48ac-b0be-b6b46fe6f430/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "comment": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "parent": null,
+      "is_resolved": false,
+      "comment": {
+        "description_html": "<p>Thread</p>",
+        "description_json": {}
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "comment",
+      "get"
+    ]
+  },
+  {
+    "id": "v1.release.update-release-comment-detail",
+    "handler": "release-comment-update",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/16c61a3a-512a-48ac-b0be-b6b46fe6f430/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "comment": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "body": {
+      "comment_html": "<p>Thread</p>",
+      "parent": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "is_resolved": false,
+      "edited_at": "2026-11-15T09:22:41Z"
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "parent": null,
+      "is_resolved": false,
+      "comment": {
+        "description_html": "<p>Thread</p>",
+        "description_json": {}
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "comment",
+      "update"
+    ]
+  },
+  {
+    "id": "v1.release.delete-release-comment",
+    "handler": "release-comment-delete",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/comments/16c61a3a-512a-48ac-b0be-b6b46fe6f430/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "comment": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "comment",
+      "delete"
+    ]
+  },
+  {
+    "id": "v1.release.add-release-link",
+    "handler": "release-link-create",
+    "version": "v1",
+    "method": "POST",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": {
+        "custom": {
+          "empty": []
+        }
+      }
+    },
+    "status": 201,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": {
+        "build": "2026.11"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "link",
+      "create"
+    ]
+  },
+  {
+    "id": "v1.release.list-release-links",
+    "handler": "release-link-list",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/?per_page=2",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "per-page": "2"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "title": "Build",
+          "url": "https://example.com/build?version=2026.11",
+          "metadata": {
+            "build": "2026.11"
+          }
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": "1000:0:0"
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "link",
+      "list"
+    ]
+  },
+  {
+    "id": "v1.release.get-release-link-detail",
+    "handler": "release-link-get",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/16c61a3a-512a-48ac-b0be-b6b46fe6f430/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "link": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": {
+        "build": "2026.11"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "link",
+      "get"
+    ]
+  },
+  {
+    "id": "v1.release.update-release-link-detail",
+    "handler": "release-link-update",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/16c61a3a-512a-48ac-b0be-b6b46fe6f430/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "link": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "body": {
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": {
+        "custom": {
+          "empty": []
+        }
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "title": "Build",
+      "url": "https://example.com/build?version=2026.11",
+      "metadata": {
+        "build": "2026.11"
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "link",
+      "update"
+    ]
+  },
+  {
+    "id": "v1.release.delete-release-link",
+    "handler": "release-link-delete",
+    "version": "v1",
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/links/16c61a3a-512a-48ac-b0be-b6b46fe6f430/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "link": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "body": null,
+    "status": 204,
+    "response": null,
+    "destructive": true,
+    "command": [
+      "release",
+      "link",
+      "delete"
+    ]
+  },
+  {
+    "id": "v1.release.get-release-changelog",
+    "handler": "release-changelog-get",
+    "version": "v1",
+    "method": "GET",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/changelog/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "changelog": {
+        "description_html": "",
+        "description_json": {}
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "changelog",
+      "get"
+    ]
+  },
+  {
+    "id": "v1.release.update-release-changelog",
+    "handler": "release-changelog-update",
+    "version": "v1",
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/my-team/releases/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/changelog/",
+    "flags": {
+      "workspace": "my-team",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "body": {
+      "description_html": "",
+      "description_json": {}
+    },
+    "status": 200,
+    "response": {
+      "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "release": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "changelog": {
+        "description_html": "",
+        "description_json": {}
+      }
+    },
+    "destructive": false,
+    "command": [
+      "release",
+      "changelog",
+      "update"
+    ]
+  }
+]

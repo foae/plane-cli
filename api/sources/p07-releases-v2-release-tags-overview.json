@@ -1,0 +1,13 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/release-tags/overview.md",
+  "version": "v2",
+  "family": "release-tags",
+  "review": "Overview object and endpoint review; all listed operations have dedicated operation contracts.",
+  "operation_ids": [
+    "v2.release-tags.list-release-tags",
+    "v2.release-tags.get-release-tag",
+    "v2.release-tags.create-release-tag",
+    "v2.release-tags.update-release-tag",
+    "v2.release-tags.delete-release-tag"
+  ]
+}

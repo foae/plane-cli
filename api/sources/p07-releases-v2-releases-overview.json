@@ -1,0 +1,19 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/releases/overview.md",
+  "version": "v2",
+  "family": "releases",
+  "review": "Overview object and endpoint review; all listed operations have dedicated operation contracts.",
+  "operation_ids": [
+    "v2.releases.list-releases",
+    "v2.releases.get-release",
+    "v2.releases.get-release-changelog",
+    "v2.releases.create-release",
+    "v2.releases.update-release",
+    "v2.releases.update-release-changelog",
+    "v2.releases.delete-release",
+    "v2.releases.list-release-labels",
+    "v2.releases.manage-release-labels",
+    "v2.releases.list-release-work-items",
+    "v2.releases.manage-release-work-items"
+  ]
+}

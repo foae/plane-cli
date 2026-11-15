@@ -1,0 +1,98 @@
+{
+  "id": "v2.workspace-views.list-workspace-views",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-views/list-workspace-views.md",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/views/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "access": {
+            "type": "integer",
+            "enum": [
+              0,
+              1
+            ]
+          },
+          "count": {
+            "type": "boolean"
+          },
+          "is_locked": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "owned_by_id": {
+            "type": "string"
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "search": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "v2",
+  "scopes": [
+    "workspaces.views:read"
+  ],
+  "side_effect": "read",
+  "notes": [
+    "Write access is a string per operation parameters; integer response and list-filter access are distinct. Saved filters/display values and pql_filters are strings and are never parsed or translated. Stored query is read-only."
+  ]
+}

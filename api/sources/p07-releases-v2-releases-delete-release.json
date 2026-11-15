@@ -1,0 +1,59 @@
+{
+  "id": "v2.releases.delete-release",
+  "version": "v2",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/{slug}/releases/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 204,
+      "content_type": "application/json",
+      "schema": {
+        "type": "null"
+      }
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "releases:write"
+  ],
+  "side_effect": "delete",
+  "source_url": "https://developers.plane.so/api-reference/v2/releases/delete-release.md"
+}

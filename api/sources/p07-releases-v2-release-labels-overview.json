@@ -1,0 +1,13 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/release-labels/overview.md",
+  "version": "v2",
+  "family": "release-labels",
+  "review": "Overview object and endpoint review; all listed operations have dedicated operation contracts.",
+  "operation_ids": [
+    "v2.release-labels.list-release-labels",
+    "v2.release-labels.get-release-label",
+    "v2.release-labels.create-release-label",
+    "v2.release-labels.update-release-label",
+    "v2.release-labels.delete-release-label"
+  ]
+}

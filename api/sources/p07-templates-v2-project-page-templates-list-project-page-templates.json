@@ -1,0 +1,96 @@
+{
+  "id": "v2.project-page-templates.list-project-page-templates",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-page-templates/list-project-page-templates.md",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/page-templates/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "is_published": {
+            "type": "boolean"
+          },
+          "short_id": {
+            "type": "string"
+          },
+          "search": {
+            "type": "string"
+          },
+          "order_by": {
+            "type": "string",
+            "enum": [
+              "created_at",
+              "-created_at",
+              "id",
+              "-id"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "count": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "v2",
+  "scopes": [
+    "templates.pages:read"
+  ],
+  "side_effect": "read",
+  "notes": []
+}

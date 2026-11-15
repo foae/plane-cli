@@ -1,0 +1,40 @@
+{
+  "source_id": "v1:customer:list-customer-property-values",
+  "source_url": "https://developers.plane.so/api-reference/customer/list-customer-property-values.md",
+  "review": "Exact bounded official source reviewed; independently authored contract, not copied documentation.",
+  "operation": "v1.customer.list-customer-property-values",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/customers/{customer_id}/property-values/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "customer_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "customer_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "none",
+  "notes": []
+}

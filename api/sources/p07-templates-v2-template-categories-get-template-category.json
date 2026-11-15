@@ -1,0 +1,53 @@
+{
+  "id": "v2.template-categories.get-template-category",
+  "source_url": "https://developers.plane.so/api-reference/v2/template-categories/get-template-category.md",
+  "method": "GET",
+  "path": "/api/v2/template-categories/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "is_active": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "template_categories:read"
+  ],
+  "side_effect": "read",
+  "notes": []
+}

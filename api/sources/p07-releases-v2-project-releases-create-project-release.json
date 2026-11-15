@@ -1,0 +1,132 @@
+{
+  "id": "v2.project-releases.create-project-release",
+  "version": "v2",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/releases/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "project_id"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "unreleased",
+              "released",
+              "cancelled"
+            ]
+          },
+          "target_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "release_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "lead_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tag_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "is_latest": {
+            "type": "boolean"
+          },
+          "is_prerelease": {
+            "type": "boolean"
+          },
+          "description_html": {
+            "type": "string"
+          },
+          "description_json": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "external_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "external_source": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 201,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "releases:write"
+  ],
+  "side_effect": "write",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-releases/create-project-release.md"
+}

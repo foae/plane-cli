@@ -1,0 +1,1223 @@
+[
+  {
+    "name": "v2-project-views-list-project-views",
+    "args": [
+      "view",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--count=false",
+      "--offset",
+      "0",
+      "--per-page",
+      "20",
+      "--fields",
+      "id,name"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/ENG/views/",
+    "query": "count=false&fields=id%2Cname&offset=0&per_page=20",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Native response",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "name": "v2-project-views-get-project-view",
+    "args": [
+      "view",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/ENG/views/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-views-create-project-view",
+    "args": [
+      "view",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/ENG/views/",
+    "query": "",
+    "body": {
+      "name": "Saved view",
+      "access": "1",
+      "description": "",
+      "filters": "{\"priority\":[\"high\"]}",
+      "display_filters": "{\"layout\":\"board\"}",
+      "display_properties": "{}",
+      "pql_filters": "priority = \"high\"",
+      "logo_props": "{}",
+      "sort_order": 0,
+      "is_locked": false
+    },
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-views-update-project-view",
+    "args": [
+      "view",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/projects/ENG/views/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": {
+      "name": "Saved view",
+      "access": "1",
+      "description": "",
+      "filters": "{\"priority\":[\"high\"]}",
+      "display_filters": "{\"layout\":\"board\"}",
+      "display_properties": "{}",
+      "pql_filters": "priority = \"high\"",
+      "logo_props": "{}",
+      "sort_order": 0,
+      "is_locked": false
+    },
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-views-delete-project-view",
+    "args": [
+      "view",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/projects/ENG/views/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "name": "v2-workspace-views-list-workspace-views",
+    "args": [
+      "view",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace",
+      "--count=false",
+      "--offset",
+      "0",
+      "--per-page",
+      "20",
+      "--fields",
+      "id,name"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/views/",
+    "query": "count=false&fields=id%2Cname&offset=0&per_page=20",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Native response",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "name": "v2-workspace-views-get-workspace-view",
+    "args": [
+      "view",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/views/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-workspace-views-create-workspace-view",
+    "args": [
+      "view",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/views/",
+    "query": "",
+    "body": {
+      "name": "Saved view",
+      "access": "1",
+      "description": "",
+      "filters": "{\"priority\":[\"high\"]}",
+      "display_filters": "{\"layout\":\"board\"}",
+      "display_properties": "{}",
+      "pql_filters": "priority = \"high\"",
+      "logo_props": "{}",
+      "sort_order": 0,
+      "is_locked": false
+    },
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-workspace-views-update-workspace-view",
+    "args": [
+      "view",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/views/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": {
+      "name": "Saved view",
+      "access": "1",
+      "description": "",
+      "filters": "{\"priority\":[\"high\"]}",
+      "display_filters": "{\"layout\":\"board\"}",
+      "display_properties": "{}",
+      "pql_filters": "priority = \"high\"",
+      "logo_props": "{}",
+      "sort_order": 0,
+      "is_locked": false
+    },
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-workspace-views-delete-workspace-view",
+    "args": [
+      "view",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/views/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "name": "v2-project-work-item-templates-list-project-work-item-templates",
+    "args": [
+      "work-item-template",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--count=false",
+      "--offset",
+      "0",
+      "--per-page",
+      "20",
+      "--fields",
+      "id,name"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/ENG/work-item-templates/",
+    "query": "count=false&fields=id%2Cname&offset=0&per_page=20",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Native response",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "name": "v2-project-work-item-templates-get-project-work-item-template",
+    "args": [
+      "work-item-template",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/ENG/work-item-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-work-item-templates-create-project-work-item-template",
+    "args": [
+      "work-item-template",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/ENG/work-item-templates/",
+    "query": "",
+    "body": {
+      "name": "Template",
+      "short_description": null,
+      "is_published": false,
+      "template_data": {
+        "name": "Seed"
+      }
+    },
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-work-item-templates-update-project-work-item-template",
+    "args": [
+      "work-item-template",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/projects/ENG/work-item-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": {
+      "name": "Template",
+      "short_description": null,
+      "is_published": false,
+      "template_data": {
+        "name": "Seed"
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-work-item-templates-delete-project-work-item-template",
+    "args": [
+      "work-item-template",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/projects/ENG/work-item-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "name": "v2-project-work-item-templates-use-work-item-template",
+    "args": [
+      "work-item-template",
+      "use",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/ENG/work-item-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/use/",
+    "query": "",
+    "body": {
+      "name": "Override",
+      "project_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "status": 201,
+    "response": {
+      "id": "new-object",
+      "name": "Override",
+      "project_id": "path-project",
+      "description_html": "<p>Seed</p>",
+      "priority": "high",
+      "custom_fields": {}
+    }
+  },
+  {
+    "name": "v2-workspace-work-item-templates-list-workspace-work-item-templates",
+    "args": [
+      "work-item-template",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace",
+      "--count=false",
+      "--offset",
+      "0",
+      "--per-page",
+      "20",
+      "--fields",
+      "id,name"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/work-item-templates/",
+    "query": "count=false&fields=id%2Cname&offset=0&per_page=20",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Native response",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "name": "v2-workspace-work-item-templates-get-workspace-work-item-template",
+    "args": [
+      "work-item-template",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/work-item-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-workspace-work-item-templates-create-workspace-work-item-template",
+    "args": [
+      "work-item-template",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/work-item-templates/",
+    "query": "",
+    "body": {
+      "name": "Template",
+      "short_description": null,
+      "is_published": false,
+      "template_data": {
+        "name": "Seed"
+      }
+    },
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-workspace-work-item-templates-update-workspace-work-item-template",
+    "args": [
+      "work-item-template",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/work-item-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": {
+      "name": "Template",
+      "short_description": null,
+      "is_published": false,
+      "template_data": {
+        "name": "Seed"
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-workspace-work-item-templates-delete-workspace-work-item-template",
+    "args": [
+      "work-item-template",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/work-item-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "name": "v2-project-page-templates-list-project-page-templates",
+    "args": [
+      "page-template",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--count=false",
+      "--offset",
+      "0",
+      "--per-page",
+      "20",
+      "--fields",
+      "id,name"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/ENG/page-templates/",
+    "query": "count=false&fields=id%2Cname&offset=0&per_page=20",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Native response",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "name": "v2-project-page-templates-get-project-page-template",
+    "args": [
+      "page-template",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/ENG/page-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-page-templates-create-project-page-template",
+    "args": [
+      "page-template",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/ENG/page-templates/",
+    "query": "",
+    "body": {
+      "name": "Template",
+      "short_description": null,
+      "is_published": false,
+      "template_data": {
+        "name": "Seed"
+      }
+    },
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-page-templates-update-project-page-template",
+    "args": [
+      "page-template",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/projects/ENG/page-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": {
+      "name": "Template",
+      "short_description": null,
+      "is_published": false,
+      "template_data": {
+        "name": "Seed"
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-page-templates-delete-project-page-template",
+    "args": [
+      "page-template",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "project",
+      "--project",
+      "ENG",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/projects/ENG/page-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "name": "v2-workspace-page-templates-list-workspace-page-templates",
+    "args": [
+      "page-template",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace",
+      "--count=false",
+      "--offset",
+      "0",
+      "--per-page",
+      "20",
+      "--fields",
+      "id,name"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/page-templates/",
+    "query": "count=false&fields=id%2Cname&offset=0&per_page=20",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Native response",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "name": "v2-workspace-page-templates-get-workspace-page-template",
+    "args": [
+      "page-template",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/page-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-workspace-page-templates-create-workspace-page-template",
+    "args": [
+      "page-template",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/page-templates/",
+    "query": "",
+    "body": {
+      "name": "Template",
+      "short_description": null,
+      "is_published": false,
+      "template_data": {
+        "name": "Seed"
+      }
+    },
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-workspace-page-templates-update-workspace-page-template",
+    "args": [
+      "page-template",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/page-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": {
+      "name": "Template",
+      "short_description": null,
+      "is_published": false,
+      "template_data": {
+        "name": "Seed"
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-workspace-page-templates-delete-workspace-page-template",
+    "args": [
+      "page-template",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--scope",
+      "workspace",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/page-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "name": "v2-project-templates-list-project-templates",
+    "args": [
+      "project-template",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--count=false",
+      "--offset",
+      "0",
+      "--per-page",
+      "20",
+      "--fields",
+      "id,name"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/project-templates/",
+    "query": "count=false&fields=id%2Cname&offset=0&per_page=20",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Native response",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "name": "v2-project-templates-get-project-template",
+    "args": [
+      "project-template",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/project-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-templates-create-project-template",
+    "args": [
+      "project-template",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/project-templates/",
+    "query": "",
+    "body": {
+      "name": "Template",
+      "short_description": null,
+      "is_published": false,
+      "template_data": {
+        "name": "Seed"
+      }
+    },
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-templates-update-project-template",
+    "args": [
+      "project-template",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/project-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": {
+      "name": "Template",
+      "short_description": null,
+      "is_published": false,
+      "template_data": {
+        "name": "Seed"
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-templates-delete-project-template",
+    "args": [
+      "project-template",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/project-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "name": "v2-project-templates-copy-project-template",
+    "args": [
+      "project-template",
+      "copy",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/project-templates/copy/",
+    "query": "",
+    "body": {
+      "template_id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    },
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "name": "v2-project-templates-use-project-template",
+    "args": [
+      "project-template",
+      "use",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/project-templates/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/use/",
+    "query": "",
+    "body": {
+      "name": "Created project",
+      "identifier": "NEW",
+      "network": 0,
+      "project_lead": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "default_assignee": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "start_date": null,
+      "target_date": "2026-11-15T09:00:00Z"
+    },
+    "status": 201,
+    "response": {
+      "id": "new-object",
+      "name": "Created object",
+      "identifier": "NEW",
+      "network": 0
+    }
+  },
+  {
+    "name": "v2-template-categories-list-template-categories",
+    "args": [
+      "template-category",
+      "list",
+      "--api-version",
+      "v2",
+      "--count=false",
+      "--offset",
+      "0",
+      "--per-page",
+      "20",
+      "--fields",
+      "id,name"
+    ],
+    "method": "GET",
+    "path": "/api/v2/template-categories/",
+    "query": "count=false&fields=id%2Cname&offset=0&per_page=20",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "name": "Native response",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "total_count": 1,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "name": "v2-template-categories-get-template-category",
+    "args": [
+      "template-category",
+      "get",
+      "--api-version",
+      "v2",
+      "--id",
+      "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53"
+    ],
+    "method": "GET",
+    "path": "/api/v2/template-categories/b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Native response",
+      "unknown": 9007199254740993
+    }
+  }
+]

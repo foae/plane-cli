@@ -1,0 +1,25 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/project-releases/overview.md",
+  "version": "v2",
+  "family": "project-releases",
+  "review": "Overview object and endpoint review; all listed operations have dedicated operation contracts.",
+  "operation_ids": [
+    "v2.project-releases.list-project-releases",
+    "v2.project-releases.get-project-release",
+    "v2.project-releases.create-project-release",
+    "v2.project-releases.update-project-release",
+    "v2.project-releases.delete-project-release",
+    "v2.project-releases.get-project-release-changelog",
+    "v2.project-releases.update-project-release-changelog",
+    "v2.project-releases.list-project-release-labels",
+    "v2.project-releases.manage-project-release-labels",
+    "v2.project-releases.list-project-release-work-items",
+    "v2.project-releases.manage-project-release-work-items"
+  ],
+  "scope_rules": [
+    "Project routes never return workspace releases or another project release.",
+    "v1 project release children use workspace paths; v2 project children use project paths.",
+    "Workspace and project release entitlements are separate.",
+    "Catalog lists workspace labels/tags only, but project attachment accepts any same-workspace id."
+  ]
+}

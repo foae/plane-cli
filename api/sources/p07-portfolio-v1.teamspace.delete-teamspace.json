@@ -1,0 +1,80 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/teamspace/delete-teamspace.md",
+  "operations": [
+    {
+      "id": "v1.teamspace.delete-teamspace",
+      "packet": "P07",
+      "version": "v1",
+      "command_path": [
+        "teamspace",
+        "delete"
+      ],
+      "action": "delete",
+      "scope": "workspace",
+      "method": "DELETE",
+      "path": "/api/v1/workspaces/{workspace_slug}/teamspaces/{teamspace_id}/",
+      "request_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "object",
+            "properties": {
+              "workspace_slug": {
+                "type": "string"
+              },
+              "teamspace_id": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "workspace_slug",
+              "teamspace_id"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "path"
+        ]
+      },
+      "response_schema": true,
+      "responses": [
+        {
+          "status": 204,
+          "content_type": "application/json",
+          "schema": true
+        }
+      ],
+      "pagination": "none",
+      "scopes": [
+        "write",
+        "teamspaces:write"
+      ],
+      "feature_evidence": "Official operation contract; native fake-server acceptance does not establish deployed availability.",
+      "side_effect": "delete",
+      "source_url": "https://developers.plane.so/api-reference/teamspace/delete-teamspace.md",
+      "provenance_id": "p07-portfolio-v1.teamspace.delete-teamspace",
+      "lifecycle": "implemented",
+      "acceptance_scenario_ids": [
+        "TestP07PortfolioRequests"
+      ],
+      "sensitivity": {
+        "review": "Documented resource fields contain no declared authentication secrets.",
+        "input": [],
+        "output": [],
+        "ordinary_read_redaction": [],
+        "intentional_secret_delivery": false,
+        "signed_target_paths": [],
+        "signed_form_paths": [],
+        "extension_fields": "Native resource data is preserved; callers must treat user-provided content as sensitive."
+      },
+      "availability": {
+        "v1": "implemented"
+      },
+      "review_status": "awaiting-packet-planner-review",
+      "notes": []
+    }
+  ],
+  "notes": []
+}

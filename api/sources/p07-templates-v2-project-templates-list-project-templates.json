@@ -1,0 +1,101 @@
+{
+  "id": "v2.project-templates.list-project-templates",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-templates/list-project-templates.md",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/project-templates/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "category_id": {
+            "type": "string"
+          },
+          "is_published": {
+            "type": "boolean"
+          },
+          "is_verified": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "short_id": {
+            "type": "string"
+          },
+          "search": {
+            "type": "string"
+          },
+          "order_by": {
+            "type": "string",
+            "enum": [
+              "created_at",
+              "-created_at",
+              "id",
+              "-id"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "count": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          },
+          "category_id__in": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "v2",
+  "scopes": [
+    "templates.projects:read"
+  ],
+  "side_effect": "read",
+  "notes": []
+}

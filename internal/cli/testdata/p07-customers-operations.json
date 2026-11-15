@@ -1,0 +1,1165 @@
+[
+  {
+    "id": "v2.customers.list-customers",
+    "version": "v2",
+    "args": [
+      "customer",
+      "list",
+      "--workspace",
+      "example",
+      "--fields",
+      "id,name",
+      "--count=false",
+      "--offset",
+      "0",
+      "--per-page",
+      "2"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/customers/",
+    "query": {
+      "fields": "id,name",
+      "count": "false",
+      "offset": "0",
+      "per_page": "2"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "native-id",
+          "name": "Native",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "id": "v2.customers.get-customer",
+    "version": "v2",
+    "args": [
+      "customer",
+      "get",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields",
+      "id,name"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/customers/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v2.customers.create-customer",
+    "version": "v2",
+    "args": [
+      "customer",
+      "create",
+      "--workspace",
+      "example",
+      "--fields",
+      "id,name"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/customers/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": {
+      "name": "Acme",
+      "description": null,
+      "employees": 0,
+      "email": ""
+    },
+    "status": 201,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v2.customers.update-customer",
+    "version": "v2",
+    "args": [
+      "customer",
+      "update",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields",
+      "id,name"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/customers/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": {
+      "name": "Acme",
+      "description": null,
+      "employees": 0,
+      "email": ""
+    },
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v2.customers.delete-customer",
+    "version": "v2",
+    "args": [
+      "customer",
+      "delete",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes",
+      "--fields",
+      "id,name"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/customers/11111111-1111-4111-8111-111111111111/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.customers.upsert-customer",
+    "version": "v2",
+    "args": [
+      "customer",
+      "upsert",
+      "--workspace",
+      "example",
+      "--fields",
+      "id,name"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/customers/upsert/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": {
+      "name": "Acme",
+      "description": null,
+      "employees": 0,
+      "email": "",
+      "external_source": "crm",
+      "external_id": "acme"
+    },
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v2.customers.list-customer-work-items",
+    "version": "v2",
+    "args": [
+      "customer",
+      "work-item",
+      "list",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields",
+      "id,name",
+      "--count=false",
+      "--offset",
+      "0",
+      "--per-page",
+      "2",
+      "--customer-request-id",
+      "33333333-3333-4333-8333-333333333333"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/customers/11111111-1111-4111-8111-111111111111/work-items/",
+    "query": {
+      "fields": "id,name",
+      "count": "false",
+      "offset": "0",
+      "per_page": "2",
+      "customer_request_id": "33333333-3333-4333-8333-333333333333"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "native-id",
+          "name": "Native",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "id": "v2.customers.manage-customer-work-items",
+    "version": "v2",
+    "args": [
+      "customer",
+      "work-item",
+      "manage",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/customers/11111111-1111-4111-8111-111111111111/work-items/",
+    "query": {},
+    "body": {
+      "add": [
+        "44444444-4444-4444-8444-444444444444"
+      ],
+      "remove": [
+        "44444444-4444-4444-8444-444444444444"
+      ]
+    },
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v2.customer-requests.list-customer-requests",
+    "version": "v2",
+    "args": [
+      "customer",
+      "request",
+      "list",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields",
+      "id,name",
+      "--count=false",
+      "--offset",
+      "0",
+      "--per-page",
+      "2"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/customers/11111111-1111-4111-8111-111111111111/requests/",
+    "query": {
+      "fields": "id,name",
+      "count": "false",
+      "offset": "0",
+      "per_page": "2"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "native-id",
+          "name": "Native",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "id": "v2.customer-requests.get-customer-request",
+    "version": "v2",
+    "args": [
+      "customer",
+      "request",
+      "get",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--request",
+      "33333333-3333-4333-8333-333333333333",
+      "--fields",
+      "id,name"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/customers/11111111-1111-4111-8111-111111111111/requests/33333333-3333-4333-8333-333333333333/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v2.customer-requests.create-customer-request",
+    "version": "v2",
+    "args": [
+      "customer",
+      "request",
+      "create",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields",
+      "id,name"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/customers/11111111-1111-4111-8111-111111111111/requests/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": {
+      "name": "Request",
+      "description": null,
+      "description_html": "<p>literal</p>",
+      "work_item_ids": []
+    },
+    "status": 201,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v2.customer-requests.update-customer-request",
+    "version": "v2",
+    "args": [
+      "customer",
+      "request",
+      "update",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--request",
+      "33333333-3333-4333-8333-333333333333",
+      "--yes",
+      "--fields",
+      "id,name"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/customers/11111111-1111-4111-8111-111111111111/requests/33333333-3333-4333-8333-333333333333/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": {
+      "name": "Request",
+      "description": null,
+      "description_html": "<p>literal</p>",
+      "work_item_ids": []
+    },
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v2.customer-requests.delete-customer-request",
+    "version": "v2",
+    "args": [
+      "customer",
+      "request",
+      "delete",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--request",
+      "33333333-3333-4333-8333-333333333333",
+      "--yes",
+      "--fields",
+      "id,name"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/customers/11111111-1111-4111-8111-111111111111/requests/33333333-3333-4333-8333-333333333333/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.customer-properties.list-customer-properties",
+    "version": "v2",
+    "args": [
+      "customer",
+      "property",
+      "list",
+      "--workspace",
+      "example",
+      "--fields",
+      "id,name",
+      "--count=false",
+      "--offset",
+      "0",
+      "--per-page",
+      "2"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/customer-properties/",
+    "query": {
+      "fields": "id,name",
+      "count": "false",
+      "offset": "0",
+      "per_page": "2"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "native-id",
+          "name": "Native",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next": null,
+      "pagination": {
+        "style": "offset"
+      }
+    }
+  },
+  {
+    "id": "v2.customer-properties.get-customer-property",
+    "version": "v2",
+    "args": [
+      "customer",
+      "property",
+      "get",
+      "--workspace",
+      "example",
+      "--property",
+      "22222222-2222-4222-8222-222222222222",
+      "--fields",
+      "id,name"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/customer-properties/22222222-2222-4222-8222-222222222222/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v2.customer-properties.create-customer-property",
+    "version": "v2",
+    "args": [
+      "customer",
+      "property",
+      "create",
+      "--workspace",
+      "example",
+      "--fields",
+      "id,name"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/customer-properties/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": {
+      "display_name": "Tier",
+      "property_type": "OPTION",
+      "default_value": [],
+      "is_required": false,
+      "options": [
+        {
+          "name": "Enterprise",
+          "color": "#123456"
+        }
+      ]
+    },
+    "status": 201,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v2.customer-properties.update-customer-property",
+    "version": "v2",
+    "args": [
+      "customer",
+      "property",
+      "update",
+      "--workspace",
+      "example",
+      "--property",
+      "22222222-2222-4222-8222-222222222222",
+      "--fields",
+      "id,name"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/example/customer-properties/22222222-2222-4222-8222-222222222222/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": {
+      "display_name": "Tier",
+      "property_type": "OPTION",
+      "default_value": [],
+      "is_required": false,
+      "options": [
+        {
+          "name": "Enterprise",
+          "color": "#123456"
+        }
+      ]
+    },
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v2.customer-properties.delete-customer-property",
+    "version": "v2",
+    "args": [
+      "customer",
+      "property",
+      "delete",
+      "--workspace",
+      "example",
+      "--property",
+      "22222222-2222-4222-8222-222222222222",
+      "--yes",
+      "--fields",
+      "id,name"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/example/customer-properties/22222222-2222-4222-8222-222222222222/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v2.customer-property-values.list-customer-property-values",
+    "version": "v2",
+    "args": [
+      "customer",
+      "property-value",
+      "list",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--fields",
+      "id,name"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/example/customers/11111111-1111-4111-8111-111111111111/property-values/",
+    "query": {
+      "fields": "id,name"
+    },
+    "body": null,
+    "status": 200,
+    "response": {
+      "text": null,
+      "empty": [],
+      "false": false,
+      "zero": 0,
+      "blank": ""
+    }
+  },
+  {
+    "id": "v2.customer-property-values.set-customer-property-values",
+    "version": "v2",
+    "args": [
+      "customer",
+      "property-value",
+      "set",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/example/customers/11111111-1111-4111-8111-111111111111/property-values/",
+    "query": {},
+    "body": {
+      "values": {
+        "text": null,
+        "empty": [],
+        "false": false,
+        "zero": 0,
+        "blank": ""
+      }
+    },
+    "status": 201,
+    "response": null
+  },
+  {
+    "id": "v1.customer.add-customer",
+    "version": "v1",
+    "args": [
+      "customer",
+      "create",
+      "--workspace",
+      "example"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/example/customers/",
+    "query": {},
+    "body": {
+      "name": "Acme",
+      "description": {},
+      "employees": 0,
+      "email": ""
+    },
+    "status": 201,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.link-work-items-to-customer",
+    "version": "v1",
+    "args": [
+      "customer",
+      "work-item",
+      "add",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/issues/",
+    "query": {},
+    "body": {
+      "issue_ids": [
+        "44444444-4444-4444-8444-444444444444"
+      ]
+    },
+    "status": 201,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.list-customers",
+    "version": "v1",
+    "args": [
+      "customer",
+      "list",
+      "--workspace",
+      "example"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/customers/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "native-id",
+          "name": "Native",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": null
+    }
+  },
+  {
+    "id": "v1.customer.get-customer-detail",
+    "version": "v1",
+    "args": [
+      "customer",
+      "get",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.list-customer-work-items",
+    "version": "v1",
+    "args": [
+      "customer",
+      "work-item",
+      "list",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/issues/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.update-customer-detail",
+    "version": "v1",
+    "args": [
+      "customer",
+      "update",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": {
+      "name": "Acme",
+      "description": {},
+      "employees": 0,
+      "email": ""
+    },
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.unlink-work-item-from-customer",
+    "version": "v1",
+    "args": [
+      "customer",
+      "work-item",
+      "remove",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--work-item",
+      "44444444-4444-4444-8444-444444444444",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/issues/44444444-4444-4444-8444-444444444444/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v1.customer.delete-customer",
+    "version": "v1",
+    "args": [
+      "customer",
+      "delete",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v1.customer.add-customer-property",
+    "version": "v1",
+    "args": [
+      "customer",
+      "property",
+      "create",
+      "--workspace",
+      "example"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/example/customer-properties/",
+    "query": {},
+    "body": {
+      "display_name": "Tier",
+      "property_type": "TEXT",
+      "default_value": [],
+      "settings": {},
+      "is_required": false
+    },
+    "status": 201,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.list-customer-properties",
+    "version": "v1",
+    "args": [
+      "customer",
+      "property",
+      "list",
+      "--workspace",
+      "example"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/customer-properties/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "results": [
+        {
+          "id": "native-id",
+          "name": "Native",
+          "unknown": 9007199254740993
+        }
+      ],
+      "next_page_results": false,
+      "next_cursor": null
+    }
+  },
+  {
+    "id": "v1.customer.get-customer-property-detail",
+    "version": "v1",
+    "args": [
+      "customer",
+      "property",
+      "get",
+      "--workspace",
+      "example",
+      "--property",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/customer-properties/22222222-2222-4222-8222-222222222222/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.list-customer-property-values",
+    "version": "v1",
+    "args": [
+      "customer",
+      "property-value",
+      "list",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/property-values/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "text": null,
+      "empty": [],
+      "false": false,
+      "zero": 0,
+      "blank": ""
+    }
+  },
+  {
+    "id": "v1.customer.get-customer-property-value",
+    "version": "v1",
+    "args": [
+      "customer",
+      "property-value",
+      "get",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--property",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/property-values/22222222-2222-4222-8222-222222222222/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.update-customer-property-detail",
+    "version": "v1",
+    "args": [
+      "customer",
+      "property",
+      "update",
+      "--workspace",
+      "example",
+      "--property",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/example/customer-properties/22222222-2222-4222-8222-222222222222/",
+    "query": {},
+    "body": {
+      "display_name": "Tier",
+      "property_type": "TEXT",
+      "default_value": [],
+      "settings": {},
+      "is_required": false
+    },
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.update-customer-property-value",
+    "version": "v1",
+    "args": [
+      "customer",
+      "property-value",
+      "update",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--property",
+      "22222222-2222-4222-8222-222222222222"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/property-values/22222222-2222-4222-8222-222222222222/",
+    "query": {},
+    "body": {
+      "values": []
+    },
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v1.customer.delete-customer-property",
+    "version": "v1",
+    "args": [
+      "customer",
+      "property",
+      "delete",
+      "--workspace",
+      "example",
+      "--property",
+      "22222222-2222-4222-8222-222222222222",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/example/customer-properties/22222222-2222-4222-8222-222222222222/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "id": "v1.customer.add-customer-request",
+    "version": "v1",
+    "args": [
+      "customer",
+      "request",
+      "create",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/requests/",
+    "query": {},
+    "body": {
+      "name": "Request",
+      "description": {},
+      "description_html": "<p>literal</p>",
+      "work_item_ids": []
+    },
+    "status": 201,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.list-customer-requests",
+    "version": "v1",
+    "args": [
+      "customer",
+      "request",
+      "list",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/requests/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.get-customer-request-detail",
+    "version": "v1",
+    "args": [
+      "customer",
+      "request",
+      "get",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--request",
+      "33333333-3333-4333-8333-333333333333"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/requests/33333333-3333-4333-8333-333333333333/",
+    "query": {},
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.update-customer-request-detail",
+    "version": "v1",
+    "args": [
+      "customer",
+      "request",
+      "update",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--request",
+      "33333333-3333-4333-8333-333333333333",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/requests/33333333-3333-4333-8333-333333333333/",
+    "query": {},
+    "body": {
+      "name": "Request",
+      "description": {},
+      "description_html": "<p>literal</p>",
+      "work_item_ids": []
+    },
+    "status": 200,
+    "response": {
+      "id": "native-id",
+      "name": "Native",
+      "unknown": 9007199254740993
+    }
+  },
+  {
+    "id": "v1.customer.delete-customer-request",
+    "version": "v1",
+    "args": [
+      "customer",
+      "request",
+      "delete",
+      "--workspace",
+      "example",
+      "--customer",
+      "11111111-1111-4111-8111-111111111111",
+      "--request",
+      "33333333-3333-4333-8333-333333333333",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/example/customers/11111111-1111-4111-8111-111111111111/requests/33333333-3333-4333-8333-333333333333/",
+    "query": {},
+    "body": null,
+    "status": 204,
+    "response": null
+  }
+]

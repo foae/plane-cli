@@ -1,0 +1,99 @@
+{
+  "id": "v2.project-views.create-project-view",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-views/create-project-view.md",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/views/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "project_id"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "access": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "display_filters": {
+            "type": "string"
+          },
+          "display_properties": {
+            "type": "string"
+          },
+          "filters": {
+            "type": "string"
+          },
+          "is_locked": {
+            "type": "boolean"
+          },
+          "logo_props": {
+            "type": "string"
+          },
+          "pql_filters": {
+            "type": "string"
+          },
+          "sort_order": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "responses": [
+    {
+      "status": 201,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "projects.views:write"
+  ],
+  "side_effect": "write",
+  "notes": [
+    "Write access is a string per operation parameters; integer response and list-filter access are distinct. Saved filters/display values and pql_filters are strings and are never parsed or translated. Stored query is read-only."
+  ]
+}

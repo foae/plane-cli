@@ -1,0 +1,115 @@
+{
+  "id": "v2.releases.list-releases",
+  "version": "v2",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/releases/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean"
+          },
+          "is_latest": {
+            "type": "boolean"
+          },
+          "is_prerelease": {
+            "type": "boolean"
+          },
+          "lead_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "search": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "unreleased",
+              "released",
+              "cancelled"
+            ]
+          },
+          "status__in": {
+            "type": "string"
+          },
+          "tag_id": {
+            "type": "string"
+          },
+          "target_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "v2",
+  "scopes": [
+    "releases:read"
+  ],
+  "side_effect": "read",
+  "source_url": "https://developers.plane.so/api-reference/v2/releases/list-releases.md"
+}

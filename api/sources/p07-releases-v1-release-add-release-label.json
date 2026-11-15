@@ -1,0 +1,62 @@
+{
+  "id": "v1.release.add-release-label",
+  "version": "v1",
+  "method": "POST",
+  "path": "/api/v1/workspaces/{workspace_slug}/releases/labels/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          },
+          "sort_order": {
+            "type": "number"
+          },
+          "project": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 201,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "releases.labels:write"
+  ],
+  "side_effect": "write",
+  "source_url": "https://developers.plane.so/api-reference/release/add-release-label.md"
+}

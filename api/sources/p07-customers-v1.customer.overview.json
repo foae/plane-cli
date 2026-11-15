@@ -1,0 +1,6 @@
+{
+  "source_id": "v1:customer:overview",
+  "source_url": "https://developers.plane.so/api-reference/customer/overview.md",
+  "review": "Exact bounded official source reviewed; independently authored contract, not copied documentation.",
+  "resolution": "Resource overview; all listed methods have separately indexed operation contracts."
+}

@@ -1,0 +1,95 @@
+{
+  "id": "v1.release.update-release-detail",
+  "version": "v1",
+  "method": "PATCH",
+  "path": "/api/v1/workspaces/{workspace_slug}/releases/{release_id}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          },
+          "release_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "release_id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description_html": {
+            "type": "string"
+          },
+          "description_json": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "unreleased",
+              "released",
+              "cancelled"
+            ]
+          },
+          "target_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "lead": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "is_latest": {
+            "type": "boolean"
+          },
+          "is_prerelease": {
+            "type": "boolean"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "external_source": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "releases:write"
+  ],
+  "side_effect": "write",
+  "source_url": "https://developers.plane.so/api-reference/release/update-release-detail.md"
+}

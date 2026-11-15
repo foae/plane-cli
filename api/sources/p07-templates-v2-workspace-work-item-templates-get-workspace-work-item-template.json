@@ -1,0 +1,54 @@
+{
+  "id": "v2.workspace-work-item-templates.get-workspace-work-item-template",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-work-item-templates/get-workspace-work-item-template.md",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/work-item-templates/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "templates.work_items:read"
+  ],
+  "side_effect": "read",
+  "notes": []
+}

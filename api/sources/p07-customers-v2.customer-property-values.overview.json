@@ -1,0 +1,6 @@
+{
+  "source_id": "v2:customer-property-values:overview",
+  "source_url": "https://developers.plane.so/api-reference/v2/customer-property-values/overview.md",
+  "review": "Exact bounded official source reviewed; independently authored contract, not copied documentation.",
+  "resolution": "Resource overview; all listed methods have separately indexed operation contracts."
+}

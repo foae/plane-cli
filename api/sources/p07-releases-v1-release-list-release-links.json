@@ -1,0 +1,58 @@
+{
+  "id": "v1.release.list-release-links",
+  "version": "v1",
+  "method": "GET",
+  "path": "/api/v1/workspaces/{workspace_slug}/releases/{release_id}/links/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "workspace_slug": {
+            "type": "string"
+          },
+          "release_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "workspace_slug",
+          "release_id"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "per_page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "responses": [
+    {
+      "status": 200,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "v1",
+  "scopes": [
+    "releases.links:read"
+  ],
+  "side_effect": "read",
+  "source_url": "https://developers.plane.so/api-reference/release/list-release-links.md"
+}

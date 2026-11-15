@@ -1,0 +1,185 @@
+{
+  "id": "v2.project-templates.use-project-template",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-templates/use-project-template.md",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/project-templates/{pk}/use/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "identifier": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "description_html": {
+            "type": "string"
+          },
+          "network": {
+            "type": "integer",
+            "enum": [
+              0,
+              2
+            ]
+          },
+          "project_lead": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "default_assignee": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "state_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "urgent"
+            ]
+          },
+          "start_date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "target_date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "timezone": {
+            "type": "string"
+          },
+          "archive_in": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 12
+          },
+          "close_in": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 12
+          },
+          "logo_props": {
+            "type": "object"
+          },
+          "cover_image": {
+            "type": "string"
+          },
+          "emoji": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "icon_prop": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "external_id": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "external_source": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "module_view": {
+            "type": "boolean"
+          },
+          "cycle_view": {
+            "type": "boolean"
+          },
+          "issue_views_view": {
+            "type": "boolean"
+          },
+          "page_view": {
+            "type": "boolean"
+          },
+          "intake_view": {
+            "type": "boolean"
+          },
+          "is_time_tracking_enabled": {
+            "type": "boolean"
+          },
+          "is_issue_type_enabled": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "identifier"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "responses": [
+    {
+      "status": 201,
+      "content_type": "application/json",
+      "schema": true
+    }
+  ],
+  "pagination": "none",
+  "scopes": [
+    "templates.projects:write"
+  ],
+  "side_effect": "write",
+  "notes": [
+    "Returns new project with 201 before background seed content completes. No automatic polling. network is integer here; project_lead and default_assignee are body UUID keys without _id suffix."
+  ]
+}
