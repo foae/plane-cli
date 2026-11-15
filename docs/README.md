@@ -5,6 +5,7 @@ The CLI provides offline discovery, named connections, authentication and docume
 ## Choose your task
 
 - Use the CLI → [usage](usage.md).
+- Have an agent install and configure the CLI → [agent installation runbook](agent-install.md).
 - Product scope, choices, exclusions → [decisions](planning/decisions.md).
 - Implement a bounded slice → [packet sequence](implementation/README.md), then only its prerequisites.
 - Command names, inputs, JSON, errors, tables → [CLI contract](design/cli-contract.md).

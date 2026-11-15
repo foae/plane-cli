@@ -18,6 +18,16 @@ go install github.com/foae/plane-cli/cmd/plane-cli@v1.0.3
 
 Or download a Linux/macOS **amd64 or arm64** archive from [Releases](https://github.com/foae/plane-cli/releases/latest). Verify it against `SHA256SUMS`, extract it, and put `plane-cli` on your `PATH`. The matching agent skill is a separate `plane-cli-skill_1.0.3.tar.gz` asset.
 
+**Tell your agent to install this cli tool:**
+
+Copy this into your agent:
+
+```text
+Install Plane CLI and its matching agent skill by following https://raw.githubusercontent.com/foae/plane-cli/main/docs/agent-install.md. Verify the installation, then help configure my Plane connection using authorized settings and a secure credential source. Ask me only for missing details or required permission; never ask me to paste secrets into chat.
+```
+
+The [agent installation runbook](docs/agent-install.md) covers verified downloads, configuration, credential safety and read-only access checks.
+
 ## First request
 
 Replace the server URL and workspace slug below with your own. API selection resolves explicit `--api-version` → nonempty `PLANE_CLI_API_VERSION` → saved selected connection → `v2`, for execution and offline discovery. Saved v1 connections remain v1. New connections resolve `--api-version` → nonempty `PLANE_CLI_API_VERSION` → `v2`, without inheriting the selected connection. Updates retain the stored version unless explicitly changed. Invalid explicit versions are rejected; the CLI never automatically falls back between versions.
