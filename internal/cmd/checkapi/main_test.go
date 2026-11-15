@@ -19,7 +19,7 @@ func fixture(t *testing.T) {
 		t.Fatal(err)
 	}
 	dest := t.TempDir()
-	for _, name := range []string{"api", "docs", "internal"} {
+	for _, name := range []string{"api", "docs", "internal", "Makefile"} {
 		if err := filepath.WalkDir(filepath.Join(root, name), func(path string, entry os.DirEntry, walkErr error) error {
 			if walkErr != nil {
 				return walkErr
@@ -32,7 +32,7 @@ func fixture(t *testing.T) {
 			if entry.IsDir() {
 				return os.MkdirAll(target, 0755)
 			}
-			if !strings.HasSuffix(path, ".json") && !strings.HasSuffix(path, ".tsv") && !strings.HasSuffix(path, ".go") && !strings.HasSuffix(path, ".md") {
+			if rel != "Makefile" && !strings.HasSuffix(path, ".json") && !strings.HasSuffix(path, ".tsv") && !strings.HasSuffix(path, ".go") && !strings.HasSuffix(path, ".md") {
 				return nil
 			}
 			data, err := os.ReadFile(path)
@@ -91,12 +91,12 @@ func TestRejectUnknownAcceptanceScenario(t *testing.T) {
 		rewrite(t, "api/catalog.json", func(c map[string]any) {
 			for _, value := range c["operations"].([]any) {
 				op := value.(map[string]any)
-				if op["lifecycle"] == "implemented" {
+				if op["lifecycle"] == "implemented" || op["lifecycle"] == "verified" {
 					op["acceptance_scenario_ids"] = []any{id}
 					return
 				}
 			}
-			t.Fatal("fixture has no implemented operation")
+			t.Fatal("fixture has no callable operation")
 		})
 	}
 	for _, id := range []string{"TestDoesNotExist", "TestProjectWireOperations/v1/does-not-exist", "TestProjectWireOperations/v1/bulk-create", ""} {
@@ -163,10 +163,14 @@ func Testhelper() {}
 func TestRejectIncompleteRelease(t *testing.T) {
 	fixture(t)
 	rewrite(t, "api/catalog.json", func(c map[string]any) {
-		completion := c["packet_completion"].(map[string]any)
-		for _, packet := range []string{"P01", "P02", "P03", "P04", "P05", "P06", "P07", "P08", "P09", "P10"} {
-			completion[packet] = map[string]any{"completed_operation_ids": []any{}, "status": "pending"}
+		for _, value := range c["sources"].([]any) {
+			source := value.(map[string]any)
+			if source["evidence_status"] == "verified" {
+				source["evidence_status"] = "reviewed"
+				return
+			}
 		}
+		t.Fatal("fixture has no verified source")
 	})
 	if err := run("release", "P00"); err == nil || !strings.Contains(err.Error(), "release coverage incomplete") {
 		t.Fatalf("got %v", err)
@@ -244,6 +248,7 @@ func TestRejectUnsubstantiatedVerification(t *testing.T) {
 		op := c["operations"].([]any)[0].(map[string]any)
 		op["lifecycle"] = "verified"
 		op["acceptance_scenario_ids"] = []any{"TestPacketCatalog"}
+		delete(op, "verification")
 	})
 	if err := run("packet", "P00"); err == nil {
 		t.Fatal("accepted verified status without verification evidence")
@@ -410,34 +415,15 @@ func TestCompletionReconciliation(t *testing.T) {
 	for _, mode := range []string{"packet", "release"} {
 		t.Run(mode, func(t *testing.T) {
 			fixture(t)
-			var operationID string
+			var completed []any
 			rewrite(t, "api/catalog.json", func(c map[string]any) {
-				command := discoveryCommand(c)
-				command["local"] = false
-				var op map[string]any
-				for _, value := range c["operations"].([]any) {
-					candidate := value.(map[string]any)
-					if candidate["packet"] == "P03" {
-						op = candidate
-						break
-					}
+				completion := c["packet_completion"].(map[string]any)["P03"].(map[string]any)
+				completed = completion["completed_operation_ids"].([]any)
+				if len(completed) == 0 {
+					t.Fatal("fixture has no completed P03 operations")
 				}
-				if op == nil {
-					t.Fatal("fixture has no P03 operation")
-				}
-				operationID = op["id"].(string)
-				op["command_path"] = command["path"]
-				op["lifecycle"] = "verified"
-				evidence := "api/sources/v1-project-get.json"
-				op["verification"] = map[string]any{"operation": evidence, "expected_fixtures": evidence, "acceptance_command": evidence, "acceptance_result": evidence, "planner_approval": evidence}
-				// The selected packet remains P00 in release mode: P03 must still reconcile.
-				if mode == "packet" {
-					c["packet_completion"].(map[string]any)["P03"] = map[string]any{"completed_operation_ids": []any{}, "status": "pending"}
-				} else {
-					for _, packet := range []string{"P01", "P02", "P03", "P04", "P05", "P06", "P07", "P08", "P09", "P10"} {
-						c["packet_completion"].(map[string]any)[packet] = map[string]any{"completed_operation_ids": []any{}, "status": "pending"}
-					}
-				}
+				// Release mode selects P00 but must still reconcile P03.
+				completion["completed_operation_ids"] = completed[1:]
 			})
 			packet := "P03"
 			if mode == "release" {
@@ -447,14 +433,10 @@ func TestCompletionReconciliation(t *testing.T) {
 				t.Fatalf("omitted verified operation accepted: %v", err)
 			}
 			rewrite(t, "api/catalog.json", func(c map[string]any) {
-				c["packet_completion"].(map[string]any)["P03"].(map[string]any)["completed_operation_ids"] = []any{operationID}
+				c["packet_completion"].(map[string]any)["P03"].(map[string]any)["completed_operation_ids"] = completed
 			})
-			if mode == "packet" {
-				if err := run(mode, packet); err != nil {
-					t.Fatalf("exact verified set rejected: %v", err)
-				}
-			} else if err := run(mode, packet); err == nil || !strings.Contains(err.Error(), "release coverage incomplete") {
-				t.Fatalf("exact sets did not reach remaining release coverage gate: %v", err)
+			if err := run(mode, packet); err != nil {
+				t.Fatalf("exact verified set rejected: %v", err)
 			}
 		})
 	}

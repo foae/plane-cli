@@ -1,6 +1,6 @@
 # Release and installation
 
-P10 provides local version planning, artifact packaging, a portable skill, explicit update checking and an approval-gated publication workflow. No release publication is claimed here. Publishing tags/releases and external Homebrew tap changes need explicit maintainer authorization. The ordered delivery slices are in [P10](implementation/10-delivery.md).
+Release tooling provides version planning, artifact packaging, a portable skill, explicit update checking and an approval-gated publication workflow. Published versions and assets are listed on [GitHub Releases](https://github.com/foae/plane-cli/releases). Publishing tags/releases and external Homebrew tap changes need explicit maintainer authorization. The ordered delivery slices are in [P10](implementation/10-delivery.md).
 
 ## Supported artifacts
 
@@ -81,7 +81,9 @@ Asset names are `plane-cli_X.Y.Z_OS_ARCH.tar.gz` for the four supported targets,
 
 Dispatch `Release` with an existing annotated tag. It runs the agreed gates, packages immutable assets and exercises Linux/macOS host acceptance. The `release-draft` environment gates draft creation; the separate `release` environment gates public visibility. Maintainers must configure required reviewers on both environments before dispatching: environment names alone do not enforce approval. The publisher verifies downloaded bytes after uploads and on resume, never clobbers different assets, and never creates tags. The generated `plane-cli.rb` is a staged publication artifact; external tap updates remain deliberate maintainer actions after publication and checksum verification.
 
-Homebrew is a maintainer-selected tap, not an assumed Homebrew/core submission. Packaging renders a formula from the exact staged archive checksums; a maintainer proposes the authorized tap update only after published-byte verification. Prereleases do not replace the stable formula. Formula/version/URLs/checksums must agree; test both target selection and the installed CLI as described above. Tap ownership/access remains a publication prerequisite, not a reason to skip local formula acceptance.
+The maintainer-owned tap is [foae/homebrew-tap](https://github.com/foae/homebrew-tap), not a Homebrew/core submission. Install with `brew install foae/tap/plane-cli`. Packaging renders a formula from the exact staged archive checksums; update the tap only after published-byte verification. Prereleases do not replace the stable formula. Formula/version/URLs/checksums must agree; test both target selection and the installed CLI as described above.
+
+Both `release-draft` and `release` environments require approval from `foae` and permit the `main` dispatch branch. A failed release never permits moving an existing tag: prepare a corrected patch version instead. `v1.0.0` remains an immutable source tag; its publication gate caught an incomplete catalog-test fixture before release assets were uploaded. The corrected release target is `v1.0.1`.
 
 ## Explicit update checking
 
