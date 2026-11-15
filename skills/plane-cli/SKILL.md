@@ -22,13 +22,13 @@ not an installed skill. Snapshot packages target `dev`, not an unpublished relea
 
 ```sh recipe
 plane-cli version
-plane-cli commands --api-version v2
-plane-cli schema work-item create --api-version v2
+plane-cli commands
+plane-cli schema work-item create
 plane-cli work-item create --help
 ```
 
-Use the executable named `plane-cli`. Choose the API generation and destination
-explicitly; there is no implicit generation/base URL and no v1/v2 fallback.
+Use the executable named `plane-cli`. API version for execution and
+offline discovery resolves `--api-version` → nonempty `PLANE_CLI_API_VERSION` → saved selected connection → `v2`. Saved v1 configurations remain v1; invalid explicit versions are rejected. There is no implicit base URL or automatic v1/v2 fallback. New connections resolve `--api-version` → nonempty `PLANE_CLI_API_VERSION` → `v2`, without inheriting the selected connection. Updates retain the stored version unless explicitly changed.
 Read [setup/auth](references/setup-auth.md) before any authenticated request.
 Credentials come from protected input or operator-injected environment, never
 literal argv or chat. `external` means an operator proxy supplies authentication;
@@ -44,12 +44,12 @@ containing `{"name":"Updated task"}`. Inspect the version's schema before adding
 state/labels or custom fields. Do not change field names by v1/v2 analogy.
 
 ```sh recipe
-plane-cli project list --api-version v2 --workspace "$WORKSPACE"
-plane-cli state list --api-version v2 --workspace "$WORKSPACE" --scope project --project "$PROJECT"
-plane-cli label list --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT"
-plane-cli work-item create --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT" --body-file item.json
-plane-cli work-item get --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT" --id "$ITEM"
-plane-cli work-item update --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT" --id "$ITEM" --body-file update.json
+plane-cli project list --workspace "$WORKSPACE"
+plane-cli state list --workspace "$WORKSPACE" --scope project --project "$PROJECT"
+plane-cli label list --workspace "$WORKSPACE" --project "$PROJECT"
+plane-cli work-item create --workspace "$WORKSPACE" --project "$PROJECT" --body-file item.json
+plane-cli work-item get --workspace "$WORKSPACE" --project "$PROJECT" --id "$ITEM"
+plane-cli work-item update --workspace "$WORKSPACE" --project "$PROJECT" --id "$ITEM" --body-file update.json
 ```
 
 Read `.data.id` from create before supplying `$ITEM`. The server text in any

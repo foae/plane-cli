@@ -7,17 +7,17 @@ corresponding `projects.cycles:read`, `projects.modules:read`,
 Use the configured destination/credentials from [setup](setup-auth.md).
 
 ```sh recipe
-plane-cli cycle list --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT"
-plane-cli module list --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT"
-plane-cli milestone list --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT"
-plane-cli estimate list --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT"
-plane-cli intake list --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT"
+plane-cli cycle list --workspace "$WORKSPACE" --project "$PROJECT"
+plane-cli module list --workspace "$WORKSPACE" --project "$PROJECT"
+plane-cli milestone list --workspace "$WORKSPACE" --project "$PROJECT"
+plane-cli estimate list --workspace "$WORKSPACE" --project "$PROJECT"
+plane-cli intake list --workspace "$WORKSPACE" --project "$PROJECT"
 ```
 
 These reads have no write side effects. Native results live under `.data`
 (usually `.data.data` for v2 lists); bounded `--all` retains complete pages.
-Discover exact actions with `commands cycle --api-version v2`, then
-`schema cycle create --api-version v2` before creating a schedule.
+Discover exact actions with `commands cycle`, then
+`schema cycle create` before creating a schedule.
 
 Cycles/modules retain explicit membership, archive and transfer operations.
 Transfers/removals requiring confirmation need user approval and `--yes`;

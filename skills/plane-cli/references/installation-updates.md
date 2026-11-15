@@ -9,7 +9,7 @@ unpublished release target. Snapshot metadata additionally declares `snapshot`.
 ```sh recipe
 plane-cli version
 plane-cli update check --help
-plane-cli schema update check --api-version v2
+plane-cli schema update check
 ```
 
 Compare `.data.version` from `version` (optional leading `v`) with

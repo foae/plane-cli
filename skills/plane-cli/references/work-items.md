@@ -32,14 +32,14 @@ explicit empty/zero/false/null values. Never combine a body file and body flags.
 Preview first; do not infer authorization from a valid dry-run:
 
 ```sh recipe
-plane-cli work-item delete --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT" --id "$ITEM" --dry-run
+plane-cli work-item delete --workspace "$WORKSPACE" --project "$PROJECT" --id "$ITEM" --dry-run
 ```
 
 A real delete **without** `--yes` must fail locally with exit 2 and no request.
 Only when the user has authorized deletion of this exact target:
 
 ```sh recipe
-plane-cli work-item delete --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT" --id "$ITEM" --yes
+plane-cli work-item delete --workspace "$WORKSPACE" --project "$PROJECT" --id "$ITEM" --yes
 ```
 
 Success is HTTP 204, `.data:null`. Archives/bulk deletes retain their safeguards;
@@ -53,7 +53,7 @@ If mutation output was lost, a server error occurs, or
 Read the known exact item first:
 
 ```sh recipe
-plane-cli work-item get --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT" --id "$ITEM"
+plane-cli work-item get --workspace "$WORKSPACE" --project "$PROJECT" --id "$ITEM"
 ```
 
 For a create with no returned ID, inspect a narrowly scoped list/search using
@@ -67,5 +67,5 @@ V1 `epic` has documented separate routes; v2 uses work-item types, not invented
 epic endpoints. Supplemental v1 grouped counts, extra `issues/search`, and
 project/member-lite routes are evidence-blocked. Documented work-item search and
 advanced-search remain available; matching semantics remain server-defined.
-Next discovery: `plane-cli commands work-item --api-version v2`, exact leaf
-`--help`, and `plane-cli schema work-item update --api-version v2`.
+Next discovery: `plane-cli commands work-item`, exact leaf
+`--help`, and `plane-cli schema work-item update`.

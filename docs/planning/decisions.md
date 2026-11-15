@@ -6,7 +6,7 @@ Planning record, 2026-11-14. User decisions are binding; engineering defaults be
 
 - Full public REST API coverage: Cloud, Community self-hosted, Commercial self-hosted. Unsupported server features must be reported accurately, not fabricated or emulated.
 - CLI only, implemented in Go; binary `plane-cli`. No MCP server.
-- Explicit API v1/v2 selection per connection, JSON by default, explicit destructive confirmation.
+- API v2 by default, preserving explicit API v1/v2 configuration per connection, JSON by default, explicit destructive confirmation.
 - Linux/macOS, amd64/arm64. Release archives/checksums, `go install`, maintained Homebrew formula.
 - PAT and full OAuth login/refresh, operator-owned app credentials. Environment, OS keyring and owner-only file backends must all be available and configurable.
 - CLI-managed OAuth login saves credentials in owner-only files by default and renews automatically; OS keyring is opt-in. Environment token overrides remain externally managed for that invocation.
@@ -28,7 +28,7 @@ Planning record, 2026-11-14. User decisions are binding; engineering defaults be
 - Cobra, standard-library HTTP/JSON, internal-only packages; no runtime schema downloads or generated public SDK.
 - Stable CLI envelope around version-native response bodies; schema version independent of REST version.
 - Named `connection` commands. Configuration namespace `foae-plane-cli`, environment prefix `PLANE_CLI_`; avoid Plane Compose's binary/config/environment collisions.
-- New connections require explicit base URL and API version. No implicit Cloud destination and no automatic version detection. A command may override version explicitly, never silently.
+- New connections require an explicit base URL; API version for execution and offline discovery resolves explicit `--api-version` → nonempty `PLANE_CLI_API_VERSION` → saved selected connection → `v2`. Preserve saved v1 configurations and reject invalid explicit versions. No implicit Cloud destination, automatic version detection or automatic version fallback. New connections resolve `--api-version` → nonempty `PLANE_CLI_API_VERSION` → `v2`, without inheriting the selected connection. Updates retain the stored version unless explicitly changed.
 - Auth mode and storage are distinct. Default auth mode `api-key`, default persistent backend `file`; `env` and `keyring` remain explicit alternatives. No automatic persistence of environment overrides and no silent backend fallback.
 - No general-purpose raw HTTP escape hatch or PQL translator in this release. Complete reviewed commands, not `api request`, satisfy coverage.
 - No automatic HTTP retries, telemetry, background/startup network update checks, persistent capability cache, or auto-browser launch. Explicit `update check` is planned under [P10](../implementation/10-delivery.md) with no Plane credential access. OAuth renewal happens before API dispatch when expiry is known, never by replaying a failed mutation.

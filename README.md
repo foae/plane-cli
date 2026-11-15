@@ -1,6 +1,6 @@
 # Plane CLI
 
-An agent-first, JSON-first CLI for [Plane](https://plane.so), for humans, scripts and AI coding agents. Manage projects, work items, cycles, pages, customers, releases and more through explicit API v1/v2 connections.
+An agent-first, JSON-first CLI for [Plane](https://plane.so), for humans, scripts and AI coding agents. Manage projects, work items, cycles, pages, customers, releases and more through API v1/v2 connections, defaulting to v2.
 
 ## Install
 
@@ -13,17 +13,17 @@ brew install foae/tap/plane-cli
 **Go (Go 1.27.4 or later):**
 
 ```sh
-go install github.com/foae/plane-cli/cmd/plane-cli@v1.0.2
+go install github.com/foae/plane-cli/cmd/plane-cli@v1.0.3
 ```
 
-Or download a Linux/macOS **amd64 or arm64** archive from [Releases](https://github.com/foae/plane-cli/releases/latest). Verify it against `SHA256SUMS`, extract it, and put `plane-cli` on your `PATH`. The matching agent skill is a separate `plane-cli-skill_1.0.2.tar.gz` asset.
+Or download a Linux/macOS **amd64 or arm64** archive from [Releases](https://github.com/foae/plane-cli/releases/latest). Verify it against `SHA256SUMS`, extract it, and put `plane-cli` on your `PATH`. The matching agent skill is a separate `plane-cli-skill_1.0.3.tar.gz` asset.
 
 ## First request
 
-Replace the server URL and workspace slug below with your own. Select the API generation supported by your server; the CLI never silently switches versions.
+Replace the server URL and workspace slug below with your own. API selection resolves explicit `--api-version` → nonempty `PLANE_CLI_API_VERSION` → saved selected connection → `v2`, for execution and offline discovery. Saved v1 connections remain v1. New connections resolve `--api-version` → nonempty `PLANE_CLI_API_VERSION` → `v2`, without inheriting the selected connection. Updates retain the stored version unless explicitly changed. Invalid explicit versions are rejected; the CLI never automatically falls back between versions.
 
 ```sh
-plane-cli connection add personal --base-url https://plane.example.net --api-version v2
+plane-cli connection add personal --base-url https://plane.example.net
 plane-cli connection use personal
 plane-cli auth login --connection personal --api-key-file -
 # Supply your API key on stdin, then EOF. Do not put secrets in command arguments.
@@ -39,9 +39,9 @@ Help and JSON schemas work offline, without credentials:
 
 ```sh
 plane-cli --help
-plane-cli commands --api-version v2
+plane-cli commands
 plane-cli work-item --help
-plane-cli schema work-item create --api-version v2
+plane-cli schema work-item create
 plane-cli version
 ```
 

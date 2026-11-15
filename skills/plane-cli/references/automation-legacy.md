@@ -6,10 +6,10 @@ explicit project/workspace scope. Reads below require respectively
 No mode switch, graph repair, feature enablement or alternate route runs implicitly.
 
 ```sh recipe
-plane-cli workflow project list --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT"
-plane-cli automation project list --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT"
-plane-cli schema workflow workspace update --api-version v2
-plane-cli schema automation project node create --api-version v2
+plane-cli workflow project list --workspace "$WORKSPACE" --project "$PROJECT"
+plane-cli automation project list --workspace "$WORKSPACE" --project "$PROJECT"
+plane-cli schema workflow workspace update
+plane-cli schema automation project node create
 ```
 
 List reads have no write effects; native pages stay under `.data`, usually

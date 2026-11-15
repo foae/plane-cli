@@ -7,7 +7,7 @@
     "summary": "List implemented commands",
     "side_effect": "none",
     "examples": [
-      "plane-cli commands --api-version v2"
+      "plane-cli commands"
     ],
     "versions": {
       "v1": {
@@ -34,10 +34,7 @@
                   ]
                 }
               },
-              "additionalProperties": false,
-              "required": [
-                "api-version"
-              ]
+              "additionalProperties": false
             }
           },
           "required": [
@@ -50,9 +47,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "Explicit API generation (v1 or v2)"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           }
         ]
       },
@@ -80,10 +77,7 @@
                   ]
                 }
               },
-              "additionalProperties": false,
-              "required": [
-                "api-version"
-              ]
+              "additionalProperties": false
             }
           },
           "required": [
@@ -96,9 +90,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "Explicit API generation (v1 or v2)"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           }
         ]
       }

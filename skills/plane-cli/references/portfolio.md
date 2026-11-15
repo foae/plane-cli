@@ -7,15 +7,15 @@ A **Plane release** is workspace/project content, not a CLI binary distribution.
 For CLI installation/update checks read [installation](installation-updates.md).
 
 ```sh recipe
-plane-cli initiative list --api-version v2 --workspace "$WORKSPACE"
-plane-cli customer list --api-version v2 --workspace "$WORKSPACE"
-plane-cli release project list --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT"
-plane-cli view list --api-version v2 --workspace "$WORKSPACE" --scope project --project "$PROJECT"
+plane-cli initiative list --workspace "$WORKSPACE"
+plane-cli customer list --workspace "$WORKSPACE"
+plane-cli release project list --workspace "$WORKSPACE" --project "$PROJECT"
+plane-cli view list --workspace "$WORKSPACE" --scope project --project "$PROJECT"
 ```
 
 Reads have no write side effects. Native responses remain `.data`, typically
 `.data.data` for v2 lists. Use declared pagination/fields only; `--all` preserves
-native pages. Read `commands initiative --api-version v2`, then exact leaf schema
+native pages. Read `commands initiative`, then exact leaf schema
 before associating resources. P07 documents no upstream-blocked exception, but
 supported generations/actions differ and require server entitlements/permissions.
 No operation silently falls back to another generation or scope.
@@ -32,14 +32,14 @@ requests are separate resources. Follow each exact schema, not work-item
 property conventions. Workspace releases use `release ACTION`; project releases
 use `release project ACTION`. Catalog tag/label definitions and attached
 labels/work-items/comments/links are distinct resources. Inspect
-`commands release --api-version v2` and each leaf's parent/target IDs.
+`commands release` and each leaf's parent/target IDs.
 **The first release changelog GET creates an empty changelog upstream**: a GET
 method does not universally mean no side effect. Never run it as passive probing.
 
 Templates and views preserve native filters/content. Discover
-`commands work-item-template --api-version v2`, `commands page-template --api-version v2`,
-`commands project-template --api-version v2`, `commands template-category --api-version v2`
-or `commands view --api-version v2`, then the exact leaf schema.
+`commands work-item-template`, `commands page-template`,
+`commands project-template`, `commands template-category`
+or `commands view`, then the exact leaf schema.
 Work-item/page templates and views require explicit project/workspace scope;
 project templates are workspace-owned, categories global. Saved-view filters
 and `pql_filters` are native strings, not a CLI query language. Changing view

@@ -13,7 +13,7 @@ import (
 
 func commandsHandler(catalog spec.Catalog, out io.Writer) handler {
 	return func(cmd *cobra.Command, args []string, _ map[string]any) error {
-		version, _ := cmd.Flags().GetString("api-version")
+		version := cmd.Annotations["api-version"]
 		type summary struct {
 			Path       []string `json:"path"`
 			Summary    string   `json:"summary"`
@@ -47,7 +47,7 @@ func schemaHandler(catalog spec.Catalog, out io.Writer) handler {
 		if !ok {
 			return errors.New("unknown command path")
 		}
-		version, _ := cmd.Flags().GetString("api-version")
+		version := cmd.Annotations["api-version"]
 		v, ok := d.Versions[version]
 		if !ok {
 			return unavailable("schema")

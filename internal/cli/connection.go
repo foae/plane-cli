@@ -69,6 +69,14 @@ func connectionHandlers(out io.Writer) map[string]handler {
 				return errors.New("empty connection name")
 			}
 			flags := settingFlags(cmd)
+			if action == "add" {
+				if _, explicit := flags["api-version"]; !explicit {
+					flags["api-version"] = os.Getenv("PLANE_CLI_API_VERSION")
+					if flags["api-version"] == "" {
+						flags["api-version"] = "v2"
+					}
+				}
+			}
 			// Validate supplied settings before creating local directories or locks.
 			if action == "add" {
 				_, e := validateConnection(connectionValues(config.Connection{AuthMode: "api-key", Backend: "file"}, flags))
@@ -267,11 +275,18 @@ func effectiveAPIVersion(cmd *cobra.Command) (string, error) {
 		if value, ok := flags["connection"]; ok {
 			name = value
 		}
-		c, ok := f.Connections[name]
-		if !ok {
-			return "", settingsError(cmd, errors.New("select an existing connection or supply an API version"))
+		if name == "" {
+			if _, selected := flags["connection"]; selected {
+				return "", settingsError(cmd, errors.New("selected connection does not exist"))
+			}
+			version = "v2"
+		} else {
+			c, ok := f.Connections[name]
+			if !ok {
+				return "", settingsError(cmd, errors.New("selected connection does not exist"))
+			}
+			version = c.APIVersion
 		}
-		version = c.APIVersion
 	}
 	if version != "v1" && version != "v2" {
 		return "", settingsError(cmd, errors.New("API version must be v1 or v2"))

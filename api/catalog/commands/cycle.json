@@ -135,7 +135,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project"
               ]
@@ -210,9 +209,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -507,7 +506,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project"
               ]
@@ -549,9 +547,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -781,7 +779,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -810,9 +807,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -985,7 +982,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -1007,9 +1003,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -1181,7 +1177,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project"
               ]
@@ -1255,9 +1250,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -1411,7 +1406,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project"
               ]
@@ -1901,9 +1895,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -2068,7 +2062,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -2146,9 +2139,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -2313,7 +2306,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -2801,9 +2793,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -2975,7 +2967,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -3004,9 +2995,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -3171,7 +3162,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -3193,9 +3183,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -3363,7 +3353,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project"
               ]
@@ -3441,9 +3430,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -3612,7 +3601,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project"
               ]
@@ -3696,9 +3684,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -3853,7 +3841,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project"
               ]
@@ -3947,9 +3934,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -4107,7 +4094,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project"
               ]
@@ -4150,9 +4136,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -4321,7 +4307,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -4364,9 +4349,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -4542,7 +4527,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -4578,9 +4562,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -4741,7 +4725,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -4776,9 +4759,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -4951,7 +4934,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -4973,9 +4955,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -5126,7 +5108,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -5148,9 +5129,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -5313,7 +5294,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -5335,9 +5315,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -5478,7 +5458,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -5500,9 +5479,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -5661,7 +5640,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -5699,9 +5677,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -5879,7 +5857,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "id"
@@ -5910,9 +5887,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -6115,7 +6092,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project"
               ]
@@ -6145,9 +6121,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -6343,7 +6319,6 @@
               },
               "additionalProperties": false,
               "required": [
-                "api-version",
                 "workspace",
                 "project",
                 "cycle",
@@ -6366,9 +6341,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "api version"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",

@@ -189,7 +189,7 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 		}
 		slices.Sort(versions)
 		leaf := &cobra.Command{Use: d.Path[len(d.Path)-1], Short: d.Summary,
-			Long: d.Summary + "\n\nAvailability: " + strings.Join(versions, ", ") + "\nSide effects: " + d.SideEffect + "\nInput shape: plane-cli schema " + strings.Join(d.Path, " ") + " --api-version <v1|v2>\nNext: plane-cli commands --api-version <v1|v2>", Example: strings.Join(d.Examples, "\n")}
+			Long: d.Summary + "\n\nAvailability: " + strings.Join(versions, ", ") + "\nSide effects: " + d.SideEffect + "\nInput shape: plane-cli schema " + strings.Join(d.Path, " ") + "\nNext: plane-cli commands\nAPI version: flag > environment > connection > v2; use --api-version v1 for legacy APIs.", Example: strings.Join(d.Examples, "\n")}
 		flags := make(map[string]spec.Flag)
 		for _, version := range versions {
 			for _, f := range d.Versions[version].Flags {
@@ -229,17 +229,26 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 				}
 				version = resolved
 			}
-			if cmd.Flags().Lookup("api-version") != nil && d.Local && (d.Handler == "schema" || d.Handler == "commands") {
-				version, _ = cmd.Flags().GetString("api-version")
-				if version != "v1" && version != "v2" {
-					return errors.New("explicit API version required")
+			discovery := d.Handler == "schema" || d.Handler == "commands"
+			if discovery {
+				if cmd.Flags().Changed("api-version") {
+					value, _ := cmd.Flags().GetString("api-version")
+					if value != "v1" && value != "v2" {
+						return errors.New("API version must be v1 or v2")
+					}
 				}
+				resolved, err := effectiveAPIVersion(cmd)
+				if err != nil {
+					return err
+				}
+				version = resolved
 			}
 			variant, available := d.Versions[version]
 			if !available {
 				return unavailable(commandName(cmd))
 			}
 			cmd.Annotations = map[string]string{
+				"api-version":          version,
 				"pagination":           variant.Pagination,
 				"table_columns":        strings.Join(variant.TableColumns, ","),
 				"side_effect":          d.SideEffect,
@@ -278,7 +287,7 @@ func newRoot(catalog spec.Catalog, build Build, out io.Writer, extra map[string]
 				}
 			}
 			for name, f := range flags {
-				if !d.Local && name == "api-version" {
+				if (!d.Local || discovery) && name == "api-version" {
 					if err := bind(input, f.Binding, version); err != nil {
 						return err
 					}

@@ -57,10 +57,10 @@ func TestOfflineReferences(t *testing.T) {
 
 func TestDescriptorBindingRejectsDrift(t *testing.T) {
 	d := Command{Path: []string{"fixture", "create"}, Handler: "fixture", Summary: "Fixture", SideEffect: "create", Versions: map[string]Variant{"v2": {
-		Schema: json.RawMessage(`{"type":"object","required":["body","flags"],"properties":{"body":{"type":"object","properties":{"name":{"type":"string"}},"required":["name"]},"flags":{"type":"object","required":["api-version"],"properties":{"api-version":{"type":"string"}}}}}`),
+		Schema: json.RawMessage(`{"type":"object","required":["body","flags"],"properties":{"body":{"type":"object","properties":{"name":{"type":"string"}},"required":["name"]},"flags":{"type":"object","properties":{"api-version":{"type":"string"}}}}}`),
 		Flags: []Flag{
 			{Name: "name", Type: "string", Required: true, Binding: "/body/name", Description: "Name"},
-			{Name: "api-version", Type: "string", Required: true, Binding: "/flags/api-version", Description: "API generation"},
+			{Name: "api-version", Type: "string", Required: false, Binding: "/flags/api-version", Description: "API generation"},
 		},
 	}}}
 	c := Catalog{SchemaVersion: 1, Commands: []Command{d}}
@@ -103,31 +103,36 @@ func TestDescriptorBindingRequiredAncestors(t *testing.T) {
 }
 
 func TestCatalogRequiresAPISelector(t *testing.T) {
-	const schema = `{"type":"object","required":["flags"],"properties":{"flags":{"type":"object","required":["api-version"],"properties":{"api-version":{"type":"string"}}}}}`
-	selector := Flag{Name: "api-version", Type: "string", Required: true, Binding: "/flags/api-version", Description: "API generation"}
+	const schema = `{"type":"object","required":["flags"],"properties":{"flags":{"type":"object","properties":{"api-version":{"type":"string"}}}}}`
+	selector := Flag{Name: "api-version", Type: "string", Required: false, Binding: "/flags/api-version", Description: "API generation"}
 	for _, tc := range []struct {
 		name   string
 		change func(*Variant)
 		valid  bool
 	}{
-		{"explicit selector", func(v *Variant) {}, true},
+		{"optional selector", func(v *Variant) {}, true},
 		{"missing selector", func(v *Variant) { v.Flags = nil }, false},
 		{"renamed selector", func(v *Variant) { v.Flags[0].Name = "generation" }, false},
-		{"optional selector", func(v *Variant) {
-			v.Flags[0].Required = false
-			v.Schema = json.RawMessage(`{"type":"object","required":["flags"],"properties":{"flags":{"type":"object","properties":{"api-version":{"type":"string"}}}}}`)
+		{"required selector", func(v *Variant) {
+			v.Flags[0].Required = true
+			v.Schema = json.RawMessage(`{"type":"object","required":["flags"],"properties":{"flags":{"type":"object","required":["api-version"],"properties":{"api-version":{"type":"string"}}}}}`)
+		}, false},
+		{"schema-required selector", func(v *Variant) {
+			v.Schema = json.RawMessage(`{"type":"object","required":["flags"],"properties":{"flags":{"type":"object","required":["api-version"],"properties":{"api-version":{"type":"string"}}}}}`)
 		}, false},
 		{"optional selector ancestor", func(v *Variant) {
-			v.Flags[0].Required = false
-			v.Schema = json.RawMessage(`{"type":"object","properties":{"flags":{"type":"object","required":["api-version"],"properties":{"api-version":{"type":"string"}}}}}`)
+			v.Schema = json.RawMessage(`{"type":"object","properties":{"flags":{"type":"object","properties":{"api-version":{"type":"string"}}}}}`)
+		}, true},
+		{"missing schema selector", func(v *Variant) {
+			v.Schema = json.RawMessage(`{"type":"object","properties":{"flags":{"type":"object"}}}`)
 		}, false},
 		{"non-string selector", func(v *Variant) {
 			v.Flags[0].Type = "boolean"
-			v.Schema = json.RawMessage(`{"type":"object","required":["flags"],"properties":{"flags":{"type":"object","required":["api-version"],"properties":{"api-version":{"type":"boolean"}}}}}`)
+			v.Schema = json.RawMessage(`{"type":"object","required":["flags"],"properties":{"flags":{"type":"object","properties":{"api-version":{"type":"boolean"}}}}}`)
 		}, false},
 		{"body-bound selector", func(v *Variant) {
 			v.Flags[0].Binding = "/body/api-version"
-			v.Schema = json.RawMessage(`{"type":"object","required":["body"],"properties":{"body":{"type":"object","required":["api-version"],"properties":{"api-version":{"type":"string"}}}}}`)
+			v.Schema = json.RawMessage(`{"type":"object","required":["body"],"properties":{"body":{"type":"object","properties":{"api-version":{"type":"string"}}}}}`)
 		}, false},
 	} {
 		for _, version := range []string{"v1", "v2"} {

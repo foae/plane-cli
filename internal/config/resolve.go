@@ -37,7 +37,7 @@ func Resolve(f File, flags map[string]string, getenv func(string) string) (Resol
 		dst      *string
 		fallback string
 	}{
-		{"base-url", "BASE_URL", &r.BaseURL, ""}, {"api-version", "API_VERSION", &r.APIVersion, ""},
+		{"base-url", "BASE_URL", &r.BaseURL, ""}, {"api-version", "API_VERSION", &r.APIVersion, "v2"},
 		{"workspace", "WORKSPACE", &r.Workspace, ""}, {"project", "PROJECT", &r.Project, ""},
 		{"auth-mode", "AUTH_MODE", &r.AuthMode, "api-key"}, {"credential-backend", "CREDENTIAL_BACKEND", &r.Backend, "file"},
 		{"timeout", "TIMEOUT", &r.Timeout, "5m"}, {"request-timeout", "REQUEST_TIMEOUT", &r.RequestTimeout, "30s"}, {"ca-file", "CA_FILE", &r.CAFile, ""},

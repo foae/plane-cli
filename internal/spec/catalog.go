@@ -127,15 +127,15 @@ func CheckCatalog(c Catalog) error {
 					return errors.New("inconsistent cross-version flag binding")
 				}
 				union[f.Name] = f
-				if !d.Local && f.Name == "api-version" && (f.Type != "string" || !f.Required || f.Binding != "/flags/api-version") {
-					return fmt.Errorf("%s %s: api-version must be a required string bound to /flags/api-version", path, version)
+				if f.Name == "api-version" && (f.Type != "string" || f.Required || f.Binding != "/flags/api-version") {
+					return fmt.Errorf("%s %s: api-version must be an optional string bound to /flags/api-version", path, version)
 				}
 				if err := checkBinding(v.Schema, f); err != nil {
 					return fmt.Errorf("%s --%s: %w", path, f.Name, err)
 				}
 			}
 			if !d.Local && !seen["api-version"] {
-				return fmt.Errorf("%s %s: missing required api-version selector", path, version)
+				return fmt.Errorf("%s %s: missing api-version selector", path, version)
 			}
 		}
 	}

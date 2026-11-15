@@ -1,9 +1,9 @@
 # Setup and authentication
 
-Applies to CLI @CLI_VERSION@, API v1/v2. Select a real deployment URL and generation;
+Applies to CLI @CLI_VERSION@, API v1/v2 (default v2). Select a real deployment URL;
 OAuth scopes depend on the operation. Local discovery needs neither credentials
-nor network. Settings resolve flags, nonempty environment, selected connection,
-then safe defaults; destination and generation have no implicit default.
+nor network. API version for execution and discovery resolves
+`--api-version` → nonempty `PLANE_CLI_API_VERSION` → saved selected connection → `v2`. Saved v1 configurations remain v1; reject invalid explicit versions. No implicit destination or automatic version fallback. New connections resolve `--api-version` → nonempty `PLANE_CLI_API_VERSION` → `v2`, without inheriting the selected connection. Updates retain the stored version unless explicitly changed.
 
 ## Connect without leaking credentials
 
@@ -13,7 +13,7 @@ never paste a token into commands, chat, fixtures or logs. Use HTTPS outside
 controlled local fixtures. HTTP is supported but unencrypted.
 
 ```sh recipe
-plane-cli connection add personal --base-url "$BASE_URL" --api-version v2 --auth-mode api-key
+plane-cli connection add personal --base-url "$BASE_URL" --auth-mode api-key
 plane-cli connection use personal
 plane-cli connection show
 plane-cli auth status --connection personal
@@ -43,7 +43,7 @@ API-key mode uses `PLANE_CLI_API_KEY`; bearer/oauth-user/oauth-bot use
 tokens never refresh or write stored credentials.
 
 OAuth requires a registered confidential app and its exact callback URI.
-Discover `schema auth login --api-version v2` before choosing `--flow user|bot`,
+Discover `schema auth login` before choosing `--flow user|bot`,
 `--client-id`, `--client-secret-file`, `--redirect-uri` and optional scopes.
 Headless `--headless` returns `.data` containing pending-login details and a
 sensitive consent URL, **not** authenticated success. Complete with

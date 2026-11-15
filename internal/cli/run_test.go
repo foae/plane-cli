@@ -29,8 +29,8 @@ func fixtureCatalog(t *testing.T) spec.Catalog {
 		t.Fatal(err)
 	}
 	c.Commands = append(c.Commands, spec.Command{Path: []string{"fixture", "nested", "create"}, Handler: "fixture", Summary: "Create fixture", SideEffect: "create", Examples: []string{"fixture nested create"}, Versions: map[string]spec.Variant{"v2": {
-		Schema: json.RawMessage(`{"type":"object","properties":{"arguments":{"type":"array","maxItems":0},"flags":{"type":"object","properties":{"api-version":{"type":"string","enum":["v1","v2"]}},"required":["api-version"],"additionalProperties":false},"body":{"type":"object","properties":{"count":{"type":"integer","minimum":9007199254740993},"enabled":{"type":"boolean"}},"required":["count"],"additionalProperties":false}},"required":["arguments","flags","body"],"additionalProperties":false}`),
-		Flags:  []spec.Flag{{Name: "api-version", Type: "string", Required: true, Binding: "/flags/api-version", Description: "Version"}, {Name: "count", Type: "integer", Required: true, Binding: "/body/count", Description: "Count"}, {Name: "enabled", Type: "boolean", Binding: "/body/enabled", Description: "Enabled"}},
+		Schema: json.RawMessage(`{"type":"object","properties":{"arguments":{"type":"array","maxItems":0},"flags":{"type":"object","properties":{"api-version":{"type":"string","enum":["v1","v2"]}},"additionalProperties":false},"body":{"type":"object","properties":{"count":{"type":"integer","minimum":9007199254740993},"enabled":{"type":"boolean"}},"required":["count"],"additionalProperties":false}},"required":["arguments","flags","body"],"additionalProperties":false}`),
+		Flags:  []spec.Flag{{Name: "api-version", Type: "string", Binding: "/flags/api-version", Description: "Version"}, {Name: "count", Type: "integer", Required: true, Binding: "/body/count", Description: "Count"}, {Name: "enabled", Type: "boolean", Binding: "/body/enabled", Description: "Enabled"}},
 	}}})
 	return c
 }
@@ -73,13 +73,13 @@ func TestFreshInvocationsAndSafeErrors(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, args := range [][]string{{"commands", "--api-version", "v2"}, {"version"}, {"--version"}} {
+	for _, args := range [][]string{{"commands"}, {"commands", "--api-version", "v2"}, {"schema", "version"}, {"version"}, {"--version"}} {
 		code, out, stderr := invoke(t, c, args, nil)
 		if code != 0 || stderr != "" || !json.Valid([]byte(out)) {
 			t.Fatalf("code=%d stdout=%s stderr=%s", code, out, stderr)
 		}
 	}
-	for _, args := range [][]string{{"commands"}, {"version", "--secret=PRIVATE"}, {"PRIVATE"}, {"schema", "version", "--api-version", "PRIVATE"}, {"help", "PRIVATE"}, {"help", "version", "PRIVATE"}, {"schema", string([]byte{0xff}), "--api-version", "v2"}} {
+	for _, args := range [][]string{{"version", "--secret=PRIVATE"}, {"PRIVATE"}, {"schema", "version", "--api-version", "PRIVATE"}, {"help", "PRIVATE"}, {"help", "version", "PRIVATE"}, {"schema", string([]byte{0xff}), "--api-version", "v2"}} {
 		code, out, stderr := invoke(t, c, args, nil)
 		if code != 2 || out != "" || !json.Valid([]byte(stderr)) || strings.Contains(stderr, "PRIVATE") || strings.Count(stderr, "\n") != 1 {
 			t.Fatalf("code=%d stdout=%s stderr=%s", code, out, stderr)

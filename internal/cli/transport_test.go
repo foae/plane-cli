@@ -22,10 +22,13 @@ import (
 )
 
 func TestCurrentUser(t *testing.T) {
-	for _, version := range []string{"v1", "v2"} {
+	for _, version := range []string{"", "v1", "v2"} {
 		t.Run(version, func(t *testing.T) {
 			transportEnv(t)
 			t.Setenv("PLANE_CLI_API_VERSION", version)
+			if version == "" {
+				version = "v2"
+			}
 			t.Setenv("PLANE_CLI_API_KEY", "identity-canary")
 			calls := 0
 			server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -75,9 +78,9 @@ func transportCatalog(t *testing.T) (spec.Catalog, map[string]handler) {
 			typ = "boolean"
 		}
 		props[name] = map[string]any{"type": typ}
-		flags = append(flags, spec.Flag{Name: name, Type: typ, Required: name == "api-version", Binding: "/flags/" + name, Description: name})
+		flags = append(flags, spec.Flag{Name: name, Type: typ, Binding: "/flags/" + name, Description: name})
 	}
-	schema, e := json.Marshal(map[string]any{"type": "object", "properties": map[string]any{"arguments": map[string]any{"type": "array", "maxItems": 0}, "flags": map[string]any{"type": "object", "properties": props, "required": []string{"api-version"}, "additionalProperties": false}}, "required": []string{"arguments", "flags"}})
+	schema, e := json.Marshal(map[string]any{"type": "object", "properties": map[string]any{"arguments": map[string]any{"type": "array", "maxItems": 0}, "flags": map[string]any{"type": "object", "properties": props, "additionalProperties": false}}, "required": []string{"arguments", "flags"}})
 	if e != nil {
 		t.Fatal(e)
 	}
@@ -238,6 +241,123 @@ func TestEffectiveVersionAndStatelessTransport(t *testing.T) {
 	code, out, stderr = invoke(t, c, []string{"transport-probe", "--yes"}, h)
 	if code != 0 || !strings.Contains(out, `"accepted":true`) {
 		t.Fatalf("stateless version: %d %s %s", code, out, stderr)
+	}
+}
+
+func TestAPIVersionPrecedence(t *testing.T) {
+	for _, tc := range []struct {
+		name, saved, env, flag, want string
+		flagSet                      bool
+	}{
+		{name: "default", want: "v2"},
+		{name: "environment", env: "v1", want: "v1"},
+		{name: "saved", saved: "v1", want: "v1"},
+		{name: "environment over saved", saved: "v1", env: "v2", want: "v2"},
+		{name: "flag over environment", saved: "v1", env: "v1", flag: "v2", want: "v2"},
+		{name: "legacy flag", flag: "v1", want: "v1"},
+		{name: "invalid environment", env: "invalid"},
+		{name: "invalid flag", flag: "invalid"},
+		{name: "empty flag", env: "v1", flagSet: true},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			transportEnv(t)
+			calls := 0
+			server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				calls++
+				if r.URL.Path != "/api/"+tc.want+"/users/me/" {
+					t.Errorf("unexpected API route: %s", r.URL.Path)
+				}
+				w.Header().Set("Content-Type", "application/json")
+				_, _ = w.Write([]byte(`{"id":"principal"}`))
+			}))
+			defer server.Close()
+			c, h := transportCatalog(t)
+			if tc.saved != "" {
+				for _, args := range [][]string{
+					{"connection", "add", "saved", "--base-url", server.URL, "--api-version", tc.saved, "--auth-mode", "external"},
+					{"connection", "use", "saved"},
+				} {
+					if code, _, stderr := invoke(t, c, args, h); code != 0 {
+						t.Fatal(stderr)
+					}
+				}
+			}
+			t.Setenv("PLANE_CLI_API_VERSION", tc.env)
+			args := []string{"user", "me", "--base-url", server.URL, "--auth-mode", "external"}
+			discovery := []string{"schema", "user", "me"}
+			if tc.flag != "" || tc.flagSet {
+				args = append(args, "--api-version", tc.flag)
+				discovery = append(discovery, "--api-version", tc.flag)
+			}
+			code, out, stderr := invoke(t, c, args, h)
+			if tc.want == "" {
+				if code == 0 || calls != 0 {
+					t.Fatalf("invalid selector sent request: code=%d calls=%d", code, calls)
+				}
+				if code, _, _ := invoke(t, c, discovery, h); code == 0 || calls != 0 {
+					t.Fatal("offline discovery accepted invalid selector")
+				}
+				return
+			}
+			if code != 0 || calls != 1 || !strings.Contains(out, `"id":"principal"`) {
+				t.Fatalf("request: code=%d calls=%d out=%s err=%s", code, calls, out, stderr)
+			}
+			code, out, stderr = invoke(t, c, discovery, h)
+			if code != 0 || !strings.Contains(out, `"/api/`+tc.want+`/users/me/"`) || calls != 1 {
+				t.Fatalf("offline schema: code=%d calls=%d out=%s err=%s", code, calls, out, stderr)
+			}
+			discovery = append([]string{"commands", "transport-probe"}, discovery[3:]...)
+			code, out, stderr = invoke(t, c, discovery, h)
+			wantAvailable := `"available":false`
+			if tc.want == "v2" {
+				wantAvailable = `"available":true`
+			}
+			if code != 0 || !strings.Contains(out, wantAvailable) || calls != 1 {
+				t.Fatalf("offline commands: code=%d calls=%d out=%s err=%s", code, calls, out, stderr)
+			}
+		})
+	}
+}
+
+func TestConnectionVersionDefaults(t *testing.T) {
+	for _, tc := range []struct {
+		name, env, flag, want string
+	}{
+		{name: "default", want: "v2"},
+		{name: "environment", env: "v1", want: "v1"},
+		{name: "flag", env: "v1", flag: "v2", want: "v2"},
+		{name: "invalid", env: "invalid"},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			transportEnv(t)
+			t.Setenv("PLANE_CLI_API_VERSION", tc.env)
+			c, err := spec.Load()
+			if err != nil {
+				t.Fatal(err)
+			}
+			args := []string{"connection", "add", "saved", "--base-url", "https://example.test"}
+			if tc.flag != "" {
+				args = append(args, "--api-version", tc.flag)
+			}
+			code, _, stderr := invoke(t, c, args, nil)
+			if tc.want == "" {
+				if code == 0 {
+					t.Fatal("accepted invalid environment version")
+				}
+				return
+			}
+			if code != 0 {
+				t.Fatal(stderr)
+			}
+			t.Setenv("PLANE_CLI_API_VERSION", "v2")
+			if code, _, stderr = invoke(t, c, []string{"connection", "update", "saved", "--workspace", "workspace"}, nil); code != 0 {
+				t.Fatal(stderr)
+			}
+			f, err := config.Read()
+			if err != nil || f.Connections["saved"].APIVersion != tc.want {
+				t.Fatalf("persisted version: got=%q want=%q err=%v", f.Connections["saved"].APIVersion, tc.want, err)
+			}
+		})
 	}
 }
 

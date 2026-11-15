@@ -6,8 +6,8 @@ type schema reads use `projects.work_item_types:read`. Write permissions and
 workspace governance must already permit the operation.
 
 ```sh recipe
-plane-cli workspace-feature get --api-version v2 --workspace "$WORKSPACE"
-plane-cli work-item-type get-schema --api-version v2 --workspace "$WORKSPACE" --project "$PROJECT" --id "$TYPE"
+plane-cli workspace-feature get --workspace "$WORKSPACE"
+plane-cli work-item-type get-schema --workspace "$WORKSPACE" --project "$PROJECT" --id "$TYPE"
 ```
 
 Both reads return the native response at `.data` without changing governance.
@@ -21,8 +21,8 @@ Project definition groups are `work-item-type`, `work-item-property`,
 start with `workspace-`; `work-item-property-context` is workspace-scoped.
 Definition creation, attachment, context overrides and values are distinct
 resources. Discover each exact path, e.g.
-`plane-cli schema work-item-property create --api-version v2` and
-`plane-cli schema work-item-type-property attach --api-version v2`.
+`plane-cli schema work-item-property create` and
+`plane-cli schema work-item-type-property attach`.
 
 After approved definition creation/attachment and schema inspection, v2 values
 use `work-item update --body-file PATH` with a native body such as

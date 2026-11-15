@@ -1,6 +1,6 @@
 # Workflow governance (v2)
 
-Project picks and workspace policy are separate. All commands require explicit `--api-version v2 --workspace SLUG`. Project commands additionally require `--project ID_OR_IDENTIFIER`; workspace governance and pins never change workspace mode automatically.
+Project picks and workspace policy are separate. All commands require API v2 (the default) and `--workspace SLUG`. If your environment or saved connection selects v1, override it with `--api-version v2`. Project commands additionally require `--project ID_OR_IDENTIFIER`; workspace governance and pins never change workspace mode automatically.
 
 | Command | Native operation |
 | --- | --- |

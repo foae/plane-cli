@@ -8,7 +8,7 @@
     "summary": "Add named connection configuration",
     "side_effect": "local",
     "examples": [
-      "plane-cli connection add example --base-url https://plane.example.net --api-version v2"
+      "plane-cli connection add example --base-url https://plane.example.net"
     ],
     "local": true,
     "versions": {
@@ -78,8 +78,7 @@
               },
               "additionalProperties": false,
               "required": [
-                "base-url",
-                "api-version"
+                "base-url"
               ]
             }
           },
@@ -100,9 +99,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "Explicit API generation v1 or v2"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > v2 default; does not inherit another saved connection"
           },
           {
             "name": "workspace",
@@ -228,8 +227,7 @@
               },
               "additionalProperties": false,
               "required": [
-                "base-url",
-                "api-version"
+                "base-url"
               ]
             }
           },
@@ -250,9 +248,9 @@
           {
             "name": "api-version",
             "type": "string",
-            "required": true,
+            "required": false,
             "binding": "/flags/api-version",
-            "description": "Explicit API generation v1 or v2"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > v2 default; does not inherit another saved connection"
           },
           {
             "name": "workspace",
@@ -413,7 +411,7 @@
             "type": "string",
             "required": false,
             "binding": "/flags/api-version",
-            "description": "Explicit API generation v1 or v2"
+            "description": "API generation v1 or v2; explicit flag overrides the current saved version; omission preserves it and ignores PLANE_CLI_API_VERSION"
           },
           {
             "name": "workspace",
@@ -559,7 +557,7 @@
             "type": "string",
             "required": false,
             "binding": "/flags/api-version",
-            "description": "Explicit API generation v1 or v2"
+            "description": "API generation v1 or v2; explicit flag overrides the current saved version; omission preserves it and ignores PLANE_CLI_API_VERSION"
           },
           {
             "name": "workspace",
@@ -798,7 +796,7 @@
             "type": "string",
             "required": false,
             "binding": "/flags/api-version",
-            "description": "Explicit API generation v1 or v2"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
@@ -944,7 +942,7 @@
             "type": "string",
             "required": false,
             "binding": "/flags/api-version",
-            "description": "Explicit API generation v1 or v2"
+            "description": "API generation v1 or v2; precedence: explicit flag > PLANE_CLI_API_VERSION > selected connection > v2 default"
           },
           {
             "name": "workspace",
