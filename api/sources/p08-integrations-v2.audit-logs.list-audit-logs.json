@@ -1,0 +1,98 @@
+{
+  "source_id": "v2:audit-logs:list-audit-logs",
+  "source_url": "https://developers.plane.so/api-reference/v2/audit-logs/list-audit-logs.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.audit-logs.list-audit-logs",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/audit-logs/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "created_after": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_before": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "actor_id": {
+            "type": "string"
+          },
+          "event_name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "target_type": {
+            "type": "string"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "ip_address": {
+            "type": "string"
+          },
+          "search": {
+            "type": "string"
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "paginate": {
+            "type": "string"
+          },
+          "count": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "v2",
+  "notes": [
+    "Standard v2 continuation input from shared pagination contract p03-v2._guides.pagination."
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "source_id": "v2:notifications:list-notifications",
+  "source_url": "https://developers.plane.so/api-reference/v2/notifications/list-notifications.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.notifications.list-notifications",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/notifications/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "read": {
+            "type": "boolean"
+          },
+          "archived": {
+            "type": "boolean"
+          },
+          "snoozed": {
+            "type": "boolean"
+          },
+          "is_mention": {
+            "type": "boolean"
+          },
+          "trigger_type": {
+            "type": "string",
+            "enum": [
+              "mention",
+              "assigned",
+              "created",
+              "subscribed"
+            ]
+          },
+          "entity_name": {
+            "type": "string"
+          },
+          "entity_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "project_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "project_identifier": {
+            "type": "string"
+          },
+          "triggered_by_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "created_at__gte": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_at__lte": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "search": {
+            "type": "string"
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "paginate": {
+            "type": "string"
+          },
+          "count": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "v2",
+  "notes": [
+    "Standard v2 continuation input from shared pagination contract p03-v2._guides.pagination."
+  ]
+}

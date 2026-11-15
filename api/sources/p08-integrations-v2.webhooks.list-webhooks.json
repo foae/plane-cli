@@ -1,0 +1,78 @@
+{
+  "source_id": "v2:webhooks:list-webhooks",
+  "source_url": "https://developers.plane.so/api-reference/v2/webhooks/list-webhooks.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.webhooks.list-webhooks",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/webhooks/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean"
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "order_by": {
+            "type": "string"
+          },
+          "paginate": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "search": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "v2",
+  "notes": [
+    "Standard v2 continuation input from shared pagination contract p03-v2._guides.pagination."
+  ]
+}

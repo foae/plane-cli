@@ -1,0 +1,122 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/group-sync/delete-workspace-mapping.md",
+  "operations": [
+    {
+      "id": "v2.group-sync.delete-workspace-mapping",
+      "packet": "P08",
+      "version": "v2",
+      "command_path": [
+        "group-sync",
+        "workspace-mapping",
+        "delete"
+      ],
+      "action": "delete",
+      "scope": "workspace",
+      "method": "DELETE",
+      "path": "/api/v2/workspaces/{slug}/group-sync/workspace-mappings/{pk}/",
+      "request_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              },
+              "pk": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "required": [
+              "slug",
+              "pk"
+            ],
+            "additionalProperties": false
+          },
+          "query": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "string"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "additionalProperties": false
+      },
+      "response_schema": true,
+      "responses": [
+        {
+          "status": 204,
+          "content_type": "application/json",
+          "schema": true
+        },
+        {
+          "status": 404,
+          "content_type": "application/json",
+          "schema": true
+        }
+      ],
+      "pagination": "none",
+      "scopes": [
+        "workspaces.group_sync:write"
+      ],
+      "feature_evidence": "Official dedicated operation page. No runtime edition or entitlement inference.",
+      "side_effect": "write",
+      "source_url": "https://developers.plane.so/api-reference/v2/group-sync/delete-workspace-mapping.md",
+      "provenance_id": "p08-membership-v2.group-sync.delete-workspace-mapping",
+      "lifecycle": "implemented",
+      "acceptance_scenario_ids": [
+        "TestP08MembershipRequests",
+        "TestP08MembershipSafety",
+        "TestP08MembershipFailures",
+        "TestP08MembershipValidation"
+      ],
+      "sensitivity": {
+        "input": [
+          "/body/idp_group_name",
+          "/path/idp_group_name",
+          "/body/group_attribute_key"
+        ],
+        "output": [],
+        "review": "Identity, contact, invitation and organizational data remain native output; diagnostics must not echo input values.",
+        "ordinary_read_redaction": [],
+        "intentional_secret_delivery": false,
+        "signed_target_paths": [],
+        "signed_form_paths": [],
+        "extension_fields": "No authentication secret delivery is declared. Treat identity and organizational fields as private data."
+      },
+      "availability": {
+        "v2": "implemented"
+      },
+      "review_status": "awaiting-packet-planner-review",
+      "notes": [],
+      "error_contract": {
+        "documented_statuses": [
+          400,
+          401,
+          402,
+          403,
+          404,
+          406,
+          409,
+          413,
+          415,
+          429
+        ],
+        "schema": {
+          "$ref": "urn:plane-cli:problem-v2"
+        },
+        "content_type": "application/problem+json",
+        "provenance_id": "v2-errors"
+      }
+    }
+  ],
+  "notes": []
+}

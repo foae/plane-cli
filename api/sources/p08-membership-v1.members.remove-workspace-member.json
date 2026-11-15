@@ -1,0 +1,87 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/members/remove-workspace-member.md",
+  "operations": [
+    {
+      "id": "v1.members.remove-workspace-member",
+      "packet": "P08",
+      "version": "v1",
+      "command_path": [
+        "member",
+        "workspace",
+        "remove"
+      ],
+      "action": "remove",
+      "scope": "workspace",
+      "method": "POST",
+      "path": "/api/v1/workspaces/{workspace_slug}/members/remove/",
+      "request_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "object",
+            "properties": {
+              "workspace_slug": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "workspace_slug"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "additionalProperties": false
+      },
+      "response_schema": true,
+      "responses": [
+        {
+          "status": 204,
+          "content_type": "application/json",
+          "schema": true
+        }
+      ],
+      "pagination": "none",
+      "scopes": [
+        "workspaces.members:write"
+      ],
+      "feature_evidence": "Official dedicated operation page. No runtime edition or entitlement inference.",
+      "side_effect": "write",
+      "source_url": "https://developers.plane.so/api-reference/members/remove-workspace-member.md",
+      "provenance_id": "p08-membership-v1.members.remove-workspace-member",
+      "lifecycle": "documented",
+      "acceptance_scenario_ids": [],
+      "sensitivity": {
+        "input": [
+          "/body/email",
+          "/body/emails",
+          "/body/message",
+          "/query/email",
+          "/query/search"
+        ],
+        "output": [],
+        "review": "Identity, contact, invitation and organizational data remain native output; diagnostics must not echo input values.",
+        "ordinary_read_redaction": [],
+        "intentional_secret_delivery": false,
+        "signed_target_paths": [],
+        "signed_form_paths": [],
+        "extension_fields": "No authentication secret delivery is declared. Treat identity and organizational fields as private data."
+      },
+      "availability": {
+        "v1": "upstream-blocked"
+      },
+      "review_status": "awaiting-packet-planner-review",
+      "notes": [
+        "BLOCKER: No target-identifying body/query/path field is documented. All three examples omit the target. Do not infer v2 email/remove_seat payload. Prose explicitly promises deactivation from all projects and seat-count reduction."
+      ],
+      "error_contract": {
+        "documented_statuses": []
+      }
+    }
+  ],
+  "notes": [
+    "BLOCKER: No target-identifying body/query/path field is documented. All three examples omit the target. Do not infer v2 email/remove_seat payload. Prose explicitly promises deactivation from all projects and seat-count reduction."
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "source_id": "v2:permission-grants:list-permission-grants",
+  "source_url": "https://developers.plane.so/api-reference/v2/permission-grants/list-permission-grants.md",
+  "review": "Independently authored minimal native contract; captured official operation reviewed. No upstream document redistributed.",
+  "operation": "v2.permission-grants.list-permission-grants",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/permissions/grants/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "type": "string"
+          },
+          "resource_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "order_by": {
+            "type": "string",
+            "enum": [
+              "created_at",
+              "-created_at",
+              "id",
+              "-id"
+            ]
+          },
+          "per_page": {
+            "type": "integer",
+            "maximum": 200
+          },
+          "offset": {
+            "type": "integer",
+            "maximum": 10000
+          },
+          "paginate": {
+            "type": "string",
+            "enum": [
+              "cursor"
+            ]
+          },
+          "count": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "resource_type",
+          "resource_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path",
+      "query"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "documented_error_statuses": [
+    400,
+    401,
+    403,
+    404,
+    406,
+    429
+  ],
+  "pagination": "v2",
+  "notes": [
+    "Shared v2 pagination contract supplies cursor continuation omitted from leaf parameter tables. Preserve filters/order/per_page on every page; --all is bounded by --max-pages (default 1000)."
+  ],
+  "supplemental_source_urls": [
+    "https://developers.plane.so/api-reference/v2/pagination.md"
+  ]
+}

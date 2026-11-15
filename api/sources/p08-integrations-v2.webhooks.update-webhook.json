@@ -1,0 +1,102 @@
+{
+  "source_id": "v2:webhooks:update-webhook",
+  "source_url": "https://developers.plane.so/api-reference/v2/webhooks/update-webhook.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.webhooks.update-webhook",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/webhooks/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "pk"
+        ]
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "content_type": {
+            "type": "string",
+            "enum": [
+              "application/json",
+              "application/x-www-form-urlencoded"
+            ]
+          },
+          "version": {
+            "type": "string",
+            "maxLength": 10
+          },
+          "rich_filters": {
+            "type": "object"
+          },
+          "pql_filters": {
+            "type": "object",
+            "properties": {
+              "stripped": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "stripped"
+            ]
+          },
+          "last_used_filter": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "none",
+  "notes": []
+}

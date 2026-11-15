@@ -1,0 +1,68 @@
+{
+  "source_id": "v2:artifacts:create-artifact",
+  "source_url": "https://developers.plane.so/api-reference/v2/artifacts/create-artifact.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.artifacts.create-artifact",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/artifacts/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "html": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "project": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "data_mode": {
+            "type": "string",
+            "enum": [
+              "snapshot",
+              "live"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "html"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path",
+      "body"
+    ]
+  },
+  "success_statuses": [
+    201
+  ],
+  "pagination": "none",
+  "notes": []
+}

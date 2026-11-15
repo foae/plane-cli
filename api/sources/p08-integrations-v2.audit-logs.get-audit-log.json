@@ -1,0 +1,48 @@
+{
+  "source_id": "v2:audit-logs:get-audit-log",
+  "source_url": "https://developers.plane.so/api-reference/v2/audit-logs/get-audit-log.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.audit-logs.get-audit-log",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/audit-logs/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "pk"
+        ]
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "none",
+  "notes": []
+}

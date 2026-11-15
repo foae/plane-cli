@@ -57,6 +57,7 @@ func aggregatePages(cmd *cobra.Command, ctx context.Context, client *httpx.Clien
 		if err = ctx.Err(); err != nil {
 			return contextError(err)
 		}
+		response.Data = redactAdminResponse(cmd, response.Data)
 		size += int64(len(response.Data) + 1)
 		if size > (64<<20)-4096 {
 			return fail("output_limit", "Aggregate exceeds 64 MiB; use manual pagination", 1)

@@ -1,0 +1,729 @@
+[
+  {
+    "id": "v2.audit-logs.list-audit-logs",
+    "command": [
+      "audit-log",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/audit-logs/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "5c7f1a08-2b64-4d39-9e17-0a3b8c6d2f41",
+          "event_id": "e0b41d97-6c23-4a8f-b512-9d7a0e3c5f68",
+          "sequence_number": 48213,
+          "event_name": "member.role_updated",
+          "category": "role",
+          "outcome": "success",
+          "source": "platform",
+          "actor_type": "user",
+          "actor_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "actor_display_name": "Priya Raghavan",
+          "actor_email": "priya@example.com",
+          "target_type": "workspace_member",
+          "target_id": "3e8a5d17-9c40-4b2f-81d6-4a7f2b9e0c53",
+          "target_display_name": "Devansh Kapoor",
+          "old_value": {
+            "role": "member"
+          },
+          "new_value": {
+            "role": "owner"
+          },
+          "reason": "",
+          "metadata": {
+            "workspace_slug": "my-team"
+          },
+          "ip_address": "203.0.113.42",
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+          "workspace_id": "d84c6f21-7a30-4e59-b6c8-1f9d5a2e7043",
+          "project_id": null,
+          "created_at": "2026-01-14T09:22:41.478363Z"
+        },
+        {
+          "id": "1f6b3c92-7d40-4a85-9c21-8e5d0a4f2b76",
+          "event_id": "c3a97e15-4b82-4d06-9f31-7a2e8c0d6b53",
+          "sequence_number": 48120,
+          "event_name": "role.permissions_updated",
+          "category": "role",
+          "outcome": "failure",
+          "source": "api",
+          "actor_type": "api_token",
+          "actor_id": "7f2b9e04-6c1d-4a58-9e3b-0d4c8a2f6b71",
+          "actor_display_name": "Deploy bot",
+          "actor_email": "bots@example.com",
+          "target_type": "role",
+          "target_id": "release-manager",
+          "target_display_name": "Release manager",
+          "old_value": null,
+          "new_value": null,
+          "reason": "insufficient_permissions",
+          "metadata": {
+            "requested": "projects.states:write"
+          },
+          "ip_address": "198.51.100.7",
+          "user_agent": "PlaneDeploy/2.4",
+          "workspace_id": "d84c6f21-7a30-4e59-b6c8-1f9d5a2e7043",
+          "project_id": null,
+          "created_at": "2026-01-13T17:04:58.113402Z"
+        }
+      ],
+      "next": 50,
+      "previous": null,
+      "total_count": 327,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "query": {
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false
+  },
+  {
+    "id": "v2.audit-logs.get-audit-log",
+    "command": [
+      "audit-log",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/audit-logs/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "5c7f1a08-2b64-4d39-9e17-0a3b8c6d2f41",
+      "event_id": "e0b41d97-6c23-4a8f-b512-9d7a0e3c5f68",
+      "sequence_number": 48213,
+      "event_name": "member.role_updated",
+      "category": "role",
+      "outcome": "success",
+      "source": "platform",
+      "actor_type": "user",
+      "actor_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "actor_display_name": "Priya Raghavan",
+      "actor_email": "priya@example.com",
+      "target_type": "workspace_member",
+      "target_id": "3e8a5d17-9c40-4b2f-81d6-4a7f2b9e0c53",
+      "target_display_name": "Devansh Kapoor",
+      "old_value": {
+        "role": "member"
+      },
+      "new_value": {
+        "role": "owner"
+      },
+      "reason": "",
+      "metadata": {
+        "workspace_slug": "my-team"
+      },
+      "ip_address": "203.0.113.42",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+      "workspace_id": "d84c6f21-7a30-4e59-b6c8-1f9d5a2e7043",
+      "project_id": null,
+      "created_at": "2026-01-14T09:22:41.478363Z"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false
+  },
+  {
+    "id": "v2.webhooks.list-webhooks",
+    "command": [
+      "webhook",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/webhooks/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+          "name": "Urgent work items to on-call",
+          "url": "https://hooks.example.com/plane/urgent",
+          "is_active": true,
+          "version": "v2",
+          "content_type": "application/json",
+          "scopes": [
+            "workitem.created",
+            "workitem.updated"
+          ],
+          "last_used_filter": "pql_filters",
+          "rich_filters": {},
+          "pql_filters": {
+            "stripped": "priority = \"urgent\""
+          },
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null
+        },
+        {
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "name": "Release notes sync",
+          "url": "https://ci.example.com/hooks/plane",
+          "is_active": true,
+          "version": "v2",
+          "content_type": "application/json",
+          "scopes": [
+            "cycle.created",
+            "cycle.updated"
+          ],
+          "last_used_filter": "rich_filters",
+          "rich_filters": {},
+          "pql_filters": {
+            "json": {},
+            "stripped": ""
+          },
+          "created_at": "2026-01-13T16:04:02.911204Z",
+          "updated_at": "2026-01-13T16:04:02.911204Z",
+          "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "updated_by_id": null
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 2,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "query": {
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false
+  },
+  {
+    "id": "v2.webhooks.get-webhook",
+    "command": [
+      "webhook",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/webhooks/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "name": "Urgent work items to on-call",
+      "url": "https://hooks.example.com/plane/urgent",
+      "is_active": true,
+      "version": "v2",
+      "content_type": "application/json",
+      "scopes": [
+        "workitem.created",
+        "workitem.updated"
+      ],
+      "last_used_filter": "pql_filters",
+      "rich_filters": {},
+      "pql_filters": {
+        "stripped": "priority = \"urgent\""
+      },
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false
+  },
+  {
+    "id": "v2.webhooks.create-webhook",
+    "command": [
+      "webhook",
+      "create"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/webhooks/",
+    "status": 201,
+    "response": {
+      "id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "name": "Urgent work items to on-call",
+      "url": "https://hooks.example.com/plane/urgent",
+      "is_active": true,
+      "version": "v2",
+      "content_type": "application/json",
+      "scopes": [
+        "workitem.created",
+        "workitem.updated"
+      ],
+      "last_used_filter": "pql_filters",
+      "rich_filters": {},
+      "pql_filters": {
+        "stripped": "priority = \"urgent\""
+      },
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": null,
+      "secret_key": "plane_wh_4f9c2e7a1b8d4c6e9a3f5b2d7e1c8a40"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "url": "https://hooks.example.test/events",
+      "name": null,
+      "scopes": [
+        "workitem.created"
+      ],
+      "pql_filters": {
+        "stripped": "priority = \"urgent\""
+      }
+    },
+    "destructive": true
+  },
+  {
+    "id": "v2.webhooks.update-webhook",
+    "command": [
+      "webhook",
+      "update"
+    ],
+    "method": "PATCH",
+    "route": "/api/v2/workspaces/{slug}/webhooks/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "name": "Urgent work items to on-call",
+      "url": "https://hooks.example.com/plane/urgent",
+      "is_active": true,
+      "version": "v2",
+      "content_type": "application/json",
+      "scopes": [
+        "workitem.created",
+        "workitem.updated"
+      ],
+      "last_used_filter": "rich_filters",
+      "rich_filters": {
+        "priority__in": [
+          "urgent",
+          "high"
+        ]
+      },
+      "pql_filters": {
+        "stripped": "priority = \"urgent\""
+      },
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-02-03T16:45:12.904117Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": {
+      "url": "https://hooks.example.test/events",
+      "name": null,
+      "scopes": [
+        "workitem.created"
+      ],
+      "pql_filters": {
+        "stripped": "priority = \"urgent\""
+      }
+    },
+    "destructive": true
+  },
+  {
+    "id": "v2.webhooks.delete-webhook",
+    "command": [
+      "webhook",
+      "delete"
+    ],
+    "method": "DELETE",
+    "route": "/api/v2/workspaces/{slug}/webhooks/{pk}/",
+    "status": 204,
+    "response": null,
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": true
+  },
+  {
+    "id": "v2.webhooks.regenerate-webhook-secret",
+    "command": [
+      "webhook",
+      "regenerate-secret"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/webhooks/{pk}/regenerate/",
+    "status": 200,
+    "response": {
+      "id": "9c1f0b3d-6d2e-4c9a-8b41-2f7e5a0d6c88",
+      "name": "Urgent work items to on-call",
+      "url": "https://hooks.example.com/plane/urgent",
+      "is_active": true,
+      "version": "v2",
+      "content_type": "application/json",
+      "scopes": [
+        "workitem.created",
+        "workitem.updated"
+      ],
+      "last_used_filter": "pql_filters",
+      "rich_filters": {},
+      "pql_filters": {
+        "stripped": "priority = \"urgent\""
+      },
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-15T11:35:48.478363Z",
+      "created_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "updated_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "secret_key": "plane_wh_8a2d6f1c4e9b4b37a05c3e7d9f1b6a28"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": true
+  },
+  {
+    "id": "v2.webhook-logs.list-webhook-logs",
+    "command": [
+      "webhook",
+      "log",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/webhook-logs/{webhook_id}/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-14T09:22:41.478363Z",
+          "updated_by_id": null,
+          "duration_ms": 1,
+          "error_message": "example",
+          "event_type": "example",
+          "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+          "request_body": "example",
+          "request_headers": "example",
+          "request_method": "example",
+          "response_body": "example",
+          "response_headers": "example",
+          "response_status": "example",
+          "retry_count": 3,
+          "status_text": "example",
+          "webhook_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        },
+        {
+          "created_at": "2026-01-13T16:04:02.911204Z",
+          "updated_at": "2026-01-13T16:04:02.911204Z",
+          "updated_by_id": null,
+          "duration_ms": 1,
+          "error_message": "example",
+          "event_type": "example",
+          "id": "8f4c2b1e-0d3a-4f7b-9c21-6e5a8b7d4f13",
+          "request_body": "example",
+          "request_headers": "example",
+          "request_method": "example",
+          "response_body": "example",
+          "response_headers": "example",
+          "response_status": "example",
+          "retry_count": 3,
+          "status_text": "example",
+          "webhook_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+        }
+      ],
+      "next": 1,
+      "pagination": {
+        "style": "offset"
+      },
+      "previous": 1,
+      "total_count": 3
+    },
+    "query": {
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false
+  },
+  {
+    "id": "v2.webhook-logs.get-webhook-log",
+    "command": [
+      "webhook",
+      "log",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/webhook-logs/{webhook_id}/{pk}/",
+    "status": 200,
+    "response": {
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "updated_by_id": null,
+      "duration_ms": 1,
+      "error_message": "example",
+      "event_type": "example",
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "request_body": "example",
+      "request_headers": "example",
+      "request_method": "example",
+      "response_body": "example",
+      "response_headers": "example",
+      "response_status": "example",
+      "retry_count": 3,
+      "status_text": "example",
+      "webhook_id": "f960d3c2-8524-4a41-b8eb-055ce4be2a7f"
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false
+  },
+  {
+    "id": "v2.notifications.list-notifications",
+    "command": [
+      "notification",
+      "list"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/notifications/",
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "71f4c2a9-8e3b-4d56-a017-5c9e2b8d4f63",
+          "entity_id": "8c3d1f72-4a9e-4b65-9d20-6e1f3b7a5c48",
+          "entity_name": "issue",
+          "project_id": "4af68566-94a4-4eb3-94aa-50dc9427067b",
+          "title": "Priya Shah has mentioned you in a comment in issue Fix login redirect loop",
+          "message": null,
+          "message_html": "<p></p>",
+          "sender": "in_app:issue_activities:mentioned",
+          "is_mention": true,
+          "read_at": null,
+          "archived_at": null,
+          "snoozed_till": null,
+          "data": {
+            "issue": {
+              "id": "8c3d1f72-4a9e-4b65-9d20-6e1f3b7a5c48",
+              "name": "Fix login redirect loop",
+              "identifier": "ENG",
+              "sequence_id": 142,
+              "state_name": "In Progress",
+              "state_group": "started",
+              "type_id": "5b7e2d94-1a6c-4f38-9e02-8d4c3b6a1f57"
+            },
+            "issue_activity": {
+              "id": "3f8b6d21-9c4e-4a73-b1d5-7e2a0c9f6b48",
+              "verb": "created",
+              "field": "comment",
+              "actor": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+              "new_value": "@Ravi can you check the redirect on Safari?",
+              "old_value": "None",
+              "old_identifier": null,
+              "new_identifier": null,
+              "issue_comment": "@Ravi can you check the redirect on Safari?"
+            }
+          },
+          "triggered_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "created_at": "2026-01-14T09:22:41.478363Z",
+          "updated_at": "2026-01-14T09:22:41.478363Z"
+        },
+        {
+          "id": "2a8e6c14-7d93-4f0b-b5e2-1c4a9f7d3e86",
+          "entity_id": "8c3d1f72-4a9e-4b65-9d20-6e1f3b7a5c48",
+          "entity_name": "issue",
+          "project_id": "4af68566-94a4-4eb3-94aa-50dc9427067b",
+          "title": "updated the priority to",
+          "message": null,
+          "message_html": "<p></p>",
+          "sender": "in_app:issue_activities:assigned",
+          "is_mention": false,
+          "read_at": null,
+          "archived_at": null,
+          "snoozed_till": null,
+          "data": {
+            "issue": {
+              "id": "8c3d1f72-4a9e-4b65-9d20-6e1f3b7a5c48",
+              "name": "Fix login redirect loop",
+              "identifier": "ENG",
+              "sequence_id": 142,
+              "state_name": "In Progress",
+              "state_group": "started",
+              "type_id": "5b7e2d94-1a6c-4f38-9e02-8d4c3b6a1f57"
+            },
+            "issue_activity": {
+              "id": "c09a4e7b-2d61-4f85-93b8-6a1e5d2c7f40",
+              "verb": "updated",
+              "field": "priority",
+              "actor": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+              "new_value": "urgent",
+              "old_value": "medium",
+              "old_identifier": null,
+              "new_identifier": null
+            }
+          },
+          "triggered_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "created_at": "2026-01-14T09:18:05.112874Z",
+          "updated_at": "2026-01-14T09:18:05.112874Z"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "total_count": 2,
+      "pagination": {
+        "style": "offset"
+      }
+    },
+    "query": {
+      "per_page": 2,
+      "count": false
+    },
+    "body": null,
+    "destructive": false
+  },
+  {
+    "id": "v2.notifications.get-notification",
+    "command": [
+      "notification",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/notifications/{pk}/",
+    "status": 200,
+    "response": {
+      "id": "71f4c2a9-8e3b-4d56-a017-5c9e2b8d4f63",
+      "entity_id": "8c3d1f72-4a9e-4b65-9d20-6e1f3b7a5c48",
+      "entity_name": "issue",
+      "project_id": "4af68566-94a4-4eb3-94aa-50dc9427067b",
+      "title": "Priya Shah has mentioned you in a comment in issue Fix login redirect loop",
+      "message": null,
+      "message_html": "<p></p>",
+      "sender": "in_app:issue_activities:mentioned",
+      "is_mention": true,
+      "read_at": null,
+      "archived_at": null,
+      "snoozed_till": null,
+      "data": {
+        "issue": {
+          "id": "8c3d1f72-4a9e-4b65-9d20-6e1f3b7a5c48",
+          "name": "Fix login redirect loop",
+          "identifier": "ENG",
+          "sequence_id": 142,
+          "state_name": "In Progress",
+          "state_group": "started",
+          "type_id": "5b7e2d94-1a6c-4f38-9e02-8d4c3b6a1f57"
+        },
+        "issue_activity": {
+          "id": "3f8b6d21-9c4e-4a73-b1d5-7e2a0c9f6b48",
+          "verb": "created",
+          "field": "comment",
+          "actor": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+          "new_value": "@Ravi can you check the redirect on Safari?",
+          "old_value": "None",
+          "old_identifier": null,
+          "new_identifier": null,
+          "issue_comment": "@Ravi can you check the redirect on Safari?"
+        }
+      },
+      "triggered_by_id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+      "created_at": "2026-01-14T09:22:41.478363Z",
+      "updated_at": "2026-01-14T09:22:41.478363Z",
+      "triggered_by": {
+        "id": "16c61a3a-512a-48ac-b0be-b6b46fe6f430",
+        "display_name": "Priya Shah",
+        "avatar_url": "https://media.plane.so/avatars/16c61a3a-512a-48ac-b0be-b6b46fe6f430.png",
+        "email": "priya@example.com"
+      }
+    },
+    "query": {
+      "fields": "id"
+    },
+    "body": null,
+    "destructive": false
+  },
+  {
+    "id": "v2.artifacts.get-artifact",
+    "command": [
+      "artifact",
+      "get"
+    ],
+    "method": "GET",
+    "route": "/api/v2/workspaces/{slug}/artifacts/{artifact_id}/",
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Q1 velocity by squad",
+      "description": "Throughput and cycle time, split by squad.",
+      "current_version": 3,
+      "data_mode": "snapshot",
+      "html": "<section><h1>Q1 velocity by squad</h1>\u2026</section>"
+    },
+    "query": {},
+    "body": null,
+    "destructive": false
+  },
+  {
+    "id": "v2.artifacts.create-artifact",
+    "command": [
+      "artifact",
+      "create"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/artifacts/",
+    "status": 201,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "name": "Q1 velocity by squad",
+      "current_version": 1,
+      "is_published": false,
+      "anchor": null,
+      "data_mode": "snapshot"
+    },
+    "query": {},
+    "body": {
+      "html": "<section>safe data</section>",
+      "prompt": "fixture provenance"
+    },
+    "destructive": true
+  },
+  {
+    "id": "v2.artifacts.update-artifact",
+    "command": [
+      "artifact",
+      "update"
+    ],
+    "method": "PATCH",
+    "route": "/api/v2/workspaces/{slug}/artifacts/{artifact_id}/update/",
+    "status": 200,
+    "response": {
+      "id": "b7e42a19-3c5d-4f80-9a26-8d1c0f4e7b53",
+      "current_version": 4,
+      "data_mode": "snapshot"
+    },
+    "query": {},
+    "body": {
+      "html": "<section>safe data</section>",
+      "prompt": "fixture provenance"
+    },
+    "destructive": true
+  },
+  {
+    "id": "v2.artifacts.publish-artifact",
+    "command": [
+      "artifact",
+      "publish"
+    ],
+    "method": "POST",
+    "route": "/api/v2/workspaces/{slug}/artifacts/{artifact_id}/publish/",
+    "status": 201,
+    "response": {
+      "anchor": "5e2a7c81-4f39-4b60-a1d8-0c6b3e9f2d74",
+      "is_active": true
+    },
+    "query": {},
+    "body": null,
+    "destructive": true
+  }
+]

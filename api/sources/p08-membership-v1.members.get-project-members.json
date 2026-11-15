@@ -1,0 +1,96 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/members/get-project-members.md",
+  "operations": [
+    {
+      "id": "v1.members.get-project-members",
+      "packet": "P08",
+      "version": "v1",
+      "command_path": [
+        "member",
+        "project",
+        "list"
+      ],
+      "action": "list",
+      "scope": "project",
+      "method": "GET",
+      "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/project-members/",
+      "request_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "object",
+            "properties": {
+              "project_id": {
+                "type": "string"
+              },
+              "workspace_slug": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "project_id",
+              "workspace_slug"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "additionalProperties": false
+      },
+      "response_schema": true,
+      "responses": [
+        {
+          "status": 200,
+          "content_type": "application/json",
+          "schema": true
+        }
+      ],
+      "pagination": "none",
+      "scopes": [
+        "projects.members:read"
+      ],
+      "feature_evidence": "Official dedicated operation page. No runtime edition or entitlement inference.",
+      "side_effect": "read",
+      "source_url": "https://developers.plane.so/api-reference/members/get-project-members.md",
+      "provenance_id": "p08-membership-v1.members.get-project-members",
+      "lifecycle": "implemented",
+      "acceptance_scenario_ids": [
+        "TestP08MembershipRequests",
+        "TestP08MembershipSafety",
+        "TestP08MembershipFailures",
+        "TestP08MembershipValidation"
+      ],
+      "sensitivity": {
+        "input": [
+          "/body/email",
+          "/body/emails",
+          "/body/message",
+          "/query/email",
+          "/query/search"
+        ],
+        "output": [],
+        "review": "Identity, contact, invitation and organizational data remain native output; diagnostics must not echo input values.",
+        "ordinary_read_redaction": [],
+        "intentional_secret_delivery": false,
+        "signed_target_paths": [],
+        "signed_form_paths": [],
+        "extension_fields": "No authentication secret delivery is declared. Treat identity and organizational fields as private data."
+      },
+      "availability": {
+        "v1": "implemented"
+      },
+      "review_status": "awaiting-packet-planner-review",
+      "notes": [
+        "200 sample is array of array of flattened users, unlike flat workspace roster and project-member detail object. Do not normalize away this unresolved shape discrepancy."
+      ],
+      "error_contract": {
+        "documented_statuses": []
+      }
+    }
+  ],
+  "notes": [
+    "200 sample is array of array of flattened users, unlike flat workspace roster and project-member detail object. Do not normalize away this unresolved shape discrepancy."
+  ]
+}

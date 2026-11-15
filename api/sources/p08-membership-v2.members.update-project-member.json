@@ -1,0 +1,149 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/members/update-project-member.md",
+  "operations": [
+    {
+      "id": "v2.members.update-project-member",
+      "packet": "P08",
+      "version": "v2",
+      "command_path": [
+        "member",
+        "project",
+        "update"
+      ],
+      "action": "update",
+      "scope": "project",
+      "method": "PATCH",
+      "path": "/api/v2/workspaces/{slug}/projects/{project_id}/members/{pk}/",
+      "request_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              },
+              "project_id": {
+                "type": "string"
+              },
+              "pk": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "required": [
+              "slug",
+              "project_id",
+              "pk"
+            ],
+            "additionalProperties": false
+          },
+          "query": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "string"
+              },
+              "expand": {
+                "type": "string"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "body": {
+            "type": "object",
+            "properties": {
+              "member_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "role": {
+                "type": "string"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "additionalProperties": false
+      },
+      "response_schema": true,
+      "responses": [
+        {
+          "status": 200,
+          "content_type": "application/json",
+          "schema": true
+        },
+        {
+          "status": 404,
+          "content_type": "application/json",
+          "schema": true
+        }
+      ],
+      "pagination": "none",
+      "scopes": [
+        "projects.members:write"
+      ],
+      "feature_evidence": "Official dedicated operation page. No runtime edition or entitlement inference.",
+      "side_effect": "write",
+      "source_url": "https://developers.plane.so/api-reference/v2/members/update-project-member.md",
+      "provenance_id": "p08-membership-v2.members.update-project-member",
+      "lifecycle": "implemented",
+      "acceptance_scenario_ids": [
+        "TestP08MembershipRequests",
+        "TestP08MembershipSafety",
+        "TestP08MembershipFailures",
+        "TestP08MembershipValidation"
+      ],
+      "sensitivity": {
+        "input": [
+          "/body/email",
+          "/body/emails",
+          "/body/message",
+          "/query/email",
+          "/query/search"
+        ],
+        "output": [],
+        "review": "Identity, contact, invitation and organizational data remain native output; diagnostics must not echo input values.",
+        "ordinary_read_redaction": [],
+        "intentional_secret_delivery": false,
+        "signed_target_paths": [],
+        "signed_form_paths": [],
+        "extension_fields": "No authentication secret delivery is declared. Treat identity and organizational fields as private data."
+      },
+      "availability": {
+        "v2": "implemented"
+      },
+      "review_status": "awaiting-packet-planner-review",
+      "notes": [
+        "Both member_id and role optional. Omitted keys retained; explicit null clears nullable field. Role nullability is described for legacy responses, but write acceptance of null is not explicitly documented by field schema. Availability conflict in family overview is unresolved."
+      ],
+      "error_contract": {
+        "documented_statuses": [
+          400,
+          401,
+          402,
+          403,
+          404,
+          406,
+          409,
+          413,
+          415,
+          429
+        ],
+        "schema": {
+          "$ref": "urn:plane-cli:problem-v2"
+        },
+        "content_type": "application/problem+json",
+        "provenance_id": "v2-errors"
+      }
+    }
+  ],
+  "notes": [
+    "Both member_id and role optional. Omitted keys retained; explicit null clears nullable field. Role nullability is described for legacy responses, but write acceptance of null is not explicitly documented by field schema. Availability conflict in family overview is unresolved."
+  ]
+}

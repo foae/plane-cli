@@ -1,0 +1,115 @@
+{
+  "source_id": "v2:permission-grants:create-permission-grant",
+  "source_url": "https://developers.plane.so/api-reference/v2/permission-grants/create-permission-grant.md",
+  "review": "Independently authored minimal native contract; captured official operation reviewed. No upstream document redistributed.",
+  "operation": "v2.permission-grants.create-permission-grant",
+  "method": "POST",
+  "path": "/api/v2/workspaces/{slug}/permissions/grants/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "subject_type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "teamspace"
+            ]
+          },
+          "subject_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "relation": {
+            "type": "string",
+            "maxLength": 50
+          },
+          "resource_type": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "resource_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "permissions_grant": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 50
+            }
+          },
+          "permissions_deny": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 50
+            }
+          },
+          "expires_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "subject_type",
+          "subject_id",
+          "relation",
+          "resource_type",
+          "resource_id"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    201
+  ],
+  "documented_error_statuses": [
+    400,
+    401,
+    403,
+    404,
+    406,
+    409,
+    413,
+    415,
+    429
+  ],
+  "pagination": "none",
+  "notes": [
+    "Create replaces an existing subject/resource grant even though response remains 201. Omitted permission lists clear; omitted expiry becomes null."
+  ]
+}

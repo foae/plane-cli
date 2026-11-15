@@ -1,0 +1,89 @@
+{
+  "source_id": "v2:workspace-features:update-workspace-features",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-features/update-workspace-features.md",
+  "review": "Independently authored minimal native contract; captured official operation reviewed. No upstream document redistributed.",
+  "operation": "v2.workspace-features.update-workspace-features",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/features/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "is_work_item_types_enabled": {
+            "type": "boolean"
+          },
+          "work_item_type_default_level": {
+            "type": "integer"
+          },
+          "is_workitem_hierarchy_enabled": {
+            "type": "boolean"
+          },
+          "is_project_grouping_enabled": {
+            "type": "boolean"
+          },
+          "is_teams_enabled": {
+            "type": "boolean"
+          },
+          "is_wiki_enabled": {
+            "type": "boolean"
+          },
+          "is_initiative_enabled": {
+            "type": "boolean"
+          },
+          "is_customer_enabled": {
+            "type": "boolean"
+          },
+          "is_release_enabled": {
+            "type": "boolean"
+          },
+          "is_state_duration_enabled": {
+            "type": "boolean"
+          },
+          "is_pi_enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [],
+        "additionalProperties": true
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "documented_error_statuses": [
+    400,
+    401,
+    402,
+    403,
+    404,
+    406,
+    409,
+    413,
+    415,
+    429
+  ],
+  "pagination": "none",
+  "notes": [
+    "Native feature names differ by version; toggles are explicit administrative writes, never hidden prerequisite requests."
+  ]
+}

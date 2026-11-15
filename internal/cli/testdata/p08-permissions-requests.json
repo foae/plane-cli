@@ -1,0 +1,688 @@
+[
+  {
+    "name": "role-list",
+    "args": [
+      "role",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--count=false",
+      "--is-system=false",
+      "--namespace",
+      "project",
+      "--offset",
+      "0",
+      "--order-by",
+      "-updated_at",
+      "--paginate",
+      "cursor",
+      "--per-page",
+      "200",
+      "--search",
+      "QA + API",
+      "--slug",
+      "qa-reviewer",
+      "--fields",
+      "id,slug,permissions",
+      "--expand",
+      "permission_schemes",
+      "--cursor",
+      "opaque+token/="
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/roles/",
+    "query": "count=false&cursor=opaque%2Btoken%2F%3D&expand=permission_schemes&fields=id%2Cslug%2Cpermissions&is_system=false&namespace=project&offset=0&order_by=-updated_at&paginate=cursor&per_page=200&search=QA+%2B+API&slug=qa-reviewer",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "d5c74e56-a54c-45eb-b121-e376ac185689",
+          "slug": "qa-reviewer",
+          "level": 10,
+          "permissions": [
+            "workitem:delete+creator"
+          ],
+          "permission_schemes": []
+        }
+      ],
+      "next_cursor": "opaque+cursor",
+      "has_more": true,
+      "pagination": {
+        "style": "cursor"
+      }
+    }
+  },
+  {
+    "name": "role-get",
+    "args": [
+      "role",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--id",
+      "d5c74e56-a54c-45eb-b121-e376ac185689",
+      "--fields",
+      "id,slug",
+      "--expand",
+      "permission_schemes"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/roles/d5c74e56-a54c-45eb-b121-e376ac185689/",
+    "query": "expand=permission_schemes&fields=id%2Cslug",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "d5c74e56-a54c-45eb-b121-e376ac185689",
+      "slug": "custom-case",
+      "permission_schemes": []
+    }
+  },
+  {
+    "name": "scheme-list",
+    "args": [
+      "permission-scheme",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--count=false",
+      "--offset",
+      "0",
+      "--order-by",
+      "updated_at",
+      "--paginate",
+      "cursor",
+      "--per-page",
+      "200",
+      "--search",
+      "QA",
+      "--fields",
+      "id,permissions",
+      "--cursor",
+      "opaque+token/="
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/permission-schemes/",
+    "query": "count=false&cursor=opaque%2Btoken%2F%3D&fields=id%2Cpermissions&offset=0&order_by=updated_at&paginate=cursor&per_page=200&search=QA",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "d5c74e56-a54c-45eb-b121-e376ac185689",
+          "permissions": [
+            "workitem:*",
+            "comment:edit+creator"
+          ]
+        }
+      ],
+      "next_cursor": null,
+      "has_more": false,
+      "pagination": {
+        "style": "cursor"
+      }
+    }
+  },
+  {
+    "name": "scheme-get",
+    "args": [
+      "permission-scheme",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--id",
+      "d5c74e56-a54c-45eb-b121-e376ac185689",
+      "--fields",
+      "id,permissions"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/permission-schemes/d5c74e56-a54c-45eb-b121-e376ac185689/",
+    "query": "fields=id%2Cpermissions",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "d5c74e56-a54c-45eb-b121-e376ac185689",
+      "permissions": [
+        "*"
+      ]
+    }
+  },
+  {
+    "name": "workspace-effective",
+    "args": [
+      "permission",
+      "workspace-effective",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/permissions/me/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "relation": "custom-owner",
+      "permission_grants": [
+        "wiki:delete+creator",
+        "project:view"
+      ]
+    }
+  },
+  {
+    "name": "project-effective",
+    "args": [
+      "permission",
+      "project-effective",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--project",
+      "ENG"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/projects/ENG/permissions/me/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "relation": null,
+      "permission_grants": [
+        "project:view",
+        "workitem:edit"
+      ]
+    }
+  },
+  {
+    "name": "permission-check",
+    "args": [
+      "permission",
+      "check",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--action",
+      "edit",
+      "--resource-type",
+      "workitem",
+      "--resource-id",
+      "82a503f0-cb9c-4460-a838-6116c4d51dfe"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/permissions/check/",
+    "query": "action=edit&resource_id=82a503f0-cb9c-4460-a838-6116c4d51dfe&resource_type=workitem",
+    "body": null,
+    "status": 200,
+    "response": {
+      "allowed": false
+    }
+  },
+  {
+    "name": "permission-resource",
+    "args": [
+      "permission",
+      "resource",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--resource-type",
+      "workitem",
+      "--resource-id",
+      "82a503f0-cb9c-4460-a838-6116c4d51dfe"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/permissions/resource/",
+    "query": "resource_id=82a503f0-cb9c-4460-a838-6116c4d51dfe&resource_type=workitem",
+    "body": null,
+    "status": 200,
+    "response": {
+      "permissions": [
+        "can_delete",
+        "can_edit",
+        "can_view"
+      ]
+    }
+  },
+  {
+    "name": "permission-accessible",
+    "args": [
+      "permission",
+      "accessible",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--resource-type",
+      "unknown-kind",
+      "--action",
+      "unknown-action"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/permissions/accessible/",
+    "query": "action=unknown-action&resource_type=unknown-kind",
+    "body": null,
+    "status": 200,
+    "response": {
+      "resource_ids": []
+    }
+  },
+  {
+    "name": "permission-relation",
+    "args": [
+      "permission",
+      "relation",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--resource-type",
+      "unknown-kind",
+      "--resource-id",
+      "82a503f0-cb9c-4460-a838-6116c4d51dfe"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/permissions/relation/",
+    "query": "resource_id=82a503f0-cb9c-4460-a838-6116c4d51dfe&resource_type=unknown-kind",
+    "body": null,
+    "status": 200,
+    "response": {
+      "relation": null
+    }
+  },
+  {
+    "name": "grant-list",
+    "args": [
+      "permission-grant",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--resource-type",
+      "project",
+      "--resource-id",
+      "82a503f0-cb9c-4460-a838-6116c4d51dfe",
+      "--count=false",
+      "--offset",
+      "10000",
+      "--per-page",
+      "200",
+      "--paginate",
+      "cursor",
+      "--order-by",
+      "-id",
+      "--fields",
+      "id,relation",
+      "--cursor",
+      "opaque+token/="
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/permissions/grants/",
+    "query": "count=false&cursor=opaque%2Btoken%2F%3D&fields=id%2Crelation&offset=10000&order_by=-id&paginate=cursor&per_page=200&resource_id=82a503f0-cb9c-4460-a838-6116c4d51dfe&resource_type=project",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "d5c74e56-a54c-45eb-b121-e376ac185689",
+          "relation": "QA-Reviewer"
+        }
+      ],
+      "next_cursor": "next-token",
+      "has_more": true,
+      "pagination": {
+        "style": "cursor"
+      }
+    }
+  },
+  {
+    "name": "grant-get",
+    "args": [
+      "permission-grant",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--id",
+      "d5c74e56-a54c-45eb-b121-e376ac185689",
+      "--fields",
+      "id,expires_at,relation"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/permissions/grants/d5c74e56-a54c-45eb-b121-e376ac185689/",
+    "query": "fields=id%2Cexpires_at%2Crelation",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "d5c74e56-a54c-45eb-b121-e376ac185689",
+      "expires_at": null,
+      "relation": "QA-Reviewer"
+    }
+  },
+  {
+    "name": "grant-create",
+    "args": [
+      "permission-grant",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--fields",
+      "id,relation",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/Team/permissions/grants/",
+    "query": "fields=id%2Crelation",
+    "body": {
+      "subject_type": "teamspace",
+      "subject_id": "26753bc5-5317-4476-b5dc-412f082b1a5e",
+      "relation": "QA-Reviewer",
+      "resource_type": "project",
+      "resource_id": "82a503f0-cb9c-4460-a838-6116c4d51dfe",
+      "permissions_grant": [
+        "workitem:archive",
+        "project:*"
+      ],
+      "permissions_deny": [],
+      "expires_at": null
+    },
+    "status": 201,
+    "response": {
+      "id": "d5c74e56-a54c-45eb-b121-e376ac185689",
+      "relation": "QA-Reviewer"
+    }
+  },
+  {
+    "name": "grant-update",
+    "args": [
+      "permission-grant",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--id",
+      "d5c74e56-a54c-45eb-b121-e376ac185689",
+      "--fields",
+      "id,expires_at,permissions_grant",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/Team/permissions/grants/d5c74e56-a54c-45eb-b121-e376ac185689/",
+    "query": "fields=id%2Cexpires_at%2Cpermissions_grant",
+    "body": {
+      "relation": "custom-slug",
+      "permissions_grant": [],
+      "permissions_deny": [
+        "workitem:delete"
+      ],
+      "expires_at": null
+    },
+    "status": 200,
+    "response": {
+      "id": "d5c74e56-a54c-45eb-b121-e376ac185689",
+      "expires_at": null,
+      "permissions_grant": []
+    }
+  },
+  {
+    "name": "grant-delete",
+    "args": [
+      "permission-grant",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--id",
+      "d5c74e56-a54c-45eb-b121-e376ac185689",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/Team/permissions/grants/d5c74e56-a54c-45eb-b121-e376ac185689/",
+    "query": "",
+    "body": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "name": "v1-project-feature-get",
+    "args": [
+      "project-feature",
+      "get",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "Team",
+      "--project",
+      "ENG"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/Team/projects/ENG/features/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "epics": false,
+      "work_item_types": true
+    }
+  },
+  {
+    "name": "v1-project-feature-update",
+    "args": [
+      "project-feature",
+      "update",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "Team",
+      "--project",
+      "ENG",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/Team/projects/ENG/features/",
+    "query": "",
+    "body": {
+      "epics": false,
+      "modules": true,
+      "cycles": false,
+      "views": true,
+      "pages": false,
+      "intakes": true,
+      "work_item_types": false
+    },
+    "status": 200,
+    "response": {
+      "epics": false,
+      "modules": true,
+      "cycles": false,
+      "views": true,
+      "pages": false,
+      "intakes": true,
+      "work_item_types": false
+    }
+  },
+  {
+    "name": "v1-workspace-feature-get",
+    "args": [
+      "workspace-feature",
+      "get",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "Team"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/Team/features/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "project_grouping": true,
+      "initiatives": false,
+      "teams": true,
+      "customers": false,
+      "wiki": true,
+      "pi": false
+    }
+  },
+  {
+    "name": "v1-workspace-feature-update",
+    "args": [
+      "workspace-feature",
+      "update",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "Team",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/Team/features/",
+    "query": "",
+    "body": {
+      "project_grouping": false,
+      "initiatives": true,
+      "teams": false,
+      "customers": true,
+      "wiki": false,
+      "pi": true
+    },
+    "status": 200,
+    "response": {
+      "project_grouping": false,
+      "initiatives": true,
+      "teams": false,
+      "customers": true,
+      "wiki": false,
+      "pi": true
+    }
+  },
+  {
+    "name": "v2-project-feature-get",
+    "args": [
+      "project-feature",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--project",
+      "ENG"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/projects/ENG/features/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "is_epic_enabled": false,
+      "is_workflow_enabled": true
+    }
+  },
+  {
+    "name": "v2-project-feature-update",
+    "args": [
+      "project-feature",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--project",
+      "ENG",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/Team/projects/ENG/features/",
+    "query": "",
+    "body": {
+      "is_automated_cycle_enabled": false,
+      "is_epic_enabled": true,
+      "is_manually_start_end_cycles_enabled": false,
+      "is_milestone_enabled": true,
+      "is_parallel_cycles_enabled": false,
+      "is_project_updates_enabled": true,
+      "is_workflow_enabled": false
+    },
+    "status": 200,
+    "response": {
+      "is_epic_enabled": true,
+      "is_workflow_enabled": false
+    }
+  },
+  {
+    "name": "v2-workspace-feature-get",
+    "args": [
+      "workspace-feature",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/Team/features/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "is_work_item_types_enabled": false,
+      "work_item_type_default_level": 27,
+      "is_workitem_hierarchy_enabled": true,
+      "extension": {
+        "native": "preserved"
+      }
+    }
+  },
+  {
+    "name": "v2-workspace-feature-update",
+    "args": [
+      "workspace-feature",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "Team",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/Team/features/",
+    "query": "",
+    "body": {
+      "is_work_item_types_enabled": false,
+      "work_item_type_default_level": -27,
+      "is_workitem_hierarchy_enabled": true,
+      "is_project_grouping_enabled": false,
+      "is_teams_enabled": true,
+      "is_wiki_enabled": false,
+      "is_initiative_enabled": true,
+      "is_customer_enabled": false,
+      "is_release_enabled": true,
+      "is_state_duration_enabled": false,
+      "is_pi_enabled": true
+    },
+    "status": 200,
+    "response": {
+      "is_work_item_types_enabled": false,
+      "work_item_type_default_level": -27,
+      "is_workitem_hierarchy_enabled": true
+    }
+  }
+]

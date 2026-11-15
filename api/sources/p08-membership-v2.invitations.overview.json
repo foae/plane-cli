@@ -1,0 +1,9 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/invitations/overview.md",
+  "operations": [],
+  "notes": [
+    "Non-operation overview; response panels describe objects, not standalone invocable operations.",
+    "responded_at declared string(date-time), but bulk operation 201 example uses null. message declared string here but create body explicitly nullable; input/output nullability must not be conflated. No invitation update/PATCH operation listed for v2.",
+    "Overview retained as context, not a callable operation."
+  ]
+}

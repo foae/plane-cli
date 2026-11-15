@@ -1,0 +1,10 @@
+{
+  "source_id": "v2:permission-schemes:overview",
+  "source_url": "https://developers.plane.so/api-reference/v2/permission-schemes/overview.md",
+  "review": "Independently authored family summary, not redistributed upstream documentation.",
+  "family": "permission-schemes",
+  "disposition": "overview",
+  "notes": [
+    "Named permission sets; only documented list and get operations exposed."
+  ]
+}

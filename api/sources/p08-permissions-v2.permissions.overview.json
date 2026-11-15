@@ -1,0 +1,10 @@
+{
+  "source_id": "v2:permissions:overview",
+  "source_url": "https://developers.plane.so/api-reference/v2/permissions/overview.md",
+  "review": "Independently authored family summary, not redistributed upstream documentation.",
+  "family": "permissions",
+  "disposition": "overview",
+  "notes": [
+    "Caller-only permission reads; resource lists supported actions rather than authorization. Relation and accessible omit inherited-parent access."
+  ]
+}

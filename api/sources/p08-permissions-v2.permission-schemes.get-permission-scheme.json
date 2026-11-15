@@ -1,0 +1,60 @@
+{
+  "source_id": "v2:permission-schemes:get-permission-scheme",
+  "source_url": "https://developers.plane.so/api-reference/v2/permission-schemes/get-permission-scheme.md",
+  "review": "Independently authored minimal native contract; captured official operation reviewed. No upstream document redistributed.",
+  "operation": "v2.permission-schemes.get-permission-scheme",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/permission-schemes/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "slug",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "documented_error_statuses": [
+    400,
+    401,
+    402,
+    403,
+    404,
+    406,
+    429
+  ],
+  "pagination": "none",
+  "notes": [
+    "400 invalid_request documented in fields/expand prose, although omitted from the status table."
+  ]
+}

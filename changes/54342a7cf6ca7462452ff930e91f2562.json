@@ -1,0 +1,4 @@
+{
+  "level": "minor",
+  "summary": "Add native administration, membership, permissions, webhook and artifact commands with protected secret delivery"
+}

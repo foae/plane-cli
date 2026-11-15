@@ -1,0 +1,10 @@
+{
+  "source_id": "v2:roles:overview",
+  "source_url": "https://developers.plane.so/api-reference/v2/roles/overview.md",
+  "review": "Independently authored family summary, not redistributed upstream documentation.",
+  "family": "roles",
+  "disposition": "overview",
+  "notes": [
+    "Role API is read-only. Preserve role UUIDs, slugs, levels and permission strings without translating numeric rank into access."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "source_id": "v2:permission-grants:overview",
+  "source_url": "https://developers.plane.so/api-reference/v2/permission-grants/overview.md",
+  "review": "Independently authored family summary, not redistributed upstream documentation.",
+  "family": "permission-grants",
+  "disposition": "overview",
+  "notes": [
+    "Membership grants and member records differ. Create can replace existing grants; DELETE does not remove member records."
+  ]
+}

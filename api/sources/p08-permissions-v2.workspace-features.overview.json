@@ -1,0 +1,10 @@
+{
+  "source_id": "v2:workspace-features:overview",
+  "source_url": "https://developers.plane.so/api-reference/v2/workspace-features/overview.md",
+  "review": "Independently authored family summary, not redistributed upstream documentation.",
+  "family": "workspace-features",
+  "disposition": "overview",
+  "notes": [
+    "Version-native workspace switches; v2 work item mode affects write surfaces. Feature objects declare no one-time secrets."
+  ]
+}

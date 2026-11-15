@@ -1,0 +1,9 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/members/overview.md",
+  "operations": [],
+  "notes": [
+    "Non-operation overview; response panels describe objects, not standalone invocable operations.",
+    "CONTRADICTION: Endpoints table and writable paragraph expose POST/PATCH/DELETE, but Changed from v1 says v2 exposes reads only and no add/update/remove equivalents. Preserve both; coordinator must decide evidence disposition. Role response is nullable for legacy rows and open-set slug; memberships and users have distinct IDs.",
+    "Overview retained as context, not a callable operation."
+  ]
+}

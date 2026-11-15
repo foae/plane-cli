@@ -1,0 +1,70 @@
+{
+  "source_id": "v1:project-features:update-project-features",
+  "source_url": "https://developers.plane.so/api-reference/project-features/update-project-features.md",
+  "review": "Independently authored minimal native contract; captured official operation reviewed. No upstream document redistributed.",
+  "operation": "v1.project-features.update-project-features",
+  "method": "PATCH",
+  "path": "/api/v1/workspaces/{workspace_slug}/projects/{project_id}/features/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "string"
+          },
+          "workspace_slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "project_id",
+          "workspace_slug"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "epics": {
+            "type": "boolean"
+          },
+          "modules": {
+            "type": "boolean"
+          },
+          "cycles": {
+            "type": "boolean"
+          },
+          "views": {
+            "type": "boolean"
+          },
+          "pages": {
+            "type": "boolean"
+          },
+          "intakes": {
+            "type": "boolean"
+          },
+          "work_item_types": {
+            "type": "boolean"
+          }
+        },
+        "required": [],
+        "additionalProperties": true
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "documented_error_statuses": [],
+  "pagination": "none",
+  "notes": [
+    "Native feature names differ by version; toggles are explicit administrative writes, never hidden prerequisite requests."
+  ]
+}

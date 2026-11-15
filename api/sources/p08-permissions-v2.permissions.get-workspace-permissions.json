@@ -1,0 +1,41 @@
+{
+  "source_id": "v2:permissions:get-workspace-permissions",
+  "source_url": "https://developers.plane.so/api-reference/v2/permissions/get-workspace-permissions.md",
+  "review": "Independently authored minimal native contract; captured official operation reviewed. No upstream document redistributed.",
+  "operation": "v2.permissions.get-workspace-permissions",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/permissions/me/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "documented_error_statuses": [
+    401,
+    403,
+    404,
+    406,
+    429
+  ],
+  "pagination": "none",
+  "notes": []
+}

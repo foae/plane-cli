@@ -1,0 +1,140 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/invitations/create-invitation.md",
+  "operations": [
+    {
+      "id": "v2.invitations.create-invitation",
+      "packet": "P08",
+      "version": "v2",
+      "command_path": [
+        "invitation",
+        "create"
+      ],
+      "action": "create",
+      "scope": "workspace",
+      "method": "POST",
+      "path": "/api/v2/workspaces/{slug}/invitations/",
+      "request_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "slug"
+            ],
+            "additionalProperties": false
+          },
+          "query": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "string"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "body": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string",
+                "format": "email"
+              },
+              "message": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "role": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "email"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "path",
+          "body"
+        ],
+        "additionalProperties": false
+      },
+      "response_schema": true,
+      "responses": [
+        {
+          "status": 201,
+          "content_type": "application/json",
+          "schema": true
+        }
+      ],
+      "pagination": "none",
+      "scopes": [
+        "workspaces.members:write"
+      ],
+      "feature_evidence": "Official dedicated operation page. No runtime edition or entitlement inference.",
+      "side_effect": "write",
+      "source_url": "https://developers.plane.so/api-reference/v2/invitations/create-invitation.md",
+      "provenance_id": "p08-membership-v2.invitations.create-invitation",
+      "lifecycle": "implemented",
+      "acceptance_scenario_ids": [
+        "TestP08MembershipRequests",
+        "TestP08MembershipSafety",
+        "TestP08MembershipFailures",
+        "TestP08MembershipValidation"
+      ],
+      "sensitivity": {
+        "input": [
+          "/body/email",
+          "/body/emails",
+          "/body/message",
+          "/query/email",
+          "/query/search"
+        ],
+        "output": [],
+        "review": "Identity, contact, invitation and organizational data remain native output; diagnostics must not echo input values.",
+        "ordinary_read_redaction": [],
+        "intentional_secret_delivery": false,
+        "signed_target_paths": [],
+        "signed_form_paths": [],
+        "extension_fields": "No authentication secret delivery is declared. Treat identity and organizational fields as private data."
+      },
+      "availability": {
+        "v2": "implemented"
+      },
+      "review_status": "awaiting-packet-planner-review",
+      "notes": [
+        "email required with email format; message optional and explicitly nullable; role optional plain string without enumerated values or default here. Do not import bulk enum/default."
+      ],
+      "error_contract": {
+        "documented_statuses": [
+          400,
+          401,
+          402,
+          403,
+          404,
+          406,
+          409,
+          413,
+          415,
+          429
+        ],
+        "schema": {
+          "$ref": "urn:plane-cli:problem-v2"
+        },
+        "content_type": "application/problem+json",
+        "provenance_id": "v2-errors"
+      }
+    }
+  ],
+  "notes": [
+    "email required with email format; message optional and explicitly nullable; role optional plain string without enumerated values or default here. Do not import bulk enum/default."
+  ]
+}

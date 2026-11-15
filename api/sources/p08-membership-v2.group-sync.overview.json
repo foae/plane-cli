@@ -1,0 +1,9 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/group-sync/overview.md",
+  "operations": [],
+  "notes": [
+    "Non-operation overview; response panels describe objects, not standalone invocable operations.",
+    "Object labeled group mapping actually lists group-sync configuration attributes, not project/workspace mapping shapes. Every mapping read says fields supported, while config read operation has no fields parameter; do not infer config query support. No by-key mapping update or execution/sync-now action in v2 endpoint table.",
+    "Overview retained as context, not a callable operation."
+  ]
+}

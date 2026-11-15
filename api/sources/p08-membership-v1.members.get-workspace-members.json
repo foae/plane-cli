@@ -1,0 +1,88 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/members/get-workspace-members.md",
+  "operations": [
+    {
+      "id": "v1.members.get-workspace-members",
+      "packet": "P08",
+      "version": "v1",
+      "command_path": [
+        "member",
+        "workspace",
+        "list"
+      ],
+      "action": "list",
+      "scope": "workspace",
+      "method": "GET",
+      "path": "/api/v1/workspaces/{workspace_slug}/members/",
+      "request_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "object",
+            "properties": {
+              "workspace_slug": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "workspace_slug"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "additionalProperties": false
+      },
+      "response_schema": true,
+      "responses": [
+        {
+          "status": 200,
+          "content_type": "application/json",
+          "schema": true
+        }
+      ],
+      "pagination": "none",
+      "scopes": [
+        "workspaces.members:read"
+      ],
+      "feature_evidence": "Official dedicated operation page. No runtime edition or entitlement inference.",
+      "side_effect": "read",
+      "source_url": "https://developers.plane.so/api-reference/members/get-workspace-members.md",
+      "provenance_id": "p08-membership-v1.members.get-workspace-members",
+      "lifecycle": "implemented",
+      "acceptance_scenario_ids": [
+        "TestP08MembershipRequests",
+        "TestP08MembershipSafety",
+        "TestP08MembershipFailures",
+        "TestP08MembershipValidation"
+      ],
+      "sensitivity": {
+        "input": [
+          "/body/email",
+          "/body/emails",
+          "/body/message",
+          "/query/email",
+          "/query/search"
+        ],
+        "output": [],
+        "review": "Identity, contact, invitation and organizational data remain native output; diagnostics must not echo input values.",
+        "ordinary_read_redaction": [],
+        "intentional_secret_delivery": false,
+        "signed_target_paths": [],
+        "signed_form_paths": [],
+        "extension_fields": "No authentication secret delivery is declared. Treat identity and organizational fields as private data."
+      },
+      "availability": {
+        "v1": "implemented"
+      },
+      "review_status": "awaiting-packet-planner-review",
+      "notes": [],
+      "error_contract": {
+        "documented_statuses": []
+      }
+    }
+  ],
+  "notes": []
+}

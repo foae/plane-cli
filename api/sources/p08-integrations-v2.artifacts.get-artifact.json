@@ -1,0 +1,39 @@
+{
+  "source_id": "v2:artifacts:get-artifact",
+  "source_url": "https://developers.plane.so/api-reference/v2/artifacts/get-artifact.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "operation": "v2.artifacts.get-artifact",
+  "method": "GET",
+  "path": "/api/v2/workspaces/{slug}/artifacts/{artifact_id}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "artifact_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "artifact_id"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path"
+    ]
+  },
+  "success_statuses": [
+    200
+  ],
+  "pagination": "none",
+  "notes": []
+}

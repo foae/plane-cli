@@ -54,7 +54,7 @@ func apiRequest(cmd *cobra.Command, method string, segments []string, query url.
 	mutation := cmd.Annotations["side_effect"] != "none" && cmd.Annotations["side_effect"] != "read"
 	var response httpx.Response
 	if mutation {
-		response, e = client.Do(ctx, method, segments, query, body, credential.Header, credential.Token)
+		response, e = client.DoMutation(ctx, method, segments, query, body, credential.Header, credential.Token)
 	} else {
 		response, e = client.DoRead(ctx, method, segments, query, body, credential.Header, credential.Token)
 	}
@@ -65,6 +65,7 @@ func apiRequest(cmd *cobra.Command, method string, segments []string, query url.
 	if all {
 		return aggregatePages(cmd, ctx, client, segments, query, credential.Header, credential.Token, r.APIVersion, response)
 	}
+	response.Data = redactAdminResponse(cmd, response.Data)
 	format, _ := cmd.Flags().GetString("output")
 	if format == "table" {
 		var rendered bytes.Buffer

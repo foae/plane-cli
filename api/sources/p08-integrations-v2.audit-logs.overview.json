@@ -1,0 +1,6 @@
+{
+  "source_id": "v2:audit-logs:overview",
+  "source_url": "https://developers.plane.so/api-reference/v2/audit-logs/overview.md",
+  "review": "Independently authored minimal contract from exact official source; examples establish shape, not a closed response schema.",
+  "notes": "Read-only workspace audit trail; sensitive actor/IP data."
+}

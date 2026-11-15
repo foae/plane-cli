@@ -2,6 +2,14 @@
 
 Known evidence gaps are not implemented API coverage. V1 is best-effort: the supplemental gaps below do not block independently documented P03 operations. Do not invent endpoints or schemas. Available official pages that have not yet been reviewed are unfinished research, not missing upstream contracts.
 
+## Packet delivery policy
+
+Documented upstream contract gaps are approved exceptions to packet delivery across all packets. Delivery means the independently implementable scope is complete; it does not mean a blocked operation works. Keep blocked source rows distinct from implemented operations and retain planner-review and verification status independently. Available but unread documentation is not an exception.
+
+P03/P04 exceptions are listed below. P06's supplemental public v1 server-mediated uploads remain unimplemented where no authoritative method, path, request and response contract is established. P08's [v1 workspace-member removal](https://developers.plane.so/api-reference/members/remove-workspace-member.md) documents `POST /api/v1/workspaces/{workspace_slug}/members/remove/` but neither its parameters nor its examples identify the member to remove. No guessed destructive payload or callable v1 removal command is exposed. P09 supplemental families require their own evidence reconciliation; the exception policy does not turn unfinished research into coverage.
+
+P07 has no recorded upstream-blocked operation exception. Conflicting examples resolved against explicit operation field declarations remain documented contract decisions, not omitted operations.
+
 | API / operation | Missing evidence | Source / status | Implementation treatment |
 |---|---|---|---|
 | v1 grouped work-item counts (`work-items/count/`) | Exact method, full path, inputs, response and pagination | [Migration guide](https://developers.plane.so/api-reference/v2/migrating-from-v1.md) names the route only | Evidence-blocked; continue documented operations |

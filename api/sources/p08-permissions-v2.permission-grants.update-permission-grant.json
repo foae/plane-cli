@@ -1,0 +1,93 @@
+{
+  "source_id": "v2:permission-grants:update-permission-grant",
+  "source_url": "https://developers.plane.so/api-reference/v2/permission-grants/update-permission-grant.md",
+  "review": "Independently authored minimal native contract; captured official operation reviewed. No upstream document redistributed.",
+  "operation": "v2.permission-grants.update-permission-grant",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/permissions/grants/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "slug",
+          "pk"
+        ],
+        "additionalProperties": false
+      },
+      "query": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string",
+            "maxLength": 50
+          },
+          "permissions_grant": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "permissions_deny": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "expires_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          }
+        },
+        "required": [],
+        "additionalProperties": true
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "documented_error_statuses": [
+    400,
+    401,
+    403,
+    404,
+    406,
+    409,
+    413,
+    415,
+    429
+  ],
+  "pagination": "none",
+  "notes": [
+    "PATCH preserves omitted fields; sent arrays replace whole arrays; null expiry makes permanent. Subject/resource identity is not writable."
+  ]
+}

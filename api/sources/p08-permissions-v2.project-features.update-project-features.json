@@ -1,0 +1,81 @@
+{
+  "source_id": "v2:project-features:update-project-features",
+  "source_url": "https://developers.plane.so/api-reference/v2/project-features/update-project-features.md",
+  "review": "Independently authored minimal native contract; captured official operation reviewed. No upstream document redistributed.",
+  "operation": "v2.project-features.update-project-features",
+  "method": "PATCH",
+  "path": "/api/v2/workspaces/{slug}/projects/{project_id}/features/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "project_id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "is_automated_cycle_enabled": {
+            "type": "boolean"
+          },
+          "is_epic_enabled": {
+            "type": "boolean"
+          },
+          "is_manually_start_end_cycles_enabled": {
+            "type": "boolean"
+          },
+          "is_milestone_enabled": {
+            "type": "boolean"
+          },
+          "is_parallel_cycles_enabled": {
+            "type": "boolean"
+          },
+          "is_project_updates_enabled": {
+            "type": "boolean"
+          },
+          "is_workflow_enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [],
+        "additionalProperties": true
+      }
+    },
+    "required": [
+      "path",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    200
+  ],
+  "documented_error_statuses": [
+    400,
+    401,
+    402,
+    403,
+    404,
+    406,
+    409,
+    413,
+    415,
+    429
+  ],
+  "pagination": "none",
+  "notes": [
+    "Native feature names differ by version; toggles are explicit administrative writes, never hidden prerequisite requests."
+  ]
+}

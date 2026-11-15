@@ -1,0 +1,1539 @@
+[
+  {
+    "name": "v2:members:list-project-members",
+    "args": [
+      "member",
+      "project",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--project",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--member-id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--role",
+      "custom-role",
+      "--search",
+      "private-search",
+      "--expand",
+      "member",
+      "--order-by",
+      "id",
+      "--per-page",
+      "1",
+      "--offset",
+      "1",
+      "--count=false",
+      "--fields",
+      "id",
+      "--member-id--in",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--role--in",
+      "member,custom-role"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/550e8400-e29b-41d4-a716-446655440000/members/",
+    "query": "count=false&expand=member&fields=id&member_id=550e8400-e29b-41d4-a716-446655440000&member_id__in=550e8400-e29b-41d4-a716-446655440000&offset=1&order_by=id&per_page=1&role=custom-role&role__in=member%2Ccustom-role&search=private-search",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440000",
+          "role": null,
+          "member_id": "550e8400-e29b-41d4-a716-446655440000"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "pagination": {
+        "style": "offset",
+        "per_page": 1,
+        "offset": 1
+      },
+      "total_count": 1
+    },
+    "mutation": false,
+    "source_id": "v2:members:list-project-members"
+  },
+  {
+    "name": "v2:members:list-workspace-members",
+    "args": [
+      "member",
+      "workspace",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--member-id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--role",
+      "custom-role",
+      "--search",
+      "private-search",
+      "--expand",
+      "member",
+      "--order-by",
+      "id",
+      "--per-page",
+      "1",
+      "--offset",
+      "1",
+      "--count=false",
+      "--fields",
+      "id",
+      "--member-id--in",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--role--in",
+      "member,custom-role"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/members/",
+    "query": "count=false&expand=member&fields=id&member_id=550e8400-e29b-41d4-a716-446655440000&member_id__in=550e8400-e29b-41d4-a716-446655440000&offset=1&order_by=id&per_page=1&role=custom-role&role__in=member%2Ccustom-role&search=private-search",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440000",
+          "role": null,
+          "member_id": "550e8400-e29b-41d4-a716-446655440000"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "pagination": {
+        "style": "offset",
+        "per_page": 1,
+        "offset": 1
+      },
+      "total_count": 1
+    },
+    "mutation": false,
+    "source_id": "v2:members:list-workspace-members"
+  },
+  {
+    "name": "v2:members:get-project-member",
+    "args": [
+      "member",
+      "project",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--project",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--fields",
+      "id",
+      "--expand",
+      "member"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/projects/550e8400-e29b-41d4-a716-446655440000/members/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "expand=member&fields=id",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "role": null,
+      "member_id": "550e8400-e29b-41d4-a716-446655440000"
+    },
+    "mutation": false,
+    "source_id": "v2:members:get-project-member"
+  },
+  {
+    "name": "v2:members:get-project-role-distribution",
+    "args": [
+      "member",
+      "project",
+      "role-distribution",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/project-role-distribution/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "roles": [
+        {
+          "distinct_member_count": 2,
+          "is_system": false,
+          "level": 1,
+          "membership_count": 3,
+          "name": "Fixture role",
+          "role_id": "550e8400-e29b-41d4-a716-446655440000",
+          "slug": "custom-role"
+        }
+      ],
+      "total_distinct_members": 2,
+      "total_memberships": 3
+    },
+    "mutation": false,
+    "source_id": "v2:members:get-project-role-distribution"
+  },
+  {
+    "name": "v2:members:create-project-member",
+    "args": [
+      "member",
+      "project",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--project",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--fields",
+      "id",
+      "--expand",
+      "member",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/projects/550e8400-e29b-41d4-a716-446655440000/members/",
+    "query": "expand=member&fields=id",
+    "body": {
+      "member_id": "550e8400-e29b-41d4-a716-446655440000",
+      "role": "custom-role"
+    },
+    "status": 201,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "role": null,
+      "member_id": "550e8400-e29b-41d4-a716-446655440000"
+    },
+    "mutation": true,
+    "source_id": "v2:members:create-project-member"
+  },
+  {
+    "name": "v2:members:update-project-member",
+    "args": [
+      "member",
+      "project",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--project",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--fields",
+      "id",
+      "--expand",
+      "member",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/projects/550e8400-e29b-41d4-a716-446655440000/members/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "expand=member&fields=id",
+    "body": {
+      "member_id": "550e8400-e29b-41d4-a716-446655440000",
+      "role": "custom-role"
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "role": null,
+      "member_id": "550e8400-e29b-41d4-a716-446655440000"
+    },
+    "mutation": true,
+    "source_id": "v2:members:update-project-member"
+  },
+  {
+    "name": "v2:members:delete-project-member",
+    "args": [
+      "member",
+      "project",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--project",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--fields",
+      "id",
+      "--expand",
+      "member",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/projects/550e8400-e29b-41d4-a716-446655440000/members/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "expand=member&fields=id",
+    "body": null,
+    "status": 204,
+    "response": null,
+    "mutation": true,
+    "source_id": "v2:members:delete-project-member"
+  },
+  {
+    "name": "v2:members:remove-workspace-member",
+    "args": [
+      "member",
+      "workspace",
+      "remove",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/members/remove/",
+    "query": "",
+    "body": {
+      "email": "fixture@example.invalid",
+      "remove_seat": false
+    },
+    "status": 204,
+    "response": null,
+    "mutation": true,
+    "source_id": "v2:members:remove-workspace-member"
+  },
+  {
+    "name": "v2:invitations:list-invitations",
+    "args": [
+      "invitation",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--accepted=false",
+      "--count=false",
+      "--email",
+      "fixture@example.invalid",
+      "--offset",
+      "1",
+      "--order-by",
+      "id",
+      "--per-page",
+      "1",
+      "--search",
+      "private-search",
+      "--fields",
+      "id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/invitations/",
+    "query": "accepted=false&count=false&email=fixture%40example.invalid&fields=id&offset=1&order_by=id&per_page=1&search=private-search",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440000",
+          "role": "custom-role",
+          "accepted": false,
+          "responded_at": null
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "pagination": {
+        "style": "offset",
+        "per_page": 1,
+        "offset": 1
+      }
+    },
+    "mutation": false,
+    "source_id": "v2:invitations:list-invitations"
+  },
+  {
+    "name": "v2:invitations:get-invitation",
+    "args": [
+      "invitation",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--fields",
+      "id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/invitations/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "fields=id",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "role": "custom-role",
+      "accepted": false,
+      "responded_at": null
+    },
+    "mutation": false,
+    "source_id": "v2:invitations:get-invitation"
+  },
+  {
+    "name": "v2:invitations:create-invitation",
+    "args": [
+      "invitation",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--fields",
+      "id",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/invitations/",
+    "query": "fields=id",
+    "body": {
+      "email": "fixture@example.invalid",
+      "message": null,
+      "role": "custom-role"
+    },
+    "status": 201,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "role": "custom-role",
+      "accepted": false,
+      "responded_at": null
+    },
+    "mutation": true,
+    "source_id": "v2:invitations:create-invitation"
+  },
+  {
+    "name": "v2:invitations:delete-invitation",
+    "args": [
+      "invitation",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--fields",
+      "id",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/invitations/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "fields=id",
+    "body": null,
+    "status": 204,
+    "response": null,
+    "mutation": true,
+    "source_id": "v2:invitations:delete-invitation"
+  },
+  {
+    "name": "v2:invitations:bulk-invitations",
+    "args": [
+      "invitation",
+      "bulk-create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/invitations/bulk/",
+    "query": "",
+    "body": {
+      "emails": [
+        "fixture@example.invalid"
+      ],
+      "role": "admin",
+      "message": "Private invitation note"
+    },
+    "status": 201,
+    "response": [
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "role": "custom-role",
+        "accepted": false,
+        "responded_at": null
+      }
+    ],
+    "mutation": true,
+    "source_id": "v2:invitations:bulk-invitations"
+  },
+  {
+    "name": "v2:group-sync:list-project-mappings",
+    "args": [
+      "group-sync",
+      "project-mapping",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--count=false",
+      "--offset",
+      "1",
+      "--order-by",
+      "id",
+      "--per-page",
+      "1",
+      "--search",
+      "private-search",
+      "--fields",
+      "id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/group-sync/project-mappings/",
+    "query": "count=false&fields=id&offset=1&order_by=id&per_page=1&search=private-search",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440000",
+          "idp_group_name": "Engineering + Platform",
+          "role_slug": "custom-role",
+          "project_id": null,
+          "all_projects": true
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "pagination": {
+        "style": "offset",
+        "per_page": 1,
+        "offset": 1
+      }
+    },
+    "mutation": false,
+    "source_id": "v2:group-sync:list-project-mappings"
+  },
+  {
+    "name": "v2:group-sync:list-workspace-mappings",
+    "args": [
+      "group-sync",
+      "workspace-mapping",
+      "list",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--count=false",
+      "--offset",
+      "1",
+      "--order-by",
+      "id",
+      "--per-page",
+      "1",
+      "--search",
+      "private-search",
+      "--fields",
+      "id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/group-sync/workspace-mappings/",
+    "query": "count=false&fields=id&offset=1&order_by=id&per_page=1&search=private-search",
+    "body": null,
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440000",
+          "idp_group_name": "Engineering + Platform",
+          "role_slug": "custom-role"
+        }
+      ],
+      "next": null,
+      "previous": null,
+      "pagination": {
+        "style": "offset",
+        "per_page": 1,
+        "offset": 1
+      }
+    },
+    "mutation": false,
+    "source_id": "v2:group-sync:list-workspace-mappings"
+  },
+  {
+    "name": "v2:group-sync:get-group-sync-config",
+    "args": [
+      "group-sync",
+      "config",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/group-sync/config/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "is_enabled": false,
+      "group_attribute_key": "groups",
+      "default_workspace_role_slug": null
+    },
+    "mutation": false,
+    "source_id": "v2:group-sync:get-group-sync-config"
+  },
+  {
+    "name": "v2:group-sync:get-project-mapping",
+    "args": [
+      "group-sync",
+      "project-mapping",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--fields",
+      "id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/group-sync/project-mappings/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "fields=id",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role_slug": "custom-role",
+      "project_id": null,
+      "all_projects": true
+    },
+    "mutation": false,
+    "source_id": "v2:group-sync:get-project-mapping"
+  },
+  {
+    "name": "v2:group-sync:get-workspace-mapping",
+    "args": [
+      "group-sync",
+      "workspace-mapping",
+      "get",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--fields",
+      "id"
+    ],
+    "method": "GET",
+    "path": "/api/v2/workspaces/team/group-sync/workspace-mappings/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "fields=id",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role_slug": "custom-role"
+    },
+    "mutation": false,
+    "source_id": "v2:group-sync:get-workspace-mapping"
+  },
+  {
+    "name": "v2:group-sync:create-project-mapping",
+    "args": [
+      "group-sync",
+      "project-mapping",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--fields",
+      "id",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/group-sync/project-mappings/",
+    "query": "fields=id",
+    "body": {
+      "idp_group_name": "Engineering + Platform",
+      "role_slug": "custom-role",
+      "all_projects": false,
+      "project_id": null
+    },
+    "status": 201,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role_slug": "custom-role",
+      "project_id": null,
+      "all_projects": true
+    },
+    "mutation": true,
+    "source_id": "v2:group-sync:create-project-mapping"
+  },
+  {
+    "name": "v2:group-sync:create-workspace-mapping",
+    "args": [
+      "group-sync",
+      "workspace-mapping",
+      "create",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--fields",
+      "id",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v2/workspaces/team/group-sync/workspace-mappings/",
+    "query": "fields=id",
+    "body": {
+      "idp_group_name": "Engineering + Platform",
+      "role_slug": "custom-role"
+    },
+    "status": 201,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role_slug": "custom-role"
+    },
+    "mutation": true,
+    "source_id": "v2:group-sync:create-workspace-mapping"
+  },
+  {
+    "name": "v2:group-sync:update-group-sync-config",
+    "args": [
+      "group-sync",
+      "config",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/group-sync/config/",
+    "query": "",
+    "body": {
+      "auto_remove": false,
+      "default_workspace_role_slug": null,
+      "group_attribute_key": "groups",
+      "is_enabled": false,
+      "sync_offline": false,
+      "sync_on_login": false
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "is_enabled": false,
+      "group_attribute_key": "groups",
+      "default_workspace_role_slug": null
+    },
+    "mutation": true,
+    "source_id": "v2:group-sync:update-group-sync-config"
+  },
+  {
+    "name": "v2:group-sync:update-project-mapping",
+    "args": [
+      "group-sync",
+      "project-mapping",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--fields",
+      "id",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/group-sync/project-mappings/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "fields=id",
+    "body": {
+      "all_projects": false,
+      "idp_group_name": "Engineering + Platform",
+      "project_id": null,
+      "role_slug": "custom-role"
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role_slug": "custom-role",
+      "project_id": null,
+      "all_projects": true
+    },
+    "mutation": true,
+    "source_id": "v2:group-sync:update-project-mapping"
+  },
+  {
+    "name": "v2:group-sync:update-workspace-mapping",
+    "args": [
+      "group-sync",
+      "workspace-mapping",
+      "update",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--fields",
+      "id",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v2/workspaces/team/group-sync/workspace-mappings/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "fields=id",
+    "body": {
+      "idp_group_name": "Engineering + Platform",
+      "role_slug": "custom-role"
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role_slug": "custom-role"
+    },
+    "mutation": true,
+    "source_id": "v2:group-sync:update-workspace-mapping"
+  },
+  {
+    "name": "v2:group-sync:delete-project-mapping",
+    "args": [
+      "group-sync",
+      "project-mapping",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--fields",
+      "id",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/group-sync/project-mappings/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "fields=id",
+    "body": null,
+    "status": 204,
+    "response": null,
+    "mutation": true,
+    "source_id": "v2:group-sync:delete-project-mapping"
+  },
+  {
+    "name": "v2:group-sync:delete-workspace-mapping",
+    "args": [
+      "group-sync",
+      "workspace-mapping",
+      "delete",
+      "--api-version",
+      "v2",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--fields",
+      "id",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v2/workspaces/team/group-sync/workspace-mappings/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "fields=id",
+    "body": null,
+    "status": 204,
+    "response": null,
+    "mutation": true,
+    "source_id": "v2:group-sync:delete-workspace-mapping"
+  },
+  {
+    "name": "v1:workspace-invitations:add-workspace-invitation",
+    "args": [
+      "invitation",
+      "create",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/invitations/",
+    "query": "",
+    "body": {
+      "email": "fixture@example.invalid",
+      "role": 20
+    },
+    "status": 201,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "role": "custom-role",
+      "accepted": false,
+      "responded_at": null
+    },
+    "mutation": true,
+    "source_id": "v1:workspace-invitations:add-workspace-invitation"
+  },
+  {
+    "name": "v1:workspace-invitations:list-workspace-invitations",
+    "args": [
+      "invitation",
+      "list",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/invitations/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "role": "custom-role",
+        "accepted": false,
+        "responded_at": null
+      }
+    ],
+    "mutation": false,
+    "source_id": "v1:workspace-invitations:list-workspace-invitations"
+  },
+  {
+    "name": "v1:workspace-invitations:get-workspace-invitation-detail",
+    "args": [
+      "invitation",
+      "get",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/invitations/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "role": "custom-role",
+      "accepted": false,
+      "responded_at": null
+    },
+    "mutation": false,
+    "source_id": "v1:workspace-invitations:get-workspace-invitation-detail"
+  },
+  {
+    "name": "v1:workspace-invitations:update-workspace-invitation",
+    "args": [
+      "invitation",
+      "update",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/team/invitations/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "",
+    "body": {
+      "email": "fixture@example.invalid",
+      "role": 20
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "role": "custom-role",
+      "accepted": false,
+      "responded_at": null
+    },
+    "mutation": true,
+    "source_id": "v1:workspace-invitations:update-workspace-invitation"
+  },
+  {
+    "name": "v1:workspace-invitations:delete-workspace-invitation",
+    "args": [
+      "invitation",
+      "delete",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/invitations/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "",
+    "body": null,
+    "status": 204,
+    "response": null,
+    "mutation": true,
+    "source_id": "v1:workspace-invitations:delete-workspace-invitation"
+  },
+  {
+    "name": "v1:members:get-workspace-members",
+    "args": [
+      "member",
+      "workspace",
+      "list",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/members/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "display_name": "Fixture user",
+        "email": "fixture@example.invalid",
+        "role": 15
+      }
+    ],
+    "mutation": false,
+    "source_id": "v1:members:get-workspace-members"
+  },
+  {
+    "name": "v1:members:get-project-members",
+    "args": [
+      "member",
+      "project",
+      "list",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--project",
+      "550e8400-e29b-41d4-a716-446655440000"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/550e8400-e29b-41d4-a716-446655440000/project-members/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": [
+      [
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440000",
+          "display_name": "Fixture user",
+          "email": "fixture@example.invalid",
+          "avatar": null
+        }
+      ]
+    ],
+    "mutation": false,
+    "source_id": "v1:members:get-project-members"
+  },
+  {
+    "name": "v1:members:add-project-member",
+    "args": [
+      "member",
+      "project",
+      "create",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--project",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/projects/550e8400-e29b-41d4-a716-446655440000/project-members/",
+    "query": "",
+    "body": {
+      "member": "550e8400-e29b-41d4-a716-446655440000",
+      "role": 20
+    },
+    "status": 201,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "member": "550e8400-e29b-41d4-a716-446655440000",
+      "role": 15
+    },
+    "mutation": true,
+    "source_id": "v1:members:add-project-member"
+  },
+  {
+    "name": "v1:members:get-project-member-detail",
+    "args": [
+      "member",
+      "project",
+      "get",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--project",
+      "550e8400-e29b-41d4-a716-446655440000"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/projects/550e8400-e29b-41d4-a716-446655440000/project-members/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "member": "550e8400-e29b-41d4-a716-446655440000",
+      "role": 15
+    },
+    "mutation": false,
+    "source_id": "v1:members:get-project-member-detail"
+  },
+  {
+    "name": "v1:members:update-project-member",
+    "args": [
+      "member",
+      "project",
+      "update",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--project",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/team/projects/550e8400-e29b-41d4-a716-446655440000/project-members/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "",
+    "body": {
+      "member": "550e8400-e29b-41d4-a716-446655440000",
+      "role": 20
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "member": "550e8400-e29b-41d4-a716-446655440000",
+      "role": 15
+    },
+    "mutation": true,
+    "source_id": "v1:members:update-project-member"
+  },
+  {
+    "name": "v1:members:delete-project-member",
+    "args": [
+      "member",
+      "project",
+      "delete",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--project",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/projects/550e8400-e29b-41d4-a716-446655440000/project-members/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "",
+    "body": null,
+    "status": 204,
+    "response": null,
+    "mutation": true,
+    "source_id": "v1:members:delete-project-member"
+  },
+  {
+    "name": "v1:idp-group-sync:get-group-sync-config",
+    "args": [
+      "group-sync",
+      "config",
+      "get",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--yes"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/group-sync/config/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "is_enabled": false,
+      "default_workspace_role": "member"
+    },
+    "mutation": true,
+    "source_id": "v1:idp-group-sync:get-group-sync-config"
+  },
+  {
+    "name": "v1:idp-group-sync:update-group-sync-config",
+    "args": [
+      "group-sync",
+      "config",
+      "update",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/team/group-sync/config/",
+    "query": "",
+    "body": {
+      "is_enabled": false,
+      "sync_on_login": false,
+      "auto_remove": false,
+      "sync_offline": false,
+      "group_attribute_key": "groups",
+      "default_workspace_role": "member"
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "is_enabled": false,
+      "default_workspace_role": "member"
+    },
+    "mutation": true,
+    "source_id": "v1:idp-group-sync:update-group-sync-config"
+  },
+  {
+    "name": "v1:idp-group-sync:list-project-mappings",
+    "args": [
+      "group-sync",
+      "project-mapping",
+      "list",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--project-identifier",
+      "eng"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/group-sync/project-mappings/",
+    "query": "project_identifier=eng",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "idp_group_name": "Engineering + Platform",
+        "role": "custom-role",
+        "project": null,
+        "all_projects": true
+      }
+    ],
+    "mutation": false,
+    "source_id": "v1:idp-group-sync:list-project-mappings"
+  },
+  {
+    "name": "v1:idp-group-sync:create-project-mapping",
+    "args": [
+      "group-sync",
+      "project-mapping",
+      "create",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/group-sync/project-mappings/",
+    "query": "",
+    "body": {
+      "idp_group_name": "Engineering + Platform",
+      "role": "custom-role",
+      "project": "550e8400-e29b-41d4-a716-446655440000"
+    },
+    "status": 201,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role": "custom-role",
+      "project": null,
+      "all_projects": true
+    },
+    "mutation": true,
+    "source_id": "v1:idp-group-sync:create-project-mapping"
+  },
+  {
+    "name": "v1:idp-group-sync:get-project-mapping",
+    "args": [
+      "group-sync",
+      "project-mapping",
+      "get",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/group-sync/project-mappings/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role": "custom-role",
+      "project": null,
+      "all_projects": true
+    },
+    "mutation": false,
+    "source_id": "v1:idp-group-sync:get-project-mapping"
+  },
+  {
+    "name": "v1:idp-group-sync:update-project-mapping",
+    "args": [
+      "group-sync",
+      "project-mapping",
+      "update",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/team/group-sync/project-mappings/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "",
+    "body": {
+      "idp_group_name": "Engineering + Platform",
+      "role": "custom-role",
+      "project": "550e8400-e29b-41d4-a716-446655440000"
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role": "custom-role",
+      "project": null,
+      "all_projects": true
+    },
+    "mutation": true,
+    "source_id": "v1:idp-group-sync:update-project-mapping"
+  },
+  {
+    "name": "v1:idp-group-sync:update-project-mapping-by-key",
+    "args": [
+      "group-sync",
+      "project-mapping",
+      "update-by-key",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--project-key",
+      "eng",
+      "--idp-group-name",
+      "Engineering + Platform",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/team/group-sync/project-mappings/eng/Engineering%20+%20Platform/",
+    "query": "",
+    "body": {
+      "idp_group_name": "Engineering + Platform",
+      "role": "custom-role",
+      "project": "550e8400-e29b-41d4-a716-446655440000"
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role": "custom-role",
+      "project": null,
+      "all_projects": true
+    },
+    "mutation": true,
+    "source_id": "v1:idp-group-sync:update-project-mapping-by-key"
+  },
+  {
+    "name": "v1:idp-group-sync:delete-project-mapping",
+    "args": [
+      "group-sync",
+      "project-mapping",
+      "delete",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/group-sync/project-mappings/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "",
+    "body": null,
+    "status": 204,
+    "response": null,
+    "mutation": true,
+    "source_id": "v1:idp-group-sync:delete-project-mapping"
+  },
+  {
+    "name": "v1:idp-group-sync:list-workspace-mappings",
+    "args": [
+      "group-sync",
+      "workspace-mapping",
+      "list",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/group-sync/workspace-mappings/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "idp_group_name": "Engineering + Platform",
+        "role": "custom-role"
+      }
+    ],
+    "mutation": false,
+    "source_id": "v1:idp-group-sync:list-workspace-mappings"
+  },
+  {
+    "name": "v1:idp-group-sync:create-workspace-mapping",
+    "args": [
+      "group-sync",
+      "workspace-mapping",
+      "create",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--yes"
+    ],
+    "method": "POST",
+    "path": "/api/v1/workspaces/team/group-sync/workspace-mappings/",
+    "query": "",
+    "body": {
+      "idp_group_name": "Engineering + Platform",
+      "role": "custom-role"
+    },
+    "status": 201,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role": "custom-role"
+    },
+    "mutation": true,
+    "source_id": "v1:idp-group-sync:create-workspace-mapping"
+  },
+  {
+    "name": "v1:idp-group-sync:get-workspace-mapping",
+    "args": [
+      "group-sync",
+      "workspace-mapping",
+      "get",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000"
+    ],
+    "method": "GET",
+    "path": "/api/v1/workspaces/team/group-sync/workspace-mappings/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role": "custom-role"
+    },
+    "mutation": false,
+    "source_id": "v1:idp-group-sync:get-workspace-mapping"
+  },
+  {
+    "name": "v1:idp-group-sync:update-workspace-mapping",
+    "args": [
+      "group-sync",
+      "workspace-mapping",
+      "update",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--yes"
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/workspaces/team/group-sync/workspace-mappings/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "",
+    "body": {
+      "idp_group_name": "Engineering + Platform",
+      "role": "custom-role"
+    },
+    "status": 200,
+    "response": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "idp_group_name": "Engineering + Platform",
+      "role": "custom-role"
+    },
+    "mutation": true,
+    "source_id": "v1:idp-group-sync:update-workspace-mapping"
+  },
+  {
+    "name": "v1:idp-group-sync:delete-workspace-mapping",
+    "args": [
+      "group-sync",
+      "workspace-mapping",
+      "delete",
+      "--api-version",
+      "v1",
+      "--workspace",
+      "team",
+      "--id",
+      "550e8400-e29b-41d4-a716-446655440000",
+      "--yes"
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/workspaces/team/group-sync/workspace-mappings/550e8400-e29b-41d4-a716-446655440000/",
+    "query": "",
+    "body": null,
+    "status": 204,
+    "response": null,
+    "mutation": true,
+    "source_id": "v1:idp-group-sync:delete-workspace-mapping"
+  }
+]

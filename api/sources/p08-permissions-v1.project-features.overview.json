@@ -1,0 +1,10 @@
+{
+  "source_id": "v1:project-features:overview",
+  "source_url": "https://developers.plane.so/api-reference/project-features/overview.md",
+  "review": "Independently authored family summary, not redistributed upstream documentation.",
+  "family": "project-features",
+  "disposition": "overview",
+  "notes": [
+    "Version-native project switches; v2 overview sparse-read claim lacks a dedicated operation fields parameter."
+  ]
+}

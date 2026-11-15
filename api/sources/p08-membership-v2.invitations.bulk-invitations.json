@@ -1,0 +1,139 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/invitations/bulk-invitations.md",
+  "operations": [
+    {
+      "id": "v2.invitations.bulk-invitations",
+      "packet": "P08",
+      "version": "v2",
+      "command_path": [
+        "invitation",
+        "bulk-create"
+      ],
+      "action": "bulk-create",
+      "scope": "workspace",
+      "method": "POST",
+      "path": "/api/v2/workspaces/{slug}/invitations/bulk/",
+      "request_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "slug"
+            ],
+            "additionalProperties": false
+          },
+          "body": {
+            "type": "object",
+            "properties": {
+              "emails": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "email",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 100
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "admin",
+                  "member",
+                  "guest"
+                ],
+                "default": "member"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "emails"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "path",
+          "body"
+        ],
+        "additionalProperties": false
+      },
+      "response_schema": true,
+      "responses": [
+        {
+          "status": 201,
+          "content_type": "application/json",
+          "schema": true
+        }
+      ],
+      "pagination": "none",
+      "scopes": [
+        "workspaces.members:write"
+      ],
+      "feature_evidence": "Official dedicated operation page. No runtime edition or entitlement inference.",
+      "side_effect": "write",
+      "source_url": "https://developers.plane.so/api-reference/v2/invitations/bulk-invitations.md",
+      "provenance_id": "p08-membership-v2.invitations.bulk-invitations",
+      "lifecycle": "implemented",
+      "acceptance_scenario_ids": [
+        "TestP08MembershipRequests",
+        "TestP08MembershipSafety",
+        "TestP08MembershipFailures",
+        "TestP08MembershipValidation"
+      ],
+      "sensitivity": {
+        "input": [
+          "/body/email",
+          "/body/emails",
+          "/body/message",
+          "/query/email",
+          "/query/search"
+        ],
+        "output": [],
+        "review": "Identity, contact, invitation and organizational data remain native output; diagnostics must not echo input values.",
+        "ordinary_read_redaction": [],
+        "intentional_secret_delivery": false,
+        "signed_target_paths": [],
+        "signed_form_paths": [],
+        "extension_fields": "No authentication secret delivery is declared. Treat identity and organizational fields as private data."
+      },
+      "availability": {
+        "v2": "implemented"
+      },
+      "review_status": "awaiting-packet-planner-review",
+      "notes": [
+        "emails required, nonempty, max 100 valid nonempty addresses. Entire malformed batch 400 and no invitations sent. role enum admin/member/guest default member, one role and message for entire batch. Existing pending invites silently skipped without resend and omitted from result. Atomic single-transaction create; 201 raw array of created invitations, potentially empty; no per-row/generic bulk envelope. No duplicate-input or existing-member normalization algorithm documented. message not declared nullable here. responded_at example null contradicts nonnullable string overview declaration."
+      ],
+      "error_contract": {
+        "documented_statuses": [
+          400,
+          401,
+          402,
+          403,
+          404,
+          406,
+          409,
+          413,
+          415,
+          429
+        ],
+        "schema": {
+          "$ref": "urn:plane-cli:problem-v2"
+        },
+        "content_type": "application/problem+json",
+        "provenance_id": "v2-errors"
+      }
+    }
+  ],
+  "notes": [
+    "emails required, nonempty, max 100 valid nonempty addresses. Entire malformed batch 400 and no invitations sent. role enum admin/member/guest default member, one role and message for entire batch. Existing pending invites silently skipped without resend and omitted from result. Atomic single-transaction create; 201 raw array of created invitations, potentially empty; no per-row/generic bulk envelope. No duplicate-input or existing-member normalization algorithm documented. message not declared nullable here. responded_at example null contradicts nonnullable string overview declaration."
+  ]
+}

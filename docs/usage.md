@@ -217,3 +217,18 @@ are separate resources. See [initiatives/teamspaces](portfolio.md),
 Deterministic fake-server acceptance is protocol evidence, not live entitlement
 or edition verification. Unsupported operations never fall back to another scope
 or API generation.
+
+## Membership, permissions and integrations
+
+P08 provides documented [membership, invitations and group sync](membership.md),
+[roles, grants and feature flags](permissions.md), and
+[audit logs, notifications, webhooks and artifacts](admin-integrations.md).
+Commands preserve the selected API generation and native scope. Security-sensitive
+mutations require `--yes`; dry-run never changes permissions or sends invitations.
+
+Webhook creation and rotation deliberately deliver a one-time signing secret.
+Use `--secret-output-file` for protected-file delivery; ordinary webhook reads
+redact credential fields. Artifact HTML is data, never locally executed.
+
+P08 remains bounded: the v1 workspace-member removal source lacks a documented
+target field, so no callable removal command is invented for that generation.

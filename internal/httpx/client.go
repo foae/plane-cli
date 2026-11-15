@@ -121,6 +121,11 @@ func (c *Client) DoRead(ctx context.Context, method string, segments []string, q
 	return c.do(ctx, method, segments, query, body, headerName, token, false, false)
 }
 
+// DoMutation sends an operation declared mutating, independently of its HTTP method.
+func (c *Client) DoMutation(ctx context.Context, method string, segments []string, query url.Values, body json.RawMessage, headerName, token string) (Response, error) {
+	return c.do(ctx, method, segments, query, body, headerName, token, true, false)
+}
+
 func (c *Client) do(ctx context.Context, method string, segments []string, query url.Values, body json.RawMessage, headerName, token string, mutation, download bool) (Response, error) {
 	requestURL, err := RequestURL(c.base, segments, query)
 	if err != nil {

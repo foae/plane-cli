@@ -15,3 +15,13 @@ Implement invitations, group sync and documented administrative reads/writes/act
 ## Acceptance
 
 Fixtures cover insufficient role, missing versus hidden entity, feature entitlement, scope correctness, secret-returning creation/rotation, destructive classification before any request and local credential isolation. Pagination covers logs/audits without unbounded --all. No real invites/webhooks/permission changes are sent. Add permission/admin recipes with side effects explicit and safe placeholders.
+
+## Delivery evidence
+
+The default review panel (`20261115-122721-351669`) completed five seats; scoring was disabled. Accepted repairs cover mutation uncertainty for the side-effecting v1 group-sync GET, post-redaction aggregate byte limits, nested signing credentials in protected-file receipts, opaque/string-valued log headers, missing signing secrets, and bare-email validation.
+
+Intentional one-time secret stdout is the approved delivery contract, not a disclosure defect. V2-only handlers are version-gated before execution; required typed schemas protect bulk invitation assertions. The conservative command annotation and v1 runtime mutation classification are deliberate. Ordinary audit/invitation content remains native, not globally scrubbed personal data; HTTP failures expose safe local errors rather than upstream bodies. Dry-run does not prepare protected files. Additional single-page/post-install failure tests were suggestions, not demonstrated failures.
+
+The isolated dry-run privacy finding remains: request URLs can contain supplied sensitive query/path values. Treat dry-run output as sensitive; metadata-driven URL redaction was not included in the qualifying repair set.
+
+Verification recorded `go test ./internal/cli -run '^TestP08' -count=1`, `go test ./internal/httpx -count=1`, and `make check` passing. Initial regression expectations incorrectly retained opaque headers and omitted a base URL; those fixtures were corrected. Fake-server acceptance does not establish live edition compatibility. The v1 removal exception is recorded in [API contract gaps](../reference/api-contract-gaps.md); it is not an implemented command.

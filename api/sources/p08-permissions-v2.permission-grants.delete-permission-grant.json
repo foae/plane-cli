@@ -1,0 +1,52 @@
+{
+  "source_id": "v2:permission-grants:delete-permission-grant",
+  "source_url": "https://developers.plane.so/api-reference/v2/permission-grants/delete-permission-grant.md",
+  "review": "Independently authored minimal native contract; captured official operation reviewed. No upstream document redistributed.",
+  "operation": "v2.permission-grants.delete-permission-grant",
+  "method": "DELETE",
+  "path": "/api/v2/workspaces/{slug}/permissions/grants/{pk}/",
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "pk": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "slug",
+          "pk"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  },
+  "success_statuses": [
+    204
+  ],
+  "documented_error_statuses": [
+    400,
+    401,
+    403,
+    404,
+    406,
+    409,
+    413,
+    415,
+    429
+  ],
+  "pagination": "none",
+  "notes": [
+    "Dedicated operation returns empty 204 with no fields parameter; overview shaping claim does not apply to DELETE."
+  ]
+}

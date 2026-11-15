@@ -1,0 +1,158 @@
+{
+  "source_url": "https://developers.plane.so/api-reference/v2/members/list-workspace-members.md",
+  "operations": [
+    {
+      "id": "v2.members.list-workspace-members",
+      "packet": "P08",
+      "version": "v2",
+      "command_path": [
+        "member",
+        "workspace",
+        "list"
+      ],
+      "action": "list",
+      "scope": "workspace",
+      "method": "GET",
+      "path": "/api/v2/workspaces/{slug}/members/",
+      "request_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "slug"
+            ],
+            "additionalProperties": false
+          },
+          "query": {
+            "type": "object",
+            "properties": {
+              "member_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "role": {
+                "type": "string"
+              },
+              "search": {
+                "type": "string"
+              },
+              "expand": {
+                "type": "string"
+              },
+              "order_by": {
+                "type": "string"
+              },
+              "per_page": {
+                "type": "integer"
+              },
+              "offset": {
+                "type": "integer",
+                "maximum": 10000
+              },
+              "paginate": {
+                "type": "string"
+              },
+              "count": {
+                "type": "boolean"
+              },
+              "fields": {
+                "type": "string"
+              },
+              "member_id__in": {
+                "type": "string"
+              },
+              "role__in": {
+                "type": "string"
+              },
+              "cursor": {
+                "type": "string"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "additionalProperties": false
+      },
+      "response_schema": true,
+      "responses": [
+        {
+          "status": 200,
+          "content_type": "application/json",
+          "schema": true
+        }
+      ],
+      "pagination": "v2",
+      "scopes": [
+        "workspaces.members:read"
+      ],
+      "feature_evidence": "Official dedicated operation page. No runtime edition or entitlement inference.",
+      "side_effect": "read",
+      "source_url": "https://developers.plane.so/api-reference/v2/members/list-workspace-members.md",
+      "provenance_id": "p08-membership-v2.members.list-workspace-members",
+      "lifecycle": "implemented",
+      "acceptance_scenario_ids": [
+        "TestP08MembershipRequests",
+        "TestP08MembershipSafety",
+        "TestP08MembershipFailures",
+        "TestP08MembershipValidation"
+      ],
+      "sensitivity": {
+        "input": [
+          "/body/email",
+          "/body/emails",
+          "/body/message",
+          "/query/email",
+          "/query/search"
+        ],
+        "output": [],
+        "review": "Identity, contact, invitation and organizational data remain native output; diagnostics must not echo input values.",
+        "ordinary_read_redaction": [],
+        "intentional_secret_delivery": false,
+        "signed_target_paths": [],
+        "signed_form_paths": [],
+        "extension_fields": "No authentication secret delivery is declared. Treat identity and organizational fields as private data."
+      },
+      "availability": {
+        "v2": "implemented"
+      },
+      "review_status": "awaiting-packet-planner-review",
+      "notes": [
+        "Unknown order_by silently uses default ordering. Anything except paginate=cursor silently uses offset pagination. Filters combine with AND. Role is an open slug set, nullable on legacy response rows; null writability is not explicitly specified.",
+        "CONTRADICTION: info heading says Roles restrict writes, not this read, while operation error table explicitly documents 403 if role or token scope cannot read roster. Do not suppress 403.",
+        "Leaf omits cursor input; official shared v2 pagination explicitly declares ?cursor=<token>. Offset remains upstream default; --all follows native pagination.style with bounded traversal."
+      ],
+      "error_contract": {
+        "documented_statuses": [
+          401,
+          402,
+          403,
+          404,
+          406,
+          429
+        ],
+        "schema": {
+          "$ref": "urn:plane-cli:problem-v2"
+        },
+        "content_type": "application/problem+json",
+        "provenance_id": "v2-errors"
+      },
+      "supplemental_provenance_ids": [
+        "p03-v2._guides.pagination"
+      ]
+    }
+  ],
+  "notes": [
+    "Unknown order_by silently uses default ordering. Anything except paginate=cursor silently uses offset pagination. Filters combine with AND. Role is an open slug set, nullable on legacy response rows; null writability is not explicitly specified.",
+    "CONTRADICTION: info heading says Roles restrict writes, not this read, while operation error table explicitly documents 403 if role or token scope cannot read roster. Do not suppress 403."
+  ]
+}
