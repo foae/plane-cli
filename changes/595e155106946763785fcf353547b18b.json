@@ -1,4 +1,0 @@
-{
-  "level": "patch",
-  "summary": "Guide agents through state ordering, archived-only reads, and work-item relation fields."
-}

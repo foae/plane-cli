@@ -1,4 +1,0 @@
-{
-  "level": "minor",
-  "summary": "Opt in to one Retry-After-aware retry of a throttled Plane API read, including a single page during pagination. Writes are never retried."
-}

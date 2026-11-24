@@ -1,4 +1,0 @@
-{
-  "level": "patch",
-  "summary": "Update linked Go dependencies, their license notices, and the vulnerability scanner."
-}

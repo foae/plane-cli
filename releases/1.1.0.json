@@ -1,0 +1,22 @@
+{
+  "version": "1.1.0",
+  "date": "2026-11-24",
+  "changes": [
+    {
+      "level": "patch",
+      "summary": "Guide agents through state ordering, archived-only reads, and work-item relation fields."
+    },
+    {
+      "level": "patch",
+      "summary": "Document agent-led installation, matching skill setup and secure connection configuration"
+    },
+    {
+      "level": "patch",
+      "summary": "Update linked Go dependencies, their license notices, and the vulnerability scanner."
+    },
+    {
+      "level": "minor",
+      "summary": "Opt in to one Retry-After-aware retry of a throttled Plane API read, including a single page during pagination. Writes are never retried."
+    }
+  ]
+}
