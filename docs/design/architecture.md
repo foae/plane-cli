@@ -58,6 +58,8 @@ No Viper: stdlib JSON configuration plus explicit precedence is sufficient. No H
 
 Use one advisory **configuration-file-wide** lock for every read/modify/write of `config.json`, including changes to different connections. Reread under lock, preserve unrelated entries, then atomically replace. A rename alone does not prevent lost updates. Use secure temporary siblings, fsync and directory sync where supported; stable lock files are not the replaced data files.
 
+On first use, create the lock file exclusively. If another process creates it first, open that same file without `O_CREAT` and verify its ownership and permissions before locking. Concurrent nonexclusive creation can return `ENOENT` on macOS.
+
 Credential bundles are separate per-binding records, never a single shared JSON secret map protected by unrelated locks. Serialize their login/refresh/logout/delete/rebind operations with a stable connection-name lock, independent of its current base/backend. Acquire with context/deadline. If both locks are needed, order is **connection lock → config-file lock**; never wait for a connection lock while holding the config lock, and never hold the config lock over network IO. Config-only reads/use may take only the config lock. Different connections may renew independently.
 
 Under the connection lock reread configuration and credentials, verify the captured identity/generation and then decide whether renewal is still needed. Hold that lock through renewal and credential commit, not through the human consent wait. Every login completion rechecks its pending ID/generation; logout/delete/rebind invalidate pending attempts before releasing the lock. Removed/recreated connection names receive a fresh identity so an old login cannot resurrect them.

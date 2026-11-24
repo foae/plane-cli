@@ -46,7 +46,7 @@ func Open(path string, create bool) (*Store, error) {
 	for i, part := range parts {
 		next, e := unix.Openat(fd, part, unix.O_RDONLY|unix.O_DIRECTORY|unix.O_NOFOLLOW|unix.O_CLOEXEC, 0)
 		if errors.Is(e, unix.ENOENT) && create {
-			if e = unix.Mkdirat(fd, part, 0700); e == nil || errors.Is(e, unix.EEXIST) {
+			if e = unix.Mkdirat(fd, part, 0o700); e == nil || errors.Is(e, unix.EEXIST) {
 				next, e = unix.Openat(fd, part, unix.O_RDONLY|unix.O_DIRECTORY|unix.O_NOFOLLOW|unix.O_CLOEXEC, 0)
 			}
 		}
@@ -58,14 +58,14 @@ func Open(path string, create bool) (*Store, error) {
 		e = unix.Fstat(next, &st)
 		// Root-owned sticky temporary parents are permitted; the final directory
 		// must belong to this user and be inaccessible to other users.
-		unsafe := e != nil || (st.Uid != 0 && st.Uid != uint32(os.Geteuid())) || (st.Mode&0022 != 0 && st.Mode&unix.S_ISVTX == 0)
+		unsafe := e != nil || (st.Uid != 0 && st.Uid != uint32(os.Geteuid())) || (st.Mode&0o022 != 0 && st.Mode&unix.S_ISVTX == 0)
 		if i == len(parts)-1 {
-			unsafe = unsafe || st.Uid != uint32(os.Geteuid()) || st.Mode&0077 != 0
+			unsafe = unsafe || st.Uid != uint32(os.Geteuid()) || st.Mode&0o077 != 0
 		}
 		_ = unix.Close(fd)
 		if unsafe {
 			_ = unix.Close(next)
-			return nil, fmt.Errorf("configuration directory %q has unsafe ownership or permissions (uid=%d mode=%o)", filepath.Join(append([]string{"/"}, parts[:i+1]...)...), st.Uid, st.Mode&07777)
+			return nil, fmt.Errorf("configuration directory %q has unsafe ownership or permissions (uid=%d mode=%o)", filepath.Join(append([]string{"/"}, parts[:i+1]...)...), st.Uid, st.Mode&0o7777)
 		}
 		fd = next
 	}
@@ -99,16 +99,18 @@ func (s *Store) Read(name string) ([]byte, error) {
 	}
 	return b, nil
 }
+
 func secureFile(f *os.File) error {
 	var st unix.Stat_t
 	if e := unix.Fstat(int(f.Fd()), &st); e != nil {
 		return e
 	}
-	if st.Mode&unix.S_IFMT != unix.S_IFREG || st.Uid != uint32(os.Geteuid()) || st.Mode&0077 != 0 || st.Nlink != 1 {
+	if st.Mode&unix.S_IFMT != unix.S_IFREG || st.Uid != uint32(os.Geteuid()) || st.Mode&0o077 != 0 || st.Nlink != 1 {
 		return errors.New("local record ownership or permissions are unsafe")
 	}
 	return nil
 }
+
 func (s *Store) Write(name string, data []byte) error {
 	if !child(name) {
 		return errors.New("invalid storage name")
@@ -125,9 +127,9 @@ func (s *Store) Write(name string, data []byte) error {
 		return e
 	}
 	temp := ".tmp-" + hex.EncodeToString(suffix)
-	fd, e := unix.Openat(int(s.dir.Fd()), temp, unix.O_WRONLY|unix.O_CREAT|unix.O_EXCL|unix.O_NOFOLLOW|unix.O_CLOEXEC, 0600)
+	fd, e := unix.Openat(int(s.dir.Fd()), temp, unix.O_WRONLY|unix.O_CREAT|unix.O_EXCL|unix.O_NOFOLLOW|unix.O_CLOEXEC, 0o600)
 	if e != nil {
-		return e
+		return fmt.Errorf("create temporary record: %w", e)
 	}
 	f := os.NewFile(uintptr(fd), temp)
 	defer func() { _ = f.Close(); _ = unix.Unlinkat(int(s.dir.Fd()), temp, 0) }()
@@ -141,10 +143,11 @@ func (s *Store) Write(name string, data []byte) error {
 		return e
 	}
 	if e = unix.Renameat(int(s.dir.Fd()), temp, int(s.dir.Fd()), name); e != nil {
-		return e
+		return fmt.Errorf("replace local record: %w", e)
 	}
 	return s.dir.Sync()
 }
+
 func (s *Store) Remove(name string) error {
 	if !child(name) {
 		return errors.New("invalid storage name")
@@ -166,9 +169,17 @@ func (s *Store) Lock(ctx context.Context, name string) (func() error, error) {
 	if !child(name) {
 		return nil, errors.New("invalid lock name")
 	}
-	fd, e := unix.Openat(int(s.dir.Fd()), name, unix.O_RDWR|unix.O_CREAT|unix.O_NOFOLLOW|unix.O_CLOEXEC|unix.O_NONBLOCK, 0600)
+	dirfd := int(s.dir.Fd())
+	const flags = unix.O_RDWR | unix.O_NOFOLLOW | unix.O_CLOEXEC | unix.O_NONBLOCK
+	fd, e := unix.Openat(dirfd, name, flags, 0)
+	if errors.Is(e, unix.ENOENT) {
+		fd, e = unix.Openat(dirfd, name, flags|unix.O_CREAT|unix.O_EXCL, 0o600)
+		if errors.Is(e, unix.EEXIST) {
+			fd, e = unix.Openat(dirfd, name, flags, 0)
+		}
+	}
 	if e != nil {
-		return nil, e
+		return nil, fmt.Errorf("open lock file: %w", e)
 	}
 	f := os.NewFile(uintptr(fd), name)
 	if e = secureFile(f); e != nil {
@@ -186,7 +197,7 @@ func (s *Store) Lock(ctx context.Context, name string) (func() error, error) {
 		}
 		if !errors.Is(e, unix.EWOULDBLOCK) && !errors.Is(e, unix.EAGAIN) {
 			_ = f.Close()
-			return nil, e
+			return nil, fmt.Errorf("acquire file lock: %w", e)
 		}
 		timer := time.NewTimer(10 * time.Millisecond)
 		select {
@@ -198,10 +209,12 @@ func (s *Store) Lock(ctx context.Context, name string) (func() error, error) {
 		}
 	}
 }
+
 func (s *Store) ConnectionLock(ctx context.Context, name string) (func() error, error) {
 	sum := sha256.Sum256([]byte(name))
 	return s.Lock(ctx, "connection-"+hex.EncodeToString(sum[:])+".lock")
 }
+
 func (s *Store) Load() (File, error) {
 	f := File{Version: Version, Connections: map[string]Connection{}}
 	b, e := s.Read("config.json")
@@ -227,6 +240,7 @@ func (s *Store) Load() (File, error) {
 	}
 	return f, nil
 }
+
 func (s *Store) Update(ctx context.Context, change func(*File) error) error {
 	unlock, e := s.Lock(ctx, "config.lock")
 	if e != nil {

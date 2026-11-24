@@ -31,6 +31,9 @@ func TestStoreProcess(t *testing.T) {
 	path := filepath.Join(privateTempDir(t), "config")
 	a := exec.Command(os.Args[0], "-test.run=^TestStoreProcess$")
 	b := exec.Command(os.Args[0], "-test.run=^TestStoreProcess$")
+	var aLog, bLog bytes.Buffer
+	a.Stdout, a.Stderr = &aLog, &aLog
+	b.Stdout, b.Stderr = &bLog, &bLog
 	a.Env = append(os.Environ(), "PLANE_TEST_STORE="+path, "PLANE_TEST_NAME=a")
 	b.Env = append(os.Environ(), "PLANE_TEST_STORE="+path, "PLANE_TEST_NAME=b")
 	if e := a.Start(); e != nil {
@@ -39,11 +42,9 @@ func TestStoreProcess(t *testing.T) {
 	if e := b.Start(); e != nil {
 		t.Fatal(e)
 	}
-	if e := a.Wait(); e != nil {
-		t.Fatal(e)
-	}
-	if e := b.Wait(); e != nil {
-		t.Fatal(e)
+	aErr, bErr := a.Wait(), b.Wait()
+	if aErr != nil || bErr != nil {
+		t.Fatalf("writer a: %v\n%s\nwriter b: %v\n%s", aErr, &aLog, bErr, &bLog)
 	}
 	s, e := Open(path, false)
 	if e != nil {
@@ -61,10 +62,11 @@ func TestStoreProcess(t *testing.T) {
 		t.Fatal("lost b")
 	}
 	info, e := os.Stat(filepath.Join(path, "config.json"))
-	if e != nil || info.Mode().Perm() != 0600 {
+	if e != nil || info.Mode().Perm() != 0o600 {
 		t.Fatalf("unsafe config: %v %v", info, e)
 	}
 }
+
 func TestStoreRefusesSymlinksAndFutureVersions(t *testing.T) {
 	dir := privateTempDir(t)
 	s, e := Open(dir, true)
@@ -73,7 +75,7 @@ func TestStoreRefusesSymlinksAndFutureVersions(t *testing.T) {
 	}
 	defer func() { _ = s.Close() }()
 	outside := filepath.Join(t.TempDir(), "record")
-	if e = os.WriteFile(outside, []byte("unchanged"), 0600); e != nil {
+	if e = os.WriteFile(outside, []byte("unchanged"), 0o600); e != nil {
 		t.Fatal(e)
 	}
 	if e = os.Symlink(outside, filepath.Join(dir, "secret")); e != nil {
@@ -105,6 +107,7 @@ func TestStoreRefusesSymlinksAndFutureVersions(t *testing.T) {
 		t.Fatal("followed parent symlink")
 	}
 }
+
 func TestStoreRejectsOversizedUpdate(t *testing.T) {
 	s, e := Open(privateTempDir(t), true)
 	if e != nil {
@@ -202,6 +205,7 @@ func TestLockCancellation(t *testing.T) {
 		t.Fatalf("lock cancellation: %v", e)
 	}
 }
+
 func TestResolution(t *testing.T) {
 	f := File{Version: 1, Default: "saved", Connections: map[string]Connection{"saved": {BaseURL: "https://EXAMPLE.test:443/prefix/", APIVersion: "v1", AuthMode: "api-key", Backend: "file"}}}
 	env := map[string]string{"PLANE_CLI_API_VERSION": "v2", "PLANE_CLI_TIMEOUT": "1m"}
@@ -226,7 +230,7 @@ func privateTempDir(t *testing.T) string {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if err := os.Chmod(dir, 0700); err != nil {
+	if err := os.Chmod(dir, 0o700); err != nil {
 		t.Fatal(err)
 	}
 	return dir

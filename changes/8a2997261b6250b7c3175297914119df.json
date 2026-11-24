@@ -1,0 +1,4 @@
+{
+  "level": "patch",
+  "summary": "Prevent simultaneous first-time configuration writes from failing on macOS when two processes create the same lock."
+}

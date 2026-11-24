@@ -7,7 +7,7 @@ This is an executable runbook for an agent with shell and network access, not a 
 - Check `command -v plane-cli`, `plane-cli version` if present, `uname -s`, `uname -m`, and available `brew`/`go` tools. Supported binaries are Linux/macOS, amd64/arm64. Stop on other platforms rather than executing a foreign binary.
 - Reuse a working installation. Do not replace an existing binary, upgrade it, install a package manager, use sudo, or edit shell startup files without authorization. If an upgrade is requested, use the original installation method.
 - Prefer existing Homebrew; otherwise use the verified archive below (no Go dependency). Use Go when the user prefers it and Go 1.27.4 or later is available. Choose one method, not all three.
-- This runbook pins `v1.1.0`. For a requested newer version, confirm a published stable release in the [official repository](https://github.com/foae/plane-cli/releases), then use the same exact version for binaries, checksums and skill. Never mix `latest` assets with a pinned checksum manifest. Homebrew installs the tap's current version; inspect the resulting version before obtaining its skill.
+- This runbook pins `v1.1.1`. For a requested newer version, confirm a published stable release in the [official repository](https://github.com/foae/plane-cli/releases), then use the same exact version for binaries, checksums and skill. Never mix `latest` assets with a pinned checksum manifest. Homebrew installs the tap's current version; inspect the resulting version before obtaining its skill.
 
 Homebrew:
 
@@ -19,7 +19,7 @@ plane-cli version
 Go:
 
 ```sh manual
-go install github.com/foae/plane-cli/cmd/plane-cli@v1.1.0
+go install github.com/foae/plane-cli/cmd/plane-cli@v1.1.1
 ```
 
 Resolve the Go binary directory with `go env GOBIN`, or `$(go env GOPATH)/bin` when GOBIN is empty. Use its absolute binary path if it is not on the agent's PATH.
@@ -30,7 +30,7 @@ Requires a POSIX shell, `curl`, `tar`, `awk`, and `sha256sum` or `shasum`. Run t
 
 ```sh manual
 set -eu
-version=1.1.0
+version=1.1.1
 case "$(uname -s)" in
   Linux) os=linux ;;
   Darwin) os=darwin ;;
