@@ -2,7 +2,7 @@
 # Keep assignments literal: scripts/install-tools.sh parses data, never sources it.
 GO_VERSION := 1.27.4
 GOLANGCI_LINT_VERSION := 2.15.0
-GOVULNCHECK_VERSION := v1.9.0
+GOVULNCHECK_VERSION := v1.10.0
 
 # Reviewed upstream release checksum data:
 # https://github.com/golangci/golangci-lint/releases/download/v2.15.0/golangci-lint-2.15.0-checksums.txt

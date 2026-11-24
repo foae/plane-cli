@@ -38,7 +38,7 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-github.com/godbus/dbus/v5 v5.2.2 — LICENSE
+github.com/godbus/dbus/v5 v5.2.4 — LICENSE
 Source: https://github.com/godbus/dbus/v5
 
 Copyright (c) 2013, Georg Reinke (<guelfey at gmail dot com>), Google
@@ -68,7 +68,7 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-github.com/santhosh-tekuri/jsonschema/v6 v6.0.2 — LICENSE
+github.com/santhosh-tekuri/jsonschema/v6 v6.0.3 — LICENSE
 Source: https://github.com/santhosh-tekuri/jsonschema/v6
 
 
@@ -426,7 +426,7 @@ Source: https://github.com/spf13/cobra
       of your accepting any such warranty or additional liability.
 
 
-github.com/spf13/pflag v1.0.9 — LICENSE
+github.com/spf13/pflag v1.1.0 — LICENSE
 Source: https://github.com/spf13/pflag
 
 Copyright (c) 2012 Alex Ogier. All rights reserved.
@@ -517,10 +517,10 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-golang.org/x/text v0.14.0 — LICENSE
+golang.org/x/text v0.44.0 — LICENSE
 Source: https://golang.org/x/text
 
-Copyright (c) 2009 The Go Authors. All rights reserved.
+Copyright 2009 The Go Authors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -532,7 +532,7 @@ notice, this list of conditions and the following disclaimer.
 copyright notice, this list of conditions and the following disclaimer
 in the documentation and/or other materials provided with the
 distribution.
-   * Neither the name of Google Inc. nor the names of its
+   * Neither the name of Google LLC nor the names of its
 contributors may be used to endorse or promote products derived from
 this software without specific prior written permission.
 

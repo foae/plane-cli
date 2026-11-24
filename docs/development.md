@@ -22,7 +22,7 @@ Checks never install or upgrade tools. `make tools` is the explicit networked se
 
 Make and CI set `GOFLAGS=-mod=readonly`, `GOTOOLCHAIN=local` and `GOSUMDB=sum.golang.org`. Keep `go.mod` and `go.sum` committed. Module downloads and ordinary Go cache writes can still occur; “no writes” below means no repository source/module mutation. Download required modules before expecting entirely disconnected execution.
 
-Runtime dependency pins belong in `go.mod`, not the tool pin file. The initial design baseline is Cobra v1.10.2 and `github.com/santhosh-tekuri/jsonschema/v6` v6.0.2 for P00; go-keyring v0.2.8, x/oauth2 v0.38.0 and x/sys v0.50.0 are later-packet baselines, not a reason to add unused dependencies. Add runtime dependencies only when used. The validator's [pinned module](https://github.com/santhosh-tekuri/jsonschema/blob/v6.0.2/go.mod) declares Go 1.21; exact-number handling and rejection of network schema loading remain consumer-contract requirements.
+Runtime dependency pins belong in `go.mod`, not the tool pin file. Add runtime dependencies only when used. Validator updates must preserve exact-number handling and rejection of network schema loading.
 
 ## Recipes
 
@@ -96,7 +96,7 @@ make security
 make cross
 ```
 
-`security` preserves scanner diagnostics and fails on every nonzero exit. With the pinned scanner's default text output, exit 3 is reported distinctly as reachable vulnerabilities; other failures are an incomplete scanner/infrastructure gate, not a clean scan. Advisory-database outages must not be ignored or reclassified as success. See the pinned upstream [exit-code implementation](https://github.com/golang/vuln/blob/v1.9.0/internal/scan/errors.go).
+`security` preserves scanner diagnostics and fails on every nonzero exit. With the pinned scanner's default text output, exit 3 is reported distinctly as reachable vulnerabilities; other failures are an incomplete scanner/infrastructure gate, not a clean scan. Advisory-database outages must not be ignored or reclassified as success. See the pinned upstream [exit-code implementation](https://github.com/golang/vuln/blob/v1.10.0/internal/scan/errors.go).
 
 For fuzzing, select a checked-in `FuzzName` and its single package, then run `make fuzz FUZZ_PKG=./internal/package FUZZ_TARGET=FuzzName FUZZTIME=30s`, substituting the actual existing package/target. The recipe rejects package patterns/lists, confirms the named target exists, anchors its name and requires a positive bounded duration in seconds. P00 does not claim future HTTP URL/redaction/body-parser/pagination fuzz targets already exist. Normal `make test` runs checked-in fuzz seeds; bounded mutation runs are separate from the fast gate. Never use unbounded CI fuzzing.
 
