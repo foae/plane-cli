@@ -53,7 +53,7 @@ func (w *downloadWriter) Write(p []byte) (int, error) {
 // DownloadLocation intercepts standard HTTP redirects without forwarding credentials.
 // The returned signed destination must never be included in diagnostics.
 func (c *Client) DownloadLocation(ctx context.Context, segments []string, header, token string) (string, error) {
-	response, err := c.do(ctx, http.MethodGet, segments, nil, nil, header, token, false, true)
+	response, err := c.do(ctx, http.MethodGet, segments, nil, nil, header, token, downloadRequest)
 	if err != nil {
 		return "", err
 	}

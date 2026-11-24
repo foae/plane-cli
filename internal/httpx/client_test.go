@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"encoding/pem"
 	"errors"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
@@ -14,6 +15,7 @@ import (
 	"strings"
 	"sync/atomic"
 	"testing"
+	"testing/synctest"
 	"time"
 
 	"github.com/foae/plane-cli/internal/auth"
@@ -196,7 +198,7 @@ func TestCustomCA(t *testing.T) {
 	_, err := clientFor(t, s.URL).Do(context.Background(), "GET", []string{"api"}, nil, nil, "", "")
 	_ = transportError(t, err, 4)
 	file := filepath.Join(t.TempDir(), "ca.pem")
-	if err := os.WriteFile(file, pem.EncodeToMemory(&pem.Block{Type: "CERTIFICATE", Bytes: s.Certificate().Raw}), 0600); err != nil {
+	if err := os.WriteFile(file, pem.EncodeToMemory(&pem.Block{Type: "CERTIFICATE", Bytes: s.Certificate().Raw}), 0o600); err != nil {
 		t.Fatal(err)
 	}
 	c, err := New(s.URL, 0, file)
@@ -304,15 +306,152 @@ func TestCancellationAndDeadline(t *testing.T) {
 func TestRetryAfterBounds(t *testing.T) {
 	now := time.Date(2026, 1, 1, 0, 0, 0, 0, time.UTC)
 	for _, value := range []string{"", "-1", "+1", "86401", "99999999999999999999", "canary-secret", now.Add(-time.Hour).Format(http.TimeFormat)} {
-		if got := retryAfter(value, now); got != nil {
-			t.Errorf("accepted %q: %d", value, *got)
+		if got, valid := retryAfter(value, now); valid {
+			t.Errorf("accepted %q: %s", value, got)
 		}
 	}
 	for _, value := range []string{"0", "86400", now.Add(time.Minute).Format(http.TimeFormat)} {
-		if retryAfter(value, now) == nil {
+		if _, valid := retryAfter(value, now); !valid {
 			t.Errorf("rejected %q", value)
 		}
 	}
+}
+
+type retryTestTransport func(*http.Request) (*http.Response, error)
+
+func (f retryTestTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	return f(req)
+}
+
+func retryTestResponse(status int, retryAfter ...string) (*http.Response, error) {
+	return &http.Response{
+		StatusCode: status,
+		Header:     http.Header{"Content-Type": {"application/problem+json"}, "Retry-After": retryAfter},
+		Body:       io.NopCloser(strings.NewReader(`{"type":"rate_limited","code":"rate_limited"}`)),
+	}, nil
+}
+
+func TestRetryOn429Policy(t *testing.T) {
+	for _, tc := range []struct {
+		name, operation string
+		optIn           bool
+		headers         []string
+		status, calls   int
+	}{
+		{name: "disabled", headers: []string{"0"}, status: 429, calls: 1},
+		{name: "one-retry-only", optIn: true, headers: []string{"0"}, status: 429, calls: 2},
+		{name: "missing-header", optIn: true, status: 429, calls: 1},
+		{name: "invalid-header", optIn: true, headers: []string{"invalid"}, status: 429, calls: 1},
+		{name: "multiple-headers", optIn: true, headers: []string{"0", "5"}, status: 429, calls: 1},
+		{name: "server-error", optIn: true, headers: []string{"0"}, status: 503, calls: 1},
+		{name: "mutation-even-with-GET", operation: "mutation", optIn: true, headers: []string{"0"}, status: 429, calls: 1},
+		{name: "generic-send", operation: "generic", optIn: true, headers: []string{"0"}, status: 429, calls: 1},
+		{name: "download-redirect", operation: "download", optIn: true, headers: []string{"0"}, status: 429, calls: 1},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			calls := 0
+			client := &Client{base: "https://example.invalid", RetryOn429: tc.optIn}
+			client.http = &http.Client{Transport: retryTestTransport(func(_ *http.Request) (*http.Response, error) {
+				calls++
+				return retryTestResponse(tc.status, tc.headers...)
+			})}
+			ctx := context.Background()
+			segments := []string{"api", "v2", "probe"}
+			var err error
+			switch tc.operation {
+			case "mutation":
+				_, err = client.DoMutation(ctx, http.MethodGet, segments, nil, nil, "", "")
+			case "generic":
+				_, err = client.Do(ctx, http.MethodGet, segments, nil, nil, "", "")
+			case "download":
+				_, err = client.DownloadLocation(ctx, segments, "", "")
+			default:
+				_, err = client.DoRead(ctx, http.MethodGet, segments, nil, nil, "", "")
+			}
+			remote := transportError(t, err, 5)
+			if calls != tc.calls || remote.Status != tc.status || remote.OutcomeUnknown {
+				t.Fatalf("calls=%d; error=%#v", calls, remote)
+			}
+		})
+	}
+}
+
+func TestRetryOn429DeadlineBudget(t *testing.T) {
+	for _, tc := range []struct {
+		name   string
+		budget time.Duration
+		wait   time.Duration
+		date   bool
+	}{
+		{name: "delay-seconds", budget: 3 * time.Second, wait: 2 * time.Second},
+		{name: "http-date", budget: 1900 * time.Millisecond, wait: 1750 * time.Millisecond, date: true},
+		{name: "insufficient-budget", budget: time.Second},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			synctest.Test(t, func(t *testing.T) {
+				time.Sleep(250 * time.Millisecond)
+				started := time.Now()
+				header := "2"
+				if tc.date {
+					header = started.Add(tc.wait).UTC().Format(http.TimeFormat)
+				}
+				ctx, cancel := context.WithTimeout(t.Context(), tc.budget)
+				defer cancel()
+				calls := 0
+				client := &Client{base: "https://example.invalid", RetryOn429: true}
+				client.http = &http.Client{Transport: retryTestTransport(func(req *http.Request) (*http.Response, error) {
+					calls++
+					if calls == 1 {
+						return retryTestResponse(http.StatusTooManyRequests, header)
+					}
+					if got, ok := req.Context().Deadline(); !ok || !got.Equal(started.Add(tc.budget)) {
+						t.Errorf("retry reset the total deadline: %v", got)
+					}
+					return &http.Response{StatusCode: http.StatusNoContent, Body: http.NoBody}, nil
+				})}
+				response, err := client.DoRead(ctx, http.MethodGet, []string{"api", "v2"}, nil, nil, "", "")
+				if tc.wait == 0 {
+					remote := transportError(t, err, 5)
+					if calls != 1 || remote.Status != 429 || remote.UpstreamCode != "rate_limited" || remote.RetryAfterSeconds == nil || *remote.RetryAfterSeconds != 2 {
+						t.Fatalf("calls=%d; original diagnostic=%#v", calls, remote)
+					}
+				} else if err != nil || calls != 2 || response.Status != http.StatusNoContent {
+					t.Fatalf("calls=%d; response=%#v; err=%v", calls, response, err)
+				}
+				if elapsed := time.Since(started); elapsed != tc.wait {
+					t.Fatalf("waited %s; want %s", elapsed, tc.wait)
+				}
+			})
+		})
+	}
+}
+
+func TestRetryOn429CancellationWhileWaiting(t *testing.T) {
+	synctest.Test(t, func(t *testing.T) {
+		ctx, cancel := context.WithCancel(t.Context())
+		defer cancel()
+		calls := 0
+		client := &Client{base: "https://example.invalid", RetryOn429: true}
+		client.http = &http.Client{Transport: retryTestTransport(func(_ *http.Request) (*http.Response, error) {
+			calls++
+			return retryTestResponse(http.StatusTooManyRequests, "60")
+		})}
+		started := time.Now()
+		result := make(chan error, 1)
+		go func() {
+			_, err := client.DoRead(ctx, http.MethodGet, []string{"api", "v2"}, nil, nil, "", "")
+			result <- err
+		}()
+		synctest.Wait()
+		if calls != 1 {
+			t.Fatalf("requests before cancellation = %d; want 1", calls)
+		}
+		cancel()
+		remote := transportError(t, <-result, 130)
+		if calls != 1 || remote.Code != "interrupted" || time.Since(started) != 0 {
+			t.Fatalf("cancellation did not stop the wait: requests=%d; error=%#v", calls, remote)
+		}
+	})
 }
 
 func TestConnectionLossIsNotRetried(t *testing.T) {
@@ -356,7 +495,7 @@ func TestHTTP2ServerUsesHTTP1SingleMutationAttempt(t *testing.T) {
 	s.StartTLS()
 	defer s.Close()
 	file := filepath.Join(t.TempDir(), "ca.pem")
-	if err := os.WriteFile(file, pem.EncodeToMemory(&pem.Block{Type: "CERTIFICATE", Bytes: s.Certificate().Raw}), 0600); err != nil {
+	if err := os.WriteFile(file, pem.EncodeToMemory(&pem.Block{Type: "CERTIFICATE", Bytes: s.Certificate().Raw}), 0o600); err != nil {
 		t.Fatal(err)
 	}
 	c, err := New(s.URL, 0, file)

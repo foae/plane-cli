@@ -155,11 +155,17 @@ func apiAssetRequest(cmd *cobra.Command, method string, segments []string, query
 	if err != nil {
 		return assetFailure(cmd, "configuration_error", "Could not initialize asset transport", 1)
 	}
-	response, err := client.Do(ctx, method, segments, query, body, credential.Header, credential.Token)
+	mutation := cmd.Annotations["side_effect"] != "none" && cmd.Annotations["side_effect"] != "read"
+	var response httpx.Response
+	if mutation {
+		response, err = client.DoMutation(ctx, method, segments, query, body, credential.Header, credential.Token)
+	} else {
+		client.RetryOn429, _ = cmd.Flags().GetBool("retry-on-429")
+		response, err = client.DoRead(ctx, method, segments, query, body, credential.Header, credential.Token)
+	}
 	if err != nil {
 		return apiTransportError(cmd, r.APIVersion, err)
 	}
-	mutation := method != "GET" && method != "HEAD"
 	data := redactAssetData(response.Data)
 	delivered := false
 	if sensitive {

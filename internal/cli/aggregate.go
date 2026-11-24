@@ -95,7 +95,7 @@ func aggregatePages(cmd *cobra.Command, ctx context.Context, client *httpx.Clien
 		}
 		seen[next.Encode()] = true
 		query = next
-		response, err = client.Do(ctx, "GET", segments, query, nil, header, token)
+		response, err = client.DoRead(ctx, "GET", segments, query, nil, header, token)
 		if err != nil {
 			return apiTransportError(cmd, version, err)
 		}

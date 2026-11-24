@@ -56,6 +56,7 @@ func apiRequest(cmd *cobra.Command, method string, segments []string, query url.
 	if mutation {
 		response, e = client.DoMutation(ctx, method, segments, query, body, credential.Header, credential.Token)
 	} else {
+		client.RetryOn429, _ = cmd.Flags().GetBool("retry-on-429")
 		response, e = client.DoRead(ctx, method, segments, query, body, credential.Header, credential.Token)
 	}
 	if e != nil {

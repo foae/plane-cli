@@ -13,10 +13,10 @@ brew install foae/tap/plane-cli
 **Go (Go 1.27.4 or later):**
 
 ```sh
-go install github.com/foae/plane-cli/cmd/plane-cli@v1.0.3
+go install github.com/foae/plane-cli/cmd/plane-cli@v1.1.0
 ```
 
-Or download a Linux/macOS **amd64 or arm64** archive from [Releases](https://github.com/foae/plane-cli/releases/latest). Verify it against `SHA256SUMS`, extract it, and put `plane-cli` on your `PATH`. The matching agent skill is a separate `plane-cli-skill_1.0.3.tar.gz` asset.
+Or download a Linux/macOS **amd64 or arm64** archive from [Releases](https://github.com/foae/plane-cli/releases/latest). Verify it against `SHA256SUMS`, extract it, and put `plane-cli` on your `PATH`. Download the separate `plane-cli-skill_1.1.0.tar.gz` asset from the same release for the matching agent skill.
 
 **Tell your agent to install this cli tool:**
 

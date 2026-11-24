@@ -67,6 +67,9 @@ func Generate(source []byte) ([]byte, error) {
 	if err := json.Unmarshal(source, &c); err != nil {
 		return nil, err
 	}
+	if err := addReadRetryFlags(c); err != nil {
+		return nil, err
+	}
 	if err := CheckCatalog(c); err != nil {
 		return nil, err
 	}
@@ -76,6 +79,47 @@ func Generate(source []byte) ([]byte, error) {
 		return nil, err
 	}
 	return append(out, '\n'), nil
+}
+
+func addReadRetryFlags(c Catalog) error {
+	flag := Flag{
+		Name:        "retry-on-429",
+		Type:        "boolean",
+		Binding:     "/flags/retry-on-429",
+		Description: "Retry each read once on HTTP 429 when Retry-After is valid and fits the command deadline",
+	}
+	for _, d := range c.Commands {
+		if d.Local || d.SideEffect != "read" || strings.HasSuffix(d.Handler, "-download") {
+			continue
+		}
+		for version, v := range d.Versions {
+			if !strings.HasPrefix(v.Route, "/api/") {
+				continue
+			}
+			value, err := DecodeWithLimit(v.Schema, len(v.Schema))
+			if err != nil {
+				return fmt.Errorf("%s %s: %w", strings.Join(d.Path, " "), version, err)
+			}
+			schema, _ := value.(map[string]any)
+			properties, _ := schema["properties"].(map[string]any)
+			flags, _ := properties["flags"].(map[string]any)
+			flagProperties, ok := flags["properties"].(map[string]any)
+			if !ok {
+				return fmt.Errorf("%s %s: missing schema flag properties", strings.Join(d.Path, " "), version)
+			}
+			if _, exists := flagProperties[flag.Name]; exists {
+				return fmt.Errorf("%s %s: --%s is generated, not a source property", strings.Join(d.Path, " "), version, flag.Name)
+			}
+			flagProperties[flag.Name] = map[string]string{"type": flag.Type}
+			v.Schema, err = json.Marshal(schema)
+			if err != nil {
+				return err
+			}
+			v.Flags = append(v.Flags, flag)
+			d.Versions[version] = v
+		}
+	}
+	return nil
 }
 
 func (c Catalog) Find(path []string) (Command, bool) {

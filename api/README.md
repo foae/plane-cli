@@ -10,6 +10,8 @@ Edit these sources, then run `make generate`. Do not edit `catalog.json` or
 `internal/spec/catalog.gen.json` directly: both are deterministic generated
 artifacts. Build/install/startup still use only the committed embedded catalog.
 
+The embedded catalog derives `--retry-on-429` and its input-schema property from each ordinary Plane API read descriptor. Do not add it to individual shards. This uses the operation's read side effect, not its HTTP method; download handlers follow the separate transfer policy.
+
 ## Data model
 
 The root `schema_version` is `1`. `commands` follow the [architecture descriptor contract](../docs/design/architecture.md#offline-metadata-and-validation): tokenized `path`, explicit Go `handler` ID, summary, side effect, examples, local classification, and version-indexed schema/flag variants. Flag bindings are JSON pointers into the same input schema. The CLI's registered handler IDs must match descriptors exactly.
