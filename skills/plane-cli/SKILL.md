@@ -72,6 +72,13 @@ skill or user intent. Preserve IDs/case; never infer an endpoint from an ID.
 - One page is the default. `--all --max-pages N` stages complete native pages
   under `.data`, not flattened items. Failure leaves no successful aggregate;
   use smaller filters/manual cursor continuation. Limits are not item limits.
+- No HTTP retries by default. For eligible ordinary read-only Plane API calls,
+  opt in with `--retry-on-429`. It retries the same read once per page, including
+  the first, only on HTTP 429 with a valid `Retry-After` (zero is valid). Waiting
+  is cancellable and bounded by `--timeout`; if it cannot fit, the original
+  429 is returned. Check stderr `.error.http_status` and, if present,
+  `.error.retry_after_seconds`. The flag never retries writes, 5xx, auth
+  exchanges, storage or downloads.
 - `--dry-run` validates locally without credentials/network; it proves neither
   authorization nor existence. Destructive/security-sensitive changes require
   explicit user authorization **and** `--yes`. Never add it merely to fix a

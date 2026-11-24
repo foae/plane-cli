@@ -68,6 +68,8 @@ One compact JSON error line on stderr; optional warnings are separate structured
 
 Only known safe normalized fields appear. Add safe field-level validation details, `retry_after_seconds`, and recovery IDs when meaningful. `retryable` means an explicit caller retry may be appropriate, not that the CLI retried; uncertain mutation outcomes use `outcome_unknown:true` and no blanket retry advice. Do not echo arbitrary response bodies, request bodies, HTML proxy responses, auth headers, signed URLs or secret-bearing validation values. Auth exchange errors suppress reflected server messages.
 
+For a returned rate limit, inspect `.error.http_status` for `429` and `.error.retry_after_seconds` for the normalized delay, when available (zero is valid). There is no default retry; eligible reads can opt into a single retry per page under the [API policy](api.md#bulk-and-multi-step-writes).
+
 For ordinary v2 API failures with `application/problem+json`, `upstream_code` is emitted only for an explicitly allowlisted documented code whose category and HTTP status agree. Problem parsing is bounded to 64 KiB. Unknown codes, invalid/mismatched problems, oversized bodies and non-problem responses keep the generic status-based error; no upstream `detail`, `errors`, arbitrary members or category text is printed. This does not change exit codes, mutation uncertainty, retry behavior or auth-exchange redaction.
 
 | Exit | Meaning |
@@ -84,7 +86,7 @@ For ordinary v2 API failures with `application/problem+json`, `upstream_code` is
 
 Unknown commands remain usage errors with concise suggestions. Do not turn upstream 404 into exit 7 or “unsupported edition”: it can mean hidden/missing data. New stable codes may be additive; incompatible envelope/flag/exit semantics require a major CLI version.
 
-Error precedence: invalid local input/confirmation fails before side effects. Once any mutation phase is known to have succeeded, a later error (including cancellation, failed confirmation, storage or stdout failure) yields exit 6 with safe completed phases, cause and recovery IDs; do not lose that fact behind exit 1/4/130. Otherwise interrupt is 130, deadline/transport is 4, local storage/output/aggregate/page-limit is 1, and malformed/oversized upstream bodies or invalid continuations are 5. A mutation whose response was lost uses the underlying transport/protocol/interrupt code with `outcome_unknown:true`, not an invented successful phase. HTTP 202 is exit 0/accepted unless a later delivery step fails. When stdout is broken, partial metadata is carried in the stderr error only. No automatic retry or rollback in any case.
+Error precedence: invalid local input/confirmation fails before side effects. Once any mutation phase is known to have succeeded, a later error (including cancellation, failed confirmation, storage or stdout failure) yields exit 6 with safe completed phases, cause and recovery IDs; do not lose that fact behind exit 1/4/130. Otherwise interrupt is 130, deadline/transport is 4, local storage/output/aggregate/page-limit is 1, and malformed/oversized upstream bodies or invalid continuations are 5. A mutation whose response was lost uses the underlying transport/protocol/interrupt code with `outcome_unknown:true`, not an invented successful phase. HTTP 202 is exit 0/accepted unless a later delivery step fails. When stdout is broken, partial metadata is carried in the stderr error only. Never automatically replay or roll back a mutation.
 
 ## Tables and files
 
