@@ -1,0 +1,10 @@
+{
+  "version": "1.1.1",
+  "date": "2026-11-24",
+  "changes": [
+    {
+      "level": "patch",
+      "summary": "Prevent simultaneous first-time configuration writes from failing on macOS when two processes create the same lock."
+    }
+  ]
+}
